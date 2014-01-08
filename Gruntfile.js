@@ -116,6 +116,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: 3456
+      },
       css: {
         files: 'less/*.less',
         tasks: ['recess', 'copy']
