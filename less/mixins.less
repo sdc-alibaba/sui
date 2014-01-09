@@ -516,18 +516,31 @@
   text-shadow: @textShadow;
   background-color: @backgroundColor;
   .reset-filter();
-  border: 1px solid darken(@backgroundColor, 10%);
+  border: 1px solid darken(@backgroundColor, 5%);
 
   // in these cases the gradient won't cover the background, so we override
-  &:hover, &:focus, &.disabled, &[disabled] {
+  &:hover, &:focus {
     color: @textColor;
     background-color: @backgroundHighlightColor;
-    border: 1px solid darken(@backgroundHighlightColor, 10%);
+    border: 1px solid darken(@backgroundHighlightColor, 5%);
+  }
+  &.disabled, &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active, {
+      color: @textColor;
+      background-color: @backgroundColor;
+      border-color: @backgroundColor;
+      .opacity(65);
+    }
   }
 
   &:active,
   &.active {
-    .box-shadow(inset 0 3px 5px rgba(0,0,0,0.125));
+    background-color: darken(@backgroundColor, 5%);
+    border: 1px solid darken(@backgroundColor, 10%);
   }
 }
 

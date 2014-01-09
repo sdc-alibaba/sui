@@ -79,7 +79,8 @@
 
 @baseBorderRadius:      4px;
 @borderRadiusLarge:     6px;
-@borderRadiusSmall:     2px;
+@borderRadiusSmall:     3px;
+@borderRadiusMini:      2px;
 
 // padding
 // used by btn and pagination
@@ -99,22 +100,22 @@
 // Buttons
 // -------------------------
 @btnBackground:                     @grayLighter;
-@btnBackgroundHighlight:            darken(@btnBackground, 10%);
+@btnBackgroundHighlight:            #f7f7f7; //lighten(@btnBackground, 10%);
 
-@btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 20%);
+@btnPrimaryBackground:              #3097dd;
+@btnPrimaryBackgroundHighlight:     #37a7ec; //spin(@btnPrimaryBackground, 20%)
 
 @btnInfoBackground:                 #5bc0de;
-@btnInfoBackgroundHighlight:        #2f96b4;
+@btnInfoBackgroundHighlight:        lighten(@btnInfoBackground, 10%);
 
-@btnSuccessBackground:              #62c462;
-@btnSuccessBackgroundHighlight:     #51a351;
+@btnSuccessBackground:              #43cd6e;
+@btnSuccessBackgroundHighlight:     #49de79;
 
-@btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundHighlight:     @orange;
+@btnWarningBackground:              #fac603;
+@btnWarningBackgroundHighlight:     #fbd238;
 
-@btnDangerBackground:               #ee5f5b;
-@btnDangerBackgroundHighlight:      #bd362f;
+@btnDangerBackground:               #ea4a36;
+@btnDangerBackgroundHighlight:      #ed6a5a;
 
 @btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     @grayDarker;
