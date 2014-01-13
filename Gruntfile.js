@@ -116,6 +116,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: 3456
+      },
       css: {
         files: 'less/*.less',
         tasks: ['recess', 'copy']
@@ -137,8 +140,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-html-validation');
-  grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-recess');
   grunt.loadNpmTasks('browserstack-runner');
   // Test task.

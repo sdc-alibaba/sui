@@ -18,6 +18,7 @@
 // 2 & 3 column layout
 
 .layout > {
+  position: relative;
   .sidebar {
     width: @layoutSidebarWidth;
     float: left;
@@ -25,10 +26,18 @@
   .sidebar + .sidebar {
     float: right;
   }
-  .sidebar + .sidebar + .content {
-    margin-left: @layoutSidebarWidth;
+  .content + .sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
   .content {
     margin-left: @layoutSidebarWidth;
+  }
+
+  &.layout3 {
+    .content {
+      margin-right: @layoutSidebarWidth;
+    }
   }
 }

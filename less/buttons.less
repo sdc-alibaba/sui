@@ -9,8 +9,7 @@
 // Core
 .btn {
   display: inline-block;
-  .ie7-inline-block();
-  padding: 4px 12px;
+  padding: @basePadding;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
@@ -18,36 +17,29 @@
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
-  border: 1px solid @btnBorder;
-  *border: 0; // Remove the border to prevent IE7's black border on input:focus
-  border-bottom-color: darken(@btnBorder, 10%);
-  .border-radius(@baseBorderRadius);
-  .ie7-restore-left-whitespace(); // Give IE7 some love
-  .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)");
+  .border-radius(@borderRadiusSmall);
+  .user-select(none);
 
   // Hover/focus state
   &:hover,
   &:focus {
     color: @grayDark;
     text-decoration: none;
-    background-position: 0 -15px;
 
     // transition is only when going to hover/focus, otherwise the background
     // behind the gradient (there for IE<=9 fallback) gets mismatched
-    .transition(background-position .1s linear);
   }
 
   // Focus state for keyboard and accessibility
   &:focus {
     .tab-focus();
+    outline: none;
   }
 
   // Active state
   &.active,
   &:active {
     background-image: none;
-    outline: 0;
-    .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
   }
 
   // Disabled state
@@ -57,6 +49,7 @@
     background-image: none;
     .opacity(65);
     .box-shadow(none);
+    .user-select(none);
   }
 
 }
@@ -70,7 +63,8 @@
 .btn-large {
   padding: @paddingLarge;
   font-size: @fontSizeLarge;
-  .border-radius(@borderRadiusLarge);
+  line-height: @lineHeightLarge;
+  .border-radius(@baseBorderRadius);
 }
 .btn-large [class^="icon-"],
 .btn-large [class*=" icon-"] {
@@ -81,6 +75,7 @@
 .btn-small {
   padding: @paddingSmall;
   font-size: @fontSizeSmall;
+  line-height: @lineHeightSmall;
   .border-radius(@borderRadiusSmall);
 }
 .btn-small [class^="icon-"],
@@ -96,6 +91,7 @@
 .btn-mini {
   padding: @paddingMini;
   font-size: @fontSizeMini;
+  line-height: @lineHeightMini;
   .border-radius(@borderRadiusSmall);
 }
 
