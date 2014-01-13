@@ -648,6 +648,10 @@ a:focus {
   clear: both;
 }
 
+.layout {
+  position: relative;
+}
+
 .layout .sidebar {
   float: left;
   width: 190px;
@@ -657,12 +661,18 @@ a:focus {
   float: right;
 }
 
-.layout .sidebar + .sidebar + .content {
-  margin-left: 190px;
+.layout .content + .sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .layout .content {
   margin-left: 190px;
+}
+
+.layout.layout3 .content {
+  margin-right: 190px;
 }
 
 p {
@@ -3447,7 +3457,6 @@ button.close {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  outline: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -3495,13 +3504,13 @@ button.close {
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
   outline-offset: -2px;
 }
 
 .btn.active,
 .btn:active {
   background-image: none;
-  outline: 0;
 }
 
 .btn.disabled,

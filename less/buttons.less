@@ -19,7 +19,6 @@
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
   .border-radius(@borderRadiusSmall);
   .user-select(none);
-  outline: none;
 
   // Hover/focus state
   &:hover,
@@ -34,13 +33,13 @@
   // Focus state for keyboard and accessibility
   &:focus {
     .tab-focus();
+    outline: none;
   }
 
   // Active state
   &.active,
   &:active {
     background-image: none;
-    outline: 0;
   }
 
   // Disabled state
