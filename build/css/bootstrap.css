@@ -3485,8 +3485,6 @@ button.close {
   color: #333333;
   background-color: #eeeeee;
   border-color: #eeeeee;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn:active,
@@ -3517,6 +3515,8 @@ button.close {
 .btn[disabled] {
   cursor: default;
   background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
@@ -3626,8 +3626,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #3097dd;
   border-color: #3097dd;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-primary:active,
@@ -3664,8 +3662,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #fac603;
   border-color: #fac603;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-warning:active,
@@ -3702,8 +3698,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #ea4a36;
   border-color: #ea4a36;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-danger:active,
@@ -3740,8 +3734,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #43cd6e;
   border-color: #43cd6e;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-success:active,
@@ -3778,8 +3770,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #5bc0de;
   border-color: #5bc0de;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-info:active,
@@ -3816,8 +3806,6 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #444444;
   border-color: #444444;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .btn-inverse:active,
@@ -4947,8 +4935,6 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   background-color: #f2f2f2;
   border-color: #f2f2f2;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .navbar .btn-navbar:active,
@@ -5217,8 +5203,6 @@ input[type="submit"].btn.btn-mini {
   color: #ffffff;
   background-color: #151515;
   border-color: #151515;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
 }
 
 .navbar-inverse .btn-navbar:active,
