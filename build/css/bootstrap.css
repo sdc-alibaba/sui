@@ -3443,7 +3443,7 @@ button.close {
 
 .btn {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 4px 14px;
   margin-bottom: 0;
   font-size: 12px;
   line-height: 18px;
@@ -3528,7 +3528,7 @@ button.close {
 }
 
 .btn-large {
-  padding: 5px 14px;
+  padding: 4px 14px;
   font-size: 14px;
   line-height: 22px;
   -webkit-border-radius: 4px;
@@ -3542,7 +3542,7 @@ button.close {
 }
 
 .btn-small {
-  padding: 3px 14px;
+  padding: 2px 14px;
   font-size: 12px;
   line-height: 18px;
   -webkit-border-radius: 3px;
@@ -3561,7 +3561,7 @@ button.close {
 }
 
 .btn-mini {
-  padding: 1px 6px;
+  padding: 0 6px;
   font-size: 12px;
   line-height: 18px;
   -webkit-border-radius: 3px;
@@ -5323,7 +5323,7 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-large ul > li > a,
 .pagination-large ul > li > span {
-  padding: 5px 14px;
+  padding: 4px 14px;
   font-size: 14px;
 }
 
@@ -5373,13 +5373,13 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-small ul > li > a,
 .pagination-small ul > li > span {
-  padding: 3px 14px;
+  padding: 2px 14px;
   font-size: 12px;
 }
 
 .pagination-mini ul > li > a,
 .pagination-mini ul > li > span {
-  padding: 1px 6px;
+  padding: 0 6px;
   font-size: 12px;
 }
 
