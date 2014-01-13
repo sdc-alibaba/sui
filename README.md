@@ -12,8 +12,6 @@
 * default:默认任务，等价于 test + dist
 * watch:监控文件改动实时编译
 
-**因为一个未解决的bug，暂时去掉了js单元测试，解决bug之后再加上**
-
 ### iconfont
 icon全部用iconfont实现，整个dpl不需要任何图片资源。目前的font-face是从3.0版本cp过来的，命名依然沿用3.0的命名。 
 而且icon font 是文字，所以可以调大小颜色等。
