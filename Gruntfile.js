@@ -141,10 +141,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('browserstack-runner');
   // Test task.
-  var testSubtasks = ['dist-css', 'jshint'];
-  grunt.registerTask('test', testSubtasks);
+  grunt.registerTask('test', ['dist-css', 'jshint', 'qunit']);
 
   grunt.registerTask('hogan', 'compile mustache template', function() {
     var done = this.async();
