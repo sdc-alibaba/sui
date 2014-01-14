@@ -142,7 +142,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
   // Test task.
-  grunt.registerTask('test', ['dist-css', 'jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'qunit']);
 
   grunt.registerTask('hogan', 'compile mustache template', function() {
     var done = this.async();
