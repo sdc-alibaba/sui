@@ -8,8 +8,7 @@
 
 // Make all forms have space below them
 form {
-border:1px solid #f00;
-  margin: 0 0 @baseLineHeight;
+  // margin: 0 0 @baseLineHeight; // 注释掉这一行 直接去掉 @by kai 2014-01-16
 }
 
 fieldset {
@@ -53,10 +52,12 @@ textarea {
 }
 
 // Identify controls by their labels
+/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
 }
+*/
 
 // Form controls
 // -------------------------
@@ -81,7 +82,8 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: @baseLineHeight;
-  padding: 4px 6px;
+  // padding: 4px 6px;
+  padding: 2px 6px; // 更新默认padding上下尺寸为2px，使得控件默认高度为24px @by kai 2014-01-16
   margin-bottom: @baseLineHeight / 2;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
@@ -95,7 +97,7 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 206px; // plus 12px padding and 2px border
+  // width: 206px; // plus 12px padding and 2px border // 注释掉这一行，默认宽度应该为自动 @by kai 2014-01-16
 }
 // Reset height since textareas have rows
 textarea {
@@ -135,13 +137,18 @@ input[type="color"],
 // Position radios and checkboxes better
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
-  *margin-top: 0; /* IE7 */
-  margin-top: 1px \9; /* IE8-9 */
-  line-height: normal;
+  // margin: 4px 0 0;
+  // *margin-top: 0; /* IE7 */
+  // margin-top: 1px \9; /* IE8-9 */
+  // line-height: normal;
+  // 注释掉上面的样式 添加下面样式 @by kai 2014-01-16
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
 }
 
 // Reset width of input images, buttons, radios, checkboxes
+/* 注释掉这一块代码 更新如下 去掉radio和checkbox宽度重置 @by kai 2014-01-16
 input[type="file"],
 input[type="image"],
 input[type="submit"],
@@ -149,6 +156,14 @@ input[type="reset"],
 input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
+  width: auto; // Override of generic input selector
+}
+*/
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
   width: auto; // Override of generic input selector
 }
 
@@ -162,7 +177,7 @@ input[type="file"] {
 
 // Make select elements obey height by applying a border
 select {
-  width: 220px; // default input width + 10px of padding that doesn't get applied
+  // width: 220px; // default input width + 10px of padding that doesn't get applied // 注释掉这一行，默认宽度应该为自动 @by kai 2014-01-16
   border: 1px solid @inputBorder;
   background-color: @inputBackground; // Chrome on Linux and Mobile Safari need background-color
 }
@@ -208,6 +223,96 @@ input[type="checkbox"]:focus {
 }
 
 
+// 重置控件高度 @by kai 2014-01-16
+// -------------------------
+
+// 控件高度20px
+input[type="text"].input-h20,
+input[type="password"].input-h20,
+input[type="datetime"].input-h20,
+input[type="datetime-local"].input-h20,
+input[type="date"].input-h20,
+input[type="month"].input-h20,
+input[type="time"].input-h20,
+input[type="week"].input-h20,
+input[type="number"].input-h20,
+input[type="email"].input-h20,
+input[type="url"].input-h20,
+input[type="search"].input-h20,
+input[type="tel"].input-h20,
+input[type="color"].input-h20,
+.input-h20 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// 控件高度24px
+input[type="text"].input-h24,
+input[type="password"].input-h24,
+input[type="datetime"].input-h24,
+input[type="datetime-local"].input-h24,
+input[type="date"].input-h24,
+input[type="month"].input-h24,
+input[type="time"].input-h24,
+input[type="week"].input-h24,
+input[type="number"].input-h24,
+input[type="email"].input-h24,
+input[type="url"].input-h24,
+input[type="search"].input-h24,
+input[type="tel"].input-h24,
+input[type="color"].input-h24,
+.input-h24 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+// 控件高度28px
+input[type="text"].input-h28,
+input[type="password"].input-h28,
+input[type="datetime"].input-h28,
+input[type="datetime-local"].input-h28,
+input[type="date"].input-h28,
+input[type="month"].input-h28,
+input[type="time"].input-h28,
+input[type="week"].input-h28,
+input[type="number"].input-h28,
+input[type="email"].input-h28,
+input[type="url"].input-h28,
+input[type="search"].input-h28,
+input[type="tel"].input-h28,
+input[type="color"].input-h28,
+.input-h28 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+// 控件高度32px
+input[type="text"].input-h32,
+input[type="password"].input-h32,
+input[type="datetime"].input-h32,
+input[type="datetime-local"].input-h32,
+input[type="date"].input-h32,
+input[type="month"].input-h32,
+input[type="time"].input-h32,
+input[type="week"].input-h32,
+input[type="number"].input-h32,
+input[type="email"].input-h32,
+input[type="url"].input-h32,
+input[type="search"].input-h32,
+input[type="tel"].input-h32,
+input[type="color"].input-h32,
+.input-h32 {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+// 重置select高度
+select.input-h20 { height: 20px; }
+select.input-h24 { height: 24px; }
+select.input-h28 { height: 28px; }
+select.input-h32 { height: 32px; }
+
+
 // Placeholder
 // -------------------------
 
@@ -222,6 +327,7 @@ textarea {
 // -------------------
 
 // Indent the labels to position radios/checkboxes as hanging
+/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
 .radio,
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
@@ -232,15 +338,19 @@ textarea {
   float: left;
   margin-left: -20px;
 }
+*/
 
 // Move the options list down to align with labels
+/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
   padding-top: 5px; // has to be padding because margin collaspes
 }
+*/
 
 // Radios and checkboxes on same line
 // TODO v3: Convert .inline to .control-inline
+/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
 .radio.inline,
 .checkbox.inline {
   display: inline-block;
@@ -252,7 +362,7 @@ textarea {
 .checkbox.inline + .checkbox.inline {
   margin-left: 10px; // space out consecutive inline controls
 }
-
+*/
 
 
 // INPUT SIZES
@@ -293,8 +403,6 @@ textarea[class*="span"],
   display: inline-block;
 }
 
-
-
 // GRID SIZING FOR INPUTS
 // ----------------------
 
@@ -313,13 +421,12 @@ textarea[class*="span"],
   float: left;
 }
 // Explicity set top padding on all checkboxes/radios, not just first-child
+/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
 }
-
-
-
+*/
 
 // DISABLED STATE
 // --------------
@@ -341,8 +448,6 @@ input[type="radio"][readonly],
 input[type="checkbox"][readonly] {
   background-color: transparent;
 }
-
-
 
 
 // FORM FIELD FEEDBACK STATES
@@ -380,7 +485,6 @@ select:focus:invalid {
 }
 
 
-
 // FORM ACTIONS
 // ------------
 
@@ -392,7 +496,6 @@ select:focus:invalid {
   border-top: 1px solid #e5e5e5;
   .clearfix(); // Adding clearfix to allow for .pull-right button containers
 }
-
 
 
 // HELP TEXT
@@ -414,7 +517,6 @@ select:focus:invalid {
   vertical-align: middle;
   padding-left: 5px;
 }
-
 
 
 // INPUT GROUPS
@@ -536,8 +638,6 @@ select:focus:invalid {
 }
 
 
-
-
 // SEARCH FORM
 // -----------
 
@@ -567,8 +667,6 @@ input.search-query {
 .form-search .input-prepend .btn {
   .border-radius(14px 0 0 14px);
 }
-
-
 
 
 // HORIZONTAL & VERTICAL FORMS
