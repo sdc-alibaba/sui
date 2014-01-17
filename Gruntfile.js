@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
+    demosRoot: '<%= docsRoot %>/demos',
 
     clean: {
       dist: ['<%= distRoot %>']
@@ -87,6 +88,19 @@ module.exports = function(grunt) {
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
       }
     },
+    jade: {
+      demos: {
+        files: [
+          {
+          expand: true,     // Enable dynamic expansion.
+          cwd: '<%= demosRoot %>/templates',      // Src matches are relative to this path.
+          src: ['**/*.jade', '!base.jade'], // Actual pattern(s) to match.
+          dest: '<%= demosRoot %>',   // Destination path prefix.
+          ext: '.html',   // Dest filepaths will have this extension.
+        },
+        ],
+      }
+    },
     copy: {
       docs: { //doc 必须依赖于bootstap.min.js
         files: [
@@ -126,6 +140,10 @@ module.exports = function(grunt) {
       js: {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
+      },
+      demos: {
+        files: 'docs/demos/templates/**/*.jade',
+        tasks: ['jade:demos']
       }
     }
   });
@@ -136,6 +154,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -157,7 +176,7 @@ module.exports = function(grunt) {
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
-  grunt.registerTask('docs', ['dist', 'hogan', 'copy']);
+  grunt.registerTask('docs', ['dist', 'hogan', 'copy', 'jade']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);
