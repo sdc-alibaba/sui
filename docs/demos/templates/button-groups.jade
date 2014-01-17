@@ -1,0 +1,41 @@
+extends base
+
+block title
+  title 按钮组
+
+block head
+    style(type="text/css").
+      .btn-group-vertical .btn {
+        min-width: 100px;
+      }
+
+block content
+  .container
+    h2 水平方向
+    div.btn-group
+      button.btn 左边
+      button.btn 中间
+      button.btn 右边
+    div.btn-group
+      button.btn 按钮
+      button.btn.btn-primray 按钮
+      button.btn.btn-warning 按钮
+      button.btn.btn-success 按钮
+      button.btn.btn-danger 按钮
+
+    h2 垂直方向
+    div.btn-group.btn-group-vertical
+      button.btn 左边
+      button.btn 中间
+      button.btn 右边
+
+    h2 工具栏
+    div.btn-toolbar(style="margin: 0;")
+      div.btn-group
+        button.btn 复制
+        button.btn 粘贴
+        button.btn 缩进
+
+      div.btn-group
+        button.btn.btn-danger 删除
+        button.btn.btn-primary 插入
