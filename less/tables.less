@@ -22,7 +22,7 @@ table {
   // Cells
   th,
   td {
-    padding: 8px;
+    padding: @tablePadding;
     line-height: @baseLineHeight;
     text-align: left;
     vertical-align: top;
@@ -72,11 +72,14 @@ table {
 // ----------------
 
 .table-bordered {
-  border: 1px solid @tableBorder;
+  //border-top: 1px solid @tableBorder;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
   .border-radius(@baseBorderRadius);
+  th{
+    background-color:@tableHeadBackground;
+  }
   th,
   td {
     border-left: 1px solid @tableBorder;
@@ -93,6 +96,23 @@ table {
   tbody:first-child tr:first-child td {
     border-top: 0;
   }
+
+  tbody tr:first-child td{
+    border-top:0;
+  }
+  tbody tr:last-child td{
+    border-bottom: 1px solid @tableBorder;
+  }
+
+  thead:first-child tr:first-child th{
+    border-top: 1px solid @tableBorder;
+    border-bottom: 1px solid @tableBorder;
+  }
+  thead tr th:last-child,
+  tbody tr td:last-child,{
+    border-right: 1px solid @tableBorder;
+  }
+
   // For first th/td in the first row in the first thead or tbody
   thead:first-child tr:first-child > th:first-child,
   tbody:first-child tr:first-child > td:first-child,
@@ -145,6 +165,20 @@ table {
   }
 
 }
+.table-light{
+  .table-bordered;
+  th{
+    background-color:@tableHeadBackgroundLight;
+    border-left: 1px solid @tableBorderLight;
+  }
+  thead:first-child tr:first-child th{
+    border-top: 1px solid @tableBorderLight;
+    border-bottom: 1px solid @tableBorderLight;
+  }
+  thead tr:first-child th:last-child{
+    border-right: 1px solid @tableBorderLight;
+  }
+} 
 
 
 
