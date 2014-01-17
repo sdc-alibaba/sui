@@ -1,0 +1,29 @@
+extends base
+
+block title
+  title 12栏栅格流式
+
+block head
+  style(type="text/css").
+    .row-fluid div {
+      background: #f1f1f1;
+      min-height: 50px;
+    }
+    .row-fluid + .row-fluid {
+      margin-top: 10px;
+    }
+
+block content
+  div.container-fluid
+    div.row-fluid
+      - for (var x = 1; x <= 12; x++)
+        div(class="span#{1}")=1
+    div.row-fluid
+      - each x in [1, 2, 2, 3, 4]
+        div(class="span#{x}")=x
+    div.row-fluid
+      - each x in [6, 6]
+        div(class="span#{x}")=x
+    div.row-fluid
+      - each x in [3, 9]
+        div(class="span#{x}")=x
