@@ -92,11 +92,11 @@ module.exports = function(grunt) {
       demos: {
         files: [
           {
-          expand: true,     // Enable dynamic expansion.
-          cwd: '<%= demosRoot %>/templates',      // Src matches are relative to this path.
-          src: ['**/*.jade', '!base.jade'], // Actual pattern(s) to match.
-          dest: '<%= demosRoot %>',   // Destination path prefix.
-          ext: '.html',   // Dest filepaths will have this extension.
+          expand: true,
+          cwd: '<%= demosRoot %>/templates',
+          src: ['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],
+          dest: '<%= demosRoot %>',
+          ext: '.html'
         },
         ],
       }
