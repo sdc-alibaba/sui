@@ -1118,7 +1118,6 @@ input[type="color"],
   display: inline-block;
   height: 18px;
   padding: 2px 6px;
-  margin-bottom: 9px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
@@ -2117,6 +2116,193 @@ legend + .control-group {
 
 .form-horizontal .form-actions {
   padding-left: 180px;
+}
+
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help,
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {
+  background: url(http://gtms01.alicdn.com/tps/i1/T1htdsFDBeXXcGgUwg-391-391.png) no-repeat;
+}
+
+.msg .error {
+  background-color: #fff2f2;
+  background-position: -220px -152px;
+  border-color: #ffd4d0;
+}
+
+.msg .stop {
+  background-color: #fff2f2;
+  background-position: -239px -133px;
+  border-color: #ffd4d0;
+}
+
+.msg .alert {
+  background-color: #fef1e3;
+  background-position: -258px -114px;
+  border-color: #fed1b0;
+}
+
+.msg .attention {
+  background-color: #f0f9ff;
+  background-position: -277px -95px;
+  border-color: #bce5fc;
+}
+
+.msg .tips {
+  background-color: #fffff1;
+  background-position: -296px -76px;
+  border-color: #f1e2b5;
+}
+
+.msg .ok {
+  background-color: #edffe9;
+  background-position: -315px -57px;
+  border-color: #adf29f;
+}
+
+.msg .notice {
+  background-color: #fffff1;
+  background-position: -334px -38px;
+  border-color: #f1e2b5;
+}
+
+.msg .question {
+  background-color: #ececec;
+  background-position: -353px -19px;
+  border-color: #d8d8d8;
+}
+
+.msg .help {
+  background-color: #fff;
+  background-position: -372px 0;
+  border-color: #fff;
+}
+
+.msg24 .error {
+  background-color: #fff2f2;
+  background-position: -176px -171px;
+  border-color: #ffd4d0;
+}
+
+.msg24 .attention {
+  background-color: #f0f9ff;
+  background-position: -132px -215px;
+  border-color: #bce5fc;
+}
+
+.msg24 .tips {
+  background-color: #fffff1;
+  background-position: -88px -259px;
+  border-color: #f1e2b5;
+}
+
+.msg24 .ok {
+  background-color: #edffe9;
+  background-position: -44px -303px;
+  border-color: #adf29f;
+}
+
+.msg24 .question {
+  background-color: #ececec;
+  background-position: 0 -347px;
+  border-color: #d8d8d8;
+}
+
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help,
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {
+  display: inline-block;
+  *display: inline;
+  color: #404040;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  *zoom: 1;
+}
+
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help {
+  padding: 2px 10px 2px 23px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {
+  padding: 17px 10px 17px 56px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.msg,
+.msg24 {
+  display: inline-block;
+  *display: inline;
+  vertical-align: middle;
+  *zoom: 1;
+}
+
+.msg .naked,
+.msg24 .naked {
+  background-color: transparent;
+  border: none;
+}
+
+.msg-block,
+.msg24-block {
+  display: block;
+}
+
+.msg-block .error,
+.msg-block .stop,
+.msg-block .alert,
+.msg-block .attention,
+.msg-block .tips,
+.msg-block .ok,
+.msg-block .notice,
+.msg-block .question,
+.msg-block .help,
+.msg24-block .error,
+.msg24-block .attention,
+.msg24-block .tips,
+.msg24-block .ok,
+.msg24-block .question {
+  display: block;
 }
 
 table {

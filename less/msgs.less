@@ -7,28 +7,164 @@
 // --------------
 
 // All msg styles
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help, .msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {background:url(http://gtms01.alicdn.com/tps/i1/T1htdsFDBeXXcGgUwg-391-391.png) no-repeat;}
-.msg .error {border-color:#ffd4d0; background-color:#fff2f2; background-position:-220px -152px;}
-.msg .stop {border-color:#ffd4d0; background-color:#fff2f2; background-position:-239px -133px;}
-.msg .alert {border-color:#fed1b0; background-color:#fef1e3; background-position:-258px -114px;}
-.msg .attention {border-color:#bce5fc; background-color:#f0f9ff; background-position:-277px -95px;}
-.msg .tips {border-color:#f1e2b5; background-color:#fffff1; background-position:-296px -76px;}
-.msg .ok {border-color:#adf29f; background-color:#edffe9; background-position:-315px -57px;}
-.msg .notice {border-color:#f1e2b5; background-color:#fffff1; background-position:-334px -38px;}
-.msg .question {border-color:#d8d8d8; background-color:#ececec; background-position:-353px -19px;}
-.msg .help {border-color:#fff; background-color:#fff; background-position:-372px 0;}
-.msg24 .error {border-color:#ffd4d0; background-color:#fff2f2; background-position:-176px -171px;}
-.msg24 .attention {border-color:#bce5fc; background-color:#f0f9ff; background-position:-132px -215px;}
-.msg24 .tips {border-color:#f1e2b5; background-color:#fffff1; background-position:-88px -259px;}
-.msg24 .ok {border-color:#adf29f; background-color:#edffe9; background-position:-44px -303px;}
-.msg24 .question {border-color:#d8d8d8; background-color:#ececec; background-position:0 -347px;}
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help,
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {background: url(http://gtms01.alicdn.com/tps/i1/T1htdsFDBeXXcGgUwg-391-391.png) no-repeat;}
+.msg .error {
+    border-color: #ffd4d0;
+    background-color: #fff2f2;
+    background-position: -220px -152px;
+}
+.msg .stop {
+    border-color: #ffd4d0;
+    background-color: #fff2f2;
+    background-position: -239px -133px;
+}
+.msg .alert {
+    border-color: #fed1b0;
+    background-color: #fef1e3;
+    background-position: -258px -114px;
+}
+.msg .attention {
+    border-color: #bce5fc;
+    background-color: #f0f9ff;
+    background-position: -277px -95px;
+}
+.msg .tips {
+    border-color: #f1e2b5;
+    background-color: #fffff1;
+    background-position: -296px -76px;
+}
+.msg .ok {
+    border-color: #adf29f;
+    background-color: #edffe9;
+    background-position: -315px -57px;
+}
+.msg .notice {
+    border-color: #f1e2b5;
+    background-color: #fffff1;
+    background-position: -334px -38px;
+}
+.msg .question {
+    border-color: #d8d8d8;
+    background-color: #ececec;
+    background-position: -353px -19px;
+}
+.msg .help {
+    border-color: #fff;
+    background-color: #fff;
+    background-position: -372px 0;
+}
+.msg24 .error {
+    border-color: #ffd4d0;
+    background-color: #fff2f2;
+    background-position: -176px -171px;
+}
+.msg24 .attention {
+    border-color: #bce5fc;
+    background-color: #f0f9ff;
+    background-position: -132px -215px;
+}
+.msg24 .tips {
+    border-color: #f1e2b5;
+    background-color: #fffff1;
+    background-position: -88px -259px;
+}
+.msg24 .ok {
+    border-color: #adf29f;
+    background-color: #edffe9;
+    background-position: -44px -303px;
+}
+.msg24 .question {
+    border-color: #d8d8d8;
+    background-color: #ececec;
+    background-position: 0 -347px;
+}
 
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help, .msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {display:inline-block; *display:inline; *zoom:1; border-width:1px; border-style:solid; color:#404040;}
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help {padding:2px 10px 2px 23px; font-size:12px; line-height:18px;}
-.msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {padding:17px 10px 17px 56px; font-size:14px; line-height:22px; font-weight:bold;}
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help,
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    border-width: 1px;
+    border-style: solid;
+    .border-radius(@msgBorderRadius);
+    color: #404040;
+}
 
-.msg, .msg24 {display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
-.msg .naked, .msg24 .naked {border:none; background-color:transparent;}
+.msg .error,
+.msg .stop,
+.msg .alert,
+.msg .attention,
+.msg .tips,
+.msg .ok,
+.msg .notice,
+.msg .question,
+.msg .help {
+    padding: 2px 10px 2px 23px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.msg24 .error,
+.msg24 .attention,
+.msg24 .tips,
+.msg24 .ok,
+.msg24 .question {
+    padding: 17px 10px 17px 56px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
+}
 
-.msg-block, .msg24-block {display:block;}
-.msg-block .error, .msg-block .stop, .msg-block .alert, .msg-block .attention, .msg-block .tips, .msg-block .ok, .msg-block .notice, .msg-block .question, .msg-block .help, .msg24-block .error, .msg24-block .attention, .msg24-block .tips, .msg24-block .ok, .msg24-block .question {display:block;}
+.msg,
+.msg24 {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.msg .naked,
+.msg24 .naked {
+    border: none;
+    background-color: transparent;
+}
+
+.msg-block,
+.msg24-block { display: block; }
+.msg-block .error,
+.msg-block .stop,
+.msg-block .alert,
+.msg-block .attention,
+.msg-block .tips,
+.msg-block .ok,
+.msg-block .notice,
+.msg-block .question,
+.msg-block .help,
+.msg24-block .error,
+.msg24-block .attention,
+.msg24-block .tips,
+.msg24-block .ok,
+.msg24-block .question { display: block; }

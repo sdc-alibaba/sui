@@ -35,63 +35,63 @@
 		<div class="page-header">
 			<h1>Msgs</h1>
 		</div>
+		
+		<h1>dpl组件</h1>
+		<hr class="bs-docs-separator">
 
-		<h2>msg</h2>
+		<h2>小号msgs</h2>
 		<form class="bs-docs-example form-horizontal">
-			<span class="msg"><span class="error">error</span></span><br />
-			<span class="msg"><span class="stop">stop</span></span><br />
-			<span class="msg"><span class="alert">alert</span></span><br />
-			<span class="msg"><span class="attention">attention</span></span><br />
-			<span class="msg"><span class="tips">tips</span></span><br />
-			<span class="msg"><span class="ok">ok</span></span><br />
-			<span class="msg"><span class="notice">notice</span></span><br />
-			<span class="msg"><span class="question">question</span></span><br />
-			<span class="msg"><span class="help">help</span></span><br />
-
-			<span class="msg24"><span class="error">error</span></span><br />
-			<span class="msg24"><span class="attention">attention</span></span><br />
-			<span class="msg24"><span class="tips">tips</span></span><br />
-			<span class="msg24"><span class="ok">ok</span></span><br />
-			<span class="msg24"><span class="question">question</span></span><br />
-
-			<span class="msg"><span class="error naked">naked</span></span><br />
-			<span class="msg24"><span class="error naked">naked</span></span><br />
-
-			<span class="msg msg-block"><span class="error">msg-block</span></span><br />
-			<span class="msg24 msg24-block"><span class="error">msg24-block</span></span><br />
+			<span class="msg"><span class="error">错误信息提示</span></span>
+			<span class="msg"><span class="stop">禁止信息提示</span></span>
+			<span class="msg"><span class="ok">成功信息提示</span></span>
+			<span class="msg"><span class="alert">警示信息提示</span></span>
+			<span class="msg"><span class="notice">公告信息提示</span></span>
+			<span class="msg"><span class="tips">提示信息提示</span></span>
+			<span class="msg"><span class="attention">提醒信息提示</span></span>
+			<span class="msg"><span class="question">疑问信息提示</span></span>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputWarning"&gt;
-				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+		&lt;span class="msg"&gt;&lt;span class="error"&gt;错误信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="stop"&gt;禁止信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="ok"&gt;成功信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="alert"&gt;警示信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="notice"&gt;公告信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="tips"&gt;提示信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="attention"&gt;提醒信息提示&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg"&gt;&lt;span class="question"&gt;疑问信息提示&lt;/span&gt;&lt;/span&gt;</pre>
 
-		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputError"&gt;
-				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+		<h2>大号msgs</h2>
+		<form class="bs-docs-example form-horizontal">
+			<span class="msg24"><span class="error">error</span></span>
+			<span class="msg24"><span class="attention">attention</span></span>
+			<span class="msg24"><span class="tips">tips</span></span>
+			<span class="msg24"><span class="ok">ok</span></span>
+			<span class="msg24"><span class="question">question</span></span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;span class="msg24"&gt;&lt;span class="error"&gt;error&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24"&gt;&lt;span class="attention"&gt;attention&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24"&gt;&lt;span class="tips"&gt;tips&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24"&gt;&lt;span class="ok"&gt;ok&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24"&gt;&lt;span class="question"&gt;question&lt;/span&gt;&lt;/span&gt;</pre>
 
-		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputSuccess"&gt;
-				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
+		<h2>去边框去底色msgs</h2>
+		<form class="bs-docs-example form-horizontal">
+			<span class="msg"><span class="error naked">naked</span></span>
+			<span class="msg24"><span class="error naked">naked</span></span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;span class="msg"&gt;&lt;span class="error naked"&gt;naked&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24"&gt;&lt;span class="error naked"&gt;naked&lt;/span&gt;&lt;/span&gt;</pre>
 
-		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputInfo"&gt;
-				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
+		<h2>块级msgs</h2>
+		<form class="bs-docs-example form-horizontal">
+			<span class="msg msg-block"><span class="error">msg-block</span></span>
+			<span class="msg24 msg24-block"><span class="error">msg24-block</span></span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;span class="msg msg-block"&gt;&lt;span class="error"&gt;msg-block&lt;/span&gt;&lt;/span&gt;
+		&lt;span class="msg24 msg24-block"&gt;&lt;span class="error"&gt;msg24-block&lt;/span&gt;&lt;/span&gt;</pre>
 	</section>
 
 	<!-- Le javascript
