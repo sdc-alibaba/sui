@@ -34,7 +34,7 @@
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 28px;
+  min-height: 24px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -408,7 +408,7 @@ a:focus {
   display: block;
   float: left;
   width: 100%;
-  min-height: 28px;
+  min-height: 24px;
   margin-left: 1.002004008016032%;
   *margin-left: 0.9519038076152304%;
   -webkit-box-sizing: border-box;
@@ -712,39 +712,39 @@ a.muted:focus {
 }
 
 .text-warning {
-  color: #c09853;
+  color: #ffc600;
 }
 
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #a47e3c;
+  color: #cc9e00;
 }
 
 .text-error {
-  color: #b94a48;
+  color: #ea4a36;
 }
 
 a.text-error:hover,
 a.text-error:focus {
-  color: #953b39;
+  color: #d72c16;
 }
 
 .text-info {
-  color: #3a87ad;
+  color: #2597dd;
 }
 
 a.text-info:hover,
 a.text-info:focus {
-  color: #2d6987;
+  color: #1c7ab3;
 }
 
 .text-success {
-  color: #468847;
+  color: #22cd6e;
 }
 
 a.text-success:hover,
 a.text-success:focus {
-  color: #356635;
+  color: #1ba157;
 }
 
 .text-left {
@@ -1051,10 +1051,6 @@ pre code {
   overflow-y: scroll;
 }
 
-form {
-  margin: 0 0 18px;
-}
-
 fieldset {
   padding: 0;
   margin: 0;
@@ -1095,10 +1091,12 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
 }
+*/
 
 select,
 textarea,
@@ -1119,21 +1117,15 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: 18px;
-  padding: 4px 6px;
+  padding: 2px 6px;
   margin-bottom: 9px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
   vertical-align: middle;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-}
-
-input,
-textarea,
-.uneditable-input {
-  width: 206px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 
 textarea {
@@ -1195,12 +1187,12 @@ input[type="color"]:focus,
 
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9;
-  *margin-top: 0;
-  line-height: normal;
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
 }
 
+/* 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
 input[type="file"],
 input[type="image"],
 input[type="submit"],
@@ -1208,22 +1200,30 @@ input[type="reset"],
 input[type="button"],
 input[type="radio"],
 input[type="checkbox"] {
+  width: auto; // Override of generic input selector
+}
+*/
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
   width: auto;
 }
 
 select,
 input[type="file"] {
-  height: 28px;
+  height: 24px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
 
-  line-height: 28px;
+  line-height: 24px;
 }
 
 select {
-  width: 220px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }
@@ -1263,6 +1263,98 @@ input[type="checkbox"]:focus {
   height: auto;
 }
 
+input[type="text"].input-thin,
+input[type="password"].input-thin,
+input[type="datetime"].input-thin,
+input[type="datetime-local"].input-thin,
+input[type="date"].input-thin,
+input[type="month"].input-thin,
+input[type="time"].input-thin,
+input[type="week"].input-thin,
+input[type="number"].input-thin,
+input[type="email"].input-thin,
+input[type="url"].input-thin,
+input[type="search"].input-thin,
+input[type="tel"].input-thin,
+input[type="color"].input-thin,
+.input-thin {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+input[type="text"].input-default,
+input[type="password"].input-default,
+input[type="datetime"].input-default,
+input[type="datetime-local"].input-default,
+input[type="date"].input-default,
+input[type="month"].input-default,
+input[type="time"].input-default,
+input[type="week"].input-default,
+input[type="number"].input-default,
+input[type="email"].input-default,
+input[type="url"].input-default,
+input[type="search"].input-default,
+input[type="tel"].input-default,
+input[type="color"].input-default,
+.input-default {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+input[type="text"].input-fat,
+input[type="password"].input-fat,
+input[type="datetime"].input-fat,
+input[type="datetime-local"].input-fat,
+input[type="date"].input-fat,
+input[type="month"].input-fat,
+input[type="time"].input-fat,
+input[type="week"].input-fat,
+input[type="number"].input-fat,
+input[type="email"].input-fat,
+input[type="url"].input-fat,
+input[type="search"].input-fat,
+input[type="tel"].input-fat,
+input[type="color"].input-fat,
+.input-fat {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+input[type="text"].input-xfat,
+input[type="password"].input-xfat,
+input[type="datetime"].input-xfat,
+input[type="datetime-local"].input-xfat,
+input[type="date"].input-xfat,
+input[type="month"].input-xfat,
+input[type="time"].input-xfat,
+input[type="week"].input-xfat,
+input[type="number"].input-xfat,
+input[type="email"].input-xfat,
+input[type="url"].input-xfat,
+input[type="search"].input-xfat,
+input[type="tel"].input-xfat,
+input[type="color"].input-xfat,
+.input-xfat {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+select.input-thin {
+  height: 20px;
+}
+
+select.input-default {
+  height: 24px;
+}
+
+select.input-fat {
+  height: 28px;
+}
+
+select.input-xfat {
+  height: 32px;
+}
+
 input:-moz-placeholder,
 textarea:-moz-placeholder {
   color: #999999;
@@ -1278,23 +1370,27 @@ textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio,
 .checkbox {
-  min-height: 18px;
+  min-height: @baseLineHeight; // clear the floating input if there is no label text
   padding-left: 20px;
 }
-
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
   float: left;
   margin-left: -20px;
 }
+*/
 
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
-  padding-top: 5px;
+  padding-top: 5px; // has to be padding because margin collaspes
 }
+*/
 
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio.inline,
 .checkbox.inline {
   display: inline-block;
@@ -1302,11 +1398,11 @@ textarea::-webkit-input-placeholder {
   margin-bottom: 0;
   vertical-align: middle;
 }
-
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
-  margin-left: 10px;
+  margin-left: 10px; // space out consecutive inline controls
 }
+*/
 
 .input-mini {
   width: 60px;
@@ -1459,10 +1555,12 @@ textarea.span1,
   float: left;
 }
 
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
 }
+*/
 
 input[disabled],
 select[disabled],
@@ -1484,7 +1582,7 @@ input[type="checkbox"][readonly] {
 .control-group.warning .control-label,
 .control-group.warning .help-block,
 .control-group.warning .help-inline {
-  color: #c09853;
+  color: #ffc600;
 }
 
 .control-group.warning .checkbox,
@@ -1492,13 +1590,13 @@ input[type="checkbox"][readonly] {
 .control-group.warning input,
 .control-group.warning select,
 .control-group.warning textarea {
-  color: #c09853;
+  color: #ffc600;
 }
 
 .control-group.warning input,
 .control-group.warning select,
 .control-group.warning textarea {
-  border-color: #c09853;
+  border-color: #ffc600;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1507,23 +1605,23 @@ input[type="checkbox"][readonly] {
 .control-group.warning input:focus,
 .control-group.warning select:focus,
 .control-group.warning textarea:focus {
-  border-color: #a47e3c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #dbc59e;
+  border-color: #cc9e00;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffdd66;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffdd66;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffdd66;
 }
 
 .control-group.warning .input-prepend .add-on,
 .control-group.warning .input-append .add-on {
-  color: #c09853;
+  color: #ffc600;
   background-color: #fcf8e3;
-  border-color: #c09853;
+  border-color: #ffc600;
 }
 
 .control-group.error .control-label,
 .control-group.error .help-block,
 .control-group.error .help-inline {
-  color: #b94a48;
+  color: #ea4a36;
 }
 
 .control-group.error .checkbox,
@@ -1531,13 +1629,13 @@ input[type="checkbox"][readonly] {
 .control-group.error input,
 .control-group.error select,
 .control-group.error textarea {
-  color: #b94a48;
+  color: #ea4a36;
 }
 
 .control-group.error input,
 .control-group.error select,
 .control-group.error textarea {
-  border-color: #b94a48;
+  border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1546,23 +1644,23 @@ input[type="checkbox"][readonly] {
 .control-group.error input:focus,
 .control-group.error select:focus,
 .control-group.error textarea:focus {
-  border-color: #953b39;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+  border-color: #d72c16;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f49d92;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f49d92;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f49d92;
 }
 
 .control-group.error .input-prepend .add-on,
 .control-group.error .input-append .add-on {
-  color: #b94a48;
+  color: #ea4a36;
   background-color: #f2dede;
-  border-color: #b94a48;
+  border-color: #ea4a36;
 }
 
 .control-group.success .control-label,
 .control-group.success .help-block,
 .control-group.success .help-inline {
-  color: #468847;
+  color: #22cd6e;
 }
 
 .control-group.success .checkbox,
@@ -1570,13 +1668,13 @@ input[type="checkbox"][readonly] {
 .control-group.success input,
 .control-group.success select,
 .control-group.success textarea {
-  color: #468847;
+  color: #22cd6e;
 }
 
 .control-group.success input,
 .control-group.success select,
 .control-group.success textarea {
-  border-color: #468847;
+  border-color: #22cd6e;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1585,23 +1683,23 @@ input[type="checkbox"][readonly] {
 .control-group.success input:focus,
 .control-group.success select:focus,
 .control-group.success textarea:focus {
-  border-color: #356635;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+  border-color: #1ba157;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #6ee7a4;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #6ee7a4;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #6ee7a4;
 }
 
 .control-group.success .input-prepend .add-on,
 .control-group.success .input-append .add-on {
-  color: #468847;
+  color: #22cd6e;
   background-color: #dff0d8;
-  border-color: #468847;
+  border-color: #22cd6e;
 }
 
 .control-group.info .control-label,
 .control-group.info .help-block,
 .control-group.info .help-inline {
-  color: #3a87ad;
+  color: #2597dd;
 }
 
 .control-group.info .checkbox,
@@ -1609,13 +1707,13 @@ input[type="checkbox"][readonly] {
 .control-group.info input,
 .control-group.info select,
 .control-group.info textarea {
-  color: #3a87ad;
+  color: #2597dd;
 }
 
 .control-group.info input,
 .control-group.info select,
 .control-group.info textarea {
-  border-color: #3a87ad;
+  border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1624,17 +1722,17 @@ input[type="checkbox"][readonly] {
 .control-group.info input:focus,
 .control-group.info select:focus,
 .control-group.info textarea:focus {
-  border-color: #2d6987;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7ab5d3;
+  border-color: #1c7ab3;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7dc1eb;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7dc1eb;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7dc1eb;
 }
 
 .control-group.info .input-prepend .add-on,
 .control-group.info .input-append .add-on {
-  color: #3a87ad;
+  color: #2597dd;
   background-color: #d9edf7;
-  border-color: #3a87ad;
+  border-color: #2597dd;
 }
 
 input:focus:invalid,
@@ -1723,9 +1821,9 @@ select:focus:invalid:focus {
   margin-bottom: 0;
   *margin-left: 0;
   vertical-align: top;
-  -webkit-border-radius: 0 4px 4px 0;
-     -moz-border-radius: 0 4px 4px 0;
-          border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
 }
 
 .input-append input:focus,
@@ -1778,25 +1876,25 @@ select:focus:invalid:focus {
 
 .input-prepend .add-on:first-child,
 .input-prepend .btn:first-child {
-  -webkit-border-radius: 4px 0 0 4px;
-     -moz-border-radius: 4px 0 0 4px;
-          border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 2px 0 0 2px;
+     -moz-border-radius: 2px 0 0 2px;
+          border-radius: 2px 0 0 2px;
 }
 
 .input-append input,
 .input-append select,
 .input-append .uneditable-input {
-  -webkit-border-radius: 4px 0 0 4px;
-     -moz-border-radius: 4px 0 0 4px;
-          border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 2px 0 0 2px;
+     -moz-border-radius: 2px 0 0 2px;
+          border-radius: 2px 0 0 2px;
 }
 
 .input-append input + .btn-group .btn:last-child,
 .input-append select + .btn-group .btn:last-child,
 .input-append .uneditable-input + .btn-group .btn:last-child {
-  -webkit-border-radius: 0 4px 4px 0;
-     -moz-border-radius: 0 4px 4px 0;
-          border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
 }
 
 .input-append .add-on,
@@ -1808,9 +1906,9 @@ select:focus:invalid:focus {
 .input-append .add-on:last-child,
 .input-append .btn:last-child,
 .input-append .btn-group:last-child > .dropdown-toggle {
-  -webkit-border-radius: 0 4px 4px 0;
-     -moz-border-radius: 0 4px 4px 0;
-          border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
 }
 
 .input-prepend.input-append input,
@@ -1824,25 +1922,25 @@ select:focus:invalid:focus {
 .input-prepend.input-append input + .btn-group .btn,
 .input-prepend.input-append select + .btn-group .btn,
 .input-prepend.input-append .uneditable-input + .btn-group .btn {
-  -webkit-border-radius: 0 4px 4px 0;
-     -moz-border-radius: 0 4px 4px 0;
-          border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
 }
 
 .input-prepend.input-append .add-on:first-child,
 .input-prepend.input-append .btn:first-child {
   margin-right: -1px;
-  -webkit-border-radius: 4px 0 0 4px;
-     -moz-border-radius: 4px 0 0 4px;
-          border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 2px 0 0 2px;
+     -moz-border-radius: 2px 0 0 2px;
+          border-radius: 2px 0 0 2px;
 }
 
 .input-prepend.input-append .add-on:last-child,
 .input-prepend.input-append .btn:last-child {
   margin-left: -1px;
-  -webkit-border-radius: 0 4px 4px 0;
-     -moz-border-radius: 0 4px 4px 0;
-          border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 2px 2px 0;
+     -moz-border-radius: 0 2px 2px 0;
+          border-radius: 0 2px 2px 0;
 }
 
 .input-prepend.input-append .btn-group:first-child {
@@ -4145,7 +4243,7 @@ input[type="submit"].btn.btn-mini {
 
 .alert,
 .alert h4 {
-  color: #c09853;
+  color: #ffc600;
 }
 
 .alert h4 {
@@ -4160,35 +4258,35 @@ input[type="submit"].btn.btn-mini {
 }
 
 .alert-success {
-  color: #468847;
+  color: #22cd6e;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
 
 .alert-success h4 {
-  color: #468847;
+  color: #22cd6e;
 }
 
 .alert-danger,
 .alert-error {
-  color: #b94a48;
+  color: #ea4a36;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
 
 .alert-danger h4,
 .alert-error h4 {
-  color: #b94a48;
+  color: #ea4a36;
 }
 
 .alert-info {
-  color: #3a87ad;
+  color: #2597dd;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
 
 .alert-info h4 {
-  color: #3a87ad;
+  color: #2597dd;
 }
 
 .alert-block {
@@ -5937,12 +6035,12 @@ a.badge:focus {
 
 .label-important,
 .badge-important {
-  background-color: #b94a48;
+  background-color: #ea4a36;
 }
 
 .label-important[href],
 .badge-important[href] {
-  background-color: #953b39;
+  background-color: #d72c16;
 }
 
 .label-warning,
@@ -5957,22 +6055,22 @@ a.badge:focus {
 
 .label-success,
 .badge-success {
-  background-color: #468847;
+  background-color: #22cd6e;
 }
 
 .label-success[href],
 .badge-success[href] {
-  background-color: #356635;
+  background-color: #1ba157;
 }
 
 .label-info,
 .badge-info {
-  background-color: #3a87ad;
+  background-color: #2597dd;
 }
 
 .label-info[href],
 .badge-info[href] {
-  background-color: #2d6987;
+  background-color: #1c7ab3;
 }
 
 .label-inverse,

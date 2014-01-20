@@ -47,7 +47,7 @@ $(function () {
           ok(!btn.attr('disabled'), 'btn is not disabled')
           ok(!btn.hasClass('disabled'), 'btn does not have disabled class')
           start()
-        }, 0)
+        }, 100)
       })
 
       test("should toggle active", function () {
