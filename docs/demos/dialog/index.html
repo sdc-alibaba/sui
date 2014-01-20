@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dpl组件——dialog</title>
+    <link rel="stylesheet" href="/git/dpl/build/css/bootstrap.css">
+</head>
+<body data-a="a" data-b="b" data-c="{cc:1,ccc:2}">
+<hr>
+  <!-- Button trigger modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="true">
+  Launch modal 有html
+</button>
+
+<hr>
+<button class="btn btn-primary btn-lg" id="J_alert">
+  Launch modal 无html alert
+</button>
+<hr>
+<button class="btn btn-primary btn-lg" id="J_confirm">
+  Launch modal 无html confirm
+</button>
+
+<!-- Modal -->
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-ok="modal">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+
+<script src="../../assets/js/jquery.js"></script>
+<script src="http://localhost/git/dpl/docs/assets/js/bootstrap-transition.js"></script>
+<script src="../../../js/bootstrap-modal.js"></script>
+<script>
+  $('#J_alert').on('click', function(e){
+    $.alert('alert it is')
+  })
+  $('#J_confirm').on('click', function(e){
+    $.confirm({
+      body: 'confirm again'
+      ,width: '800px'
+      ,backdrop: false
+      ,timeout: 1000
+      //,show: function(){console.log('show')}
+      //,shown: function(){console.log('shown')}
+      //,hide: function(){console.log('hide')}
+      ,hidden: function(){console.log('hiden')}
+      ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+      ,okHidden: function(){console.log('okHidden')}
+    })
+  })
+
+</script>
+<!--
+<script src="../../../js/bootstrap-modal.js"></script>
+-->
+</body>
+</html>
