@@ -1091,7 +1091,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
@@ -1192,7 +1192,7 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 
-/* 注释掉这一块代码 更新如下 去掉radio和checkbox宽度重置 @by kai 2014-01-16
+/* 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
 input[type="file"],
 input[type="image"],
 input[type="submit"],
@@ -1370,7 +1370,7 @@ textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio,
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
@@ -1383,14 +1383,14 @@ textarea::-webkit-input-placeholder {
 }
 */
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
   padding-top: 5px; // has to be padding because margin collaspes
 }
 */
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio.inline,
 .checkbox.inline {
   display: inline-block;
@@ -1555,7 +1555,7 @@ textarea.span1,
   float: left;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
