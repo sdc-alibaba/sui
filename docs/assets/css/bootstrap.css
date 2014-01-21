@@ -1091,7 +1091,7 @@ textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
@@ -1192,7 +1192,7 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 
-/* 注释掉这一块代码 更新如下 去掉radio和checkbox宽度重置 @by kai 2014-01-16
+/* 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
 input[type="file"],
 input[type="image"],
 input[type="submit"],
@@ -1370,7 +1370,7 @@ textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio,
 .checkbox {
   min-height: @baseLineHeight; // clear the floating input if there is no label text
@@ -1383,14 +1383,14 @@ textarea::-webkit-input-placeholder {
 }
 */
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
   padding-top: 5px; // has to be padding because margin collaspes
 }
 */
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .radio.inline,
 .checkbox.inline {
   display: inline-block;
@@ -1555,7 +1555,7 @@ textarea.span1,
   float: left;
 }
 
-/* 注释掉这一块代码 直接去掉 @by kai 2014-01-16
+/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
@@ -5341,16 +5341,9 @@ input[type="submit"].btn.btn-mini {
 
 .pagination ul {
   display: inline-block;
-  *display: inline;
   margin-bottom: 0;
   margin-left: 0;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  *zoom: 1;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
 }
 
 .pagination ul > li {
@@ -5359,26 +5352,45 @@ input[type="submit"].btn.btn-mini {
 
 .pagination ul > li > a,
 .pagination ul > li > span {
+  position: relative;
   float: left;
-  padding: 4px 12px;
+  padding: 4px 10px;
+  margin-left: -1px;
   line-height: 18px;
+  color: #0088cc;
   text-decoration: none;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-left-width: 0;
+  border: 1px solid #e0e9ee;
 }
 
 .pagination ul > li > a:hover,
-.pagination ul > li > a:focus,
-.pagination ul > .active > a,
-.pagination ul > .active > span {
-  background-color: #f5f5f5;
+.pagination ul > li > a:focus {
+  color: #ffffff;
+  background-color: #37a7ec;
+  border-color: #37a7ec;
 }
 
 .pagination ul > .active > a,
 .pagination ul > .active > span {
-  color: #999999;
+  color: #ffffff;
   cursor: default;
+  background-color: #2597dd;
+  border-color: #2597dd;
+}
+
+.pagination ul > .active > a:hover,
+.pagination ul > .active > span:hover,
+.pagination ul > .active > a:focus,
+.pagination ul > .active > span:focus {
+  color: #ffffff;
+  background-color: #2597dd;
+  border-color: #2597dd;
+}
+
+.pagination ul > .dotted > span,
+.pagination ul > .dotted > a {
+  border-top: none;
+  border-bottom: none;
 }
 
 .pagination ul > .disabled > span,
@@ -5390,26 +5402,131 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
 }
 
+.pagination ul > .prev > span,
+.pagination ul > .next > span,
+.pagination ul > .prev > a,
+.pagination ul > .next > a {
+  background-color: #fafafa;
+}
+
+.pagination ul > .disabled.prev > span:hover,
+.pagination ul .disabled.next > span:hover,
+.pagination ul > .disabled.prev > span:focus,
+.pagination ul .disabled.next > span:focus,
+.pagination ul > .disabled.prev > a:hover,
+.pagination ul .disabled.next > a:hover,
+.pagination ul > .disabled.prev > a:focus,
+.pagination ul .disabled.next > a:focus {
+  background-color: #fafafa;
+  border-color: #e0e9ee;
+}
+
+/*
+.pagination ul > .disabled.prev > a:hover {
+    background-color: #00F;
+}
+*/
+
+/*
 .pagination ul > li:first-child > a,
 .pagination ul > li:first-child > span {
   border-left-width: 1px;
-  -webkit-border-bottom-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-  -webkit-border-top-left-radius: 4px;
-          border-top-left-radius: 4px;
-  -moz-border-radius-bottomleft: 4px;
-  -moz-border-radius-topleft: 4px;
 }
+*/
 
+/*
 .pagination ul > li:last-child > a,
 .pagination ul > li:last-child > span {
-  -webkit-border-top-right-radius: 4px;
-          border-top-right-radius: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-          border-bottom-right-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -moz-border-radius-bottomright: 4px;
 }
+*/
+
+/*
+.pagination {
+    div {
+        display: inline-block;
+        position: relative;
+        width: 200px;
+        .page-num {
+            margin: 0px;
+            .border-radius(0);
+            width: 52px;
+            position: relative;
+            z-index: 1;
+            + .page-confirm {
+                .singleTransition(left);
+                vertical-align: top;
+                .border-radius(0);
+                position: absolute;
+                left: 55px;
+                z-index: 0;
+            }
+        }
+        .page-num:focus {
+            + .page-confirm {
+                left: 117px;
+            }
+        }
+       
+
+    }
+}
+*/
+
+.pagination div {
+  display: inline-block;
+}
+
+.pagination div .page-num {
+  width: 15px;
+  margin: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-transition: width 0.1s linear 0.1s;
+     -moz-transition: width 0.1s linear 0.1s;
+      -ms-transition: width 0.1s linear 0.1s;
+          transition: width 0.1s linear 0.1s;
+}
+
+.pagination div .page-num + .page-confirm {
+  vertical-align: top;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+.pagination div .page-num:focus {
+  width: 50px;
+}
+
+.pagination div .page-num:focus + .page-confirm {
+  display: inline-block;
+}
+
+/*
+.pagination {
+    div {
+        display: inline-block;
+        .page-num {
+            margin: 0px;
+            width: 15px;
+            .singleTransition(width);
+            + .page-confirm {
+                display: none;
+                .border-radius(0);
+            }
+        }
+        .page-num:focus {
+            width: 50px;
+            + .page-confirm {
+                display: inline-block;
+            }
+        }
+       
+
+    }
+}
+*/
 
 .pagination-centered {
   text-align: center;
@@ -5421,57 +5538,13 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-large ul > li > a,
 .pagination-large ul > li > span {
-  padding: 4px 14px;
+  padding: 6px 12px;
   font-size: 14px;
-}
-
-.pagination-large ul > li:first-child > a,
-.pagination-large ul > li:first-child > span {
-  -webkit-border-bottom-left-radius: 6px;
-          border-bottom-left-radius: 6px;
-  -webkit-border-top-left-radius: 6px;
-          border-top-left-radius: 6px;
-  -moz-border-radius-bottomleft: 6px;
-  -moz-border-radius-topleft: 6px;
-}
-
-.pagination-large ul > li:last-child > a,
-.pagination-large ul > li:last-child > span {
-  -webkit-border-top-right-radius: 6px;
-          border-top-right-radius: 6px;
-  -webkit-border-bottom-right-radius: 6px;
-          border-bottom-right-radius: 6px;
-  -moz-border-radius-topright: 6px;
-  -moz-border-radius-bottomright: 6px;
-}
-
-.pagination-mini ul > li:first-child > a,
-.pagination-small ul > li:first-child > a,
-.pagination-mini ul > li:first-child > span,
-.pagination-small ul > li:first-child > span {
-  -webkit-border-bottom-left-radius: 3px;
-          border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-          border-top-left-radius: 3px;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-}
-
-.pagination-mini ul > li:last-child > a,
-.pagination-small ul > li:last-child > a,
-.pagination-mini ul > li:last-child > span,
-.pagination-small ul > li:last-child > span {
-  -webkit-border-top-right-radius: 3px;
-          border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-          border-bottom-right-radius: 3px;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
 }
 
 .pagination-small ul > li > a,
 .pagination-small ul > li > span {
-  padding: 2px 14px;
+  padding: 2px 8px;
   font-size: 12px;
 }
 
