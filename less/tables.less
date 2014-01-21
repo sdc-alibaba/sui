@@ -187,7 +187,7 @@ table {
 // --------------
 
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-striped {
+.table-zebra {
   tbody {
     > tr:nth-child(odd) > td,
     > tr:nth-child(odd) > th {
@@ -195,6 +195,17 @@ table {
     }
   }
 }
+
+.table-nobordered{
+  .table-zebra;
+  th{
+    border-bottom:1px solid @tableBorder;
+  }
+  th,
+  td {
+    border-top: 0;
+  }
+} 
 
 
 // HOVER EFFECT

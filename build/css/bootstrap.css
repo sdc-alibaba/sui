@@ -2035,11 +2035,11 @@ table {
 
 .table th,
 .table td {
-  padding: 6px 12px;
+  padding: 6px 8px;
   line-height: 18px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #c9c9c9;
+  border-top: 1px solid #e6e6e6;
 }
 
 .table th {
@@ -2060,7 +2060,7 @@ table {
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #c9c9c9;
+  border-top: 2px solid #e6e6e6;
 }
 
 .table .table {
@@ -2087,7 +2087,7 @@ table {
 
 .table-bordered th,
 .table-bordered td {
-  border-left: 1px solid #c9c9c9;
+  border-left: 1px solid #e6e6e6;
 }
 
 .table-bordered caption + thead tr:first-child th,
@@ -2107,17 +2107,17 @@ table {
 }
 
 .table-bordered tbody tr:last-child td {
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .table-bordered thead:first-child tr:first-child th {
-  border-top: 1px solid #c9c9c9;
-  border-bottom: 1px solid #c9c9c9;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .table-bordered thead tr th:last-child,
 .table-bordered tbody tr td:last-child {
-  border-right: 1px solid #c9c9c9;
+  border-right: 1px solid #e6e6e6;
 }
 
 .table-bordered thead:first-child tr:first-child > th:first-child,
@@ -2201,7 +2201,7 @@ table {
 
 .table-light th,
 .table-light td {
-  border-left: 1px solid #c9c9c9;
+  border-left: 1px solid #e6e6e6;
 }
 
 .table-light caption + thead tr:first-child th,
@@ -2221,17 +2221,17 @@ table {
 }
 
 .table-light tbody tr:last-child td {
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .table-light thead:first-child tr:first-child th {
-  border-top: 1px solid #c9c9c9;
-  border-bottom: 1px solid #c9c9c9;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .table-light thead tr th:last-child,
 .table-light tbody tr td:last-child {
-  border-right: 1px solid #c9c9c9;
+  border-right: 1px solid #e6e6e6;
 }
 
 .table-light thead:first-child tr:first-child > th:first-child,
@@ -2314,14 +2314,28 @@ table {
   border-right: 1px solid #1886c9;
 }
 
-.table-striped tbody > tr:nth-child(odd) > td,
-.table-striped tbody > tr:nth-child(odd) > th {
+.table-zebra tbody > tr:nth-child(odd) > td,
+.table-zebra tbody > tr:nth-child(odd) > th {
   background-color: #f9f9f9;
+}
+
+.table-nobordered tbody > tr:nth-child(odd) > td,
+.table-nobordered tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.table-nobordered th {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.table-nobordered th,
+.table-nobordered td {
+  border-top: 0;
 }
 
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
 }
 
 table td[class*="span"],
