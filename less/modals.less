@@ -17,22 +17,20 @@
 
 .modal-backdrop,
 .modal-backdrop.fade.in {
-  .opacity(60);
+  .opacity(40);
 }
 
 // Base modal
 .modal {
   position: fixed;
-  top: 20%;
+  top: 15%;
   left: 50%;
   z-index: @zindexModal;
-  width: 580px;
-  margin-left: -290px;
+  width: 440px;
+  margin-left: -220px;
   background-color: @white;
   border: 5px solid #b2b2b2;
-  border: 5px solid rgba(178,178,178,.5);
-  *border: 1px solid #999; /* IE6-7 */
-  //.border-radius(6px);
+  border: 5px solid rgba(178,178,178,.3);
   .box-shadow(0 3px 7px rgba(0,0,0,0.3));
   .background-clip(padding-box);
   // Remove focus outline from opened modal
@@ -42,7 +40,7 @@
     .transition(e('opacity .3s linear, top .3s ease-out'));
     top: -25%;
   }
-  &.fade.in { top: 20%; }
+  &.fade.in { top: 15%; }
 }
 .modal-header {
   padding: 7px 0;
@@ -62,6 +60,7 @@
 .modal-body {
   position: relative;
   overflow-y: auto;
+  min-height: 150px;
   max-height: 400px;
   padding: 15px;
 }

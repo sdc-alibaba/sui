@@ -865,13 +865,17 @@
     ,init: function () {
       var ele = this.$element
         , w = this.options.width
-        , h = this.options.height
+        , standardW = {
+            small: 440  //默认宽度
+            ,normal: 590
+            ,large: 790
+          }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
       if(w) {
+        standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
-      h && ele.height(h)
       this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
    
     }
@@ -1104,8 +1108,7 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
-   *  width: {number|string(px)}
-   *  height: {number|string(px)}
+   *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  show:     fn --------------function(e){}
    *  shown:    fn
@@ -1116,6 +1119,7 @@
    *            注意不要人肉返回undefined！！')}
    *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
    * })
+   *
    */
   $.extend({
     _modal: function(dialogCfg, customCfg){
