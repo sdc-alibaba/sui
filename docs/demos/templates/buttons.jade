@@ -1,0 +1,39 @@
+extends base
+
+block title
+  title 按钮
+
+block content
+  div.container
+    - var SIZES = ['large', '', 'small', 'mini']
+    - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
+    h2 不同大小的按钮
+    each v in SIZES
+      - var classname = 'btn'
+      if v
+        - classname += ' btn-' + v
+      a(href='javascript:void(0);', class='#{classname}') 按钮
+      | &nbsp;
+
+    h2 不同功能的按钮
+    each v in ROLES
+      - var classname = 'btn'
+      if v
+        - classname += ' btn-' + v
+      a(href='javascript:void(0);', class='#{classname}') 按钮
+      | &nbsp;
+
+    h2 禁用的按钮
+    each v in ROLES
+      - var classname = 'btn disabled'
+      if v
+        - classname += ' btn-' + v
+      a(href='javascript:void(0);', class='#{classname}') 按钮
+      | &nbsp;
+
+    h2 块级按钮
+    each v in ROLES
+      - var classname = 'btn btn-block'
+      if v
+        - classname += ' btn-' + v
+      a(href='javascript:void(0);', class='#{classname}') 按钮

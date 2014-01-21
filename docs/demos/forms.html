@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>forms demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Le styles -->
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../assets/css/docs.css" rel="stylesheet">
+<link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="../assets/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Le fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+</head>
+
+<body style="padding: 20px 50px 50px;">
+
+	<!-- Forms
+	================================================== -->
+	<section id="forms" style="padding-top: 0;">
+		<div class="page-header">
+			<h1>Forms</h1>
+			<p>
+				Forms 表单控件包括 <code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;checkbox&gt;</code>、<code>&lt;radio&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;label&gt;</code> 但不包括 <code>&lt;button&gt;</code>
+			</p>
+		</div>
+		
+		<h1>dpl组件</h1>
+		<hr class="bs-docs-separator">
+
+
+		<h2>inputs</h2>
+		<h3>默认尺寸（高24px）</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini" type="text" placeholder=".input-mini">
+				<input class="input-small" type="text" placeholder=".input-small">
+				<input class="input-medium" type="text" placeholder=".input-medium">
+				<input class="input-large" type="text" placeholder=".input-large">
+				<input class="input-xlarge" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;</pre>
+
+		<h3>高20px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini input-thin" type="text" placeholder=".input-mini">
+				<input class="input-small input-thin" type="text" placeholder=".input-small">
+				<input class="input-medium input-thin" type="text" placeholder=".input-medium">
+				<input class="input-large input-thin" type="text" placeholder=".input-large">
+				<input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini input-thin" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small input-thin" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium input-thin" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large input-thin" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge"&gt;</pre>
+
+		<h3>高24px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini input-default" type="text" placeholder=".input-mini">
+				<input class="input-small input-default" type="text" placeholder=".input-small">
+				<input class="input-medium input-default" type="text" placeholder=".input-medium">
+				<input class="input-large input-default" type="text" placeholder=".input-large">
+				<input class="input-xlarge input-default" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini input-default" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small input-default" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium input-default" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large input-default" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge input-default" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge"&gt;</pre>
+
+		<h3>高28px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini input-fat" type="text" placeholder=".input-mini">
+				<input class="input-small input-fat" type="text" placeholder=".input-small">
+				<input class="input-medium input-fat" type="text" placeholder=".input-medium">
+				<input class="input-large input-fat" type="text" placeholder=".input-large">
+				<input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini input-fat" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small input-fat" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium input-fat" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large input-fat" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge"&gt;</pre>
+
+		<h3>高32px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini input-xfat" type="text" placeholder=".input-mini">
+				<input class="input-small input-xfat" type="text" placeholder=".input-small">
+				<input class="input-medium input-xfat" type="text" placeholder=".input-medium">
+				<input class="input-large input-xfat" type="text" placeholder=".input-large">
+				<input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini input-xfat" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small input-xfat" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium input-xfat" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large input-xfat" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge"&gt;</pre>
+
+
+		<h2>selects</h2>
+		<h3>默认尺寸（高24px）</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<select class="input-mini">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-small">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-medium">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-large">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xxlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select class="input-mini"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-small"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-medium"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-large"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xxlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<h3>高20px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<select class="input-mini input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-small input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-medium input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-large input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xlarge input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xxlarge input-thin">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select class="input-mini input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-small input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-medium input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-large input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xlarge input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xxlarge input-thin"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<h3>高24px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<select class="input-mini input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-small input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-medium input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-large input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xlarge input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xxlarge input-default">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select class="input-mini input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-small input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-medium input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-large input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xlarge input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xxlarge input-default"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<h3>高28px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<select class="input-mini input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-small input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-medium input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-large input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xlarge input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xxlarge input-fat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select class="input-mini input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-small input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-medium input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-large input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xlarge input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xxlarge input-fat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<h3>高32px</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<select class="input-mini input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-small input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-medium input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-large input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xlarge input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xxlarge input-xfat">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select class="input-mini input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-small input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-medium input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-large input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xlarge input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xxlarge input-xfat"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<h3>Checkboxes and radios</h3>
+		<form class="bs-docs-example">
+			<label>
+				<input name="multiple" type="checkbox" value="1" /> 多选1
+			</label>
+			<label>
+				<input name="multiple" type="checkbox" value="2" /> 多选2
+			</label>
+			<label>
+				<input name="multiple" type="checkbox" value="3" /> 多选3
+			</label>
+
+			<label>
+				<input name="single" type="radio" value="1" /> 单选1
+			</label>
+			<label>
+				<input name="single" type="radio" value="2" /> 单选2
+			</label>
+			<label>
+				<input name="single" type="radio" value="3" /> 单选3
+			</label>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;label&gt;
+			&lt;input name="multiple" type="checkbox" value="1" /&gt; 多选1
+		&lt;/label&gt;
+		&lt;label&gt;
+			&lt;input name="multiple" type="checkbox" value="2" /&gt; 多选2
+		&lt;/label&gt;
+		&lt;label&gt;
+			&lt;input name="multiple" type="checkbox" value="3" /&gt; 多选3
+		&lt;/label&gt;
+
+		&lt;label&gt;
+			&lt;input name="single" type="radio" value="1" /&gt; 单选1
+		&lt;/label&gt;
+		&lt;label&gt;
+			&lt;input name="single" type="radio" value="2" /&gt; 单选2
+		&lt;/label&gt;
+		&lt;label&gt;
+			&lt;input name="single" type="radio" value="3" /&gt; 单选3
+		&lt;/label&gt;</pre>
+
+		<h3>Textarea</h3>
+		<form class="bs-docs-example form-inline">
+			<textarea rows="3"></textarea>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
+
+
+		<h2>各种状态</h2>
+		<h3>Disabled inputs</h3>
+		<form class="bs-docs-example form-inline">
+			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled></form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
+
+		<h3>校验状态</h3>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group warning">
+				<label class="control-label" for="inputWarning">警示</label>
+				<div class="controls">
+					<input type="text" id="inputWarning">
+					<span class="help-inline">警示文案</span>
+				</div>
+			</div>
+			<div class="control-group error">
+				<label class="control-label" for="inputError">错误</label>
+				<div class="controls">
+					<input type="text" id="inputError">
+					<span class="help-inline">出错文案</span>
+				</div>
+			</div>
+			<div class="control-group success">
+				<label class="control-label" for="inputSuccess">成功</label>
+				<div class="controls">
+					<input type="text" id="inputSuccess">
+					<span class="help-inline">成功文案</span>
+				</div>
+			</div>
+			<div class="control-group info">
+				<label class="control-label" for="inputInfo">帮助</label>
+				<div class="controls">
+					<input type="text" id="inputInfo">
+					<span class="help-inline">帮助文案</span>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="control-group warning"&gt;
+			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputWarning"&gt;
+				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group error"&gt;
+			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputError"&gt;
+				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group success"&gt;
+			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputSuccess"&gt;
+				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group info"&gt;
+			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputInfo"&gt;
+				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br />
+		<h1>Bootstrap组件</h1>
+		<hr class="bs-docs-separator">
+
+		<h2>默认样式</h2>
+		<!-- <p>
+			Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.
+		</p> -->
+		<form class="bs-docs-example">
+			<fieldset>
+				<legend>Legend</legend>
+				<label>Label name</label>
+				<input type="text" placeholder="Type something…">
+				<span class="help-block">Example block-level help text here.</span>
+				<label class="checkbox">
+					<input type="checkbox">Check me out
+				</label>
+				<button type="submit" class="btn">Submit</button>
+			</fieldset>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form&gt;
+			&lt;fieldset&gt;
+				&lt;legend&gt;Legend&lt;/legend&gt;
+				&lt;label&gt;Label name&lt;/label&gt;
+				&lt;input type="text" placeholder="Type something…"&gt;
+				&lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
+				&lt;label class="checkbox"&gt;
+					&lt;input type="checkbox"&gt; Check me out
+				&lt;/label&gt;
+				&lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
+			&lt;/fieldset&gt;
+		&lt;/form&gt;</pre>
+
+		<hr class="bs-docs-separator">
+
+		<h2>布局选项</h2>
+		<!-- <p>
+			Included with Bootstrap are three optional form layouts for common use cases.
+		</p> -->
+
+		<h3>搜索框</h3>
+		<p>
+			添加
+			<code>.form-search</code>
+			到
+			<code>&lt;form&gt;</code>
+			标签上并且添加
+			<code>.search-query</code>
+			到
+			<code>&lt;input&gt;</code>
+			标签上
+		</p>
+		<form class="bs-docs-example form-search">
+			<input type="text" class="input-medium search-query">
+			<button type="submit" class="btn">Search</button>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-search"&gt;
+			&lt;input type="text" class="input-medium search-query"&gt;
+			&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>内联表单</h3>
+		<p>
+			添加
+			<code>.form-inline</code>
+			让 labels 标签左对齐表单控件，成为内联块级标签
+		</p>
+		<form class="bs-docs-example form-inline">
+			<input type="text" class="input-small" placeholder="Email">
+			<input type="password" class="input-small" placeholder="Password">
+			<label class="checkbox">
+				<input type="checkbox">Remember me</label>
+			<button type="submit" class="btn">Sign in</button>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-inline"&gt;
+			&lt;input type="text" class="input-small" placeholder="Email"&gt;
+			&lt;input type="password" class="input-small" placeholder="Password"&gt;
+			&lt;label class="checkbox"&gt;
+				&lt;input type="checkbox"&gt; Remember me
+			&lt;/label&gt;
+			&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>水平表单</h3>
+		<!-- <p>
+			Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:
+		</p> -->
+		<ul>
+			<li>
+				添加
+				<code>.form-horizontal</code>
+				到form标签上
+			</li>
+			<li>
+				将labels和控件放到
+				<code>.control-group</code>
+				里面
+			</li>
+			<li>
+				添加
+				<code>.control-label</code>
+				到label标签上
+			</li>
+			<li>
+				将所有的控件放在
+				<code>.controls</code>
+				里面
+			</li>
+		</ul>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="Email">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">Password</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Password">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox">
+						<input type="checkbox">Remember me</label>
+					<button type="submit" class="btn">Sign in</button>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-horizontal"&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input type="text" id="inputEmail" placeholder="Email"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input type="password" id="inputPassword" placeholder="Password"&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;div class="controls"&gt;
+					&lt;label class="checkbox"&gt;
+						&lt;input type="checkbox"&gt; Remember me
+					&lt;/label&gt;
+					&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<hr class="bs-docs-separator">
+
+		<h2>表单控件支持</h2>
+		<!-- <p>
+			Examples of standard form controls supported in an example form layout.
+		</p> -->
+
+		<h3>Inputs</h3>
+		<!-- <p>
+			Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.
+		</p> -->
+		<!-- <p>
+			Requires the use of a specified
+			<code>type</code>
+			at all times.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<input type="text" placeholder="Text input"></form>
+		<pre class="prettyprint linenums">&lt;input type="text" placeholder="Text input"&gt;</pre>
+
+		<h3>Textarea</h3>
+		<!-- <p>
+			Form control which supports multiple lines of text. Change
+			<code>rows</code>
+			attribute as necessary.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<textarea rows="3"></textarea>
+		</form>
+		<pre class="prettyprint linenums">&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
+
+		<h3>Checkboxes and radios</h3>
+		<!-- <p>
+			Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
+		</p> -->
+		<h4>默认</h4>
+		<form class="bs-docs-example">
+			<label class="checkbox">
+				<input type="checkbox" value="">
+				Option one is this and that&mdash;be sure to include why it's great
+			</label>
+			<br>
+			<label class="radio">
+				<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+				Option one is this and that&mdash;be sure to include why it's great
+			</label>
+			<label class="radio">
+				<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				Option two can be something else and selecting it will deselect option one
+			</label>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;label class="checkbox"&gt;
+			&lt;input type="checkbox" value=""&gt;
+			Option one is this and that&mdash;be sure to include why it's great
+		&lt;/label&gt;
+
+		&lt;label class="radio"&gt;
+			&lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
+			Option one is this and that&mdash;be sure to include why it's great
+		&lt;/label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
+			Option two can be something else and selecting it will deselect option one
+		&lt;/label&gt;</pre>
+
+		<h4>内联 checkboxes</h4>
+		<p>
+			Add the
+			<code>.inline</code>
+			class to a series of checkboxes or radios for controls appear on the same line.
+		</p>
+		<form class="bs-docs-example">
+			<label class="checkbox inline">
+				<input type="checkbox" id="inlineCheckbox1" value="option1">1</label>
+			<label class="checkbox inline">
+				<input type="checkbox" id="inlineCheckbox2" value="option2">2</label>
+			<label class="checkbox inline">
+				<input type="checkbox" id="inlineCheckbox3" value="option3">3</label>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;label class="checkbox inline"&gt;
+			&lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
+		&lt;/label&gt;
+		&lt;label class="checkbox inline"&gt;
+			&lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
+		&lt;/label&gt;
+		&lt;label class="checkbox inline"&gt;
+			&lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
+		&lt;/label&gt;</pre>
+
+		<h3>Selects</h3>
+		<p>
+			使用默认选项或者指定
+			<code>multiple="multiple"</code>
+			显示多选项.
+		</p>
+		<form class="bs-docs-example">
+			<select>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<br>
+			<select multiple="multiple">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;select&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+
+		&lt;select multiple="multiple"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;</pre>
+
+		<hr class="bs-docs-separator">
+
+		<h2>扩展表单控件</h2>
+		<!-- <p>
+			Adding on top of existing browser controls, Bootstrap includes other useful form components.
+		</p> -->
+
+		<!-- <h3>Prepended and appended inputs</h3> -->
+		<!-- <p>
+			Add text or buttons before or after any text-based input. Do note that
+			<code>select</code>
+			elements are not supported here.
+		</p> -->
+
+		<h4>默认选项</h4>
+		<!-- <p>
+			Wrap an
+			<code>.add-on</code>
+			and an
+			<code>input</code>
+			with one of two classes to prepend or append text to an input.
+		</p> -->
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<span class="add-on">@</span>
+				<input class="span2" id="prependedInput" type="text" placeholder="Username"></div>
+			<br>
+			<div class="input-append">
+				<input class="span2" id="appendedInput" type="text">
+				<span class="add-on">.00</span>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend"&gt;
+			&lt;span class="add-on"&gt;@&lt;/span&gt;
+			&lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
+		&lt;/div&gt;
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInput" type="text"&gt;
+			&lt;span class="add-on"&gt;.00&lt;/span&gt;
+		&lt;/div&gt;</pre>
+
+		<h4>联合体</h4>
+		<!-- <p>
+			Use both classes and two instances of
+			<code>.add-on</code>
+			to prepend and append an input.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<div class="input-prepend input-append">
+				<span class="add-on">$</span>
+				<input class="span2" id="appendedPrependedInput" type="text">
+				<span class="add-on">.00</span>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend input-append"&gt;
+			&lt;span class="add-on"&gt;$&lt;/span&gt;
+			&lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
+			&lt;span class="add-on"&gt;.00&lt;/span&gt;
+		&lt;/div&gt;</pre>
+
+		<h4>按钮替代文本</h4>
+		<!-- <p>
+			Instead of a
+			<code>&lt;span&gt;</code>
+			with text, use a
+			<code>.btn</code>
+			to attach a button (or two) to an input.
+		</p> -->
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedInputButton" type="text">
+				<button class="btn" type="button">Go!</button>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInputButton" type="text"&gt;
+			&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
+		&lt;/div&gt;</pre>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedInputButtons" type="text">
+				<button class="btn" type="button">Search</button>
+				<button class="btn" type="button">Options</button>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
+			&lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
+			&lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
+		&lt;/div&gt;</pre>
+
+		<h4>按钮下拉菜单</h4>
+		<p></p>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedDropdownButton" type="text">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+			</div>
+			<!-- /input-append -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+				<input class="span2" id="prependedDropdownButton" type="text"></div>
+			<!-- /input-prepend -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
+		&lt;/div&gt;</pre>
+
+		<form class="bs-docs-example">
+			<div class="input-prepend input-append">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+				<input class="span2" id="appendedPrependedDropdownButton" type="text">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+			</div>
+			<!-- /input-prepend input-append -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend input-append"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+
+		<h4>分段下拉菜单组</h4>
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<div class="btn-group">
+					<button class="btn" tabindex="-1">Action</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<input type="text">
+			</div>
+			<div class="input-append">
+				<input type="text">
+				<div class="btn-group">
+					<button class="btn" tabindex="-1">Action</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form&gt;
+			&lt;div class="input-prepend"&gt;
+				&lt;div class="btn-group"&gt;...&lt;/div&gt;
+				&lt;input type="text"&gt;
+			&lt;/div&gt;
+			&lt;div class="input-append"&gt;
+				&lt;input type="text"&gt;
+				&lt;div class="btn-group"&gt;...&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<h4>搜索框</h4>
+		<form class="bs-docs-example form-search">
+			<div class="input-append">
+				<input type="text" class="span2 search-query">
+				<button type="submit" class="btn">Search</button>
+			</div>
+			<div class="input-prepend">
+				<button type="submit" class="btn">Search</button>
+				<input type="text" class="span2 search-query"></div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-search"&gt;
+			&lt;div class="input-append"&gt;
+				&lt;input type="text" class="span2 search-query"&gt;
+				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="input-prepend"&gt;
+				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+				&lt;input type="text" class="span2 search-query"&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>控件尺寸</h3>
+		<p>
+			使用相对尺寸 classes 比如
+			<code>.input-large</code>
+			或者 使用栅格尺寸
+			<code>.span*</code>
+			classes.
+		</p>
+
+		<h4>块级inputs</h4>
+		<p>
+			使
+			<code>&lt;input&gt;</code>
+			或者
+			<code>&lt;textarea&gt;</code>
+			元素看起来像一个块级元素.
+		</p>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls">
+				<input class="input-block-level" type="text" placeholder=".input-block-level"></div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;</pre>
+
+		<h4>相对尺寸</h4>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="input-mini" type="text" placeholder=".input-mini">
+				<input class="input-small" type="text" placeholder=".input-small">
+				<input class="input-medium" type="text" placeholder=".input-medium">
+				<input class="input-large" type="text" placeholder=".input-large">
+				<input class="input-xlarge" type="text" placeholder=".input-xlarge">
+				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge"></div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
+		&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
+		&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
+		&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
+		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
+		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		<!-- <p>
+			<span class="label label-info">Heads up!</span>
+			In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example,
+			<code>.input-large</code>
+			will increase the padding and font-size of an input.
+		</p> -->
+
+		<h4>栅格尺寸</h4>
+		<p>
+			使用
+			<code>.span1</code>
+			到
+			<code>.span12</code>
+			给 inputs 匹配合适的栅格尺寸
+		</p>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls docs-input-sizes">
+				<input class="span1" type="text" placeholder=".span1">
+				<input class="span2" type="text" placeholder=".span2">
+				<input class="span3" type="text" placeholder=".span3">
+				<select class="span1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="span2">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="span3">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="span1" type="text" placeholder=".span1"&gt;
+		&lt;input class="span2" type="text" placeholder=".span2"&gt;
+		&lt;input class="span3" type="text" placeholder=".span3"&gt;
+		&lt;select class="span1"&gt;
+		...
+		&lt;/select&gt;
+		&lt;select class="span2"&gt;
+		...
+		&lt;/select&gt;
+		&lt;select class="span3"&gt;
+		...
+		&lt;/select&gt;</pre>
+
+		<!-- <p>
+			For multiple grid inputs per line, <strong>use the
+				<code>.controls-row</code>
+				modifier class for proper spacing</strong> 
+			. It floats the inputs to collapse white-space, sets the proper margins, and clears the float.
+		</p> -->
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls">
+				<input class="span5" type="text" placeholder=".span5"></div>
+			<div class="controls controls-row">
+				<input class="span4" type="text" placeholder=".span4">
+				<input class="span1" type="text" placeholder=".span1"></div>
+			<div class="controls controls-row">
+				<input class="span3" type="text" placeholder=".span3">
+				<input class="span2" type="text" placeholder=".span2"></div>
+			<div class="controls controls-row">
+				<input class="span2" type="text" placeholder=".span2">
+				<input class="span3" type="text" placeholder=".span3"></div>
+			<div class="controls controls-row">
+				<input class="span1" type="text" placeholder=".span1">
+				<input class="span4" type="text" placeholder=".span4"></div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="controls"&gt;
+			&lt;input class="span5" type="text" placeholder=".span5"&gt;
+		&lt;/div&gt;
+		&lt;div class="controls controls-row"&gt;
+			&lt;input class="span4" type="text" placeholder=".span4"&gt;
+			&lt;input class="span1" type="text" placeholder=".span1"&gt;
+		&lt;/div&gt;
+		...</pre>
+
+		<h3>不可编辑 inputs</h3>
+		<!-- <p>
+			Present data in a form that's not editable without using actual form markup.
+		</p> -->
+		<form class="bs-docs-example">
+			<span class="input-xlarge uneditable-input">Some value here</span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;</pre>
+
+		<h3>Form actions</h3>
+		<p>
+			在表单的后面有一组action按钮，将它们放置在
+			<code>.form-actions</code>
+			里面, 按钮将自动进行缩进成行
+		</p>
+		<form class="bs-docs-example">
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn">Cancel</button>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="form-actions"&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+			&lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;
+		&lt;/div&gt;</pre>
+
+		<h3>Help text</h3>
+		<!-- <p>
+			Inline and block level support for help text that appears around form controls.
+		</p> -->
+		<h4>inline help</h4>
+		<form class="bs-docs-example form-inline">
+			<input type="text">
+			<span class="help-inline">Inline help text</span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;</pre>
+
+		<h4>block help</h4>
+		<form class="bs-docs-example form-inline">
+			<input type="text">
+			<span class="help-block">
+				A longer block of help text that breaks onto a new line and may extend beyond one line.
+			</span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;</pre>
+
+		<hr class="bs-docs-separator">
+
+		<h2>表单控件状态</h2>
+		<!-- <p>
+			Provide feedback to users or visitors with basic feedback states on form controls and labels.
+		</p> -->
+
+		<h3>Input focus</h3>
+		<!-- <p>
+			We remove the default
+			<code>outline</code>
+			styles on some form controls and apply a
+			<code>box-shadow</code>
+			in its place for
+			<code>:focus</code>
+			.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused..."></form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;</pre>
+
+		<h3>无效的 inputs</h3>
+		<!-- <p>
+			Style inputs via default browser functionality with
+			<code>:invalid</code>
+			. Specify a
+			<code>type</code>
+			, add the
+			<code>required</code>
+			attribute if the field is not optional, and (if applicable) specify a
+			<code>pattern</code>
+			.
+		</p> -->
+		<!-- <p>
+			This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo selectors.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<input class="span3" type="email" placeholder="test@example.com" required></form>
+		<pre class="prettyprint linenums">&lt;input class="span3" type="email" required&gt;</pre>
+
+		<h3>Disabled inputs</h3>
+		<!-- <p>
+			Add the
+			<code>disabled</code>
+			attribute on an input to prevent user input and trigger a slightly different look.
+		</p> -->
+		<form class="bs-docs-example form-inline">
+			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled></form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
+
+		<h3>校验状态</h3>
+		<!-- <p>
+			Bootstrap includes validation styles for error, warning, info, and success messages. To use, add the appropriate class to the surrounding
+			<code>.control-group</code>
+			.
+		</p> -->
+
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group warning">
+				<label class="control-label" for="inputWarning">Input with warning</label>
+				<div class="controls">
+					<input type="text" id="inputWarning">
+					<span class="help-inline">Something may have gone wrong</span>
+				</div>
+			</div>
+			<div class="control-group error">
+				<label class="control-label" for="inputError">Input with error</label>
+				<div class="controls">
+					<input type="text" id="inputError">
+					<span class="help-inline">Please correct the error</span>
+				</div>
+			</div>
+			<div class="control-group info">
+				<label class="control-label" for="inputInfo">Input with info</label>
+				<div class="controls">
+					<input type="text" id="inputInfo">
+					<span class="help-inline">Username is taken</span>
+				</div>
+			</div>
+			<div class="control-group success">
+				<label class="control-label" for="inputSuccess">Input with success</label>
+				<div class="controls">
+					<input type="text" id="inputSuccess">
+					<span class="help-inline">Woohoo!</span>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="control-group warning"&gt;
+			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputWarning"&gt;
+				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group error"&gt;
+			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputError"&gt;
+				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group info"&gt;
+			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputInfo"&gt;
+				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="control-group success"&gt;
+			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputSuccess"&gt;
+				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+	</section>
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
+	<script src="../assets/js/jquery.js"></script>
+	<script src="../assets/js/bootstrap-transition.js"></script>
+	<script src="../assets/js/bootstrap-alert.js"></script>
+	<script src="../assets/js/bootstrap-modal.js"></script>
+	<script src="../assets/js/bootstrap-dropdown.js"></script>
+	<script src="../assets/js/bootstrap-scrollspy.js"></script>
+	<script src="../assets/js/bootstrap-tab.js"></script>
+	<script src="../assets/js/bootstrap-tooltip.js"></script>
+	<script src="../assets/js/bootstrap-popover.js"></script>
+	<script src="../assets/js/bootstrap-button.js"></script>
+	<script src="../assets/js/bootstrap-collapse.js"></script>
+	<script src="../assets/js/bootstrap-carousel.js"></script>
+	<script src="../assets/js/bootstrap-typeahead.js"></script>
+	<script src="../assets/js/bootstrap-affix.js"></script>
+
+	<!-- <script src="../assets/js/holder/holder.js"></script> -->
+	<script src="../assets/js/google-code-prettify/prettify.js"></script>
+
+	<script src="../assets/js/application.js"></script>
+</body>
+</html>
