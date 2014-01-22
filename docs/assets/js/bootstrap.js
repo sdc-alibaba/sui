@@ -942,7 +942,7 @@
           , ifNeedHide = true
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
         //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide == true || ifNeedHide == undefined){
+        if (ifNeedHide === true || ifNeedHide === undefined){
           this.hideReason = 'ok'
           this.hide(e)  
         } 
@@ -1123,7 +1123,7 @@
    */
   $.extend({
     _modal: function(dialogCfg, customCfg){
-      var modalId = +new Date
+      var modalId = +new Date()
         
         ,finalCfg = $.extend({}, $.fn.modal.defaults
           , dialogCfg
