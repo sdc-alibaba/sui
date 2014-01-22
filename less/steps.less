@@ -1,0 +1,102 @@
+.steps {
+    font-size: 0px;
+    > div {
+        width: @stepsBaseWidth;
+        height: @stepsBaseHeight;
+        position: relative;
+        display: inline-block;
+        line-height: @stepsBaseHeight;
+        vertical-align: top;
+        font-size: @baseFontSize;
+        > label {
+            margin-left: @stepsBaseHeight / 2 + 10px;
+            cursor: default;
+        }
+    }
+    .triangle-right {
+        display: inline-block;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: @stepsBaseHeight / 2;
+        position: absolute;
+        right: -@stepsBaseHeight;
+        z-index: 1;
+    }
+
+    .round {
+        display: inline-block;
+        width: @baseFontSize;  
+        height: @baseFontSize;
+        .border-radius(@baseFontSize / 2);
+        text-align: center;
+        line-height: @baseFontSize;
+        font-style: italic;
+    }
+    .finished {
+        background-color: @stepsFinishedColor;
+        color: @stepsFinishedTextColor;
+        > .triangle-right {
+            border-color: transparent transparent transparent @stepsFinishedColor;
+        }
+        .round {
+            background-color: @stepsCurrentColor;
+            background-color: transparent\9;
+            color: @white;
+        }
+    }
+    .current {
+        background-color: @stepsCurrentColor;
+        color: @stepsCurrentTextColor;
+        > .triangle-right {
+            border-color: transparent transparent transparent @stepsCurrentColor;
+        }
+        .round {
+            background-color: @white;
+            color: @stepsCurrentColor;
+            color: #FFF\9;
+            background-color: transparent\9;
+        }
+    }
+    .todo {
+        background-color: @stepsTodoColor;
+        color : @stepsTodoTextColor;
+        > .triangle-right {
+            border-color: transparent transparent transparent @stepsTodoColor;
+        }
+        .round {
+            background-color: @white;
+            background-color: transparent\9;
+        }
+    }
+}
+
+.steps-large {
+    > div {
+        font-size: @fontSizeLarge;
+        width: @stepsBaseWidth * 1.5;
+        height: @stepsBaseHeight * 1.5;
+        line-height: @stepsBaseHeight * 1.5;
+        > label {
+            font-size: @fontSizeLarge;
+            margin-left: @stepsBaseHeight * 1.5 / 2 + 10px;
+        }
+    }
+    .triangle-right {
+        border-width: @stepsBaseHeight * 1.5 / 2;
+        right: -@stepsBaseHeight * 1.5;
+    }
+    .round {
+        width: @fontSizeLarge;  
+        height: @fontSizeLarge;
+        line-height: @fontSizeLarge;
+        .border-radius(@fontSizeLarge / 2);
+    }
+}
+.steps-auto {
+    display: table;
+    width: 100%;
+    > div {
+        display: table-cell;
+    }
+}

@@ -6578,6 +6578,128 @@ a.badge:focus {
   line-height: 27px;
 }
 
+.steps {
+  font-size: 0;
+}
+
+.steps > div {
+  position: relative;
+  display: inline-block;
+  width: 195px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  vertical-align: top;
+}
+
+.steps > div > label {
+  margin-left: 22px;
+  cursor: default;
+}
+
+.steps .triangle-right {
+  position: absolute;
+  right: -24px;
+  z-index: 1;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px;
+}
+
+.steps .round {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  font-style: italic;
+  line-height: 12px;
+  text-align: center;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.steps .finished {
+  color: #4aa4d5;
+  background-color: #e4f6ff;
+}
+
+.steps .finished > .triangle-right {
+  border-color: transparent transparent transparent #e4f6ff;
+}
+
+.steps .finished .round {
+  color: #ffffff;
+  background-color: #0995e0;
+  background-color: transparent\9;
+}
+
+.steps .current {
+  color: #ffffff;
+  background-color: #0995e0;
+}
+
+.steps .current > .triangle-right {
+  border-color: transparent transparent transparent #0995e0;
+}
+
+.steps .current .round {
+  color: #0995e0;
+  color: #FFF\9;
+  background-color: #ffffff;
+  background-color: transparent\9;
+}
+
+.steps .todo {
+  color: #999999;
+  background-color: #f5f5f5;
+}
+
+.steps .todo > .triangle-right {
+  border-color: transparent transparent transparent #f5f5f5;
+}
+
+.steps .todo .round {
+  background-color: #ffffff;
+  background-color: transparent\9;
+}
+
+.steps-large > div {
+  width: 292.5px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+}
+
+.steps-large > div > label {
+  margin-left: 28px;
+  font-size: 14px;
+}
+
+.steps-large .triangle-right {
+  right: -36px;
+  border-width: 18px;
+}
+
+.steps-large .round {
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  -webkit-border-radius: 7px;
+     -moz-border-radius: 7px;
+          border-radius: 7px;
+}
+
+.steps-auto {
+  display: table;
+  width: 100%;
+}
+
+.steps-auto > div {
+  display: table-cell;
+}
+
 .pull-right {
   float: right;
 }
