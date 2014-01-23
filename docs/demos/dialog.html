@@ -8,17 +8,20 @@
 <body data-a="a" data-b="b" data-c="{cc:1,ccc:2}">
   <h1>dialog(bootstrap中命名为Modal)</h1>
   <hr>
-  <h3>无js触发</h3>
+  <h3>无js触发,确定按钮对应html添加data-ok="modal"属性</h3>
   <p>
   data-属性都是必须的。也可通过$('xx').modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>
   </p>
+  <p>
+    涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可
+  </p>
   <textarea  cols="200" rows="20">
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="true">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="false">
       dialog 有html
     </button>
 
     <!-- Modal -->
-    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -38,7 +41,7 @@
   </textarea>
   <h3>demo</h3>
   <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="true">
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="false">
   dialog 有html
 </button>
 
@@ -55,10 +58,13 @@ jquery弹层静态方法，用于很少重复，不需记住状态的弹层，�
    * 
    * example
    * $.alert({
+      backdrop: true   true/false表示蒙层是黑／白 半透明
+   *  keyboard: true   是否可由esc按键关闭
    *  title: '自定义标题'
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  hasfoot: {Boolean}  是否显示脚部  默认true
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  show:     fn --------------function(e){}
@@ -106,7 +112,7 @@ jquery弹层静态方法，用于很少重复，不需记住状态的弹层，�
 </button>
 
 <!-- Modal -->
-<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog">
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
