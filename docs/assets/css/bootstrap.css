@@ -4397,7 +4397,12 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs {
+  padding-left: 20px;
   border-bottom: 1px solid #2597dd;
+}
+
+.nav-tabs > li {
+  margin-bottom: -1px;
 }
 
 .nav-tabs > li > a {
@@ -4406,7 +4411,7 @@ input[type="submit"].btn.btn-mini {
   color: #666666;
   background-color: #f9f9f9;
   border: 1px solid #999999;
-  border-bottom: 0;
+  border-bottom-color: #2597dd;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
@@ -4418,7 +4423,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs > li + li > a {
-  border-left: 0;
+  margin-left: -1px;
 }
 
 .nav-tabs.nav-tabs-large > li > a {
@@ -4433,15 +4438,18 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 0;
 }
 
+.nav-tabs > .active + li > a {
+  border-left-color: #2597dd;
+}
+
 .nav-tabs > .active > a {
-  position: relative;
-  top: 1px;
   margin-top: -1px;
   font-weight: bold;
   color: #666666;
   cursor: default;
   background-color: #ffffff;
   border-top: 2px solid #2597dd;
+  border-color: #2597dd;
   border-bottom-color: transparent;
 }
 
