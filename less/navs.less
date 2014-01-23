@@ -141,7 +141,7 @@
 // Active state, and it's :hover/:focus to override normal :hover/:focus
   > .active {
     border-bottom: 0;
-    & > a, & + li > a {
+    & + li > a {
       border-left-color: @navTabsBorderHighlightColor;
     }
     & > a {
@@ -149,6 +149,7 @@
       font-weight: bold;
       background-color: @bodyBackground;
       border-top: 2px solid  @navTabsBorderHighlightColor;
+      border-color: @navTabsBorderHighlightColor;
       margin-top: -1px;
       border-bottom-color: transparent;
       cursor: default;

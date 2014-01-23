@@ -4455,7 +4455,6 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 0;
 }
 
-.nav-tabs > .active > a,
 .nav-tabs > .active + li > a {
   border-left-color: #2597dd;
 }
@@ -4467,6 +4466,7 @@ input[type="submit"].btn.btn-mini {
   cursor: default;
   background-color: #ffffff;
   border-top: 2px solid #2597dd;
+  border-color: #2597dd;
   border-bottom-color: transparent;
 }
 
