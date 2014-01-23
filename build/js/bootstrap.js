@@ -838,8 +838,8 @@
                 + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
-              + '<div class="modal-body ' + (options.hasFoot ? '' : 'no-foot') + '">{%body%}</div>'
-              + (options.hasFoot ? '<div class="modal-footer">'
+              + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
+              + (options.hasfoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
                 + '<button type="button" class="btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
                 + (options.cancelBtn ? '<button type="button" class="btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
@@ -847,7 +847,6 @@
             + '</div>'
           + '</div>'
         + '</div>';
-
       element = $(TPL.replace('{%title%}', options.title)
                       .replace('{%body%}', options.body)
                       .replace('{%id%}', options.id)
@@ -935,6 +934,7 @@
         this.isShown = false
         this.escape()
         $(document).off('focusin.modal')
+        that.timeid && clearTimeout(that.timeid)
         this.$element
           .removeClass('in')
           .attr('aria-hidden', true)
@@ -997,7 +997,6 @@
           ele.trigger('hidden')
           //销毁静态方法生成的dialog元素
           ele.data('hidetype') == 'remove' && ele.remove()
-          that.timeid && clearTimeout(that.timeid)
         })
       }
 
@@ -1067,8 +1066,7 @@
   $.fn.modal.defaults = {
       backdrop: true
     , keyboard: true
-    , show: true
-    , hasFoot: true
+    , hasfoot: true
   }
 
   $.fn.modal.Constructor = Modal
@@ -1111,7 +1109,7 @@
    *  cancelBtn : '雅达'
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
-   *  hasFoot: {Boolean}  是否显示脚部  默认true
+   *  hasfoot: {Boolean}  是否显示脚部  默认true
    *  show:     fn --------------function(e){}
    *  shown:    fn
    *  hide:     fn
