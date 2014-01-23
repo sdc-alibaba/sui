@@ -5363,7 +5363,7 @@ input[type="submit"].btn.btn-mini {
 .pagination ul > li > span {
   position: relative;
   float: left;
-  padding: 4px 10px;
+  padding: 2px 8px;
   margin-left: -1px;
   line-height: 18px;
   color: #0066cc;
@@ -5487,6 +5487,8 @@ input[type="submit"].btn.btn-mini {
 
 .pagination div .page-num {
   width: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   margin: 0;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
@@ -5498,10 +5500,136 @@ input[type="submit"].btn.btn-mini {
 }
 
 .pagination div .page-num + .page-confirm {
+  display: inline-block;
+  padding: 2px 14px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: #333333;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
   vertical-align: top;
+  cursor: pointer;
+  background-color: #eeeeee;
+  background-color: #3097dd;
+  border: 1px solid #e1e1e1;
+  border: 1px solid #228ad1;
+  -webkit-border-radius: 2px;
   -webkit-border-radius: 0;
+     -moz-border-radius: 2px;
      -moz-border-radius: 0;
-          border-radius: 0;
+          border-radius: 2px;
+  border-radius: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination div .page-num + .page-confirm:hover,
+.pagination div .page-num + .page-confirm:focus {
+  color: #333333;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
+.pagination div .page-num + .page-confirm.disabled,
+.pagination div .page-num + .page-confirm[disabled],
+.pagination div .page-num + .page-confirm.disabled:hover,
+.pagination div .page-num + .page-confirm[disabled]:hover,
+.pagination div .page-num + .page-confirm.disabled:focus,
+.pagination div .page-num + .page-confirm[disabled]:focus,
+.pagination div .page-num + .page-confirm.disabled:active,
+.pagination div .page-num + .page-confirm[disabled]:active,
+.pagination div .page-num + .page-confirm.disabled.active,
+.pagination div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination div .page-num + .page-confirm:active,
+.pagination div .page-num + .page-confirm.active {
+  background-color: #e1e1e1;
+  border: 1px solid #d5d5d5;
+}
+
+.pagination div .page-num + .page-confirm:hover,
+.pagination div .page-num + .page-confirm:focus {
+  color: #333333;
+  text-decoration: none;
+}
+
+.pagination div .page-num + .page-confirm:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
+  outline-offset: -2px;
+}
+
+.pagination div .page-num + .page-confirm.active,
+.pagination div .page-num + .page-confirm:active {
+  background-image: none;
+}
+
+.pagination div .page-num + .page-confirm.disabled,
+.pagination div .page-num + .page-confirm[disabled] {
+  cursor: default;
+  background-image: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination div .page-num + .page-confirm .glyphicon {
+  font-size: 12px;
+}
+
+.pagination div .page-num + .page-confirm .label,
+.pagination div .page-num + .page-confirm .badge {
+  position: relative;
+  top: -1px;
+}
+
+.pagination div .page-num + .page-confirm:hover,
+.pagination div .page-num + .page-confirm:focus {
+  color: #ffffff;
+  background-color: #37a7ec;
+  border: 1px solid #209dea;
+}
+
+.pagination div .page-num + .page-confirm.disabled,
+.pagination div .page-num + .page-confirm[disabled],
+.pagination div .page-num + .page-confirm.disabled:hover,
+.pagination div .page-num + .page-confirm[disabled]:hover,
+.pagination div .page-num + .page-confirm.disabled:focus,
+.pagination div .page-num + .page-confirm[disabled]:focus,
+.pagination div .page-num + .page-confirm.disabled:active,
+.pagination div .page-num + .page-confirm[disabled]:active,
+.pagination div .page-num + .page-confirm.disabled.active,
+.pagination div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination div .page-num + .page-confirm:active,
+.pagination div .page-num + .page-confirm.active {
+  background-color: #228ad1;
+  border: 1px solid #1f7cbb;
+}
+
+.pagination div .page-num + .page-confirm .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .pagination div .page-num:focus {
@@ -5547,20 +5675,457 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-large ul > li > a,
 .pagination-large ul > li > span {
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.pagination-large div {
+  font-size: 14px;
+}
+
+.pagination-large div .page-num {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.pagination-large div .page-num + .page-confirm {
+  display: inline-block;
+  padding: 2px 14px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 18px;
+  line-height: 22px;
+  color: #333333;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: #eeeeee;
+  background-color: #3097dd;
+  border: 1px solid #e1e1e1;
+  border: 1px solid #228ad1;
+  -webkit-border-radius: 2px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 2px;
+     -moz-border-radius: 0;
+          border-radius: 2px;
+  border-radius: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-large div .page-num + .page-confirm:hover,
+.pagination-large div .page-num + .page-confirm:focus {
+  color: #333333;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
+.pagination-large div .page-num + .page-confirm.disabled,
+.pagination-large div .page-num + .page-confirm[disabled],
+.pagination-large div .page-num + .page-confirm.disabled:hover,
+.pagination-large div .page-num + .page-confirm[disabled]:hover,
+.pagination-large div .page-num + .page-confirm.disabled:focus,
+.pagination-large div .page-num + .page-confirm[disabled]:focus,
+.pagination-large div .page-num + .page-confirm.disabled:active,
+.pagination-large div .page-num + .page-confirm[disabled]:active,
+.pagination-large div .page-num + .page-confirm.disabled.active,
+.pagination-large div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-large div .page-num + .page-confirm:active,
+.pagination-large div .page-num + .page-confirm.active {
+  background-color: #e1e1e1;
+  border: 1px solid #d5d5d5;
+}
+
+.pagination-large div .page-num + .page-confirm:hover,
+.pagination-large div .page-num + .page-confirm:focus {
+  color: #333333;
+  text-decoration: none;
+}
+
+.pagination-large div .page-num + .page-confirm:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
+  outline-offset: -2px;
+}
+
+.pagination-large div .page-num + .page-confirm.active,
+.pagination-large div .page-num + .page-confirm:active {
+  background-image: none;
+}
+
+.pagination-large div .page-num + .page-confirm.disabled,
+.pagination-large div .page-num + .page-confirm[disabled] {
+  cursor: default;
+  background-image: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-large div .page-num + .page-confirm .glyphicon {
+  font-size: 12px;
+}
+
+.pagination-large div .page-num + .page-confirm .label,
+.pagination-large div .page-num + .page-confirm .badge {
+  position: relative;
+  top: -1px;
+}
+
+.pagination-large div .page-num + .page-confirm,
+.pagination-large div .page-num + .page-confirm .glyphicon {
+  font-size: 14px;
+}
+
+.pagination-large div .page-num + .page-confirm:hover,
+.pagination-large div .page-num + .page-confirm:focus {
+  color: #ffffff;
+  background-color: #37a7ec;
+  border: 1px solid #209dea;
+}
+
+.pagination-large div .page-num + .page-confirm.disabled,
+.pagination-large div .page-num + .page-confirm[disabled],
+.pagination-large div .page-num + .page-confirm.disabled:hover,
+.pagination-large div .page-num + .page-confirm[disabled]:hover,
+.pagination-large div .page-num + .page-confirm.disabled:focus,
+.pagination-large div .page-num + .page-confirm[disabled]:focus,
+.pagination-large div .page-num + .page-confirm.disabled:active,
+.pagination-large div .page-num + .page-confirm[disabled]:active,
+.pagination-large div .page-num + .page-confirm.disabled.active,
+.pagination-large div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-large div .page-num + .page-confirm:active,
+.pagination-large div .page-num + .page-confirm.active {
+  background-color: #228ad1;
+  border: 1px solid #1f7cbb;
+}
+
+.pagination-large div .page-num + .page-confirm .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.pagination-xlarge ul > li > a,
+.pagination-xlarge ul > li > span {
   padding: 6px 12px;
   font-size: 14px;
 }
 
-.pagination-small ul > li > a,
-.pagination-small ul > li > span {
-  padding: 2px 8px;
+.pagination-xlarge div .page-num {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.pagination-xlarge div .page-num + .page-confirm {
+  display: inline-block;
+  padding: 2px 14px;
+  padding: 4px 20px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 18px;
+  line-height: 22px;
+  color: #333333;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: #eeeeee;
+  background-color: #3097dd;
+  border: 1px solid #e1e1e1;
+  border: 1px solid #228ad1;
+  -webkit-border-radius: 2px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 2px;
+     -moz-border-radius: 0;
+          border-radius: 2px;
+  border-radius: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:hover,
+.pagination-xlarge div .page-num + .page-confirm:focus {
+  color: #333333;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
+.pagination-xlarge div .page-num + .page-confirm.disabled,
+.pagination-xlarge div .page-num + .page-confirm[disabled],
+.pagination-xlarge div .page-num + .page-confirm.disabled:hover,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:hover,
+.pagination-xlarge div .page-num + .page-confirm.disabled:focus,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:focus,
+.pagination-xlarge div .page-num + .page-confirm.disabled:active,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:active,
+.pagination-xlarge div .page-num + .page-confirm.disabled.active,
+.pagination-xlarge div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:active,
+.pagination-xlarge div .page-num + .page-confirm.active {
+  background-color: #e1e1e1;
+  border: 1px solid #d5d5d5;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:hover,
+.pagination-xlarge div .page-num + .page-confirm:focus {
+  color: #333333;
+  text-decoration: none;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
+  outline-offset: -2px;
+}
+
+.pagination-xlarge div .page-num + .page-confirm.active,
+.pagination-xlarge div .page-num + .page-confirm:active {
+  background-image: none;
+}
+
+.pagination-xlarge div .page-num + .page-confirm.disabled,
+.pagination-xlarge div .page-num + .page-confirm[disabled] {
+  cursor: default;
+  background-image: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-xlarge div .page-num + .page-confirm .glyphicon {
   font-size: 12px;
 }
 
-.pagination-mini ul > li > a,
-.pagination-mini ul > li > span {
+.pagination-xlarge div .page-num + .page-confirm .label,
+.pagination-xlarge div .page-num + .page-confirm .badge {
+  position: relative;
+  top: -1px;
+}
+
+.pagination-xlarge div .page-num + .page-confirm,
+.pagination-xlarge div .page-num + .page-confirm .glyphicon {
+  font-size: 14px;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:hover,
+.pagination-xlarge div .page-num + .page-confirm:focus {
+  color: #ffffff;
+  background-color: #37a7ec;
+  border: 1px solid #209dea;
+}
+
+.pagination-xlarge div .page-num + .page-confirm.disabled,
+.pagination-xlarge div .page-num + .page-confirm[disabled],
+.pagination-xlarge div .page-num + .page-confirm.disabled:hover,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:hover,
+.pagination-xlarge div .page-num + .page-confirm.disabled:focus,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:focus,
+.pagination-xlarge div .page-num + .page-confirm.disabled:active,
+.pagination-xlarge div .page-num + .page-confirm[disabled]:active,
+.pagination-xlarge div .page-num + .page-confirm.disabled.active,
+.pagination-xlarge div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-xlarge div .page-num + .page-confirm:active,
+.pagination-xlarge div .page-num + .page-confirm.active {
+  background-color: #228ad1;
+  border: 1px solid #1f7cbb;
+}
+
+.pagination-xlarge div .page-num + .page-confirm .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.pagination-small ul > li > a,
+.pagination-small ul > li > span {
   padding: 0 6px;
   font-size: 12px;
+}
+
+.pagination-small div .page-num {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.pagination-small div .page-num + .page-confirm {
+  display: inline-block;
+  padding: 2px 14px;
+  padding: 0 6px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: #333333;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: #eeeeee;
+  background-color: #3097dd;
+  border: 1px solid #e1e1e1;
+  border: 1px solid #228ad1;
+  -webkit-border-radius: 2px;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 2px;
+     -moz-border-radius: 0;
+          border-radius: 2px;
+  border-radius: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-small div .page-num + .page-confirm:hover,
+.pagination-small div .page-num + .page-confirm:focus {
+  color: #333333;
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
+.pagination-small div .page-num + .page-confirm.disabled,
+.pagination-small div .page-num + .page-confirm[disabled],
+.pagination-small div .page-num + .page-confirm.disabled:hover,
+.pagination-small div .page-num + .page-confirm[disabled]:hover,
+.pagination-small div .page-num + .page-confirm.disabled:focus,
+.pagination-small div .page-num + .page-confirm[disabled]:focus,
+.pagination-small div .page-num + .page-confirm.disabled:active,
+.pagination-small div .page-num + .page-confirm[disabled]:active,
+.pagination-small div .page-num + .page-confirm.disabled.active,
+.pagination-small div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-small div .page-num + .page-confirm:active,
+.pagination-small div .page-num + .page-confirm.active {
+  background-color: #e1e1e1;
+  border: 1px solid #d5d5d5;
+}
+
+.pagination-small div .page-num + .page-confirm:hover,
+.pagination-small div .page-num + .page-confirm:focus {
+  color: #333333;
+  text-decoration: none;
+}
+
+.pagination-small div .page-num + .page-confirm:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
+  outline-offset: -2px;
+}
+
+.pagination-small div .page-num + .page-confirm.active,
+.pagination-small div .page-num + .page-confirm:active {
+  background-image: none;
+}
+
+.pagination-small div .page-num + .page-confirm.disabled,
+.pagination-small div .page-num + .page-confirm[disabled] {
+  cursor: default;
+  background-image: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}
+
+.pagination-small div .page-num + .page-confirm .glyphicon {
+  font-size: 12px;
+}
+
+.pagination-small div .page-num + .page-confirm .label,
+.pagination-small div .page-num + .page-confirm .badge {
+  position: relative;
+  top: -1px;
+}
+
+.pagination-small div .page-num + .page-confirm,
+.pagination-small div .page-num + .page-confirm .glyphicon {
+  font-size: 12px;
+}
+
+.pagination-small div .page-num + .page-confirm:hover,
+.pagination-small div .page-num + .page-confirm:focus {
+  color: #ffffff;
+  background-color: #37a7ec;
+  border: 1px solid #209dea;
+}
+
+.pagination-small div .page-num + .page-confirm.disabled,
+.pagination-small div .page-num + .page-confirm[disabled],
+.pagination-small div .page-num + .page-confirm.disabled:hover,
+.pagination-small div .page-num + .page-confirm[disabled]:hover,
+.pagination-small div .page-num + .page-confirm.disabled:focus,
+.pagination-small div .page-num + .page-confirm[disabled]:focus,
+.pagination-small div .page-num + .page-confirm.disabled:active,
+.pagination-small div .page-num + .page-confirm[disabled]:active,
+.pagination-small div .page-num + .page-confirm.disabled.active,
+.pagination-small div .page-num + .page-confirm[disabled].active {
+  color: #c6c6c6;
+  background-color: #f3f3f3;
+  border-color: #e6e6e6;
+}
+
+.pagination-small div .page-num + .page-confirm:active,
+.pagination-small div .page-num + .page-confirm.active {
+  background-color: #228ad1;
+  border: 1px solid #1f7cbb;
+}
+
+.pagination-small div .page-num + .page-confirm .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 .pager {
