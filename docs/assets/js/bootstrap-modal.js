@@ -25,12 +25,12 @@
                 + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
-              + '<div class="modal-body">{%body%}</div>'
-              + '<div class="modal-footer">'
+              + '<div class="modal-body ' + (options.hasFoot ? '' : 'no-foot') + '">{%body%}</div>'
+              + (options.hasFoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
                 + '<button type="button" class="btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
                 + (options.cancelBtn ? '<button type="button" class="btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
-              + '</div>'
+              + '</div>' : '')
             + '</div>'
           + '</div>'
         + '</div>';
@@ -74,25 +74,30 @@
     , show: function () {
         var that = this
           , e = $.Event('show')
-        this.$element.trigger(e)
+          , ele = this.$element
+        ele.trigger(e)
         if (this.isShown || e.isDefaultPrevented()) return
         this.isShown = true
         this.escape()
         this.backdrop(function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
-          if (!that.$element.parent().length) {
-            that.$element.appendTo(document.body) //don't move modals dom position
+          var transition = $.support.transition && ele.hasClass('fade')
+          if (!ele.parent().length) {
+            ele.appendTo(document.body) //don't move modals dom position
           }
-          that.$element.show()
+          var h = ele.height()
+          if (h > 270) {
+            ele.css('margin-top', -parseInt(h) / 2)
+          }
+          ele.show()
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            ele[0].offsetWidth // force reflow
           }
-          that.$element
+          ele
             .addClass('in')
             .attr('aria-hidden', false)
           that.enforceFocus()
           transition ?
-            that.$element.one($.support.transition.end, function () { 
+            ele.one($.support.transition.end, function () { 
               callbackAfterTransition(that)
             }) :
             callbackAfterTransition(that)
@@ -192,34 +197,29 @@
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
+          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
           this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
-          //遮罩层背景不透明
-          if (opt.backdrop) {
-            var doAnimate = $.support.transition && animate
-            this.$backdrop.click(
-              opt.backdrop == 'static' ?
-                $.proxy(this.$element[0].focus, this.$element[0])
-              : $.proxy(this.hide, this)
-            )
-            if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-            this.$backdrop.addClass('in')
-            if (!callback) return
-            doAnimate ?
-              this.$backdrop.one($.support.transition.end, callback) :
-              callback()
-          //遮罩层背景透明
-          } else {
-            callback && callback();
-          }
+          //遮罩层背景黑色半透明
+          var doAnimate = $.support.transition && animate
+          this.$backdrop.click(
+            opt.backdrop == 'static' ?
+              $.proxy(this.$element[0].focus, this.$element[0])
+            : $.proxy(this.hide, this)
+          )
+          if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+          this.$backdrop.addClass('in ' + cls)
+          if (!callback) return
+          doAnimate ?
+            this.$backdrop.one($.support.transition.end, callback) :
+            callback()
         } else if (!this.isShown && this.$backdrop) {
           if (this.$backdrop.hasClass('in')) {
             this.$backdrop.removeClass('in')
             $.support.transition && this.$element.hasClass('fade')?
               this.$backdrop.one($.support.transition.end, callback) :
               callback()
-          //若是全透明的遮罩层，则直接执行回调
           } else {
             callback && callback();
           }
@@ -247,7 +247,7 @@
 
       //如果是$('#xx').modal('toggle'),务必保证传入的字符串是Modal类原型链里已存在的方法。否则会报错has no method。
       if (typeof option == 'string') data[option]()
-      else if (options.show) data.show()
+      else data.show()
     })
   }
 
@@ -255,6 +255,7 @@
       backdrop: true
     , keyboard: true
     , show: true
+    , hasFoot: true
   }
 
   $.fn.modal.Constructor = Modal
@@ -297,6 +298,7 @@
    *  cancelBtn : '雅达'
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
+   *  hasFoot: {Boolean}  是否显示脚部  默认true
    *  show:     fn --------------function(e){}
    *  shown:    fn
    *  hide:     fn
