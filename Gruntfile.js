@@ -104,12 +104,16 @@ module.exports = function(grunt) {
     copy: {
       docs: { //doc 必须依赖于bootstap.min.js
         files: [
-          { expand: true, src: ['img/*'], dest: '<%= docsRoot %>/assets/' },
           { expand: true, src: ['js/*.js'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, src: ['fonts/*'], dest: '<%= docsRoot %>/assets/' },
+          { expand: true, src: ['fonts/*'], dest: '<%= docsRoot %>/assets/css/' },
           { expand: true, cwd: 'js/test/vendor/', src:['jquery.js'], dest: '<%= docsRoot %>/assets/js/' },
           { expand: true, cwd: '<%= distRoot %>/js/', src: ['*.js'], dest: '<%= docsRoot %>/assets/js/' },
           { expand: true, cwd: '<%= distRoot %>/css/', src: ['*.css'], dest: '<%= docsRoot %>/assets/css/' }
+        ]
+      },
+      fonts: {
+        files: [
+          { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
       }
     },
@@ -174,9 +178,12 @@ module.exports = function(grunt) {
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
 
+  // CSS distribution task.
+  grunt.registerTask('dist-fonts', ['copy:fonts']);
+
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
-  grunt.registerTask('docs', ['dist', 'hogan', 'copy', 'jade']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-fonts']);
+  grunt.registerTask('docs', ['dist', 'hogan', 'copy:docs', 'jade']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);
