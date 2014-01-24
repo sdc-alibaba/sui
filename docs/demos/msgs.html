@@ -24,7 +24,9 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="../assets/ico/favicon.png">
-
+<style type="text/css">
+p { margin: 0;}
+</style>
 </head>
 
 <body style="padding: 20px 50px 50px;">
@@ -39,59 +41,406 @@
 		<h1>dpl组件</h1>
 		<hr class="bs-docs-separator">
 
-		<h2>小号msgs</h2>
+		<h2>默认尺寸（小尺寸）</h2>
 		<form class="bs-docs-example form-horizontal">
-			<span class="msg"><span class="error">错误信息提示</span></span>
-			<span class="msg"><span class="stop">禁止信息提示</span></span>
-			<span class="msg"><span class="ok">成功信息提示</span></span>
-			<span class="msg"><span class="alert">警示信息提示</span></span>
-			<span class="msg"><span class="notice">公告信息提示</span></span>
-			<span class="msg"><span class="tips">提示信息提示</span></span>
-			<span class="msg"><span class="attention">提醒信息提示</span></span>
-			<span class="msg"><span class="question">疑问信息提示</span></span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="msg"&gt;&lt;span class="error"&gt;错误信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="stop"&gt;禁止信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="ok"&gt;成功信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="alert"&gt;警示信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="notice"&gt;公告信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="tips"&gt;提示信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="attention"&gt;提醒信息提示&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg"&gt;&lt;span class="question"&gt;疑问信息提示&lt;/span&gt;&lt;/span&gt;</pre>
+			<div class="msg">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
 
-		<h2>大号msgs</h2>
-		<form class="bs-docs-example form-horizontal">
-			<span class="msg24"><span class="error">error</span></span>
-			<span class="msg24"><span class="attention">attention</span></span>
-			<span class="msg24"><span class="tips">tips</span></span>
-			<span class="msg24"><span class="ok">ok</span></span>
-			<span class="msg24"><span class="question">question</span></span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="msg24"&gt;&lt;span class="error"&gt;error&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24"&gt;&lt;span class="attention"&gt;attention&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24"&gt;&lt;span class="tips"&gt;tips&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24"&gt;&lt;span class="ok"&gt;ok&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24"&gt;&lt;span class="question"&gt;question&lt;/span&gt;&lt;/span&gt;</pre>
+			<br /><br />
 
-		<h2>去边框去底色msgs</h2>
-		<form class="bs-docs-example form-horizontal">
-			<span class="msg"><span class="error naked">naked</span></span>
-			<span class="msg24"><span class="error naked">naked</span></span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="msg"&gt;&lt;span class="error naked"&gt;naked&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24"&gt;&lt;span class="error naked"&gt;naked&lt;/span&gt;&lt;/span&gt;</pre>
+			<div class="msg">
+				<div class="msg-con msg-stop">
+					禁止信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
 
-		<h2>块级msgs</h2>
-		<form class="bs-docs-example form-horizontal">
-			<span class="msg msg-block"><span class="error">msg-block</span></span>
-			<span class="msg24 msg24-block"><span class="error">msg24-block</span></span>
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-ok">
+					成功信息提示#4ab933
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-alert">
+					警示信息提示#cf700b
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-notice">
+					公告信息提示#ee9f28
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-tips">
+					提示信息提示#ee9f28
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-attention">
+					提醒信息提示#ca9ed5
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg">
+				<div class="msg-con msg-question">
+					疑问信息提示#333333
+					<b class="msg-ico"></b>
+				</div>
+			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;span class="msg msg-block"&gt;&lt;span class="error"&gt;msg-block&lt;/span&gt;&lt;/span&gt;
-		&lt;span class="msg24 msg24-block"&gt;&lt;span class="error"&gt;msg24-block&lt;/span&gt;&lt;/span&gt;</pre>
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-stop"&gt;
+				禁止信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-ok"&gt;
+				成功信息提示#4ab933
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-alert"&gt;
+				警示信息提示#cf700b
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-notice"&gt;
+				公告信息提示#ee9f28
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-tips"&gt;
+				提示信息提示#ee9f28
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-attention"&gt;
+				提醒信息提示#ca9ed5
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-question"&gt;
+				疑问信息提示#333333
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+
+		<h2>大尺寸</h2>
+		<form class="bs-docs-example form-horizontal">
+			<div class="msg msg-large">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-stop">
+					禁止信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-ok">
+					成功信息提示#4ab933
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-alert">
+					警示信息提示#cf700b
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-notice">
+					公告信息提示#ee9f28
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-tips">
+					提示信息提示#ee9f28
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-attention">
+					提醒信息提示#ca9ed5
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-question">
+					疑问信息提示#333333
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-stop"&gt;
+				禁止信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-ok"&gt;
+				成功信息提示#4ab933
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-alert"&gt;
+				警示信息提示#cf700b
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-notice"&gt;
+				公告信息提示#ee9f28
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-tips"&gt;
+				提示信息提示#ee9f28
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-attention"&gt;
+				提醒信息提示#ca9ed5
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-question"&gt;
+				疑问信息提示#333333
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+
+		<h2>成块级</h2>
+		<form class="bs-docs-example form-horizontal">
+			<div class="msg msg-block">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br />
+
+			<div class="msg msg-large msg-block">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="msg msg-block"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg msg-large msg-block"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+
+		<h2>默认字体颜色</h2>
+		<form class="bs-docs-example form-horizontal">
+			<div class="msg msg-default">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large msg-default">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="msg msg-default"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg msg-large msg-default"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+
+		<h2>去边框和底色</h2>
+		<form class="bs-docs-example form-horizontal">
+			<div class="msg msg-naked">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large msg-naked">
+				<div class="msg-con msg-error">
+					错误信息提示#ea4a36
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="msg msg-naked"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg msg-large msg-naked"&gt;
+			&lt;div class="msg-con msg-error"&gt;
+				错误信息提示#ea4a36
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
+
+		<h2>多行模式</h2>
+		<form class="bs-docs-example form-horizontal">
+			<div class="msg">
+				<div class="msg-con msg-question">
+					多行提示展示
+					<p>
+						1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+						2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+					</p>
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+
+			<br /><br />
+
+			<div class="msg msg-large">
+				<div class="msg-con msg-question">
+					多行提示展示
+					<p>
+						1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+						2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+					</p>
+					<b class="msg-ico"></b>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="msg"&gt;
+			&lt;div class="msg-con msg-question"&gt;
+				多行提示展示
+				&lt;p&gt;
+					1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示&lt;br /&gt;
+					2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+				&lt;/p&gt;
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="msg msg-large"&gt;
+			&lt;div class="msg-con msg-question"&gt;
+				多行提示展示
+				&lt;p&gt;
+					1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示&lt;br /&gt;
+					2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+				&lt;/p&gt;
+				&lt;b class="msg-ico"&gt;&lt;/b&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		</pre>
 	</section>
 
 	<!-- Le javascript

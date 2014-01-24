@@ -87,7 +87,8 @@ input[type="color"],
   // margin-bottom: @baseLineHeight / 2; // 注释掉这一行，保持控件默认margin-bottom值为auto @by kai 2014-01-16
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
-  color: @gray;
+  // color: @gray;
+  color: @grayDark; // 更新默认颜色值为@grayDark @by kai 2014-01-16
   .border-radius(@inputBorderRadius);
   vertical-align: middle;
 }
@@ -130,7 +131,7 @@ input[type="color"],
     border-color: rgba(82,168,236,.8);
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+    // .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");  // 注释掉字段焦点外发光效果 @by kai 2014-01-23
   }
 }
 
@@ -313,6 +314,102 @@ select.input-fat { height: 28px; }
 select.input-xfat { height: 32px; }
 
 
+// 定义文本字段四态 @by kai 2014-01-16
+// -------------------------
+
+// Warning
+textarea.input-warning,
+input[type="text"].input-warning,
+input[type="password"].input-warning,
+input[type="datetime"].input-warning,
+input[type="datetime-local"].input-warning,
+input[type="date"].input-warning,
+input[type="month"].input-warning,
+input[type="time"].input-warning,
+input[type="week"].input-warning,
+input[type="number"].input-warning,
+input[type="email"].input-warning,
+input[type="url"].input-warning,
+input[type="search"].input-warning,
+input[type="tel"].input-warning,
+input[type="color"].input-warning,
+.input-warning {
+  .inputFieldState(@warningText, @warningText, @warningBackground);
+  background-image: url(http://gtms03.alicdn.com/tps/i3/T1yPpOFsxbXXXTOpDa-20-16.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+// Error
+textarea.input-error,
+input[type="text"].input-error,
+input[type="password"].input-error,
+input[type="datetime"].input-error,
+input[type="datetime-local"].input-error,
+input[type="date"].input-error,
+input[type="month"].input-error,
+input[type="time"].input-error,
+input[type="week"].input-error,
+input[type="number"].input-error,
+input[type="email"].input-error,
+input[type="url"].input-error,
+input[type="search"].input-error,
+input[type="tel"].input-error,
+input[type="color"].input-error,
+.input-error {
+  .inputFieldState(@errorText, @errorText, @errorBackground);
+  background-image: url(http://gtms01.alicdn.com/tps/i1/T1ps8OFqpcXXXTOpDa-20-16.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+// Success
+textarea.input-success,
+input[type="text"].input-success,
+input[type="password"].input-success,
+input[type="datetime"].input-success,
+input[type="datetime-local"].input-success,
+input[type="date"].input-success,
+input[type="month"].input-success,
+input[type="time"].input-success,
+input[type="week"].input-success,
+input[type="number"].input-success,
+input[type="email"].input-success,
+input[type="url"].input-success,
+input[type="search"].input-success,
+input[type="tel"].input-success,
+input[type="color"].input-success,
+.input-success {
+  .inputFieldState(@successText, @successText, @successBackground);
+  background-image: url(http://gtms02.alicdn.com/tps/i2/T1AGVMFAlcXXXTOpDa-20-16.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+// Info
+textarea.input-info,
+input[type="text"].input-info,
+input[type="password"].input-info,
+input[type="datetime"].input-info,
+input[type="datetime-local"].input-info,
+input[type="date"].input-info,
+input[type="month"].input-info,
+input[type="time"].input-info,
+input[type="week"].input-info,
+input[type="number"].input-info,
+input[type="email"].input-info,
+input[type="url"].input-info,
+input[type="search"].input-info,
+input[type="tel"].input-info,
+input[type="color"].input-info,
+.input-info {
+  .inputFieldState(@infoText, @infoBorder, @infoBackground);
+  background-image: url(http://gtms04.alicdn.com/tps/i4/T13WpPFvhaXXXTOpDa-20-16.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+
 // Placeholder
 // -------------------------
 
@@ -465,9 +562,10 @@ input[type="checkbox"][readonly] {
 .control-group.success {
   .formFieldState(@successText, @successText, @successBackground);
 }
-// Success
+// Info
 .control-group.info {
-  .formFieldState(@infoText, @infoText, @infoBackground);
+  // .formFieldState(@infoText, @infoText, @infoBackground);
+  .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
 }
 
 // HTML5 invalid states
@@ -479,8 +577,8 @@ select:focus:invalid {
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    @shadow: 0 0 6px lighten(#ee5f5b, 20%);
-    .box-shadow(@shadow);
+    // @shadow: 0 0 6px lighten(#ee5f5b, 20%);
+    // .box-shadow(@shadow); // 注释掉字段焦点外发光效果 @by kai 2014-01-23
   }
 }
 

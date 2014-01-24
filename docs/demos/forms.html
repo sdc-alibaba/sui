@@ -44,7 +44,7 @@
 
 
 		<h2>inputs</h2>
-		<h3>默认尺寸（高24px）</h3>
+		<h3>按宽度分类（相对尺寸）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
 				<input class="input-mini" type="text" placeholder=".input-mini">
@@ -63,85 +63,99 @@
 		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
 		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;</pre>
 
-		<h3>高20px</h3>
+		<h3>按高度分类（默认高度：24px）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini input-thin" type="text" placeholder=".input-mini">
-				<input class="input-small input-thin" type="text" placeholder=".input-small">
-				<input class="input-medium input-thin" type="text" placeholder=".input-medium">
-				<input class="input-large input-thin" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge">
+				<input class="input-xxlarge input-thin" type="text" placeholder=".input-thin">
+				<input class="input-xxlarge input-default" type="text" placeholder=".input-default">
+				<input class="input-xxlarge input-fat" type="text" placeholder=".input-fat">
+				<input class="input-xxlarge input-xfat" type="text" placeholder=".input-xfat">
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-thin" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-thin" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-thin" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-thin" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-xxlarge input-thin" type="text" placeholder=".input-thin"&gt;
+		&lt;input class="input-xxlarge input-default" type="text" placeholder=".input-default"&gt;
+		&lt;input class="input-xxlarge input-fat" type="text" placeholder=".input-fat"&gt;
+		&lt;input class="input-xxlarge input-xfat" type="text" placeholder=".input-xfat"&gt;</pre>
 
-		<h3>高24px</h3>
+		<h3>按状态分</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini input-default" type="text" placeholder=".input-mini">
-				<input class="input-small input-default" type="text" placeholder=".input-small">
-				<input class="input-medium input-default" type="text" placeholder=".input-medium">
-				<input class="input-large input-default" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-default" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge">
+				<input class="input-xxlarge input-warning" type="text" placeholder=".input-warning">
+				<input class="input-xxlarge input-error" type="text" placeholder=".input-error">
+				<input class="input-xxlarge input-success" type="text" placeholder=".input-success">
+				<input class="input-xxlarge input-info" type="text" placeholder=".input-info">
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-default" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-default" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-default" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-default" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-default" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-xxlarge input-warning" type="text" placeholder=".input-warning"&gt;
+		&lt;input class="input-xxlarge input-error" type="text" placeholder=".input-error"&gt;
+		&lt;input class="input-xxlarge input-success" type="text" placeholder=".input-success"&gt;
+		&lt;input class="input-xxlarge input-info" type="text" placeholder=".input-info"&gt;</pre>
 
-		<h3>高28px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-mini input-fat" type="text" placeholder=".input-mini">
-				<input class="input-small input-fat" type="text" placeholder=".input-small">
-				<input class="input-medium input-fat" type="text" placeholder=".input-medium">
-				<input class="input-large input-fat" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge">
+		<h3>关联校验状态</h3>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group warning">
+				<label class="control-label" for="inputWarning">警示输入框：</label>
+				<div class="controls">
+					<input type="text" id="inputWarning">
+					<span class="help-inline">警示文案</span>
+				</div>
+			</div>
+			<div class="control-group error">
+				<label class="control-label" for="inputError">错误输入框：</label>
+				<div class="controls">
+					<input type="text" id="inputError">
+					<span class="help-inline">出错文案</span>
+				</div>
+			</div>
+			<div class="control-group success">
+				<label class="control-label" for="inputSuccess">成功输入框：</label>
+				<div class="controls">
+					<input type="text" id="inputSuccess">
+					<span class="help-inline">成功文案</span>
+				</div>
+			</div>
+			<div class="control-group info">
+				<label class="control-label" for="inputInfo">帮助输入框：</label>
+				<div class="controls">
+					<input type="text" id="inputInfo">
+					<span class="help-inline">帮助文案</span>
+				</div>
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-fat" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-fat" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-fat" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-fat" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge"&gt;</pre>
-
-		<h3>高32px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-mini input-xfat" type="text" placeholder=".input-mini">
-				<input class="input-small input-xfat" type="text" placeholder=".input-small">
-				<input class="input-medium input-xfat" type="text" placeholder=".input-medium">
-				<input class="input-large input-xfat" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge">
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-xfat" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-xfat" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-xfat" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-xfat" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge"&gt;</pre>
-
+		&lt;div class="control-group warning"&gt;
+			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputWarning"&gt;
+				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="control-group error"&gt;
+			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputError"&gt;
+				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="control-group success"&gt;
+			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputSuccess"&gt;
+				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="control-group info"&gt;
+			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+			&lt;div class="controls"&gt;
+				&lt;input type="text" id="inputInfo"&gt;
+				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
 
 		<h2>selects</h2>
-		<h3>默认尺寸（高24px）</h3>
+		<h3>按宽度分类（相对尺寸）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
 				<select class="input-mini">
@@ -232,129 +246,10 @@
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;</pre>
 
-		<h3>高20px</h3>
+		<h3>按高度分类（默认高度：24px）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<select class="input-mini input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
 				<select class="input-xxlarge input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>高24px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini input-default">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small input-default">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium input-default">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large input-default">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-default">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -368,175 +263,7 @@
 					<option>4</option>
 					<option>5</option>
 				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>高28px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
 				<select class="input-xxlarge input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>高32px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini input-xfat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small input-xfat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium input-xfat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large input-xfat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-xfat">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -553,35 +280,21 @@
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-xfat"&gt;
+		&lt;select class="input-xxlarge input-thin"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-small input-xfat"&gt;
+		&lt;select class="input-xxlarge input-default"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-medium input-xfat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-xfat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-xfat"&gt;
+		&lt;select class="input-xxlarge input-fat"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
@@ -648,76 +361,21 @@
 
 
 		<h2>各种状态</h2>
+		<h3>块级inputs</h3>
+		<form class="bs-docs-example" style="padding-bottom: 15px;">
+			<div class="controls">
+				<input class="input-block-level" type="text" placeholder=".input-block-level">
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;</pre>
+
 		<h3>Disabled inputs</h3>
 		<form class="bs-docs-example form-inline">
 			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
 		</form>
 		<pre class="prettyprint linenums">
 		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
-
-		<h3>校验状态</h3>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group warning">
-				<label class="control-label" for="inputWarning">警示</label>
-				<div class="controls">
-					<input type="text" id="inputWarning">
-					<span class="help-inline">警示文案</span>
-				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label" for="inputError">错误</label>
-				<div class="controls">
-					<input type="text" id="inputError">
-					<span class="help-inline">出错文案</span>
-				</div>
-			</div>
-			<div class="control-group success">
-				<label class="control-label" for="inputSuccess">成功</label>
-				<div class="controls">
-					<input type="text" id="inputSuccess">
-					<span class="help-inline">成功文案</span>
-				</div>
-			</div>
-			<div class="control-group info">
-				<label class="control-label" for="inputInfo">帮助</label>
-				<div class="controls">
-					<input type="text" id="inputInfo">
-					<span class="help-inline">帮助文案</span>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputWarning"&gt;
-				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputError"&gt;
-				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputSuccess"&gt;
-				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputInfo"&gt;
-				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
 	</section>
 
 
@@ -739,6 +397,16 @@
 
 
 
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
 	<br /><br /><br /><br /><br />
 	<br /><br /><br /><br /><br />
 
@@ -1055,10 +723,10 @@
 		<form class="bs-docs-example">
 			<div class="input-prepend">
 				<span class="add-on">@</span>
-				<input class="span2" id="prependedInput" type="text" placeholder="Username"></div>
+				<input class="span2 input-fat" id="prependedInput" type="text" placeholder="Username"></div>
 			<br>
 			<div class="input-append">
-				<input class="span2" id="appendedInput" type="text">
+				<input class="span2 input-fat" id="appendedInput" type="text">
 				<span class="add-on">.00</span>
 			</div>
 		</form>
@@ -1081,7 +749,7 @@
 		<form class="bs-docs-example form-inline">
 			<div class="input-prepend input-append">
 				<span class="add-on">$</span>
-				<input class="span2" id="appendedPrependedInput" type="text">
+				<input class="span2 input-fat" id="appendedPrependedInput" type="text">
 				<span class="add-on">.00</span>
 			</div>
 		</form>
@@ -1102,7 +770,7 @@
 		</p> -->
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2" id="appendedInputButton" type="text">
+				<input class="span2 input-fat" id="appendedInputButton" type="text">
 				<button class="btn" type="button">Go!</button>
 			</div>
 		</form>
@@ -1113,7 +781,7 @@
 		&lt;/div&gt;</pre>
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2" id="appendedInputButtons" type="text">
+				<input class="span2 input-fat" id="appendedInputButtons" type="text">
 				<button class="btn" type="button">Search</button>
 				<button class="btn" type="button">Options</button>
 			</div>
@@ -1129,7 +797,7 @@
 		<p></p>
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2" id="appendedDropdownButton" type="text">
+				<input class="span2 input-fat" id="appendedDropdownButton" type="text">
 				<div class="btn-group">
 					<button class="btn dropdown-toggle" data-toggle="dropdown">
 						Action
@@ -1193,7 +861,7 @@
 					</ul>
 				</div>
 				<!-- /btn-group -->
-				<input class="span2" id="prependedDropdownButton" type="text"></div>
+				<input class="span2 input-fat" id="prependedDropdownButton" type="text"></div>
 			<!-- /input-prepend -->
 		</form>
 		<pre class="prettyprint linenums">
@@ -1234,7 +902,7 @@
 					</ul>
 				</div>
 				<!-- /btn-group -->
-				<input class="span2" id="appendedPrependedDropdownButton" type="text">
+				<input class="span2 input-fat" id="appendedPrependedDropdownButton" type="text">
 				<div class="btn-group">
 					<button class="btn dropdown-toggle" data-toggle="dropdown">
 						Action
@@ -1307,10 +975,10 @@
 						</li>
 					</ul>
 				</div>
-				<input type="text">
+				<input class="input-fat" type="text">
 			</div>
 			<div class="input-append">
-				<input type="text">
+				<input class="input-fat" type="text">
 				<div class="btn-group">
 					<button class="btn" tabindex="-1">Action</button>
 					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
@@ -1349,12 +1017,12 @@
 		<h4>搜索框</h4>
 		<form class="bs-docs-example form-search">
 			<div class="input-append">
-				<input type="text" class="span2 search-query">
+				<input type="text" class="span2 search-query input-fat">
 				<button type="submit" class="btn">Search</button>
 			</div>
 			<div class="input-prepend">
 				<button type="submit" class="btn">Search</button>
-				<input type="text" class="span2 search-query"></div>
+				<input type="text" class="span2 search-query input-fat"></div>
 		</form>
 		<pre class="prettyprint linenums">
 		&lt;form class="form-search"&gt;
