@@ -6,6 +6,36 @@
 // BASE TABLES
 // -----------------
 
+
+.typographic-block() {
+  display:block;
+  float:left;
+  min-width:80px;
+  max-width:250px;
+}
+
+.typographic{
+  width:100%;
+  img{
+    display:block;
+    float:left;
+    margin-right:10px;
+  }
+  a{
+    .typographic-block;
+  }
+  span{
+    .typographic-block;
+    text-align:center;
+  }
+  ul{
+    .typographic-block;
+    text-align:center;
+  }
+
+
+}
+
 table {
   max-width: 100%;
   background-color: @tableBackground;
@@ -53,6 +83,16 @@ table {
   .table {
     background-color: @bodyBackground;
   }
+
+  input{
+    margin-top:2px;
+  }
+  label{
+    margin-bottom:0px;
+  }
+  td.center{
+    text-align:center;
+  }
 }
 
 
@@ -72,7 +112,7 @@ table {
 // ----------------
 
 .table-bordered {
-  //border-top: 1px solid @tableBorder;
+  border: 1px solid @tableBorder;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
@@ -100,18 +140,11 @@ table {
   tbody tr:first-child td{
     border-top:0;
   }
-  tbody tr:last-child td{
-    border-bottom: 1px solid @tableBorder;
-  }
 
   thead:first-child tr:first-child th{
-    border-top: 1px solid @tableBorder;
     border-bottom: 1px solid @tableBorder;
   }
-  thead tr th:last-child,
-  tbody tr td:last-child,{
-    border-right: 1px solid @tableBorder;
-  }
+  
 
   // For first th/td in the first row in the first thead or tbody
   thead:first-child tr:first-child > th:first-child,
@@ -165,18 +198,21 @@ table {
   }
 
 }
+
+.table-sideheader{
+  .table-bordered;
+
+  tbody tr td:first-child{
+    background-color:@tableHeadBackground;
+  }
+
+}
+
 .table-light{
   .table-bordered;
   th{
     background-color:@tableHeadBackgroundLight;
     border-left: 1px solid @tableBorderLight;
-  }
-  thead:first-child tr:first-child th{
-    border-top: 1px solid @tableBorderLight;
-    border-bottom: 1px solid @tableBorderLight;
-  }
-  thead tr:first-child th:last-child{
-    border-right: 1px solid @tableBorderLight;
   }
 } 
 
@@ -191,6 +227,16 @@ table {
   tbody {
     > tr:nth-child(odd) > td,
     > tr:nth-child(odd) > th {
+      background-color: @tableBackgroundAccent;
+    }
+  }
+}
+
+.table-vzebra {
+  .table-bordered;
+  tbody {
+    > tr > td:nth-child(odd),
+    > tr > th:nth-child(odd) {
       background-color: @tableBackgroundAccent;
     }
   }
