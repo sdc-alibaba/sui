@@ -6193,7 +6193,6 @@ input[type="submit"].btn.btn-mini {
   bottom: 0;
   left: 0;
   z-index: 1040;
-  background-color: #000000;
 }
 
 .modal-backdrop.fade {
@@ -6206,12 +6205,23 @@ input[type="submit"].btn.btn-mini {
   filter: alpha(opacity=40);
 }
 
+.modal-backdrop.bg-black,
+.modal-backdrop.fade.in.bg-black {
+  background-color: #000000;
+}
+
+.modal-backdrop.bg-white,
+.modal-backdrop.fade.in.bg-white {
+  background-color: #ffffff;
+}
+
 .modal {
   position: fixed;
-  top: 15%;
+  top: 50%;
   left: 50%;
   z-index: 1050;
   width: 440px;
+  margin-top: -131px;
   margin-left: -220px;
   background-color: #ffffff;
   border: 5px solid #b2b2b2;
@@ -6234,7 +6244,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .modal.fade.in {
-  top: 15%;
+  top: 50%;
+  margin-top: -131px;
 }
 
 .modal-header {
@@ -6260,12 +6271,16 @@ input[type="submit"].btn.btn-mini {
   overflow-y: auto;
 }
 
+.modal-body.no-foot {
+  min-height: 190px;
+}
+
 .modal-form {
   margin-bottom: 0;
 }
 
 .modal-footer {
-  padding: 5px 10px;
+  padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right;
   background-color: #f1f4f5;
@@ -6291,7 +6306,7 @@ input[type="submit"].btn.btn-mini {
 
 .modal-footer .btn + .btn {
   margin-bottom: 0;
-  margin-left: 5px;
+  margin-left: 7px;
 }
 
 .modal-footer .btn-group .btn + .btn {
