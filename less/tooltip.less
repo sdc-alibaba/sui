@@ -9,6 +9,7 @@
   z-index: @zindexTooltip;
   display: block;
   visibility: visible;
+  max-width: 300px;
   .opacity(0);
   &.in     { .opacity(100); }
   &.top    { margin-top:  -3px; padding: 5px 0; }
@@ -37,7 +38,6 @@
 // Wrapper for the tooltip content
 .tooltip-inner {
   padding: 9px 11px;
-  text-align: center;
   text-decoration: none;
   .border-radius(2px);
 

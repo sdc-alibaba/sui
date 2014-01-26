@@ -4,13 +4,21 @@ block title
   title tooltip 
 
 block content
+  style.
+    li{display: inline-block; list-style:none; margin: 0 10px}
   div.container
     h1 Tooltip
     ul
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
         li
-          a(href='#', data-toggle='tooltip', data-placement='#{dir}', title='浮出在#{dir}的tooltip') 看#{dir}
+          a(href='#', data-toggle='tooltip', data-placement='#{dir}', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+
+      - var bigdata =  '' + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()
+      - var widthtype = ['false', 'true', '500px']
+      each type in widthtype
+        li
+          a(href='#', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
 
 block js_block
   script

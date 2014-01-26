@@ -1221,7 +1221,7 @@
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
-          this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
+          //this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
       }
 
@@ -1283,6 +1283,8 @@
         , placement
         , tp
         , e = $.Event('show')
+        , opt = this.options
+        , widthLimit = opt.widthlimit
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1290,20 +1292,27 @@
         $tip = this.tip()
         this.setContent()
 
-        if (this.options.animation) {
+        if (opt.animation) {
           $tip.addClass('fade')
         }
 
-        placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement
+        placement = typeof opt.placement == 'function' ?
+          opt.placement.call(this, $tip[0], this.$element[0]) :
+          opt.placement
 
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+        opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
 
+        //宽度限制逻辑
+        if (widthLimit !== true) {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
@@ -1507,12 +1516,13 @@
   , degree: 'normal' //tip 重要性程度 {string} 'normal'|'attention'
   , placement: 'top'
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
-  , template: '<div class="tooltip normal"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div></div>'
+  , template: '<div class="tooltip normal break-line"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div></div>'
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
   , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
   , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
-  , html: false  //决定是html()还是text()
+  , html: true  //决定是html()还是text()
   , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
 

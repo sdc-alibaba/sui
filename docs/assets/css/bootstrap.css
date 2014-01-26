@@ -40,6 +40,12 @@
           box-sizing: border-box;
 }
 
+.break-line {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+}
+
 article,
 aside,
 details,
@@ -5775,6 +5781,7 @@ input[type="submit"].btn.btn-mini {
   position: absolute;
   z-index: 1030;
   display: block;
+  max-width: 300px;
   opacity: 0;
   filter: alpha(opacity=0);
   visibility: visible;
@@ -5818,7 +5825,6 @@ input[type="submit"].btn.btn-mini {
 
 .tooltip-inner {
   padding: 9px 11px;
-  text-align: center;
   text-decoration: none;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
