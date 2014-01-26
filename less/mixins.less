@@ -255,6 +255,12 @@
           box-shadow: @shadow;
 }
 
+.singleTransition (@popertyName:color, @time:0.3s, @func:linear,@delay:0s) {
+    -webkit-transition:@arguments;
+    -moz-transition:@arguments;
+    -ms-transition:@arguments;
+    transition:@arguments;
+}
 // Transitions
 .transition(@transition) {
   -webkit-transition: @transition;
@@ -510,10 +516,9 @@
 
 // Button backgrounds
 // ------------------
-.buttonBackground(@backgroundColor, @backgroundHighlightColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+.buttonBackground(@backgroundColor, @backgroundHighlightColor, @textColor: #fff) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   color: @textColor;
-  text-shadow: @textShadow;
   background-color: @backgroundColor;
   .reset-filter();
   border: 1px solid darken(@backgroundColor, 5%);
@@ -530,9 +535,9 @@
     &:focus,
     &:active,
     &.active, {
-      color: @textColor;
-      background-color: @backgroundColor;
-      border-color: @backgroundColor;
+      color: @btnDisabledColor;
+      background-color: @btnDisabledBackground;
+      border-color: darken(@btnDisabledBackground, 5%);
     }
   }
 

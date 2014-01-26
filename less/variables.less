@@ -38,13 +38,13 @@
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             #06c;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "宋体", Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -84,10 +84,10 @@
 
 // padding
 // used by btn and pagination
-@basePadding:           4px 14px;
-@paddingLarge:          4px 14px;
-@paddingSmall:          2px 14px;
-@paddingMini:           0px 6px;
+@basePadding:           2px 14px;
+@paddingXLarge:          4px 20px;
+@paddingLarge:          2px 14px;
+@paddingSmall:           0px 6px;
 
 
 // Tables
@@ -103,6 +103,10 @@
 
 // Buttons
 // -------------------------
+@btnDisabledBackground: #f3f3f3;
+@btnDisabledBorder: darken(@btnDisabledBackground, 10%);
+@btnDisabledColor: #c6c6c6;
+
 @btnBackground:                     @grayLighter;
 @btnBackgroundHighlight:            #f7f7f7; //lighten(@btnBackground, 10%);
 
@@ -129,10 +133,11 @@
 // -------------------------
 @inputBackground:               @white;
 @inputBorder:                   #ccc;
-@inputBorderRadius:             @baseBorderRadius;
+@inputBorderRadius:             @borderRadiusMini;
 @inputDisabledBackground:       @grayLighter;
 @formActionsBackground:         #f5f5f5;
-@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+// @inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+@inputHeight:                   @baseLineHeight + 6px; // base line-height + 4px vertical padding + 2px top/bottom border // 更新默认高度为24px @by kai 2014-01-16
 
 
 // Dropdowns
@@ -231,12 +236,43 @@
 
 @navbarInverseBrandColor:                @navbarInverseLinkColor;
 
+// nav tabs
+@navTabsColor:  #666;
+@navTabsBackgroundColor:  #f9f9f9;
+@navTabsBorderColor:  #999;
+@navTabsBorderHighlightColor:  #2597dd;
+
+@navTabsPadding:  2px 10px;
+@navTabsPaddingLarge:  4px 13px;
+@navTabsPaddingXLarge:  6px 16px;
+
 
 // Pagination
 // -------------------------
-@paginationBackground:                #fff;
-@paginationBorder:                    #ddd;
-@paginationActiveBackground:          #f5f5f5;
+@lightBlue: #2597dd;
+@lightBlueBorder: #e0e9ee;
+@white: #FFF;
+@lightWhite: #fafafa;
+@paginationPaddingSmall: 0px 6px;
+@paginationPadding: 2px 8px;
+@paginationPaddingXLarge: 6px 12px;
+@paginationPaddingLarge: 4px 10px; 
+@paginationBackground:                @white;
+@paginationBorder:                    @lightBlueBorder;
+@paginationActiveBackground:          @lightBlue;
+@paginationBtnColor:                  @lightWhite; 
+
+
+// Steps
+// -------------------------
+@stepsFinishedColor: #e4f6ff;
+@stepsCurrentColor: #0995e0;
+@stepsTodoColor: #f5f5f5;
+@stepsBaseHeight: 24px;
+@stepsBaseWidth: 195px;
+@stepsFinishedTextColor: #4aa4d5;
+@stepsCurrentTextColor: @white;
+@stepsTodoTextColor: @grayLight; 
 
 
 // Hero unit
@@ -248,19 +284,35 @@
 
 // Form states and alerts
 // -------------------------
-@warningText:             #c09853;
+// @warningText:             #c09853;
+// @warningBackground:       #fcf8e3;
+// @warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@warningText:             #ffc600; // 更新警示文本颜色 @by kai 2014-01-16
 @warningBackground:       #fcf8e3;
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@errorText:               #b94a48;
+// @errorText:               #b94a48;
+// @errorBackground:         #f2dede;
+// @errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@errorText:               #ea4a36; // 更新警示文本颜色 @by kai 2014-01-16
 @errorBackground:         #f2dede;
 @errorBorder:             darken(spin(@errorBackground, -10), 3%);
 
-@successText:             #468847;
+// @successText:             #468847;
+// @successBackground:       #dff0d8;
+// @successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@successText:             #22cd6e; // 更新警示文本颜色 @by kai 2014-01-16
 @successBackground:       #dff0d8;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
+// @infoText:                #3a87ad;
+// @infoBackground:          #d9edf7;
+// @infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+@infoText:                #2597dd; // 更新警示文本颜色 @by kai 2014-01-16
 @infoBackground:          #d9edf7;
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
