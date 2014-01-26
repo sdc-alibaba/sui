@@ -5839,6 +5839,10 @@ input[type="submit"].btn.btn-mini {
   border-style: solid;
 }
 
+.tooltip.attention .cover {
+  display: none;
+}
+
 .tooltip.top .tooltip-arrow {
   bottom: 0;
   left: 50%;
@@ -5850,6 +5854,10 @@ input[type="submit"].btn.btn-mini {
 .tooltip.top .tooltip-arrow .tooltip-arrow.cover {
   margin-left: -4px;
   border-top-color: #ffffff;
+}
+
+.tooltip.top.attention .tooltip-arrow {
+  border-top-color: #fef1e3;
 }
 
 .tooltip.right .tooltip-arrow {
@@ -5865,6 +5873,10 @@ input[type="submit"].btn.btn-mini {
   border-right-color: #ffffff;
 }
 
+.tooltip.right.attention .tooltip-arrow {
+  border-right-color: #fef1e3;
+}
+
 .tooltip.left .tooltip-arrow {
   top: 50%;
   right: 0;
@@ -5876,6 +5888,10 @@ input[type="submit"].btn.btn-mini {
 .tooltip.left .tooltip-arrow .tooltip-arrow.cover {
   margin-top: -4px;
   border-left-color: #ffffff;
+}
+
+.tooltip.left.attention .tooltip-arrow {
+  border-left-color: #fef1e3;
 }
 
 .tooltip.bottom .tooltip-arrow {
@@ -5893,6 +5909,10 @@ input[type="submit"].btn.btn-mini {
 
 .tooltip .tooltip-arrow.cover {
   border-width: 4px;
+}
+
+.tooltip.bottom.attention .tooltip-arrow {
+  border-bottom-color: #fef1e3;
 }
 
 .popover {

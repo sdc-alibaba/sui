@@ -69,6 +69,9 @@
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
+      if (options.degree != 'normal') {
+        options.template = options.template.replace('normal', options.degree)
+      }
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
           show: options.delay
@@ -339,7 +342,6 @@
       var $this = $(this)
         , data = $this.data('tooltip')
         , options = typeof option == 'object' && option
-      if (options && options.degree && options.degree != 'normal') options.template.replace('normal', options.defaults)
       if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })

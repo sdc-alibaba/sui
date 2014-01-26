@@ -7,7 +7,8 @@ block content
   style.
     li{display: inline-block; list-style:none; margin: 0 10px}
   div.container
-    h1 Tooltip
+    h1 Tooltip 绝大部分参数可写在触发元素的data-xxx属性里
+    p $('li a').tooltip()
     ul
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
@@ -19,6 +20,12 @@ block content
       each type in widthtype
         li
           a(href='#', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+
+    
+    ul
+      li
+        a(href='#', data-toggle='tooltip', data-degree='attention', title='强调tooltip') 强调tooltip    opt.degree = 'attention' (默认为normal)
+
 
 block js_block
   script

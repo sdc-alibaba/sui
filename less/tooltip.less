@@ -2,6 +2,7 @@
 // Tooltips
 // --------------------------------------------------
 
+@attentionBg: #fef1e3;
 
 // Base class
 .tooltip {
@@ -28,7 +29,7 @@
   }
   &.attention {
     .tooltip-inner {
-      background-color: #fef1e3;
+      background-color: @attentionBg;
       color: #d7842b
     }
   }
@@ -52,6 +53,9 @@
   border-style: solid;
 }
 .tooltip {
+  &.attention .cover {
+    display: none
+  }
   &.top .tooltip-arrow {
     bottom: 0;
     left: 50%;
@@ -62,6 +66,9 @@
       margin-left: -@tooltipArrowWidth + 1;
       border-top-color: @white;
     }
+  }
+  &.top.attention .tooltip-arrow {
+    border-top-color: @attentionBg;
   }
   &.right .tooltip-arrow {
     top: 50%;
@@ -74,6 +81,10 @@
       border-right-color: @white;
     }
   }
+  &.right.attention .tooltip-arrow {
+    border-right-color: @attentionBg;
+  }
+
   &.left .tooltip-arrow {
     top: 50%;
     right: 0;
@@ -84,7 +95,11 @@
       margin-top: -@tooltipArrowWidth + 1;
       border-left-color: @white;
     }
- }
+  }
+  &.left.attention .tooltip-arrow {
+    border-left-color: @attentionBg;
+  }
+
   &.bottom .tooltip-arrow {
     top: 0;
     left: 50%;
@@ -99,4 +114,8 @@
   .tooltip-arrow.cover {
     border-width: @tooltipArrowWidth - 1;
   }
+  &.bottom.attention .tooltip-arrow {
+    border-bottom-color: @attentionBg;
+  }
+
 }
