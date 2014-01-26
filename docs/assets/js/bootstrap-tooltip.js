@@ -57,7 +57,7 @@
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
-          this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
+          //this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
       }
 
@@ -330,6 +330,7 @@
       var $this = $(this)
         , data = $this.data('tooltip')
         , options = typeof option == 'object' && option
+      if (options && options.degree && options.degree != 'normal') options.template.replace('normal', options.defaults)
       if (!data) $this.data('tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -339,9 +340,10 @@
 
   $.fn.tooltip.defaults = {
     animation: true
+  , degree: 'normal' //tip 重要性程度 {string} 'normal'|'attention'
   , placement: 'top'
   , selector: false
-  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+  , template: '<div class="tooltip normal"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div></div>'
   , trigger: 'hover focus'
   , title: ''
   , delay: 0

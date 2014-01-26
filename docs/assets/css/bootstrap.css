@@ -5775,16 +5775,14 @@ input[type="submit"].btn.btn-mini {
   position: absolute;
   z-index: 1030;
   display: block;
-  font-size: 11px;
-  line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
   visibility: visible;
 }
 
 .tooltip.in {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 
 .tooltip.top {
@@ -5807,16 +5805,24 @@ input[type="submit"].btn.btn-mini {
   margin-left: -3px;
 }
 
+.tooltip.normal .tooltip-inner {
+  color: #222222;
+  background-color: #ffffff;
+  border: 2px solid #b2b2b2;
+}
+
+.tooltip.attention .tooltip-inner {
+  color: #d7842b;
+  background-color: #fef1e3;
+}
+
 .tooltip-inner {
-  max-width: 200px;
-  padding: 8px;
-  color: #ffffff;
+  padding: 9px 11px;
   text-align: center;
   text-decoration: none;
-  background-color: #000000;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 
 .tooltip-arrow {
@@ -5831,32 +5837,56 @@ input[type="submit"].btn.btn-mini {
   bottom: 0;
   left: 50%;
   margin-left: -5px;
-  border-top-color: #000000;
+  border-top-color: #b2b2b2;
   border-width: 5px 5px 0;
+}
+
+.tooltip.top .tooltip-arrow .tooltip-arrow.cover {
+  margin-left: -4px;
+  border-top-color: #ffffff;
 }
 
 .tooltip.right .tooltip-arrow {
   top: 50%;
   left: 0;
   margin-top: -5px;
-  border-right-color: #000000;
+  border-right-color: #b2b2b2;
   border-width: 5px 5px 5px 0;
+}
+
+.tooltip.right .tooltip-arrow .tooltip-arrow.cover {
+  margin-top: -4px;
+  border-right-color: #ffffff;
 }
 
 .tooltip.left .tooltip-arrow {
   top: 50%;
   right: 0;
   margin-top: -5px;
-  border-left-color: #000000;
+  border-left-color: #b2b2b2;
   border-width: 5px 0 5px 5px;
+}
+
+.tooltip.left .tooltip-arrow .tooltip-arrow.cover {
+  margin-top: -4px;
+  border-left-color: #ffffff;
 }
 
 .tooltip.bottom .tooltip-arrow {
   top: 0;
   left: 50%;
   margin-left: -5px;
-  border-bottom-color: #000000;
+  border-bottom-color: #b2b2b2;
   border-width: 0 5px 5px;
+}
+
+.tooltip.bottom .tooltip-arrow .tooltip-arrow.cover {
+  margin-left: -4px;
+  border-bottom-color: #ffffff;
+}
+
+.tooltip .tooltip-arrow.cover {
+  border-width: 4px;
 }
 
 .popover {
