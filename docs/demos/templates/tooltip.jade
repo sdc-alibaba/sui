@@ -15,7 +15,7 @@ block content
     pre.
       {
           animation: true
-        , degree: 'normal' //tip 重要性程度 {string} 'normal'|'attention'
+        , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
         , placement: 'top'
         , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
         , template: '<div class="tooltip normal break-line"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div></div>'
@@ -25,7 +25,6 @@ block content
         , html: true  //决定是html()还是text()
         , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
         , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
-        , hasfoot: false  // 是否有和dialog一样的脚部
       }
 
     p $('li a').tooltip()
@@ -46,7 +45,10 @@ block content
     
     ul
       li
-        a(href='#', data-degree='attention', title='强调tooltip') 强调tooltip    opt.degree = 'attention' (默认为normal)
+        a(href='javascript:void(0)', data-type='attention', title='强调tooltip') 强调tooltip    opt.type = 'attention' (默认为normal)
+    ul
+      li
+        a(href='javascript:void(0)', data-type="confirm", data-placement="bottom" data-trigger='click', title='这里可以做一些setting类别的事务') 带确定取消按钮的tooltip 
 
 
 block js_block
