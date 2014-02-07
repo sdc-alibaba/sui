@@ -6537,6 +6537,10 @@ input[type="submit"].btn.btn-mini {
   z-index: 1030;
   display: block;
   max-width: 300px;
+  border: 2px solid #b2b2b2;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
   opacity: 0;
   filter: alpha(opacity=0);
   visibility: visible;
@@ -6548,29 +6552,24 @@ input[type="submit"].btn.btn-mini {
 }
 
 .tooltip.top {
-  padding: 5px 0;
   margin-top: -3px;
 }
 
 .tooltip.right {
-  padding: 0 5px;
   margin-left: 3px;
 }
 
 .tooltip.bottom {
-  padding: 5px 0;
   margin-top: 3px;
 }
 
 .tooltip.left {
-  padding: 0 5px;
   margin-left: -3px;
 }
 
 .tooltip.normal .tooltip-inner {
   color: #222222;
   background-color: #ffffff;
-  border: 2px solid #b2b2b2;
 }
 
 .tooltip.attention .tooltip-inner {
@@ -6581,9 +6580,6 @@ input[type="submit"].btn.btn-mini {
 .tooltip-inner {
   padding: 9px 11px;
   text-decoration: none;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
 }
 
 .tooltip-arrow {
@@ -6594,12 +6590,16 @@ input[type="submit"].btn.btn-mini {
   border-style: solid;
 }
 
+.tooltip.attention {
+  border: none;
+}
+
 .tooltip.attention .cover {
   display: none;
 }
 
 .tooltip.top .tooltip-arrow {
-  bottom: 0;
+  bottom: -7px;
   left: 50%;
   margin-left: -5px;
   border-top-color: #b2b2b2;
@@ -6607,50 +6607,56 @@ input[type="submit"].btn.btn-mini {
 }
 
 .tooltip.top .tooltip-arrow .tooltip-arrow.cover {
+  top: -7px;
   margin-left: -4px;
   border-top-color: #ffffff;
 }
 
 .tooltip.top.attention .tooltip-arrow {
+  bottom: -5px;
   border-top-color: #fef1e3;
 }
 
 .tooltip.right .tooltip-arrow {
   top: 50%;
-  left: 0;
+  left: -7px;
   margin-top: -5px;
   border-right-color: #b2b2b2;
   border-width: 5px 5px 5px 0;
 }
 
 .tooltip.right .tooltip-arrow .tooltip-arrow.cover {
+  left: 0;
   margin-top: -4px;
   border-right-color: #ffffff;
 }
 
 .tooltip.right.attention .tooltip-arrow {
+  left: -5px;
   border-right-color: #fef1e3;
 }
 
 .tooltip.left .tooltip-arrow {
   top: 50%;
-  right: 0;
+  right: -7px;
   margin-top: -5px;
   border-left-color: #b2b2b2;
   border-width: 5px 0 5px 5px;
 }
 
 .tooltip.left .tooltip-arrow .tooltip-arrow.cover {
+  left: -7px;
   margin-top: -4px;
   border-left-color: #ffffff;
 }
 
 .tooltip.left.attention .tooltip-arrow {
+  right: -5px;
   border-left-color: #fef1e3;
 }
 
 .tooltip.bottom .tooltip-arrow {
-  top: 0;
+  top: -7px;
   left: 50%;
   margin-left: -5px;
   border-bottom-color: #b2b2b2;
@@ -6658,6 +6664,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .tooltip.bottom .tooltip-arrow .tooltip-arrow.cover {
+  top: 0;
   margin-left: -4px;
   border-bottom-color: #ffffff;
 }
@@ -6667,6 +6674,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .tooltip.bottom.attention .tooltip-arrow {
+  top: -5px;
   border-bottom-color: #fef1e3;
 }
 

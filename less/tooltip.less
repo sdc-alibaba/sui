@@ -3,6 +3,9 @@
 // --------------------------------------------------
 
 @attentionBg: #fef1e3;
+@tipBorderWidth: 2px;
+@arrowOffset: 7px;
+@attentionArrowOffset: @arrowOffset - @tipBorderWidth;
 
 // Base class
 .tooltip {
@@ -11,17 +14,18 @@
   display: block;
   visibility: visible;
   max-width: 300px;
+  border: @tipBorderWidth solid @tooltipBorderColor;
+  .border-radius(2px);
   .opacity(0);
   &.in     { .opacity(100); }
-  &.top    { margin-top:  -3px; padding: 5px 0; }
-  &.right  { margin-left:  3px; padding: 0 5px; }
-  &.bottom { margin-top:   3px; padding: 5px 0; }
-  &.left   { margin-left: -3px; padding: 0 5px; }
+  &.top    { margin-top:  -3px;}
+  &.right  { margin-left:  3px;}
+  &.bottom { margin-top:   3px;}
+  &.left   { margin-left: -3px;}
   &.normal {
     .tooltip-inner {
       background-color: @white;
       color: @grayDarker;
-      border: 2px solid @tooltipBorderColor;
     }
     .tooltip-arrow {
   
@@ -40,7 +44,6 @@
 .tooltip-inner {
   padding: 9px 11px;
   text-decoration: none;
-  .border-radius(2px);
 
 }
 
@@ -53,11 +56,15 @@
   border-style: solid;
 }
 .tooltip {
-  &.attention .cover {
-    display: none
+  &.attention {
+    border: none;
+    & .cover {
+      display: none
+    }
   }
+  //------------------------------------------.top
   &.top .tooltip-arrow {
-    bottom: 0;
+    bottom: -@arrowOffset;
     left: 50%;
     margin-left: -@tooltipArrowWidth;
     border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
@@ -65,43 +72,50 @@
     & .tooltip-arrow.cover {
       margin-left: -@tooltipArrowWidth + 1;
       border-top-color: @white;
+      top: -@arrowOffset;
     }
   }
   &.top.attention .tooltip-arrow {
     border-top-color: @attentionBg;
+    bottom: -@attentionArrowOffset
   }
+  //------------------------------------------.right
   &.right .tooltip-arrow {
     top: 50%;
-    left: 0;
+    left: -@arrowOffset;
     margin-top: -@tooltipArrowWidth;
     border-width: @tooltipArrowWidth @tooltipArrowWidth @tooltipArrowWidth 0;
     border-right-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
       margin-top: -@tooltipArrowWidth + 1;
       border-right-color: @white;
+      left: 0;
     }
   }
   &.right.attention .tooltip-arrow {
     border-right-color: @attentionBg;
+    left: -@attentionArrowOffset
   }
-
+  //------------------------------------------.left
   &.left .tooltip-arrow {
     top: 50%;
-    right: 0;
+    right: -@arrowOffset;
     margin-top: -@tooltipArrowWidth;
     border-width: @tooltipArrowWidth 0 @tooltipArrowWidth @tooltipArrowWidth;
     border-left-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
       margin-top: -@tooltipArrowWidth + 1;
       border-left-color: @white;
+      left: -@arrowOffset;
     }
   }
   &.left.attention .tooltip-arrow {
     border-left-color: @attentionBg;
+    right: -@attentionArrowOffset
   }
-
+  //------------------------------------------.bottom
   &.bottom .tooltip-arrow {
-    top: 0;
+    top: -@arrowOffset;
     left: 50%;
     margin-left: -@tooltipArrowWidth;
     border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
@@ -109,6 +123,7 @@
     & .tooltip-arrow.cover {
       margin-left: -@tooltipArrowWidth + 1;
       border-bottom-color: @white;
+      top: 0;
     }
   }
   .tooltip-arrow.cover {
@@ -116,6 +131,7 @@
   }
   &.bottom.attention .tooltip-arrow {
     border-bottom-color: @attentionBg;
+    top: -@attentionArrowOffset
   }
 
 }

@@ -53,6 +53,10 @@
         trigger = triggers[i]
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+
+          this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+            $(e.target).parents('.tooltip').prev().trigger('click')
+          })
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
@@ -69,9 +73,11 @@
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
-      if (options.type != 'normal') {
-        options.template = options.template.replace('normal', options.type)
-      }
+      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      //根据tooltip的type类型构造tip模版
+      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.type == 'confirm' && (options.html = true)
+
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
           show: options.delay
@@ -157,18 +163,20 @@
         actualWidth = $tip[0].offsetWidth
         actualHeight = $tip[0].offsetHeight
 
+        //+ - 7修正，和css对应，勿单独修改
+        var d = opt.type == 'attention' ? 5 : 7
         switch (placement) {
           case 'bottom':
-            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
             break
         }
 
@@ -288,7 +296,12 @@
 
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
+      /*
+      if (o.type == 'confirm') {
+        title += '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>'
+        this.options.html = true
+      }
+      */
       return title
     }
 
@@ -354,8 +367,6 @@
   , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
-  , template: '<div class="tooltip normal break-line"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div></div>'
-  //TODO   处理template，不能这样用，放入内部维护，方便修改 
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
   , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
   , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
