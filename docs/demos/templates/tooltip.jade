@@ -35,6 +35,8 @@ block content
         li
           a(href='#', data-placement='#{dir}', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
 
+    ul
+      li 右方click触发tooltip
       - var bigdata =  '' + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()
       - var widthtype = ['false', 'true', '500px']
       each type in widthtype
