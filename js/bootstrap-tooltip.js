@@ -61,11 +61,13 @@
           this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
       }
-      //为tooltip中取消按钮设置默认逻辑
-      this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-        $(e.target).parents('.tooltip').prev().trigger('click')
-      })
 
+      //为confirm类型tooltip增加取消按钮设置默认逻辑
+      if (this.options.type == 'confirm') {
+        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+          $(this).parents('.tooltip').prev().trigger('click')
+        })
+      }
 
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
@@ -347,6 +349,7 @@
   var old = $.fn.tooltip
 
   $.fn.tooltip = function ( option ) {
+
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('tooltip')
@@ -379,13 +382,22 @@
     $.fn.tooltip = old
     return this
   }
-  $(document).on('click.tooltip', '[data-toggle="tooltip"]', function (e) {
-    $(e.target).tooltip()
-  })
 
   //document ready init
   $(function(){
     $('[data-toggle="tooltip"]').tooltip()
+
+    //点击外部可消失tooltip
+    $(document).on('mousedown', function(e){
+      var tgt = $(e.target)
+        , tip = $('.tooltip')
+        , switchTgt = tip.prev()
+        , tipContainer = tgt.parents('.tooltip')
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+        switchTgt.trigger('click.tooltip')   
+      }
+    })
+
   })
 
 }(window.jQuery);
