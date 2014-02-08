@@ -1646,9 +1646,6 @@ define("bootstrap-modal.js", function(){});
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
 
-          this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-            $(e.target).parents('.tooltip').prev().trigger('click')
-          })
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
@@ -1656,6 +1653,11 @@ define("bootstrap-modal.js", function(){});
           this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
       }
+      //为tooltip中取消按钮设置默认逻辑
+      this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+        $(e.target).parents('.tooltip').prev().trigger('click')
+      })
+
 
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
@@ -1888,12 +1890,6 @@ define("bootstrap-modal.js", function(){});
 
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-      /*
-      if (o.type == 'confirm') {
-        title += '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>'
-        this.options.html = true
-      }
-      */
       return title
     }
 
@@ -1975,6 +1971,14 @@ define("bootstrap-modal.js", function(){});
     $.fn.tooltip = old
     return this
   }
+  $(document).on('click.tooltip', '[data-toggle="tooltip"]', function (e) {
+    $(e.target).tooltip()
+  })
+
+  //document ready init
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 }(window.jQuery);
 

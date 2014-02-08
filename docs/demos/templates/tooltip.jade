@@ -13,6 +13,12 @@ block content
 
     p 参数解释，补充信息见a(href="http://getbootstrap.com/2.3.2/javascript.html#tooltips") bootstrap tooltip
     pre.
+      /* 
+       * 原bootstrap tooltip的参数template已废弃
+       * 满足70%需求的简单tooltip可不写js直接调用，但触发元素上设置data-toggle="tooltip"（类似dialog）即可。扩展则说继续添加如下的data-xxx属性注入参数实现
+       * /
+
+    pre.
       {
           animation: true
         , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
@@ -31,7 +37,7 @@ block content
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
         li
-          a(href='#', data-placement='#{dir}', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+          a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
 
     ul
       li 右方click触发tooltip
@@ -39,23 +45,23 @@ block content
       - var widthtype = ['false', 'true']
       each type in widthtype
         li
-          a(href='javascript:void(0)', data-trigger='click', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+          a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
       li
-        a(href='javascript:void(0)', data-trigger='click', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
+        a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
 
     
     ul
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
         li
-          a(href='javascript:void(0)', data-placement='#{dir}', data-type='attention', data-trigger='click', title='强调tooltip') #{dir} opt.type = 'attention'
+          a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', data-trigger='click', title='强调tooltip') #{dir} opt.type = 'attention'
 
     ul
       li
-        a(href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-trigger='click', title='这里可以做一些setting类别的事务') 带确定取消按钮的tooltip 
+        a(href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-toggle='tooltip', data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text" >') 带确定取消按钮的tooltip 
 
 
 block js_block
-  script
-    $('li a').tooltip()
-
+  script 
+    //可不写js直接通过data-toggle='tooltip'初始化
+    //$('li a').tooltip()
