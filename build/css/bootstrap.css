@@ -6542,13 +6542,13 @@ input[type="submit"].btn.btn-mini {
      -moz-border-radius: 2px;
           border-radius: 2px;
   opacity: 0;
-  filter: alpha(opacity=0);
   visibility: visible;
 }
 
 .tooltip.in {
+  /*.opacity(100);*/
+
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .tooltip.top {
@@ -6601,9 +6601,9 @@ input[type="submit"].btn.btn-mini {
 .tooltip.top .tooltip-arrow {
   bottom: -7px;
   left: 50%;
-  margin-left: -5px;
+  margin-left: -6px;
   border-top-color: #b2b2b2;
-  border-width: 5px 5px 0;
+  border-width: 6px 6px 0;
 }
 
 .tooltip.top .tooltip-arrow .tooltip-arrow.cover {
@@ -6620,9 +6620,9 @@ input[type="submit"].btn.btn-mini {
 .tooltip.right .tooltip-arrow {
   top: 50%;
   left: -7px;
-  margin-top: -5px;
+  margin-top: -6px;
   border-right-color: #b2b2b2;
-  border-width: 5px 5px 5px 0;
+  border-width: 6px 6px 6px 0;
 }
 
 .tooltip.right .tooltip-arrow .tooltip-arrow.cover {
@@ -6639,9 +6639,9 @@ input[type="submit"].btn.btn-mini {
 .tooltip.left .tooltip-arrow {
   top: 50%;
   right: -7px;
-  margin-top: -5px;
+  margin-top: -6px;
   border-left-color: #b2b2b2;
-  border-width: 5px 0 5px 5px;
+  border-width: 6px 0 6px 6px;
 }
 
 .tooltip.left .tooltip-arrow .tooltip-arrow.cover {
@@ -6658,9 +6658,9 @@ input[type="submit"].btn.btn-mini {
 .tooltip.bottom .tooltip-arrow {
   top: -7px;
   left: 50%;
-  margin-left: -5px;
+  margin-left: -6px;
   border-bottom-color: #b2b2b2;
-  border-width: 0 5px 5px;
+  border-width: 0 6px 6px;
 }
 
 .tooltip.bottom .tooltip-arrow .tooltip-arrow.cover {

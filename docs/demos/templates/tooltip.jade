@@ -17,7 +17,6 @@ block content
        * 原bootstrap tooltip的参数template已废弃
        * 满足70%需求的简单tooltip可不写js直接调用，但触发元素上设置data-toggle="tooltip"（类似dialog）即可。扩展则说继续添加如下的data-xxx属性注入参数实现
        * /
-
     pre.
       {
           animation: true
@@ -31,8 +30,7 @@ block content
         , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
         , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
       }
-
-    p $('li a').tooltip()
+      
     ul
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
@@ -46,10 +44,10 @@ block content
       each type in widthtype
         li
           a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+
       li
         a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
 
-    
     ul
       - var placement = ['top', 'right', 'bottom', 'left']
       each dir in placement
@@ -59,7 +57,6 @@ block content
     ul
       li
         a(href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-toggle='tooltip', data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text" >') 带确定取消按钮的tooltip 
-
 
 block js_block
   script 

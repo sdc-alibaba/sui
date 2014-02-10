@@ -15,9 +15,10 @@
   visibility: visible;
   max-width: 300px;
   border: @tipBorderWidth solid @tooltipBorderColor;
+  opacity: 0;
+  //.opacity(0);   bug in IE8 
   .border-radius(2px);
-  .opacity(0);
-  &.in     { .opacity(100); }
+  &.in     { /*.opacity(100);*/ opacity:1;}
   &.top    { margin-top:  -3px;}
   &.right  { margin-left:  3px;}
   &.bottom { margin-top:   3px;}
@@ -70,7 +71,7 @@
     border-width: @tooltipArrowWidth @tooltipArrowWidth 0;
     border-top-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
-      margin-left: -@tooltipArrowWidth + 1;
+      margin-left: -@tooltipArrowWidth + 2;
       border-top-color: @white;
       top: -@arrowOffset;
     }
@@ -87,7 +88,7 @@
     border-width: @tooltipArrowWidth @tooltipArrowWidth @tooltipArrowWidth 0;
     border-right-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
-      margin-top: -@tooltipArrowWidth + 1;
+      margin-top: -@tooltipArrowWidth + 2;
       border-right-color: @white;
       left: 0;
     }
@@ -104,7 +105,7 @@
     border-width: @tooltipArrowWidth 0 @tooltipArrowWidth @tooltipArrowWidth;
     border-left-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
-      margin-top: -@tooltipArrowWidth + 1;
+      margin-top: -@tooltipArrowWidth + 2;
       border-left-color: @white;
       left: -@arrowOffset;
     }
@@ -121,13 +122,13 @@
     border-width: 0 @tooltipArrowWidth @tooltipArrowWidth;
     border-bottom-color: @tooltipBorderColor;
     & .tooltip-arrow.cover {
-      margin-left: -@tooltipArrowWidth + 1;
+      margin-left: -@tooltipArrowWidth + 2;
       border-bottom-color: @white;
       top: 0;
     }
   }
   .tooltip-arrow.cover {
-    border-width: @tooltipArrowWidth - 1;
+    border-width: @tooltipArrowWidth - 2;
   }
   &.bottom.attention .tooltip-arrow {
     border-bottom-color: @attentionBg;
