@@ -1,5 +1,7 @@
 /* jshint node: true */
 
+var join = require("path").join
+
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     requirejs = require('gulp-requirejs'),
@@ -13,8 +15,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload')
     tinnylr = require('tiny-lr')
 
-lr = tinnylr()
-lr.listen(3456)
+var server = tinnylr()
 
 var exec = require("child_process").exec
 
@@ -30,7 +31,7 @@ var pkg = {
 
 gulp.task('requirejs', function() {
   //目前requirejs还不支持gulp.src
-  var jsDist = paths.distRoot + '/js/'
+  var jsDist = join(paths.distRoot, 'js')
   var requirejsConfig= {
     baseUrl: "js",
     name: "almond",
@@ -48,22 +49,22 @@ gulp.task('requirejs', function() {
     .pipe(uglify({preserveComments: 'some'}))
     .pipe(rename(pkg.name + '.min.js'))
     .pipe(gulp.dest(jsDist))
-    .pipe(livereload(lr))
+    .pipe(livereload(server))
 })
 
 gulp.task('less', function() {
-  var cssDist = paths.distRoot + '/css/'
+  var cssDist = join(paths.distRoot, 'css')
 
   var recess = function(input, output) {
     output = output || input
-    gulp.src('less/' + input + '.less')
+    gulp.src(join('less', input + '.less'))
       .pipe(less())
       .pipe(rename(output + '.css'))
       .pipe(gulp.dest(cssDist))
       .pipe(less({compress: true}))
       .pipe(rename(output + '.min.css'))
       .pipe(gulp.dest(cssDist))
-      .pipe(livereload(lr))
+      .pipe(livereload(server))
   }
 
   recess('bootstrap')
@@ -72,10 +73,10 @@ gulp.task('less', function() {
 
 // compile jade template
 gulp.task('jade', function() {
-  gulp.src(['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],  {cwd: paths.demosRoot + '/templates/'})
+  gulp.src(['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],  {cwd: join(paths.demosRoot, 'templates')})
     .pipe(jade())
     .pipe(gulp.dest(paths.demosRoot))
-    .pipe(livereload(lr))
+    .pipe(livereload(server))
 })
 
 //compile mastache template
@@ -107,22 +108,15 @@ gulp.task('qunit', function() {
 // copy fonts to build
 gulp.task('fonts', function() {
   gulp.src('./fonts/*')
-    .pipe(gulp.dest(paths.distRoot + '/fonts'))
-})
-
-gulp.task('livereload', function() {
-  lr.changed({
-    body: {
-      files: ['nothing']
-    }
-  });
+    .pipe(gulp.dest(join(paths.distRoot, 'fonts')))
 })
 
 gulp.task('watch', function() {
+  server.listen(3456)
   gulp.watch('js/**/*.js', ['requirejs'])
   gulp.watch('less/**/*.less', ['less'])
-  gulp.watch(paths.docsRoot + '/templates/**/*.mustache', ['hogan'])
-  gulp.watch(paths.demosRoot + '/templates/**/*.jade', ['jade'])
+  gulp.watch(join(paths.docsRoot, 'templates/**/*.mustache'), ['hogan'])
+  gulp.watch(join(paths.demosRoot, 'templates/**/*.jade'), ['jade'])
   gulp.watch('./fonts/*', ['jade'])
 })
 
