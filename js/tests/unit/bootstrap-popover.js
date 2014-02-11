@@ -1,3 +1,5 @@
+/*
+ * 目前不会用popover，取消qunit
 $(function () {
 
     module("bootstrap-popover")
@@ -111,3 +113,4 @@ $(function () {
       })
 
 })
+*/
