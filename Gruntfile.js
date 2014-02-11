@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
+    demosRoot: '<%= docsRoot %>/demos',
 
     clean: {
       dist: ['<%= distRoot %>']
@@ -28,38 +29,56 @@ module.exports = function(grunt) {
         src: ['js/tests/unit/*.js']
       }
     },
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: false
+    requirejs: {
+      development: {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          optimize: "none",
+          include: '<%= pkg.name %>',
+          insertRequire: ['<%= pkg.name %>'],
+          mainConfigFile: "js/requirejs-config.js",
+          out: '<%= distRoot %>/js/<%= pkg.name %>.js',
+          wrap: true
+        }
       },
-      bootstrap: {
-        src: [
-          'js/bootstrap-transition.js',
-          'js/bootstrap-alert.js',
-          'js/bootstrap-button.js',
-          'js/bootstrap-carousel.js',
-          'js/bootstrap-collapse.js',
-          'js/bootstrap-dropdown.js',
-          'js/bootstrap-modal.js',
-          'js/bootstrap-tooltip.js',
-          'js/bootstrap-popover.js',
-          'js/bootstrap-scrollspy.js',
-          'js/bootstrap-tab.js',
-          'js/bootstrap-affix.js'
-        ],
-        dest: '<%= distRoot %>/js/<%= pkg.name %>.js'
-      },
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      bootstrap: {
-        src: ['<%= concat.bootstrap.dest %>'],
-        dest: '<%= distRoot %>/js/<%= pkg.name %>.min.js'
+      production: {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          include: '<%= pkg.name %>',
+          insertRequire: ['<%= pkg.name %>'],
+          optimize: "uglify2",
+          mainConfigFile: "js/requirejs-config.js",
+          out: '<%= distRoot %>/js/<%= pkg.name %>.min.js',
+          wrap: true
+        }
       }
     },
+
+  //concat: {
+  //  options: {
+  //    banner: '<%= banner %>',
+  //    stripBanners: false
+  //  },
+  //  bootstrap: {
+  //    src: [
+  //      'js/bootstrap-transition.js',
+  //      'js/bootstrap-alert.js',
+  //      'js/bootstrap-button.js',
+  //      'js/bootstrap-carousel.js',
+  //      'js/bootstrap-collapse.js',
+  //      'js/bootstrap-dropdown.js',
+  //      'js/bootstrap-modal.js',
+  //      'js/bootstrap-tooltip.js',
+  //      'js/bootstrap-popover.js',
+  //      'js/bootstrap-scrollspy.js',
+  //      'js/bootstrap-tab.js',
+  //      'js/bootstrap-affix.js'
+  //    ],
+  //    dest: '<%= distRoot %>/js/<%= pkg.name %>.js'
+  //  },
+  //},
     recess: {
       options: {
         compile: true
@@ -87,15 +106,23 @@ module.exports = function(grunt) {
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
       }
     },
-    copy: {
-      docs: { //doc 必须依赖于bootstap.min.js
+    jade: {
+      demos: {
         files: [
-          { expand: true, src: ['img/*'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, src: ['js/*.js'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, src: ['fonts/*'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, cwd: 'js/test/vendor/', src:['jquery.js'], dest: '<%= docsRoot %>/assets/js/' },
-          { expand: true, cwd: '<%= distRoot %>/js/', src: ['*.js'], dest: '<%= docsRoot %>/assets/js/' },
-          { expand: true, cwd: '<%= distRoot %>/css/', src: ['*.css'], dest: '<%= docsRoot %>/assets/css/' }
+          {
+          expand: true,
+          cwd: '<%= demosRoot %>/templates',
+          src: ['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],
+          dest: '<%= demosRoot %>',
+          ext: '.html'
+        },
+        ],
+      }
+    },
+    copy: {
+      fonts: {
+        files: [
+          { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
       }
     },
@@ -126,6 +153,10 @@ module.exports = function(grunt) {
       js: {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
+      },
+      demos: {
+        files: 'docs/demos/templates/**/*.jade',
+        tasks: ['jade:demos']
       }
     }
   });
@@ -133,13 +164,13 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-recess');
   // Test task.
   grunt.registerTask('test', ['jshint', 'qunit']);
@@ -150,15 +181,18 @@ module.exports = function(grunt) {
   });
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-js', ['requirejs']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['recess']);
 
+  // CSS distribution task.
+  grunt.registerTask('dist-fonts', ['copy:fonts']);
+
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
-  grunt.registerTask('docs', ['dist', 'hogan', 'copy']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-fonts']);
+  grunt.registerTask('docs', ['hogan', 'jade']); //必须先执行dist才能执行此任务
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist']);
+  grunt.registerTask('default', ['test', 'dist', 'docs']);
 }

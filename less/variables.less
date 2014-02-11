@@ -38,13 +38,13 @@
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             #06c;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "宋体", Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
@@ -84,10 +84,10 @@
 
 // padding
 // used by btn and pagination
-@basePadding:           4px 14px;
-@paddingLarge:          4px 14px;
-@paddingSmall:          2px 14px;
-@paddingMini:           0px 6px;
+@basePadding:           2px 14px;
+@paddingXLarge:          4px 20px;
+@paddingLarge:          2px 14px;
+@paddingSmall:           0px 6px;
 
 
 // Tables
@@ -99,6 +99,10 @@
 
 // Buttons
 // -------------------------
+@btnDisabledBackground: #f3f3f3;
+@btnDisabledBorder: darken(@btnDisabledBackground, 10%);
+@btnDisabledColor: #c6c6c6;
+
 @btnBackground:                     @grayLighter;
 @btnBackgroundHighlight:            #f7f7f7; //lighten(@btnBackground, 10%);
 
@@ -256,12 +260,43 @@
 
 @navbarInverseBrandColor:                @navbarInverseLinkColor;
 
+// nav tabs
+@navTabsColor:  #666;
+@navTabsBackgroundColor:  #f9f9f9;
+@navTabsBorderColor:  #999;
+@navTabsBorderHighlightColor:  #2597dd;
+
+@navTabsPadding:  2px 10px;
+@navTabsPaddingLarge:  4px 13px;
+@navTabsPaddingXLarge:  6px 16px;
+
 
 // Pagination
 // -------------------------
-@paginationBackground:                #fff;
-@paginationBorder:                    #ddd;
-@paginationActiveBackground:          #f5f5f5;
+@lightBlue: #2597dd;
+@lightBlueBorder: #e0e9ee;
+@white: #FFF;
+@lightWhite: #fafafa;
+@paginationPaddingSmall: 0px 6px;
+@paginationPadding: 2px 8px;
+@paginationPaddingXLarge: 6px 12px;
+@paginationPaddingLarge: 4px 10px; 
+@paginationBackground:                @white;
+@paginationBorder:                    @lightBlueBorder;
+@paginationActiveBackground:          @lightBlue;
+@paginationBtnColor:                  @lightWhite; 
+
+
+// Steps
+// -------------------------
+@stepsFinishedColor: #e4f6ff;
+@stepsCurrentColor: #0995e0;
+@stepsTodoColor: #f5f5f5;
+@stepsBaseHeight: 24px;
+@stepsBaseWidth: 195px;
+@stepsFinishedTextColor: #4aa4d5;
+@stepsCurrentTextColor: @white;
+@stepsTodoTextColor: @grayLight; 
 
 
 // Hero unit

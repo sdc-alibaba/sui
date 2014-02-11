@@ -5,18 +5,19 @@
 
 .close {
   float: right;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
   line-height: @baseLineHeight;
-  color: @black;
+  color: #666;
   text-shadow: 0 1px 0 rgba(255,255,255,1);
-  .opacity(20);
+  outline: none;
   &:hover,
   &:focus {
-    color: @black;
+    color: #ff5050;
     text-decoration: none;
     cursor: pointer;
-    .opacity(40);
+  }
+  &:focus {
+    color: #dd5050;
   }
 }
 
