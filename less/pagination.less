@@ -146,11 +146,14 @@
     div {
         display: inline-block;
         .page-num {
+            .input-default;
             margin: 0px;
             width: 15px;
             .border-radius(0);
             .singleTransition(width, 0.1s, linear, 0.1s);
             + .page-confirm {
+                .btn;
+                .btn-primary;
                 .border-radius(0);
                 vertical-align: top;
             }
@@ -212,22 +215,39 @@
     padding: @paginationPaddingLarge;
     font-size: @fontSizeLarge;
   }
-  ul > li:first-child > a,
-  ul > li:first-child > span {
-  }
-  ul > li:last-child > a,
-  ul > li:last-child > span {
+  div {
+    font-size: @fontSizeLarge;
+      .page-num {
+          .input-fat;
+          + .page-confirm {
+              .btn;
+              .btn-large;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
   }
 }
+// xlarge
 
-// Small and mini
-.pagination-mini,
-.pagination-small {
-  ul > li:first-child > a,
-  ul > li:first-child > span {
+.pagination-xlarge {
+  ul > li > a,
+  ul > li > span {
+    padding: @paginationPaddingXLarge;
+    font-size: @fontSizeLarge;
   }
-  ul > li:last-child > a,
-  ul > li:last-child > span {
+  div {
+      .page-num {
+          .input-xfat;
+          + .page-confirm {
+              .btn;
+              .btn-xlarge;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
   }
 }
 
@@ -238,12 +258,16 @@
     padding: @paginationPaddingSmall;
     font-size: @fontSizeSmall;
   }
-}
-// Mini
-.pagination-mini {
-  ul > li > a,
-  ul > li > span {
-    padding: @paginationPaddingMini;
-    font-size: @fontSizeMini;
+  div {
+      .page-num {
+          .input-thin;
+          + .page-confirm {
+              .btn;
+              .btn-small;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
   }
 }

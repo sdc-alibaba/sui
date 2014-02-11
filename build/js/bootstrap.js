@@ -1,4 +1,418 @@
-/*dpl started*//* ===================================================
+(function () {
+/**
+ * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
+ * Available via the MIT or new BSD license.
+ * see: http://github.com/jrburke/almond for details
+ */
+//Going sloppy to avoid 'use strict' string cost, but strict practices should
+//be followed.
+/*jslint sloppy: true */
+/*global setTimeout: false */
+
+var requirejs, require, define;
+(function (undef) {
+    var main, req, makeMap, handlers,
+        defined = {},
+        waiting = {},
+        config = {},
+        defining = {},
+        hasOwn = Object.prototype.hasOwnProperty,
+        aps = [].slice;
+
+    function hasProp(obj, prop) {
+        return hasOwn.call(obj, prop);
+    }
+
+    /**
+     * Given a relative module name, like ./something, normalize it to
+     * a real name that can be mapped to a path.
+     * @param {String} name the relative name
+     * @param {String} baseName a real name that the name arg is relative
+     * to.
+     * @returns {String} normalized name
+     */
+    function normalize(name, baseName) {
+        var nameParts, nameSegment, mapValue, foundMap,
+            foundI, foundStarMap, starI, i, j, part,
+            baseParts = baseName && baseName.split("/"),
+            map = config.map,
+            starMap = (map && map['*']) || {};
+
+        //Adjust any relative paths.
+        if (name && name.charAt(0) === ".") {
+            //If have a base name, try to normalize against it,
+            //otherwise, assume it is a top-level require that will
+            //be relative to baseUrl in the end.
+            if (baseName) {
+                //Convert baseName to array, and lop off the last part,
+                //so that . matches that "directory" and not name of the baseName's
+                //module. For instance, baseName of "one/two/three", maps to
+                //"one/two/three.js", but we want the directory, "one/two" for
+                //this normalization.
+                baseParts = baseParts.slice(0, baseParts.length - 1);
+
+                name = baseParts.concat(name.split("/"));
+
+                //start trimDots
+                for (i = 0; i < name.length; i += 1) {
+                    part = name[i];
+                    if (part === ".") {
+                        name.splice(i, 1);
+                        i -= 1;
+                    } else if (part === "..") {
+                        if (i === 1 && (name[2] === '..' || name[0] === '..')) {
+                            //End of the line. Keep at least one non-dot
+                            //path segment at the front so it can be mapped
+                            //correctly to disk. Otherwise, there is likely
+                            //no path mapping for a path starting with '..'.
+                            //This can still fail, but catches the most reasonable
+                            //uses of ..
+                            break;
+                        } else if (i > 0) {
+                            name.splice(i - 1, 2);
+                            i -= 2;
+                        }
+                    }
+                }
+                //end trimDots
+
+                name = name.join("/");
+            } else if (name.indexOf('./') === 0) {
+                // No baseName, so this is ID is resolved relative
+                // to baseUrl, pull off the leading dot.
+                name = name.substring(2);
+            }
+        }
+
+        //Apply map config if available.
+        if ((baseParts || starMap) && map) {
+            nameParts = name.split('/');
+
+            for (i = nameParts.length; i > 0; i -= 1) {
+                nameSegment = nameParts.slice(0, i).join("/");
+
+                if (baseParts) {
+                    //Find the longest baseName segment match in the config.
+                    //So, do joins on the biggest to smallest lengths of baseParts.
+                    for (j = baseParts.length; j > 0; j -= 1) {
+                        mapValue = map[baseParts.slice(0, j).join('/')];
+
+                        //baseName segment has  config, find if it has one for
+                        //this name.
+                        if (mapValue) {
+                            mapValue = mapValue[nameSegment];
+                            if (mapValue) {
+                                //Match, update name to the new value.
+                                foundMap = mapValue;
+                                foundI = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (foundMap) {
+                    break;
+                }
+
+                //Check for a star map match, but just hold on to it,
+                //if there is a shorter segment match later in a matching
+                //config, then favor over this star map.
+                if (!foundStarMap && starMap && starMap[nameSegment]) {
+                    foundStarMap = starMap[nameSegment];
+                    starI = i;
+                }
+            }
+
+            if (!foundMap && foundStarMap) {
+                foundMap = foundStarMap;
+                foundI = starI;
+            }
+
+            if (foundMap) {
+                nameParts.splice(0, foundI, foundMap);
+                name = nameParts.join('/');
+            }
+        }
+
+        return name;
+    }
+
+    function makeRequire(relName, forceSync) {
+        return function () {
+            //A version of a require function that passes a moduleName
+            //value for items that may need to
+            //look up paths relative to the moduleName
+            return req.apply(undef, aps.call(arguments, 0).concat([relName, forceSync]));
+        };
+    }
+
+    function makeNormalize(relName) {
+        return function (name) {
+            return normalize(name, relName);
+        };
+    }
+
+    function makeLoad(depName) {
+        return function (value) {
+            defined[depName] = value;
+        };
+    }
+
+    function callDep(name) {
+        if (hasProp(waiting, name)) {
+            var args = waiting[name];
+            delete waiting[name];
+            defining[name] = true;
+            main.apply(undef, args);
+        }
+
+        if (!hasProp(defined, name) && !hasProp(defining, name)) {
+            throw new Error('No ' + name);
+        }
+        return defined[name];
+    }
+
+    //Turns a plugin!resource to [plugin, resource]
+    //with the plugin being undefined if the name
+    //did not have a plugin prefix.
+    function splitPrefix(name) {
+        var prefix,
+            index = name ? name.indexOf('!') : -1;
+        if (index > -1) {
+            prefix = name.substring(0, index);
+            name = name.substring(index + 1, name.length);
+        }
+        return [prefix, name];
+    }
+
+    /**
+     * Makes a name map, normalizing the name, and using a plugin
+     * for normalization if necessary. Grabs a ref to plugin
+     * too, as an optimization.
+     */
+    makeMap = function (name, relName) {
+        var plugin,
+            parts = splitPrefix(name),
+            prefix = parts[0];
+
+        name = parts[1];
+
+        if (prefix) {
+            prefix = normalize(prefix, relName);
+            plugin = callDep(prefix);
+        }
+
+        //Normalize according
+        if (prefix) {
+            if (plugin && plugin.normalize) {
+                name = plugin.normalize(name, makeNormalize(relName));
+            } else {
+                name = normalize(name, relName);
+            }
+        } else {
+            name = normalize(name, relName);
+            parts = splitPrefix(name);
+            prefix = parts[0];
+            name = parts[1];
+            if (prefix) {
+                plugin = callDep(prefix);
+            }
+        }
+
+        //Using ridiculous property names for space reasons
+        return {
+            f: prefix ? prefix + '!' + name : name, //fullName
+            n: name,
+            pr: prefix,
+            p: plugin
+        };
+    };
+
+    function makeConfig(name) {
+        return function () {
+            return (config && config.config && config.config[name]) || {};
+        };
+    }
+
+    handlers = {
+        require: function (name) {
+            return makeRequire(name);
+        },
+        exports: function (name) {
+            var e = defined[name];
+            if (typeof e !== 'undefined') {
+                return e;
+            } else {
+                return (defined[name] = {});
+            }
+        },
+        module: function (name) {
+            return {
+                id: name,
+                uri: '',
+                exports: defined[name],
+                config: makeConfig(name)
+            };
+        }
+    };
+
+    main = function (name, deps, callback, relName) {
+        var cjsModule, depName, ret, map, i,
+            args = [],
+            usingExports;
+
+        //Use name if no relName
+        relName = relName || name;
+
+        //Call the callback to define the module, if necessary.
+        if (typeof callback === 'function') {
+
+            //Pull out the defined dependencies and pass the ordered
+            //values to the callback.
+            //Default to [require, exports, module] if no deps
+            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
+            for (i = 0; i < deps.length; i += 1) {
+                map = makeMap(deps[i], relName);
+                depName = map.f;
+
+                //Fast path CommonJS standard dependencies.
+                if (depName === "require") {
+                    args[i] = handlers.require(name);
+                } else if (depName === "exports") {
+                    //CommonJS module spec 1.1
+                    args[i] = handlers.exports(name);
+                    usingExports = true;
+                } else if (depName === "module") {
+                    //CommonJS module spec 1.1
+                    cjsModule = args[i] = handlers.module(name);
+                } else if (hasProp(defined, depName) ||
+                           hasProp(waiting, depName) ||
+                           hasProp(defining, depName)) {
+                    args[i] = callDep(depName);
+                } else if (map.p) {
+                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
+                    args[i] = defined[depName];
+                } else {
+                    throw new Error(name + ' missing ' + depName);
+                }
+            }
+
+            ret = callback.apply(defined[name], args);
+
+            if (name) {
+                //If setting exports via "module" is in play,
+                //favor that over return value and exports. After that,
+                //favor a non-undefined return value over exports use.
+                if (cjsModule && cjsModule.exports !== undef &&
+                        cjsModule.exports !== defined[name]) {
+                    defined[name] = cjsModule.exports;
+                } else if (ret !== undef || !usingExports) {
+                    //Use the return value from the function.
+                    defined[name] = ret;
+                }
+            }
+        } else if (name) {
+            //May just be an object definition for the module. Only
+            //worry about defining if have a module name.
+            defined[name] = callback;
+        }
+    };
+
+    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
+        if (typeof deps === "string") {
+            if (handlers[deps]) {
+                //callback in this case is really relName
+                return handlers[deps](callback);
+            }
+            //Just return the module wanted. In this scenario, the
+            //deps arg is the module name, and second arg (if passed)
+            //is just the relName.
+            //Normalize module name, if it contains . or ..
+            return callDep(makeMap(deps, callback).f);
+        } else if (!deps.splice) {
+            //deps is a config object, not an array.
+            config = deps;
+            if (callback.splice) {
+                //callback is an array, which means it is a dependency list.
+                //Adjust args if there are dependencies
+                deps = callback;
+                callback = relName;
+                relName = null;
+            } else {
+                deps = undef;
+            }
+        }
+
+        //Support require(['a'])
+        callback = callback || function () {};
+
+        //If relName is a function, it is an errback handler,
+        //so remove it.
+        if (typeof relName === 'function') {
+            relName = forceSync;
+            forceSync = alt;
+        }
+
+        //Simulate async callback;
+        if (forceSync) {
+            main(undef, deps, callback, relName);
+        } else {
+            //Using a non-zero value because of concern for what old browsers
+            //do, and latest browsers "upgrade" to 4 if lower value is used:
+            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
+            //If want a value immediately, use require('id') instead -- something
+            //that works in almond on the global level, but not guaranteed and
+            //unlikely to work in other AMD implementations.
+            setTimeout(function () {
+                main(undef, deps, callback, relName);
+            }, 4);
+        }
+
+        return req;
+    };
+
+    /**
+     * Just drops the config on the floor, but returns req in case
+     * the config return value is used.
+     */
+    req.config = function (cfg) {
+        config = cfg;
+        if (config.deps) {
+            req(config.deps, config.callback);
+        }
+        return req;
+    };
+
+    /**
+     * Expose module registry for debugging and tooling
+     */
+    requirejs._defined = defined;
+
+    define = function (name, deps, callback) {
+
+        //This module may not have dependencies
+        if (!deps.splice) {
+            //deps is not an array, so probably means
+            //an object literal or factory function for
+            //the value. Adjust args.
+            callback = deps;
+            deps = [];
+        }
+
+        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
+            waiting[name] = [name, deps, callback];
+        }
+    };
+
+    define.amd = {
+        jQuery: true
+    };
+}());
+
+define("almond", function(){});
+
+/* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
  * ===================================================
@@ -20,7 +434,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
   /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
@@ -59,6 +473,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-transition.js", function(){});
+
 /* ==========================================================
  * bootstrap-alert.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#alerts
@@ -81,7 +497,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* ALERT CLASS DEFINITION
@@ -159,6 +575,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-alert.js", function(){});
+
 /* ============================================================
  * bootstrap-button.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#buttons
@@ -181,7 +599,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* BUTTON PUBLIC CLASS DEFINITION
@@ -265,6 +683,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-button.js", function(){});
+
 /* ==========================================================
  * bootstrap-carousel.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#carousel
@@ -287,7 +707,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* CAROUSEL CLASS DEFINITION
@@ -473,6 +893,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-carousel.js", function(){});
+
 /* =============================================================
  * bootstrap-collapse.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#collapse
@@ -495,7 +917,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* COLLAPSE PUBLIC CLASS DEFINITION
@@ -641,6 +1063,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-collapse.js", function(){});
+
 /* ============================================================
  * bootstrap-dropdown.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#dropdowns
@@ -663,7 +1087,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* DROPDOWN CLASS DEFINITION
@@ -811,113 +1235,149 @@
 
 }(window.jQuery);
 
+define("bootstrap-dropdown.js", function(){});
+
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
- * =========================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================= */
-
+ * ========================================================= 
+ * @file bootstrap-modal.js
+ * @brief 弹层dpl，扩展自bootstrap2.3.2
+ * @author banbian, zangtao.zt@alibaba-inc.com
+ * @date 2014-01-14
+ */
 
 !function ($) {
-
-  "use strict";
-
-
+  
  /* MODAL CLASS DEFINITION
   * ====================== */
-
   var Modal = function (element, options) {
     this.options = options
+    //若element为null，则表示为js触发的alert、confirm弹层
+    if (element === null) {
+      var TPL = ''
+        //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
+        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+          + '<div class="modal-dialog">'
+            + '<div class="modal-content">'
+              + '<div class="modal-header">'
+                + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + '<h4 class="modal-title">{%title%}</h4>'
+              + '</div>'
+              + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
+              + (options.hasfoot ? '<div class="modal-footer">'
+              //增加data-ok="modal"参数
+                + '<button type="button" class="btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+              + '</div>' : '')
+            + '</div>'
+          + '</div>'
+        + '</div>';
+      element = $(TPL.replace('{%title%}', options.title)
+                      .replace('{%body%}', options.body)
+                      .replace('{%id%}', options.id)
+                      .replace('{%ok_btn%}', options.okBtn)
+                      .replace('{%cancel_btn%}', options.cancelBtn))
+      $('body').append(element)
+    }
     this.$element = $(element)
-      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+    this.init()
+      
   }
-
+  //对外接口只有toggle, show, hide 
   Modal.prototype = {
-
-      constructor: Modal
+    constructor: Modal
+    ,init: function () {
+      var ele = this.$element
+        , w = this.options.width
+        , standardW = {
+            small: 440  //默认宽度
+            ,normal: 590
+            ,large: 790
+          }
+      ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
+      if(w) {
+        standardW[w] && (w = standardW[w])
+        ele.width(w).css('margin-left', -parseInt(w) / 2)
+      }
+      this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+   
+    }
 
     , toggle: function () {
         return this[!this.isShown ? 'show' : 'hide']()
-      }
-
+    }
+      
     , show: function () {
         var that = this
           , e = $.Event('show')
-
-        this.$element.trigger(e)
-
+          , ele = this.$element
+        ele.trigger(e)
         if (this.isShown || e.isDefaultPrevented()) return
-
         this.isShown = true
-
         this.escape()
-
         this.backdrop(function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
-
-          if (!that.$element.parent().length) {
-            that.$element.appendTo(document.body) //don't move modals dom position
+          var transition = $.support.transition && ele.hasClass('fade')
+          if (!ele.parent().length) {
+            ele.appendTo(document.body) //don't move modals dom position
           }
-
-          that.$element.show()
-
+          var h = ele.height()
+          if (h > 270) {
+            ele.css('margin-top', -parseInt(h) / 2)
+          }
+          ele.show()
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            ele[0].offsetWidth // force reflow
           }
-
-          that.$element
+          ele
             .addClass('in')
             .attr('aria-hidden', false)
-
           that.enforceFocus()
-
           transition ?
-            that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-            that.$element.focus().trigger('shown')
+            ele.one($.support.transition.end, function () { 
+              callbackAfterTransition(that)
+            }) :
+            callbackAfterTransition(that)
 
+          function callbackAfterTransition(that) {
+            that.$element.focus().trigger('shown')
+            if (that.options.timeout > 0) {
+              that.timeid = setTimeout(function(){
+                that.hide(); 
+              }, that.options.timeout) 
+            }
+          }
         })
       }
 
     , hide: function (e) {
         e && e.preventDefault()
-
         var that = this
-
         e = $.Event('hide')
-
         this.$element.trigger(e)
-
         if (!this.isShown || e.isDefaultPrevented()) return
-
         this.isShown = false
-
         this.escape()
-
         $(document).off('focusin.modal')
-
+        that.timeid && clearTimeout(that.timeid)
         this.$element
           .removeClass('in')
           .attr('aria-hidden', true)
-
         $.support.transition && this.$element.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
       }
-
+    , okHide: function(e){
+        var fn = this.options.okHide
+          , ifNeedHide = true
+        typeof fn == 'function' && (ifNeedHide = fn.call(this))
+        //如果开发人员不设置返回值，默认走true的逻辑
+        if (ifNeedHide === true || ifNeedHide === undefined){
+          this.hideReason = 'ok'
+          this.hide(e)  
+        } 
+    }
     , enforceFocus: function () {
         var that = this
         $(document).on('focusin.modal', function (e) {
@@ -944,7 +1404,6 @@
               that.$element.off($.support.transition.end)
               that.hideModal()
             }, 500)
-
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -953,10 +1412,17 @@
 
     , hideModal: function () {
         var that = this
-        this.$element.hide()
+          ,ele = this.$element
+        ele.hide()
         this.backdrop(function () {
           that.removeBackdrop()
-          that.$element.trigger('hidden')
+          if (that.hideReason == 'ok') {
+            ele.trigger('okHidden')
+            that.hideReason = null
+          }
+          ele.trigger('hidden')
+          //销毁静态方法生成的dialog元素
+          ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
 
@@ -968,96 +1434,161 @@
     , backdrop: function (callback) {
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
-
-        if (this.isShown && this.options.backdrop) {
-          var doAnimate = $.support.transition && animate
-
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+          , opt = this.options
+          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
+        if (this.isShown) {
+          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
-
+          //遮罩层背景黑色半透明
+          var doAnimate = $.support.transition && animate
           this.$backdrop.click(
-            this.options.backdrop == 'static' ?
+            opt.backdrop == 'static' ?
               $.proxy(this.$element[0].focus, this.$element[0])
             : $.proxy(this.hide, this)
           )
-
           if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-
-          this.$backdrop.addClass('in')
-
+          this.$backdrop.addClass('in ' + cls)
           if (!callback) return
-
           doAnimate ?
             this.$backdrop.one($.support.transition.end, callback) :
             callback()
-
         } else if (!this.isShown && this.$backdrop) {
-          this.$backdrop.removeClass('in')
-
-          $.support.transition && this.$element.hasClass('fade')?
-            this.$backdrop.one($.support.transition.end, callback) :
-            callback()
-
+          if (this.$backdrop.hasClass('in')) {
+            this.$backdrop.removeClass('in')
+            $.support.transition && this.$element.hasClass('fade')?
+              this.$backdrop.one($.support.transition.end, callback) :
+              callback()
+          } else {
+            callback && callback();
+          }
         } else if (callback) {
           callback()
         }
       }
   }
 
-
  /* MODAL PLUGIN DEFINITION
   * ======================= */
+
 
   var old = $.fn.modal
 
   $.fn.modal = function (option) {
+    //this指向dialog元素Dom，
+    //each让诸如 $('#qqq, #eee').modal(options) 的用法可行。
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('modal')
         , options = $.extend({}, $.fn.modal.defaults, $this.data(), typeof option == 'object' && option)
+      //这里判断的目的是：第一次show时实例化dialog，之后的show则用缓存在data-modal里的对象。
       if (!data) $this.data('modal', (data = new Modal(this, options)))
+
+      //如果是$('#xx').modal('toggle'),务必保证传入的字符串是Modal类原型链里已存在的方法。否则会报错has no method。
       if (typeof option == 'string') data[option]()
-      else if (options.show) data.show()
+      else data.show()
     })
   }
 
   $.fn.modal.defaults = {
       backdrop: true
     , keyboard: true
-    , show: true
+    , hasfoot: true
   }
 
   $.fn.modal.Constructor = Modal
-
-
  /* MODAL NO CONFLICT
   * ================= */
+
 
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
   }
 
-
  /* MODAL DATA-API
   * ============== */
+
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
+      //$target这里指dialog本体Dom(若存在)
+      //通过data-target="#foo"或href="#foo"指向
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
-
+      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $this.data())
     e.preventDefault()
-
     $target
       .modal(option)
       .one('hide', function () {
         $this.focus()
-      })
+    })
+  })
+
+  /* jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
+   * 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用
+   * 
+   * example
+   * $.alert({
+   *  title: '自定义标题'
+   *  body: 'html' //必填
+   *  okBtn : '好的'
+   *  cancelBtn : '雅达'
+   *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+   *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
+   *  hasfoot: {Boolean}  是否显示脚部  默认true
+   *  show:     fn --------------function(e){}
+   *  shown:    fn
+   *  hide:     fn
+   *  hidden:   fn
+   *  okHide:   function(e){alert('点击确认后、dialog消失前的逻辑,
+   *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
+   *            注意不要人肉返回undefined！！')}
+   *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+   * })
+   *
+   */
+  $.extend({
+    _modal: function(dialogCfg, customCfg){
+      var modalId = +new Date()
+        
+        ,finalCfg = $.extend({}, $.fn.modal.defaults
+          , dialogCfg
+          , {id: modalId, okBtn: '确定'}
+          , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
+      var dialog = new Modal(null, finalCfg)
+      _bind(modalId, finalCfg)
+      dialog.show();
+
+      function _bind(id, eList){
+        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
+        $.each(eType, function(k, v){
+          if (typeof eList[v] == 'function'){
+            $(document).on(v, '#'+id, $.proxy(eList[v], $('#' + id)[0]))
+          }
+        })
+      }
+    }
+    //为最常见的alert，confirm建立$.modal的快捷方式，
+    ,alert: function(customCfg){
+      var dialogCfg = {
+        type: 'alert'
+        ,title: '注意'
+      }
+      $._modal(dialogCfg, customCfg)
+    }
+    ,confirm: function(customCfg){
+      var dialogCfg = {
+        type: 'confirm'
+        ,title: '提示'
+        ,cancelBtn: '取消'
+      }
+      $._modal(dialogCfg, customCfg)
+    }
   })
 
 }(window.jQuery);
+
+define("bootstrap-modal.js", function(){});
 
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
@@ -1082,7 +1613,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* TOOLTIP PUBLIC CLASS DEFINITION
@@ -1114,12 +1645,20 @@
         trigger = triggers[i]
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
           this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
+      }
+
+      //为confirm类型tooltip增加取消按钮设置默认逻辑
+      if (this.options.type == 'confirm') {
+        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+          $(this).parents('.tooltip').prev().trigger('click')
+        })
       }
 
       this.options.selector ?
@@ -1129,6 +1668,11 @@
 
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
+
+      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      //根据tooltip的type类型构造tip模版
+      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
@@ -1180,6 +1724,8 @@
         , placement
         , tp
         , e = $.Event('show')
+        , opt = this.options
+        , widthLimit = opt.widthlimit
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1187,37 +1733,46 @@
         $tip = this.tip()
         this.setContent()
 
-        if (this.options.animation) {
+        if (opt.animation) {
           $tip.addClass('fade')
         }
 
-        placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement
+        placement = typeof opt.placement == 'function' ?
+          opt.placement.call(this, $tip[0], this.$element[0]) :
+          opt.placement
 
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+        opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
 
+        //宽度限制逻辑
+        if (widthLimit !== true) {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
         actualHeight = $tip[0].offsetHeight
 
+        //+ - 7修正，和css对应，勿单独修改
+        var d = opt.type == 'attention' ? 5 : 7
         switch (placement) {
           case 'bottom':
-            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
             break
         }
 
@@ -1337,7 +1892,6 @@
 
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
       return title
     }
 
@@ -1387,6 +1941,7 @@
   var old = $.fn.tooltip
 
   $.fn.tooltip = function ( option ) {
+
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('tooltip')
@@ -1400,14 +1955,15 @@
 
   $.fn.tooltip.defaults = {
     animation: true
+  , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
-  , selector: false
-  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
-  , trigger: 'hover focus'
-  , title: ''
-  , delay: 0
-  , html: false
-  , container: false
+  , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
+  , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
+  , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
+  , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+  , html: true  //决定是html()还是text()
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
 
@@ -1419,7 +1975,26 @@
     return this
   }
 
+  //document ready init
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+
+    //点击外部可消失tooltip
+    $(document).on('mousedown', function(e){
+      var tgt = $(e.target)
+        , tip = $('.tooltip')
+        , switchTgt = tip.prev()
+        , tipContainer = tgt.parents('.tooltip')
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+        switchTgt.trigger('click.tooltip')   
+      }
+    })
+
+  })
+
 }(window.jQuery);
+
+define("bootstrap-tooltip.js", function(){});
 
 /* ===========================================================
  * bootstrap-popover.js v2.3.2
@@ -1443,7 +2018,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* POPOVER PUBLIC CLASS DEFINITION
@@ -1536,6 +2111,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-popover.js", function(){});
+
 /* =============================================================
  * bootstrap-scrollspy.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
@@ -1558,7 +2135,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* SCROLLSPY CLASS DEFINITION
@@ -1699,6 +2276,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-scrollspy.js", function(){});
+
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -1721,7 +2300,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* TAB CLASS DEFINITION
@@ -1844,6 +2423,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-tab.js", function(){});
+
 /* ==========================================================
  * bootstrap-affix.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#affix
@@ -1866,7 +2447,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* AFFIX CLASS DEFINITION
@@ -1961,3 +2542,27 @@
 
 
 }(window.jQuery);
+
+define("bootstrap-affix.js", function(){});
+
+require([
+  'bootstrap-transition.js',
+  'bootstrap-alert.js',
+  'bootstrap-button.js',
+  'bootstrap-carousel.js',
+  'bootstrap-collapse.js',
+  'bootstrap-dropdown.js',
+  'bootstrap-modal.js',
+  'bootstrap-tooltip.js',
+  'bootstrap-popover.js',
+  'bootstrap-scrollspy.js',
+  'bootstrap-tab.js',
+  'bootstrap-affix.js'
+], function() {
+  
+});
+
+define("bootstrap", function(){});
+
+require(["bootstrap"]);
+}());

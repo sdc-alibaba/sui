@@ -8,7 +8,7 @@
 
 // Make all forms have space below them
 form {
-  // margin: 0 0 @baseLineHeight; // æ³¨é‡Šæ‰è¿™ä¸€è¡Œ ä¿æŒformæ ‡ç­¾åŸç”Ÿå±æ€§ï¼Œä¸å¯¹å®ƒè¿›è¡Œå…¨å±€å®šä¹‰ @by kai 2014-01-16
+  // margin: 0 0 @baseLineHeight; // ×¢ÊÍµôÕâÒ»ĞĞ ±£³Öform±êÇ©Ô­ÉúÊôĞÔ£¬²»¶ÔËü½øĞĞÈ«¾Ö¶¨Òå @by kai 2014-01-16
 }
 
 fieldset {
@@ -52,12 +52,13 @@ textarea {
 }
 
 // Identify controls by their labels
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  ä¿æŒlabelæ ‡ç­¾çš„åŸç”Ÿå±æ€§ï¼Œä¸å¯¹å®ƒè¿›è¡Œå…¨å±€å®šä¹‰ ç›´æ¥å»æ‰ @by kai 2014-01-16
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë ±£³Ölabel±êÇ©µÄÔ­ÉúÊôĞÔ£¬²»¶ÔËü½øĞĞÈ«¾Ö¶¨Òå Ö±½ÓÈ¥µô @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
 }
 */
+
 
 // Form controls
 // -------------------------
@@ -83,8 +84,8 @@ input[type="color"],
   display: inline-block;
   height: @baseLineHeight;
   // padding: 4px 6px;
-  padding: 2px 6px; // æ›´æ–°é»˜è®¤paddingä¸Šä¸‹å°ºå¯¸ä¸º2pxï¼Œä½¿å¾—æ§ä»¶é»˜è®¤é«˜åº¦ä¸º24px @by kai 2014-01-16
-  margin-bottom: @baseLineHeight / 2;
+  // margin-bottom: @baseLineHeight / 2;
+  padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;  // ×¢ÊÍµôpaddingÖµºÍmarginÖµÍ¬Ê±ĞŞ¸ÄpaddingÖµÎªÄ¬ÈÏÖµ @by kai 2014-01-30
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   color: @gray;
@@ -97,12 +98,14 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  // width: 206px; // plus 12px padding and 2px border // æ³¨é‡Šæ‰è¿™ä¸€è¡Œï¼Œä¿æŒæ§ä»¶é»˜è®¤å®½åº¦ä¸ºauto @by kai 2014-01-16
+  // width: 206px; // plus 12px padding and 2px border // ×¢ÊÍµôÕâÒ»ĞĞ£¬±£³Ö¿Ø¼şÄ¬ÈÏ¿í¶ÈÎªauto @by kai 2014-01-16
 }
+
 // Reset height since textareas have rows
 textarea {
   height: auto;
 }
+
 // Everything else
 textarea,
 input[type="text"],
@@ -130,7 +133,7 @@ input[type="color"],
     border-color: rgba(82,168,236,.8);
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");
+    // .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");  // ×¢ÊÍµô×Ö¶Î½¹µãÍâ·¢¹âĞ§¹û @by kai 2014-01-23
   }
 }
 
@@ -141,29 +144,20 @@ input[type="checkbox"] {
   // *margin-top: 0; /* IE7 */
   // margin-top: 1px \9; /* IE8-9 */
   // line-height: normal;
-  // æ³¨é‡Šæ‰ä¸Šé¢çš„æ ·å¼ æ·»åŠ ä¸‹é¢æ ·å¼ ä¿®å¤checkboxå’Œradioåé¢çš„æ–‡æœ¬ä¸å¯¹é½çš„é—®é¢˜ @by kai 2014-01-16
+  // ×¢ÊÍµôÉÏÃæµÄÑùÊ½ Ìí¼ÓÏÂÃæÑùÊ½ ĞŞ¸´checkboxºÍradioºóÃæµÄÎÄ±¾²»¶ÔÆëµÄÎÊÌâ @by kai 2014-01-16
   width: 13px;
   height: 13px;
   vertical-align: middle;
 }
 
 // Reset width of input images, buttons, radios, checkboxes
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  å»æ‰radioå’Œcheckboxå®½åº¦é‡ç½® @by kai 2014-01-16
 input[type="file"],
 input[type="image"],
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto; // Override of generic input selector
-}
-*/
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+/* input[type="radio"], // ×¢ÊÍµôÕâÒ»¿é´úÂë È¥µôradioºÍcheckbox¿í¶ÈÖØÖÃ @by kai 2014-01-16
+input[type="checkbox"] */ {
   width: auto; // Override of generic input selector
 }
 
@@ -177,7 +171,7 @@ input[type="file"] {
 
 // Make select elements obey height by applying a border
 select {
-  // width: 220px; // default input width + 10px of padding that doesn't get applied // æ³¨é‡Šæ‰è¿™ä¸€è¡Œï¼Œä¿æŒselectæ ‡ç­¾åŸç”Ÿå®½åº¦è‡ªåŠ¨å±æ€§ @by kai 2014-01-16
+  // width: 220px; // default input width + 10px of padding that doesn't get applied // ×¢ÊÍµôÕâÒ»ĞĞ£¬±£³Öselect±êÇ©Ô­Éú¿í¶È×Ô¶¯ÊôĞÔ @by kai 2014-01-16
   border: 1px solid @inputBorder;
   background-color: @inputBackground; // Chrome on Linux and Mobile Safari need background-color
 }
@@ -223,96 +217,6 @@ input[type="checkbox"]:focus {
 }
 
 
-// é‡ç½®æ§ä»¶é«˜åº¦ @by kai 2014-01-16
-// -------------------------
-
-// æ§ä»¶é«˜åº¦20px
-input[type="text"].input-thin,
-input[type="password"].input-thin,
-input[type="datetime"].input-thin,
-input[type="datetime-local"].input-thin,
-input[type="date"].input-thin,
-input[type="month"].input-thin,
-input[type="time"].input-thin,
-input[type="week"].input-thin,
-input[type="number"].input-thin,
-input[type="email"].input-thin,
-input[type="url"].input-thin,
-input[type="search"].input-thin,
-input[type="tel"].input-thin,
-input[type="color"].input-thin,
-.input-thin {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-// æ§ä»¶é«˜åº¦24px
-input[type="text"].input-default,
-input[type="password"].input-default,
-input[type="datetime"].input-default,
-input[type="datetime-local"].input-default,
-input[type="date"].input-default,
-input[type="month"].input-default,
-input[type="time"].input-default,
-input[type="week"].input-default,
-input[type="number"].input-default,
-input[type="email"].input-default,
-input[type="url"].input-default,
-input[type="search"].input-default,
-input[type="tel"].input-default,
-input[type="color"].input-default,
-.input-default {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-// æ§ä»¶é«˜åº¦28px
-input[type="text"].input-fat,
-input[type="password"].input-fat,
-input[type="datetime"].input-fat,
-input[type="datetime-local"].input-fat,
-input[type="date"].input-fat,
-input[type="month"].input-fat,
-input[type="time"].input-fat,
-input[type="week"].input-fat,
-input[type="number"].input-fat,
-input[type="email"].input-fat,
-input[type="url"].input-fat,
-input[type="search"].input-fat,
-input[type="tel"].input-fat,
-input[type="color"].input-fat,
-.input-fat {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-// æ§ä»¶é«˜åº¦32px
-input[type="text"].input-xfat,
-input[type="password"].input-xfat,
-input[type="datetime"].input-xfat,
-input[type="datetime-local"].input-xfat,
-input[type="date"].input-xfat,
-input[type="month"].input-xfat,
-input[type="time"].input-xfat,
-input[type="week"].input-xfat,
-input[type="number"].input-xfat,
-input[type="email"].input-xfat,
-input[type="url"].input-xfat,
-input[type="search"].input-xfat,
-input[type="tel"].input-xfat,
-input[type="color"].input-xfat,
-.input-xfat {
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-
-// é‡ç½®selecté«˜åº¦
-select.input-thin { height: 20px; }
-select.input-default { height: 24px; }
-select.input-fat { height: 28px; }
-select.input-xfat { height: 32px; }
-
-
 // Placeholder
 // -------------------------
 
@@ -327,12 +231,22 @@ textarea {
 // -------------------
 
 // Indent the labels to position radios/checkboxes as hanging
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  ä¿æŒcheckboxå’Œradioæ ‡ç­¾çš„åŸç”Ÿå±æ€§ ç›´æ¥å»æ‰ @by kai 2014-01-16
 .radio,
 .checkbox {
-  min-height: @baseLineHeight; // clear the floating input if there is no label text
-  padding-left: 20px;
+  // min-height: @baseLineHeight; // clear the floating input if there is no label text
+  // padding-left: 20px;
+
+  // ×¢ÊÍµôÉÏÃæµÄÑùÊ½ Ìí¼ÓÏÂÃæÑùÊ½ @by kai 2014-01-30
+  display: block;
+  
+  // ¹ØÁªÑùÊ½
+  + .radio,
+  + .checkbox {
+    margin-top: 5px;
+  }
 }
+
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë ±£³ÖcheckboxºÍradio±êÇ©µÄÔ­ÉúÊôĞÔ Ö±½ÓÈ¥µô @by kai 2014-01-16
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
   float: left;
@@ -341,7 +255,7 @@ textarea {
 */
 
 // Move the options list down to align with labels
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  ä¿æŒcheckboxå’Œradioæ ‡ç­¾çš„åŸç”Ÿå±æ€§ ç›´æ¥å»æ‰ @by kai 2014-01-16
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë ±£³ÖcheckboxºÍradio±êÇ©µÄÔ­ÉúÊôĞÔ Ö±½ÓÈ¥µô @by kai 2014-01-16
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
   padding-top: 5px; // has to be padding because margin collaspes
@@ -350,14 +264,25 @@ textarea {
 
 // Radios and checkboxes on same line
 // TODO v3: Convert .inline to .control-inline
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  ä¿æŒcheckboxå’Œradioæ ‡ç­¾çš„åŸç”Ÿå±æ€§ ç›´æ¥å»æ‰ @by kai 2014-01-16
 .radio.inline,
 .checkbox.inline {
+  /* ×¢ÊÍµôÉÏÃæµÄÑùÊ½ Ìí¼ÓÏÂÃæÑùÊ½ @by kai 2014-01-30
   display: inline-block;
   padding-top: 5px;
   margin-bottom: 0;
   vertical-align: middle;
+  */
+  display: inline-block;
+  margin-top: 0;
+
+  // ¹ØÁªÑùÊ½
+  + .radio.inline,
+  + .checkbox.inline {
+    margin-left: 6px;
+  }
 }
+
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë£¬Ö±½ÓÉ¾µô @by kai 2014-01-30
 .radio.inline + .radio.inline,
 .checkbox.inline + .checkbox.inline {
   margin-left: 10px; // space out consecutive inline controls
@@ -369,12 +294,107 @@ textarea {
 // -----------
 
 // General classes for quick sizes
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë ÖØĞÂ¶¨ÒåÈçÏÂ @by kai 2014-01-30
 .input-mini       { width: 60px; }
 .input-small      { width: 90px; }
 .input-medium     { width: 150px; }
 .input-large      { width: 210px; }
 .input-xlarge     { width: 270px; }
-.input-xxlarge    { width: 530px; }
+.input-xxlarge    { width: 530px; }*/
+
+// ¶¨Òå±íµ¥¿Ø¼ş³£ÓÃ¿í¶È³ß´ç
+.input-mini       { width: @inputMiniWidth; }
+.input-small      { width: @inputSmallWidth; }
+.input-medium     { width: @inputMediumWidth; }
+.input-large      { width: @inputLargeWidth; }
+.input-xlarge     { width: @inputXLargeWidth; }
+.input-xxlarge    { width: @inputXXLargeWidth; }
+
+// ¶¨Òå±íµ¥¿Ø¼ş³£ÓÃ¸ß¶È³ß´ç
+.input-thin {
+  padding-top: @inputThinPaddingTB;
+  padding-bottom: @inputThinPaddingTB;
+}
+.input-default {
+  padding-top: @inputDefaultPaddingTB;
+  padding-bottom: @inputDefaultPaddingTB;
+}
+.input-fat {
+  padding-top: @inputFatPaddingTB;
+  padding-bottom: @inputFatPaddingTB;
+}
+.input-xfat {
+  padding-top: @inputXFatPaddingTB;
+  padding-bottom: @inputXFatPaddingTB;
+}
+
+// ÖØÖÃ´óºÅºÍ¼Ó´óºÅ±íµ¥¿Ø¼ş×óÓÒpadding
+.input-fat {
+  padding-right: @inputLargePaddingLR;
+  padding-left: @inputLargePaddingLR;
+}
+.input-xfat {
+  padding-right: @inputLargePaddingLR;
+  padding-left: @inputLargePaddingLR;
+}
+
+// ÖØÖÃÎÄ±¾¿Ø¼ş³ß´ç
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  // ÖØÖÃ¿í¶È³ß´ç
+  &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+  &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+  &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+  &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+  &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+  &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+
+  // ÖØÖÃ¸ß¶È³ß´ç
+  &.input-thin { .input-thin; }
+  &.input-default { .input-default; }
+
+  // ¶Ô´óºÅºÍ¼Ó´óºÅÎÄ±¾¿Ø¼şÖØÖÃ¿í¸ß³ß´ç
+  &.input-fat {
+    .input-fat;
+    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+  }
+  &.input-xfat {
+    .input-xfat;
+    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputLargePaddingLR); }
+  }
+}
+
+// ÖØÖÃselect¸ß¶È
+select {
+  &.input-thin { height: @inputThinHeight; }
+  &.input-default { height: @inputDefaultHeight; }
+  &.input-fat { height: @inputFatHeight; }
+  &.input-xfat { height: @inputXFatHeight; }
+}
 
 // Grid style input sizes
 input[class*="span"],
@@ -389,6 +409,7 @@ textarea[class*="span"],
   float: none;
   margin-left: 0;
 }
+
 // Ensure input-prepend/append never wraps
 .input-append input[class*="span"],
 .input-append .uneditable-input[class*="span"],
@@ -402,6 +423,7 @@ textarea[class*="span"],
 .row-fluid .input-append [class*="span"] {
   display: inline-block;
 }
+
 
 // GRID SIZING FOR INPUTS
 // ----------------------
@@ -421,12 +443,13 @@ textarea[class*="span"],
   float: left;
 }
 // Explicity set top padding on all checkboxes/radios, not just first-child
-/* æ³¨é‡Šæ‰è¿™ä¸€å—ä»£ç  ä¿æŒcheckboxå’Œradioæ ‡ç­¾çš„åŸç”Ÿå±æ€§ ç›´æ¥å»æ‰ @by kai 2014-01-16
+/* ×¢ÊÍµôÕâÒ»¿é´úÂë ±£³ÖcheckboxºÍradio±êÇ©µÄÔ­ÉúÊôĞÔ Ö±½ÓÈ¥µô @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
 }
 */
+
 
 // DISABLED STATE
 // --------------
@@ -465,9 +488,10 @@ input[type="checkbox"][readonly] {
 .control-group.success {
   .formFieldState(@successText, @successText, @successBackground);
 }
-// Success
+// Info
 .control-group.info {
-  .formFieldState(@infoText, @infoText, @infoBackground);
+  // .formFieldState(@infoText, @infoText, @infoBackground);
+  .formFieldState(@infoText, @infoBorder, @infoBackground); // ¸ü¸Ä°ïÖú×´Ì¬ÎÄ±¾×Ö¶ÎborderÑÕÉ« @by kai 2014-01-24
 }
 
 // HTML5 invalid states
@@ -479,8 +503,212 @@ select:focus:invalid {
   border-color: #ee5f5b;
   &:focus {
     border-color: darken(#ee5f5b, 10%);
-    @shadow: 0 0 6px lighten(#ee5f5b, 20%);
-    .box-shadow(@shadow);
+    // @shadow: 0 0 6px lighten(#ee5f5b, 20%);
+    // .box-shadow(@shadow); // ×¢ÊÍµô×Ö¶Î½¹µãÍâ·¢¹âĞ§¹û @by kai 2014-01-23
+  }
+}
+
+
+// ¶¨ÒåÎÄ±¾×Ö¶ÎËÄÌ¬ @by kai 2014-01-16
+// -------------------------
+
+// Warning
+.input-warning {
+  .inputFieldState(@warningText, @warningText, @warningBackground);
+}
+
+// Error
+.input-error {
+  .inputFieldState(@errorText, @errorText, @errorBackground);
+}
+
+// Success
+.input-success {
+  .inputFieldState(@successText, @successText, @successBackground);
+}
+
+// Info
+.input-info {
+  .inputFieldState(@infoText, @infoBorder, @infoBackground);
+}
+
+// ¼Ì³ĞÎÄ±¾×Ö¶ÎËÄÌ¬
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  &.input-warning {
+    .input-warning;
+  }
+  &.input-success {
+    .input-success;
+  }
+  &.input-error {
+    .input-error;
+  }
+  &.input-info {
+    .input-info;
+  }
+}
+
+
+// ¶¨Òå´øÍ¼±êÎÄ±¾×Ö¶Î @by kai 2014-01-28
+// -------------------------
+
+// ÁÙÊ±¶¨ÒåÁË¼¸¸öĞ¡Í¼±ê£¬ºóĞø»¹ĞèÒªÀ©Õ¹
+.icon-warning,
+.icon-error,
+.icon-success,
+.icon-info { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
+
+.icon-warning { background-position: 0 -48px; }
+.icon-error { background-position: 0 0; }
+.icon-success { background-position: 0 -32px; }
+.icon-info { background-position: 0 -96px; }
+
+.icon-date { background-image: url(http://img01.taobaocdn.com/tps/i1/T1SZa3FbhbXXcu5FDa-17-17.png); }
+
+.input-hasicon {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  position: relative;
+}
+
+// Ğ¡Í¼±êÔÚÓÒ±ß
+.input-hasicon {
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input {
+    // ÖØÖÃÎÄ±¾×Ö¶ÎpaddingÖµ
+    padding-left:      @inputDefaultPaddingLR;
+    padding-right:     @inputHasIconPaddingLR;
+
+    // ÖØÖÃ¿í¶È³ß´ç
+    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
+
+    // ¶Ô´óºÅºÍ¼Ó´óºÅÎÄ±¾¿Ø¼şÖØÖÃ¿í¸ß³ß´ç
+    &.input-fat {
+      .input-fat;
+      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    }
+    &.input-xfat {
+      .input-xfat;
+      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
+    }
+  }
+
+  [class^="icon-"],
+  [class*=" icon-"] {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+  }
+}
+
+// Ğ¡Í¼±êÔÚ×ó±ß
+.input-hasicon-left {
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input {
+    // ÖØÖÃÎÄ±¾×Ö¶ÎpaddingÖµ
+    padding-left:      @inputHasIconPaddingLR;
+    padding-right:     @inputDefaultPaddingLR;
+
+    // ÖØÖÃ¿í¶È³ß´ç
+    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
+
+    // ¶Ô´óºÅºÍ¼Ó´óºÅÎÄ±¾¿Ø¼şÖØÖÃ¿í¸ß³ß´ç
+    &.input-fat {
+      .input-fat;
+      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+    }
+    &.input-xfat {
+      .input-xfat;
+      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
+    }
+  }
+
+  [class^="icon-"],
+  [class*=" icon-"] {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
   }
 }
 
@@ -508,7 +736,10 @@ select:focus:invalid {
 
 .help-block {
   display: block; // account for any element using help-block
-  margin-bottom: @baseLineHeight / 2;
+
+  // ¸üĞÂÑùÊ½ÈçÏÂ @by kai 2014-02-30
+  // margin-bottom: @baseLineHeight / 2;
+  margin-top: @baseLineHeight / 2;
 }
 
 .help-inline {
@@ -733,11 +964,25 @@ input.search-query {
   margin-bottom: @baseLineHeight / 2;
 }
 
+// ĞÂÔöcontrol-label @by kai 2014-01-30
+.control-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+// ĞÂÔöcontrols-wrap @by kai 2014-01-30
+.controls-wrap {
+  + .controls-wrap {
+    margin-top: @baseLineHeight / 2;
+  }
+}
+
 // Legend collapses margin, so next element is responsible for spacing
 legend + .control-group {
   margin-top: @baseLineHeight;
   -webkit-margin-top-collapse: separate;
 }
+
 
 // Horizontal-specific styles
 // --------------------------
@@ -748,13 +993,19 @@ legend + .control-group {
     margin-bottom: @baseLineHeight;
     .clearfix();
   }
+
   // Float the labels left
   .control-label {
     float: left;
-    width: @horizontalComponentOffset - 20;
-    padding-top: 5px;
+    width: @horizontalComponentOffset;
+    padding-top: 3px;
     text-align: right;
+
+    // ĞÂÔöÏÂÃæÑùÊ½ @by kai 2014-01-30
+    display: inline-block;
+    margin-bottom: 0;
   }
+
   // Move over all input controls and content
   .controls {
     // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
@@ -767,9 +1018,12 @@ legend + .control-group {
       *padding-left: @horizontalComponentOffset;
     }
   }
+
   // Remove bottom margin on block level help text since that's accounted for on .control-group
   .help-block {
-    margin-bottom: 0;
+    // margin-bottom: 0;
+    // ¸üĞÂÑùÊ½ÈçÏÂ @by kai 2014-02-30
+    margin-top: 0;
   }
   // And apply it only to .help-block instances that follow a form control
   input,
@@ -777,8 +1031,12 @@ legend + .control-group {
   textarea,
   .uneditable-input,
   .input-prepend,
-  .input-append {
-    + .help-block {
+  .input-append,
+  // Ìí¼ÓradioºÍcheckbox
+  .radio,
+  .checkbox {
+    // + .help-block {  // ĞŞ¸ÄÑ¡ÔñÆ÷¹ØÏµÎªºóÃæËùÓĞµÄhelp-block @by kai 2014-01-30
+    ~ .help-block {
       margin-top: @baseLineHeight / 2;
     }
   }
