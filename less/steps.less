@@ -1,5 +1,6 @@
 .steps {
     font-size: 0px;
+    overflow: hidden;
     > div {
         width: @stepsBaseWidth;
         height: @stepsBaseHeight;
@@ -23,6 +24,13 @@
         right: -@stepsBaseHeight;
         z-index: 1;
     }
+    .triangle-right-bg {
+        .triangle-right;
+        border-width: @stepsBaseHeight / 2 + 4;
+        right: -@stepsBaseHeight -  4 * 2;
+        border-color: transparent transparent transparent #FFF;
+        top: -4px;
+    }
 
     .round {
         display: inline-block;
@@ -36,7 +44,7 @@
     .finished {
         background-color: @stepsFinishedColor;
         color: @stepsFinishedTextColor;
-        > .triangle-right {
+         .triangle-right {
             border-color: transparent transparent transparent @stepsFinishedColor;
         }
         .round {
@@ -48,7 +56,7 @@
     .current {
         background-color: @stepsCurrentColor;
         color: @stepsCurrentTextColor;
-        > .triangle-right {
+         .triangle-right {
             border-color: transparent transparent transparent @stepsCurrentColor;
         }
         .round {
@@ -61,7 +69,7 @@
     .todo {
         background-color: @stepsTodoColor;
         color : @stepsTodoTextColor;
-        > .triangle-right {
+         .triangle-right {
             border-color: transparent transparent transparent @stepsTodoColor;
         }
         .round {
@@ -85,6 +93,10 @@
     .triangle-right {
         border-width: @stepsBaseHeight * 1.5 / 2;
         right: -@stepsBaseHeight * 1.5;
+    }
+    .triangle-right-bg {
+        border-width: @stepsBaseHeight * 1.5 / 2 + 4;
+        right: -@stepsBaseHeight * 1.5 -  4 * 2;
     }
     .round {
         width: @fontSizeLarge;  
