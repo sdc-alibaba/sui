@@ -1,0 +1,188 @@
+extends base
+
+block title
+    title 表格
+
+block content
+    div.container
+        mixin table(className,header)
+            table(class=className)
+                if(header)
+                    thead
+                        tr
+                            th ＃
+                            th 待付款
+                            th 宝宝数量
+                            th 交易金额
+                tbody
+                    tr
+                        td 所有交易
+                        td 9999.00
+                        td 999
+                        td 99999.00
+                    tr
+                        td 待付款
+                        td 9999.00
+                        td 999
+                        td 99999.00
+                    tr
+                        td 已发货
+                        td 9999.00
+                        td 999
+                        td 99999.00
+                    tr
+                        td 已成功
+                        td 9999.00
+                        td 999
+                        td 99999.00
+        mixin table2(className)
+            table(class=className)
+                thead
+                    tr
+                        th #
+                        th 新客户 uv
+                        th 新客户转化率（％）
+                        th 老客户 uv
+                        th 老客户转化率（％）
+                tbody
+                    tr
+                        td 昨日
+                        td 1.0
+                        td 1.0
+                        td 1.0
+                        td 1.0
+                    tr
+                        td 前日
+                        td 1.0
+                        td 0.0
+                        td 0.0
+                        td 0.0
+                    tr
+                        td 前两天
+                        td 1.0
+                        td 1.0
+                        td 0.0
+                        td 0.0
+                    tr
+                        td 行业平均
+                        td 50.73
+                        td 0.73
+                        td 0.73
+                        td 0.73
+                    tr
+                        td 当前现状
+                        td 低于平均
+                        td 持平
+                        td 高于平均
+                        td 持平
+        div.page-header
+            h1 table
+        h3 默认table（table）
+        div.container
+            div.span6
+                +table("table",true)
+                
+        h3 带边框的table（table-bordered）
+        div.container
+            div.span6
+                +table("table table-bordered",true)
+        h3 表头在侧边的table（table-sideheader）
+        div.container
+            div.span6
+                +table("table table-sideheader")
+        h3 斑马线table（table-zebra）
+        div.container
+            div.span6
+                +table("table table-zebra",true)
+        h3 竖斑马线table（table-vzebra）
+        div.container
+            div.span6
+                table.table.table-vzebra
+                    tbody
+                        tr
+                            td 所有交易
+                            td 9999.00
+                            td 所有交易
+                            td 99999.00
+                        tr
+                            td 待付款
+                            td 9999.00
+                            td 待付款
+                            td 99999.00
+                        tr
+                            td 已发货
+                            td 9999.00
+                            td 已发货
+                            td 99999.00
+                        tr
+                            td 已成功
+                            td 9999.00
+                            td 已成功
+                            td 99999.00
+        h3 不带边框的table（table-nobordered）
+        div.container
+            div.span6
+                +table("table table-nobordered",true)
+        h3 亮色的table（table-light）
+        div.container
+            div.span6
+                +table("table table-light",true)
+
+        div.page-header(style="margin-top:40px;")
+            h1 table的业务场景使用
+        h3 常用带边框的表格
+        div.container
+            div.span8
+                +table2("table table-bordered")
+        h3 二维表格
+        div.container
+            div.span8
+                +table2("table table-bordered table-sideheader")
+        h3 综合表格一
+        div.container
+            div.span8
+                table.table.table-bordered
+                    thead
+                        tr
+                            th(colspan="5")  
+                                label.checkbox
+                                    input(type="checkbox")
+                                    订单编号：7867473872181848 &nbsp;&nbsp;成交时间：2014-01-11 11:59
+                    tbody
+                        tr
+                            td(width="55%")
+                                div.typographic
+                                    img(src="http://img.f2e.taobao.net/img.png_50x50.jpg")
+                                    a.block-text(href="#") 包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款
+                                    span 1
+                                    ul.unstyled
+                                        li 申请售后
+                                        li 投诉卖家
+                            td.center(rowspan="2") 56.50
+                            td.center(rowspan="2") 
+                                ul.unstyled
+                                    li 交易成功
+                                    li 
+                                        a(href="#") 订单详情
+                                    li 
+                                        a(href="#") 对方已评
+                            td.center(rowspan="2") 
+                                a.btn(href="#") 评价 
+                            td.center(rowspan="2") 
+                                ul.unstyled
+                                    li 
+                                        a(href="#") 删除
+                                    li 
+                                        a(href="#") 标记
+                                    li 
+                                        a(href="#") 分享
+
+                        tr 
+                            td(width="55%")
+                                div.typographic
+                                    img(src="http://img.f2e.taobao.net/img.png_50x50.jpg")
+                                    a.block-text(href="#") 包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款
+                                    span 1
+                                    ul.unstyled
+                                        li 申请售后
+                                        li 投诉卖家
