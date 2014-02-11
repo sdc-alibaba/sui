@@ -255,6 +255,12 @@
           box-shadow: @shadow;
 }
 
+.singleTransition (@popertyName:color, @time:0.3s, @func:linear,@delay:0s) {
+    -webkit-transition:@arguments;
+    -moz-transition:@arguments;
+    -ms-transition:@arguments;
+    transition:@arguments;
+}
 // Transitions
 .transition(@transition) {
   -webkit-transition: @transition;

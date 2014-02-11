@@ -9,6 +9,7 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
+    demosRoot: '<%= docsRoot %>/demos',
 
     clean: {
       dist: ['<%= distRoot %>']
@@ -87,6 +88,19 @@ module.exports = function(grunt) {
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
       }
     },
+    jade: {
+      demos: {
+        files: [
+          {
+          expand: true,
+          cwd: '<%= demosRoot %>/templates',
+          src: ['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],
+          dest: '<%= demosRoot %>',
+          ext: '.html'
+        },
+        ],
+      }
+    },
     copy: {
       docs: { //doc 必须依赖于bootstap.min.js
         files: [
@@ -126,6 +140,10 @@ module.exports = function(grunt) {
       js: {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
+      },
+      demos: {
+        files: 'docs/demos/templates/**/*.jade',
+        tasks: ['jade:demos']
       }
     }
   });
@@ -136,15 +154,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-recess');
-  grunt.loadNpmTasks('browserstack-runner');
   // Test task.
-  var testSubtasks = ['dist-css', 'jshint'];
-  grunt.registerTask('test', testSubtasks);
+  grunt.registerTask('test', ['jshint', 'qunit']);
 
   grunt.registerTask('hogan', 'compile mustache template', function() {
     var done = this.async();
@@ -159,7 +176,7 @@ module.exports = function(grunt) {
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
-  grunt.registerTask('docs', ['dist', 'hogan', 'copy']);
+  grunt.registerTask('docs', ['dist', 'hogan', 'copy', 'jade']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);
