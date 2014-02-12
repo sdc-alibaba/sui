@@ -74,7 +74,7 @@ gulp.task('less', function() {
 // compile jade template
 gulp.task('jade', function() {
   gulp.src(['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],  {cwd: join(paths.demosRoot, 'templates')})
-    .pipe(jade())
+    .pipe(jade({pretty: true}))
     .pipe(gulp.dest(paths.demosRoot))
     .pipe(livereload(server))
 })
