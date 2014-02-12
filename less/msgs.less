@@ -6,29 +6,298 @@
 // GENERAL STYLES
 // --------------
 
-// All msg styles
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help, .msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {background:url(http://gtms01.alicdn.com/tps/i1/T1htdsFDBeXXcGgUwg-391-391.png) no-repeat;}
-.msg .error {border-color:#ffd4d0; background-color:#fff2f2; background-position:-220px -152px;}
-.msg .stop {border-color:#ffd4d0; background-color:#fff2f2; background-position:-239px -133px;}
-.msg .alert {border-color:#fed1b0; background-color:#fef1e3; background-position:-258px -114px;}
-.msg .attention {border-color:#bce5fc; background-color:#f0f9ff; background-position:-277px -95px;}
-.msg .tips {border-color:#f1e2b5; background-color:#fffff1; background-position:-296px -76px;}
-.msg .ok {border-color:#adf29f; background-color:#edffe9; background-position:-315px -57px;}
-.msg .notice {border-color:#f1e2b5; background-color:#fffff1; background-position:-334px -38px;}
-.msg .question {border-color:#d8d8d8; background-color:#ececec; background-position:-353px -19px;}
-.msg .help {border-color:#fff; background-color:#fff; background-position:-372px 0;}
-.msg24 .error {border-color:#ffd4d0; background-color:#fff2f2; background-position:-176px -171px;}
-.msg24 .attention {border-color:#bce5fc; background-color:#f0f9ff; background-position:-132px -215px;}
-.msg24 .tips {border-color:#f1e2b5; background-color:#fffff1; background-position:-88px -259px;}
-.msg24 .ok {border-color:#adf29f; background-color:#edffe9; background-position:-44px -303px;}
-.msg24 .question {border-color:#d8d8d8; background-color:#ececec; background-position:0 -347px;}
+// 小图标坐标定位
+.msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
+.msg-error .msg-icon { background-position: 0 0; }
+.msg-stop .msg-icon { background-position: 0 -16px; }
+.msg-ok .msg-icon { background-position: 0 -32px; }
+.msg-alert .msg-icon { background-position: 0 -48px; }
+.msg-notice .msg-icon { background-position: 0 -64px; }
+.msg-tips .msg-icon { background-position: 0 -80px; }
+.msg-attention .msg-icon { background-position: 0 -96px; }
+.msg-question .msg-icon { background-position: 0 -112px; }
 
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help, .msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {display:inline-block; *display:inline; *zoom:1; border-width:1px; border-style:solid; color:#404040;}
-.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help {padding:2px 10px 2px 23px; font-size:12px; line-height:18px;}
-.msg24 .error, .msg24 .attention, .msg24 .tips, .msg24 .ok, .msg24 .question {padding:17px 10px 17px 56px; font-size:14px; line-height:22px; font-weight:bold;}
+.msg-large {
+	.msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
+	.msg-error .msg-icon { background-position: 0 0; }
+	.msg-stop .msg-icon { background-position: 0 -24px; }
+	.msg-ok .msg-icon { background-position: 0 -48px; }
+	.msg-alert .msg-icon { background-position: 0 -72px; }
+	.msg-notice .msg-icon { background-position: 0 -96px; }
+	.msg-tips .msg-icon { background-position: 0 -120px; }
+	.msg-attention .msg-icon { background-position: 0 -144px; }
+	.msg-question .msg-icon { background-position: 0 -168px; }
+}
 
-.msg, .msg24 {display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
-.msg .naked, .msg24 .naked {border:none; background-color:transparent;}
+// 默认尺寸（小尺寸）
+.msg {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	position: relative;
+	vertical-align: middle;
+	.msg-icon {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+	}
+}
+.msg-con {
+	padding: 2px 10px 2px 23px;
+	.border-radius(@msgBorderRadius);
+	color: @msgDefaultColor;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	p { font-weight: normal; }
+}
+.msg-icon {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+}
 
-.msg-block, .msg24-block {display:block;}
-.msg-block .error, .msg-block .stop, .msg-block .alert, .msg-block .attention, .msg-block .tips, .msg-block .ok, .msg-block .notice, .msg-block .question, .msg-block .help, .msg24-block .error, .msg24-block .attention, .msg24-block .tips, .msg24-block .ok, .msg24-block .question {display:block;}
+
+// 大尺寸
+.msg-large {
+	.msg-con {
+		padding: 11px 11px 11px 44px;
+		font-size: @fontSizeLarge;
+		line-height: @lineHeightLarge;
+		font-weight: bold;
+	}
+	.msg-icon {
+		top: 12px;
+		left: 11px;
+		width: 24px;
+		height: 24px;
+	}
+}
+
+// 成块级
+.msg-block { display: block; }
+
+// 内联块级
+.msg-inline-block { display: block; }
+.msg-inline-block .msg-con { display: inline-block; }
+
+// 默认字体颜色
+.msg-default {
+	.msg-con { color: @msgDefaultColor; }
+}
+
+// 去边框和底色
+.msg-naked {
+	padding: 1px;
+	.msg-con {
+		border: none;
+		background-color: transparent;
+	}
+}
+
+// Msgs类型
+.msg-error {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-stop {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-ok {
+	border: 1px solid #dcf9d6;
+	background-color: #edffe9;
+	color: #4ab933;
+}
+.msg-alert {
+	border: 1px solid #fee8d7;
+	background-color: #fef1e3;
+	color: #cf700b;
+}
+.msg-notice {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-tips {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-attention {
+	border: 1px solid #e4f3fd;
+	background-color: #f2faff;
+	color: #3a9ed5;
+}
+.msg-question {
+	border: 1px solid #eaeaea;
+	background-color: #f7f7f7;
+	color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+//
+// Msgs
+// --------------------------------------------------
+
+
+// GENERAL STYLES
+// --------------
+
+// 小图标坐标定位
+.msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
+.msg-error .msg-icon { background-position: 0 0; }
+.msg-stop .msg-icon { background-position: 0 -16px; }
+.msg-ok .msg-icon { background-position: 0 -32px; }
+.msg-alert .msg-icon { background-position: 0 -48px; }
+.msg-notice .msg-icon { background-position: 0 -64px; }
+.msg-tips .msg-icon { background-position: 0 -80px; }
+.msg-attention .msg-icon { background-position: 0 -96px; }
+.msg-question .msg-icon { background-position: 0 -112px; }
+
+.msg-large {
+	.msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
+	&.msg-error .msg-icon { background-position: 0 0; }
+	&.msg-stop .msg-icon { background-position: 0 -24px; }
+	&.msg-ok .msg-icon { background-position: 0 -48px; }
+	&.msg-alert .msg-icon { background-position: 0 -72px; }
+	&.msg-notice .msg-icon { background-position: 0 -96px; }
+	&.msg-tips .msg-icon { background-position: 0 -120px; }
+	&.msg-attention .msg-icon { background-position: 0 -144px; }
+	&.msg-question .msg-icon { background-position: 0 -168px; }
+}
+
+// 默认尺寸（小尺寸）
+.msg {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	position: relative;
+	padding: 2px 10px 2px 23px;
+	.border-radius(@msgBorderRadius);
+	color: @msgDefaultColor;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	vertical-align: middle;
+}
+.msg-icon {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+}
+
+// 大尺寸
+.msg-large {
+	padding: 12px 12px 12px 44px;
+	font-size: @fontSizeLarge;
+	line-height: @lineHeightLarge;
+	font-weight: bold;
+	.msg-icon {
+		top: 11px;
+		left: 10px;
+		width: 24px;
+		height: 24px;
+	}
+}
+
+// 成块级
+.msg-block { display: block; }
+
+// 默认字体颜色
+.msg-default {
+	color: @msgDefaultColor;
+}
+
+// 去边框和底色
+.msg-naked {
+	border: none;
+	background-color: transparent;
+}
+
+// 串联样式
+.msg {
+	.msg;
+	.msg-icon {
+		.msg-icon;
+		position: absolute;
+		top: 3px;
+		left: 3px;
+	}
+	&.msg-large { .msg-large; }
+	&.msg-block { .msg-block; }
+	&.msg-default { .msg-default; }
+	&.msg-naked { .msg-naked; }
+	p { font-weight: normal; }
+}
+
+// Msgs类型
+.msg-error {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-stop {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-ok {
+	border: 1px solid #dcf9d6;
+	background-color: #edffe9;
+	color: #4ab933;
+}
+.msg-alert {
+	border: 1px solid #fee8d7;
+	background-color: #fef1e3;
+	color: #cf700b;
+}
+.msg-notice {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-tips {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-attention {
+	border: 1px solid #e4f3fd;
+	background-color: #f2faff;
+	color: #3a9ed5;
+}
+.msg-question {
+	border: 1px solid #eaeaea;
+	background-color: #f7f7f7;
+	color: #333;
+}
+
+
+*/

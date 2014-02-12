@@ -53,12 +53,20 @@
         trigger = triggers[i]
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
           this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
+      }
+
+      //为confirm类型tooltip增加取消按钮设置默认逻辑
+      if (this.options.type == 'confirm') {
+        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+          $(this).parents('.tooltip').prev().trigger('click')
+        })
       }
 
       this.options.selector ?
@@ -68,6 +76,11 @@
 
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
+
+      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      //根据tooltip的type类型构造tip模版
+      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
@@ -119,6 +132,8 @@
         , placement
         , tp
         , e = $.Event('show')
+        , opt = this.options
+        , widthLimit = opt.widthlimit
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -126,37 +141,46 @@
         $tip = this.tip()
         this.setContent()
 
-        if (this.options.animation) {
+        if (opt.animation) {
           $tip.addClass('fade')
         }
 
-        placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement
+        placement = typeof opt.placement == 'function' ?
+          opt.placement.call(this, $tip[0], this.$element[0]) :
+          opt.placement
 
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+        opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
 
+        //宽度限制逻辑
+        if (widthLimit !== true) {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
         actualHeight = $tip[0].offsetHeight
 
+        //+ - 7修正，和css对应，勿单独修改
+        var d = opt.type == 'attention' ? 5 : 7
         switch (placement) {
           case 'bottom':
-            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
             break
         }
 
@@ -276,7 +300,6 @@
 
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
       return title
     }
 
@@ -326,6 +349,7 @@
   var old = $.fn.tooltip
 
   $.fn.tooltip = function ( option ) {
+
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('tooltip')
@@ -339,14 +363,15 @@
 
   $.fn.tooltip.defaults = {
     animation: true
+  , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
-  , selector: false
-  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
-  , trigger: 'hover focus'
-  , title: ''
-  , delay: 0
-  , html: false
-  , container: false
+  , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
+  , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
+  , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
+  , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+  , html: true  //决定是html()还是text()
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
 
@@ -357,5 +382,22 @@
     $.fn.tooltip = old
     return this
   }
+
+  //document ready init
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+
+    //点击外部可消失tooltip
+    $(document).on('mousedown', function(e){
+      var tgt = $(e.target)
+        , tip = $('.tooltip')
+        , switchTgt = tip.prev()
+        , tipContainer = tgt.parents('.tooltip')
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+        switchTgt.trigger('click.tooltip')   
+      }
+    })
+
+  })
 
 }(window.jQuery);
