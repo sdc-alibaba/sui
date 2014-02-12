@@ -1619,6 +1619,7 @@ define("bootstrap-modal.js", function(){});
  /* TOOLTIP PUBLIC CLASS DEFINITION
   * =============================== */
 
+  //element为触发元素，如标识文字链
   var Tooltip = function (element, options) {
     this.init('tooltip', element, options)
   }
@@ -1659,6 +1660,8 @@ define("bootstrap-modal.js", function(){});
         this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
           $(this).parents('.tooltip').prev().trigger('click')
         })
+        this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
+
       }
 
       this.options.selector ?
@@ -1669,7 +1672,7 @@ define("bootstrap-modal.js", function(){});
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
-      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
       options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
@@ -1860,7 +1863,6 @@ define("bootstrap-modal.js", function(){});
       $.support.transition && this.$tip.hasClass('fade') ?
         removeWithAnimation() :
         $tip.detach()
-
       this.$element.trigger('hidden')
 
       return this

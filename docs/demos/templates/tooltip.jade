@@ -29,6 +29,7 @@ block content
         , html: true  //决定是html()还是text()
         , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
         , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
+        , okHide: fn       //带确认取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
       }
       
     ul
@@ -53,12 +54,13 @@ block content
       each dir in placement
         li
           a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', title='强调tooltip') #{dir} opt.type = 'attention'
-
+    hr
+    pre
+      $('#J_set').tooltip({okHide: function(){this.hide()}})
     ul
       li
-        a(href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-toggle='tooltip', data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text" >') 带确定取消按钮的tooltip 
+        a(id="J_set", href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text">') 带确定取消按钮的tooltip 
 
 block js_block
   script 
-    //可不写js直接通过data-toggle='tooltip'初始化
-    //$('li a').tooltip()
+    $('#J_set').tooltip({okHide: function(){console.log(this);this.hide()}})
