@@ -47,7 +47,8 @@ module.exports = function(grunt) {
           'js/bootstrap-popover.js',
           'js/bootstrap-scrollspy.js',
           'js/bootstrap-tab.js',
-          'js/bootstrap-affix.js'
+          'js/bootstrap-affix.js',
+          'js/bootstrap-pagination.js'
         ],
         dest: '<%= distRoot %>/js/<%= pkg.name %>.js'
       },

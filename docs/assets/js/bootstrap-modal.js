@@ -1,110 +1,144 @@
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
- * =========================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================= */
-
+ * ========================================================= 
+ * @file bootstrap-modal.js
+ * @brief 弹层dpl，扩展自bootstrap2.3.2
+ * @author banbian, zangtao.zt@alibaba-inc.com
+ * @date 2014-01-14
+ */
 
 !function ($) {
-
   "use strict";
-
-
  /* MODAL CLASS DEFINITION
   * ====================== */
-
   var Modal = function (element, options) {
     this.options = options
+    //若element为null，则表示为js触发的alert、confirm弹层
+    if (element === null) {
+      var TPL = ''
+        //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
+        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+          + '<div class="modal-dialog">'
+            + '<div class="modal-content">'
+              + '<div class="modal-header">'
+                + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + '<h4 class="modal-title">{%title%}</h4>'
+              + '</div>'
+              + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
+              + (options.hasfoot ? '<div class="modal-footer">'
+              //增加data-ok="modal"参数
+                + '<button type="button" class="btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+              + '</div>' : '')
+            + '</div>'
+          + '</div>'
+        + '</div>';
+      element = $(TPL.replace('{%title%}', options.title)
+                      .replace('{%body%}', options.body)
+                      .replace('{%id%}', options.id)
+                      .replace('{%ok_btn%}', options.okBtn)
+                      .replace('{%cancel_btn%}', options.cancelBtn))
+      $('body').append(element)
+    }
     this.$element = $(element)
-      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+    this.init()
+      
   }
-
+  //对外接口只有toggle, show, hide 
   Modal.prototype = {
-
-      constructor: Modal
+    constructor: Modal
+    ,init: function () {
+      var ele = this.$element
+        , w = this.options.width
+        , standardW = {
+            small: 440  //默认宽度
+            ,normal: 590
+            ,large: 790
+          }
+      ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
+      if(w) {
+        standardW[w] && (w = standardW[w])
+        ele.width(w).css('margin-left', -parseInt(w) / 2)
+      }
+      this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+   
+    }
 
     , toggle: function () {
         return this[!this.isShown ? 'show' : 'hide']()
-      }
-
+    }
+      
     , show: function () {
         var that = this
           , e = $.Event('show')
-
-        this.$element.trigger(e)
-
+          , ele = this.$element
+        ele.trigger(e)
         if (this.isShown || e.isDefaultPrevented()) return
-
         this.isShown = true
-
         this.escape()
-
         this.backdrop(function () {
-          var transition = $.support.transition && that.$element.hasClass('fade')
-
-          if (!that.$element.parent().length) {
-            that.$element.appendTo(document.body) //don't move modals dom position
+          var transition = $.support.transition && ele.hasClass('fade')
+          if (!ele.parent().length) {
+            ele.appendTo(document.body) //don't move modals dom position
           }
-
-          that.$element.show()
-
+          var h = ele.height()
+          if (h > 270) {
+            ele.css('margin-top', -parseInt(h) / 2)
+          }
+          ele.show()
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            ele[0].offsetWidth // force reflow
           }
-
-          that.$element
+          ele
             .addClass('in')
             .attr('aria-hidden', false)
-
           that.enforceFocus()
-
           transition ?
-            that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-            that.$element.focus().trigger('shown')
+            ele.one($.support.transition.end, function () { 
+              callbackAfterTransition(that)
+            }) :
+            callbackAfterTransition(that)
 
+          function callbackAfterTransition(that) {
+            that.$element.focus().trigger('shown')
+            if (that.options.timeout > 0) {
+              that.timeid = setTimeout(function(){
+                that.hide(); 
+              }, that.options.timeout) 
+            }
+          }
         })
       }
 
     , hide: function (e) {
         e && e.preventDefault()
-
         var that = this
-
         e = $.Event('hide')
-
         this.$element.trigger(e)
-
         if (!this.isShown || e.isDefaultPrevented()) return
-
         this.isShown = false
-
         this.escape()
-
         $(document).off('focusin.modal')
-
+        that.timeid && clearTimeout(that.timeid)
         this.$element
           .removeClass('in')
           .attr('aria-hidden', true)
-
         $.support.transition && this.$element.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
       }
-
+    , okHide: function(e){
+        var fn = this.options.okHide
+          , ifNeedHide = true
+        typeof fn == 'function' && (ifNeedHide = fn.call(this))
+        //如果开发人员不设置返回值，默认走true的逻辑
+        if (ifNeedHide === true || ifNeedHide === undefined){
+          this.hideReason = 'ok'
+          this.hide(e)  
+        } 
+    }
     , enforceFocus: function () {
         var that = this
         $(document).on('focusin.modal', function (e) {
@@ -131,7 +165,6 @@
               that.$element.off($.support.transition.end)
               that.hideModal()
             }, 500)
-
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -140,10 +173,17 @@
 
     , hideModal: function () {
         var that = this
-        this.$element.hide()
+          ,ele = this.$element
+        ele.hide()
         this.backdrop(function () {
           that.removeBackdrop()
-          that.$element.trigger('hidden')
+          if (that.hideReason == 'ok') {
+            ele.trigger('okHidden')
+            that.hideReason = null
+          }
+          ele.trigger('hidden')
+          //销毁静态方法生成的dialog元素
+          ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
 
@@ -155,93 +195,156 @@
     , backdrop: function (callback) {
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
-
-        if (this.isShown && this.options.backdrop) {
-          var doAnimate = $.support.transition && animate
-
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
+          , opt = this.options
+          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
+        if (this.isShown) {
+          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
-
+          //遮罩层背景黑色半透明
+          var doAnimate = $.support.transition && animate
           this.$backdrop.click(
-            this.options.backdrop == 'static' ?
+            opt.backdrop == 'static' ?
               $.proxy(this.$element[0].focus, this.$element[0])
             : $.proxy(this.hide, this)
           )
-
           if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-
-          this.$backdrop.addClass('in')
-
+          this.$backdrop.addClass('in ' + cls)
           if (!callback) return
-
           doAnimate ?
             this.$backdrop.one($.support.transition.end, callback) :
             callback()
-
         } else if (!this.isShown && this.$backdrop) {
-          this.$backdrop.removeClass('in')
-
-          $.support.transition && this.$element.hasClass('fade')?
-            this.$backdrop.one($.support.transition.end, callback) :
-            callback()
-
+          if (this.$backdrop.hasClass('in')) {
+            this.$backdrop.removeClass('in')
+            $.support.transition && this.$element.hasClass('fade')?
+              this.$backdrop.one($.support.transition.end, callback) :
+              callback()
+          } else {
+            callback && callback();
+          }
         } else if (callback) {
           callback()
         }
       }
   }
 
-
  /* MODAL PLUGIN DEFINITION
   * ======================= */
+
 
   var old = $.fn.modal
 
   $.fn.modal = function (option) {
+    //this指向dialog元素Dom，
+    //each让诸如 $('#qqq, #eee').modal(options) 的用法可行。
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('modal')
         , options = $.extend({}, $.fn.modal.defaults, $this.data(), typeof option == 'object' && option)
+      //这里判断的目的是：第一次show时实例化dialog，之后的show则用缓存在data-modal里的对象。
       if (!data) $this.data('modal', (data = new Modal(this, options)))
+
+      //如果是$('#xx').modal('toggle'),务必保证传入的字符串是Modal类原型链里已存在的方法。否则会报错has no method。
       if (typeof option == 'string') data[option]()
-      else if (options.show) data.show()
+      else data.show()
     })
   }
 
   $.fn.modal.defaults = {
       backdrop: true
     , keyboard: true
-    , show: true
+    , hasfoot: true
   }
 
   $.fn.modal.Constructor = Modal
-
-
  /* MODAL NO CONFLICT
   * ================= */
+
 
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
   }
 
-
  /* MODAL DATA-API
   * ============== */
+
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
+      //$target这里指dialog本体Dom(若存在)
+      //通过data-target="#foo"或href="#foo"指向
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
-
+      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $this.data())
     e.preventDefault()
-
     $target
       .modal(option)
       .one('hide', function () {
         $this.focus()
-      })
+    })
+  })
+
+  /* jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
+   * 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用
+   * 
+   * example
+   * $.alert({
+   *  title: '自定义标题'
+   *  body: 'html' //必填
+   *  okBtn : '好的'
+   *  cancelBtn : '雅达'
+   *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+   *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
+   *  hasfoot: {Boolean}  是否显示脚部  默认true
+   *  show:     fn --------------function(e){}
+   *  shown:    fn
+   *  hide:     fn
+   *  hidden:   fn
+   *  okHide:   function(e){alert('点击确认后、dialog消失前的逻辑,
+   *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
+   *            注意不要人肉返回undefined！！')}
+   *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+   * })
+   *
+   */
+  $.extend({
+    _modal: function(dialogCfg, customCfg){
+      var modalId = +new Date()
+        
+        ,finalCfg = $.extend({}, $.fn.modal.defaults
+          , dialogCfg
+          , {id: modalId, okBtn: '确定'}
+          , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
+      var dialog = new Modal(null, finalCfg)
+      _bind(modalId, finalCfg)
+      dialog.show();
+
+      function _bind(id, eList){
+        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
+        $.each(eType, function(k, v){
+          if (typeof eList[v] == 'function'){
+            $(document).on(v, '#'+id, $.proxy(eList[v], $('#' + id)[0]))
+          }
+        })
+      }
+    }
+    //为最常见的alert，confirm建立$.modal的快捷方式，
+    ,alert: function(customCfg){
+      var dialogCfg = {
+        type: 'alert'
+        ,title: '注意'
+      }
+      $._modal(dialogCfg, customCfg)
+    }
+    ,confirm: function(customCfg){
+      var dialogCfg = {
+        type: 'confirm'
+        ,title: '提示'
+        ,cancelBtn: '取消'
+      }
+      $._modal(dialogCfg, customCfg)
+    }
   })
 
 }(window.jQuery);
