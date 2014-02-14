@@ -75,6 +75,41 @@ block content
                         td 持平
                         td 高于平均
                         td 持平
+        mixin table-sample
+            table.table.table-bordered-simple
+                thead
+                    tr
+                        th(colspan="7") 
+                            label.checkbox
+                                input(type="checkbox")
+                            a(href="#") 对比海外卖家
+                            span.pull-right.gray 合作时间: 2013-05-22起
+                tbody
+                    tr
+                        td.center(width="20%") 001
+                        td.center(width="13%")
+                            ul.unstyled
+                                li 0 (一个月)
+                                li 0 (三个月)
+                        td.center(width="13%")
+                            ul.unstyled
+                                li 0 (一个月) 
+                                li 0 (三个月)
+                        td.center(width="13%") 0
+                        td.center(width="13%") 0.00%
+                        td.center(width="13%") 0.00%
+                        td.center
+                            ul.unstyled
+                                li
+                                    a(href="#") 终止
+                                li
+                                    a(href="#") 查看分销商品
+                                li
+                                    a(href="#") 授权
+                                li
+                                    a(href="#") 授权品牌
+                                li
+                                    a(href="#") 开通代销
         div.page-header
             h1 table
         h3 默认table（table）
@@ -86,6 +121,10 @@ block content
         div.container
             div.span6
                 +table("table table-bordered",true)
+        h3 只有内边框的table（table-bordered-simple）
+        div.container
+            div.span6
+                +table("table table-bordered-simple",true)
         h3 表头在侧边的table（table-sideheader）
         div.container
             div.span6
@@ -141,16 +180,27 @@ block content
         h3 综合表格一
         div.container
             div.span8
+                table.table.table-nobody
+                    thead
+                        tr
+                            th(width="50%")
+                                label.checkbox
+                                        input(type="checkbox")
+                            th.center(width="11%") 成交金额
+                            th.center(width="13%") 订单状态
+                            th.center(width="13%") 评价
+                            th.center(width="13%") 操作
                 table.table.table-bordered
                     thead
                         tr
                             th(colspan="5")  
                                 label.checkbox
                                     input(type="checkbox")
-                                    订单编号：7867473872181848 &nbsp;&nbsp;成交时间：2014-01-11 11:59
+                                    订单编号：7867473872181848
+                                span.pull-right 成交时间：2014-01-11 11:59
                     tbody
                         tr
-                            td(width="55%")
+                            td(width="50%")
                                 div.typographic
                                     img(src="http://img.f2e.taobao.net/img.png_50x50.jpg")
                                     a.block-text(href="#") 包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款
@@ -158,17 +208,17 @@ block content
                                     ul.unstyled
                                         li 申请售后
                                         li 投诉卖家
-                            td.center(rowspan="2") 56.50
-                            td.center(rowspan="2") 
+                            td.center(rowspan="2",width="11%") 56.50
+                            td.center(rowspan="2",width="13%") 
                                 ul.unstyled
                                     li 交易成功
                                     li 
                                         a(href="#") 订单详情
                                     li 
                                         a(href="#") 对方已评
-                            td.center(rowspan="2") 
+                            td.center(rowspan="2",width="13%") 
                                 a.btn(href="#") 评价 
-                            td.center(rowspan="2") 
+                            td.center(rowspan="2",width="13%") 
                                 ul.unstyled
                                     li 
                                         a(href="#") 删除
@@ -178,7 +228,7 @@ block content
                                         a(href="#") 分享
 
                         tr 
-                            td(width="55%")
+                            td(width="50%")
                                 div.typographic
                                     img(src="http://img.f2e.taobao.net/img.png_50x50.jpg")
                                     a.block-text(href="#") 包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款
@@ -186,3 +236,21 @@ block content
                                     ul.unstyled
                                         li 申请售后
                                         li 投诉卖家
+        h3 综合表格二
+        div.container
+            div.span8
+                table.table.table-nobody
+                    thead
+                        tr
+                            th(width="20%")
+                                label.checkbox
+                                        input(type="checkbox")
+                                        全选等级
+                            th.center(width="13%") 采购单成交金额
+                            th.center(width="13%") 采购单成交笔数
+                            th.center(width="13%") 在售分销商品数
+                            th.center(width="13%") 产品下载率
+                            th.center(width="13%") 商品上架率
+                            th 合作状态/操作
+                +table-sample
+                +table-sample
