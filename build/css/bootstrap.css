@@ -40,6 +40,12 @@
           box-sizing: border-box;
 }
 
+.break-line {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+}
+
 article,
 aside,
 details,
@@ -908,7 +914,7 @@ dd {
 
 .dl-horizontal dt {
   float: left;
-  width: 160px;
+  width: 76px;
   overflow: hidden;
   clear: left;
   text-align: right;
@@ -917,7 +923,7 @@ dd {
 }
 
 .dl-horizontal dd {
-  margin-left: 180px;
+  margin-left: 96px;
 }
 
 hr {
@@ -1091,7 +1097,7 @@ textarea {
   font-family: "宋体", Arial, sans-serif;
 }
 
-/* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
+/* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
 label {
   display: block;
   margin-bottom: 5px;
@@ -1117,10 +1123,10 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   height: 18px;
-  padding: 2px 6px;
+  padding: 2px 4px;
   font-size: 12px;
   line-height: 18px;
-  color: #333333;
+  color: #555555;
   vertical-align: middle;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
@@ -1188,18 +1194,6 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 
-/* 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto; // Override of generic input selector
-}
-*/
-
 input[type="file"],
 input[type="image"],
 input[type="submit"],
@@ -1259,6 +1253,264 @@ input[type="checkbox"]:focus {
   height: auto;
 }
 
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #999999;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.radio,
+.checkbox {
+  display: block;
+}
+
+.radio + .radio,
+.checkbox + .radio,
+.radio + .checkbox,
+.checkbox + .checkbox {
+  margin-top: 5px;
+}
+
+/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  float: left;
+  margin-left: -20px;
+}
+*/
+
+/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
+.controls > .radio:first-child,
+.controls > .checkbox:first-child {
+  padding-top: 5px; // has to be padding because margin collaspes
+}
+*/
+
+.radio.inline,
+.checkbox.inline {
+  /* ע�͵���������ʽ ����������ʽ @by kai 2014-01-30
+  display: inline-block;
+  padding-top: 5px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  */
+
+  display: inline-block;
+  margin-top: 0;
+}
+
+.radio.inline + .radio.inline,
+.checkbox.inline + .radio.inline,
+.radio.inline + .checkbox.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 6px;
+}
+
+/* ע�͵���һ�����룬ֱ��ɾ�� @by kai 2014-01-30
+.radio.inline + .radio.inline,
+.checkbox.inline + .checkbox.inline {
+  margin-left: 10px; // space out consecutive inline controls
+}
+*/
+
+/* ע�͵���һ������ ���¶������� @by kai 2014-01-30
+.input-mini       { width: 60px; }
+.input-small      { width: 90px; }
+.input-medium     { width: 150px; }
+.input-large      { width: 210px; }
+.input-xlarge     { width: 270px; }
+.input-xxlarge    { width: 530px; }*/
+
+.input-mini {
+  width: 40px;
+}
+
+.input-small {
+  width: 60px;
+}
+
+.input-medium {
+  width: 120px;
+}
+
+.input-large {
+  width: 200px;
+}
+
+.input-xlarge {
+  width: 350px;
+}
+
+.input-xxlarge {
+  width: 500px;
+}
+
+.input-thin {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.input-default {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.input-fat {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.input-xfat {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.input-fat {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.input-xfat {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-mini,
+input[type="text"].input-mini,
+input[type="password"].input-mini,
+input[type="datetime"].input-mini,
+input[type="datetime-local"].input-mini,
+input[type="date"].input-mini,
+input[type="month"].input-mini,
+input[type="time"].input-mini,
+input[type="week"].input-mini,
+input[type="number"].input-mini,
+input[type="email"].input-mini,
+input[type="url"].input-mini,
+input[type="search"].input-mini,
+input[type="tel"].input-mini,
+input[type="color"].input-mini,
+.uneditable-input.input-mini {
+  width: 30px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-small,
+input[type="text"].input-small,
+input[type="password"].input-small,
+input[type="datetime"].input-small,
+input[type="datetime-local"].input-small,
+input[type="date"].input-small,
+input[type="month"].input-small,
+input[type="time"].input-small,
+input[type="week"].input-small,
+input[type="number"].input-small,
+input[type="email"].input-small,
+input[type="url"].input-small,
+input[type="search"].input-small,
+input[type="tel"].input-small,
+input[type="color"].input-small,
+.uneditable-input.input-small {
+  width: 50px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-medium,
+input[type="text"].input-medium,
+input[type="password"].input-medium,
+input[type="datetime"].input-medium,
+input[type="datetime-local"].input-medium,
+input[type="date"].input-medium,
+input[type="month"].input-medium,
+input[type="time"].input-medium,
+input[type="week"].input-medium,
+input[type="number"].input-medium,
+input[type="email"].input-medium,
+input[type="url"].input-medium,
+input[type="search"].input-medium,
+input[type="tel"].input-medium,
+input[type="color"].input-medium,
+.uneditable-input.input-medium {
+  width: 110px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-large,
+input[type="text"].input-large,
+input[type="password"].input-large,
+input[type="datetime"].input-large,
+input[type="datetime-local"].input-large,
+input[type="date"].input-large,
+input[type="month"].input-large,
+input[type="time"].input-large,
+input[type="week"].input-large,
+input[type="number"].input-large,
+input[type="email"].input-large,
+input[type="url"].input-large,
+input[type="search"].input-large,
+input[type="tel"].input-large,
+input[type="color"].input-large,
+.uneditable-input.input-large {
+  width: 190px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-xlarge,
+input[type="text"].input-xlarge,
+input[type="password"].input-xlarge,
+input[type="datetime"].input-xlarge,
+input[type="datetime-local"].input-xlarge,
+input[type="date"].input-xlarge,
+input[type="month"].input-xlarge,
+input[type="time"].input-xlarge,
+input[type="week"].input-xlarge,
+input[type="number"].input-xlarge,
+input[type="email"].input-xlarge,
+input[type="url"].input-xlarge,
+input[type="search"].input-xlarge,
+input[type="tel"].input-xlarge,
+input[type="color"].input-xlarge,
+.uneditable-input.input-xlarge {
+  width: 340px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-xxlarge,
+input[type="text"].input-xxlarge,
+input[type="password"].input-xxlarge,
+input[type="datetime"].input-xxlarge,
+input[type="datetime-local"].input-xxlarge,
+input[type="date"].input-xxlarge,
+input[type="month"].input-xxlarge,
+input[type="time"].input-xxlarge,
+input[type="week"].input-xxlarge,
+input[type="number"].input-xxlarge,
+input[type="email"].input-xxlarge,
+input[type="url"].input-xxlarge,
+input[type="search"].input-xxlarge,
+input[type="tel"].input-xxlarge,
+input[type="color"].input-xxlarge,
+.uneditable-input.input-xxlarge {
+  width: 490px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+textarea.input-thin,
 input[type="text"].input-thin,
 input[type="password"].input-thin,
 input[type="datetime"].input-thin,
@@ -1273,11 +1525,12 @@ input[type="url"].input-thin,
 input[type="search"].input-thin,
 input[type="tel"].input-thin,
 input[type="color"].input-thin,
-.input-thin {
+.uneditable-input.input-thin {
   padding-top: 0;
   padding-bottom: 0;
 }
 
+textarea.input-default,
 input[type="text"].input-default,
 input[type="password"].input-default,
 input[type="datetime"].input-default,
@@ -1292,11 +1545,12 @@ input[type="url"].input-default,
 input[type="search"].input-default,
 input[type="tel"].input-default,
 input[type="color"].input-default,
-.input-default {
+.uneditable-input.input-default {
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
+textarea.input-fat,
 input[type="text"].input-fat,
 input[type="password"].input-fat,
 input[type="datetime"].input-fat,
@@ -1311,11 +1565,140 @@ input[type="url"].input-fat,
 input[type="search"].input-fat,
 input[type="tel"].input-fat,
 input[type="color"].input-fat,
-.input-fat {
+.uneditable-input.input-fat {
   padding-top: 4px;
+  padding-right: 8px;
   padding-bottom: 4px;
+  padding-left: 8px;
 }
 
+textarea.input-fat.input-mini,
+input[type="text"].input-fat.input-mini,
+input[type="password"].input-fat.input-mini,
+input[type="datetime"].input-fat.input-mini,
+input[type="datetime-local"].input-fat.input-mini,
+input[type="date"].input-fat.input-mini,
+input[type="month"].input-fat.input-mini,
+input[type="time"].input-fat.input-mini,
+input[type="week"].input-fat.input-mini,
+input[type="number"].input-fat.input-mini,
+input[type="email"].input-fat.input-mini,
+input[type="url"].input-fat.input-mini,
+input[type="search"].input-fat.input-mini,
+input[type="tel"].input-fat.input-mini,
+input[type="color"].input-fat.input-mini,
+.uneditable-input.input-fat.input-mini {
+  width: 22px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-fat.input-small,
+input[type="text"].input-fat.input-small,
+input[type="password"].input-fat.input-small,
+input[type="datetime"].input-fat.input-small,
+input[type="datetime-local"].input-fat.input-small,
+input[type="date"].input-fat.input-small,
+input[type="month"].input-fat.input-small,
+input[type="time"].input-fat.input-small,
+input[type="week"].input-fat.input-small,
+input[type="number"].input-fat.input-small,
+input[type="email"].input-fat.input-small,
+input[type="url"].input-fat.input-small,
+input[type="search"].input-fat.input-small,
+input[type="tel"].input-fat.input-small,
+input[type="color"].input-fat.input-small,
+.uneditable-input.input-fat.input-small {
+  width: 42px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-fat.input-medium,
+input[type="text"].input-fat.input-medium,
+input[type="password"].input-fat.input-medium,
+input[type="datetime"].input-fat.input-medium,
+input[type="datetime-local"].input-fat.input-medium,
+input[type="date"].input-fat.input-medium,
+input[type="month"].input-fat.input-medium,
+input[type="time"].input-fat.input-medium,
+input[type="week"].input-fat.input-medium,
+input[type="number"].input-fat.input-medium,
+input[type="email"].input-fat.input-medium,
+input[type="url"].input-fat.input-medium,
+input[type="search"].input-fat.input-medium,
+input[type="tel"].input-fat.input-medium,
+input[type="color"].input-fat.input-medium,
+.uneditable-input.input-fat.input-medium {
+  width: 102px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-fat.input-large,
+input[type="text"].input-fat.input-large,
+input[type="password"].input-fat.input-large,
+input[type="datetime"].input-fat.input-large,
+input[type="datetime-local"].input-fat.input-large,
+input[type="date"].input-fat.input-large,
+input[type="month"].input-fat.input-large,
+input[type="time"].input-fat.input-large,
+input[type="week"].input-fat.input-large,
+input[type="number"].input-fat.input-large,
+input[type="email"].input-fat.input-large,
+input[type="url"].input-fat.input-large,
+input[type="search"].input-fat.input-large,
+input[type="tel"].input-fat.input-large,
+input[type="color"].input-fat.input-large,
+.uneditable-input.input-fat.input-large {
+  width: 182px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-fat.input-xlarge,
+input[type="text"].input-fat.input-xlarge,
+input[type="password"].input-fat.input-xlarge,
+input[type="datetime"].input-fat.input-xlarge,
+input[type="datetime-local"].input-fat.input-xlarge,
+input[type="date"].input-fat.input-xlarge,
+input[type="month"].input-fat.input-xlarge,
+input[type="time"].input-fat.input-xlarge,
+input[type="week"].input-fat.input-xlarge,
+input[type="number"].input-fat.input-xlarge,
+input[type="email"].input-fat.input-xlarge,
+input[type="url"].input-fat.input-xlarge,
+input[type="search"].input-fat.input-xlarge,
+input[type="tel"].input-fat.input-xlarge,
+input[type="color"].input-fat.input-xlarge,
+.uneditable-input.input-fat.input-xlarge {
+  width: 332px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-fat.input-xxlarge,
+input[type="text"].input-fat.input-xxlarge,
+input[type="password"].input-fat.input-xxlarge,
+input[type="datetime"].input-fat.input-xxlarge,
+input[type="datetime-local"].input-fat.input-xxlarge,
+input[type="date"].input-fat.input-xxlarge,
+input[type="month"].input-fat.input-xxlarge,
+input[type="time"].input-fat.input-xxlarge,
+input[type="week"].input-fat.input-xxlarge,
+input[type="number"].input-fat.input-xxlarge,
+input[type="email"].input-fat.input-xxlarge,
+input[type="url"].input-fat.input-xxlarge,
+input[type="search"].input-fat.input-xxlarge,
+input[type="tel"].input-fat.input-xxlarge,
+input[type="color"].input-fat.input-xxlarge,
+.uneditable-input.input-fat.input-xxlarge {
+  width: 482px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat,
 input[type="text"].input-xfat,
 input[type="password"].input-xfat,
 input[type="datetime"].input-xfat,
@@ -1330,9 +1713,137 @@ input[type="url"].input-xfat,
 input[type="search"].input-xfat,
 input[type="tel"].input-xfat,
 input[type="color"].input-xfat,
-.input-xfat {
+.uneditable-input.input-xfat {
   padding-top: 6px;
+  padding-right: 8px;
   padding-bottom: 6px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-mini,
+input[type="text"].input-xfat.input-mini,
+input[type="password"].input-xfat.input-mini,
+input[type="datetime"].input-xfat.input-mini,
+input[type="datetime-local"].input-xfat.input-mini,
+input[type="date"].input-xfat.input-mini,
+input[type="month"].input-xfat.input-mini,
+input[type="time"].input-xfat.input-mini,
+input[type="week"].input-xfat.input-mini,
+input[type="number"].input-xfat.input-mini,
+input[type="email"].input-xfat.input-mini,
+input[type="url"].input-xfat.input-mini,
+input[type="search"].input-xfat.input-mini,
+input[type="tel"].input-xfat.input-mini,
+input[type="color"].input-xfat.input-mini,
+.uneditable-input.input-xfat.input-mini {
+  width: 22px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-small,
+input[type="text"].input-xfat.input-small,
+input[type="password"].input-xfat.input-small,
+input[type="datetime"].input-xfat.input-small,
+input[type="datetime-local"].input-xfat.input-small,
+input[type="date"].input-xfat.input-small,
+input[type="month"].input-xfat.input-small,
+input[type="time"].input-xfat.input-small,
+input[type="week"].input-xfat.input-small,
+input[type="number"].input-xfat.input-small,
+input[type="email"].input-xfat.input-small,
+input[type="url"].input-xfat.input-small,
+input[type="search"].input-xfat.input-small,
+input[type="tel"].input-xfat.input-small,
+input[type="color"].input-xfat.input-small,
+.uneditable-input.input-xfat.input-small {
+  width: 42px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-medium,
+input[type="text"].input-xfat.input-medium,
+input[type="password"].input-xfat.input-medium,
+input[type="datetime"].input-xfat.input-medium,
+input[type="datetime-local"].input-xfat.input-medium,
+input[type="date"].input-xfat.input-medium,
+input[type="month"].input-xfat.input-medium,
+input[type="time"].input-xfat.input-medium,
+input[type="week"].input-xfat.input-medium,
+input[type="number"].input-xfat.input-medium,
+input[type="email"].input-xfat.input-medium,
+input[type="url"].input-xfat.input-medium,
+input[type="search"].input-xfat.input-medium,
+input[type="tel"].input-xfat.input-medium,
+input[type="color"].input-xfat.input-medium,
+.uneditable-input.input-xfat.input-medium {
+  width: 102px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-large,
+input[type="text"].input-xfat.input-large,
+input[type="password"].input-xfat.input-large,
+input[type="datetime"].input-xfat.input-large,
+input[type="datetime-local"].input-xfat.input-large,
+input[type="date"].input-xfat.input-large,
+input[type="month"].input-xfat.input-large,
+input[type="time"].input-xfat.input-large,
+input[type="week"].input-xfat.input-large,
+input[type="number"].input-xfat.input-large,
+input[type="email"].input-xfat.input-large,
+input[type="url"].input-xfat.input-large,
+input[type="search"].input-xfat.input-large,
+input[type="tel"].input-xfat.input-large,
+input[type="color"].input-xfat.input-large,
+.uneditable-input.input-xfat.input-large {
+  width: 182px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-xlarge,
+input[type="text"].input-xfat.input-xlarge,
+input[type="password"].input-xfat.input-xlarge,
+input[type="datetime"].input-xfat.input-xlarge,
+input[type="datetime-local"].input-xfat.input-xlarge,
+input[type="date"].input-xfat.input-xlarge,
+input[type="month"].input-xfat.input-xlarge,
+input[type="time"].input-xfat.input-xlarge,
+input[type="week"].input-xfat.input-xlarge,
+input[type="number"].input-xfat.input-xlarge,
+input[type="email"].input-xfat.input-xlarge,
+input[type="url"].input-xfat.input-xlarge,
+input[type="search"].input-xfat.input-xlarge,
+input[type="tel"].input-xfat.input-xlarge,
+input[type="color"].input-xfat.input-xlarge,
+.uneditable-input.input-xfat.input-xlarge {
+  width: 332px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+textarea.input-xfat.input-xxlarge,
+input[type="text"].input-xfat.input-xxlarge,
+input[type="password"].input-xfat.input-xxlarge,
+input[type="datetime"].input-xfat.input-xxlarge,
+input[type="datetime-local"].input-xfat.input-xxlarge,
+input[type="date"].input-xfat.input-xxlarge,
+input[type="month"].input-xfat.input-xxlarge,
+input[type="time"].input-xfat.input-xxlarge,
+input[type="week"].input-xfat.input-xxlarge,
+input[type="number"].input-xfat.input-xxlarge,
+input[type="email"].input-xfat.input-xxlarge,
+input[type="url"].input-xfat.input-xxlarge,
+input[type="search"].input-xfat.input-xxlarge,
+input[type="tel"].input-xfat.input-xxlarge,
+input[type="color"].input-xfat.input-xxlarge,
+.uneditable-input.input-xfat.input-xxlarge {
+  width: 482px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 
 select.input-thin {
@@ -1349,179 +1860,6 @@ select.input-fat {
 
 select.input-xfat {
   height: 32px;
-}
-
-textarea.input-warning,
-input[type="text"].input-warning,
-input[type="password"].input-warning,
-input[type="datetime"].input-warning,
-input[type="datetime-local"].input-warning,
-input[type="date"].input-warning,
-input[type="month"].input-warning,
-input[type="time"].input-warning,
-input[type="week"].input-warning,
-input[type="number"].input-warning,
-input[type="email"].input-warning,
-input[type="url"].input-warning,
-input[type="search"].input-warning,
-input[type="tel"].input-warning,
-input[type="color"].input-warning,
-.input-warning {
-  background-image: url(http://gtms03.alicdn.com/tps/i3/T1yPpOFsxbXXXTOpDa-20-16.png);
-  background-position: right center;
-  background-repeat: no-repeat;
-  border-color: #ff7300;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-textarea.input-error,
-input[type="text"].input-error,
-input[type="password"].input-error,
-input[type="datetime"].input-error,
-input[type="datetime-local"].input-error,
-input[type="date"].input-error,
-input[type="month"].input-error,
-input[type="time"].input-error,
-input[type="week"].input-error,
-input[type="number"].input-error,
-input[type="email"].input-error,
-input[type="url"].input-error,
-input[type="search"].input-error,
-input[type="tel"].input-error,
-input[type="color"].input-error,
-.input-error {
-  background-image: url(http://gtms01.alicdn.com/tps/i1/T1ps8OFqpcXXXTOpDa-20-16.png);
-  background-position: right center;
-  background-repeat: no-repeat;
-  border-color: #ea4a36;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-textarea.input-success,
-input[type="text"].input-success,
-input[type="password"].input-success,
-input[type="datetime"].input-success,
-input[type="datetime-local"].input-success,
-input[type="date"].input-success,
-input[type="month"].input-success,
-input[type="time"].input-success,
-input[type="week"].input-success,
-input[type="number"].input-success,
-input[type="email"].input-success,
-input[type="url"].input-success,
-input[type="search"].input-success,
-input[type="tel"].input-success,
-input[type="color"].input-success,
-.input-success {
-  background-image: url(http://gtms02.alicdn.com/tps/i2/T1AGVMFAlcXXXTOpDa-20-16.png);
-  background-position: right center;
-  background-repeat: no-repeat;
-  border-color: #22cd6e;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-textarea.input-info,
-input[type="text"].input-info,
-input[type="password"].input-info,
-input[type="datetime"].input-info,
-input[type="datetime-local"].input-info,
-input[type="date"].input-info,
-input[type="month"].input-info,
-input[type="time"].input-info,
-input[type="week"].input-info,
-input[type="number"].input-info,
-input[type="email"].input-info,
-input[type="url"].input-info,
-input[type="search"].input-info,
-input[type="tel"].input-info,
-input[type="color"].input-info,
-.input-info {
-  background-image: url(http://gtms04.alicdn.com/tps/i4/T13WpPFvhaXXXTOpDa-20-16.png);
-  background-position: right center;
-  background-repeat: no-repeat;
-  border-color: #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #999999;
-}
-
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-  color: #999999;
-}
-
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-  color: #999999;
-}
-
-/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-.radio,
-.checkbox {
-  min-height: @baseLineHeight; // clear the floating input if there is no label text
-  padding-left: 20px;
-}
-.radio input[type="radio"],
-.checkbox input[type="checkbox"] {
-  float: left;
-  margin-left: -20px;
-}
-*/
-
-/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-.controls > .radio:first-child,
-.controls > .checkbox:first-child {
-  padding-top: 5px; // has to be padding because margin collaspes
-}
-*/
-
-/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-.radio.inline,
-.checkbox.inline {
-  display: inline-block;
-  padding-top: 5px;
-  margin-bottom: 0;
-  vertical-align: middle;
-}
-.radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
-  margin-left: 10px; // space out consecutive inline controls
-}
-*/
-
-.input-mini {
-  width: 60px;
-}
-
-.input-small {
-  width: 90px;
-}
-
-.input-medium {
-  width: 150px;
-}
-
-.input-large {
-  width: 210px;
-}
-
-.input-xlarge {
-  width: 270px;
-}
-
-.input-xxlarge {
-  width: 530px;
 }
 
 input[class*="span"],
@@ -1651,7 +1989,7 @@ textarea.span1,
   float: left;
 }
 
-/* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
+/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
 .controls-row .radio[class*="span"] {
   padding-top: 5px;
@@ -1772,6 +2110,1058 @@ select:focus:invalid:focus {
   border-color: #e9322d;
 }
 
+.input-warning {
+  border-color: #ff7300;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-error {
+  border-color: #ea4a36;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-success {
+  border-color: #22cd6e;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-info {
+  border-color: #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+textarea.input-warning,
+input[type="text"].input-warning,
+input[type="password"].input-warning,
+input[type="datetime"].input-warning,
+input[type="datetime-local"].input-warning,
+input[type="date"].input-warning,
+input[type="month"].input-warning,
+input[type="time"].input-warning,
+input[type="week"].input-warning,
+input[type="number"].input-warning,
+input[type="email"].input-warning,
+input[type="url"].input-warning,
+input[type="search"].input-warning,
+input[type="tel"].input-warning,
+input[type="color"].input-warning {
+  border-color: #ff7300;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+textarea.input-success,
+input[type="text"].input-success,
+input[type="password"].input-success,
+input[type="datetime"].input-success,
+input[type="datetime-local"].input-success,
+input[type="date"].input-success,
+input[type="month"].input-success,
+input[type="time"].input-success,
+input[type="week"].input-success,
+input[type="number"].input-success,
+input[type="email"].input-success,
+input[type="url"].input-success,
+input[type="search"].input-success,
+input[type="tel"].input-success,
+input[type="color"].input-success {
+  border-color: #22cd6e;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+textarea.input-error,
+input[type="text"].input-error,
+input[type="password"].input-error,
+input[type="datetime"].input-error,
+input[type="datetime-local"].input-error,
+input[type="date"].input-error,
+input[type="month"].input-error,
+input[type="time"].input-error,
+input[type="week"].input-error,
+input[type="number"].input-error,
+input[type="email"].input-error,
+input[type="url"].input-error,
+input[type="search"].input-error,
+input[type="tel"].input-error,
+input[type="color"].input-error {
+  border-color: #ea4a36;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+textarea.input-info,
+input[type="text"].input-info,
+input[type="password"].input-info,
+input[type="datetime"].input-info,
+input[type="datetime-local"].input-info,
+input[type="date"].input-info,
+input[type="month"].input-info,
+input[type="time"].input-info,
+input[type="week"].input-info,
+input[type="number"].input-info,
+input[type="email"].input-info,
+input[type="url"].input-info,
+input[type="search"].input-info,
+input[type="tel"].input-info,
+input[type="color"].input-info {
+  border-color: #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.icon-warning,
+.icon-error,
+.icon-success,
+.icon-info {
+  background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
+}
+
+.icon-warning {
+  background-position: 0 -48px;
+}
+
+.icon-error {
+  background-position: 0 0;
+}
+
+.icon-success {
+  background-position: 0 -32px;
+}
+
+.icon-info {
+  background-position: 0 -96px;
+}
+
+.icon-date {
+  background-image: url(http://img01.taobaocdn.com/tps/i1/T1SZa3FbhbXXcu5FDa-17-17.png);
+}
+
+.input-hasicon {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+.input-hasicon textarea,
+.input-hasicon input[type="text"],
+.input-hasicon input[type="password"],
+.input-hasicon input[type="datetime"],
+.input-hasicon input[type="datetime-local"],
+.input-hasicon input[type="date"],
+.input-hasicon input[type="month"],
+.input-hasicon input[type="time"],
+.input-hasicon input[type="week"],
+.input-hasicon input[type="number"],
+.input-hasicon input[type="email"],
+.input-hasicon input[type="url"],
+.input-hasicon input[type="search"],
+.input-hasicon input[type="tel"],
+.input-hasicon input[type="color"],
+.input-hasicon .uneditable-input {
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-mini,
+.input-hasicon input[type="text"].input-mini,
+.input-hasicon input[type="password"].input-mini,
+.input-hasicon input[type="datetime"].input-mini,
+.input-hasicon input[type="datetime-local"].input-mini,
+.input-hasicon input[type="date"].input-mini,
+.input-hasicon input[type="month"].input-mini,
+.input-hasicon input[type="time"].input-mini,
+.input-hasicon input[type="week"].input-mini,
+.input-hasicon input[type="number"].input-mini,
+.input-hasicon input[type="email"].input-mini,
+.input-hasicon input[type="url"].input-mini,
+.input-hasicon input[type="search"].input-mini,
+.input-hasicon input[type="tel"].input-mini,
+.input-hasicon input[type="color"].input-mini,
+.input-hasicon .uneditable-input.input-mini {
+  width: 8px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-small,
+.input-hasicon input[type="text"].input-small,
+.input-hasicon input[type="password"].input-small,
+.input-hasicon input[type="datetime"].input-small,
+.input-hasicon input[type="datetime-local"].input-small,
+.input-hasicon input[type="date"].input-small,
+.input-hasicon input[type="month"].input-small,
+.input-hasicon input[type="time"].input-small,
+.input-hasicon input[type="week"].input-small,
+.input-hasicon input[type="number"].input-small,
+.input-hasicon input[type="email"].input-small,
+.input-hasicon input[type="url"].input-small,
+.input-hasicon input[type="search"].input-small,
+.input-hasicon input[type="tel"].input-small,
+.input-hasicon input[type="color"].input-small,
+.input-hasicon .uneditable-input.input-small {
+  width: 28px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-medium,
+.input-hasicon input[type="text"].input-medium,
+.input-hasicon input[type="password"].input-medium,
+.input-hasicon input[type="datetime"].input-medium,
+.input-hasicon input[type="datetime-local"].input-medium,
+.input-hasicon input[type="date"].input-medium,
+.input-hasicon input[type="month"].input-medium,
+.input-hasicon input[type="time"].input-medium,
+.input-hasicon input[type="week"].input-medium,
+.input-hasicon input[type="number"].input-medium,
+.input-hasicon input[type="email"].input-medium,
+.input-hasicon input[type="url"].input-medium,
+.input-hasicon input[type="search"].input-medium,
+.input-hasicon input[type="tel"].input-medium,
+.input-hasicon input[type="color"].input-medium,
+.input-hasicon .uneditable-input.input-medium {
+  width: 88px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-large,
+.input-hasicon input[type="text"].input-large,
+.input-hasicon input[type="password"].input-large,
+.input-hasicon input[type="datetime"].input-large,
+.input-hasicon input[type="datetime-local"].input-large,
+.input-hasicon input[type="date"].input-large,
+.input-hasicon input[type="month"].input-large,
+.input-hasicon input[type="time"].input-large,
+.input-hasicon input[type="week"].input-large,
+.input-hasicon input[type="number"].input-large,
+.input-hasicon input[type="email"].input-large,
+.input-hasicon input[type="url"].input-large,
+.input-hasicon input[type="search"].input-large,
+.input-hasicon input[type="tel"].input-large,
+.input-hasicon input[type="color"].input-large,
+.input-hasicon .uneditable-input.input-large {
+  width: 168px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-xlarge,
+.input-hasicon input[type="text"].input-xlarge,
+.input-hasicon input[type="password"].input-xlarge,
+.input-hasicon input[type="datetime"].input-xlarge,
+.input-hasicon input[type="datetime-local"].input-xlarge,
+.input-hasicon input[type="date"].input-xlarge,
+.input-hasicon input[type="month"].input-xlarge,
+.input-hasicon input[type="time"].input-xlarge,
+.input-hasicon input[type="week"].input-xlarge,
+.input-hasicon input[type="number"].input-xlarge,
+.input-hasicon input[type="email"].input-xlarge,
+.input-hasicon input[type="url"].input-xlarge,
+.input-hasicon input[type="search"].input-xlarge,
+.input-hasicon input[type="tel"].input-xlarge,
+.input-hasicon input[type="color"].input-xlarge,
+.input-hasicon .uneditable-input.input-xlarge {
+  width: 318px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-xxlarge,
+.input-hasicon input[type="text"].input-xxlarge,
+.input-hasicon input[type="password"].input-xxlarge,
+.input-hasicon input[type="datetime"].input-xxlarge,
+.input-hasicon input[type="datetime-local"].input-xxlarge,
+.input-hasicon input[type="date"].input-xxlarge,
+.input-hasicon input[type="month"].input-xxlarge,
+.input-hasicon input[type="time"].input-xxlarge,
+.input-hasicon input[type="week"].input-xxlarge,
+.input-hasicon input[type="number"].input-xxlarge,
+.input-hasicon input[type="email"].input-xxlarge,
+.input-hasicon input[type="url"].input-xxlarge,
+.input-hasicon input[type="search"].input-xxlarge,
+.input-hasicon input[type="tel"].input-xxlarge,
+.input-hasicon input[type="color"].input-xxlarge,
+.input-hasicon .uneditable-input.input-xxlarge {
+  width: 468px;
+  padding-right: 26px;
+  padding-left: 4px;
+}
+
+.input-hasicon textarea.input-fat,
+.input-hasicon input[type="text"].input-fat,
+.input-hasicon input[type="password"].input-fat,
+.input-hasicon input[type="datetime"].input-fat,
+.input-hasicon input[type="datetime-local"].input-fat,
+.input-hasicon input[type="date"].input-fat,
+.input-hasicon input[type="month"].input-fat,
+.input-hasicon input[type="time"].input-fat,
+.input-hasicon input[type="week"].input-fat,
+.input-hasicon input[type="number"].input-fat,
+.input-hasicon input[type="email"].input-fat,
+.input-hasicon input[type="url"].input-fat,
+.input-hasicon input[type="search"].input-fat,
+.input-hasicon input[type="tel"].input-fat,
+.input-hasicon input[type="color"].input-fat,
+.input-hasicon .uneditable-input.input-fat {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-mini,
+.input-hasicon input[type="text"].input-fat.input-mini,
+.input-hasicon input[type="password"].input-fat.input-mini,
+.input-hasicon input[type="datetime"].input-fat.input-mini,
+.input-hasicon input[type="datetime-local"].input-fat.input-mini,
+.input-hasicon input[type="date"].input-fat.input-mini,
+.input-hasicon input[type="month"].input-fat.input-mini,
+.input-hasicon input[type="time"].input-fat.input-mini,
+.input-hasicon input[type="week"].input-fat.input-mini,
+.input-hasicon input[type="number"].input-fat.input-mini,
+.input-hasicon input[type="email"].input-fat.input-mini,
+.input-hasicon input[type="url"].input-fat.input-mini,
+.input-hasicon input[type="search"].input-fat.input-mini,
+.input-hasicon input[type="tel"].input-fat.input-mini,
+.input-hasicon input[type="color"].input-fat.input-mini,
+.input-hasicon .uneditable-input.input-fat.input-mini {
+  width: 4px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-small,
+.input-hasicon input[type="text"].input-fat.input-small,
+.input-hasicon input[type="password"].input-fat.input-small,
+.input-hasicon input[type="datetime"].input-fat.input-small,
+.input-hasicon input[type="datetime-local"].input-fat.input-small,
+.input-hasicon input[type="date"].input-fat.input-small,
+.input-hasicon input[type="month"].input-fat.input-small,
+.input-hasicon input[type="time"].input-fat.input-small,
+.input-hasicon input[type="week"].input-fat.input-small,
+.input-hasicon input[type="number"].input-fat.input-small,
+.input-hasicon input[type="email"].input-fat.input-small,
+.input-hasicon input[type="url"].input-fat.input-small,
+.input-hasicon input[type="search"].input-fat.input-small,
+.input-hasicon input[type="tel"].input-fat.input-small,
+.input-hasicon input[type="color"].input-fat.input-small,
+.input-hasicon .uneditable-input.input-fat.input-small {
+  width: 24px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-medium,
+.input-hasicon input[type="text"].input-fat.input-medium,
+.input-hasicon input[type="password"].input-fat.input-medium,
+.input-hasicon input[type="datetime"].input-fat.input-medium,
+.input-hasicon input[type="datetime-local"].input-fat.input-medium,
+.input-hasicon input[type="date"].input-fat.input-medium,
+.input-hasicon input[type="month"].input-fat.input-medium,
+.input-hasicon input[type="time"].input-fat.input-medium,
+.input-hasicon input[type="week"].input-fat.input-medium,
+.input-hasicon input[type="number"].input-fat.input-medium,
+.input-hasicon input[type="email"].input-fat.input-medium,
+.input-hasicon input[type="url"].input-fat.input-medium,
+.input-hasicon input[type="search"].input-fat.input-medium,
+.input-hasicon input[type="tel"].input-fat.input-medium,
+.input-hasicon input[type="color"].input-fat.input-medium,
+.input-hasicon .uneditable-input.input-fat.input-medium {
+  width: 84px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-large,
+.input-hasicon input[type="text"].input-fat.input-large,
+.input-hasicon input[type="password"].input-fat.input-large,
+.input-hasicon input[type="datetime"].input-fat.input-large,
+.input-hasicon input[type="datetime-local"].input-fat.input-large,
+.input-hasicon input[type="date"].input-fat.input-large,
+.input-hasicon input[type="month"].input-fat.input-large,
+.input-hasicon input[type="time"].input-fat.input-large,
+.input-hasicon input[type="week"].input-fat.input-large,
+.input-hasicon input[type="number"].input-fat.input-large,
+.input-hasicon input[type="email"].input-fat.input-large,
+.input-hasicon input[type="url"].input-fat.input-large,
+.input-hasicon input[type="search"].input-fat.input-large,
+.input-hasicon input[type="tel"].input-fat.input-large,
+.input-hasicon input[type="color"].input-fat.input-large,
+.input-hasicon .uneditable-input.input-fat.input-large {
+  width: 164px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-xlarge,
+.input-hasicon input[type="text"].input-fat.input-xlarge,
+.input-hasicon input[type="password"].input-fat.input-xlarge,
+.input-hasicon input[type="datetime"].input-fat.input-xlarge,
+.input-hasicon input[type="datetime-local"].input-fat.input-xlarge,
+.input-hasicon input[type="date"].input-fat.input-xlarge,
+.input-hasicon input[type="month"].input-fat.input-xlarge,
+.input-hasicon input[type="time"].input-fat.input-xlarge,
+.input-hasicon input[type="week"].input-fat.input-xlarge,
+.input-hasicon input[type="number"].input-fat.input-xlarge,
+.input-hasicon input[type="email"].input-fat.input-xlarge,
+.input-hasicon input[type="url"].input-fat.input-xlarge,
+.input-hasicon input[type="search"].input-fat.input-xlarge,
+.input-hasicon input[type="tel"].input-fat.input-xlarge,
+.input-hasicon input[type="color"].input-fat.input-xlarge,
+.input-hasicon .uneditable-input.input-fat.input-xlarge {
+  width: 314px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-fat.input-xxlarge,
+.input-hasicon input[type="text"].input-fat.input-xxlarge,
+.input-hasicon input[type="password"].input-fat.input-xxlarge,
+.input-hasicon input[type="datetime"].input-fat.input-xxlarge,
+.input-hasicon input[type="datetime-local"].input-fat.input-xxlarge,
+.input-hasicon input[type="date"].input-fat.input-xxlarge,
+.input-hasicon input[type="month"].input-fat.input-xxlarge,
+.input-hasicon input[type="time"].input-fat.input-xxlarge,
+.input-hasicon input[type="week"].input-fat.input-xxlarge,
+.input-hasicon input[type="number"].input-fat.input-xxlarge,
+.input-hasicon input[type="email"].input-fat.input-xxlarge,
+.input-hasicon input[type="url"].input-fat.input-xxlarge,
+.input-hasicon input[type="search"].input-fat.input-xxlarge,
+.input-hasicon input[type="tel"].input-fat.input-xxlarge,
+.input-hasicon input[type="color"].input-fat.input-xxlarge,
+.input-hasicon .uneditable-input.input-fat.input-xxlarge {
+  width: 464px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat,
+.input-hasicon input[type="text"].input-xfat,
+.input-hasicon input[type="password"].input-xfat,
+.input-hasicon input[type="datetime"].input-xfat,
+.input-hasicon input[type="datetime-local"].input-xfat,
+.input-hasicon input[type="date"].input-xfat,
+.input-hasicon input[type="month"].input-xfat,
+.input-hasicon input[type="time"].input-xfat,
+.input-hasicon input[type="week"].input-xfat,
+.input-hasicon input[type="number"].input-xfat,
+.input-hasicon input[type="email"].input-xfat,
+.input-hasicon input[type="url"].input-xfat,
+.input-hasicon input[type="search"].input-xfat,
+.input-hasicon input[type="tel"].input-xfat,
+.input-hasicon input[type="color"].input-xfat,
+.input-hasicon .uneditable-input.input-xfat {
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-mini,
+.input-hasicon input[type="text"].input-xfat.input-mini,
+.input-hasicon input[type="password"].input-xfat.input-mini,
+.input-hasicon input[type="datetime"].input-xfat.input-mini,
+.input-hasicon input[type="datetime-local"].input-xfat.input-mini,
+.input-hasicon input[type="date"].input-xfat.input-mini,
+.input-hasicon input[type="month"].input-xfat.input-mini,
+.input-hasicon input[type="time"].input-xfat.input-mini,
+.input-hasicon input[type="week"].input-xfat.input-mini,
+.input-hasicon input[type="number"].input-xfat.input-mini,
+.input-hasicon input[type="email"].input-xfat.input-mini,
+.input-hasicon input[type="url"].input-xfat.input-mini,
+.input-hasicon input[type="search"].input-xfat.input-mini,
+.input-hasicon input[type="tel"].input-xfat.input-mini,
+.input-hasicon input[type="color"].input-xfat.input-mini,
+.input-hasicon .uneditable-input.input-xfat.input-mini {
+  width: 4px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-small,
+.input-hasicon input[type="text"].input-xfat.input-small,
+.input-hasicon input[type="password"].input-xfat.input-small,
+.input-hasicon input[type="datetime"].input-xfat.input-small,
+.input-hasicon input[type="datetime-local"].input-xfat.input-small,
+.input-hasicon input[type="date"].input-xfat.input-small,
+.input-hasicon input[type="month"].input-xfat.input-small,
+.input-hasicon input[type="time"].input-xfat.input-small,
+.input-hasicon input[type="week"].input-xfat.input-small,
+.input-hasicon input[type="number"].input-xfat.input-small,
+.input-hasicon input[type="email"].input-xfat.input-small,
+.input-hasicon input[type="url"].input-xfat.input-small,
+.input-hasicon input[type="search"].input-xfat.input-small,
+.input-hasicon input[type="tel"].input-xfat.input-small,
+.input-hasicon input[type="color"].input-xfat.input-small,
+.input-hasicon .uneditable-input.input-xfat.input-small {
+  width: 24px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-medium,
+.input-hasicon input[type="text"].input-xfat.input-medium,
+.input-hasicon input[type="password"].input-xfat.input-medium,
+.input-hasicon input[type="datetime"].input-xfat.input-medium,
+.input-hasicon input[type="datetime-local"].input-xfat.input-medium,
+.input-hasicon input[type="date"].input-xfat.input-medium,
+.input-hasicon input[type="month"].input-xfat.input-medium,
+.input-hasicon input[type="time"].input-xfat.input-medium,
+.input-hasicon input[type="week"].input-xfat.input-medium,
+.input-hasicon input[type="number"].input-xfat.input-medium,
+.input-hasicon input[type="email"].input-xfat.input-medium,
+.input-hasicon input[type="url"].input-xfat.input-medium,
+.input-hasicon input[type="search"].input-xfat.input-medium,
+.input-hasicon input[type="tel"].input-xfat.input-medium,
+.input-hasicon input[type="color"].input-xfat.input-medium,
+.input-hasicon .uneditable-input.input-xfat.input-medium {
+  width: 84px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-large,
+.input-hasicon input[type="text"].input-xfat.input-large,
+.input-hasicon input[type="password"].input-xfat.input-large,
+.input-hasicon input[type="datetime"].input-xfat.input-large,
+.input-hasicon input[type="datetime-local"].input-xfat.input-large,
+.input-hasicon input[type="date"].input-xfat.input-large,
+.input-hasicon input[type="month"].input-xfat.input-large,
+.input-hasicon input[type="time"].input-xfat.input-large,
+.input-hasicon input[type="week"].input-xfat.input-large,
+.input-hasicon input[type="number"].input-xfat.input-large,
+.input-hasicon input[type="email"].input-xfat.input-large,
+.input-hasicon input[type="url"].input-xfat.input-large,
+.input-hasicon input[type="search"].input-xfat.input-large,
+.input-hasicon input[type="tel"].input-xfat.input-large,
+.input-hasicon input[type="color"].input-xfat.input-large,
+.input-hasicon .uneditable-input.input-xfat.input-large {
+  width: 164px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-xlarge,
+.input-hasicon input[type="text"].input-xfat.input-xlarge,
+.input-hasicon input[type="password"].input-xfat.input-xlarge,
+.input-hasicon input[type="datetime"].input-xfat.input-xlarge,
+.input-hasicon input[type="datetime-local"].input-xfat.input-xlarge,
+.input-hasicon input[type="date"].input-xfat.input-xlarge,
+.input-hasicon input[type="month"].input-xfat.input-xlarge,
+.input-hasicon input[type="time"].input-xfat.input-xlarge,
+.input-hasicon input[type="week"].input-xfat.input-xlarge,
+.input-hasicon input[type="number"].input-xfat.input-xlarge,
+.input-hasicon input[type="email"].input-xfat.input-xlarge,
+.input-hasicon input[type="url"].input-xfat.input-xlarge,
+.input-hasicon input[type="search"].input-xfat.input-xlarge,
+.input-hasicon input[type="tel"].input-xfat.input-xlarge,
+.input-hasicon input[type="color"].input-xfat.input-xlarge,
+.input-hasicon .uneditable-input.input-xfat.input-xlarge {
+  width: 314px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon textarea.input-xfat.input-xxlarge,
+.input-hasicon input[type="text"].input-xfat.input-xxlarge,
+.input-hasicon input[type="password"].input-xfat.input-xxlarge,
+.input-hasicon input[type="datetime"].input-xfat.input-xxlarge,
+.input-hasicon input[type="datetime-local"].input-xfat.input-xxlarge,
+.input-hasicon input[type="date"].input-xfat.input-xxlarge,
+.input-hasicon input[type="month"].input-xfat.input-xxlarge,
+.input-hasicon input[type="time"].input-xfat.input-xxlarge,
+.input-hasicon input[type="week"].input-xfat.input-xxlarge,
+.input-hasicon input[type="number"].input-xfat.input-xxlarge,
+.input-hasicon input[type="email"].input-xfat.input-xxlarge,
+.input-hasicon input[type="url"].input-xfat.input-xxlarge,
+.input-hasicon input[type="search"].input-xfat.input-xxlarge,
+.input-hasicon input[type="tel"].input-xfat.input-xxlarge,
+.input-hasicon input[type="color"].input-xfat.input-xxlarge,
+.input-hasicon .uneditable-input.input-xfat.input-xxlarge {
+  width: 464px;
+  padding-right: 26px;
+  padding-left: 8px;
+}
+
+.input-hasicon [class^="icon-"],
+.input-hasicon [class*=" icon-"] {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  overflow: hidden;
+}
+
+.input-hasicon-left textarea,
+.input-hasicon-left input[type="text"],
+.input-hasicon-left input[type="password"],
+.input-hasicon-left input[type="datetime"],
+.input-hasicon-left input[type="datetime-local"],
+.input-hasicon-left input[type="date"],
+.input-hasicon-left input[type="month"],
+.input-hasicon-left input[type="time"],
+.input-hasicon-left input[type="week"],
+.input-hasicon-left input[type="number"],
+.input-hasicon-left input[type="email"],
+.input-hasicon-left input[type="url"],
+.input-hasicon-left input[type="search"],
+.input-hasicon-left input[type="tel"],
+.input-hasicon-left input[type="color"],
+.input-hasicon-left .uneditable-input {
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-mini,
+.input-hasicon-left input[type="text"].input-mini,
+.input-hasicon-left input[type="password"].input-mini,
+.input-hasicon-left input[type="datetime"].input-mini,
+.input-hasicon-left input[type="datetime-local"].input-mini,
+.input-hasicon-left input[type="date"].input-mini,
+.input-hasicon-left input[type="month"].input-mini,
+.input-hasicon-left input[type="time"].input-mini,
+.input-hasicon-left input[type="week"].input-mini,
+.input-hasicon-left input[type="number"].input-mini,
+.input-hasicon-left input[type="email"].input-mini,
+.input-hasicon-left input[type="url"].input-mini,
+.input-hasicon-left input[type="search"].input-mini,
+.input-hasicon-left input[type="tel"].input-mini,
+.input-hasicon-left input[type="color"].input-mini,
+.input-hasicon-left .uneditable-input.input-mini {
+  width: 8px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-small,
+.input-hasicon-left input[type="text"].input-small,
+.input-hasicon-left input[type="password"].input-small,
+.input-hasicon-left input[type="datetime"].input-small,
+.input-hasicon-left input[type="datetime-local"].input-small,
+.input-hasicon-left input[type="date"].input-small,
+.input-hasicon-left input[type="month"].input-small,
+.input-hasicon-left input[type="time"].input-small,
+.input-hasicon-left input[type="week"].input-small,
+.input-hasicon-left input[type="number"].input-small,
+.input-hasicon-left input[type="email"].input-small,
+.input-hasicon-left input[type="url"].input-small,
+.input-hasicon-left input[type="search"].input-small,
+.input-hasicon-left input[type="tel"].input-small,
+.input-hasicon-left input[type="color"].input-small,
+.input-hasicon-left .uneditable-input.input-small {
+  width: 28px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-medium,
+.input-hasicon-left input[type="text"].input-medium,
+.input-hasicon-left input[type="password"].input-medium,
+.input-hasicon-left input[type="datetime"].input-medium,
+.input-hasicon-left input[type="datetime-local"].input-medium,
+.input-hasicon-left input[type="date"].input-medium,
+.input-hasicon-left input[type="month"].input-medium,
+.input-hasicon-left input[type="time"].input-medium,
+.input-hasicon-left input[type="week"].input-medium,
+.input-hasicon-left input[type="number"].input-medium,
+.input-hasicon-left input[type="email"].input-medium,
+.input-hasicon-left input[type="url"].input-medium,
+.input-hasicon-left input[type="search"].input-medium,
+.input-hasicon-left input[type="tel"].input-medium,
+.input-hasicon-left input[type="color"].input-medium,
+.input-hasicon-left .uneditable-input.input-medium {
+  width: 88px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-large,
+.input-hasicon-left input[type="text"].input-large,
+.input-hasicon-left input[type="password"].input-large,
+.input-hasicon-left input[type="datetime"].input-large,
+.input-hasicon-left input[type="datetime-local"].input-large,
+.input-hasicon-left input[type="date"].input-large,
+.input-hasicon-left input[type="month"].input-large,
+.input-hasicon-left input[type="time"].input-large,
+.input-hasicon-left input[type="week"].input-large,
+.input-hasicon-left input[type="number"].input-large,
+.input-hasicon-left input[type="email"].input-large,
+.input-hasicon-left input[type="url"].input-large,
+.input-hasicon-left input[type="search"].input-large,
+.input-hasicon-left input[type="tel"].input-large,
+.input-hasicon-left input[type="color"].input-large,
+.input-hasicon-left .uneditable-input.input-large {
+  width: 168px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xlarge,
+.input-hasicon-left input[type="text"].input-xlarge,
+.input-hasicon-left input[type="password"].input-xlarge,
+.input-hasicon-left input[type="datetime"].input-xlarge,
+.input-hasicon-left input[type="datetime-local"].input-xlarge,
+.input-hasicon-left input[type="date"].input-xlarge,
+.input-hasicon-left input[type="month"].input-xlarge,
+.input-hasicon-left input[type="time"].input-xlarge,
+.input-hasicon-left input[type="week"].input-xlarge,
+.input-hasicon-left input[type="number"].input-xlarge,
+.input-hasicon-left input[type="email"].input-xlarge,
+.input-hasicon-left input[type="url"].input-xlarge,
+.input-hasicon-left input[type="search"].input-xlarge,
+.input-hasicon-left input[type="tel"].input-xlarge,
+.input-hasicon-left input[type="color"].input-xlarge,
+.input-hasicon-left .uneditable-input.input-xlarge {
+  width: 318px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xxlarge,
+.input-hasicon-left input[type="text"].input-xxlarge,
+.input-hasicon-left input[type="password"].input-xxlarge,
+.input-hasicon-left input[type="datetime"].input-xxlarge,
+.input-hasicon-left input[type="datetime-local"].input-xxlarge,
+.input-hasicon-left input[type="date"].input-xxlarge,
+.input-hasicon-left input[type="month"].input-xxlarge,
+.input-hasicon-left input[type="time"].input-xxlarge,
+.input-hasicon-left input[type="week"].input-xxlarge,
+.input-hasicon-left input[type="number"].input-xxlarge,
+.input-hasicon-left input[type="email"].input-xxlarge,
+.input-hasicon-left input[type="url"].input-xxlarge,
+.input-hasicon-left input[type="search"].input-xxlarge,
+.input-hasicon-left input[type="tel"].input-xxlarge,
+.input-hasicon-left input[type="color"].input-xxlarge,
+.input-hasicon-left .uneditable-input.input-xxlarge {
+  width: 468px;
+  padding-right: 4px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat,
+.input-hasicon-left input[type="text"].input-fat,
+.input-hasicon-left input[type="password"].input-fat,
+.input-hasicon-left input[type="datetime"].input-fat,
+.input-hasicon-left input[type="datetime-local"].input-fat,
+.input-hasicon-left input[type="date"].input-fat,
+.input-hasicon-left input[type="month"].input-fat,
+.input-hasicon-left input[type="time"].input-fat,
+.input-hasicon-left input[type="week"].input-fat,
+.input-hasicon-left input[type="number"].input-fat,
+.input-hasicon-left input[type="email"].input-fat,
+.input-hasicon-left input[type="url"].input-fat,
+.input-hasicon-left input[type="search"].input-fat,
+.input-hasicon-left input[type="tel"].input-fat,
+.input-hasicon-left input[type="color"].input-fat,
+.input-hasicon-left .uneditable-input.input-fat {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+.input-hasicon-left textarea.input-fat.input-mini,
+.input-hasicon-left input[type="text"].input-fat.input-mini,
+.input-hasicon-left input[type="password"].input-fat.input-mini,
+.input-hasicon-left input[type="datetime"].input-fat.input-mini,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-mini,
+.input-hasicon-left input[type="date"].input-fat.input-mini,
+.input-hasicon-left input[type="month"].input-fat.input-mini,
+.input-hasicon-left input[type="time"].input-fat.input-mini,
+.input-hasicon-left input[type="week"].input-fat.input-mini,
+.input-hasicon-left input[type="number"].input-fat.input-mini,
+.input-hasicon-left input[type="email"].input-fat.input-mini,
+.input-hasicon-left input[type="url"].input-fat.input-mini,
+.input-hasicon-left input[type="search"].input-fat.input-mini,
+.input-hasicon-left input[type="tel"].input-fat.input-mini,
+.input-hasicon-left input[type="color"].input-fat.input-mini,
+.input-hasicon-left .uneditable-input.input-fat.input-mini {
+  width: 4px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat.input-small,
+.input-hasicon-left input[type="text"].input-fat.input-small,
+.input-hasicon-left input[type="password"].input-fat.input-small,
+.input-hasicon-left input[type="datetime"].input-fat.input-small,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-small,
+.input-hasicon-left input[type="date"].input-fat.input-small,
+.input-hasicon-left input[type="month"].input-fat.input-small,
+.input-hasicon-left input[type="time"].input-fat.input-small,
+.input-hasicon-left input[type="week"].input-fat.input-small,
+.input-hasicon-left input[type="number"].input-fat.input-small,
+.input-hasicon-left input[type="email"].input-fat.input-small,
+.input-hasicon-left input[type="url"].input-fat.input-small,
+.input-hasicon-left input[type="search"].input-fat.input-small,
+.input-hasicon-left input[type="tel"].input-fat.input-small,
+.input-hasicon-left input[type="color"].input-fat.input-small,
+.input-hasicon-left .uneditable-input.input-fat.input-small {
+  width: 24px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat.input-medium,
+.input-hasicon-left input[type="text"].input-fat.input-medium,
+.input-hasicon-left input[type="password"].input-fat.input-medium,
+.input-hasicon-left input[type="datetime"].input-fat.input-medium,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-medium,
+.input-hasicon-left input[type="date"].input-fat.input-medium,
+.input-hasicon-left input[type="month"].input-fat.input-medium,
+.input-hasicon-left input[type="time"].input-fat.input-medium,
+.input-hasicon-left input[type="week"].input-fat.input-medium,
+.input-hasicon-left input[type="number"].input-fat.input-medium,
+.input-hasicon-left input[type="email"].input-fat.input-medium,
+.input-hasicon-left input[type="url"].input-fat.input-medium,
+.input-hasicon-left input[type="search"].input-fat.input-medium,
+.input-hasicon-left input[type="tel"].input-fat.input-medium,
+.input-hasicon-left input[type="color"].input-fat.input-medium,
+.input-hasicon-left .uneditable-input.input-fat.input-medium {
+  width: 84px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat.input-large,
+.input-hasicon-left input[type="text"].input-fat.input-large,
+.input-hasicon-left input[type="password"].input-fat.input-large,
+.input-hasicon-left input[type="datetime"].input-fat.input-large,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-large,
+.input-hasicon-left input[type="date"].input-fat.input-large,
+.input-hasicon-left input[type="month"].input-fat.input-large,
+.input-hasicon-left input[type="time"].input-fat.input-large,
+.input-hasicon-left input[type="week"].input-fat.input-large,
+.input-hasicon-left input[type="number"].input-fat.input-large,
+.input-hasicon-left input[type="email"].input-fat.input-large,
+.input-hasicon-left input[type="url"].input-fat.input-large,
+.input-hasicon-left input[type="search"].input-fat.input-large,
+.input-hasicon-left input[type="tel"].input-fat.input-large,
+.input-hasicon-left input[type="color"].input-fat.input-large,
+.input-hasicon-left .uneditable-input.input-fat.input-large {
+  width: 164px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat.input-xlarge,
+.input-hasicon-left input[type="text"].input-fat.input-xlarge,
+.input-hasicon-left input[type="password"].input-fat.input-xlarge,
+.input-hasicon-left input[type="datetime"].input-fat.input-xlarge,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-xlarge,
+.input-hasicon-left input[type="date"].input-fat.input-xlarge,
+.input-hasicon-left input[type="month"].input-fat.input-xlarge,
+.input-hasicon-left input[type="time"].input-fat.input-xlarge,
+.input-hasicon-left input[type="week"].input-fat.input-xlarge,
+.input-hasicon-left input[type="number"].input-fat.input-xlarge,
+.input-hasicon-left input[type="email"].input-fat.input-xlarge,
+.input-hasicon-left input[type="url"].input-fat.input-xlarge,
+.input-hasicon-left input[type="search"].input-fat.input-xlarge,
+.input-hasicon-left input[type="tel"].input-fat.input-xlarge,
+.input-hasicon-left input[type="color"].input-fat.input-xlarge,
+.input-hasicon-left .uneditable-input.input-fat.input-xlarge {
+  width: 314px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-fat.input-xxlarge,
+.input-hasicon-left input[type="text"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="password"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="datetime"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="datetime-local"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="date"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="month"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="time"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="week"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="number"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="email"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="url"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="search"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="tel"].input-fat.input-xxlarge,
+.input-hasicon-left input[type="color"].input-fat.input-xxlarge,
+.input-hasicon-left .uneditable-input.input-fat.input-xxlarge {
+  width: 464px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat,
+.input-hasicon-left input[type="text"].input-xfat,
+.input-hasicon-left input[type="password"].input-xfat,
+.input-hasicon-left input[type="datetime"].input-xfat,
+.input-hasicon-left input[type="datetime-local"].input-xfat,
+.input-hasicon-left input[type="date"].input-xfat,
+.input-hasicon-left input[type="month"].input-xfat,
+.input-hasicon-left input[type="time"].input-xfat,
+.input-hasicon-left input[type="week"].input-xfat,
+.input-hasicon-left input[type="number"].input-xfat,
+.input-hasicon-left input[type="email"].input-xfat,
+.input-hasicon-left input[type="url"].input-xfat,
+.input-hasicon-left input[type="search"].input-xfat,
+.input-hasicon-left input[type="tel"].input-xfat,
+.input-hasicon-left input[type="color"].input-xfat,
+.input-hasicon-left .uneditable-input.input-xfat {
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-mini,
+.input-hasicon-left input[type="text"].input-xfat.input-mini,
+.input-hasicon-left input[type="password"].input-xfat.input-mini,
+.input-hasicon-left input[type="datetime"].input-xfat.input-mini,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-mini,
+.input-hasicon-left input[type="date"].input-xfat.input-mini,
+.input-hasicon-left input[type="month"].input-xfat.input-mini,
+.input-hasicon-left input[type="time"].input-xfat.input-mini,
+.input-hasicon-left input[type="week"].input-xfat.input-mini,
+.input-hasicon-left input[type="number"].input-xfat.input-mini,
+.input-hasicon-left input[type="email"].input-xfat.input-mini,
+.input-hasicon-left input[type="url"].input-xfat.input-mini,
+.input-hasicon-left input[type="search"].input-xfat.input-mini,
+.input-hasicon-left input[type="tel"].input-xfat.input-mini,
+.input-hasicon-left input[type="color"].input-xfat.input-mini,
+.input-hasicon-left .uneditable-input.input-xfat.input-mini {
+  width: 4px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-small,
+.input-hasicon-left input[type="text"].input-xfat.input-small,
+.input-hasicon-left input[type="password"].input-xfat.input-small,
+.input-hasicon-left input[type="datetime"].input-xfat.input-small,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-small,
+.input-hasicon-left input[type="date"].input-xfat.input-small,
+.input-hasicon-left input[type="month"].input-xfat.input-small,
+.input-hasicon-left input[type="time"].input-xfat.input-small,
+.input-hasicon-left input[type="week"].input-xfat.input-small,
+.input-hasicon-left input[type="number"].input-xfat.input-small,
+.input-hasicon-left input[type="email"].input-xfat.input-small,
+.input-hasicon-left input[type="url"].input-xfat.input-small,
+.input-hasicon-left input[type="search"].input-xfat.input-small,
+.input-hasicon-left input[type="tel"].input-xfat.input-small,
+.input-hasicon-left input[type="color"].input-xfat.input-small,
+.input-hasicon-left .uneditable-input.input-xfat.input-small {
+  width: 24px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-medium,
+.input-hasicon-left input[type="text"].input-xfat.input-medium,
+.input-hasicon-left input[type="password"].input-xfat.input-medium,
+.input-hasicon-left input[type="datetime"].input-xfat.input-medium,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-medium,
+.input-hasicon-left input[type="date"].input-xfat.input-medium,
+.input-hasicon-left input[type="month"].input-xfat.input-medium,
+.input-hasicon-left input[type="time"].input-xfat.input-medium,
+.input-hasicon-left input[type="week"].input-xfat.input-medium,
+.input-hasicon-left input[type="number"].input-xfat.input-medium,
+.input-hasicon-left input[type="email"].input-xfat.input-medium,
+.input-hasicon-left input[type="url"].input-xfat.input-medium,
+.input-hasicon-left input[type="search"].input-xfat.input-medium,
+.input-hasicon-left input[type="tel"].input-xfat.input-medium,
+.input-hasicon-left input[type="color"].input-xfat.input-medium,
+.input-hasicon-left .uneditable-input.input-xfat.input-medium {
+  width: 84px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-large,
+.input-hasicon-left input[type="text"].input-xfat.input-large,
+.input-hasicon-left input[type="password"].input-xfat.input-large,
+.input-hasicon-left input[type="datetime"].input-xfat.input-large,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-large,
+.input-hasicon-left input[type="date"].input-xfat.input-large,
+.input-hasicon-left input[type="month"].input-xfat.input-large,
+.input-hasicon-left input[type="time"].input-xfat.input-large,
+.input-hasicon-left input[type="week"].input-xfat.input-large,
+.input-hasicon-left input[type="number"].input-xfat.input-large,
+.input-hasicon-left input[type="email"].input-xfat.input-large,
+.input-hasicon-left input[type="url"].input-xfat.input-large,
+.input-hasicon-left input[type="search"].input-xfat.input-large,
+.input-hasicon-left input[type="tel"].input-xfat.input-large,
+.input-hasicon-left input[type="color"].input-xfat.input-large,
+.input-hasicon-left .uneditable-input.input-xfat.input-large {
+  width: 164px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-xlarge,
+.input-hasicon-left input[type="text"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="password"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="datetime"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="date"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="month"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="time"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="week"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="number"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="email"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="url"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="search"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="tel"].input-xfat.input-xlarge,
+.input-hasicon-left input[type="color"].input-xfat.input-xlarge,
+.input-hasicon-left .uneditable-input.input-xfat.input-xlarge {
+  width: 314px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left textarea.input-xfat.input-xxlarge,
+.input-hasicon-left input[type="text"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="password"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="datetime"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="datetime-local"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="date"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="month"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="time"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="week"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="number"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="email"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="url"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="search"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="tel"].input-xfat.input-xxlarge,
+.input-hasicon-left input[type="color"].input-xfat.input-xxlarge,
+.input-hasicon-left .uneditable-input.input-xfat.input-xxlarge {
+  width: 464px;
+  padding-right: 8px;
+  padding-left: 26px;
+}
+
+.input-hasicon-left [class^="icon-"],
+.input-hasicon-left [class*=" icon-"] {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  overflow: hidden;
+}
+
 .form-actions {
   padding: 17px 20px 18px;
   margin-top: 18px;
@@ -1799,7 +3189,7 @@ select:focus:invalid:focus {
 
 .help-block {
   display: block;
-  margin-bottom: 9px;
+  margin-top: 9px;
 }
 
 .help-inline {
@@ -2084,6 +3474,15 @@ input.search-query {
   margin-bottom: 9px;
 }
 
+.control-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.controls-wrap + .controls-wrap {
+  margin-top: 9px;
+}
+
 legend + .control-group {
   margin-top: 18px;
   -webkit-margin-top-collapse: separate;
@@ -2106,109 +3505,113 @@ legend + .control-group {
 }
 
 .form-horizontal .control-label {
+  display: inline-block;
   float: left;
-  width: 160px;
-  padding-top: 5px;
+  width: 96px;
+  padding-top: 3px;
+  margin-bottom: 0;
   text-align: right;
 }
 
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 180px;
+  margin-left: 96px;
   *margin-left: 0;
 }
 
 .form-horizontal .controls:first-child {
-  *padding-left: 180px;
+  *padding-left: 96px;
 }
 
 .form-horizontal .help-block {
-  margin-bottom: 0;
+  margin-top: 0;
 }
 
-.form-horizontal input + .help-block,
-.form-horizontal select + .help-block,
-.form-horizontal textarea + .help-block,
-.form-horizontal .uneditable-input + .help-block,
-.form-horizontal .input-prepend + .help-block,
-.form-horizontal .input-append + .help-block {
+.form-horizontal input ~ .help-block,
+.form-horizontal select ~ .help-block,
+.form-horizontal textarea ~ .help-block,
+.form-horizontal .uneditable-input ~ .help-block,
+.form-horizontal .input-prepend ~ .help-block,
+.form-horizontal .input-append ~ .help-block,
+.form-horizontal .radio ~ .help-block,
+.form-horizontal .checkbox ~ .help-block {
   margin-top: 9px;
 }
 
 .form-horizontal .form-actions {
-  padding-left: 180px;
+  padding-left: 96px;
 }
 
-.msg-ico {
+.msg-icon {
   background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
 }
 
-.msg-error .msg-ico {
+.msg-error .msg-icon {
   background-position: 0 0;
 }
 
-.msg-stop .msg-ico {
+.msg-stop .msg-icon {
   background-position: 0 -16px;
 }
 
-.msg-ok .msg-ico {
+.msg-ok .msg-icon {
   background-position: 0 -32px;
 }
 
-.msg-alert .msg-ico {
+.msg-alert .msg-icon {
   background-position: 0 -48px;
 }
 
-.msg-notice .msg-ico {
+.msg-notice .msg-icon {
   background-position: 0 -64px;
 }
 
-.msg-tips .msg-ico {
+.msg-tips .msg-icon {
   background-position: 0 -80px;
 }
 
-.msg-attention .msg-ico {
+.msg-attention .msg-icon {
   background-position: 0 -96px;
 }
 
-.msg-question .msg-ico {
+.msg-question .msg-icon {
   background-position: 0 -112px;
 }
 
-.msg-large .msg-ico {
+.msg-large .msg-icon {
   background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png);
 }
 
-.msg-large .msg-error .msg-ico {
+.msg-large .msg-error .msg-icon {
   background-position: 0 0;
 }
 
-.msg-large .msg-stop .msg-ico {
+.msg-large .msg-stop .msg-icon {
   background-position: 0 -24px;
 }
 
-.msg-large .msg-ok .msg-ico {
+.msg-large .msg-ok .msg-icon {
   background-position: 0 -48px;
 }
 
-.msg-large .msg-alert .msg-ico {
+.msg-large .msg-alert .msg-icon {
   background-position: 0 -72px;
 }
 
-.msg-large .msg-notice .msg-ico {
+.msg-large .msg-notice .msg-icon {
   background-position: 0 -96px;
 }
 
-.msg-large .msg-tips .msg-ico {
+.msg-large .msg-tips .msg-icon {
   background-position: 0 -120px;
 }
 
-.msg-large .msg-attention .msg-ico {
+.msg-large .msg-attention .msg-icon {
   background-position: 0 -144px;
 }
 
-.msg-large .msg-question .msg-ico {
+.msg-large .msg-question .msg-icon {
   background-position: 0 -168px;
 }
 
@@ -2218,6 +3621,12 @@ legend + .control-group {
   *display: inline;
   vertical-align: middle;
   *zoom: 1;
+}
+
+.msg .msg-icon {
+  position: absolute;
+  top: 4px;
+  left: 4px;
 }
 
 .msg-con {
@@ -2234,19 +3643,13 @@ legend + .control-group {
   font-weight: normal;
 }
 
-.msg-ico {
+.msg-icon {
   display: inline-block;
   *display: inline;
   width: 16px;
   height: 16px;
   overflow: hidden;
   *zoom: 1;
-}
-
-.msg .msg-ico {
-  position: absolute;
-  top: 4px;
-  left: 4px;
 }
 
 .msg-large .msg-con {
@@ -2256,7 +3659,7 @@ legend + .control-group {
   line-height: 22px;
 }
 
-.msg-large .msg-ico {
+.msg-large .msg-icon {
   top: 12px;
   left: 11px;
   width: 24px;
@@ -2265,6 +3668,14 @@ legend + .control-group {
 
 .msg-block {
   display: block;
+}
+
+.msg-inline-block {
+  display: block;
+}
+
+.msg-inline-block .msg-con {
+  display: inline-block;
 }
 
 .msg-default .msg-con {
@@ -2328,6 +3739,150 @@ legend + .control-group {
   border: 1px solid #eaeaea;
 }
 
+/*
+
+
+//
+// Msgs
+// --------------------------------------------------
+
+
+// GENERAL STYLES
+// --------------
+
+// Сͼ�����궨λ
+.msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
+.msg-error .msg-icon { background-position: 0 0; }
+.msg-stop .msg-icon { background-position: 0 -16px; }
+.msg-ok .msg-icon { background-position: 0 -32px; }
+.msg-alert .msg-icon { background-position: 0 -48px; }
+.msg-notice .msg-icon { background-position: 0 -64px; }
+.msg-tips .msg-icon { background-position: 0 -80px; }
+.msg-attention .msg-icon { background-position: 0 -96px; }
+.msg-question .msg-icon { background-position: 0 -112px; }
+
+.msg-large {
+	.msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
+	&.msg-error .msg-icon { background-position: 0 0; }
+	&.msg-stop .msg-icon { background-position: 0 -24px; }
+	&.msg-ok .msg-icon { background-position: 0 -48px; }
+	&.msg-alert .msg-icon { background-position: 0 -72px; }
+	&.msg-notice .msg-icon { background-position: 0 -96px; }
+	&.msg-tips .msg-icon { background-position: 0 -120px; }
+	&.msg-attention .msg-icon { background-position: 0 -144px; }
+	&.msg-question .msg-icon { background-position: 0 -168px; }
+}
+
+// Ĭ�ϳߴ磨С�ߴ磩
+.msg {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	position: relative;
+	padding: 2px 10px 2px 23px;
+	.border-radius(@msgBorderRadius);
+	color: @msgDefaultColor;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	vertical-align: middle;
+}
+.msg-icon {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+}
+
+// ���ߴ�
+.msg-large {
+	padding: 12px 12px 12px 44px;
+	font-size: @fontSizeLarge;
+	line-height: @lineHeightLarge;
+	font-weight: bold;
+	.msg-icon {
+		top: 11px;
+		left: 10px;
+		width: 24px;
+		height: 24px;
+	}
+}
+
+// �ɿ鼶
+.msg-block { display: block; }
+
+// Ĭ��������ɫ
+.msg-default {
+	color: @msgDefaultColor;
+}
+
+// ȥ�߿��͵�ɫ
+.msg-naked {
+	border: none;
+	background-color: transparent;
+}
+
+// ������ʽ
+.msg {
+	.msg;
+	.msg-icon {
+		.msg-icon;
+		position: absolute;
+		top: 3px;
+		left: 3px;
+	}
+	&.msg-large { .msg-large; }
+	&.msg-block { .msg-block; }
+	&.msg-default { .msg-default; }
+	&.msg-naked { .msg-naked; }
+	p { font-weight: normal; }
+}
+
+// Msgs����
+.msg-error {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-stop {
+	border: 1px solid #ffe3e0;
+	background-color: #fff2f2;
+	color: #ea4a36;
+}
+.msg-ok {
+	border: 1px solid #dcf9d6;
+	background-color: #edffe9;
+	color: #4ab933;
+}
+.msg-alert {
+	border: 1px solid #fee8d7;
+	background-color: #fef1e3;
+	color: #cf700b;
+}
+.msg-notice {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-tips {
+	border: 1px solid #faf1d7;
+	background-color: #fffff1;
+	color: #ee9f28;
+}
+.msg-attention {
+	border: 1px solid #e4f3fd;
+	background-color: #f2faff;
+	color: #3a9ed5;
+}
+.msg-question {
+	border: 1px solid #eaeaea;
+	background-color: #f7f7f7;
+	color: #333;
+}
+
+
+*/
 .typographic img {
   display: block;
   float: left;
@@ -6433,7 +7988,9 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-large div .page-num {
   padding-top: 4px;
+  padding-right: 8px;
   padding-bottom: 4px;
+  padding-left: 8px;
 }
 
 .pagination-large div .page-num + .page-confirm {
@@ -6583,7 +8140,9 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-xlarge div .page-num {
   padding-top: 6px;
+  padding-right: 8px;
   padding-bottom: 6px;
+  padding-left: 8px;
 }
 
 .pagination-xlarge div .page-num + .page-confirm {
@@ -7069,48 +8628,50 @@ input[type="submit"].btn.btn-mini {
   position: absolute;
   z-index: 1030;
   display: block;
-  font-size: 11px;
-  line-height: 1.4;
+  max-width: 300px;
+  border: 2px solid #b2b2b2;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
   opacity: 0;
-  filter: alpha(opacity=0);
   visibility: visible;
 }
 
 .tooltip.in {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+  /*.opacity(100);*/
+
+  opacity: 1;
 }
 
 .tooltip.top {
-  padding: 5px 0;
   margin-top: -3px;
 }
 
 .tooltip.right {
-  padding: 0 5px;
   margin-left: 3px;
 }
 
 .tooltip.bottom {
-  padding: 5px 0;
   margin-top: 3px;
 }
 
 .tooltip.left {
-  padding: 0 5px;
   margin-left: -3px;
 }
 
+.tooltip.normal .tooltip-inner {
+  color: #222222;
+  background-color: #ffffff;
+}
+
+.tooltip.attention .tooltip-inner {
+  color: #d7842b;
+  background-color: #fef1e3;
+}
+
 .tooltip-inner {
-  max-width: 200px;
-  padding: 8px;
-  color: #ffffff;
-  text-align: center;
+  padding: 9px 11px;
   text-decoration: none;
-  background-color: #000000;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
 }
 
 .tooltip-arrow {
@@ -7121,36 +8682,92 @@ input[type="submit"].btn.btn-mini {
   border-style: solid;
 }
 
+.tooltip.attention {
+  border: none;
+}
+
+.tooltip.attention .cover {
+  display: none;
+}
+
 .tooltip.top .tooltip-arrow {
-  bottom: 0;
+  bottom: -7px;
   left: 50%;
-  margin-left: -5px;
-  border-top-color: #000000;
-  border-width: 5px 5px 0;
+  margin-left: -6px;
+  border-top-color: #b2b2b2;
+  border-width: 6px 6px 0;
+}
+
+.tooltip.top .tooltip-arrow .tooltip-arrow.cover {
+  top: -7px;
+  margin-left: -4px;
+  border-top-color: #ffffff;
+}
+
+.tooltip.top.attention .tooltip-arrow {
+  bottom: -5px;
+  border-top-color: #fef1e3;
 }
 
 .tooltip.right .tooltip-arrow {
   top: 50%;
+  left: -7px;
+  margin-top: -6px;
+  border-right-color: #b2b2b2;
+  border-width: 6px 6px 6px 0;
+}
+
+.tooltip.right .tooltip-arrow .tooltip-arrow.cover {
   left: 0;
-  margin-top: -5px;
-  border-right-color: #000000;
-  border-width: 5px 5px 5px 0;
+  margin-top: -4px;
+  border-right-color: #ffffff;
+}
+
+.tooltip.right.attention .tooltip-arrow {
+  left: -5px;
+  border-right-color: #fef1e3;
 }
 
 .tooltip.left .tooltip-arrow {
   top: 50%;
-  right: 0;
-  margin-top: -5px;
-  border-left-color: #000000;
-  border-width: 5px 0 5px 5px;
+  right: -7px;
+  margin-top: -6px;
+  border-left-color: #b2b2b2;
+  border-width: 6px 0 6px 6px;
+}
+
+.tooltip.left .tooltip-arrow .tooltip-arrow.cover {
+  left: -7px;
+  margin-top: -4px;
+  border-left-color: #ffffff;
+}
+
+.tooltip.left.attention .tooltip-arrow {
+  right: -5px;
+  border-left-color: #fef1e3;
 }
 
 .tooltip.bottom .tooltip-arrow {
-  top: 0;
+  top: -7px;
   left: 50%;
-  margin-left: -5px;
-  border-bottom-color: #000000;
-  border-width: 0 5px 5px;
+  margin-left: -6px;
+  border-bottom-color: #b2b2b2;
+  border-width: 0 6px 6px;
+}
+
+.tooltip.bottom .tooltip-arrow .tooltip-arrow.cover {
+  top: 0;
+  margin-left: -4px;
+  border-bottom-color: #ffffff;
+}
+
+.tooltip .tooltip-arrow.cover {
+  border-width: 4px;
+}
+
+.tooltip.bottom.attention .tooltip-arrow {
+  top: -5px;
+  border-bottom-color: #fef1e3;
 }
 
 .popover {
@@ -7913,6 +9530,7 @@ a.badge:focus {
 }
 
 .steps {
+  overflow: hidden;
   font-size: 0;
 }
 
@@ -7942,6 +9560,21 @@ a.badge:focus {
   border-width: 12px;
 }
 
+.steps .triangle-right-bg {
+  position: absolute;
+  top: -4px;
+  right: -24px;
+  right: -32px;
+  z-index: 1;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #FFF;
+  border-style: solid;
+  border-width: 12px;
+  border-width: 16px;
+}
+
 .steps .round {
   display: inline-block;
   width: 12px;
@@ -7959,7 +9592,7 @@ a.badge:focus {
   background-color: #e4f6ff;
 }
 
-.steps .finished > .triangle-right {
+.steps .finished .triangle-right {
   border-color: transparent transparent transparent #e4f6ff;
 }
 
@@ -7974,7 +9607,7 @@ a.badge:focus {
   background-color: #0995e0;
 }
 
-.steps .current > .triangle-right {
+.steps .current .triangle-right {
   border-color: transparent transparent transparent #0995e0;
 }
 
@@ -7990,7 +9623,7 @@ a.badge:focus {
   background-color: #f5f5f5;
 }
 
-.steps .todo > .triangle-right {
+.steps .todo .triangle-right {
   border-color: transparent transparent transparent #f5f5f5;
 }
 
@@ -8014,6 +9647,11 @@ a.badge:focus {
 .steps-large .triangle-right {
   right: -36px;
   border-width: 18px;
+}
+
+.steps-large .triangle-right-bg {
+  right: -44px;
+  border-width: 22px;
 }
 
 .steps-large .round {
