@@ -12,6 +12,13 @@
 * default:默认任务，等价于 test + dist
 * watch:监控文件改动实时编译
 
+### Gulp
+
+Gulp 和 Grunt 一样也是用来构建代码。Gulp 基于nodejs的stream来做的，区别于Grunt完全基于配置，所以更加灵活方便，能用更少更优雅的代码实现复杂的功能。Gulp应该会在不久之后取代Grunt成为前端最好的构建工具(**Task Runner**)。Gulp 官网地址：[Gulp](https://github.com/gulpjs/gulp)。
+目前用 Gulp 实现了Grunt中的全部任务，但是qunit还有bug。现在两个工具并存，并不存在冲突，等gulp社区成熟稳定之后就可以删掉grunt了。**目前还是以Grunt为主**。
+
+gulp 默认配置了default和watch两个主要任务。
+
 ### iconfont
 icon全部用iconfont实现，整个dpl不需要任何图片资源。目前的font-face是从3.0版本cp过来的，命名依然沿用3.0的命名。 
 而且icon font 是文字，所以可以调大小颜色等。

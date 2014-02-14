@@ -8537,6 +8537,7 @@ a.badge:focus {
 }
 
 .steps {
+  overflow: hidden;
   font-size: 0;
 }
 
@@ -8566,6 +8567,21 @@ a.badge:focus {
   border-width: 12px;
 }
 
+.steps .triangle-right-bg {
+  position: absolute;
+  top: -4px;
+  right: -24px;
+  right: -32px;
+  z-index: 1;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #FFF;
+  border-style: solid;
+  border-width: 12px;
+  border-width: 16px;
+}
+
 .steps .round {
   display: inline-block;
   width: 12px;
@@ -8583,7 +8599,7 @@ a.badge:focus {
   background-color: #e4f6ff;
 }
 
-.steps .finished > .triangle-right {
+.steps .finished .triangle-right {
   border-color: transparent transparent transparent #e4f6ff;
 }
 
@@ -8598,7 +8614,7 @@ a.badge:focus {
   background-color: #0995e0;
 }
 
-.steps .current > .triangle-right {
+.steps .current .triangle-right {
   border-color: transparent transparent transparent #0995e0;
 }
 
@@ -8614,7 +8630,7 @@ a.badge:focus {
   background-color: #f5f5f5;
 }
 
-.steps .todo > .triangle-right {
+.steps .todo .triangle-right {
   border-color: transparent transparent transparent #f5f5f5;
 }
 
@@ -8638,6 +8654,11 @@ a.badge:focus {
 .steps-large .triangle-right {
   right: -36px;
   border-width: 18px;
+}
+
+.steps-large .triangle-right-bg {
+  right: -44px;
+  border-width: 22px;
 }
 
 .steps-large .round {
