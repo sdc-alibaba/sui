@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     qunit = require('gulp-qunit'),
     watch = require('gulp-watch'),
-    livereload = require('gulp-livereload')
+    livereload = require('gulp-livereload'),
     tinnylr = require('tiny-lr')
 
 var server = tinnylr()
@@ -97,12 +97,29 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('default'))
 })
 
-gulp.task('qunit', function() {
+gulp.task('qunit', function(callback) {
+  /*
   var config = {
     inject: 'js/tests/unit/bootstrap-phantom.js'
   }
   gulp.src('js/tests/*.html')
     .pipe(qunit(config));
+  */
+  //gulp-qunit 不好用，暂时自己实现
+  var error = 0
+  var serverCmd = 'node js/tests/server.js'
+  var qunitCmd = 'phantomjs js/tests/phantom.js "http://localhost:3000/js/tests"'
+  var runServer = exec(serverCmd)
+  var runQunit = exec(qunitCmd, function(e) {
+    runServer.kill()
+    callback(error)
+  }).stdout.on('data', function (data) {
+    if (/tests failed/.test(data)) {
+      error = 'qunit test failed!'
+    } else {
+      console.log(data)
+    }
+  })
 })
 
 // copy fonts to build
@@ -120,7 +137,7 @@ gulp.task('watch', function() {
   gulp.watch('./fonts/*', ['jade'])
 })
 
-gulp.task('test', ['jshint'/*, 'qunit'*/])
+gulp.task('test', ['jshint', 'qunit'])
 
 gulp.task('docs', ['fonts', 'jade', 'hogan'])
 
