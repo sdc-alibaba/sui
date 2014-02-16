@@ -108,7 +108,7 @@ gulp.task('qunit', function(callback) {
   //gulp-qunit 不好用，暂时自己实现
   var error = 0
   var serverCmd = 'node js/tests/server.js'
-  var qunitCmd = 'phantomjs js/tests/phantom.js "http://localhost:3000/js/tests"'
+  var qunitCmd = 'node_modules/phantomjs/bin/phantomjs js/tests/phantom.js "http://localhost:3000/js/tests"'
   var runServer = exec(serverCmd)
   var runQunit = exec(qunitCmd, function(e) {
     runServer.kill()
