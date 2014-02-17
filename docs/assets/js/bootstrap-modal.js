@@ -83,10 +83,8 @@
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-          var h = ele.height()
-          if (h > 270) {
-            ele.css('margin-top', -parseInt(h) / 2)
-          }
+          //var h = ele.height()
+          //ele.css('margin-top', -parseInt(h) / 2)
           ele.show()
           if (transition) {
             ele[0].offsetWidth // force reflow
