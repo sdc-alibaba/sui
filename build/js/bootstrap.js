@@ -1322,8 +1322,17 @@ define("bootstrap-dropdown.js", function(){});
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-          //var h = ele.height()
-          //ele.css('margin-top', -parseInt(h) / 2)
+
+          var eleH = ele.height()
+            , winH = $(window).height()
+            , mt
+          if (eleH >= winH) {
+            mt = -winH/2
+          } else {
+            mt = (winH - eleH) / (1 + 1.618) - winH / 2
+          }
+          ele.css('margin-top', parseInt(mt))
+
           ele.show()
           if (transition) {
             ele[0].offsetWidth // force reflow
