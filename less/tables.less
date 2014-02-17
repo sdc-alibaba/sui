@@ -6,6 +6,47 @@
 // BASE TABLES
 // -----------------
 
+
+.typographic-block() {
+  display:block;
+  float:left;
+  min-width:80px;
+  max-width:250px;
+}
+
+.typographic{
+  img{
+    display:block;
+    float:left;
+    margin-right:10px;
+  }
+  a{
+    .typographic-block;
+  }
+  span{
+    .typographic-block;
+    text-align:center;
+  }
+  ul{
+    .typographic-block;
+    text-align:center;
+  }
+}
+
+.table {
+  .gray{
+    color: @grayLight;
+  }
+  th,td{
+    img,a,span,label{
+      margin-right: 10px;
+    }
+  }
+  ul{
+    margin:0;
+  }
+}
+
 table {
   max-width: 100%;
   background-color: @tableBackground;
@@ -22,10 +63,10 @@ table {
   // Cells
   th,
   td {
-    padding: 8px;
+    padding: @tablePadding;
     line-height: @baseLineHeight;
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid @tableBorder;
   }
   th {
@@ -53,6 +94,19 @@ table {
   .table {
     background-color: @bodyBackground;
   }
+
+  input{
+    margin-top:2px;
+  }
+  label{
+    margin-bottom:0px;
+  }
+  th.center{
+    text-align:center;
+  }
+  td.center{
+    text-align:center;
+  }
 }
 
 
@@ -77,6 +131,9 @@ table {
   *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
   .border-radius(@baseBorderRadius);
+  th{
+    background-color:@tableHeadBackground;
+  }
   th,
   td {
     border-left: 1px solid @tableBorder;
@@ -93,6 +150,16 @@ table {
   tbody:first-child tr:first-child td {
     border-top: 0;
   }
+
+  tbody tr:first-child td{
+    border-top:0;
+  }
+
+  thead:first-child tr:first-child th{
+    border-bottom: 1px solid @tableBorder;
+  }
+  
+
   // For first th/td in the first row in the first thead or tbody
   thead:first-child tr:first-child > th:first-child,
   tbody:first-child tr:first-child > td:first-child,
@@ -146,6 +213,41 @@ table {
 
 }
 
+.table-bordered-simple{
+  .table-bordered;
+  th,
+  td {
+    border-left: 0;
+  }
+
+  th:first-child,
+  td:first-child{
+    border-left: 1px solid @tableBorder;
+  }
+  margin-bottom: 5px;
+}
+
+.table-sideheader{
+  .table-bordered;
+
+  tbody tr td:first-child{
+    background-color:@tableHeadBackground;
+  }
+
+}
+
+.table-nobody{
+  margin-bottom: 0px;
+}
+
+.table-light{
+  .table-bordered;
+  th{
+    background-color:@tableHeadBackgroundLight;
+    border-left: 1px solid @tableBorderLight;
+  }
+} 
+
 
 
 
@@ -153,7 +255,7 @@ table {
 // --------------
 
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-striped {
+.table-zebra {
   tbody {
     > tr:nth-child(odd) > td,
     > tr:nth-child(odd) > th {
@@ -161,6 +263,28 @@ table {
     }
   }
 }
+
+.table-vzebra {
+  .table-bordered;
+  tbody {
+    > tr > td:nth-child(odd),
+    > tr > th:nth-child(odd) {
+      background-color: @tableBackgroundAccent;
+    }
+  }
+}
+
+
+.table-nobordered{
+  .table-zebra;
+  th{
+    border-bottom:1px solid @tableBorder;
+  }
+  th,
+  td {
+    border-top: 0;
+  }
+} 
 
 
 // HOVER EFFECT
@@ -205,6 +329,7 @@ table th[class*="span"],
   &.span11    { .tableColumns(11); }
   &.span12    { .tableColumns(12); }
 }
+
 
 
 

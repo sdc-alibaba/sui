@@ -8,8 +8,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
@@ -31,23 +31,10 @@
 
 		<div class="page-header">
 			<h1>pagination组件</h1>
-			<p>pagination组件包括3种形态，无需跳转到指定页面的小分页器(4种)，常态分页器(3种),以及不需要显示页码的分页器(3种)
-			</p>
+			<p>pagination组件包括3种形态，无需跳转到指定页面的小分页器(4种)，常态分页器(3种),以及不需要显示页码的分页器(3种) </p>
 		</div>
       <h3>小型分页器</h3>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
-          <div class="pagination pagination-mini">
-              <ul>
-                  <li class="prev disabled"><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li class="next"><a href="#">»</a></li>
-              </ul>
-          </div>
-          </br>
           <div class="pagination pagination-small">
               <ul>
                   <li class="prev disabled"><a href="#">«</a></li>
@@ -84,6 +71,17 @@
               </ul>
           </div>
           </br>
+          <div class="pagination pagination-xlarge">
+              <ul>
+                  <li class="prev disabled"><a href="#">«</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li class="next"><a href="#">»</a></li>
+              </ul>
+          </div>
       </form>
       <pre class="prettyprint linenums">
           &lt;div class="pagination pagination-mini"&gt;
@@ -123,6 +121,18 @@
           &lt;/div&gt;
 </br>
           &lt;div class="pagination pagination-large"&gt;
+              &lt;ul&gt;
+                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+          &lt;/div&gt;
+</br>
+          &lt;div class="pagination pagination-xlarge"&gt;
               &lt;ul&gt;
                   &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
                   &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
@@ -179,7 +189,7 @@
                   <span>共10页</span>&nbsp;
                   <span>
                       到
-                      <input type="text" class="input-fat page-num"/><button class="btn btn-primary page-confirm" onclick="alert(1)">确定</button>
+                      <input type="text" class="input-fat page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
                       页
                   </span>
               </div>
@@ -231,7 +241,7 @@
                   &lt;span&gt;共10页&lt;/span&gt;&nbsp;
                   &lt;span&gt;
                       到
-                      &lt;input type="text" class="input-default page-num"/&gt;&lt;button class="btn btn-small btn-primary page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
+                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
                       页
                   &lt;/span&gt;
               &lt;/div&gt;
@@ -255,7 +265,7 @@
                   &lt;span&gt;共10页&lt;/span&gt;&nbsp;
                   &lt;span&gt;
                       到
-                      &lt;input type="text" class="input-fat page-num"/&gt;&lt;button class="btn btn-primary page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
+                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
                       页
                   &lt;/span&gt;
               &lt;/div&gt;
@@ -279,7 +289,7 @@
                   &lt;span&gt;共10页&lt;/span&gt;&nbsp;
                   &lt;span&gt;
                       到
-                      &lt;input type="text" class="input-xfat page-num"/&gt;&lt;button class="btn btn-large btn-primary page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
+                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
                       页
                   &lt;/span&gt;
               &lt;/div&gt;
@@ -309,9 +319,9 @@
         </div>
       </form>
     </div>
-	<script src="../assets/js/jquery.js"></script>
+	<script src="../js/lib/jquery.js"></script>
 	<script src="../assets/js/google-code-prettify/prettify.js"></script>
 	<script src="../assets/js/application.js"></script>
-    <script src="http://localhost:3456/livereload.js"></script>
+  <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>
