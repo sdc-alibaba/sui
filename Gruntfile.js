@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-exec = require("child_process").exec;
+var exec = require("child_process").exec;
 
 module.exports = function(grunt) {
   'use strict';
@@ -10,10 +10,6 @@ module.exports = function(grunt) {
     distRoot: 'build',
     docsRoot: 'docs',
     demosRoot: '<%= docsRoot %>/demos',
-
-    clean: {
-      dist: ['<%= distRoot %>']
-    },
 
     jshint: {
       options: {
@@ -84,14 +80,14 @@ module.exports = function(grunt) {
         compile: true
       },
       bootstrap: {
-        src: ['less/bootstrap.less'],
+        src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
       min: {
         options: {
           compress: true
         },
-        src: ['less/bootstrap.less'],
+        src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.min.css'
       },
       reponsive: {
@@ -108,6 +104,9 @@ module.exports = function(grunt) {
     },
     jade: {
       demos: {
+        options: {
+          pretty: true
+        },
         files: [
           {
           expand: true,
@@ -163,7 +162,6 @@ module.exports = function(grunt) {
 
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -190,7 +188,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-fonts']);
+  grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
   grunt.registerTask('docs', ['hogan', 'jade']); //必须先执行dist才能执行此任务
 
   // Default task.

@@ -476,6 +476,8 @@ input[type="checkbox"][readonly] {
 // FORM FIELD FEEDBACK STATES
 // --------------------------
 
+
+/* 更新校验状态如下，去掉control-group依赖，扩大校验范围 @by kai 2014-02-13
 // Warning
 .control-group.warning {
   .formFieldState(@warningText, @warningText, @warningBackground);
@@ -490,8 +492,26 @@ input[type="checkbox"][readonly] {
 }
 // Info
 .control-group.info {
-  // .formFieldState(@infoText, @infoText, @infoBackground);
-  .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
+  .formFieldState(@infoText, @infoText, @infoBackground);
+}
+*/
+
+// Warning
+.warning {
+  .formFieldState(@warningText, @warningText, @warningBackground);
+}
+// Error
+.error {
+  .formFieldState(@errorText, @errorText, @errorBackground);
+}
+// Success
+.success {
+  .formFieldState(@successText, @successText, @successBackground);
+}
+// Info
+.info {
+  .formFieldState(@infoText, @infoText, @infoBackground);
+  // .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
 }
 
 // HTML5 invalid states
@@ -529,7 +549,7 @@ select:focus:invalid {
 
 // Info
 .input-info {
-  .inputFieldState(@infoText, @infoBorder, @infoBackground);
+  .inputFieldState(@infoText, @infoText, @infoBackground);
 }
 
 // 继承文本字段四态
@@ -563,153 +583,13 @@ input[type="color"] {
 }
 
 
-// 定义带图标文本字段 @by kai 2014-01-28
+// 定义日期状态 @by kai 2014-02-13
 // -------------------------
 
-// 临时定义了几个小图标，后续还需要扩展
-.icon-warning,
-.icon-error,
-.icon-success,
-.icon-info { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
-
-.icon-warning { background-position: 0 -48px; }
-.icon-error { background-position: 0 0; }
-.icon-success { background-position: 0 -32px; }
-.icon-info { background-position: 0 -96px; }
-
-.icon-date { background-image: url(http://img01.taobaocdn.com/tps/i1/T1SZa3FbhbXXcu5FDa-17-17.png); }
-
-.input-hasicon {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  position: relative;
-}
-
-// 小图标在右边
-.input-hasicon {
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"],
-  .uneditable-input {
-    // 重置文本字段padding值
-    padding-left:      @inputDefaultPaddingLR;
-    padding-right:     @inputHasIconPaddingLR;
-
-    // 重置宽度尺寸
-    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputHasIconPaddingLR); }
-
-    // 对大号和加大号文本控件重置宽高尺寸
-    &.input-fat {
-      .input-fat;
-      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    }
-    &.input-xfat {
-      .input-xfat;
-      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputLargePaddingLR, @paddingR: @inputHasIconPaddingLR); }
-    }
-  }
-
-  [class^="icon-"],
-  [class*=" icon-"] {
-    position: absolute;
-    top: 50%;
-    right: 4px;
-    overflow: hidden;
-    width: 16px;
-    height: 16px;
-    margin-top: -8px;
-  }
-}
-
-// 小图标在左边
-.input-hasicon-left {
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"],
-  .uneditable-input {
-    // 重置文本字段padding值
-    padding-left:      @inputHasIconPaddingLR;
-    padding-right:     @inputDefaultPaddingLR;
-
-    // 重置宽度尺寸
-    &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-    &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-    &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-    &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-    &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-    &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputDefaultPaddingLR); }
-
-    // 对大号和加大号文本控件重置宽高尺寸
-    &.input-fat {
-      .input-fat;
-      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-    }
-    &.input-xfat {
-      .input-xfat;
-      &.input-mini       { .inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-small      { .inputFieldSize(@width: @inputSmallWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-medium     { .inputFieldSize(@width: @inputMediumWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-large      { .inputFieldSize(@width: @inputLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-xlarge     { .inputFieldSize(@width: @inputXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-      &.input-xxlarge    { .inputFieldSize(@width: @inputXXLargeWidth, @paddingL: @inputHasIconPaddingLR, @paddingR: @inputLargePaddingLR); }
-    }
-  }
-
-  [class^="icon-"],
-  [class*=" icon-"] {
-    position: absolute;
-    top: 50%;
-    left: 4px;
-    overflow: hidden;
-    width: 16px;
-    height: 16px;
-    margin-top: -8px;
-  }
+.input-date {
+    background-image: url(http://gtms03.alicdn.com/tps/i3/T1vM02FrliXXbGfe_a-18-14.png);
+    background-position: right center;
+    background-repeat: no-repeat;
 }
 
 
@@ -746,7 +626,7 @@ input[type="color"] {
   display: inline-block;
   .ie7-inline-block();
   vertical-align: middle;
-  padding-left: 5px;
+  // padding-left: 5px; // 去掉padding-left值 @by kai 2014-02-13
 }
 
 
