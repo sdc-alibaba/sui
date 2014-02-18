@@ -76,7 +76,7 @@ block content
                         td 高于平均
                         td 持平
         mixin table-sample
-            table.table.table-bordered-simple
+            table.sui-table.sui-table-bordered-simple
                 thead
                     tr
                         th(colspan="7") 
@@ -112,31 +112,31 @@ block content
                                     a(href="#") 开通代销
         div.page-header
             h1 table
-        h3 默认table（table）
+        h3 默认table（sui-table）
         div.container
             div.span6
-                +table("table",true)
+                +table("sui-table",true)
                 
-        h3 带边框的table（table-bordered）
+        h3 带边框的table（sui-table-bordered）
         div.container
             div.span6
-                +table("table table-bordered",true)
-        h3 只有内边框的table（table-bordered-simple）
+                +table("sui-table sui-table-bordered",true)
+        h3 只有内边框的table（sui-table-bordered-simple）
         div.container
             div.span6
-                +table("table table-bordered-simple",true)
-        h3 表头在侧边的table（table-sideheader）
+                +table("sui-table sui-table-bordered-simple",true)
+        h3 表头在侧边的table（sui-table-sideheader）
         div.container
             div.span6
-                +table("table table-sideheader")
-        h3 斑马线table（table-zebra）
+                +table("sui-table sui-table-sideheader")
+        h3 斑马线table（sui-table-zebra）
         div.container
             div.span6
-                +table("table table-zebra",true)
-        h3 竖斑马线table（table-vzebra）
+                +table("sui-table sui-table-zebra",true)
+        h3 竖斑马线table（sui-table-vzebra）
         div.container
             div.span6
-                table.table.table-vzebra
+                table.sui-table.sui-table-vzebra
                     tbody
                         tr
                             td 所有交易
@@ -158,29 +158,29 @@ block content
                             td 9999.00
                             td 已成功
                             td 99999.00
-        h3 不带边框的table（table-nobordered）
+        h3 不带边框的table（sui-table-nobordered）
         div.container
             div.span6
-                +table("table table-nobordered",true)
-        h3 亮色的table（table-light）
+                +table("sui-table sui-table-nobordered",true)
+        h3 亮色的table（sui-table-light）
         div.container
             div.span6
-                +table("table table-light",true)
+                +table("sui-table sui-table-light",true)
 
         div.page-header(style="margin-top:40px;")
             h1 table的业务场景使用
         h3 常用带边框的表格
         div.container
             div.span8
-                +table2("table table-bordered")
+                +table2("sui-table sui-table-bordered")
         h3 二维表格
         div.container
             div.span8
-                +table2("table table-bordered table-sideheader")
+                +table2("sui-table sui-table-bordered sui-table-sideheader")
         h3 综合表格一
         div.container
             div.span8
-                table.table.table-nobody
+                table.sui-table.sui-table-nobody
                     thead
                         tr
                             th(width="50%")
@@ -190,7 +190,7 @@ block content
                             th.center(width="13%") 订单状态
                             th.center(width="13%") 评价
                             th.center(width="13%") 操作
-                table.table.table-bordered
+                table.sui-table.sui-table-bordered
                     thead
                         tr
                             th(colspan="5")  
@@ -239,7 +239,7 @@ block content
         h3 综合表格二
         div.container
             div.span8
-                table.table.table-nobody
+                table.sui-table.sui-table-nobody
                     thead
                         tr
                             th(width="20%")
