@@ -28,7 +28,7 @@
   , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性。 
   , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
   , html: true  //决定是html()还是text()
-  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   , okHide: fn       //带确认取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
 }
@@ -41,9 +41,9 @@
       </ul>
       <ul>
         <li>右方click触发tooltip</li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="0.121632905909791590.46466967579908670.90056669129990040.37836797954514620.88086989056319&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="0.121632905909791590.46466967579908670.90056669129990040.37836797954514620.88086989056319&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="0.121632905909791590.46466967579908670.90056669129990040.37836797954514620.88086989056319&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="0.304489966947585340.0304951732978224750.47791883675381540.173063643276691440.6472086417488754&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="0.304489966947585340.0304951732978224750.47791883675381540.173063643276691440.6472086417488754&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="0.304489966947585340.0304951732978224750.47791883675381540.173063643276691440.6472086417488754&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
       </ul>
       <ul>
         <li><a href="javascript:void(0)" data-placement="top" data-toggle="tooltip" data-type="attention" title="强调tooltip">top opt.type = 'attention'</a></li>
@@ -56,9 +56,21 @@
       <ul>
         <li><a id="J_set" href="javascript:void(0)" data-type="confirm" data-placement="bottom" data-trigger="click" title="这里可以做一些setting类别的事务&lt;br&gt;&lt;input type=&quot;text&quot;&gt;">带确定取消按钮的tooltip </a></li>
       </ul>
+      <hr>
+      <p>如果不想用tooltip，但若只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left</p>
+      <textarea cols="100" rows="5">
+        <div class="tooltip-only-arrow bottom" style="width:300px;height:40px;border:2px solid #b2b2b2">
+          <div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div>
+        </div>
+      </textarea><br><br>
+      <div style="width:300px;height:40px;border:2px solid #b2b2b2" class="tooltip-only-arrow bottom">
+        <div class="tooltip-arrow">
+          <div class="tooltip-arrow cover"></div>
+        </div>
+      </div>
     </div>
     <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.min.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
     <script>$('#J_set').tooltip({okHide: function(){console.log(this);this.hide()}})</script>
   </body>
