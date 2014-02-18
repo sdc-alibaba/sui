@@ -53,6 +53,12 @@
   border-color: transparent;
   border-style: solid;
 }
+
+//如果不想用tooltip，但只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left
+.tooltip-only-arrow{
+  position: relative;
+  //border-color: @tooltipBorderColor;
+}
 .tooltip ,.tooltip-only-arrow{
   &.attention {
     border: none;

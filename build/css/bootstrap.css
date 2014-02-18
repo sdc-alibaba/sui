@@ -7828,6 +7828,10 @@ input[type="submit"].btn.btn-mini {
   border-style: solid;
 }
 
+.tooltip-only-arrow {
+  position: relative;
+}
+
 .tooltip.attention,
 .tooltip-only-arrow.attention {
   border: none;
