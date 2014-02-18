@@ -46,35 +46,14 @@ module.exports = function(grunt) {
           insertRequire: ['<%= pkg.name %>'],
           optimize: "uglify2",
           mainConfigFile: "js/requirejs-config.js",
+          preserveLicenseComments: false, //这个不能和sourcemap同时使用
+          generateSourceMaps: true,
           out: '<%= distRoot %>/js/<%= pkg.name %>.min.js',
           wrap: true
         }
       }
     },
 
-  //concat: {
-  //  options: {
-  //    banner: '<%= banner %>',
-  //    stripBanners: false
-  //  },
-  //  bootstrap: {
-  //    src: [
-  //      'js/bootstrap-transition.js',
-  //      'js/bootstrap-alert.js',
-  //      'js/bootstrap-button.js',
-  //      'js/bootstrap-carousel.js',
-  //      'js/bootstrap-collapse.js',
-  //      'js/bootstrap-dropdown.js',
-  //      'js/bootstrap-modal.js',
-  //      'js/bootstrap-tooltip.js',
-  //      'js/bootstrap-popover.js',
-  //      'js/bootstrap-scrollspy.js',
-  //      'js/bootstrap-tab.js',
-  //      'js/bootstrap-affix.js'
-  //    ],
-  //    dest: '<%= distRoot %>/js/<%= pkg.name %>.js'
-  //  },
-  //},
     recess: {
       options: {
         compile: true
