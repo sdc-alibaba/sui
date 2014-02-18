@@ -185,89 +185,6 @@ p { margin: 0;}
 		&lt;input class="input-success" type="text" placeholder=".input-success" /&gt;
 		&lt;input class="input-info" type="text" placeholder=".input-info" /&gt;</pre>
 
-		<h3>带小图标文本字段</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<style type="text/css">
-				.input-hasicon input { margin-bottom: 0!important; }
-				</style>
-				<span class="input-hasicon">
-					<input type="text" />
-					<i class="icon-warning"></i>
-				</span>
-				<br />
-				<span class="input-hasicon">
-					<input type="text" />
-					<i class="icon-error"></i>
-				</span>
-				<br />
-				<span class="input-hasicon">
-					<input type="text" />
-					<i class="icon-success"></i>
-				</span>
-				<br />
-				<span class="input-hasicon">
-					<input type="text" />
-					<i class="icon-info"></i>
-				</span>
-				<br />
-
-				<span class="input-hasicon input-hasicon-left">
-					<input type="text" />
-					<i class="icon-warning"></i>
-				</span>
-				<br />
-				<span class="input-hasicon input-hasicon-left">
-					<input type="text" />
-					<i class="icon-error"></i>
-				</span>
-				<br />
-				<span class="input-hasicon input-hasicon-left">
-					<input type="text" />
-					<i class="icon-success"></i>
-				</span>
-				<br />
-				<span class="input-hasicon input-hasicon-left">
-					<input type="text" />
-					<i class="icon-info"></i>
-				</span>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="input-hasicon"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-warning"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-error"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-success"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-info"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-
-		&lt;span class="input-hasicon input-hasicon-left"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-warning"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon input-hasicon-left"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-error"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon input-hasicon-left"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-success"&gt;&lt;/i&gt;
-		&lt;/span&gt;
-		&lt;span class="input-hasicon input-hasicon-left"&gt;
-			&lt;input type="text" /&gt;
-			&lt;i class="icon-info"&gt;&lt;/i&gt;
-		&lt;/span&gt;</pre>
-
 		<h2>selects</h2>
 		<h3>按宽度分类（默认高度：24px）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
@@ -877,6 +794,7 @@ p { margin: 0;}
 		&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
 
 		<h3>关联校验</h3>
+		<p>关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code></p>
 		<form class="bs-docs-example form-horizontal">
 			<div class="control-group warning">
 				<label class="control-label" for="inputWarning">警示输入框：</label>
@@ -909,31 +827,31 @@ p { margin: 0;}
 		</form>
 		<pre class="prettyprint linenums">
 		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+			&lt;label class="control-label" for="inputWarning"&gt;警示输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
 				&lt;input type="text" id="inputWarning" /&gt;
-				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+				&lt;span class="help-inline"&gt;警示文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+			&lt;label class="control-label" for="inputError"&gt;错误输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
 				&lt;input type="text" id="inputError" /&gt;
-				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+				&lt;span class="help-inline"&gt;出错文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+			&lt;label class="control-label" for="inputSuccess"&gt;成功输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
 				&lt;input type="text" id="inputSuccess" /&gt;
-				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+				&lt;span class="help-inline"&gt;成功文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+			&lt;label class="control-label" for="inputInfo"&gt;帮助输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
 				&lt;input type="text" id="inputInfo" /&gt;
-				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+				&lt;span class="help-inline"&gt;帮助文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;</pre>
 
@@ -972,11 +890,11 @@ p { margin: 0;}
 				<label class="control-label">输入框（迷你）：</label>
 				<div class="controls">
 					<input class="input-mini" type="text" />
-					<div class="msg msg-naked">
-						<div class="msg-con msg-tips">
+					<div class="msg msg-tips msg-naked">
+						<div class="msg-con">
 							提示信息，比如：建议你设置安全密码
-							<s class="msg-icon"></s>
 						</div>
+						<s class="msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1013,15 +931,9 @@ p { margin: 0;}
 			<div class="control-group">
 				<label class="control-label">时间选择：</label>
 				<div class="controls">
-					<span class="input-hasicon">
-						<input class="input-medium" type="text" />
-						<i class="icon-date"></i>
-					</span>
-					~
-					<span class="input-hasicon">
-						<input class="input-medium" type="text" />
-						<i class="icon-date"></i>
-					</span>
+					<input class="input-medium input-date" type="text" />
+					-
+					<input class="input-medium input-date" type="text" />
 				</div>
 			</div>
 			<div class="control-group">
@@ -1068,8 +980,10 @@ p { margin: 0;}
 				&lt;label class="control-label"&gt;输入框（迷你）：&lt;/label&gt;
 				&lt;div class="controls"&gt;
 					&lt;input class="input-mini" type="text" /&gt;
-					&lt;div class="msg msg-tips msg-naked help-inline"&gt;
-						提示信息，比如：建议你设置安全密码
+					&lt;div class="msg msg-tips msg-naked"&gt;
+						&lt;div class="msg-con"&gt;
+							提示信息，比如：建议你设置安全密码
+						&lt;/div&gt;
 						&lt;s class="msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
@@ -1107,15 +1021,9 @@ p { margin: 0;}
 			&lt;div class="control-group"&gt;
 				&lt;label class="control-label"&gt;时间选择：&lt;/label&gt;
 				&lt;div class="controls"&gt;
-					&lt;span class="input-hasicon"&gt;
-						&lt;input class="input-medium" type="text" /&gt;
-						&lt;i class="icon-date"&gt;&lt;/i&gt;
-					&lt;/span&gt;
-					~
-					&lt;span class="input-hasicon"&gt;
-						&lt;input class="input-medium" type="text" /&gt;
-						&lt;i class="icon-date"&gt;&lt;/i&gt;
-					&lt;/span&gt;
+					&lt;input class="input-medium input-date" type="text" /&gt;
+					-
+					&lt;input class="input-medium input-date" type="text" /&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 			&lt;div class="control-group"&gt;
@@ -1140,11 +1048,11 @@ p { margin: 0;}
 					<select>
 						<option value="" selected>--------------请选择--------------</option>
 					</select>
-					<div class="msg msg-inline-block help-block">
-						<div class="msg-con msg-error">
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
 							该项为必填项
-							<s class="msg-icon"></s>
 						</div>
+						<s class="msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1155,11 +1063,11 @@ p { margin: 0;}
 						<option value="" selected>---请选择---</option>
 					</select>
 					<input class="input-xlarge" type="text" value="" />
-					<div class="msg msg-inline-block help-block">
-						<div class="msg-con msg-error">
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
 							该项为必填项
-							<s class="msg-icon"></s>
 						</div>
+						<s class="msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1167,22 +1075,22 @@ p { margin: 0;}
 				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
 				<div class="controls">
 					<textarea class="input-xxlarge" style="height: 190px;"></textarea>
-					<div class="msg msg-default" style="vertical-align: top;">
-						<div class="msg-con msg-tips">
+					<div class="msg msg-tips msg-default" style="vertical-align: top;">
+						<div class="msg-con">
 							<p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
 							<p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
 							<p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
 							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
 							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
 							<p>站内信：XXXX个汉字</p>
-							<s class="msg-icon"></s>
 						</div>
+						<s class="msg-icon"></s>
 					</div>
-					<div class="msg msg-inline-block help-block">
-						<div class="msg-con msg-error">
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
 							该项为必填项
-							<s class="msg-icon"></s>
 						</div>
+						<s class="msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1208,8 +1116,8 @@ p { margin: 0;}
 						<label class="checkbox inline">
 							<input name="m0" type="checkbox" value="4" /> 邮件
 						</label>
-						<div class="msg msg-default msg-inline-block help-block">
-							<div class="msg-con msg-tips">
+						<div class="msg msg-tips msg-default msg-clear help-block">
+							<div class="msg-con">
 								是否向子账号发送消息：
 								<label class="radio inline">
 									<input name="s0" type="radio" value="1" /> 是
@@ -1217,8 +1125,8 @@ p { margin: 0;}
 								<label class="radio inline">
 									<input name="s0" type="radio" value="2" /> 否
 								</label>
-								<s class="msg-icon"></s>
 							</div>
+							<s class="msg-icon"></s>
 						</div>
 					</div>
 					<div class="controls-wrap">
@@ -1256,11 +1164,11 @@ p { margin: 0;}
 					&lt;select&gt;
 						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
 					&lt;/select&gt;
-					&lt;div class="msg msg-inline-block help-block"&gt;
-						&lt;div class="msg-con msg-error"&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
 							该项为必填项
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1271,11 +1179,11 @@ p { margin: 0;}
 						&lt;option value="" selected&gt;---请选择---&lt;/option&gt;
 					&lt;/select&gt;
 					&lt;input class="input-xlarge" type="text" value="" /&gt;
-					&lt;div class="msg msg-inline-block help-block"&gt;
-						&lt;div class="msg-con msg-error"&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
 							该项为必填项
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1283,22 +1191,22 @@ p { margin: 0;}
 				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;内&lt;/span&gt;容：&lt;/label&gt;
 				&lt;div class="controls"&gt;
 					&lt;textarea class="input-xxlarge" style="height: 190px;"&gt;&lt;/textarea&gt;
-					&lt;div class="msg msg-default" style="vertical-align: top;"&gt;
-						&lt;div class="msg-con msg-tips"&gt;
+					&lt;div class="msg msg-tips msg-default" style="vertical-align: top;"&gt;
+						&lt;div class="msg-con"&gt;
 							&lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;消息渠道发送字数提示：&lt;/p&gt;
 							&lt;p&gt;短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送&lt;/p&gt;
 							&lt;p&gt;旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字&lt;/p&gt;
 							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字&lt;/p&gt;
 							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字&lt;/p&gt;
 							&lt;p&gt;站内信：XXXX个汉字&lt;/p&gt;
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
-					&lt;div class="msg msg-inline-block help-block"&gt;
-						&lt;div class="msg-con msg-error"&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
 							该项为必填项
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1324,8 +1232,8 @@ p { margin: 0;}
 						&lt;label class="checkbox inline"&gt;
 							&lt;input name="m0" type="checkbox" value="4" /&gt; 邮件
 						&lt;/label&gt;
-						&lt;div class="msg msg-default msg-inline-block help-block"&gt;
-							&lt;div class="msg-con msg-tips"&gt;
+						&lt;div class="msg msg-tips msg-default msg-clear help-block"&gt;
+							&lt;div class="msg-con"&gt;
 								是否向子账号发送消息：
 								&lt;label class="radio inline"&gt;
 									&lt;input name="s0" type="radio" value="1" /&gt; 是
@@ -1333,8 +1241,8 @@ p { margin: 0;}
 								&lt;label class="radio inline"&gt;
 									&lt;input name="s0" type="radio" value="2" /&gt; 否
 								&lt;/label&gt;
-								&lt;s class="msg-icon"&gt;&lt;/s&gt;
 							&lt;/div&gt;
+							&lt;s class="msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
 					&lt;div class="controls-wrap"&gt;
@@ -1758,7 +1666,7 @@ p { margin: 0;}
 		</p> -->
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2 input-fat" id="appendedInputButton" type="text">
+				<input class="span2" id="appendedInputButton" type="text">
 				<button class="btn" type="button">Go!</button>
 			</div>
 		</form>
@@ -1769,7 +1677,7 @@ p { margin: 0;}
 		&lt;/div&gt;</pre>
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2 input-fat" id="appendedInputButtons" type="text">
+				<input class="span2" id="appendedInputButtons" type="text">
 				<button class="btn" type="button">Search</button>
 				<button class="btn" type="button">Options</button>
 			</div>
@@ -1785,7 +1693,7 @@ p { margin: 0;}
 		<p></p>
 		<form class="bs-docs-example">
 			<div class="input-append">
-				<input class="span2 input-fat" id="appendedDropdownButton" type="text">
+				<input class="span2" id="appendedDropdownButton" type="text">
 				<div class="btn-group">
 					<button class="btn dropdown-toggle" data-toggle="dropdown">
 						Action
@@ -1849,7 +1757,7 @@ p { margin: 0;}
 					</ul>
 				</div>
 				<!-- /btn-group -->
-				<input class="span2 input-fat" id="prependedDropdownButton" type="text"></div>
+				<input class="span2" id="prependedDropdownButton" type="text"></div>
 			<!-- /input-prepend -->
 		</form>
 		<pre class="prettyprint linenums">
@@ -1890,7 +1798,7 @@ p { margin: 0;}
 					</ul>
 				</div>
 				<!-- /btn-group -->
-				<input class="span2 input-fat" id="appendedPrependedDropdownButton" type="text">
+				<input class="span2" id="appendedPrependedDropdownButton" type="text">
 				<div class="btn-group">
 					<button class="btn dropdown-toggle" data-toggle="dropdown">
 						Action
@@ -1963,10 +1871,10 @@ p { margin: 0;}
 						</li>
 					</ul>
 				</div>
-				<input class="input-fat" type="text">
+				<input type="text">
 			</div>
 			<div class="input-append">
-				<input class="input-fat" type="text">
+				<input type="text">
 				<div class="btn-group">
 					<button class="btn" tabindex="-1">Action</button>
 					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
@@ -2005,12 +1913,12 @@ p { margin: 0;}
 		<h4>搜索框</h4>
 		<form class="bs-docs-example form-search">
 			<div class="input-append">
-				<input type="text" class="span2 search-query input-fat">
+				<input type="text" class="span2 search-query">
 				<button type="submit" class="btn">Search</button>
 			</div>
 			<div class="input-prepend">
 				<button type="submit" class="btn">Search</button>
-				<input type="text" class="span2 search-query input-fat"></div>
+				<input type="text" class="span2 search-query"></div>
 		</form>
 		<pre class="prettyprint linenums">
 		&lt;form class="form-search"&gt;

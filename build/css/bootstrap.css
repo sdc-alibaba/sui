@@ -2013,85 +2013,184 @@ input[type="checkbox"][readonly] {
   background-color: transparent;
 }
 
-.control-group.warning .help-block,
-.control-group.warning .help-inline {
+/* ����У��״̬���£�ȥ��control-group����������У�鷶Χ @by kai 2014-02-13
+// Warning
+.control-group.warning {
+  .formFieldState(@warningText, @warningText, @warningBackground);
+}
+// Error
+.control-group.error {
+  .formFieldState(@errorText, @errorText, @errorBackground);
+}
+// Success
+.control-group.success {
+  .formFieldState(@successText, @successText, @successBackground);
+}
+// Info
+.control-group.info {
+  .formFieldState(@infoText, @infoText, @infoBackground);
+}
+*/
+
+.warning {
+  /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: @textColor;
+  }
+  */
+
+}
+
+.warning .control-label,
+.warning .help-block,
+.warning .help-inline {
   color: #ff7300;
 }
 
-.control-group.warning input,
-.control-group.warning select,
-.control-group.warning textarea {
+.warning input,
+.warning select,
+.warning textarea {
   border-color: #ff7300;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.control-group.warning .input-prepend .add-on,
-.control-group.warning .input-append .add-on {
+.warning input:focus,
+.warning select:focus,
+.warning textarea:focus {
+  border-color: #cc5c00;
+}
+
+.warning .input-prepend .add-on,
+.warning .input-append .add-on {
   color: #ff7300;
   background-color: #fcf8e3;
   border-color: #ff7300;
 }
 
-.control-group.error .help-block,
-.control-group.error .help-inline {
+.error {
+  /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: @textColor;
+  }
+  */
+
+}
+
+.error .control-label,
+.error .help-block,
+.error .help-inline {
   color: #ea4a36;
 }
 
-.control-group.error input,
-.control-group.error select,
-.control-group.error textarea {
+.error input,
+.error select,
+.error textarea {
   border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.control-group.error .input-prepend .add-on,
-.control-group.error .input-append .add-on {
+.error input:focus,
+.error select:focus,
+.error textarea:focus {
+  border-color: #d72c16;
+}
+
+.error .input-prepend .add-on,
+.error .input-append .add-on {
   color: #ea4a36;
   background-color: #f2dede;
   border-color: #ea4a36;
 }
 
-.control-group.success .help-block,
-.control-group.success .help-inline {
+.success {
+  /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: @textColor;
+  }
+  */
+
+}
+
+.success .control-label,
+.success .help-block,
+.success .help-inline {
   color: #22cd6e;
 }
 
-.control-group.success input,
-.control-group.success select,
-.control-group.success textarea {
+.success input,
+.success select,
+.success textarea {
   border-color: #22cd6e;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.control-group.success .input-prepend .add-on,
-.control-group.success .input-append .add-on {
+.success input:focus,
+.success select:focus,
+.success textarea:focus {
+  border-color: #1ba157;
+}
+
+.success .input-prepend .add-on,
+.success .input-append .add-on {
   color: #22cd6e;
   background-color: #dff0d8;
   border-color: #22cd6e;
 }
 
-.control-group.info .help-block,
-.control-group.info .help-inline {
+.info {
+  /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
+  .checkbox,
+  .radio,
+  input,
+  select,
+  textarea {
+    color: @textColor;
+  }
+  */
+
+}
+
+.info .control-label,
+.info .help-block,
+.info .help-inline {
   color: #2597dd;
 }
 
-.control-group.info input,
-.control-group.info select,
-.control-group.info textarea {
-  border-color: #cccccc;
+.info input,
+.info select,
+.info textarea {
+  border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.control-group.info .input-prepend .add-on,
-.control-group.info .input-append .add-on {
+.info input:focus,
+.info select:focus,
+.info textarea:focus {
+  border-color: #1c7ab3;
+}
+
+.info .input-prepend .add-on,
+.info .input-append .add-on {
   color: #2597dd;
   background-color: #d9edf7;
   border-color: #2597dd;
@@ -2117,11 +2216,19 @@ select:focus:invalid:focus {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+.input-warning:focus {
+  border-color: #cc5c00;
+}
+
 .input-error {
   border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-error:focus {
+  border-color: #d72c16;
 }
 
 .input-success {
@@ -2131,11 +2238,19 @@ select:focus:invalid:focus {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+.input-success:focus {
+  border-color: #1ba157;
+}
+
 .input-info {
-  border-color: #cccccc;
+  border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-info:focus {
+  border-color: #1c7ab3;
 }
 
 textarea.input-warning,
@@ -2159,6 +2274,24 @@ input[type="color"].input-warning {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+textarea.input-warning:focus,
+input[type="text"].input-warning:focus,
+input[type="password"].input-warning:focus,
+input[type="datetime"].input-warning:focus,
+input[type="datetime-local"].input-warning:focus,
+input[type="date"].input-warning:focus,
+input[type="month"].input-warning:focus,
+input[type="time"].input-warning:focus,
+input[type="week"].input-warning:focus,
+input[type="number"].input-warning:focus,
+input[type="email"].input-warning:focus,
+input[type="url"].input-warning:focus,
+input[type="search"].input-warning:focus,
+input[type="tel"].input-warning:focus,
+input[type="color"].input-warning:focus {
+  border-color: #cc5c00;
+}
+
 textarea.input-success,
 input[type="text"].input-success,
 input[type="password"].input-success,
@@ -2178,6 +2311,24 @@ input[type="color"].input-success {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+textarea.input-success:focus,
+input[type="text"].input-success:focus,
+input[type="password"].input-success:focus,
+input[type="datetime"].input-success:focus,
+input[type="datetime-local"].input-success:focus,
+input[type="date"].input-success:focus,
+input[type="month"].input-success:focus,
+input[type="time"].input-success:focus,
+input[type="week"].input-success:focus,
+input[type="number"].input-success:focus,
+input[type="email"].input-success:focus,
+input[type="url"].input-success:focus,
+input[type="search"].input-success:focus,
+input[type="tel"].input-success:focus,
+input[type="color"].input-success:focus {
+  border-color: #1ba157;
 }
 
 textarea.input-error,
@@ -2201,6 +2352,24 @@ input[type="color"].input-error {
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+textarea.input-error:focus,
+input[type="text"].input-error:focus,
+input[type="password"].input-error:focus,
+input[type="datetime"].input-error:focus,
+input[type="datetime-local"].input-error:focus,
+input[type="date"].input-error:focus,
+input[type="month"].input-error:focus,
+input[type="time"].input-error:focus,
+input[type="week"].input-error:focus,
+input[type="number"].input-error:focus,
+input[type="email"].input-error:focus,
+input[type="url"].input-error:focus,
+input[type="search"].input-error:focus,
+input[type="tel"].input-error:focus,
+input[type="color"].input-error:focus {
+  border-color: #d72c16;
+}
+
 textarea.input-info,
 input[type="text"].input-info,
 input[type="password"].input-info,
@@ -2216,950 +2385,34 @@ input[type="url"].input-info,
 input[type="search"].input-info,
 input[type="tel"].input-info,
 input[type="color"].input-info {
-  border-color: #cccccc;
+  border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.icon-warning,
-.icon-error,
-.icon-success,
-.icon-info {
-  background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
+textarea.input-info:focus,
+input[type="text"].input-info:focus,
+input[type="password"].input-info:focus,
+input[type="datetime"].input-info:focus,
+input[type="datetime-local"].input-info:focus,
+input[type="date"].input-info:focus,
+input[type="month"].input-info:focus,
+input[type="time"].input-info:focus,
+input[type="week"].input-info:focus,
+input[type="number"].input-info:focus,
+input[type="email"].input-info:focus,
+input[type="url"].input-info:focus,
+input[type="search"].input-info:focus,
+input[type="tel"].input-info:focus,
+input[type="color"].input-info:focus {
+  border-color: #1c7ab3;
 }
 
-.icon-warning {
-  background-position: 0 -48px;
-}
-
-.icon-error {
-  background-position: 0 0;
-}
-
-.icon-success {
-  background-position: 0 -32px;
-}
-
-.icon-info {
-  background-position: 0 -96px;
-}
-
-.icon-date {
-  background-image: url(http://img01.taobaocdn.com/tps/i1/T1SZa3FbhbXXcu5FDa-17-17.png);
-}
-
-.input-hasicon {
-  position: relative;
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
-.input-hasicon textarea,
-.input-hasicon input[type="text"],
-.input-hasicon input[type="password"],
-.input-hasicon input[type="datetime"],
-.input-hasicon input[type="datetime-local"],
-.input-hasicon input[type="date"],
-.input-hasicon input[type="month"],
-.input-hasicon input[type="time"],
-.input-hasicon input[type="week"],
-.input-hasicon input[type="number"],
-.input-hasicon input[type="email"],
-.input-hasicon input[type="url"],
-.input-hasicon input[type="search"],
-.input-hasicon input[type="tel"],
-.input-hasicon input[type="color"],
-.input-hasicon .uneditable-input {
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-mini,
-.input-hasicon input[type="text"].input-mini,
-.input-hasicon input[type="password"].input-mini,
-.input-hasicon input[type="datetime"].input-mini,
-.input-hasicon input[type="datetime-local"].input-mini,
-.input-hasicon input[type="date"].input-mini,
-.input-hasicon input[type="month"].input-mini,
-.input-hasicon input[type="time"].input-mini,
-.input-hasicon input[type="week"].input-mini,
-.input-hasicon input[type="number"].input-mini,
-.input-hasicon input[type="email"].input-mini,
-.input-hasicon input[type="url"].input-mini,
-.input-hasicon input[type="search"].input-mini,
-.input-hasicon input[type="tel"].input-mini,
-.input-hasicon input[type="color"].input-mini,
-.input-hasicon .uneditable-input.input-mini {
-  width: 8px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-small,
-.input-hasicon input[type="text"].input-small,
-.input-hasicon input[type="password"].input-small,
-.input-hasicon input[type="datetime"].input-small,
-.input-hasicon input[type="datetime-local"].input-small,
-.input-hasicon input[type="date"].input-small,
-.input-hasicon input[type="month"].input-small,
-.input-hasicon input[type="time"].input-small,
-.input-hasicon input[type="week"].input-small,
-.input-hasicon input[type="number"].input-small,
-.input-hasicon input[type="email"].input-small,
-.input-hasicon input[type="url"].input-small,
-.input-hasicon input[type="search"].input-small,
-.input-hasicon input[type="tel"].input-small,
-.input-hasicon input[type="color"].input-small,
-.input-hasicon .uneditable-input.input-small {
-  width: 28px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-medium,
-.input-hasicon input[type="text"].input-medium,
-.input-hasicon input[type="password"].input-medium,
-.input-hasicon input[type="datetime"].input-medium,
-.input-hasicon input[type="datetime-local"].input-medium,
-.input-hasicon input[type="date"].input-medium,
-.input-hasicon input[type="month"].input-medium,
-.input-hasicon input[type="time"].input-medium,
-.input-hasicon input[type="week"].input-medium,
-.input-hasicon input[type="number"].input-medium,
-.input-hasicon input[type="email"].input-medium,
-.input-hasicon input[type="url"].input-medium,
-.input-hasicon input[type="search"].input-medium,
-.input-hasicon input[type="tel"].input-medium,
-.input-hasicon input[type="color"].input-medium,
-.input-hasicon .uneditable-input.input-medium {
-  width: 88px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-large,
-.input-hasicon input[type="text"].input-large,
-.input-hasicon input[type="password"].input-large,
-.input-hasicon input[type="datetime"].input-large,
-.input-hasicon input[type="datetime-local"].input-large,
-.input-hasicon input[type="date"].input-large,
-.input-hasicon input[type="month"].input-large,
-.input-hasicon input[type="time"].input-large,
-.input-hasicon input[type="week"].input-large,
-.input-hasicon input[type="number"].input-large,
-.input-hasicon input[type="email"].input-large,
-.input-hasicon input[type="url"].input-large,
-.input-hasicon input[type="search"].input-large,
-.input-hasicon input[type="tel"].input-large,
-.input-hasicon input[type="color"].input-large,
-.input-hasicon .uneditable-input.input-large {
-  width: 168px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-xlarge,
-.input-hasicon input[type="text"].input-xlarge,
-.input-hasicon input[type="password"].input-xlarge,
-.input-hasicon input[type="datetime"].input-xlarge,
-.input-hasicon input[type="datetime-local"].input-xlarge,
-.input-hasicon input[type="date"].input-xlarge,
-.input-hasicon input[type="month"].input-xlarge,
-.input-hasicon input[type="time"].input-xlarge,
-.input-hasicon input[type="week"].input-xlarge,
-.input-hasicon input[type="number"].input-xlarge,
-.input-hasicon input[type="email"].input-xlarge,
-.input-hasicon input[type="url"].input-xlarge,
-.input-hasicon input[type="search"].input-xlarge,
-.input-hasicon input[type="tel"].input-xlarge,
-.input-hasicon input[type="color"].input-xlarge,
-.input-hasicon .uneditable-input.input-xlarge {
-  width: 318px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-xxlarge,
-.input-hasicon input[type="text"].input-xxlarge,
-.input-hasicon input[type="password"].input-xxlarge,
-.input-hasicon input[type="datetime"].input-xxlarge,
-.input-hasicon input[type="datetime-local"].input-xxlarge,
-.input-hasicon input[type="date"].input-xxlarge,
-.input-hasicon input[type="month"].input-xxlarge,
-.input-hasicon input[type="time"].input-xxlarge,
-.input-hasicon input[type="week"].input-xxlarge,
-.input-hasicon input[type="number"].input-xxlarge,
-.input-hasicon input[type="email"].input-xxlarge,
-.input-hasicon input[type="url"].input-xxlarge,
-.input-hasicon input[type="search"].input-xxlarge,
-.input-hasicon input[type="tel"].input-xxlarge,
-.input-hasicon input[type="color"].input-xxlarge,
-.input-hasicon .uneditable-input.input-xxlarge {
-  width: 468px;
-  padding-right: 26px;
-  padding-left: 4px;
-}
-
-.input-hasicon textarea.input-fat,
-.input-hasicon input[type="text"].input-fat,
-.input-hasicon input[type="password"].input-fat,
-.input-hasicon input[type="datetime"].input-fat,
-.input-hasicon input[type="datetime-local"].input-fat,
-.input-hasicon input[type="date"].input-fat,
-.input-hasicon input[type="month"].input-fat,
-.input-hasicon input[type="time"].input-fat,
-.input-hasicon input[type="week"].input-fat,
-.input-hasicon input[type="number"].input-fat,
-.input-hasicon input[type="email"].input-fat,
-.input-hasicon input[type="url"].input-fat,
-.input-hasicon input[type="search"].input-fat,
-.input-hasicon input[type="tel"].input-fat,
-.input-hasicon input[type="color"].input-fat,
-.input-hasicon .uneditable-input.input-fat {
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-mini,
-.input-hasicon input[type="text"].input-fat.input-mini,
-.input-hasicon input[type="password"].input-fat.input-mini,
-.input-hasicon input[type="datetime"].input-fat.input-mini,
-.input-hasicon input[type="datetime-local"].input-fat.input-mini,
-.input-hasicon input[type="date"].input-fat.input-mini,
-.input-hasicon input[type="month"].input-fat.input-mini,
-.input-hasicon input[type="time"].input-fat.input-mini,
-.input-hasicon input[type="week"].input-fat.input-mini,
-.input-hasicon input[type="number"].input-fat.input-mini,
-.input-hasicon input[type="email"].input-fat.input-mini,
-.input-hasicon input[type="url"].input-fat.input-mini,
-.input-hasicon input[type="search"].input-fat.input-mini,
-.input-hasicon input[type="tel"].input-fat.input-mini,
-.input-hasicon input[type="color"].input-fat.input-mini,
-.input-hasicon .uneditable-input.input-fat.input-mini {
-  width: 4px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-small,
-.input-hasicon input[type="text"].input-fat.input-small,
-.input-hasicon input[type="password"].input-fat.input-small,
-.input-hasicon input[type="datetime"].input-fat.input-small,
-.input-hasicon input[type="datetime-local"].input-fat.input-small,
-.input-hasicon input[type="date"].input-fat.input-small,
-.input-hasicon input[type="month"].input-fat.input-small,
-.input-hasicon input[type="time"].input-fat.input-small,
-.input-hasicon input[type="week"].input-fat.input-small,
-.input-hasicon input[type="number"].input-fat.input-small,
-.input-hasicon input[type="email"].input-fat.input-small,
-.input-hasicon input[type="url"].input-fat.input-small,
-.input-hasicon input[type="search"].input-fat.input-small,
-.input-hasicon input[type="tel"].input-fat.input-small,
-.input-hasicon input[type="color"].input-fat.input-small,
-.input-hasicon .uneditable-input.input-fat.input-small {
-  width: 24px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-medium,
-.input-hasicon input[type="text"].input-fat.input-medium,
-.input-hasicon input[type="password"].input-fat.input-medium,
-.input-hasicon input[type="datetime"].input-fat.input-medium,
-.input-hasicon input[type="datetime-local"].input-fat.input-medium,
-.input-hasicon input[type="date"].input-fat.input-medium,
-.input-hasicon input[type="month"].input-fat.input-medium,
-.input-hasicon input[type="time"].input-fat.input-medium,
-.input-hasicon input[type="week"].input-fat.input-medium,
-.input-hasicon input[type="number"].input-fat.input-medium,
-.input-hasicon input[type="email"].input-fat.input-medium,
-.input-hasicon input[type="url"].input-fat.input-medium,
-.input-hasicon input[type="search"].input-fat.input-medium,
-.input-hasicon input[type="tel"].input-fat.input-medium,
-.input-hasicon input[type="color"].input-fat.input-medium,
-.input-hasicon .uneditable-input.input-fat.input-medium {
-  width: 84px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-large,
-.input-hasicon input[type="text"].input-fat.input-large,
-.input-hasicon input[type="password"].input-fat.input-large,
-.input-hasicon input[type="datetime"].input-fat.input-large,
-.input-hasicon input[type="datetime-local"].input-fat.input-large,
-.input-hasicon input[type="date"].input-fat.input-large,
-.input-hasicon input[type="month"].input-fat.input-large,
-.input-hasicon input[type="time"].input-fat.input-large,
-.input-hasicon input[type="week"].input-fat.input-large,
-.input-hasicon input[type="number"].input-fat.input-large,
-.input-hasicon input[type="email"].input-fat.input-large,
-.input-hasicon input[type="url"].input-fat.input-large,
-.input-hasicon input[type="search"].input-fat.input-large,
-.input-hasicon input[type="tel"].input-fat.input-large,
-.input-hasicon input[type="color"].input-fat.input-large,
-.input-hasicon .uneditable-input.input-fat.input-large {
-  width: 164px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-xlarge,
-.input-hasicon input[type="text"].input-fat.input-xlarge,
-.input-hasicon input[type="password"].input-fat.input-xlarge,
-.input-hasicon input[type="datetime"].input-fat.input-xlarge,
-.input-hasicon input[type="datetime-local"].input-fat.input-xlarge,
-.input-hasicon input[type="date"].input-fat.input-xlarge,
-.input-hasicon input[type="month"].input-fat.input-xlarge,
-.input-hasicon input[type="time"].input-fat.input-xlarge,
-.input-hasicon input[type="week"].input-fat.input-xlarge,
-.input-hasicon input[type="number"].input-fat.input-xlarge,
-.input-hasicon input[type="email"].input-fat.input-xlarge,
-.input-hasicon input[type="url"].input-fat.input-xlarge,
-.input-hasicon input[type="search"].input-fat.input-xlarge,
-.input-hasicon input[type="tel"].input-fat.input-xlarge,
-.input-hasicon input[type="color"].input-fat.input-xlarge,
-.input-hasicon .uneditable-input.input-fat.input-xlarge {
-  width: 314px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-fat.input-xxlarge,
-.input-hasicon input[type="text"].input-fat.input-xxlarge,
-.input-hasicon input[type="password"].input-fat.input-xxlarge,
-.input-hasicon input[type="datetime"].input-fat.input-xxlarge,
-.input-hasicon input[type="datetime-local"].input-fat.input-xxlarge,
-.input-hasicon input[type="date"].input-fat.input-xxlarge,
-.input-hasicon input[type="month"].input-fat.input-xxlarge,
-.input-hasicon input[type="time"].input-fat.input-xxlarge,
-.input-hasicon input[type="week"].input-fat.input-xxlarge,
-.input-hasicon input[type="number"].input-fat.input-xxlarge,
-.input-hasicon input[type="email"].input-fat.input-xxlarge,
-.input-hasicon input[type="url"].input-fat.input-xxlarge,
-.input-hasicon input[type="search"].input-fat.input-xxlarge,
-.input-hasicon input[type="tel"].input-fat.input-xxlarge,
-.input-hasicon input[type="color"].input-fat.input-xxlarge,
-.input-hasicon .uneditable-input.input-fat.input-xxlarge {
-  width: 464px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat,
-.input-hasicon input[type="text"].input-xfat,
-.input-hasicon input[type="password"].input-xfat,
-.input-hasicon input[type="datetime"].input-xfat,
-.input-hasicon input[type="datetime-local"].input-xfat,
-.input-hasicon input[type="date"].input-xfat,
-.input-hasicon input[type="month"].input-xfat,
-.input-hasicon input[type="time"].input-xfat,
-.input-hasicon input[type="week"].input-xfat,
-.input-hasicon input[type="number"].input-xfat,
-.input-hasicon input[type="email"].input-xfat,
-.input-hasicon input[type="url"].input-xfat,
-.input-hasicon input[type="search"].input-xfat,
-.input-hasicon input[type="tel"].input-xfat,
-.input-hasicon input[type="color"].input-xfat,
-.input-hasicon .uneditable-input.input-xfat {
-  padding-top: 6px;
-  padding-right: 8px;
-  padding-bottom: 6px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-mini,
-.input-hasicon input[type="text"].input-xfat.input-mini,
-.input-hasicon input[type="password"].input-xfat.input-mini,
-.input-hasicon input[type="datetime"].input-xfat.input-mini,
-.input-hasicon input[type="datetime-local"].input-xfat.input-mini,
-.input-hasicon input[type="date"].input-xfat.input-mini,
-.input-hasicon input[type="month"].input-xfat.input-mini,
-.input-hasicon input[type="time"].input-xfat.input-mini,
-.input-hasicon input[type="week"].input-xfat.input-mini,
-.input-hasicon input[type="number"].input-xfat.input-mini,
-.input-hasicon input[type="email"].input-xfat.input-mini,
-.input-hasicon input[type="url"].input-xfat.input-mini,
-.input-hasicon input[type="search"].input-xfat.input-mini,
-.input-hasicon input[type="tel"].input-xfat.input-mini,
-.input-hasicon input[type="color"].input-xfat.input-mini,
-.input-hasicon .uneditable-input.input-xfat.input-mini {
-  width: 4px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-small,
-.input-hasicon input[type="text"].input-xfat.input-small,
-.input-hasicon input[type="password"].input-xfat.input-small,
-.input-hasicon input[type="datetime"].input-xfat.input-small,
-.input-hasicon input[type="datetime-local"].input-xfat.input-small,
-.input-hasicon input[type="date"].input-xfat.input-small,
-.input-hasicon input[type="month"].input-xfat.input-small,
-.input-hasicon input[type="time"].input-xfat.input-small,
-.input-hasicon input[type="week"].input-xfat.input-small,
-.input-hasicon input[type="number"].input-xfat.input-small,
-.input-hasicon input[type="email"].input-xfat.input-small,
-.input-hasicon input[type="url"].input-xfat.input-small,
-.input-hasicon input[type="search"].input-xfat.input-small,
-.input-hasicon input[type="tel"].input-xfat.input-small,
-.input-hasicon input[type="color"].input-xfat.input-small,
-.input-hasicon .uneditable-input.input-xfat.input-small {
-  width: 24px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-medium,
-.input-hasicon input[type="text"].input-xfat.input-medium,
-.input-hasicon input[type="password"].input-xfat.input-medium,
-.input-hasicon input[type="datetime"].input-xfat.input-medium,
-.input-hasicon input[type="datetime-local"].input-xfat.input-medium,
-.input-hasicon input[type="date"].input-xfat.input-medium,
-.input-hasicon input[type="month"].input-xfat.input-medium,
-.input-hasicon input[type="time"].input-xfat.input-medium,
-.input-hasicon input[type="week"].input-xfat.input-medium,
-.input-hasicon input[type="number"].input-xfat.input-medium,
-.input-hasicon input[type="email"].input-xfat.input-medium,
-.input-hasicon input[type="url"].input-xfat.input-medium,
-.input-hasicon input[type="search"].input-xfat.input-medium,
-.input-hasicon input[type="tel"].input-xfat.input-medium,
-.input-hasicon input[type="color"].input-xfat.input-medium,
-.input-hasicon .uneditable-input.input-xfat.input-medium {
-  width: 84px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-large,
-.input-hasicon input[type="text"].input-xfat.input-large,
-.input-hasicon input[type="password"].input-xfat.input-large,
-.input-hasicon input[type="datetime"].input-xfat.input-large,
-.input-hasicon input[type="datetime-local"].input-xfat.input-large,
-.input-hasicon input[type="date"].input-xfat.input-large,
-.input-hasicon input[type="month"].input-xfat.input-large,
-.input-hasicon input[type="time"].input-xfat.input-large,
-.input-hasicon input[type="week"].input-xfat.input-large,
-.input-hasicon input[type="number"].input-xfat.input-large,
-.input-hasicon input[type="email"].input-xfat.input-large,
-.input-hasicon input[type="url"].input-xfat.input-large,
-.input-hasicon input[type="search"].input-xfat.input-large,
-.input-hasicon input[type="tel"].input-xfat.input-large,
-.input-hasicon input[type="color"].input-xfat.input-large,
-.input-hasicon .uneditable-input.input-xfat.input-large {
-  width: 164px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-xlarge,
-.input-hasicon input[type="text"].input-xfat.input-xlarge,
-.input-hasicon input[type="password"].input-xfat.input-xlarge,
-.input-hasicon input[type="datetime"].input-xfat.input-xlarge,
-.input-hasicon input[type="datetime-local"].input-xfat.input-xlarge,
-.input-hasicon input[type="date"].input-xfat.input-xlarge,
-.input-hasicon input[type="month"].input-xfat.input-xlarge,
-.input-hasicon input[type="time"].input-xfat.input-xlarge,
-.input-hasicon input[type="week"].input-xfat.input-xlarge,
-.input-hasicon input[type="number"].input-xfat.input-xlarge,
-.input-hasicon input[type="email"].input-xfat.input-xlarge,
-.input-hasicon input[type="url"].input-xfat.input-xlarge,
-.input-hasicon input[type="search"].input-xfat.input-xlarge,
-.input-hasicon input[type="tel"].input-xfat.input-xlarge,
-.input-hasicon input[type="color"].input-xfat.input-xlarge,
-.input-hasicon .uneditable-input.input-xfat.input-xlarge {
-  width: 314px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon textarea.input-xfat.input-xxlarge,
-.input-hasicon input[type="text"].input-xfat.input-xxlarge,
-.input-hasicon input[type="password"].input-xfat.input-xxlarge,
-.input-hasicon input[type="datetime"].input-xfat.input-xxlarge,
-.input-hasicon input[type="datetime-local"].input-xfat.input-xxlarge,
-.input-hasicon input[type="date"].input-xfat.input-xxlarge,
-.input-hasicon input[type="month"].input-xfat.input-xxlarge,
-.input-hasicon input[type="time"].input-xfat.input-xxlarge,
-.input-hasicon input[type="week"].input-xfat.input-xxlarge,
-.input-hasicon input[type="number"].input-xfat.input-xxlarge,
-.input-hasicon input[type="email"].input-xfat.input-xxlarge,
-.input-hasicon input[type="url"].input-xfat.input-xxlarge,
-.input-hasicon input[type="search"].input-xfat.input-xxlarge,
-.input-hasicon input[type="tel"].input-xfat.input-xxlarge,
-.input-hasicon input[type="color"].input-xfat.input-xxlarge,
-.input-hasicon .uneditable-input.input-xfat.input-xxlarge {
-  width: 464px;
-  padding-right: 26px;
-  padding-left: 8px;
-}
-
-.input-hasicon [class^="icon-"],
-.input-hasicon [class*=" icon-"] {
-  position: absolute;
-  top: 50%;
-  right: 4px;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  overflow: hidden;
-}
-
-.input-hasicon-left textarea,
-.input-hasicon-left input[type="text"],
-.input-hasicon-left input[type="password"],
-.input-hasicon-left input[type="datetime"],
-.input-hasicon-left input[type="datetime-local"],
-.input-hasicon-left input[type="date"],
-.input-hasicon-left input[type="month"],
-.input-hasicon-left input[type="time"],
-.input-hasicon-left input[type="week"],
-.input-hasicon-left input[type="number"],
-.input-hasicon-left input[type="email"],
-.input-hasicon-left input[type="url"],
-.input-hasicon-left input[type="search"],
-.input-hasicon-left input[type="tel"],
-.input-hasicon-left input[type="color"],
-.input-hasicon-left .uneditable-input {
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-mini,
-.input-hasicon-left input[type="text"].input-mini,
-.input-hasicon-left input[type="password"].input-mini,
-.input-hasicon-left input[type="datetime"].input-mini,
-.input-hasicon-left input[type="datetime-local"].input-mini,
-.input-hasicon-left input[type="date"].input-mini,
-.input-hasicon-left input[type="month"].input-mini,
-.input-hasicon-left input[type="time"].input-mini,
-.input-hasicon-left input[type="week"].input-mini,
-.input-hasicon-left input[type="number"].input-mini,
-.input-hasicon-left input[type="email"].input-mini,
-.input-hasicon-left input[type="url"].input-mini,
-.input-hasicon-left input[type="search"].input-mini,
-.input-hasicon-left input[type="tel"].input-mini,
-.input-hasicon-left input[type="color"].input-mini,
-.input-hasicon-left .uneditable-input.input-mini {
-  width: 8px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-small,
-.input-hasicon-left input[type="text"].input-small,
-.input-hasicon-left input[type="password"].input-small,
-.input-hasicon-left input[type="datetime"].input-small,
-.input-hasicon-left input[type="datetime-local"].input-small,
-.input-hasicon-left input[type="date"].input-small,
-.input-hasicon-left input[type="month"].input-small,
-.input-hasicon-left input[type="time"].input-small,
-.input-hasicon-left input[type="week"].input-small,
-.input-hasicon-left input[type="number"].input-small,
-.input-hasicon-left input[type="email"].input-small,
-.input-hasicon-left input[type="url"].input-small,
-.input-hasicon-left input[type="search"].input-small,
-.input-hasicon-left input[type="tel"].input-small,
-.input-hasicon-left input[type="color"].input-small,
-.input-hasicon-left .uneditable-input.input-small {
-  width: 28px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-medium,
-.input-hasicon-left input[type="text"].input-medium,
-.input-hasicon-left input[type="password"].input-medium,
-.input-hasicon-left input[type="datetime"].input-medium,
-.input-hasicon-left input[type="datetime-local"].input-medium,
-.input-hasicon-left input[type="date"].input-medium,
-.input-hasicon-left input[type="month"].input-medium,
-.input-hasicon-left input[type="time"].input-medium,
-.input-hasicon-left input[type="week"].input-medium,
-.input-hasicon-left input[type="number"].input-medium,
-.input-hasicon-left input[type="email"].input-medium,
-.input-hasicon-left input[type="url"].input-medium,
-.input-hasicon-left input[type="search"].input-medium,
-.input-hasicon-left input[type="tel"].input-medium,
-.input-hasicon-left input[type="color"].input-medium,
-.input-hasicon-left .uneditable-input.input-medium {
-  width: 88px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-large,
-.input-hasicon-left input[type="text"].input-large,
-.input-hasicon-left input[type="password"].input-large,
-.input-hasicon-left input[type="datetime"].input-large,
-.input-hasicon-left input[type="datetime-local"].input-large,
-.input-hasicon-left input[type="date"].input-large,
-.input-hasicon-left input[type="month"].input-large,
-.input-hasicon-left input[type="time"].input-large,
-.input-hasicon-left input[type="week"].input-large,
-.input-hasicon-left input[type="number"].input-large,
-.input-hasicon-left input[type="email"].input-large,
-.input-hasicon-left input[type="url"].input-large,
-.input-hasicon-left input[type="search"].input-large,
-.input-hasicon-left input[type="tel"].input-large,
-.input-hasicon-left input[type="color"].input-large,
-.input-hasicon-left .uneditable-input.input-large {
-  width: 168px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xlarge,
-.input-hasicon-left input[type="text"].input-xlarge,
-.input-hasicon-left input[type="password"].input-xlarge,
-.input-hasicon-left input[type="datetime"].input-xlarge,
-.input-hasicon-left input[type="datetime-local"].input-xlarge,
-.input-hasicon-left input[type="date"].input-xlarge,
-.input-hasicon-left input[type="month"].input-xlarge,
-.input-hasicon-left input[type="time"].input-xlarge,
-.input-hasicon-left input[type="week"].input-xlarge,
-.input-hasicon-left input[type="number"].input-xlarge,
-.input-hasicon-left input[type="email"].input-xlarge,
-.input-hasicon-left input[type="url"].input-xlarge,
-.input-hasicon-left input[type="search"].input-xlarge,
-.input-hasicon-left input[type="tel"].input-xlarge,
-.input-hasicon-left input[type="color"].input-xlarge,
-.input-hasicon-left .uneditable-input.input-xlarge {
-  width: 318px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xxlarge,
-.input-hasicon-left input[type="text"].input-xxlarge,
-.input-hasicon-left input[type="password"].input-xxlarge,
-.input-hasicon-left input[type="datetime"].input-xxlarge,
-.input-hasicon-left input[type="datetime-local"].input-xxlarge,
-.input-hasicon-left input[type="date"].input-xxlarge,
-.input-hasicon-left input[type="month"].input-xxlarge,
-.input-hasicon-left input[type="time"].input-xxlarge,
-.input-hasicon-left input[type="week"].input-xxlarge,
-.input-hasicon-left input[type="number"].input-xxlarge,
-.input-hasicon-left input[type="email"].input-xxlarge,
-.input-hasicon-left input[type="url"].input-xxlarge,
-.input-hasicon-left input[type="search"].input-xxlarge,
-.input-hasicon-left input[type="tel"].input-xxlarge,
-.input-hasicon-left input[type="color"].input-xxlarge,
-.input-hasicon-left .uneditable-input.input-xxlarge {
-  width: 468px;
-  padding-right: 4px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat,
-.input-hasicon-left input[type="text"].input-fat,
-.input-hasicon-left input[type="password"].input-fat,
-.input-hasicon-left input[type="datetime"].input-fat,
-.input-hasicon-left input[type="datetime-local"].input-fat,
-.input-hasicon-left input[type="date"].input-fat,
-.input-hasicon-left input[type="month"].input-fat,
-.input-hasicon-left input[type="time"].input-fat,
-.input-hasicon-left input[type="week"].input-fat,
-.input-hasicon-left input[type="number"].input-fat,
-.input-hasicon-left input[type="email"].input-fat,
-.input-hasicon-left input[type="url"].input-fat,
-.input-hasicon-left input[type="search"].input-fat,
-.input-hasicon-left input[type="tel"].input-fat,
-.input-hasicon-left input[type="color"].input-fat,
-.input-hasicon-left .uneditable-input.input-fat {
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-}
-
-.input-hasicon-left textarea.input-fat.input-mini,
-.input-hasicon-left input[type="text"].input-fat.input-mini,
-.input-hasicon-left input[type="password"].input-fat.input-mini,
-.input-hasicon-left input[type="datetime"].input-fat.input-mini,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-mini,
-.input-hasicon-left input[type="date"].input-fat.input-mini,
-.input-hasicon-left input[type="month"].input-fat.input-mini,
-.input-hasicon-left input[type="time"].input-fat.input-mini,
-.input-hasicon-left input[type="week"].input-fat.input-mini,
-.input-hasicon-left input[type="number"].input-fat.input-mini,
-.input-hasicon-left input[type="email"].input-fat.input-mini,
-.input-hasicon-left input[type="url"].input-fat.input-mini,
-.input-hasicon-left input[type="search"].input-fat.input-mini,
-.input-hasicon-left input[type="tel"].input-fat.input-mini,
-.input-hasicon-left input[type="color"].input-fat.input-mini,
-.input-hasicon-left .uneditable-input.input-fat.input-mini {
-  width: 4px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat.input-small,
-.input-hasicon-left input[type="text"].input-fat.input-small,
-.input-hasicon-left input[type="password"].input-fat.input-small,
-.input-hasicon-left input[type="datetime"].input-fat.input-small,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-small,
-.input-hasicon-left input[type="date"].input-fat.input-small,
-.input-hasicon-left input[type="month"].input-fat.input-small,
-.input-hasicon-left input[type="time"].input-fat.input-small,
-.input-hasicon-left input[type="week"].input-fat.input-small,
-.input-hasicon-left input[type="number"].input-fat.input-small,
-.input-hasicon-left input[type="email"].input-fat.input-small,
-.input-hasicon-left input[type="url"].input-fat.input-small,
-.input-hasicon-left input[type="search"].input-fat.input-small,
-.input-hasicon-left input[type="tel"].input-fat.input-small,
-.input-hasicon-left input[type="color"].input-fat.input-small,
-.input-hasicon-left .uneditable-input.input-fat.input-small {
-  width: 24px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat.input-medium,
-.input-hasicon-left input[type="text"].input-fat.input-medium,
-.input-hasicon-left input[type="password"].input-fat.input-medium,
-.input-hasicon-left input[type="datetime"].input-fat.input-medium,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-medium,
-.input-hasicon-left input[type="date"].input-fat.input-medium,
-.input-hasicon-left input[type="month"].input-fat.input-medium,
-.input-hasicon-left input[type="time"].input-fat.input-medium,
-.input-hasicon-left input[type="week"].input-fat.input-medium,
-.input-hasicon-left input[type="number"].input-fat.input-medium,
-.input-hasicon-left input[type="email"].input-fat.input-medium,
-.input-hasicon-left input[type="url"].input-fat.input-medium,
-.input-hasicon-left input[type="search"].input-fat.input-medium,
-.input-hasicon-left input[type="tel"].input-fat.input-medium,
-.input-hasicon-left input[type="color"].input-fat.input-medium,
-.input-hasicon-left .uneditable-input.input-fat.input-medium {
-  width: 84px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat.input-large,
-.input-hasicon-left input[type="text"].input-fat.input-large,
-.input-hasicon-left input[type="password"].input-fat.input-large,
-.input-hasicon-left input[type="datetime"].input-fat.input-large,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-large,
-.input-hasicon-left input[type="date"].input-fat.input-large,
-.input-hasicon-left input[type="month"].input-fat.input-large,
-.input-hasicon-left input[type="time"].input-fat.input-large,
-.input-hasicon-left input[type="week"].input-fat.input-large,
-.input-hasicon-left input[type="number"].input-fat.input-large,
-.input-hasicon-left input[type="email"].input-fat.input-large,
-.input-hasicon-left input[type="url"].input-fat.input-large,
-.input-hasicon-left input[type="search"].input-fat.input-large,
-.input-hasicon-left input[type="tel"].input-fat.input-large,
-.input-hasicon-left input[type="color"].input-fat.input-large,
-.input-hasicon-left .uneditable-input.input-fat.input-large {
-  width: 164px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat.input-xlarge,
-.input-hasicon-left input[type="text"].input-fat.input-xlarge,
-.input-hasicon-left input[type="password"].input-fat.input-xlarge,
-.input-hasicon-left input[type="datetime"].input-fat.input-xlarge,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-xlarge,
-.input-hasicon-left input[type="date"].input-fat.input-xlarge,
-.input-hasicon-left input[type="month"].input-fat.input-xlarge,
-.input-hasicon-left input[type="time"].input-fat.input-xlarge,
-.input-hasicon-left input[type="week"].input-fat.input-xlarge,
-.input-hasicon-left input[type="number"].input-fat.input-xlarge,
-.input-hasicon-left input[type="email"].input-fat.input-xlarge,
-.input-hasicon-left input[type="url"].input-fat.input-xlarge,
-.input-hasicon-left input[type="search"].input-fat.input-xlarge,
-.input-hasicon-left input[type="tel"].input-fat.input-xlarge,
-.input-hasicon-left input[type="color"].input-fat.input-xlarge,
-.input-hasicon-left .uneditable-input.input-fat.input-xlarge {
-  width: 314px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-fat.input-xxlarge,
-.input-hasicon-left input[type="text"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="password"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="datetime"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="datetime-local"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="date"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="month"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="time"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="week"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="number"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="email"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="url"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="search"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="tel"].input-fat.input-xxlarge,
-.input-hasicon-left input[type="color"].input-fat.input-xxlarge,
-.input-hasicon-left .uneditable-input.input-fat.input-xxlarge {
-  width: 464px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat,
-.input-hasicon-left input[type="text"].input-xfat,
-.input-hasicon-left input[type="password"].input-xfat,
-.input-hasicon-left input[type="datetime"].input-xfat,
-.input-hasicon-left input[type="datetime-local"].input-xfat,
-.input-hasicon-left input[type="date"].input-xfat,
-.input-hasicon-left input[type="month"].input-xfat,
-.input-hasicon-left input[type="time"].input-xfat,
-.input-hasicon-left input[type="week"].input-xfat,
-.input-hasicon-left input[type="number"].input-xfat,
-.input-hasicon-left input[type="email"].input-xfat,
-.input-hasicon-left input[type="url"].input-xfat,
-.input-hasicon-left input[type="search"].input-xfat,
-.input-hasicon-left input[type="tel"].input-xfat,
-.input-hasicon-left input[type="color"].input-xfat,
-.input-hasicon-left .uneditable-input.input-xfat {
-  padding-top: 6px;
-  padding-right: 8px;
-  padding-bottom: 6px;
-  padding-left: 8px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-mini,
-.input-hasicon-left input[type="text"].input-xfat.input-mini,
-.input-hasicon-left input[type="password"].input-xfat.input-mini,
-.input-hasicon-left input[type="datetime"].input-xfat.input-mini,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-mini,
-.input-hasicon-left input[type="date"].input-xfat.input-mini,
-.input-hasicon-left input[type="month"].input-xfat.input-mini,
-.input-hasicon-left input[type="time"].input-xfat.input-mini,
-.input-hasicon-left input[type="week"].input-xfat.input-mini,
-.input-hasicon-left input[type="number"].input-xfat.input-mini,
-.input-hasicon-left input[type="email"].input-xfat.input-mini,
-.input-hasicon-left input[type="url"].input-xfat.input-mini,
-.input-hasicon-left input[type="search"].input-xfat.input-mini,
-.input-hasicon-left input[type="tel"].input-xfat.input-mini,
-.input-hasicon-left input[type="color"].input-xfat.input-mini,
-.input-hasicon-left .uneditable-input.input-xfat.input-mini {
-  width: 4px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-small,
-.input-hasicon-left input[type="text"].input-xfat.input-small,
-.input-hasicon-left input[type="password"].input-xfat.input-small,
-.input-hasicon-left input[type="datetime"].input-xfat.input-small,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-small,
-.input-hasicon-left input[type="date"].input-xfat.input-small,
-.input-hasicon-left input[type="month"].input-xfat.input-small,
-.input-hasicon-left input[type="time"].input-xfat.input-small,
-.input-hasicon-left input[type="week"].input-xfat.input-small,
-.input-hasicon-left input[type="number"].input-xfat.input-small,
-.input-hasicon-left input[type="email"].input-xfat.input-small,
-.input-hasicon-left input[type="url"].input-xfat.input-small,
-.input-hasicon-left input[type="search"].input-xfat.input-small,
-.input-hasicon-left input[type="tel"].input-xfat.input-small,
-.input-hasicon-left input[type="color"].input-xfat.input-small,
-.input-hasicon-left .uneditable-input.input-xfat.input-small {
-  width: 24px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-medium,
-.input-hasicon-left input[type="text"].input-xfat.input-medium,
-.input-hasicon-left input[type="password"].input-xfat.input-medium,
-.input-hasicon-left input[type="datetime"].input-xfat.input-medium,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-medium,
-.input-hasicon-left input[type="date"].input-xfat.input-medium,
-.input-hasicon-left input[type="month"].input-xfat.input-medium,
-.input-hasicon-left input[type="time"].input-xfat.input-medium,
-.input-hasicon-left input[type="week"].input-xfat.input-medium,
-.input-hasicon-left input[type="number"].input-xfat.input-medium,
-.input-hasicon-left input[type="email"].input-xfat.input-medium,
-.input-hasicon-left input[type="url"].input-xfat.input-medium,
-.input-hasicon-left input[type="search"].input-xfat.input-medium,
-.input-hasicon-left input[type="tel"].input-xfat.input-medium,
-.input-hasicon-left input[type="color"].input-xfat.input-medium,
-.input-hasicon-left .uneditable-input.input-xfat.input-medium {
-  width: 84px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-large,
-.input-hasicon-left input[type="text"].input-xfat.input-large,
-.input-hasicon-left input[type="password"].input-xfat.input-large,
-.input-hasicon-left input[type="datetime"].input-xfat.input-large,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-large,
-.input-hasicon-left input[type="date"].input-xfat.input-large,
-.input-hasicon-left input[type="month"].input-xfat.input-large,
-.input-hasicon-left input[type="time"].input-xfat.input-large,
-.input-hasicon-left input[type="week"].input-xfat.input-large,
-.input-hasicon-left input[type="number"].input-xfat.input-large,
-.input-hasicon-left input[type="email"].input-xfat.input-large,
-.input-hasicon-left input[type="url"].input-xfat.input-large,
-.input-hasicon-left input[type="search"].input-xfat.input-large,
-.input-hasicon-left input[type="tel"].input-xfat.input-large,
-.input-hasicon-left input[type="color"].input-xfat.input-large,
-.input-hasicon-left .uneditable-input.input-xfat.input-large {
-  width: 164px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-xlarge,
-.input-hasicon-left input[type="text"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="password"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="datetime"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="date"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="month"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="time"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="week"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="number"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="email"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="url"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="search"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="tel"].input-xfat.input-xlarge,
-.input-hasicon-left input[type="color"].input-xfat.input-xlarge,
-.input-hasicon-left .uneditable-input.input-xfat.input-xlarge {
-  width: 314px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left textarea.input-xfat.input-xxlarge,
-.input-hasicon-left input[type="text"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="password"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="datetime"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="datetime-local"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="date"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="month"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="time"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="week"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="number"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="email"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="url"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="search"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="tel"].input-xfat.input-xxlarge,
-.input-hasicon-left input[type="color"].input-xfat.input-xxlarge,
-.input-hasicon-left .uneditable-input.input-xfat.input-xxlarge {
-  width: 464px;
-  padding-right: 8px;
-  padding-left: 26px;
-}
-
-.input-hasicon-left [class^="icon-"],
-.input-hasicon-left [class*=" icon-"] {
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  overflow: hidden;
+.input-date {
+  background-image: url(http://gtms03.alicdn.com/tps/i3/T1vM02FrliXXbGfe_a-18-14.png);
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
 .form-actions {
@@ -3195,7 +2448,6 @@ input[type="color"].input-info {
 .help-inline {
   display: inline-block;
   *display: inline;
-  padding-left: 5px;
   vertical-align: middle;
   *zoom: 1;
 }
@@ -3555,11 +2807,11 @@ legend + .control-group {
   background-position: 0 -16px;
 }
 
-.msg-ok .msg-icon {
+.msg-success .msg-icon {
   background-position: 0 -32px;
 }
 
-.msg-alert .msg-icon {
+.msg-warning .msg-icon {
   background-position: 0 -48px;
 }
 
@@ -3571,7 +2823,7 @@ legend + .control-group {
   background-position: 0 -80px;
 }
 
-.msg-attention .msg-icon {
+.msg-info .msg-icon {
   background-position: 0 -96px;
 }
 
@@ -3583,35 +2835,35 @@ legend + .control-group {
   background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png);
 }
 
-.msg-large .msg-error .msg-icon {
+.msg-large.msg-error .msg-icon {
   background-position: 0 0;
 }
 
-.msg-large .msg-stop .msg-icon {
+.msg-large.msg-stop .msg-icon {
   background-position: 0 -24px;
 }
 
-.msg-large .msg-ok .msg-icon {
+.msg-large.msg-success .msg-icon {
   background-position: 0 -48px;
 }
 
-.msg-large .msg-alert .msg-icon {
+.msg-large.msg-warning .msg-icon {
   background-position: 0 -72px;
 }
 
-.msg-large .msg-notice .msg-icon {
+.msg-large.msg-notice .msg-icon {
   background-position: 0 -96px;
 }
 
-.msg-large .msg-tips .msg-icon {
+.msg-large.msg-tips .msg-icon {
   background-position: 0 -120px;
 }
 
-.msg-large .msg-attention .msg-icon {
+.msg-large.msg-info .msg-icon {
   background-position: 0 -144px;
 }
 
-.msg-large .msg-question .msg-icon {
+.msg-large.msg-question .msg-icon {
   background-position: 0 -168px;
 }
 
@@ -3619,21 +2871,15 @@ legend + .control-group {
   position: relative;
   display: inline-block;
   *display: inline;
-  vertical-align: middle;
+  color: #333333;
   *zoom: 1;
 }
 
 .msg .msg-icon {
   position: absolute;
-  top: 4px;
-  left: 4px;
 }
 
 .msg-con {
-  padding: 2px 10px 2px 23px;
-  font-size: 12px;
-  line-height: 18px;
-  color: #333333;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
@@ -3652,11 +2898,29 @@ legend + .control-group {
   *zoom: 1;
 }
 
-.msg-large .msg-con {
-  padding: 11px 11px 11px 44px;
+.msg {
+  font-size: 12px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+
+.msg .msg-con {
+  padding: 2px 10px 2px 23px;
+}
+
+.msg .msg-icon {
+  top: 4px;
+  left: 4px;
+}
+
+.msg-large {
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
+}
+
+.msg-large .msg-con {
+  padding: 11px 11px 11px 44px;
 }
 
 .msg-large .msg-icon {
@@ -3666,19 +2930,93 @@ legend + .control-group {
   height: 24px;
 }
 
+.msg-error {
+  color: #ea4a36;
+}
+
+.msg-error .msg-con {
+  background-color: #fff2f2;
+  border: 1px solid #ffe3e0;
+}
+
+.msg-stop {
+  color: #ea4a36;
+}
+
+.msg-stop .msg-con {
+  background-color: #fff2f2;
+  border: 1px solid #ffe3e0;
+}
+
+.msg-success {
+  color: #4ab933;
+}
+
+.msg-success .msg-con {
+  background-color: #edffe9;
+  border: 1px solid #dcf9d6;
+}
+
+.msg-warning {
+  color: #cf700b;
+}
+
+.msg-warning .msg-con {
+  background-color: #fef1e3;
+  border: 1px solid #fee8d7;
+}
+
+.msg-notice {
+  color: #ee9f28;
+}
+
+.msg-notice .msg-con {
+  background-color: #fffff1;
+  border: 1px solid #faf1d7;
+}
+
+.msg-tips {
+  color: #ee9f28;
+}
+
+.msg-tips .msg-con {
+  background-color: #fffff1;
+  border: 1px solid #faf1d7;
+}
+
+.msg-info {
+  color: #3a9ed5;
+}
+
+.msg-info .msg-con {
+  background-color: #f2faff;
+  border: 1px solid #e4f3fd;
+}
+
+.msg-question {
+  color: #333;
+}
+
+.msg-question .msg-con {
+  background-color: #f7f7f7;
+  border: 1px solid #eaeaea;
+}
+
 .msg-block {
   display: block;
 }
 
-.msg-inline-block {
+.msg-clear {
   display: block;
 }
 
-.msg-inline-block .msg-con {
+.msg-clear .msg-con {
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 
-.msg-default .msg-con {
+.msg-default {
   color: #333333;
 }
 
@@ -3691,198 +3029,6 @@ legend + .control-group {
   border: none;
 }
 
-.msg-error {
-  color: #ea4a36;
-  background-color: #fff2f2;
-  border: 1px solid #ffe3e0;
-}
-
-.msg-stop {
-  color: #ea4a36;
-  background-color: #fff2f2;
-  border: 1px solid #ffe3e0;
-}
-
-.msg-ok {
-  color: #4ab933;
-  background-color: #edffe9;
-  border: 1px solid #dcf9d6;
-}
-
-.msg-alert {
-  color: #cf700b;
-  background-color: #fef1e3;
-  border: 1px solid #fee8d7;
-}
-
-.msg-notice {
-  color: #ee9f28;
-  background-color: #fffff1;
-  border: 1px solid #faf1d7;
-}
-
-.msg-tips {
-  color: #ee9f28;
-  background-color: #fffff1;
-  border: 1px solid #faf1d7;
-}
-
-.msg-attention {
-  color: #3a9ed5;
-  background-color: #f2faff;
-  border: 1px solid #e4f3fd;
-}
-
-.msg-question {
-  color: #333;
-  background-color: #f7f7f7;
-  border: 1px solid #eaeaea;
-}
-
-/*
-
-
-//
-// Msgs
-// --------------------------------------------------
-
-
-// GENERAL STYLES
-// --------------
-
-// Сͼ�����궨λ
-.msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
-.msg-error .msg-icon { background-position: 0 0; }
-.msg-stop .msg-icon { background-position: 0 -16px; }
-.msg-ok .msg-icon { background-position: 0 -32px; }
-.msg-alert .msg-icon { background-position: 0 -48px; }
-.msg-notice .msg-icon { background-position: 0 -64px; }
-.msg-tips .msg-icon { background-position: 0 -80px; }
-.msg-attention .msg-icon { background-position: 0 -96px; }
-.msg-question .msg-icon { background-position: 0 -112px; }
-
-.msg-large {
-	.msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
-	&.msg-error .msg-icon { background-position: 0 0; }
-	&.msg-stop .msg-icon { background-position: 0 -24px; }
-	&.msg-ok .msg-icon { background-position: 0 -48px; }
-	&.msg-alert .msg-icon { background-position: 0 -72px; }
-	&.msg-notice .msg-icon { background-position: 0 -96px; }
-	&.msg-tips .msg-icon { background-position: 0 -120px; }
-	&.msg-attention .msg-icon { background-position: 0 -144px; }
-	&.msg-question .msg-icon { background-position: 0 -168px; }
-}
-
-// Ĭ�ϳߴ磨С�ߴ磩
-.msg {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-	position: relative;
-	padding: 2px 10px 2px 23px;
-	.border-radius(@msgBorderRadius);
-	color: @msgDefaultColor;
-	font-size: @baseFontSize;
-	line-height: @baseLineHeight;
-	vertical-align: middle;
-}
-.msg-icon {
-	display: inline-block;
-	*display: inline;
-	*zoom: 1;
-	overflow: hidden;
-	width: 16px;
-	height: 16px;
-}
-
-// ���ߴ�
-.msg-large {
-	padding: 12px 12px 12px 44px;
-	font-size: @fontSizeLarge;
-	line-height: @lineHeightLarge;
-	font-weight: bold;
-	.msg-icon {
-		top: 11px;
-		left: 10px;
-		width: 24px;
-		height: 24px;
-	}
-}
-
-// �ɿ鼶
-.msg-block { display: block; }
-
-// Ĭ��������ɫ
-.msg-default {
-	color: @msgDefaultColor;
-}
-
-// ȥ�߿��͵�ɫ
-.msg-naked {
-	border: none;
-	background-color: transparent;
-}
-
-// ������ʽ
-.msg {
-	.msg;
-	.msg-icon {
-		.msg-icon;
-		position: absolute;
-		top: 3px;
-		left: 3px;
-	}
-	&.msg-large { .msg-large; }
-	&.msg-block { .msg-block; }
-	&.msg-default { .msg-default; }
-	&.msg-naked { .msg-naked; }
-	p { font-weight: normal; }
-}
-
-// Msgs����
-.msg-error {
-	border: 1px solid #ffe3e0;
-	background-color: #fff2f2;
-	color: #ea4a36;
-}
-.msg-stop {
-	border: 1px solid #ffe3e0;
-	background-color: #fff2f2;
-	color: #ea4a36;
-}
-.msg-ok {
-	border: 1px solid #dcf9d6;
-	background-color: #edffe9;
-	color: #4ab933;
-}
-.msg-alert {
-	border: 1px solid #fee8d7;
-	background-color: #fef1e3;
-	color: #cf700b;
-}
-.msg-notice {
-	border: 1px solid #faf1d7;
-	background-color: #fffff1;
-	color: #ee9f28;
-}
-.msg-tips {
-	border: 1px solid #faf1d7;
-	background-color: #fffff1;
-	color: #ee9f28;
-}
-.msg-attention {
-	border: 1px solid #e4f3fd;
-	background-color: #f2faff;
-	color: #3a9ed5;
-}
-.msg-question {
-	border: 1px solid #eaeaea;
-	background-color: #f7f7f7;
-	color: #333;
-}
-
-
-*/
 .typographic img {
   display: block;
   float: left;
@@ -3929,6 +3075,10 @@ legend + .control-group {
 
 .sui-table ul {
   margin: 0;
+}
+
+.sui-table label.checkbox {
+  display: inline-block;
 }
 
 table {
@@ -3978,7 +3128,8 @@ table {
 }
 
 .sui-table input {
-  margin-top: 2px;
+  margin-top: -2px;
+  margin-right: 2px;
 }
 
 .sui-table label {
