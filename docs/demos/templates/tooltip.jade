@@ -60,6 +60,18 @@ block content
     ul
       li
         a(id="J_set", href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text">') 带确定取消按钮的tooltip 
+    hr
+    p 如果不想用tooltip，但若只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left
+    textarea(cols="100", rows="5").
+      <div class="tooltip-only-arrow bottom" style="width:300px;height:40px;border:2px solid #b2b2b2">
+        <div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div>
+      </div>
+    br
+    br
+    div.tooltip-only-arrow.bottom(style="width:300px;height:40px;border:2px solid #b2b2b2")
+      div.tooltip-arrow
+        div.tooltip-arrow.cover
+
 
 block js_block
   script 
