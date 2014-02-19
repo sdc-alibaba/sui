@@ -1,4 +1,417 @@
-/*dpl started*//* ===================================================
+(function () {/**
+ * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
+ * Available via the MIT or new BSD license.
+ * see: http://github.com/jrburke/almond for details
+ */
+//Going sloppy to avoid 'use strict' string cost, but strict practices should
+//be followed.
+/*jslint sloppy: true */
+/*global setTimeout: false */
+
+var requirejs, require, define;
+(function (undef) {
+    var main, req, makeMap, handlers,
+        defined = {},
+        waiting = {},
+        config = {},
+        defining = {},
+        hasOwn = Object.prototype.hasOwnProperty,
+        aps = [].slice;
+
+    function hasProp(obj, prop) {
+        return hasOwn.call(obj, prop);
+    }
+
+    /**
+     * Given a relative module name, like ./something, normalize it to
+     * a real name that can be mapped to a path.
+     * @param {String} name the relative name
+     * @param {String} baseName a real name that the name arg is relative
+     * to.
+     * @returns {String} normalized name
+     */
+    function normalize(name, baseName) {
+        var nameParts, nameSegment, mapValue, foundMap,
+            foundI, foundStarMap, starI, i, j, part,
+            baseParts = baseName && baseName.split("/"),
+            map = config.map,
+            starMap = (map && map['*']) || {};
+
+        //Adjust any relative paths.
+        if (name && name.charAt(0) === ".") {
+            //If have a base name, try to normalize against it,
+            //otherwise, assume it is a top-level require that will
+            //be relative to baseUrl in the end.
+            if (baseName) {
+                //Convert baseName to array, and lop off the last part,
+                //so that . matches that "directory" and not name of the baseName's
+                //module. For instance, baseName of "one/two/three", maps to
+                //"one/two/three.js", but we want the directory, "one/two" for
+                //this normalization.
+                baseParts = baseParts.slice(0, baseParts.length - 1);
+
+                name = baseParts.concat(name.split("/"));
+
+                //start trimDots
+                for (i = 0; i < name.length; i += 1) {
+                    part = name[i];
+                    if (part === ".") {
+                        name.splice(i, 1);
+                        i -= 1;
+                    } else if (part === "..") {
+                        if (i === 1 && (name[2] === '..' || name[0] === '..')) {
+                            //End of the line. Keep at least one non-dot
+                            //path segment at the front so it can be mapped
+                            //correctly to disk. Otherwise, there is likely
+                            //no path mapping for a path starting with '..'.
+                            //This can still fail, but catches the most reasonable
+                            //uses of ..
+                            break;
+                        } else if (i > 0) {
+                            name.splice(i - 1, 2);
+                            i -= 2;
+                        }
+                    }
+                }
+                //end trimDots
+
+                name = name.join("/");
+            } else if (name.indexOf('./') === 0) {
+                // No baseName, so this is ID is resolved relative
+                // to baseUrl, pull off the leading dot.
+                name = name.substring(2);
+            }
+        }
+
+        //Apply map config if available.
+        if ((baseParts || starMap) && map) {
+            nameParts = name.split('/');
+
+            for (i = nameParts.length; i > 0; i -= 1) {
+                nameSegment = nameParts.slice(0, i).join("/");
+
+                if (baseParts) {
+                    //Find the longest baseName segment match in the config.
+                    //So, do joins on the biggest to smallest lengths of baseParts.
+                    for (j = baseParts.length; j > 0; j -= 1) {
+                        mapValue = map[baseParts.slice(0, j).join('/')];
+
+                        //baseName segment has  config, find if it has one for
+                        //this name.
+                        if (mapValue) {
+                            mapValue = mapValue[nameSegment];
+                            if (mapValue) {
+                                //Match, update name to the new value.
+                                foundMap = mapValue;
+                                foundI = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (foundMap) {
+                    break;
+                }
+
+                //Check for a star map match, but just hold on to it,
+                //if there is a shorter segment match later in a matching
+                //config, then favor over this star map.
+                if (!foundStarMap && starMap && starMap[nameSegment]) {
+                    foundStarMap = starMap[nameSegment];
+                    starI = i;
+                }
+            }
+
+            if (!foundMap && foundStarMap) {
+                foundMap = foundStarMap;
+                foundI = starI;
+            }
+
+            if (foundMap) {
+                nameParts.splice(0, foundI, foundMap);
+                name = nameParts.join('/');
+            }
+        }
+
+        return name;
+    }
+
+    function makeRequire(relName, forceSync) {
+        return function () {
+            //A version of a require function that passes a moduleName
+            //value for items that may need to
+            //look up paths relative to the moduleName
+            return req.apply(undef, aps.call(arguments, 0).concat([relName, forceSync]));
+        };
+    }
+
+    function makeNormalize(relName) {
+        return function (name) {
+            return normalize(name, relName);
+        };
+    }
+
+    function makeLoad(depName) {
+        return function (value) {
+            defined[depName] = value;
+        };
+    }
+
+    function callDep(name) {
+        if (hasProp(waiting, name)) {
+            var args = waiting[name];
+            delete waiting[name];
+            defining[name] = true;
+            main.apply(undef, args);
+        }
+
+        if (!hasProp(defined, name) && !hasProp(defining, name)) {
+            throw new Error('No ' + name);
+        }
+        return defined[name];
+    }
+
+    //Turns a plugin!resource to [plugin, resource]
+    //with the plugin being undefined if the name
+    //did not have a plugin prefix.
+    function splitPrefix(name) {
+        var prefix,
+            index = name ? name.indexOf('!') : -1;
+        if (index > -1) {
+            prefix = name.substring(0, index);
+            name = name.substring(index + 1, name.length);
+        }
+        return [prefix, name];
+    }
+
+    /**
+     * Makes a name map, normalizing the name, and using a plugin
+     * for normalization if necessary. Grabs a ref to plugin
+     * too, as an optimization.
+     */
+    makeMap = function (name, relName) {
+        var plugin,
+            parts = splitPrefix(name),
+            prefix = parts[0];
+
+        name = parts[1];
+
+        if (prefix) {
+            prefix = normalize(prefix, relName);
+            plugin = callDep(prefix);
+        }
+
+        //Normalize according
+        if (prefix) {
+            if (plugin && plugin.normalize) {
+                name = plugin.normalize(name, makeNormalize(relName));
+            } else {
+                name = normalize(name, relName);
+            }
+        } else {
+            name = normalize(name, relName);
+            parts = splitPrefix(name);
+            prefix = parts[0];
+            name = parts[1];
+            if (prefix) {
+                plugin = callDep(prefix);
+            }
+        }
+
+        //Using ridiculous property names for space reasons
+        return {
+            f: prefix ? prefix + '!' + name : name, //fullName
+            n: name,
+            pr: prefix,
+            p: plugin
+        };
+    };
+
+    function makeConfig(name) {
+        return function () {
+            return (config && config.config && config.config[name]) || {};
+        };
+    }
+
+    handlers = {
+        require: function (name) {
+            return makeRequire(name);
+        },
+        exports: function (name) {
+            var e = defined[name];
+            if (typeof e !== 'undefined') {
+                return e;
+            } else {
+                return (defined[name] = {});
+            }
+        },
+        module: function (name) {
+            return {
+                id: name,
+                uri: '',
+                exports: defined[name],
+                config: makeConfig(name)
+            };
+        }
+    };
+
+    main = function (name, deps, callback, relName) {
+        var cjsModule, depName, ret, map, i,
+            args = [],
+            usingExports;
+
+        //Use name if no relName
+        relName = relName || name;
+
+        //Call the callback to define the module, if necessary.
+        if (typeof callback === 'function') {
+
+            //Pull out the defined dependencies and pass the ordered
+            //values to the callback.
+            //Default to [require, exports, module] if no deps
+            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
+            for (i = 0; i < deps.length; i += 1) {
+                map = makeMap(deps[i], relName);
+                depName = map.f;
+
+                //Fast path CommonJS standard dependencies.
+                if (depName === "require") {
+                    args[i] = handlers.require(name);
+                } else if (depName === "exports") {
+                    //CommonJS module spec 1.1
+                    args[i] = handlers.exports(name);
+                    usingExports = true;
+                } else if (depName === "module") {
+                    //CommonJS module spec 1.1
+                    cjsModule = args[i] = handlers.module(name);
+                } else if (hasProp(defined, depName) ||
+                           hasProp(waiting, depName) ||
+                           hasProp(defining, depName)) {
+                    args[i] = callDep(depName);
+                } else if (map.p) {
+                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
+                    args[i] = defined[depName];
+                } else {
+                    throw new Error(name + ' missing ' + depName);
+                }
+            }
+
+            ret = callback.apply(defined[name], args);
+
+            if (name) {
+                //If setting exports via "module" is in play,
+                //favor that over return value and exports. After that,
+                //favor a non-undefined return value over exports use.
+                if (cjsModule && cjsModule.exports !== undef &&
+                        cjsModule.exports !== defined[name]) {
+                    defined[name] = cjsModule.exports;
+                } else if (ret !== undef || !usingExports) {
+                    //Use the return value from the function.
+                    defined[name] = ret;
+                }
+            }
+        } else if (name) {
+            //May just be an object definition for the module. Only
+            //worry about defining if have a module name.
+            defined[name] = callback;
+        }
+    };
+
+    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
+        if (typeof deps === "string") {
+            if (handlers[deps]) {
+                //callback in this case is really relName
+                return handlers[deps](callback);
+            }
+            //Just return the module wanted. In this scenario, the
+            //deps arg is the module name, and second arg (if passed)
+            //is just the relName.
+            //Normalize module name, if it contains . or ..
+            return callDep(makeMap(deps, callback).f);
+        } else if (!deps.splice) {
+            //deps is a config object, not an array.
+            config = deps;
+            if (callback.splice) {
+                //callback is an array, which means it is a dependency list.
+                //Adjust args if there are dependencies
+                deps = callback;
+                callback = relName;
+                relName = null;
+            } else {
+                deps = undef;
+            }
+        }
+
+        //Support require(['a'])
+        callback = callback || function () {};
+
+        //If relName is a function, it is an errback handler,
+        //so remove it.
+        if (typeof relName === 'function') {
+            relName = forceSync;
+            forceSync = alt;
+        }
+
+        //Simulate async callback;
+        if (forceSync) {
+            main(undef, deps, callback, relName);
+        } else {
+            //Using a non-zero value because of concern for what old browsers
+            //do, and latest browsers "upgrade" to 4 if lower value is used:
+            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
+            //If want a value immediately, use require('id') instead -- something
+            //that works in almond on the global level, but not guaranteed and
+            //unlikely to work in other AMD implementations.
+            setTimeout(function () {
+                main(undef, deps, callback, relName);
+            }, 4);
+        }
+
+        return req;
+    };
+
+    /**
+     * Just drops the config on the floor, but returns req in case
+     * the config return value is used.
+     */
+    req.config = function (cfg) {
+        config = cfg;
+        if (config.deps) {
+            req(config.deps, config.callback);
+        }
+        return req;
+    };
+
+    /**
+     * Expose module registry for debugging and tooling
+     */
+    requirejs._defined = defined;
+
+    define = function (name, deps, callback) {
+
+        //This module may not have dependencies
+        if (!deps.splice) {
+            //deps is not an array, so probably means
+            //an object literal or factory function for
+            //the value. Adjust args.
+            callback = deps;
+            deps = [];
+        }
+
+        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
+            waiting[name] = [name, deps, callback];
+        }
+    };
+
+    define.amd = {
+        jQuery: true
+    };
+}());
+
+define("almond", function(){});
+
+/* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
  * ===================================================
@@ -20,7 +433,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
   /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
@@ -59,6 +472,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-transition.js", function(){});
+
 /* ==========================================================
  * bootstrap-alert.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#alerts
@@ -81,7 +496,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* ALERT CLASS DEFINITION
@@ -159,6 +574,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-alert.js", function(){});
+
 /* ============================================================
  * bootstrap-button.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#buttons
@@ -181,7 +598,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* BUTTON PUBLIC CLASS DEFINITION
@@ -265,6 +682,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-button.js", function(){});
+
 /* ==========================================================
  * bootstrap-carousel.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#carousel
@@ -287,7 +706,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* CAROUSEL CLASS DEFINITION
@@ -473,6 +892,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-carousel.js", function(){});
+
 /* =============================================================
  * bootstrap-collapse.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#collapse
@@ -495,7 +916,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* COLLAPSE PUBLIC CLASS DEFINITION
@@ -641,6 +1062,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-collapse.js", function(){});
+
 /* ============================================================
  * bootstrap-dropdown.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#dropdowns
@@ -663,7 +1086,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* DROPDOWN CLASS DEFINITION
@@ -811,6 +1234,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-dropdown.js", function(){});
+
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -822,7 +1247,7 @@
  */
 
 !function ($) {
-  "use strict";
+  
  /* MODAL CLASS DEFINITION
   * ====================== */
   var Modal = function (element, options) {
@@ -896,10 +1321,17 @@
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-          var h = ele.height()
-          if (h > 270) {
-            ele.css('margin-top', -parseInt(h) / 2)
+
+          var eleH = ele.height()
+            , winH = $(window).height()
+            , mt
+          if (eleH >= winH) {
+            mt = -winH/2
+          } else {
+            mt = (winH - eleH) / (1 + 1.618) - winH / 2
           }
+          ele.css('margin-top', parseInt(mt))
+
           ele.show()
           if (transition) {
             ele[0].offsetWidth // force reflow
@@ -1162,6 +1594,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-modal.js", function(){});
+
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -1185,12 +1619,13 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* TOOLTIP PUBLIC CLASS DEFINITION
   * =============================== */
 
+  //element为触发元素，如标识文字链
   var Tooltip = function (element, options) {
     this.init('tooltip', element, options)
   }
@@ -1217,12 +1652,22 @@
         trigger = triggers[i]
         if (trigger == 'click') {
           this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
+
         } else if (trigger != 'manual') {
           eventIn = trigger == 'hover' ? 'mouseenter' : 'focus'
           eventOut = trigger == 'hover' ? 'mouseleave' : 'blur'
           this.$element.on(eventIn + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
           this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
         }
+      }
+
+      //为confirm类型tooltip增加取消按钮设置默认逻辑
+      if (this.options.type == 'confirm') {
+        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
+          $(this).parents('.tooltip').prev().trigger('click')
+        })
+        this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
+
       }
 
       this.options.selector ?
@@ -1232,6 +1677,11 @@
 
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
+
+      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      //根据tooltip的type类型构造tip模版
+      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
         options.delay = {
@@ -1254,10 +1704,10 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
+      self.hoverState = 'in'
       if (!self.options.delay || !self.options.delay.show) return self.show()
 
       clearTimeout(this.timeout)
-      self.hoverState = 'in'
       this.timeout = setTimeout(function() {
         if (self.hoverState == 'in') self.show()
       }, self.options.delay.show)
@@ -1269,8 +1719,12 @@
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
-      self.hoverState = 'out'
       this.timeout = setTimeout(function() {
+        var isHover = self.$tip.data('hover')
+        //isHover 为0或undefined，undefined:没有移到tip上过
+        if (!isHover) {
+          self.hoverState = 'out'
+        }
         if (self.hoverState == 'out') self.hide()
       }, self.options.delay.hide)
     }
@@ -1283,6 +1737,9 @@
         , placement
         , tp
         , e = $.Event('show')
+        , opt = this.options
+        , widthLimit = opt.widthlimit
+        , that = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1290,37 +1747,55 @@
         $tip = this.tip()
         this.setContent()
 
-        if (this.options.animation) {
+        if (opt.animation) {
           $tip.addClass('fade')
         }
 
-        placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement
+        placement = typeof opt.placement == 'function' ?
+          opt.placement.call(this, $tip[0], this.$element[0]) :
+          opt.placement
 
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
 
-        this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+        opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
 
+        if (opt.trigger !== 'click') {
+          $tip.hover(function(){
+            $(this).data('hover', 1)
+          }, function(){
+            $(this).data('hover', 0)
+            that.hide()
+          })
+        }
+
+        //宽度限制逻辑
+        if (widthLimit !== true) {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
         actualHeight = $tip[0].offsetHeight
 
+        //+ - 7修正，和css对应，勿单独修改
+        var d = opt.type == 'attention' ? 5 : 7
         switch (placement) {
           case 'bottom':
-            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
             break
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
             break
         }
 
@@ -1408,7 +1883,6 @@
       $.support.transition && this.$tip.hasClass('fade') ?
         removeWithAnimation() :
         $tip.detach()
-
       this.$element.trigger('hidden')
 
       return this
@@ -1440,7 +1914,6 @@
 
       title = $e.attr('data-original-title')
         || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
       return title
     }
 
@@ -1490,6 +1963,7 @@
   var old = $.fn.tooltip
 
   $.fn.tooltip = function ( option ) {
+
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('tooltip')
@@ -1503,14 +1977,15 @@
 
   $.fn.tooltip.defaults = {
     animation: true
+  , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
-  , selector: false
-  , template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
-  , trigger: 'hover focus'
-  , title: ''
-  , delay: 0
-  , html: false
-  , container: false
+  , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
+  , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
+  , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
+  , delay: {show:0, hide: 200}   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+  , html: true  //决定是html()还是text()
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
+  , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
 
@@ -1522,7 +1997,26 @@
     return this
   }
 
+  //document ready init
+  $(function(){
+    $('[data-toggle="tooltip"]').tooltip()
+
+    //点击外部可消失tooltip
+    $(document).on('mousedown', function(e){
+      var tgt = $(e.target)
+        , tip = $('.tooltip')
+        , switchTgt = tip.prev()
+        , tipContainer = tgt.parents('.tooltip')
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+        switchTgt.trigger('click.tooltip')   
+      }
+    })
+
+  })
+
 }(window.jQuery);
+
+define("bootstrap-tooltip.js", function(){});
 
 /* ===========================================================
  * bootstrap-popover.js v2.3.2
@@ -1546,7 +2040,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* POPOVER PUBLIC CLASS DEFINITION
@@ -1639,6 +2133,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-popover.js", function(){});
+
 /* =============================================================
  * bootstrap-scrollspy.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
@@ -1661,7 +2157,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* SCROLLSPY CLASS DEFINITION
@@ -1802,6 +2298,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-scrollspy.js", function(){});
+
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -1824,7 +2322,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* TAB CLASS DEFINITION
@@ -1947,6 +2445,8 @@
 
 }(window.jQuery);
 
+define("bootstrap-tab.js", function(){});
+
 /* ==========================================================
  * bootstrap-affix.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#affix
@@ -1969,7 +2469,7 @@
 
 !function ($) {
 
-  "use strict";
+  
 
 
  /* AFFIX CLASS DEFINITION
@@ -2065,163 +2565,27 @@
 
 }(window.jQuery);
 
-(function ($) {
-    function Pagination(opts) {
-        this.itemsCount = opts.itemsCount;
-        this.pageSize = opts.pageSize;
-        this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
-        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
-        $.isNumeric(opts.pages) && (this.pages = opts.pages);
-        this.currentPage = opts.currentPage;
-        this.styleClass = opts.styleClass;
-        this.onSelect = opts.onSelect;
-        this.showCtrl = opts.showCtrl;
-    };
+define("bootstrap-affix.js", function(){});
 
-    Pagination.prototype = {
-        //generate the outer wrapper with the config of custom style
-        _draw: function () {
-            var tpl = '<div class="pagination';
-            for (var i = 0; i < this.styleClass.length; i++) {
-                tpl += ' ' + this.styleClass[i];
-            }
-            tpl += '"></div>'
-            this.hookNode.html(tpl);
-            this._drawInner();
-        },
-        //generate the true pagination
-        _drawInner: function () {
-            var outer = this.hookNode.children('.pagination');
-            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 == 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
-            if (this.pages <= this.displayPage) {
-                for (var i = 1; i < this.pages + 1; i++) {
-                    i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                }
+require([
+  'bootstrap-transition.js',
+  'bootstrap-alert.js',
+  'bootstrap-button.js',
+  'bootstrap-carousel.js',
+  'bootstrap-collapse.js',
+  'bootstrap-dropdown.js',
+  'bootstrap-modal.js',
+  'bootstrap-tooltip.js',
+  'bootstrap-popover.js',
+  'bootstrap-scrollspy.js',
+  'bootstrap-tab.js',
+  'bootstrap-affix.js'
+], function() {
+  
+});
 
-            } else {
-                //displayPage为n,总的page数为n+1的情况
-                if (this.pages == this.displayPage + 1) {
-                    for (var i = 1; i < this.pages + 1; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                } else if (this.currentPage < this.displayPage - 1) {
-                    for (var i = 1; i < this.displayPage; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
-                } else if (this.currentPage > this.pages - this.displayPage + 2 && this.currentPage <= this.pages) {
-                    tpl += '<li><a href="#" data="1">1</a></li>';
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    for (var i = this.pages - this.displayPage + 2; i <= this.pages; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                } else {
-                    tpl += '<li><a href="#" data="1">1</a></li>';
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    var frontPage,
-                        backPage,
-                        middle = (this.displayPage - 3) / 2;
-                    if ( (this.displayPage - 3) % 2 == 0 ) {
-                        frontPage = backPage = middle; 
-                    } else {
-                        frontPage = Math.floor(middle);
-                        backPage = Math.ceil(middle);
-                    }
-                    for (var i = this.currentPage - frontPage; i <= this.currentPage + backPage; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
-                }
-            }
-            tpl += '<li class="next' + (this.currentPage + 1 > this.pages ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage + 1) + '">下一页»</a></li>' + '</ul>';
-            this.showCtrl && (tpl += this._drawCtrl());
-            outer.html(tpl);
-        },
-        //值传递
-        _drawCtrl: function () {
-            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
-            return tpl;
-        },
+define("bootstrap", function(){});
 
-        _ctrl: function () {
-            var self = this,
-                pag = self.hookNode.children('.pagination');
 
-            function doPagination() {
-                var tmpNum = parseInt(pag.find('.page-num').val());
-                if ($.isNumeric(tmpNum) && tmpNum <= self.pages) {
-                    self.currentPage = tmpNum;
-                    self._drawInner();
-                    if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), tmpNum);
-                    }
-                }
-            }
-            pag.on('click', '.page-confirm', function (e) {
-                doPagination.call(this)
-            })
-            pag.on('keypress', '.page-num', function (e) {
-                e.which == 13 && doPagination.call(this)
-            })
-        },
-
-        _select: function () {
-            var self = this;
-            self.hookNode.children('.pagination').on('click', 'a', function (e) {
-                e.preventDefault();
-                if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
-                    self.currentPage = parseInt($(this).attr('data'));
-                    self._drawInner();
-                    if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), self.currentPage);
-                    }
-                }
-            })
-        },
-
-        init: function (opts, hookNode) {
-            this.hookNode = hookNode;
-            this._draw();
-            this._select();
-            this.showCtrl && this._ctrl();
-            return this;
-        },
-
-        updateItemsCount: function (itemsCount) {
-            this.pages = Math.ceil(itemsCount / this.pageSize);
-            //如果最后一页没有数据了，返回到剩余最大页数
-            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
-            this._drawInner();
-        }
-    }
-
-    $.fn.pagination = function (options) {
-        var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);
-        if (typeof options == 'string') {
-            args = $.makeArray(arguments);
-            args.shift();
-        }
-        return this.each(function () {
-            var $this = $(this),
-                pag = $this.data('pagination');
-            if (!pag) $this.data('pagination', (pag = new Pagination(opts).init(opts, $(this))))
-            else if (typeof options == 'string') {
-                pag[options].apply(pag, args)
-            }
-        });
-    };
-
-    $.fn.pagination.defaults = {
-        pageSize: 10,
-        displayPage: 6,
-        currentPage: 1,
-        itemsCount: 100,
-        styleClass: [],
-        pages: null,
-        showCtrl: false,
-        onSelect: null
-    }
-
-})(window.jQuery)
+require(["bootstrap"]);
+}());

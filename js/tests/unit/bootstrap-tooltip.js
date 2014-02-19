@@ -54,7 +54,7 @@ $(function () {
         tooltip.tooltip('hide')
         ok(!$(".tooltip").length, 'tooltip removed')
       })
-
+      /*
       test("should respect custom classes", function () {
         var tooltip = $('<a href="#" rel="tooltip" title="Another tooltip"></a>')
           .appendTo('#qunit-fixture')
@@ -65,6 +65,7 @@ $(function () {
         tooltip.tooltip('hide')
         ok(!$(".tooltip").length, 'tooltip removed')
       })
+      */
 
       test("should fire show event", function () {
         stop()

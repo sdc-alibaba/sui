@@ -9,8 +9,9 @@
         this.styleClass = opts.styleClass;
         this.onSelect = opts.onSelect;
         this.showCtrl = opts.showCtrl;
-    };
+    }
 
+    /* jshint ignore:start */
     Pagination.prototype = {
         //generate the outer wrapper with the config of custom style
         _draw: function () {
@@ -25,7 +26,7 @@
         //generate the true pagination
         _drawInner: function () {
             var outer = this.hookNode.children('.pagination');
-            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 == 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
+            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
             if (this.pages <= this.displayPage) {
                 for (var i = 1; i < this.pages + 1; i++) {
                     i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
@@ -129,6 +130,7 @@
             this._drawInner();
         }
     }
+    /* jshint ignore:end */
 
     $.fn.pagination = function (options) {
         var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);

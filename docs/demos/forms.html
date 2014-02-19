@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,8 +8,8 @@
 <meta name="author" content="">
 
 <!-- Le styles -->
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
-<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../../build/css/bootstrap.css" rel="stylesheet">
+<link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../assets/css/docs.css" rel="stylesheet">
 <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
@@ -24,7 +24,9 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="../assets/ico/favicon.png">
-
+<style type="text/css">
+p { margin: 0;}
+</style>
 </head>
 
 <body style="padding: 20px 50px 50px;">
@@ -44,104 +46,147 @@
 
 
 		<h2>inputs</h2>
-		<h3>默认尺寸（高24px）</h3>
+		<h3>按宽度分类（默认高度：24px）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini" type="text" placeholder=".input-mini">
-				<input class="input-small" type="text" placeholder=".input-small">
-				<input class="input-medium" type="text" placeholder=".input-medium">
-				<input class="input-large" type="text" placeholder=".input-large">
-				<input class="input-xlarge" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
+				<input class="input-mini" type="text" placeholder=".input-mini" />
+				<input class="input-small" type="text" placeholder=".input-small" />
+				<input class="input-medium" type="text" placeholder=".input-medium" />
+				<input class="input-large" type="text" placeholder=".input-large" />
+				<input class="input-xlarge" type="text" placeholder=".input-xlarge" />
+				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge" />
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-mini" type="text" placeholder=".input-mini" /&gt;
+		&lt;input class="input-small" type="text" placeholder=".input-small" /&gt;
+		&lt;input class="input-medium" type="text" placeholder=".input-medium" /&gt;
+		&lt;input class="input-large" type="text" placeholder=".input-large" /&gt;
+		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge" /&gt;
+		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge" /&gt;</pre>
 
-		<h3>高20px</h3>
+		<h3>按高度分类</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini input-thin" type="text" placeholder=".input-mini">
-				<input class="input-small input-thin" type="text" placeholder=".input-small">
-				<input class="input-medium input-thin" type="text" placeholder=".input-medium">
-				<input class="input-large input-thin" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge">
+				<input class="input-thin" type="text" placeholder=".input-thin" />
+				<input class="input-default" type="text" placeholder=".input-default" />
+				<input class="input-fat" type="text" placeholder=".input-fat" />
+				<input class="input-xfat" type="text" placeholder=".input-xfat" />
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-thin" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-thin" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-thin" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-thin" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-thin" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-thin" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-thin" type="text" placeholder=".input-thin" /&gt;
+		&lt;input class="input-default" type="text" placeholder=".input-default" /&gt;
+		&lt;input class="input-fat" type="text" placeholder=".input-fat" /&gt;
+		&lt;input class="input-xfat" type="text" placeholder=".input-xfat" /&gt;</pre>
 
-		<h3>高24px</h3>
+		<h3>混合宽高使用</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini input-default" type="text" placeholder=".input-mini">
-				<input class="input-small input-default" type="text" placeholder=".input-small">
-				<input class="input-medium input-default" type="text" placeholder=".input-medium">
-				<input class="input-large input-default" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-default" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge">
+				<input class="input-thin input-mini" type="text" placeholder=".input-thin .input-mini" />
+				<input class="input-thin input-small" type="text" placeholder=".input-thin .input-small" />
+				<input class="input-thin input-medium" type="text" placeholder=".input-thin .input-medium" />
+				<input class="input-thin input-large" type="text" placeholder=".input-thin .input-large" />
+				<input class="input-thin input-xlarge" type="text" placeholder=".input-thin .input-xlarge" />
+				<input class="input-thin input-xxlarge" type="text" placeholder=".input-thin .input-xxlarge" />
+
+				<br />
+
+				<input class="input-default input-mini" type="text" placeholder=".input-default .input-mini" />
+				<input class="input-default input-small" type="text" placeholder=".input-default .input-small" />
+				<input class="input-default input-medium" type="text" placeholder=".input-default .input-medium" />
+				<input class="input-default input-large" type="text" placeholder=".input-default .input-large" />
+				<input class="input-default input-xlarge" type="text" placeholder=".input-default .input-xlarge" />
+				<input class="input-default input-xxlarge" type="text" placeholder=".input-default .input-xxlarge" />
+
+				<br />
+
+				<input class="input-fat input-mini" type="text" placeholder=".input-fat .input-mini" />
+				<input class="input-fat input-small" type="text" placeholder=".input-fat .input-small" />
+				<input class="input-fat input-medium" type="text" placeholder=".input-fat .input-medium" />
+				<input class="input-fat input-large" type="text" placeholder=".input-fat .input-large" />
+				<input class="input-fat input-xlarge" type="text" placeholder=".input-fat .input-xlarge" />
+				<input class="input-fat input-xxlarge" type="text" placeholder=".input-fat .input-xxlarge" />
+
+				<br />
+
+				<input class="input-xfat input-mini" type="text" placeholder=".input-xfat .input-mini" />
+				<input class="input-xfat input-small" type="text" placeholder=".input-xfat .input-small" />
+				<input class="input-xfat input-medium" type="text" placeholder=".input-xfat .input-medium" />
+				<input class="input-xfat input-large" type="text" placeholder=".input-xfat .input-large" />
+				<input class="input-xfat input-xlarge" type="text" placeholder=".input-xfat .input-xlarge" />
+				<input class="input-xfat input-xxlarge" type="text" placeholder=".input-xfat .input-xxlarge" />
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-default" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-default" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-default" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-default" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-default" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-default" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-thin input-mini" type="text" placeholder=".input-thin .input-mini" /&gt;
+		&lt;input class="input-thin input-small" type="text" placeholder=".input-thin .input-small" /&gt;
+		&lt;input class="input-thin input-medium" type="text" placeholder=".input-thin .input-medium" /&gt;
+		&lt;input class="input-thin input-large" type="text" placeholder=".input-thin .input-large" /&gt;
+		&lt;input class="input-thin input-xlarge" type="text" placeholder=".input-thin .input-xlarge" /&gt;
+		&lt;input class="input-thin input-xxlarge" type="text" placeholder=".input-thin .input-xxlarge" /&gt;
 
-		<h3>高28px</h3>
+		&lt;input class="input-default input-mini" type="text" placeholder=".input-default .input-mini" /&gt;
+		&lt;input class="input-default input-small" type="text" placeholder=".input-default .input-small" /&gt;
+		&lt;input class="input-default input-medium" type="text" placeholder=".input-default .input-medium" /&gt;
+		&lt;input class="input-default input-large" type="text" placeholder=".input-default .input-large" /&gt;
+		&lt;input class="input-default input-xlarge" type="text" placeholder=".input-default .input-xlarge" /&gt;
+		&lt;input class="input-default input-xxlarge" type="text" placeholder=".input-default .input-xxlarge" /&gt;
+
+		&lt;input class="input-fat input-mini" type="text" placeholder=".input-fat .input-mini" /&gt;
+		&lt;input class="input-fat input-small" type="text" placeholder=".input-fat .input-small" /&gt;
+		&lt;input class="input-fat input-medium" type="text" placeholder=".input-fat .input-medium" /&gt;
+		&lt;input class="input-fat input-large" type="text" placeholder=".input-fat .input-large" /&gt;
+		&lt;input class="input-fat input-xlarge" type="text" placeholder=".input-fat .input-xlarge" /&gt;
+		&lt;input class="input-fat input-xxlarge" type="text" placeholder=".input-fat .input-xxlarge" /&gt;
+		
+		&lt;input class="input-xfat input-mini" type="text" placeholder=".input-xfat .input-mini" /&gt;
+		&lt;input class="input-xfat input-small" type="text" placeholder=".input-xfat .input-small" /&gt;
+		&lt;input class="input-xfat input-medium" type="text" placeholder=".input-xfat .input-medium" /&gt;
+		&lt;input class="input-xfat input-large" type="text" placeholder=".input-xfat .input-large" /&gt;
+		&lt;input class="input-xfat input-xlarge" type="text" placeholder=".input-xfat .input-xlarge" /&gt;
+		&lt;input class="input-xfat input-xxlarge" type="text" placeholder=".input-xfat .input-xxlarge" /&gt;</pre>
+
+		<h3>块级inputs</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-mini input-fat" type="text" placeholder=".input-mini">
-				<input class="input-small input-fat" type="text" placeholder=".input-small">
-				<input class="input-medium input-fat" type="text" placeholder=".input-medium">
-				<input class="input-large input-fat" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge">
+			<div class="controls">
+				<input class="input-block-level" type="text" placeholder=".input-block-level" />
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-fat" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-fat" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-fat" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-fat" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-fat" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-fat" type="text" placeholder=".input-xxlarge"&gt;</pre>
+		&lt;input class="input-block-level" type="text" placeholder=".input-block-level" /&gt;</pre>
 
-		<h3>高32px</h3>
+		<h3>不可编辑 inputs</h3>
+		<form class="bs-docs-example">
+			<span class="input-xlarge uneditable-input">Some value here</span>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;</pre>
+
+		<h3>Disabled inputs</h3>
+		<form class="bs-docs-example form-inline">
+			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled />
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled /&gt;</pre>
+
+		<h3>文本字段四态</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<input class="input-mini input-xfat" type="text" placeholder=".input-mini">
-				<input class="input-small input-xfat" type="text" placeholder=".input-small">
-				<input class="input-medium input-xfat" type="text" placeholder=".input-medium">
-				<input class="input-large input-xfat" type="text" placeholder=".input-large">
-				<input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge">
+				<input class="input-warning" type="text" placeholder=".input-warning" />
+				<input class="input-error" type="text" placeholder=".input-error" />
+				<input class="input-success" type="text" placeholder=".input-success" />
+				<input class="input-info" type="text" placeholder=".input-info" />
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;input class="input-mini input-xfat" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small input-xfat" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium input-xfat" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large input-xfat" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge input-xfat" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge input-xfat" type="text" placeholder=".input-xxlarge"&gt;</pre>
-
+		&lt;input class="input-warning" type="text" placeholder=".input-warning" /&gt;
+		&lt;input class="input-error" type="text" placeholder=".input-error" /&gt;
+		&lt;input class="input-success" type="text" placeholder=".input-success" /&gt;
+		&lt;input class="input-info" type="text" placeholder=".input-info" /&gt;</pre>
 
 		<h2>selects</h2>
-		<h3>默认尺寸（高24px）</h3>
+		<h3>按宽度分类（默认高度：24px）</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
 				<select class="input-mini">
@@ -232,45 +277,31 @@
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;</pre>
 
-		<h3>高20px</h3>
+		<h3>按高度分类</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<select class="input-mini input-thin">
+				<select class="input-thin">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-small input-thin">
+				<select class="input-default">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-medium input-thin">
+				<select class="input-fat">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-large input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xxlarge input-thin">
+				<select class="input-xfat">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -280,42 +311,28 @@
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-thin"&gt;
+		&lt;select class="input-thin"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-small input-thin"&gt;
+		&lt;select class="input-default"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-medium input-thin"&gt;
+		&lt;select class="input-fat"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-large input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-thin"&gt;
+		&lt;select class="input-xfat"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
@@ -323,227 +340,180 @@
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;</pre>
 
-		<h3>高24px</h3>
+		<h3>混合宽高使用</h3>
 		<form class="bs-docs-example" style="padding-bottom: 15px;">
 			<div class="controls docs-input-sizes">
-				<select class="input-mini input-default">
+				<select class="input-thin input-mini">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-small input-default">
+				<select class="input-thin input-small">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-medium input-default">
+				<select class="input-thin input-medium">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-large input-default">
+				<select class="input-thin input-large">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-xlarge input-default">
+				<select class="input-thin input-xlarge">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-xxlarge input-default">
+				<select class="input-thin input-xxlarge">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
 
-		<h3>高28px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xxlarge input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
+				<br />
 
-		<h3>高32px</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini input-xfat">
+				<select class="input-default input-mini">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-small input-xfat">
+				<select class="input-default input-small">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-medium input-xfat">
+				<select class="input-default input-medium">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-large input-xfat">
+				<select class="input-default input-large">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-xlarge input-xfat">
+				<select class="input-default input-xlarge">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5</option>
 				</select>
-				<select class="input-xxlarge input-xfat">
+				<select class="input-default input-xxlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+
+				<br />
+
+				<select class="input-fat input-mini">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-fat input-small">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-fat input-medium">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-fat input-large">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-fat input-xlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-fat input-xxlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+
+				<br />
+
+				<select class="input-xfat input-mini">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xfat input-small">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xfat input-medium">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xfat input-large">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xfat input-xlarge">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<select class="input-xfat input-xxlarge">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -553,42 +523,171 @@
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;select class="input-mini input-xfat"&gt;
+		&lt;select class="input-thin input-mini"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-small input-xfat"&gt;
+		&lt;select class="input-thin input-small"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-medium input-xfat"&gt;
+		&lt;select class="input-thin input-medium"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-large input-xfat"&gt;
+		&lt;select class="input-thin input-large"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-xlarge input-xfat"&gt;
+		&lt;select class="input-thin input-xlarge"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
 			&lt;option&gt;4&lt;/option&gt;
 			&lt;option&gt;5&lt;/option&gt;
 		&lt;/select&gt;
-		&lt;select class="input-xxlarge input-xfat"&gt;
+		&lt;select class="input-thin input-xxlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+
+		&lt;select class="input-default input-mini"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-default input-small"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-default input-medium"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-default input-large"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-default input-xlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-default input-xxlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+
+		&lt;select class="input-fat input-mini"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-fat input-small"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-fat input-medium"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-fat input-large"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-fat input-xlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-fat input-xxlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+
+		&lt;select class="input-xfat input-mini"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xfat input-small"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xfat input-medium"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xfat input-large"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xfat input-xlarge"&gt;
+			&lt;option&gt;1&lt;/option&gt;
+			&lt;option&gt;2&lt;/option&gt;
+			&lt;option&gt;3&lt;/option&gt;
+			&lt;option&gt;4&lt;/option&gt;
+			&lt;option&gt;5&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;select class="input-xfat input-xxlarge"&gt;
 			&lt;option&gt;1&lt;/option&gt;
 			&lt;option&gt;2&lt;/option&gt;
 			&lt;option&gt;3&lt;/option&gt;
@@ -597,45 +696,93 @@
 		&lt;/select&gt;</pre>
 
 		<h3>Checkboxes and radios</h3>
+		<h4>默认状态</h4>
 		<form class="bs-docs-example">
-			<label>
+			<label class="checkbox">
 				<input name="multiple" type="checkbox" value="1" /> 多选1
 			</label>
-			<label>
+			<label class="checkbox">
 				<input name="multiple" type="checkbox" value="2" /> 多选2
 			</label>
-			<label>
+			<label class="checkbox">
 				<input name="multiple" type="checkbox" value="3" /> 多选3
 			</label>
 
-			<label>
+			<br /><br />
+
+			<label class="radio">
 				<input name="single" type="radio" value="1" /> 单选1
 			</label>
-			<label>
+			<label class="radio">
 				<input name="single" type="radio" value="2" /> 单选2
 			</label>
-			<label>
+			<label class="radio">
 				<input name="single" type="radio" value="3" /> 单选3
 			</label>
 		</form>
 		<pre class="prettyprint linenums">
-		&lt;label&gt;
+		&lt;label class="checkbox"&gt;
 			&lt;input name="multiple" type="checkbox" value="1" /&gt; 多选1
 		&lt;/label&gt;
-		&lt;label&gt;
+		&lt;label class="checkbox"&gt;
 			&lt;input name="multiple" type="checkbox" value="2" /&gt; 多选2
 		&lt;/label&gt;
-		&lt;label&gt;
+		&lt;label class="checkbox"&gt;
 			&lt;input name="multiple" type="checkbox" value="3" /&gt; 多选3
 		&lt;/label&gt;
 
-		&lt;label&gt;
+		&lt;label class="radio"&gt;
 			&lt;input name="single" type="radio" value="1" /&gt; 单选1
 		&lt;/label&gt;
-		&lt;label&gt;
+		&lt;label class="radio"&gt;
 			&lt;input name="single" type="radio" value="2" /&gt; 单选2
 		&lt;/label&gt;
-		&lt;label&gt;
+		&lt;label class="radio"&gt;
+			&lt;input name="single" type="radio" value="3" /&gt; 单选3
+		&lt;/label&gt;</pre>
+
+		<h4>内联状态</h4>
+		<form class="bs-docs-example">
+			<label class="checkbox inline">
+				<input name="multiple" type="checkbox" value="1" /> 多选1
+			</label>
+			<label class="checkbox inline">
+				<input name="multiple" type="checkbox" value="2" /> 多选2
+			</label>
+			<label class="checkbox inline">
+				<input name="multiple" type="checkbox" value="3" /> 多选3
+			</label>
+
+			<br /><br />
+
+			<label class="radio inline">
+				<input name="single" type="radio" value="1" /> 单选1
+			</label>
+			<label class="radio inline">
+				<input name="single" type="radio" value="2" /> 单选2
+			</label>
+			<label class="radio inline">
+				<input name="single" type="radio" value="3" /> 单选3
+			</label>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;label class="checkbox inline"&gt;
+			&lt;input name="multiple" type="checkbox" value="1" /&gt; 多选1
+		&lt;/label&gt;
+		&lt;label class="checkbox inline"&gt;
+			&lt;input name="multiple" type="checkbox" value="2" /&gt; 多选2
+		&lt;/label&gt;
+		&lt;label class="checkbox inline"&gt;
+			&lt;input name="multiple" type="checkbox" value="3" /&gt; 多选3
+		&lt;/label&gt;
+
+		&lt;label class="radio inline"&gt;
+			&lt;input name="single" type="radio" value="1" /&gt; 单选1
+		&lt;/label&gt;
+		&lt;label class="radio inline"&gt;
+			&lt;input name="single" type="radio" value="2" /&gt; 单选2
+		&lt;/label&gt;
+		&lt;label class="radio inline"&gt;
 			&lt;input name="single" type="radio" value="3" /&gt; 单选3
 		&lt;/label&gt;</pre>
 
@@ -646,77 +793,485 @@
 		<pre class="prettyprint linenums">
 		&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
 
-
-		<h2>各种状态</h2>
-		<h3>Disabled inputs</h3>
-		<form class="bs-docs-example form-inline">
-			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled></form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
-
-		<h3>校验状态</h3>
+		<h3>关联校验</h3>
+		<p>关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code></p>
 		<form class="bs-docs-example form-horizontal">
 			<div class="control-group warning">
-				<label class="control-label" for="inputWarning">警示</label>
+				<label class="control-label" for="inputWarning">警示输入框：</label>
 				<div class="controls">
-					<input type="text" id="inputWarning">
+					<input type="text" id="inputWarning" />
 					<span class="help-inline">警示文案</span>
 				</div>
 			</div>
 			<div class="control-group error">
-				<label class="control-label" for="inputError">错误</label>
+				<label class="control-label" for="inputError">错误输入框：</label>
 				<div class="controls">
-					<input type="text" id="inputError">
+					<input type="text" id="inputError" />
 					<span class="help-inline">出错文案</span>
 				</div>
 			</div>
 			<div class="control-group success">
-				<label class="control-label" for="inputSuccess">成功</label>
+				<label class="control-label" for="inputSuccess">成功输入框：</label>
 				<div class="controls">
-					<input type="text" id="inputSuccess">
+					<input type="text" id="inputSuccess" />
 					<span class="help-inline">成功文案</span>
 				</div>
 			</div>
 			<div class="control-group info">
-				<label class="control-label" for="inputInfo">帮助</label>
+				<label class="control-label" for="inputInfo">帮助输入框：</label>
 				<div class="controls">
-					<input type="text" id="inputInfo">
+					<input type="text" id="inputInfo" />
 					<span class="help-inline">帮助文案</span>
 				</div>
 			</div>
 		</form>
 		<pre class="prettyprint linenums">
 		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
+			&lt;label class="control-label" for="inputWarning"&gt;警示输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputWarning"&gt;
-				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
+				&lt;input type="text" id="inputWarning" /&gt;
+				&lt;span class="help-inline"&gt;警示文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-
 		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
+			&lt;label class="control-label" for="inputError"&gt;错误输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputError"&gt;
-				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
+				&lt;input type="text" id="inputError" /&gt;
+				&lt;span class="help-inline"&gt;出错文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-
 		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
+			&lt;label class="control-label" for="inputSuccess"&gt;成功输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputSuccess"&gt;
-				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
+				&lt;input type="text" id="inputSuccess" /&gt;
+				&lt;span class="help-inline"&gt;成功文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-
 		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
+			&lt;label class="control-label" for="inputInfo"&gt;帮助输入框：&lt;/label&gt;
 			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputInfo"&gt;
-				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
+				&lt;input type="text" id="inputInfo" /&gt;
+				&lt;span class="help-inline"&gt;帮助文案&lt;/span&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;</pre>
+
+		<h3>demo1</h3>
+		<p>
+			<code>.form-horizontal</code>
+			用于切换表单字段水平操放
+		</p>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+				<label class="control-label">单选框：</label>
+				<div class="controls">
+					<label class="radio inline">
+						<input name="single" type="radio" value="1" /> 选项一
+					</label>
+					<label class="radio inline">
+						<input name="single" type="radio" value="2" /> 选项二
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">复选框：</label>
+				<div class="controls">
+					<label class="checkbox inline">
+						<input name="multiple" type="checkbox" value="1" /> 选项一
+					</label>
+					<label class="checkbox inline">
+						<input name="multiple" type="checkbox" value="2" /> 选项二
+					</label>
+					<label class="checkbox inline">
+						<input name="multiple" type="checkbox" value="3" /> 选项三
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（迷你）：</label>
+				<div class="controls">
+					<input class="input-mini" type="text" />
+					<div class="msg msg-tips msg-naked">
+						<div class="msg-con">
+							提示信息，比如：建议你设置安全密码
+						</div>
+						<s class="msg-icon"></s>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（小号）：</label>
+				<div class="controls">
+					<input class="input-small" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（中号）：</label>
+				<div class="controls">
+					<input class="input-medium" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（大号）：</label>
+				<div class="controls">
+					<input class="input-large" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（加大）：</label>
+				<div class="controls">
+					<input class="input-xlarge" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">输入框（加加）：</label>
+				<div class="controls">
+					<input class="input-xxlarge" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">时间选择：</label>
+				<div class="controls">
+					<input class="input-medium input-date" type="text" />
+					-
+					<input class="input-medium input-date" type="text" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">备注：</label>
+				<div class="controls">
+					<textarea class="input-block-level" rows="3"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button class="btn btn-primary" type="submit">提交审核</button>
+					<button class="btn" type="reset">重置</button>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-horizontal"&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;单选框：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;label class="radio inline"&gt;
+						&lt;input name="single" type="radio" value="1" /&gt; 选项一
+					&lt;/label&gt;
+					&lt;label class="radio inline"&gt;
+						&lt;input name="single" type="radio" value="2" /&gt; 选项二
+					&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;复选框：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;label class="checkbox inline"&gt;
+						&lt;input name="multiple" type="checkbox" value="1" /&gt; 选项一
+					&lt;/label&gt;
+					&lt;label class="checkbox inline"&gt;
+						&lt;input name="multiple" type="checkbox" value="2" /&gt; 选项二
+					&lt;/label&gt;
+					&lt;label class="checkbox inline"&gt;
+						&lt;input name="multiple" type="checkbox" value="3" /&gt; 选项三
+					&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（迷你）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-mini" type="text" /&gt;
+					&lt;div class="msg msg-tips msg-naked"&gt;
+						&lt;div class="msg-con"&gt;
+							提示信息，比如：建议你设置安全密码
+						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（小号）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-small" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（中号）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-medium" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（大号）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-large" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（加大）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-xlarge" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;输入框（加加）：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-xxlarge" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;时间选择：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-medium input-date" type="text" /&gt;
+					-
+					&lt;input class="input-medium input-date" type="text" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;备注：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;textarea class="input-block-level" rows="3"&gt;&lt;/textarea&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;div class="controls"&gt;
+					&lt;button class="btn btn-primary" type="submit"&gt;提交审核&lt;/button&gt;
+					&lt;button class="btn" type="reset"&gt;重置&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>demo2</h3>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+				<label class="control-label"><b style="color: #f00;">*</b> 对象场景：</label>
+				<div class="controls">
+					<select>
+						<option value="" selected>--------------请选择--------------</option>
+					</select>
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
+							该项为必填项
+						</div>
+						<s class="msg-icon"></s>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
+				<div class="controls">
+					<select>
+						<option value="" selected>---请选择---</option>
+					</select>
+					<input class="input-xlarge" type="text" value="" />
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
+							该项为必填项
+						</div>
+						<s class="msg-icon"></s>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
+				<div class="controls">
+					<textarea class="input-xxlarge" style="height: 190px;"></textarea>
+					<div class="msg msg-tips msg-default" style="vertical-align: top;">
+						<div class="msg-con">
+							<p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
+							<p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
+							<p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
+							<p>站内信：XXXX个汉字</p>
+						</div>
+						<s class="msg-icon"></s>
+					</div>
+					<div class="msg msg-error msg-clear help-block">
+						<div class="msg-con">
+							该项为必填项
+						</div>
+						<s class="msg-icon"></s>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><span style="padding:0 24px 0 0;">链</span>接：</label>
+				<div class="controls">
+					<input class="input-xxlarge" type="text" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><b style="color: #f00;">*</b> 发送渠道：</label>
+				<div class="controls">
+					<div class="controls-wrap">
+						<label class="checkbox inline">
+							<input name="m0" type="checkbox" value="1" /> 商家中心
+						</label>
+						<label class="checkbox inline">
+							<input name="m0" type="checkbox" value="2" /> 旺旺弹出
+						</label>
+						<label class="checkbox inline">
+							<input name="m0" type="checkbox" value="3" /> 站内信
+						</label>
+						<label class="checkbox inline">
+							<input name="m0" type="checkbox" value="4" /> 邮件
+						</label>
+						<div class="msg msg-tips msg-default msg-clear help-block">
+							<div class="msg-con">
+								是否向子账号发送消息：
+								<label class="radio inline">
+									<input name="s0" type="radio" value="1" /> 是
+								</label>
+								<label class="radio inline">
+									<input name="s0" type="radio" value="2" /> 否
+								</label>
+							</div>
+							<s class="msg-icon"></s>
+						</div>
+					</div>
+					<div class="controls-wrap">
+						<label class="checkbox inline">
+							<input name="m1" type="checkbox" value="1" checked /> 短信发送给店长
+						</label>
+					</div>
+					<div class="controls-wrap">
+						<label class="checkbox inline">
+							<input name="m1" type="checkbox" value="2" checked /> 短信发送给电商决策人
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label"><b style="color: #f00;">*</b> 审<span style="padding: 0 6px;">核</span>人：</label>
+				<div class="controls">
+					<select>
+						<option value="" selected>--------------请选择--------------</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button class="btn btn-primary" type="submit">提交审核</button>
+					<button class="btn" type="reset">重置</button>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-horizontal"&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 对象场景：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;select&gt;
+						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
+					&lt;/select&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
+							该项为必填项
+						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;主&lt;/span&gt;题：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;select&gt;
+						&lt;option value="" selected&gt;---请选择---&lt;/option&gt;
+					&lt;/select&gt;
+					&lt;input class="input-xlarge" type="text" value="" /&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
+							该项为必填项
+						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;内&lt;/span&gt;容：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;textarea class="input-xxlarge" style="height: 190px;"&gt;&lt;/textarea&gt;
+					&lt;div class="msg msg-tips msg-default" style="vertical-align: top;"&gt;
+						&lt;div class="msg-con"&gt;
+							&lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;消息渠道发送字数提示：&lt;/p&gt;
+							&lt;p&gt;短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送&lt;/p&gt;
+							&lt;p&gt;旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字&lt;/p&gt;
+							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字&lt;/p&gt;
+							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字&lt;/p&gt;
+							&lt;p&gt;站内信：XXXX个汉字&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+					&lt;/div&gt;
+					&lt;div class="msg msg-error msg-clear help-block"&gt;
+						&lt;div class="msg-con"&gt;
+							该项为必填项
+						&lt;/div&gt;
+						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;span style="padding:0 24px 0 0;"&gt;链&lt;/span&gt;接：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input class="input-xxlarge" type="text" value="" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 发送渠道：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;div class="controls-wrap"&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m0" type="checkbox" value="1" /&gt; 商家中心
+						&lt;/label&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m0" type="checkbox" value="2" /&gt; 旺旺弹出
+						&lt;/label&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m0" type="checkbox" value="3" /&gt; 站内信
+						&lt;/label&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m0" type="checkbox" value="4" /&gt; 邮件
+						&lt;/label&gt;
+						&lt;div class="msg msg-tips msg-default msg-clear help-block"&gt;
+							&lt;div class="msg-con"&gt;
+								是否向子账号发送消息：
+								&lt;label class="radio inline"&gt;
+									&lt;input name="s0" type="radio" value="1" /&gt; 是
+								&lt;/label&gt;
+								&lt;label class="radio inline"&gt;
+									&lt;input name="s0" type="radio" value="2" /&gt; 否
+								&lt;/label&gt;
+							&lt;/div&gt;
+							&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div class="controls-wrap"&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m1" type="checkbox" value="1" checked /&gt; 短信发送给店长
+						&lt;/label&gt;
+					&lt;/div&gt;
+					&lt;div class="controls-wrap"&gt;
+						&lt;label class="checkbox inline"&gt;
+							&lt;input name="m1" type="checkbox" value="2" checked /&gt; 短信发送给电商决策人
+						&lt;/label&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 审&lt;span style="padding: 0 6px;"&gt;核&lt;/span&gt;人：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;select&gt;
+						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
+					&lt;/select&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;div class="controls"&gt;
+					&lt;button class="btn btn-primary" type="submit"&gt;提交审核&lt;/button&gt;
+					&lt;button class="btn" type="reset"&gt;重置&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>		
 	</section>
 
 
@@ -738,15 +1293,20 @@
 
 
 
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br />
 
-
-
-
-
-
-
-		<br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br />
+	<section>
 		<h1>Bootstrap组件</h1>
 		<hr class="bs-docs-separator">
 
@@ -1059,10 +1619,10 @@
 		<form class="bs-docs-example">
 			<div class="input-prepend">
 				<span class="add-on">@</span>
-				<input class="span2" id="prependedInput" type="text" placeholder="Username"></div>
+				<input class="span2 input-fat" id="prependedInput" type="text" placeholder="Username"></div>
 			<br>
 			<div class="input-append">
-				<input class="span2" id="appendedInput" type="text">
+				<input class="span2 input-fat" id="appendedInput" type="text">
 				<span class="add-on">.00</span>
 			</div>
 		</form>
@@ -1085,7 +1645,7 @@
 		<form class="bs-docs-example form-inline">
 			<div class="input-prepend input-append">
 				<span class="add-on">$</span>
-				<input class="span2" id="appendedPrependedInput" type="text">
+				<input class="span2 input-fat" id="appendedPrependedInput" type="text">
 				<span class="add-on">.00</span>
 			</div>
 		</form>
@@ -1679,24 +2239,15 @@
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<!-- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
-	<script src="../assets/js/jquery.js"></script>
-	<script src="../assets/js/bootstrap-transition.js"></script>
-	<script src="../assets/js/bootstrap-alert.js"></script>
-	<script src="../assets/js/bootstrap-modal.js"></script>
-	<script src="../assets/js/bootstrap-dropdown.js"></script>
-	<script src="../assets/js/bootstrap-scrollspy.js"></script>
-	<script src="../assets/js/bootstrap-tab.js"></script>
-	<script src="../assets/js/bootstrap-tooltip.js"></script>
-	<script src="../assets/js/bootstrap-popover.js"></script>
-	<script src="../assets/js/bootstrap-button.js"></script>
-	<script src="../assets/js/bootstrap-collapse.js"></script>
-	<script src="../assets/js/bootstrap-carousel.js"></script>
-	<script src="../assets/js/bootstrap-typeahead.js"></script>
-	<script src="../assets/js/bootstrap-affix.js"></script>
+	<script src="../../js/lib/jquery.js"></script>
+	<script src="../../build/js/bootstrap.js"></script>
 
 	<!-- <script src="../assets/js/holder/holder.js"></script> -->
 	<script src="../assets/js/google-code-prettify/prettify.js"></script>
 
 	<script src="../assets/js/application.js"></script>
+
+	<!-- 自动刷新页面 -->
+	<!-- <script src="http://localhost:3456/livereload.js"></script> -->
 </body>
 </html>
