@@ -1,159 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>dpl组件——dialog</title>
-    <link rel="stylesheet" href="../../build/css/bootstrap.css">
-</head>
-<body data-a="a" data-b="b" data-c="{cc:1,ccc:2}">
-  <h1>dialog(bootstrap中命名为Modal)</h1>
-  <hr>
-  <h3>无js触发,确定按钮对应html添加data-ok="modal"属性</h3>
-  <p>
-  data-属性都是必须的。也可通过$('xx').modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>
-  </p>
-  <p>
-    涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可
-  </p>
-  <textarea  cols="200" rows="20">
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="false">
-      dialog 有html
-    </button>
-
-    <!-- Modal -->
-    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            我是内容body
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
+  <head>
+    <meta charset="utf-8">
+    <title>dialog </title>
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>dialog(bootstrap中命名为Modal)</h1><br>
+    <h3>无js触发,确定按钮对应html添加data-ok="modal"属性</h3>
+    <p>data-属性都是必须的。也可通过$("xx").modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>
+    </p>
+    <p>涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可</p>
+    <textarea cols="200" rows="22">
+      button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
+      <!-- Modal -->
+      <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              我是内容body
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </textarea>
-  <h3>demo</h3>
-  <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-keyboard="false">
-  dialog 有html
-</button>
-
-<hr>
-<h3>js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)</h3>
-<p>
-jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
-</p>
-<p>
-若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用
-</p>
-  <pre>
-    /* 
-   * 
-   * example
-   * $.alert({
-      backdrop: true   true/false表示蒙层是黑／白 半透明
-   *  keyboard: true   是否可由esc按键关闭
-   *  title: '自定义标题'
-   *  body: 'html' //必填
-   *  okBtn : '好的'
-   *  cancelBtn : '雅达'
-   *  hasfoot: {Boolean}  是否显示脚部  默认true
-   *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
-   *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
-   *  show:     fn --------------function(e){}
-   *  shown:    fn
-   *  hide:     fn
-   *  hidden:   fn
-   *  okHide:   function(e){alert('点击确认后、dialog消失前的逻辑,
-   *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
-   *            注意不要人肉返回undefined！！')}
-   *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
-   * })
-   *
-   */
-  </pre>
-
-<hr>
-<h3>demo</h3>
-<pre>
-  $('#J_alert').on('click', function(e){
-    $.alert('alert it is&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isisis&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;&lt;br&gt;&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is')
-  })
+    </textarea><br>
+    <!--Button trigger modal -->
+    <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="btn btn-primary btn-lg">dialog 有html</button>
+    <hr>
+    <h3>js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)</h3>
+    <p>jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')</p>
+    <p>若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用</p>
+    <pre>/* 
+* 
+* example
+* $.alert({
+*  backdrop: true   true/false表示蒙层是黑／白 半透明
+*  keyboard: true   是否可由esc按键关闭
+*  title: '自定义标题'
+*  body: 'html' //必填
+*  okBtn : '好的'
+*  cancelBtn : '雅达'
+*  hasfoot: {Boolean}  是否显示脚部  默认true
+*  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+*  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
+*  show:     fn --------------function(e){}
+*  shown:    fn
+*  hide:     fn
+*  hidden:   fn
+*  okHide:   function(e){alert('点击确认后、dialog消失前的逻辑,
+*            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
+*            注意不要人肉返回undefined！！')}
+*  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+* })
+*/   </pre>
+    <hr>
+    <h3>demo</h3>
+    <pre>$('#J_alert').on('click', function(e){
+  $.alert('alert it is&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isisis&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;&lt;br&gt;&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is')
+})
 </pre>
-<button class="btn btn-primary btn-lg" id="J_alert">
-  dialog 无html alert
-</button>
-<hr>
-<pre>
-  $('#J_confirm').on('click', function(e){
-    $.confirm({
-      body: 'confirm again'
-      ,width: 'normal'
-      ,backdrop: false
-      ,timeout: 1000
-      ,show: function(){console.log('show')}
-      ,shown: function(){console.log('shown')}
-      ,hide: function(){console.log('hide')}
-      ,hidden: function(){console.log('hiden')}
-      ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-      ,okHidden: function(){console.log('okHidden')}
-    })
+    <button id="J_alert" class="btn btn-primary btn-lg">dialog 无html alert</button>
+    <hr>
+    <pre>$('#J_confirm').on('click', function(e){
+  $.confirm({
+    body: 'confirm again'
+    ,width: 'normal'
+    ,backdrop: false
+    ,timeout: 1000
+    ,show: function(){console.log('show')}
+    ,shown: function(){console.log('shown')}
+    ,hide: function(){console.log('hide')}
+    ,hidden: function(){console.log('hiden')}
+    ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+    ,okHidden: function(){console.log('okHidden')}
   })
-</pre>
-<button class="btn btn-primary btn-lg" id="J_confirm">
-  dialog 无html confirm
-</button>
-
-<!-- Modal -->
-<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+})</pre>
+    <button id="J_confirm" class="btn btn-primary btn-lg">dialog 无html confirm</button>
+    <div>
+      <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              我是内容body
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        我是内容body
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
-      </div>
+      
+      
     </div>
-  </div>
-</div>
-
-<hr>
-
-
-<script src="../../js/lib/jquery.js"></script>
-<script src="../../build/js/bootstrap.js"></script>
-<script>
-  $('#J_alert').on('click', function(e){
-    $.alert('alert it is<br><br>isis<br><br>isis<br><br>isisis<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br><br><br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>isis<br><br>isis<br><br>')
-  })
-  $('#J_confirm').on('click', function(e){
-    $.confirm({
-      body: 'confirm again'
-      ,width: 'normal'
-      ,backdrop: false
-      ,timeout: 1000
-      ,show: function(){console.log('show')}
-      ,shown: function(){console.log('shown')}
-      ,hide: function(){console.log('hide')}
-      ,hidden: function(){console.log('hiden')}
-      ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-      ,okHidden: function(){console.log('okHidden')}
-    })
-  })
-
-</script>
-</body>
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+    <script>
+      $('#J_alert').on('click', function(e){
+        $.alert('alert it is<br><br>isis<br><br>isis<br><br>isisis<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br><br><br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>isis<br><br>isis<br><br>')
+      })
+      $('#J_confirm').on('click', function(e){
+        $.confirm({
+          body: 'confirm again'
+          ,width: 'normal'
+          ,backdrop: false
+          ,timeout: 1000
+          ,show: function(){console.log('show')}
+          ,shown: function(){console.log('shown')}
+          ,hide: function(){console.log('hide')}
+          ,hidden: function(){console.log('hiden')}
+          ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+          ,okHidden: function(){console.log('okHidden')}
+        })
+      })
+      
+      
+    </script>
+  </body>
 </html>
