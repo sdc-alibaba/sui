@@ -31,6 +31,7 @@ $(function () {
       test("should not fire shown when show is prevented", function () {
         $.support.transition = false
         stop()
+        stop() //这里有一个bug, 下面的start方法会触发两次
         $('<div class="collapse"/>')
           .bind('show', function (e) {
             e.preventDefault();
