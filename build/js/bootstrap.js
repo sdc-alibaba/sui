@@ -1322,10 +1322,17 @@ define("bootstrap-dropdown.js", function(){});
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-          var h = ele.height()
-          if (h > 270) {
-            ele.css('margin-top', -parseInt(h) / 2)
+
+          var eleH = ele.height()
+            , winH = $(window).height()
+            , mt
+          if (eleH >= winH) {
+            mt = -winH/2
+          } else {
+            mt = (winH - eleH) / (1 + 1.618) - winH / 2
           }
+          ele.css('margin-top', parseInt(mt))
+
           ele.show()
           if (transition) {
             ele[0].offsetWidth // force reflow
@@ -1698,10 +1705,10 @@ define("bootstrap-modal.js", function(){});
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
+      self.hoverState = 'in'
       if (!self.options.delay || !self.options.delay.show) return self.show()
 
       clearTimeout(this.timeout)
-      self.hoverState = 'in'
       this.timeout = setTimeout(function() {
         if (self.hoverState == 'in') self.show()
       }, self.options.delay.show)
@@ -1713,8 +1720,12 @@ define("bootstrap-modal.js", function(){});
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
-      self.hoverState = 'out'
       this.timeout = setTimeout(function() {
+        var isHover = self.$tip.data('hover')
+        //isHover 为0或undefined，undefined:没有移到tip上过
+        if (!isHover) {
+          self.hoverState = 'out'
+        }
         if (self.hoverState == 'out') self.hide()
       }, self.options.delay.hide)
     }
@@ -1729,6 +1740,7 @@ define("bootstrap-modal.js", function(){});
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
+        , that = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1749,6 +1761,15 @@ define("bootstrap-modal.js", function(){});
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
+
+        if (opt.trigger !== 'click') {
+          $tip.hover(function(){
+            $(this).data('hover', 1)
+          }, function(){
+            $(this).data('hover', 0)
+            that.hide()
+          })
+        }
 
         //宽度限制逻辑
         if (widthLimit !== true) {
@@ -1962,9 +1983,9 @@ define("bootstrap-modal.js", function(){});
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
   , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
-  , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+  , delay: {show:0, hide: 200}   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
   , html: true  //决定是html()还是text()
-  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
