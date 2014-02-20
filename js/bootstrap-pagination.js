@@ -27,18 +27,13 @@
         _drawInner: function () {
             var outer = this.hookNode.children('.pagination');
             var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
-            if (this.pages <= this.displayPage) {
+            if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
                 for (var i = 1; i < this.pages + 1; i++) {
                     i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
                 }
 
             } else {
-                //displayPage为n,总的page数为n+1的情况
-                if (this.pages == this.displayPage + 1) {
-                    for (var i = 1; i < this.pages + 1; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                } else if (this.currentPage < this.displayPage - 1) {
+                if (this.currentPage < this.displayPage - 1) {
                     for (var i = 1; i < this.displayPage; i++) {
                         i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
                     }
@@ -128,6 +123,12 @@
             //如果最后一页没有数据了，返回到剩余最大页数
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
             this._drawInner();
+        },
+
+        updatePages: function (pages) {
+            this.pages = pages;
+            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            this._drawInner();
         }
     }
     /* jshint ignore:end */
@@ -150,7 +151,7 @@
 
     $.fn.pagination.defaults = {
         pageSize: 10,
-        displayPage: 6,
+        displayPage: 5,
         currentPage: 1,
         itemsCount: 100,
         styleClass: [],
