@@ -1,0 +1,23 @@
+extends base
+
+block title
+    title Breadcrumb 面包屑
+
+block content
+    .container
+        .page-header
+            h1 Breadcrumb 面包屑
+        ul.breadcrumb
+            li.active 首页
+
+        ul.breadcrumb
+            li
+                a(href='#') 首页
+            li.active 手机数码、电脑办公
+
+        ul.breadcrumb
+            li
+                a(href='#') 首页
+            li
+                a(href='#') 手机数码、电脑办公
+            li.active 智能手机
