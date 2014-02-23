@@ -15,7 +15,6 @@
 }
 
 .typographic{
-  width:100%;
   img{
     display:block;
     float:left;
@@ -32,8 +31,20 @@
     .typographic-block;
     text-align:center;
   }
+}
 
-
+.table {
+  .gray{
+    color: @grayLight;
+  }
+  th,td{
+    img,a,span,label{
+      margin-right: 10px;
+    }
+  }
+  ul{
+    margin:0;
+  }
 }
 
 table {
@@ -55,7 +66,7 @@ table {
     padding: @tablePadding;
     line-height: @baseLineHeight;
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid @tableBorder;
   }
   th {
@@ -89,6 +100,9 @@ table {
   }
   label{
     margin-bottom:0px;
+  }
+  th.center{
+    text-align:center;
   }
   td.center{
     text-align:center;
@@ -199,6 +213,20 @@ table {
 
 }
 
+.table-bordered-simple{
+  .table-bordered;
+  th,
+  td {
+    border-left: 0;
+  }
+
+  th:first-child,
+  td:first-child{
+    border-left: 1px solid @tableBorder;
+  }
+  margin-bottom: 5px;
+}
+
 .table-sideheader{
   .table-bordered;
 
@@ -206,6 +234,10 @@ table {
     background-color:@tableHeadBackground;
   }
 
+}
+
+.table-nobody{
+  margin-bottom: 0px;
 }
 
 .table-light{
@@ -241,6 +273,7 @@ table {
     }
   }
 }
+
 
 .table-nobordered{
   .table-zebra;
@@ -296,6 +329,7 @@ table th[class*="span"],
   &.span11    { .tableColumns(11); }
   &.span12    { .tableColumns(12); }
 }
+
 
 
 

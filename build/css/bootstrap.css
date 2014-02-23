@@ -3031,10 +3031,6 @@ legend + .control-group {
   border: none;
 }
 
-.typographic {
-  width: 100%;
-}
-
 .typographic img {
   display: block;
   float: left;
@@ -3064,6 +3060,25 @@ legend + .control-group {
   text-align: center;
 }
 
+.table .gray {
+  color: #999999;
+}
+
+.table th img,
+.table td img,
+.table th a,
+.table td a,
+.table th span,
+.table td span,
+.table th label,
+.table td label {
+  margin-right: 10px;
+}
+
+.table ul {
+  margin: 0;
+}
+
 table {
   max-width: 100%;
   background-color: transparent;
@@ -3081,7 +3096,7 @@ table {
   padding: 6px 8px;
   line-height: 18px;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   border-top: 1px solid #e6e6e6;
 }
 
@@ -3116,6 +3131,10 @@ table {
 
 .table label {
   margin-bottom: 0;
+}
+
+.table th.center {
+  text-align: center;
 }
 
 .table td.center {
@@ -3232,6 +3251,122 @@ table {
   -moz-border-radius-topright: 4px;
 }
 
+.table-bordered-simple {
+  margin-bottom: 5px;
+  border: 1px solid #e6e6e6;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.table-bordered-simple th {
+  background-color: #f4f4f4;
+}
+
+.table-bordered-simple th,
+.table-bordered-simple td {
+  border-left: 1px solid #e6e6e6;
+}
+
+.table-bordered-simple caption + thead tr:first-child th,
+.table-bordered-simple caption + tbody tr:first-child th,
+.table-bordered-simple caption + tbody tr:first-child td,
+.table-bordered-simple colgroup + thead tr:first-child th,
+.table-bordered-simple colgroup + tbody tr:first-child th,
+.table-bordered-simple colgroup + tbody tr:first-child td,
+.table-bordered-simple thead:first-child tr:first-child th,
+.table-bordered-simple tbody:first-child tr:first-child th,
+.table-bordered-simple tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+
+.table-bordered-simple tbody tr:first-child td {
+  border-top: 0;
+}
+
+.table-bordered-simple thead:first-child tr:first-child th {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.table-bordered-simple thead:first-child tr:first-child > th:first-child,
+.table-bordered-simple tbody:first-child tr:first-child > td:first-child,
+.table-bordered-simple tbody:first-child tr:first-child > th:first-child {
+  -webkit-border-top-left-radius: 4px;
+          border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.table-bordered-simple thead:first-child tr:first-child > th:last-child,
+.table-bordered-simple tbody:first-child tr:first-child > td:last-child,
+.table-bordered-simple tbody:first-child tr:first-child > th:last-child {
+  -webkit-border-top-right-radius: 4px;
+          border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+
+.table-bordered-simple thead:last-child tr:last-child > th:first-child,
+.table-bordered-simple tbody:last-child tr:last-child > td:first-child,
+.table-bordered-simple tbody:last-child tr:last-child > th:first-child,
+.table-bordered-simple tfoot:last-child tr:last-child > td:first-child,
+.table-bordered-simple tfoot:last-child tr:last-child > th:first-child {
+  -webkit-border-bottom-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+}
+
+.table-bordered-simple thead:last-child tr:last-child > th:last-child,
+.table-bordered-simple tbody:last-child tr:last-child > td:last-child,
+.table-bordered-simple tbody:last-child tr:last-child > th:last-child,
+.table-bordered-simple tfoot:last-child tr:last-child > td:last-child,
+.table-bordered-simple tfoot:last-child tr:last-child > th:last-child {
+  -webkit-border-bottom-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+
+.table-bordered-simple tfoot + tbody:last-child tr:last-child td:first-child {
+  -webkit-border-bottom-left-radius: 0;
+          border-bottom-left-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+}
+
+.table-bordered-simple tfoot + tbody:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 0;
+          border-bottom-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+}
+
+.table-bordered-simple caption + thead tr:first-child th:first-child,
+.table-bordered-simple caption + tbody tr:first-child td:first-child,
+.table-bordered-simple colgroup + thead tr:first-child th:first-child,
+.table-bordered-simple colgroup + tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+          border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+
+.table-bordered-simple caption + thead tr:first-child th:last-child,
+.table-bordered-simple caption + tbody tr:first-child td:last-child,
+.table-bordered-simple colgroup + thead tr:first-child th:last-child,
+.table-bordered-simple colgroup + tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+          border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+
+.table-bordered-simple th,
+.table-bordered-simple td {
+  border-left: 0;
+}
+
+.table-bordered-simple th:first-child,
+.table-bordered-simple td:first-child {
+  border-left: 1px solid #e6e6e6;
+}
+
 .table-sideheader {
   border: 1px solid #e6e6e6;
   border-collapse: separate;
@@ -3339,6 +3474,10 @@ table {
 
 .table-sideheader tbody tr td:first-child {
   background-color: #f4f4f4;
+}
+
+.table-nobody {
+  margin-bottom: 0;
 }
 
 .table-light {
@@ -8539,6 +8678,7 @@ a.badge:focus {
 }
 
 .steps {
+  overflow: hidden;
   font-size: 0;
 }
 
@@ -8568,6 +8708,21 @@ a.badge:focus {
   border-width: 12px;
 }
 
+.steps .triangle-right-bg {
+  position: absolute;
+  top: -4px;
+  right: -24px;
+  right: -32px;
+  z-index: 1;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #FFF;
+  border-style: solid;
+  border-width: 12px;
+  border-width: 16px;
+}
+
 .steps .round {
   display: inline-block;
   width: 12px;
@@ -8585,7 +8740,7 @@ a.badge:focus {
   background-color: #e4f6ff;
 }
 
-.steps .finished > .triangle-right {
+.steps .finished .triangle-right {
   border-color: transparent transparent transparent #e4f6ff;
 }
 
@@ -8600,7 +8755,7 @@ a.badge:focus {
   background-color: #0995e0;
 }
 
-.steps .current > .triangle-right {
+.steps .current .triangle-right {
   border-color: transparent transparent transparent #0995e0;
 }
 
@@ -8616,7 +8771,7 @@ a.badge:focus {
   background-color: #f5f5f5;
 }
 
-.steps .todo > .triangle-right {
+.steps .todo .triangle-right {
   border-color: transparent transparent transparent #f5f5f5;
 }
 
@@ -8640,6 +8795,11 @@ a.badge:focus {
 .steps-large .triangle-right {
   right: -36px;
   border-width: 18px;
+}
+
+.steps-large .triangle-right-bg {
+  right: -44px;
+  border-width: 22px;
 }
 
 .steps-large .round {
