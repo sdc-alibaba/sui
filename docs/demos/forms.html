@@ -855,6 +855,454 @@ p { margin: 0;}
 			&lt;/div&gt;
 		&lt;/div&gt;</pre>
 
+		<hr/>
+		<h2>按功能分类</h2>
+		<h3>搜索框</h3>
+		<p>
+			添加
+			<code>.form-search</code>
+			到
+			<code>&lt;form&gt;</code>
+			标签上并且添加
+			<code>.search-query</code>
+			到
+			<code>&lt;input&gt;</code>
+			标签上
+		</p>
+		<form class="bs-docs-example form-search">
+			<input type="text" class="input-medium search-query" />
+			<button type="submit" class="btn">Search</button>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-search"&gt;
+			&lt;input type="text" class="input-medium search-query" /&gt;
+			&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>内联表单</h3>
+		<p>
+			添加
+			<code>.form-inline</code>
+			让 labels 标签左对齐表单控件，成为内联块级标签
+		</p>
+		<form class="bs-docs-example form-inline">
+			<input type="text" class="input-small" placeholder="Email" />
+			<input type="password" class="input-small" placeholder="Password" />
+			<label class="checkbox">
+				<input type="checkbox" /> 记住我
+			</label>
+			<button type="submit" class="btn">Sign in</button>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-inline"&gt;
+			&lt;input type="text" class="input-small" placeholder="Email" /&gt;
+			&lt;input type="password" class="input-small" placeholder="Password" /&gt;
+			&lt;label class="checkbox"&gt;
+				&lt;input type="checkbox" /&gt; 记住我
+			&lt;/label&gt;
+			&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>水平表单</h3>
+		<ul>
+			<li>
+				添加
+				<code>.form-horizontal</code>
+				到form标签上
+			</li>
+			<li>
+				将labels和控件放到
+				<code>.control-group</code>
+				里面
+			</li>
+			<li>
+				添加
+				<code>.control-label</code>
+				到label标签上
+			</li>
+			<li>
+				将所有的控件放在
+				<code>.controls</code>
+				里面
+			</li>
+		</ul>
+		<form class="bs-docs-example form-horizontal">
+			<div class="control-group">
+				<label class="control-label" for="inputEmail">邮箱：</label>
+				<div class="controls">
+					<input type="text" id="inputEmail" placeholder="Email" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="inputPassword">密码：</label>
+				<div class="controls">
+					<input type="password" id="inputPassword" placeholder="Password" />
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox inline">
+						<input type="checkbox" /> 记住我
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button type="submit" class="btn">Sign in</button>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-horizontal"&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label" for="inputEmail"&gt;邮箱：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input type="text" id="inputEmail" placeholder="Email" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;label class="control-label" for="inputPassword"&gt;密码：&lt;/label&gt;
+				&lt;div class="controls"&gt;
+					&lt;input type="password" id="inputPassword" placeholder="Password" /&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;div class="controls"&gt;
+					&lt;label class="checkbox inline"&gt;
+						&lt;input type="checkbox" /&gt; 记住我
+					&lt;/label&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="control-group"&gt;
+				&lt;div class="controls"&gt;
+					&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<hr />
+		<h2>扩展表单控件</h2>
+		<h3>默认选项</h3>
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<span class="add-on">@</span>
+				<input class="span2 input-fat" id="prependedInput" type="text" placeholder="Username"></div>
+			<br>
+			<div class="input-append">
+				<input class="span2 input-fat" id="appendedInput" type="text">
+				<span class="add-on">.00</span>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend"&gt;
+			&lt;span class="add-on"&gt;@&lt;/span&gt;
+			&lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
+		&lt;/div&gt;
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInput" type="text"&gt;
+			&lt;span class="add-on"&gt;.00&lt;/span&gt;
+		&lt;/div&gt;</pre>
+
+		<h3>联合体</h3>
+		<form class="bs-docs-example form-inline">
+			<div class="input-prepend input-append">
+				<span class="add-on">$</span>
+				<input class="span2 input-fat" id="appendedPrependedInput" type="text">
+				<span class="add-on">.00</span>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend input-append"&gt;
+			&lt;span class="add-on"&gt;$&lt;/span&gt;
+			&lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
+			&lt;span class="add-on"&gt;.00&lt;/span&gt;
+		&lt;/div&gt;</pre>
+
+		<h3>按钮替代文本</h3>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedInputButton" type="text">
+				<button class="btn" type="button">Go!</button>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInputButton" type="text"&gt;
+			&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
+		&lt;/div&gt;</pre>
+
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedInputButtons" type="text">
+				<button class="btn" type="button">Search</button>
+				<button class="btn" type="button">Options</button>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
+			&lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
+			&lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
+		&lt;/div&gt;</pre>
+
+		<h3>按钮下拉菜单</h3>
+		<p></p>
+		<form class="bs-docs-example">
+			<div class="input-append">
+				<input class="span2" id="appendedDropdownButton" type="text">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+			</div>
+			<!-- /input-append -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-append"&gt;
+			&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+				<input class="span2" id="prependedDropdownButton" type="text"></div>
+			<!-- /input-prepend -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
+		&lt;/div&gt;</pre>
+
+		<form class="bs-docs-example">
+			<div class="input-prepend input-append">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+				<input class="span2" id="appendedPrependedDropdownButton" type="text">
+				<div class="btn-group">
+					<button class="btn dropdown-toggle" data-toggle="dropdown">
+						Action
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /btn-group -->
+			</div>
+			<!-- /input-prepend input-append -->
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;div class="input-prepend input-append"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+			&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
+			&lt;div class="btn-group"&gt;
+				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
+					Action
+					&lt;span class="caret"&gt;&lt;/span&gt;
+				&lt;/button&gt;
+				&lt;ul class="dropdown-menu"&gt;
+				...
+				&lt;/ul&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;</pre>
+
+		<h3>分段下拉菜单组</h3>
+		<form class="bs-docs-example">
+			<div class="input-prepend">
+				<div class="btn-group">
+					<button class="btn" tabindex="-1">Action</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+				<input type="text">
+			</div>
+			<div class="input-append">
+				<input type="text">
+				<div class="btn-group">
+					<button class="btn" tabindex="-1">Action</button>
+					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form&gt;
+			&lt;div class="input-prepend"&gt;
+				&lt;div class="btn-group"&gt;...&lt;/div&gt;
+				&lt;input type="text"&gt;
+			&lt;/div&gt;
+			&lt;div class="input-append"&gt;
+				&lt;input type="text"&gt;
+				&lt;div class="btn-group"&gt;...&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<h3>搜索框</h3>
+		<form class="bs-docs-example form-search">
+			<div class="input-append">
+				<input type="text" class="span2 search-query">
+				<button type="submit" class="btn">Search</button>
+			</div>
+			<div class="input-prepend">
+				<button type="submit" class="btn">Search</button>
+				<input type="text" class="span2 search-query"></div>
+		</form>
+		<pre class="prettyprint linenums">
+		&lt;form class="form-search"&gt;
+			&lt;div class="input-append"&gt;
+				&lt;input type="text" class="span2 search-query"&gt;
+				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class="input-prepend"&gt;
+				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+				&lt;input type="text" class="span2 search-query"&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;</pre>
+
+		<hr/>
+		<h2>所有案例</h2>
 		<h3>demo1</h3>
 		<p>
 			<code>.form-horizontal</code>
@@ -890,11 +1338,11 @@ p { margin: 0;}
 				<label class="control-label">输入框（迷你）：</label>
 				<div class="controls">
 					<input class="input-mini" type="text" />
-					<div class="msg msg-tips msg-naked">
-						<div class="msg-con">
+					<div class="sui-msg sui-msg-tips sui-msg-naked">
+						<div class="sui-msg-con">
 							提示信息，比如：建议你设置安全密码
 						</div>
-						<s class="msg-icon"></s>
+						<s class="sui-msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -980,11 +1428,11 @@ p { margin: 0;}
 				&lt;label class="control-label"&gt;输入框（迷你）：&lt;/label&gt;
 				&lt;div class="controls"&gt;
 					&lt;input class="input-mini" type="text" /&gt;
-					&lt;div class="msg msg-tips msg-naked"&gt;
-						&lt;div class="msg-con"&gt;
+					&lt;div class="sui-msg sui-msg-tips sui-msg-naked"&gt;
+						&lt;div class="sui-msg-con"&gt;
 							提示信息，比如：建议你设置安全密码
 						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1048,11 +1496,11 @@ p { margin: 0;}
 					<select>
 						<option value="" selected>--------------请选择--------------</option>
 					</select>
-					<div class="msg msg-error msg-clear help-block">
-						<div class="msg-con">
+					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
+						<div class="sui-msg-con">
 							该项为必填项
 						</div>
-						<s class="msg-icon"></s>
+						<s class="sui-msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1063,11 +1511,11 @@ p { margin: 0;}
 						<option value="" selected>---请选择---</option>
 					</select>
 					<input class="input-xlarge" type="text" value="" />
-					<div class="msg msg-error msg-clear help-block">
-						<div class="msg-con">
+					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
+						<div class="sui-msg-con">
 							该项为必填项
 						</div>
-						<s class="msg-icon"></s>
+						<s class="sui-msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1075,8 +1523,8 @@ p { margin: 0;}
 				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
 				<div class="controls">
 					<textarea class="input-xxlarge" style="height: 190px;"></textarea>
-					<div class="msg msg-tips msg-default" style="vertical-align: top;">
-						<div class="msg-con">
+					<div class="sui-msg sui-msg-tips sui-msg-default" style="vertical-align: top;">
+						<div class="sui-msg-con">
 							<p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
 							<p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
 							<p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
@@ -1084,13 +1532,13 @@ p { margin: 0;}
 							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
 							<p>站内信：XXXX个汉字</p>
 						</div>
-						<s class="msg-icon"></s>
+						<s class="sui-msg-icon"></s>
 					</div>
-					<div class="msg msg-error msg-clear help-block">
-						<div class="msg-con">
+					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
+						<div class="sui-msg-con">
 							该项为必填项
 						</div>
-						<s class="msg-icon"></s>
+						<s class="sui-msg-icon"></s>
 					</div>
 				</div>
 			</div>
@@ -1103,7 +1551,7 @@ p { margin: 0;}
 			<div class="control-group">
 				<label class="control-label"><b style="color: #f00;">*</b> 发送渠道：</label>
 				<div class="controls">
-					<div class="controls-wrap">
+					<div class="row-fluid">
 						<label class="checkbox inline">
 							<input name="m0" type="checkbox" value="1" /> 商家中心
 						</label>
@@ -1116,8 +1564,8 @@ p { margin: 0;}
 						<label class="checkbox inline">
 							<input name="m0" type="checkbox" value="4" /> 邮件
 						</label>
-						<div class="msg msg-tips msg-default msg-clear help-block">
-							<div class="msg-con">
+						<div class="sui-msg sui-msg-tips sui-msg-default sui-msg-clear help-block">
+							<div class="sui-msg-con">
 								是否向子账号发送消息：
 								<label class="radio inline">
 									<input name="s0" type="radio" value="1" /> 是
@@ -1126,15 +1574,15 @@ p { margin: 0;}
 									<input name="s0" type="radio" value="2" /> 否
 								</label>
 							</div>
-							<s class="msg-icon"></s>
+							<s class="sui-msg-icon"></s>
 						</div>
 					</div>
-					<div class="controls-wrap">
+					<div class="row-fluid">
 						<label class="checkbox inline">
 							<input name="m1" type="checkbox" value="1" checked /> 短信发送给店长
 						</label>
 					</div>
-					<div class="controls-wrap">
+					<div class="row-fluid">
 						<label class="checkbox inline">
 							<input name="m1" type="checkbox" value="2" checked /> 短信发送给电商决策人
 						</label>
@@ -1164,11 +1612,11 @@ p { margin: 0;}
 					&lt;select&gt;
 						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
 					&lt;/select&gt;
-					&lt;div class="msg msg-error msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
+					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
+						&lt;div class="sui-msg-con"&gt;
 							该项为必填项
 						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1179,11 +1627,11 @@ p { margin: 0;}
 						&lt;option value="" selected&gt;---请选择---&lt;/option&gt;
 					&lt;/select&gt;
 					&lt;input class="input-xlarge" type="text" value="" /&gt;
-					&lt;div class="msg msg-error msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
+					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
+						&lt;div class="sui-msg-con"&gt;
 							该项为必填项
 						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1191,8 +1639,8 @@ p { margin: 0;}
 				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;内&lt;/span&gt;容：&lt;/label&gt;
 				&lt;div class="controls"&gt;
 					&lt;textarea class="input-xxlarge" style="height: 190px;"&gt;&lt;/textarea&gt;
-					&lt;div class="msg msg-tips msg-default" style="vertical-align: top;"&gt;
-						&lt;div class="msg-con"&gt;
+					&lt;div class="sui-msg sui-msg-tips sui-msg-default" style="vertical-align: top;"&gt;
+						&lt;div class="sui-msg-con"&gt;
 							&lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;消息渠道发送字数提示：&lt;/p&gt;
 							&lt;p&gt;短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送&lt;/p&gt;
 							&lt;p&gt;旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字&lt;/p&gt;
@@ -1200,13 +1648,13 @@ p { margin: 0;}
 							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字&lt;/p&gt;
 							&lt;p&gt;站内信：XXXX个汉字&lt;/p&gt;
 						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
-					&lt;div class="msg msg-error msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
+					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
+						&lt;div class="sui-msg-con"&gt;
 							该项为必填项
 						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
+						&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 					&lt;/div&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
@@ -1219,7 +1667,7 @@ p { margin: 0;}
 			&lt;div class="control-group"&gt;
 				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 发送渠道：&lt;/label&gt;
 				&lt;div class="controls"&gt;
-					&lt;div class="controls-wrap"&gt;
+					&lt;div class="row-fluid"&gt;
 						&lt;label class="checkbox inline"&gt;
 							&lt;input name="m0" type="checkbox" value="1" /&gt; 商家中心
 						&lt;/label&gt;
@@ -1232,8 +1680,8 @@ p { margin: 0;}
 						&lt;label class="checkbox inline"&gt;
 							&lt;input name="m0" type="checkbox" value="4" /&gt; 邮件
 						&lt;/label&gt;
-						&lt;div class="msg msg-tips msg-default msg-clear help-block"&gt;
-							&lt;div class="msg-con"&gt;
+						&lt;div class="sui-msg sui-msg-tips sui-msg-default sui-msg-clear help-block"&gt;
+							&lt;div class="sui-msg-con"&gt;
 								是否向子账号发送消息：
 								&lt;label class="radio inline"&gt;
 									&lt;input name="s0" type="radio" value="1" /&gt; 是
@@ -1242,15 +1690,15 @@ p { margin: 0;}
 									&lt;input name="s0" type="radio" value="2" /&gt; 否
 								&lt;/label&gt;
 							&lt;/div&gt;
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
+							&lt;s class="sui-msg-icon"&gt;&lt;/s&gt;
 						&lt;/div&gt;
 					&lt;/div&gt;
-					&lt;div class="controls-wrap"&gt;
+					&lt;div class="row-fluid"&gt;
 						&lt;label class="checkbox inline"&gt;
 							&lt;input name="m1" type="checkbox" value="1" checked /&gt; 短信发送给店长
 						&lt;/label&gt;
 					&lt;/div&gt;
-					&lt;div class="controls-wrap"&gt;
+					&lt;div class="row-fluid"&gt;
 						&lt;label class="checkbox inline"&gt;
 							&lt;input name="m1" type="checkbox" value="2" checked /&gt; 短信发送给电商决策人
 						&lt;/label&gt;

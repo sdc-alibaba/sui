@@ -7,44 +7,44 @@
 // --------------
 
 // 小图标坐标定位
-.msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
-.msg-error .msg-icon { background-position: 0 0; }
-.msg-stop .msg-icon { background-position: 0 -16px; }
-.msg-success .msg-icon { background-position: 0 -32px; }
-.msg-warning .msg-icon { background-position: 0 -48px; }
-.msg-notice .msg-icon { background-position: 0 -64px; }
-.msg-tips .msg-icon { background-position: 0 -80px; }
-.msg-info .msg-icon { background-position: 0 -96px; }
-.msg-question .msg-icon { background-position: 0 -112px; }
+.sui-msg-icon { background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png); }
+.sui-msg-error .sui-msg-icon { background-position: 0 0; }
+.sui-msg-stop .sui-msg-icon { background-position: 0 -16px; }
+.sui-msg-success .sui-msg-icon { background-position: 0 -32px; }
+.sui-msg-warning .sui-msg-icon { background-position: 0 -48px; }
+.sui-msg-notice .sui-msg-icon { background-position: 0 -64px; }
+.sui-msg-tips .sui-msg-icon { background-position: 0 -80px; }
+.sui-msg-info .sui-msg-icon { background-position: 0 -96px; }
+.sui-msg-question .sui-msg-icon { background-position: 0 -112px; }
 
-.msg-large {
-	.msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
-	&.msg-error .msg-icon { background-position: 0 0; }
-	&.msg-stop .msg-icon { background-position: 0 -24px; }
-	&.msg-success .msg-icon { background-position: 0 -48px; }
-	&.msg-warning .msg-icon { background-position: 0 -72px; }
-	&.msg-notice .msg-icon { background-position: 0 -96px; }
-	&.msg-tips .msg-icon { background-position: 0 -120px; }
-	&.msg-info .msg-icon { background-position: 0 -144px; }
-	&.msg-question .msg-icon { background-position: 0 -168px; }
+.sui-msg-large {
+	.sui-msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
+	&.sui-msg-error .sui-msg-icon { background-position: 0 0; }
+	&.sui-msg-stop .sui-msg-icon { background-position: 0 -24px; }
+	&.sui-msg-success .sui-msg-icon { background-position: 0 -48px; }
+	&.sui-msg-warning .sui-msg-icon { background-position: 0 -72px; }
+	&.sui-msg-notice .sui-msg-icon { background-position: 0 -96px; }
+	&.sui-msg-tips .sui-msg-icon { background-position: 0 -120px; }
+	&.sui-msg-info .sui-msg-icon { background-position: 0 -144px; }
+	&.sui-msg-question .sui-msg-icon { background-position: 0 -168px; }
 }
 
 // 基础样式
-.msg {
+.sui-msg {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
 	position: relative;
 	color: @msgDefaultColor;
-	.msg-icon {
+	.sui-msg-icon {
 		position: absolute;
 	}
 }
-.msg-con {
+.sui-msg-con {
 	.border-radius(@msgBorderRadius);
 	p { font-weight: normal; }
 }
-.msg-icon {
+.sui-msg-icon {
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
@@ -54,24 +54,24 @@
 }
 
 // 小尺寸（默认尺寸）
-.msg {
+.sui-msg {
 	font-size: @baseFontSize;
 	line-height: @baseLineHeight;
 	vertical-align: middle;
-	.msg-con { padding: 2px 10px 2px 23px; }
-	.msg-icon {
+	.sui-msg-con { padding: 2px 10px 2px 23px; }
+	.sui-msg-icon {
 		top: 4px;
 		left: 4px;
 	}
 }
 
 // 大尺寸
-.msg-large {
+.sui-msg-large {
 	font-size: @fontSizeLarge;
 	line-height: @lineHeightLarge;
 	font-weight: bold;
-	.msg-con { padding: 11px 11px 11px 44px; }
-	.msg-icon {
+	.sui-msg-con { padding: 11px 11px 11px 44px; }
+	.sui-msg-icon {
 		top: 12px;
 		left: 11px;
 		width: 24px;
@@ -80,70 +80,70 @@
 }
 
 // Msgs类型
-.msg-error {
+.sui-msg-error {
 	color: #ea4a36;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #ffe3e0;
 		background-color: #fff2f2;
 	}
 }
-.msg-stop {
+.sui-msg-stop {
 	color: #ea4a36;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #ffe3e0;
 		background-color: #fff2f2;
 	}
 }
-.msg-success {
+.sui-msg-success {
 	color: #4ab933;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #dcf9d6;
 		background-color: #edffe9;
 	}
 }
-.msg-warning {
+.sui-msg-warning {
 	color: #cf700b;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #fee8d7;
 		background-color: #fef1e3;
 	}
 }
-.msg-notice {
+.sui-msg-notice {
 	color: #ee9f28;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #faf1d7;
 		background-color: #fffff1;
 	}
 }
-.msg-tips {
+.sui-msg-tips {
 	color: #ee9f28;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #faf1d7;
 		background-color: #fffff1;
 	}
 }
-.msg-info {
+.sui-msg-info {
 	color: #3a9ed5;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #e4f3fd;
 		background-color: #f2faff;
 	}
 }
-.msg-question {
+.sui-msg-question {
 	color: #333;
-	.msg-con {
+	.sui-msg-con {
 		border: 1px solid #eaeaea;
 		background-color: #f7f7f7;
 	}
 }
 
 // 成块级
-.msg-block { display: block; }
+.sui-msg-block { display: block; }
 
 // 清除模式
-.msg-clear {
+.sui-msg-clear {
 	display: block;
-	.msg-con {
+	.sui-msg-con {
 		display: inline-block;
 		*display: inline;
 		*zoom: 1;
@@ -151,14 +151,14 @@
 }
 
 // 默认字体颜色
-.msg-default {
+.sui-msg-default {
 	color: @msgDefaultColor;
 }
 
 // 去边框和底色
-.msg-naked {
+.sui-msg-naked {
 	padding: 1px;
-	.msg-con {
+	.sui-msg-con {
 		border: none;
 		background-color: transparent;
 	}
