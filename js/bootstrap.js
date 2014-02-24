@@ -10,7 +10,8 @@ require([
   'bootstrap-popover.js',
   'bootstrap-scrollspy.js',
   'bootstrap-tab.js',
-  'bootstrap-affix.js'
+  'bootstrap-affix.js',
+  'bootstrap-pagination.js'
 ], function() {
   'use strict';
 });
