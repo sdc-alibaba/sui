@@ -2009,7 +2009,7 @@ define("bootstrap-modal.js", function(){});
         , switchTgt = tip.prev()
         , tipContainer = tgt.parents('.sui-tooltip')
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
-        switchTgt.trigger('click.sui-tooltip')   
+        switchTgt.trigger('click.tooltip')   
       }
     })
 
