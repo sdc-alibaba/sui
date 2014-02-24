@@ -12,6 +12,8 @@ block content
     != 'data-属性都是必须的。也可通过$("xx").modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>'
   p
     涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可
+  p.
+    .modal 改为 .sui-modal  |  .modal-backdrop 改为 .sui-modal-backdrop
 
   textarea(cols="200", rows="22").
     button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
