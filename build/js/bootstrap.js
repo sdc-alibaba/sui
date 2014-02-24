@@ -1257,7 +1257,7 @@ define("bootstrap-dropdown.js", function(){});
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -1410,7 +1410,7 @@ define("bootstrap-dropdown.js", function(){});
           , timeout = setTimeout(function () {
               that.$element.off($.support.transition.end)
               that.hideModal()
-            }, 500)
+            }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -1444,7 +1444,7 @@ define("bootstrap-dropdown.js", function(){});
           , opt = this.options
           , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
+          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
           //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
