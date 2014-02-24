@@ -1257,7 +1257,7 @@ define("bootstrap-dropdown.js", function(){});
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -1410,7 +1410,7 @@ define("bootstrap-dropdown.js", function(){});
           , timeout = setTimeout(function () {
               that.$element.off($.support.transition.end)
               that.hideModal()
-            }, 500)
+            }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -1444,7 +1444,7 @@ define("bootstrap-dropdown.js", function(){});
           , opt = this.options
           , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
+          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
           //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
@@ -1716,14 +1716,12 @@ define("bootstrap-modal.js", function(){});
 
   , leave: function (e) {
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
-
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
       this.timeout = setTimeout(function() {
-        var isHover = self.$tip.data('hover')
         //isHover 为0或undefined，undefined:没有移到tip上过
-        if (!isHover) {
+        if (!self.isTipHover) {
           self.hoverState = 'out'
         }
         if (self.hoverState == 'out') self.hide()
@@ -1740,7 +1738,7 @@ define("bootstrap-modal.js", function(){});
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
-        , that = this
+        , self = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1764,10 +1762,10 @@ define("bootstrap-modal.js", function(){});
 
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            $(this).data('hover', 1)
+            self.isTipHover = 1;
           }, function(){
-            $(this).data('hover', 0)
-            that.hide()
+            self.isTipHover = 0;
+            self.hide()
           })
         }
 
@@ -1861,8 +1859,7 @@ define("bootstrap-modal.js", function(){});
     }
 
   , hide: function () {
-      var that = this
-        , $tip = this.tip()
+      var $tip = this.tip()
         , e = $.Event('hide')
 
       this.$element.trigger(e)

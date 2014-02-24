@@ -7644,7 +7644,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #fff;
 }
 
-.modal-backdrop {
+.sui-modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -7653,27 +7653,27 @@ input[type="submit"].btn.btn-mini {
   z-index: 1040;
 }
 
-.modal-backdrop.fade {
+.sui-modal-backdrop.fade {
   opacity: 0;
 }
 
-.modal-backdrop,
-.modal-backdrop.fade.in {
+.sui-modal-backdrop,
+.sui-modal-backdrop.fade.in {
   opacity: 0.4;
   filter: alpha(opacity=40);
 }
 
-.modal-backdrop.bg-black,
-.modal-backdrop.fade.in.bg-black {
+.sui-modal-backdrop.bg-black,
+.sui-modal-backdrop.fade.in.bg-black {
   background-color: #000000;
 }
 
-.modal-backdrop.bg-white,
-.modal-backdrop.fade.in.bg-white {
+.sui-modal-backdrop.bg-white,
+.sui-modal-backdrop.fade.in.bg-white {
   background-color: #ffffff;
 }
 
-.modal {
+.sui-modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -7692,7 +7692,7 @@ input[type="submit"].btn.btn-mini {
           background-clip: padding-box;
 }
 
-.modal.fade {
+.sui-modal.fade {
   top: -25%;
   -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
      -moz-transition: opacity 0.3s linear, top 0.3s ease-out;
@@ -7700,26 +7700,26 @@ input[type="submit"].btn.btn-mini {
           transition: opacity 0.3s linear, top 0.3s ease-out;
 }
 
-.modal.fade.in {
+.sui-modal.fade.in {
   top: 50%;
 }
 
-.modal-header {
+.sui-modal .modal-header {
   padding: 7px 0;
   margin: 0 10px;
   border-bottom: 1px solid #b7b7b7;
 }
 
-.modal-header h3 {
+.sui-modal .modal-header h3 {
   margin: 0;
   line-height: 30px;
 }
 
-.modal-header .modal-title {
+.sui-modal .modal-header .modal-title {
   margin: 0;
 }
 
-.modal-body {
+.sui-modal .modal-body {
   position: relative;
   max-height: 400px;
   min-height: 150px;
@@ -7727,15 +7727,15 @@ input[type="submit"].btn.btn-mini {
   overflow-y: auto;
 }
 
-.modal-body.no-foot {
+.sui-modal .modal-body.no-foot {
   min-height: 190px;
 }
 
-.modal-form {
+.sui-modal .modal-form {
   margin-bottom: 0;
 }
 
-.modal-footer {
+.sui-modal .modal-footer {
   padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right;
@@ -7749,27 +7749,27 @@ input[type="submit"].btn.btn-mini {
           box-shadow: inset 0 1px 0 #ffffff;
 }
 
-.modal-footer:before,
-.modal-footer:after {
+.sui-modal .modal-footer:before,
+.sui-modal .modal-footer:after {
   display: table;
   line-height: 0;
   content: "";
 }
 
-.modal-footer:after {
+.sui-modal .modal-footer:after {
   clear: both;
 }
 
-.modal-footer .btn + .btn {
+.sui-modal .modal-footer .btn + .btn {
   margin-bottom: 0;
   margin-left: 7px;
 }
 
-.modal-footer .btn-group .btn + .btn {
+.sui-modal .modal-footer .btn-group .btn + .btn {
   margin-left: -1px;
 }
 
-.modal-footer .btn-block + .btn-block {
+.sui-modal .modal-footer .btn-block + .btn-block {
   margin-left: 0;
 }
 

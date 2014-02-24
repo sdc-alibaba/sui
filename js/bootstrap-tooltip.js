@@ -117,14 +117,12 @@
 
   , leave: function (e) {
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
-
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
       this.timeout = setTimeout(function() {
-        var isHover = self.$tip.data('hover')
         //isHover 为0或undefined，undefined:没有移到tip上过
-        if (!isHover) {
+        if (!self.isTipHover) {
           self.hoverState = 'out'
         }
         if (self.hoverState == 'out') self.hide()
@@ -141,7 +139,7 @@
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
-        , that = this
+        , self = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -165,10 +163,10 @@
 
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            $(this).data('hover', 1)
+            self.isTipHover = 1;
           }, function(){
-            $(this).data('hover', 0)
-            that.hide()
+            self.isTipHover = 0;
+            self.hide()
           })
         }
 
@@ -262,8 +260,7 @@
     }
 
   , hide: function () {
-      var that = this
-        , $tip = this.tip()
+      var $tip = this.tip()
         , e = $.Event('hide')
 
       this.$element.trigger(e)
