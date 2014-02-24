@@ -1,5 +1,4 @@
-(function () {
-/**
+(function () {/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -2585,7 +2584,7 @@ define("bootstrap-affix.js", function(){});
     Pagination.prototype = {
         //generate the outer wrapper with the config of custom style
         _draw: function () {
-            var tpl = '<div class="pagination';
+            var tpl = '<div class="sui-pagination';
             for (var i = 0; i < this.styleClass.length; i++) {
                 tpl += ' ' + this.styleClass[i];
             }
@@ -2595,7 +2594,7 @@ define("bootstrap-affix.js", function(){});
         },
         //generate the true pagination
         _drawInner: function () {
-            var outer = this.hookNode.children('.pagination');
+            var outer = this.hookNode.children('.sui-pagination');
             var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
             if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
                 for (var i = 1; i < this.pages + 1; i++) {
@@ -2646,7 +2645,7 @@ define("bootstrap-affix.js", function(){});
 
         _ctrl: function () {
             var self = this,
-                pag = self.hookNode.children('.pagination');
+                pag = self.hookNode.children('.sui-pagination');
 
             function doPagination() {
                 var tmpNum = parseInt(pag.find('.page-num').val());
@@ -2668,7 +2667,7 @@ define("bootstrap-affix.js", function(){});
 
         _select: function () {
             var self = this;
-            self.hookNode.children('.pagination').on('click', 'a', function (e) {
+            self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
                 e.preventDefault();
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
                     self.currentPage = parseInt($(this).attr('data'));
@@ -2703,6 +2702,8 @@ define("bootstrap-affix.js", function(){});
     }
     /* jshint ignore:end */
 
+    var old = $.fn.pagination;
+    
     $.fn.pagination = function (options) {
         var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);
         if (typeof options == 'string') {
@@ -2711,13 +2712,20 @@ define("bootstrap-affix.js", function(){});
         }
         return this.each(function () {
             var $this = $(this),
-                pag = $this.data('pagination');
-            if (!pag) $this.data('pagination', (pag = new Pagination(opts).init(opts, $(this))))
+                pag = $this.data('sui-pagination');
+            if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
             else if (typeof options == 'string') {
                 pag[options].apply(pag, args)
             }
         });
     };
+
+    $.fn.pagination.Constructor = Pagination;
+
+    $.fn.pagination.noConflict = function () {
+        $.fn.pagination = old;
+        return this
+    }
 
     $.fn.pagination.defaults = {
         pageSize: 10,
@@ -2753,6 +2761,7 @@ require([
 });
 
 define("bootstrap", function(){});
+
 
 require(["bootstrap"]);
 }());
