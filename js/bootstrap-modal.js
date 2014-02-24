@@ -56,8 +56,8 @@
             ,normal: 590
             ,large: 790
           }
-      ele.delegate('[data-dismiss="modal"]', 'click.dismiss.sui-modal', $.proxy(this.hide, this))
-        .delegate('[data-ok="modal"]', 'click.ok.sui-modal', $.proxy(this.okHide, this))
+      ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
       if(w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
@@ -127,7 +127,7 @@
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
-        $(document).off('focusin.sui-modal')
+        $(document).off('focusin.modal')
         that.timeid && clearTimeout(that.timeid)
         this.$element
           .removeClass('in')
@@ -148,7 +148,7 @@
     }
     , enforceFocus: function () {
         var that = this
-        $(document).on('focusin.sui-modal', function (e) {
+        $(document).on('focusin.modal', function (e) {
           if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
             that.$element.focus()
           }
@@ -158,11 +158,11 @@
     , escape: function () {
         var that = this
         if (this.isShown && this.options.keyboard) {
-          this.$element.on('keyup.dismiss.sui-modal', function ( e ) {
+          this.$element.on('keyup.dismiss.modal', function ( e ) {
             e.which == 27 && that.hide()
           })
         } else if (!this.isShown) {
-          this.$element.off('keyup.dismiss.sui-modal')
+          this.$element.off('keyup.dismiss.modal')
         }
       }
 
@@ -277,7 +277,7 @@
   * ============== */
 
 
-  $(document).on('click.sui-modal.data-api', '[data-toggle="modal"]', function (e) {
+  $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
       //$target这里指dialog本体Dom(若存在)
