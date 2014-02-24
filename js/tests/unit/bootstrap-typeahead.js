@@ -49,8 +49,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
 
         $input.remove()
         typeahead.$menu.remove()
@@ -68,8 +68,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
 
         $input.remove()
         typeahead.$menu.remove()
@@ -87,8 +87,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
 
         $input.remove()
         typeahead.$menu.remove()
@@ -104,8 +104,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 1, 'has 1 item in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 1, 'has 1 item in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
 
         $input.remove()
         typeahead.$menu.remove()
@@ -122,8 +122,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
 
         $input.blur()
 
@@ -146,8 +146,8 @@ $(function () {
         typeahead.lookup()
 
         ok(typeahead.$menu.is(":visible"), 'typeahead is visible')
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
-        equals(typeahead.$menu.find('.active').length, 1, 'one item is active')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('.active').length, 1, 'one item is active')
         ok(typeahead.$menu.find('li').first().hasClass('active'), "first item is active")
 
         // simulate entire key pressing event
@@ -204,7 +204,7 @@ $(function () {
 
         $(typeahead.$menu.find('li')[2]).mouseover().click()
 
-        equals($input.val(), 'ac', 'input value was correctly set')
+        equal($input.val(), 'ac', 'input value was correctly set')
         ok(!typeahead.$menu.is(':visible'), 'the menu was hidden')
         ok(changed, 'a change event was fired')
         ok(focus && !blur, 'focus is still set')
@@ -223,12 +223,12 @@ $(function () {
         $input.val('aa')
         typeahead.lookup()
 
-        equals(typeahead.$menu.find('li').length, 0, 'has 0 items in menu')
+        equal(typeahead.$menu.find('li').length, 0, 'has 0 items in menu')
 
         $input.val('aaa')
         typeahead.lookup()
 
-        equals(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
+        equal(typeahead.$menu.find('li').length, 3, 'has 3 items in menu')
 
         $input.remove()
         typeahead.$menu.remove()

@@ -15,7 +15,7 @@
 ### Gulp
 
 Gulp 和 Grunt 一样也是用来构建代码。Gulp 基于nodejs的stream来做的，区别于Grunt完全基于配置，所以更加灵活方便，能用更少更优雅的代码实现复杂的功能。Gulp应该会在不久之后取代Grunt成为前端最好的构建工具(**Task Runner**)。Gulp 官网地址：[Gulp](https://github.com/gulpjs/gulp)。
-目前用 Gulp 实现了Grunt中的全部任务，但是qunit还有bug。现在两个工具并存，并不存在冲突，等gulp社区成熟稳定之后就可以删掉grunt了。**目前还是以Grunt为主**。
+目前用 Gulp 实现了Grunt中的全部任务。现在两个工具并存，并不存在冲突，等gulp社区成熟稳定之后就可以删掉grunt了。**目前还是以Grunt为主**。
 
 gulp 默认配置了default和watch两个主要任务。
 
@@ -25,9 +25,9 @@ icon全部用iconfont实现，整个dpl不需要任何图片资源。目前的fo
 
 ### git协作：
 
-master不用来开发代码。
-每个人新建一个自己的分支，比如开发btn的分支就叫btn，开发完成后向master发送一个merge request，另一个同学review完代码之后点击merge即可提交到master。
-重要阶段就打一个tag。 
+目前使用dev分支来发布稳定代码，master分支暂时不用。
+每个人新建一个自己的分支，比如开发btn的分支就叫btn，开发完成后向dev发送一个merge request，另一个同学review完代码之后点击merge即可提交到dev。
+重要阶段就打一个tag。
 
 开发时候只需要执行 **grunt watch** 就可以，会自动编译代码并刷新页面。最后提交的时候要执行 **grunt test** 保证没有错误再提交。
 

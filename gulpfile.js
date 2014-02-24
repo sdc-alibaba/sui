@@ -98,28 +98,8 @@ gulp.task('jshint', function() {
 })
 
 gulp.task('qunit', function(callback) {
-  /*
-  var config = {
-    inject: 'js/tests/unit/bootstrap-phantom.js'
-  }
   gulp.src('js/tests/*.html')
-    .pipe(qunit(config));
-  */
-  //gulp-qunit 不好用，暂时自己实现
-  var error = 0
-  var serverCmd = 'node js/tests/server.js'
-  var qunitCmd = 'node_modules/phantomjs/bin/phantomjs js/tests/phantom.js "http://localhost:3000/js/tests"'
-  var runServer = exec(serverCmd)
-  var runQunit = exec(qunitCmd, function(e) {
-    runServer.kill()
-    callback(error)
-  }).stdout.on('data', function (data) {
-    if (/tests failed/.test(data)) {
-      error = 'qunit test failed!'
-    } else {
-      console.log(data)
-    }
-  })
+    .pipe(qunit());
 })
 
 // copy fonts to build
