@@ -1257,7 +1257,7 @@ define("bootstrap-dropdown.js", function(){});
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -1410,7 +1410,7 @@ define("bootstrap-dropdown.js", function(){});
           , timeout = setTimeout(function () {
               that.$element.off($.support.transition.end)
               that.hideModal()
-            }, 500)
+            }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -1444,7 +1444,7 @@ define("bootstrap-dropdown.js", function(){});
           , opt = this.options
           , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
+          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
           //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
@@ -1665,7 +1665,7 @@ define("bootstrap-modal.js", function(){});
       //为confirm类型tooltip增加取消按钮设置默认逻辑
       if (this.options.type == 'confirm') {
         this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-          $(this).parents('.tooltip').prev().trigger('click')
+          $(this).parents('.sui-tooltip').prev().trigger('click')
         })
         this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
 
@@ -1679,9 +1679,9 @@ define("bootstrap-modal.js", function(){});
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
-      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
@@ -1716,14 +1716,12 @@ define("bootstrap-modal.js", function(){});
 
   , leave: function (e) {
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
-
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
       this.timeout = setTimeout(function() {
-        var isHover = self.$tip.data('hover')
         //isHover 为0或undefined，undefined:没有移到tip上过
-        if (!isHover) {
+        if (!self.isTipHover) {
           self.hoverState = 'out'
         }
         if (self.hoverState == 'out') self.hide()
@@ -1740,7 +1738,7 @@ define("bootstrap-modal.js", function(){});
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
-        , that = this
+        , self = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1764,10 +1762,10 @@ define("bootstrap-modal.js", function(){});
 
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            $(this).data('hover', 1)
+            self.isTipHover = 1;
           }, function(){
-            $(this).data('hover', 0)
-            that.hide()
+            self.isTipHover = 0;
+            self.hide()
           })
         }
 
@@ -1861,8 +1859,7 @@ define("bootstrap-modal.js", function(){});
     }
 
   , hide: function () {
-      var that = this
-        , $tip = this.tip()
+      var $tip = this.tip()
         , e = $.Event('hide')
 
       this.$element.trigger(e)
@@ -2005,9 +2002,9 @@ define("bootstrap-modal.js", function(){});
     //点击外部可消失tooltip
     $(document).on('mousedown', function(e){
       var tgt = $(e.target)
-        , tip = $('.tooltip')
+        , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
-        , tipContainer = tgt.parents('.tooltip')
+        , tipContainer = tgt.parents('.sui-tooltip')
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
@@ -2568,6 +2565,181 @@ define("bootstrap-tab.js", function(){});
 
 define("bootstrap-affix.js", function(){});
 
+(function ($) {
+    function Pagination(opts) {
+        this.itemsCount = opts.itemsCount;
+        this.pageSize = opts.pageSize;
+        this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
+        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
+        $.isNumeric(opts.pages) && (this.pages = opts.pages);
+        this.currentPage = opts.currentPage;
+        this.styleClass = opts.styleClass;
+        this.onSelect = opts.onSelect;
+        this.showCtrl = opts.showCtrl;
+    }
+
+    /* jshint ignore:start */
+    Pagination.prototype = {
+        //generate the outer wrapper with the config of custom style
+        _draw: function () {
+            var tpl = '<div class="sui-pagination';
+            for (var i = 0; i < this.styleClass.length; i++) {
+                tpl += ' ' + this.styleClass[i];
+            }
+            tpl += '"></div>'
+            this.hookNode.html(tpl);
+            this._drawInner();
+        },
+        //generate the true pagination
+        _drawInner: function () {
+            var outer = this.hookNode.children('.sui-pagination');
+            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
+            if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
+                for (var i = 1; i < this.pages + 1; i++) {
+                    i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                }
+
+            } else {
+                if (this.currentPage < this.displayPage - 1) {
+                    for (var i = 1; i < this.displayPage; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
+                } else if (this.currentPage > this.pages - this.displayPage + 2 && this.currentPage <= this.pages) {
+                    tpl += '<li><a href="#" data="1">1</a></li>';
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    for (var i = this.pages - this.displayPage + 2; i <= this.pages; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                } else {
+                    tpl += '<li><a href="#" data="1">1</a></li>';
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    var frontPage,
+                        backPage,
+                        middle = (this.displayPage - 3) / 2;
+                    if ( (this.displayPage - 3) % 2 == 0 ) {
+                        frontPage = backPage = middle; 
+                    } else {
+                        frontPage = Math.floor(middle);
+                        backPage = Math.ceil(middle);
+                    }
+                    for (var i = this.currentPage - frontPage; i <= this.currentPage + backPage; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
+                }
+            }
+            tpl += '<li class="next' + (this.currentPage + 1 > this.pages ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage + 1) + '">下一页»</a></li>' + '</ul>';
+            this.showCtrl && (tpl += this._drawCtrl());
+            outer.html(tpl);
+        },
+        //值传递
+        _drawCtrl: function () {
+            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
+            return tpl;
+        },
+
+        _ctrl: function () {
+            var self = this,
+                pag = self.hookNode.children('.sui-pagination');
+
+            function doPagination() {
+                var tmpNum = parseInt(pag.find('.page-num').val());
+                if ($.isNumeric(tmpNum) && tmpNum <= self.pages) {
+                    self.currentPage = tmpNum;
+                    self._drawInner();
+                    if ($.isFunction(self.onSelect)) {
+                        self.onSelect.call($(this), tmpNum);
+                    }
+                }
+            }
+            pag.on('click', '.page-confirm', function (e) {
+                doPagination.call(this)
+            })
+            pag.on('keypress', '.page-num', function (e) {
+                e.which == 13 && doPagination.call(this)
+            })
+        },
+
+        _select: function () {
+            var self = this;
+            self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
+                e.preventDefault();
+                if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
+                    self.currentPage = parseInt($(this).attr('data'));
+                    self._drawInner();
+                    if ($.isFunction(self.onSelect)) {
+                        self.onSelect.call($(this), self.currentPage);
+                    }
+                }
+            })
+        },
+
+        init: function (opts, hookNode) {
+            this.hookNode = hookNode;
+            this._draw();
+            this._select();
+            this.showCtrl && this._ctrl();
+            return this;
+        },
+
+        updateItemsCount: function (itemsCount) {
+            this.pages = Math.ceil(itemsCount / this.pageSize);
+            //如果最后一页没有数据了，返回到剩余最大页数
+            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            this._drawInner();
+        },
+
+        updatePages: function (pages) {
+            this.pages = pages;
+            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            this._drawInner();
+        }
+    }
+    /* jshint ignore:end */
+
+    var old = $.fn.pagination;
+    
+    $.fn.pagination = function (options) {
+        var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);
+        if (typeof options == 'string') {
+            args = $.makeArray(arguments);
+            args.shift();
+        }
+        return this.each(function () {
+            var $this = $(this),
+                pag = $this.data('sui-pagination');
+            if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
+            else if (typeof options == 'string') {
+                pag[options].apply(pag, args)
+            }
+        });
+    };
+
+    $.fn.pagination.Constructor = Pagination;
+
+    $.fn.pagination.noConflict = function () {
+        $.fn.pagination = old;
+        return this
+    }
+
+    $.fn.pagination.defaults = {
+        pageSize: 10,
+        displayPage: 5,
+        currentPage: 1,
+        itemsCount: 100,
+        styleClass: [],
+        pages: null,
+        showCtrl: false,
+        onSelect: null
+    }
+
+})(window.jQuery)
+;
+define("bootstrap-pagination.js", function(){});
+
 require([
   'bootstrap-transition.js',
   'bootstrap-alert.js',
@@ -2580,7 +2752,8 @@ require([
   'bootstrap-popover.js',
   'bootstrap-scrollspy.js',
   'bootstrap-tab.js',
-  'bootstrap-affix.js'
+  'bootstrap-affix.js',
+  'bootstrap-pagination.js'
 ], function() {
   
 });
