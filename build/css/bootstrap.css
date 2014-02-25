@@ -5735,31 +5735,31 @@ input[type="submit"].btn.btn-mini {
   margin-top: 5px;
 }
 
-.nav {
+.sui-nav {
   margin-bottom: 18px;
   margin-left: 0;
   list-style: none;
 }
 
-.nav > li > a {
+.sui-nav > li > a {
   display: block;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
+.sui-nav > li > a:hover,
+.sui-nav > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee;
 }
 
-.nav > li > a > img {
+.sui-nav img {
   max-width: none;
 }
 
-.nav > .pull-right {
+.sui-nav > .pull-right {
   float: right;
 }
 
-.nav-header {
+.sui-nav .nav-header {
   display: block;
   padding: 3px 15px;
   font-size: 11px;
@@ -5770,41 +5770,41 @@ input[type="submit"].btn.btn-mini {
   text-transform: uppercase;
 }
 
-.nav li + .nav-header {
+.sui-nav li + .nav-header {
   margin-top: 9px;
 }
 
-.nav-list {
+.sui-nav.nav-list {
   padding-right: 15px;
   padding-left: 15px;
   margin-bottom: 0;
 }
 
-.nav-list > li > a,
-.nav-list .nav-header {
+.sui-nav.nav-list > li > a,
+.sui-nav.nav-list .nav-header {
   margin-right: -15px;
   margin-left: -15px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-.nav-list > li > a {
+.sui-nav.nav-list > li > a {
   padding: 3px 15px;
 }
 
-.nav-list > .active > a,
-.nav-list > .active > a:hover,
-.nav-list > .active > a:focus {
+.sui-nav.nav-list > .active > a,
+.sui-nav.nav-list > .active > a:hover,
+.sui-nav.nav-list > .active > a:focus {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   background-color: #0066cc;
 }
 
-.nav-list [class^="icon-"],
-.nav-list [class*=" icon-"] {
+.sui-nav.nav-list [class^="icon-"],
+.sui-nav.nav-list [class*=" icon-"] {
   margin-right: 2px;
 }
 
-.nav-list .divider {
+.sui-nav.nav-list .divider {
   *width: 100%;
   height: 1px;
   margin: 8px 1px;
@@ -5814,47 +5814,47 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 1px solid #ffffff;
 }
 
-.nav-tabs,
-.nav-pills {
+.sui-nav.nav-tabs,
+.sui-nav.nav-pills {
   *zoom: 1;
 }
 
-.nav-tabs:before,
-.nav-pills:before,
-.nav-tabs:after,
-.nav-pills:after {
+.sui-nav.nav-tabs:before,
+.sui-nav.nav-pills:before,
+.sui-nav.nav-tabs:after,
+.sui-nav.nav-pills:after {
   display: table;
   line-height: 0;
   content: "";
 }
 
-.nav-tabs:after,
-.nav-pills:after {
+.sui-nav.nav-tabs:after,
+.sui-nav.nav-pills:after {
   clear: both;
 }
 
-.nav-tabs > li,
-.nav-pills > li {
+.sui-nav.nav-tabs > li,
+.sui-nav.nav-pills > li {
   float: left;
 }
 
-.nav-tabs > li > a,
-.nav-pills > li > a {
+.sui-nav.nav-tabs > li a,
+.sui-nav.nav-pills > li a {
   padding-right: 12px;
   padding-left: 12px;
   line-height: 14px;
 }
 
-.nav-tabs {
+.sui-nav.nav-tabs {
   padding-left: 20px;
   border-bottom: 1px solid #2597dd;
 }
 
-.nav-tabs > li {
+.sui-nav.nav-tabs > li {
   margin-bottom: -1px;
 }
 
-.nav-tabs > li > a {
+.sui-nav.nav-tabs > li > a {
   padding: 2px 10px;
   line-height: 18px;
   color: #666666;
@@ -5866,32 +5866,32 @@ input[type="submit"].btn.btn-mini {
           border-radius: 0;
 }
 
-.nav-tabs > li > a:hover {
+.sui-nav.nav-tabs > li > a:hover {
   color: #0066cc;
   background-color: #f9f9f9;
 }
 
-.nav-tabs > li + li > a {
+.sui-nav.nav-tabs > li + li > a {
   margin-left: -1px;
 }
 
-.nav-tabs.nav-tabs-large > li > a {
+.sui-nav.nav-tabs.nav-tabs-large > li > a {
   padding: 4px 13px;
 }
 
-.nav-tabs.nav-tabs-xlarge > li > a {
+.sui-nav.nav-tabs.nav-tabs-xlarge > li > a {
   padding: 6px 16px;
 }
 
-.nav-tabs > .active {
+.sui-nav.nav-tabs > .active {
   border-bottom: 0;
 }
 
-.nav-tabs > .active + li > a {
+.sui-nav.nav-tabs > .active + li > a {
   border-left-color: #2597dd;
 }
 
-.nav-tabs > .active > a {
+.sui-nav.nav-tabs > .active > a {
   margin-top: -1px;
   font-weight: bold;
   color: #666666;
@@ -5902,12 +5902,12 @@ input[type="submit"].btn.btn-mini {
   border-bottom-color: transparent;
 }
 
-.nav-tabs > .active > a:hover {
+.sui-nav.nav-tabs > .active > a:hover {
   color: #666666;
   background-color: #ffffff;
 }
 
-.nav-pills > li > a {
+.sui-nav.nav-pills > li > a {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 2px;
@@ -5917,9 +5917,9 @@ input[type="submit"].btn.btn-mini {
           border-radius: 5px;
 }
 
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.nav-pills > .active > a:focus {
+.sui-nav.nav-pills > .active > a,
+.sui-nav.nav-pills > .active > a:hover,
+.sui-nav.nav-pills > .active > a:focus {
   color: #ffffff;
   background-color: #0066cc;
 }
