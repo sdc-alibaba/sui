@@ -5,16 +5,19 @@
     <title>表格</title>
     <link href="../../build/css/bootstrap.css" rel="stylesheet">
     <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
   </head>
   <body>
     <div class="container">
       <div class="page-header">
         <h1>table</h1>
       </div>
-      <h3>默认table（table）</h3>
+      <h3>默认table（sui-table）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table">
+                <table class="sui-table">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -52,10 +55,10 @@
                 </table>
         </div>
       </div>
-      <h3>带边框的table（table-bordered）</h3>
+      <h3>带边框的table（sui-table-bordered）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-bordered">
+                <table class="sui-table sui-table-bordered">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -93,10 +96,10 @@
                 </table>
         </div>
       </div>
-      <h3>只有内边框的table（table-bordered-simple）</h3>
+      <h3>只有内边框的table（sui-table-bordered-simple）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-bordered-simple">
+                <table class="sui-table sui-table-bordered-simple">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -134,10 +137,10 @@
                 </table>
         </div>
       </div>
-      <h3>表头在侧边的table（table-sideheader）</h3>
+      <h3>表头在侧边的table（sui-table-sideheader）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-sideheader">
+                <table class="sui-table sui-table-sideheader">
                   <tbody>
                     <tr>
                       <td>所有交易</td>
@@ -167,10 +170,10 @@
                 </table>
         </div>
       </div>
-      <h3>斑马线table（table-zebra）</h3>
+      <h3>斑马线table（sui-table-zebra）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-zebra">
+                <table class="sui-table sui-table-zebra">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -208,10 +211,10 @@
                 </table>
         </div>
       </div>
-      <h3>竖斑马线table（table-vzebra）</h3>
+      <h3>竖斑马线table（sui-table-vzebra）</h3>
       <div class="container">
         <div class="span6">
-          <table class="table table-vzebra">
+          <table class="sui-table sui-table-vzebra">
             <tbody>
               <tr>
                 <td>所有交易</td>
@@ -241,10 +244,10 @@
           </table>
         </div>
       </div>
-      <h3>不带边框的table（table-nobordered）</h3>
+      <h3>不带边框的table（sui-table-nobordered）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-nobordered">
+                <table class="sui-table sui-table-nobordered">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -282,10 +285,10 @@
                 </table>
         </div>
       </div>
-      <h3>亮色的table（table-light）</h3>
+      <h3>亮色的table（sui-table-light）</h3>
       <div class="container">
         <div class="span6">
-                <table class="table table-light">
+                <table class="sui-table sui-table-light">
                   <thead>
                     <tr>
                       <th>＃</th>
@@ -329,7 +332,7 @@
       <h3>常用带边框的表格</h3>
       <div class="container">
         <div class="span8">
-                <table class="table table-bordered">
+                <table class="sui-table sui-table-bordered">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -382,7 +385,7 @@
       <h3>二维表格</h3>
       <div class="container">
         <div class="span8">
-                <table class="table table-bordered table-sideheader">
+                <table class="sui-table sui-table-bordered sui-table-sideheader">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -435,26 +438,11 @@
       <h3>综合表格一</h3>
       <div class="container">
         <div class="span8">
-          <table class="table table-nobody">
-            <thead>
-              <tr>
-                <th width="50%">
-                  <label class="checkbox">
-                    <input type="checkbox">
-                  </label>
-                </th>
-                <th width="11%" class="center">成交金额</th>
-                <th width="13%" class="center">订单状态</th>
-                <th width="13%" class="center">评价</th>
-                <th width="13%" class="center">操作</th>
-              </tr>
-            </thead>
-          </table>
-          <table class="table table-bordered">
+          <table class="sui-table sui-table-bordered">
             <thead>
               <tr>
                 <th colspan="5"> 
-                  <label class="checkbox">
+                  <label class="checkbox pull-left">
                     <input type="checkbox">订单编号：7867473872181848
                   </label><span class="pull-right">成交时间：2014-01-11 11:59</span>
                 </th>
@@ -504,24 +492,7 @@
       <h3>综合表格二</h3>
       <div class="container">
         <div class="span8">
-          <table class="table table-nobody">
-            <thead>
-              <tr>
-                <th width="20%">
-                  <label class="checkbox">
-                    <input type="checkbox">全选等级
-                  </label>
-                </th>
-                <th width="13%" class="center">采购单成交金额</th>
-                <th width="13%" class="center">采购单成交笔数</th>
-                <th width="13%" class="center">在售分销商品数</th>
-                <th width="13%" class="center">产品下载率</th>
-                <th width="13%" class="center">商品上架率</th>
-                <th>合作状态/操作</th>
-              </tr>
-            </thead>
-          </table>
-                <table class="table table-bordered-simple">
+                <table class="sui-table sui-table-bordered-simple">
                   <thead>
                     <tr>
                       <th colspan="7">
@@ -561,7 +532,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <table class="table table-bordered-simple">
+                <table class="sui-table sui-table-bordered-simple">
                   <thead>
                     <tr>
                       <th colspan="7">
@@ -606,6 +577,8 @@
     </div>
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>

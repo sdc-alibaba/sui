@@ -66,7 +66,7 @@
       //为confirm类型tooltip增加取消按钮设置默认逻辑
       if (this.options.type == 'confirm') {
         this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-          $(this).parents('.tooltip').prev().trigger('click')
+          $(this).parents('.sui-tooltip').prev().trigger('click')
         })
         this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
 
@@ -80,9 +80,9 @@
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
-      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
@@ -106,10 +106,10 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
+      self.hoverState = 'in'
       if (!self.options.delay || !self.options.delay.show) return self.show()
 
       clearTimeout(this.timeout)
-      self.hoverState = 'in'
       this.timeout = setTimeout(function() {
         if (self.hoverState == 'in') self.show()
       }, self.options.delay.show)
@@ -117,12 +117,14 @@
 
   , leave: function (e) {
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
-
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
-      self.hoverState = 'out'
       this.timeout = setTimeout(function() {
+        //isHover 为0或undefined，undefined:没有移到tip上过
+        if (!self.isTipHover) {
+          self.hoverState = 'out'
+        }
         if (self.hoverState == 'out') self.hide()
       }, self.options.delay.hide)
     }
@@ -137,6 +139,7 @@
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
+        , self = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -157,6 +160,15 @@
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
+
+        if (opt.trigger !== 'click') {
+          $tip.hover(function(){
+            self.isTipHover = 1;
+          }, function(){
+            self.isTipHover = 0;
+            self.hide()
+          })
+        }
 
         //宽度限制逻辑
         if (widthLimit !== true) {
@@ -248,8 +260,7 @@
     }
 
   , hide: function () {
-      var that = this
-        , $tip = this.tip()
+      var $tip = this.tip()
         , e = $.Event('hide')
 
       this.$element.trigger(e)
@@ -370,9 +381,9 @@
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
   , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性
-  , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+  , delay: {show:0, hide: 200}   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
   , html: true  //决定是html()还是text()
-  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入岛container指定的元素内的最后，可理解为 container.append(tooltipDom)
+  , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   }
 
@@ -392,9 +403,9 @@
     //点击外部可消失tooltip
     $(document).on('mousedown', function(e){
       var tgt = $(e.target)
-        , tip = $('.tooltip')
+        , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
-        , tipContainer = tgt.parents('.tooltip')
+        , tipContainer = tgt.parents('.sui-tooltip')
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }

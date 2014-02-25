@@ -8,7 +8,7 @@
 @attentionArrowOffset: @arrowOffset - @tipBorderWidth;
 
 // Base class
-.tooltip {
+.sui-tooltip {
   position: absolute;
   z-index: @zindexTooltip;
   display: block;
@@ -28,9 +28,6 @@
       background-color: @white;
       color: @grayDarker;
     }
-    .tooltip-arrow {
-  
-    }
   }
   &.attention {
     .tooltip-inner {
@@ -39,14 +36,15 @@
     }
   }
 
+  // Wrapper for the tooltip content
+  .tooltip-inner {
+    padding: 9px 11px;
+    text-decoration: none;
+  }
+
 }
 
-// Wrapper for the tooltip content
-.tooltip-inner {
-  padding: 9px 11px;
-  text-decoration: none;
 
-}
 
 // Arrows
 .tooltip-arrow {
@@ -56,7 +54,13 @@
   border-color: transparent;
   border-style: solid;
 }
-.tooltip {
+
+//如果不想用tooltip，但只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left
+.tooltip-only-arrow{
+  position: relative;
+  //border-color: @tooltipBorderColor;
+}
+.sui-tooltip ,.tooltip-only-arrow{
   &.attention {
     border: none;
     & .cover {
@@ -127,12 +131,13 @@
       top: 0;
     }
   }
-  .tooltip-arrow.cover {
-    border-width: @tooltipArrowWidth - 2;
-  }
   &.bottom.attention .tooltip-arrow {
     border-bottom-color: @attentionBg;
     top: -@attentionArrowOffset
+  }
+  // ---- end 
+  .tooltip-arrow.cover {
+    border-width: @tooltipArrowWidth - 2;
   }
 
 }

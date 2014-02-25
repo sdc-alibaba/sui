@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     qunit = require('gulp-qunit'),
     watch = require('gulp-watch'),
-    livereload = require('gulp-livereload')
+    livereload = require('gulp-livereload'),
     tinnylr = require('tiny-lr')
 
 var server = tinnylr()
@@ -97,12 +97,9 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('default'))
 })
 
-gulp.task('qunit', function() {
-  var config = {
-    inject: 'js/tests/unit/bootstrap-phantom.js'
-  }
+gulp.task('qunit', function(callback) {
   gulp.src('js/tests/*.html')
-    .pipe(qunit(config));
+    .pipe(qunit());
 })
 
 // copy fonts to build
@@ -120,7 +117,7 @@ gulp.task('watch', function() {
   gulp.watch('./fonts/*', ['jade'])
 })
 
-gulp.task('test', ['jshint'/*, 'qunit'*/])
+gulp.task('test', ['jshint', 'qunit'])
 
 gulp.task('docs', ['fonts', 'jade', 'hogan'])
 

@@ -18,7 +18,7 @@
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -83,10 +83,17 @@
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-          var h = ele.height()
-          if (h > 270) {
-            ele.css('margin-top', -parseInt(h) / 2)
+
+          var eleH = ele.height()
+            , winH = $(window).height()
+            , mt
+          if (eleH >= winH) {
+            mt = -winH/2
+          } else {
+            mt = (winH - eleH) / (1 + 1.618) - winH / 2
           }
+          ele.css('margin-top', parseInt(mt))
+
           ele.show()
           if (transition) {
             ele[0].offsetWidth // force reflow
@@ -164,7 +171,7 @@
           , timeout = setTimeout(function () {
               that.$element.off($.support.transition.end)
               that.hideModal()
-            }, 500)
+            }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
           that.hideModal()
@@ -198,7 +205,7 @@
           , opt = this.options
           , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="modal-backdrop ' + animate + '"/>')
+          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
             .appendTo(document.body)
           //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate

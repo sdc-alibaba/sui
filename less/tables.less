@@ -33,17 +33,20 @@
   }
 }
 
-.table {
+.sui-table {
   .gray{
     color: @grayLight;
   }
   th,td{
-    img,a,span,label{
+    img,label{
       margin-right: 10px;
     }
   }
   ul{
     margin:0;
+  }
+  label.checkbox{
+    display: inline-block;
   }
 }
 
@@ -57,7 +60,7 @@ table {
 // BASELINE STYLES
 // ---------------
 
-.table {
+.sui-table {
   width: 100%;
   margin-bottom: @baseLineHeight;
   // Cells
@@ -91,12 +94,13 @@ table {
   }
 
   // Nesting
-  .table {
+  .sui-table {
     background-color: @bodyBackground;
   }
 
   input{
-    margin-top:2px;
+    margin-top:-2px;
+    margin-right:2px;
   }
   label{
     margin-bottom:0px;
@@ -114,7 +118,7 @@ table {
 // CONDENSED TABLE W/ HALF PADDING
 // -------------------------------
 
-.table-condensed {
+.sui-table-condensed {
   th,
   td {
     padding: 4px 5px;
@@ -125,7 +129,7 @@ table {
 // BORDERED VERSION
 // ----------------
 
-.table-bordered {
+.sui-table-bordered {
   border: 1px solid @tableBorder;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapse; // IE7 can't round corners anyway
@@ -213,8 +217,8 @@ table {
 
 }
 
-.table-bordered-simple{
-  .table-bordered;
+.sui-table-bordered-simple{
+  .sui-table-bordered;
   th,
   td {
     border-left: 0;
@@ -227,8 +231,8 @@ table {
   margin-bottom: 5px;
 }
 
-.table-sideheader{
-  .table-bordered;
+.sui-table-sideheader{
+  .sui-table-bordered;
 
   tbody tr td:first-child{
     background-color:@tableHeadBackground;
@@ -236,12 +240,12 @@ table {
 
 }
 
-.table-nobody{
+.sui-table-nobody{
   margin-bottom: 0px;
 }
 
-.table-light{
-  .table-bordered;
+.sui-table-light{
+  .sui-table-bordered;
   th{
     background-color:@tableHeadBackgroundLight;
     border-left: 1px solid @tableBorderLight;
@@ -255,7 +259,7 @@ table {
 // --------------
 
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-zebra {
+.sui-table-zebra {
   tbody {
     > tr:nth-child(odd) > td,
     > tr:nth-child(odd) > th {
@@ -264,8 +268,8 @@ table {
   }
 }
 
-.table-vzebra {
-  .table-bordered;
+.sui-table-vzebra {
+  .sui-table-bordered;
   tbody {
     > tr > td:nth-child(odd),
     > tr > th:nth-child(odd) {
@@ -275,8 +279,8 @@ table {
 }
 
 
-.table-nobordered{
-  .table-zebra;
+.sui-table-nobordered{
+  .sui-table-zebra;
   th{
     border-bottom:1px solid @tableBorder;
   }
@@ -290,7 +294,7 @@ table {
 // HOVER EFFECT
 // ------------
 // Placed here since it has to come after the potential zebra striping
-.table-hover {
+.sui-table-hover {
   tbody {
     tr:hover > td,
     tr:hover > th {
@@ -314,8 +318,8 @@ table th[class*="span"],
 }
 
 // Change the column widths to account for td/th padding
-.table td,
-.table th {
+.sui-table td,
+.sui-table th {
   &.span1     { .tableColumns(1); }
   &.span2     { .tableColumns(2); }
   &.span3     { .tableColumns(3); }
@@ -337,7 +341,7 @@ table th[class*="span"],
 // -----------------
 // Exact selectors below required to override .table-striped
 
-.table tbody tr {
+.sui-table tbody tr {
   &.success > td {
     background-color: @successBackground;
   }
@@ -353,7 +357,7 @@ table th[class*="span"],
 }
 
 // Hover states for .table-hover
-.table-hover tbody tr {
+.sui-table-hover tbody tr {
   &.success:hover > td {
     background-color: darken(@successBackground, 5%);
   }

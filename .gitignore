@@ -36,3 +36,5 @@ nbproject
 node_modules
 #bootstrap
 docs/assets/fonts
+
+pid.txt
