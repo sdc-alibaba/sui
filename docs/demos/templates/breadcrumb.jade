@@ -1,0 +1,38 @@
+extends base
+
+block title
+    title Breadcrumb 面包屑
+
+block content
+    .container
+        .page-header
+            h1 Breadcrumb 面包屑
+            p 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加。
+        ul.breadcrumb
+            li.active 首页
+
+        ul.breadcrumb
+            li
+                a(href='#') 首页
+            li.active 手机数码、电脑办公
+
+        ul.breadcrumb
+            li
+                a(href='#') 首页
+            li
+                a(href='#') 手机数码、电脑办公
+            li.active 智能手机
+
+        pre.
+            &lt;ul class="breadcrumb"&gt;
+              &lt;li class="active"&gt;首页&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul class="breadcrumb"&gt;
+              &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="active"&gt;手机数码、电脑办公&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;ul class="breadcrumb"&gt;
+              &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;手机数码、电脑办公&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="active"&gt;智能手机&lt;/li&gt;
+            &lt;/ul&gt;

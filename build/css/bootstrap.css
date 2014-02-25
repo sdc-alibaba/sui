@@ -6773,9 +6773,17 @@ input[type="submit"].btn.btn-mini {
   margin: 0 0 18px;
   list-style: none;
   background-color: #f5f5f5;
+  background-color: #fafafa;
+  background-image: -moz-linear-gradient(left, #f5f5f5, #fafafa);
+  background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#f5f5f5), to(#fafafa));
+  background-image: -webkit-linear-gradient(left, #f5f5f5, #fafafa);
+  background-image: -o-linear-gradient(left, #f5f5f5, #fafafa);
+  background-image: linear-gradient(to right, #f5f5f5, #fafafa);
+  background-repeat: repeat-x;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fffafafa', GradientType=1);
 }
 
 .breadcrumb > li {
@@ -6785,9 +6793,10 @@ input[type="submit"].btn.btn-mini {
   *zoom: 1;
 }
 
-.breadcrumb > li > .divider {
+.breadcrumb > li + li:before {
   padding: 0 5px;
   color: #ccc;
+  content: "/\00a0";
 }
 
 .breadcrumb > .active {
