@@ -9,7 +9,7 @@ block content
     - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
     h2 不同大小的按钮
     each v in SIZES
-      - var classname = 'btn'
+      - var classname = 'sui-btn'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}') 按钮
@@ -17,7 +17,7 @@ block content
 
     h2 不同功能的按钮
     each v in ROLES
-      - var classname = 'btn'
+      - var classname = 'sui-btn'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}') 按钮
@@ -25,7 +25,7 @@ block content
 
     h2 禁用的按钮
     each v in ROLES
-      - var classname = 'btn disabled'
+      - var classname = 'sui-btn disabled'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}') 按钮
@@ -34,7 +34,7 @@ block content
     h2 带图标的按钮
 
     each v in ROLES
-      - var classname = 'btn'
+      - var classname = 'sui-btn'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}')
@@ -46,7 +46,7 @@ block content
     br
 
     each v in SIZES
-      - var classname = 'btn'
+      - var classname = 'sui-btn'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}')
@@ -58,7 +58,7 @@ block content
 
     h2 块级按钮
     each v in ROLES
-      - var classname = 'btn btn-block'
+      - var classname = 'sui-btn btn-block'
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}') 按钮
