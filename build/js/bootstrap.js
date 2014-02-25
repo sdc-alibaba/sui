@@ -1,4 +1,5 @@
-(function () {/**
+(function () {
+/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -1664,7 +1665,7 @@ define("bootstrap-modal.js", function(){});
       //为confirm类型tooltip增加取消按钮设置默认逻辑
       if (this.options.type == 'confirm') {
         this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-          $(this).parents('.tooltip').prev().trigger('click')
+          $(this).parents('.sui-tooltip').prev().trigger('click')
         })
         this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
 
@@ -1678,9 +1679,9 @@ define("bootstrap-modal.js", function(){});
   , getOptions: function (options) {
       options = $.extend({}, $.fn[this.type].defaults, this.$element.data(), options)
 
-      var foot = options.type == 'confirm' ? '<div class="modal-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
+      var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="btn btn-primary" data-ok="tooltip">确定</button><button class="btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
@@ -1715,14 +1716,12 @@ define("bootstrap-modal.js", function(){});
 
   , leave: function (e) {
       var self = $(e.currentTarget)[this.type](this._options).data(this.type)
-
       if (this.timeout) clearTimeout(this.timeout)
       if (!self.options.delay || !self.options.delay.hide) return self.hide()
 
       this.timeout = setTimeout(function() {
-        var isHover = self.$tip.data('hover')
         //isHover 为0或undefined，undefined:没有移到tip上过
-        if (!isHover) {
+        if (!self.isTipHover) {
           self.hoverState = 'out'
         }
         if (self.hoverState == 'out') self.hide()
@@ -1739,7 +1738,7 @@ define("bootstrap-modal.js", function(){});
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
-        , that = this
+        , self = this
 
       if (this.hasContent() && this.enabled) {
         this.$element.trigger(e)
@@ -1763,10 +1762,10 @@ define("bootstrap-modal.js", function(){});
 
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            $(this).data('hover', 1)
+            self.isTipHover = 1;
           }, function(){
-            $(this).data('hover', 0)
-            that.hide()
+            self.isTipHover = 0;
+            self.hide()
           })
         }
 
@@ -1860,8 +1859,7 @@ define("bootstrap-modal.js", function(){});
     }
 
   , hide: function () {
-      var that = this
-        , $tip = this.tip()
+      var $tip = this.tip()
         , e = $.Event('hide')
 
       this.$element.trigger(e)
@@ -2004,9 +2002,9 @@ define("bootstrap-modal.js", function(){});
     //点击外部可消失tooltip
     $(document).on('mousedown', function(e){
       var tgt = $(e.target)
-        , tip = $('.tooltip')
+        , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
-        , tipContainer = tgt.parents('.tooltip')
+        , tipContainer = tgt.parents('.sui-tooltip')
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
@@ -2761,7 +2759,6 @@ require([
 });
 
 define("bootstrap", function(){});
-
 
 require(["bootstrap"]);
 }());
