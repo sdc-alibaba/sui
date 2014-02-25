@@ -7900,6 +7900,7 @@ input[type="submit"].btn.btn-mini {
 
 .sui-tooltip .tooltip-inner {
   padding: 9px 11px;
+  font-weight: normal;
   text-decoration: none;
 }
 
