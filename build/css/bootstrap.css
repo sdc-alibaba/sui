@@ -3064,10 +3064,6 @@ legend + .control-group {
 
 .sui-table th img,
 .sui-table td img,
-.sui-table th a,
-.sui-table td a,
-.sui-table th span,
-.sui-table td span,
 .sui-table th label,
 .sui-table td label {
   margin-right: 10px;
