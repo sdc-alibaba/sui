@@ -1,13 +1,13 @@
 //
-// Pagination (multiple pages)
+// sui-pagination (multiple pages)
 // --------------------------------------------------
 
-// Space out pagination from surrounding content
-.pagination {
+// Space out sui-pagination from surrounding content
+.sui-pagination {
   margin: @baseLineHeight 0;
 }
 
-.pagination ul {
+.sui-pagination ul {
   // Allow for text-based alignment
   display: inline-block;
   // Reset default ul styles
@@ -17,18 +17,18 @@
   // Visuals
   //.box-shadow(0 1px 2px rgba(0,0,0,.05));
 }
-.pagination ul > li {
+.sui-pagination ul > li {
   display: inline; // Remove list-style and block-level defaults
 }
-.pagination ul > li > a,
-.pagination ul > li > span {
+.sui-pagination ul > li > a,
+.sui-pagination ul > li > span {
   /*
   float: left; // Collapse white-space
-  padding: @paginationPadding;  
+  padding: @sui-paginationPadding;  
   line-height: @baseLineHeight;
   text-decoration: none;
-  background-color: @paginationBackground;
-  border: 1px solid @paginationBorder;
+  background-color: @sui-paginationBackground;
+  border: 1px solid @sui-paginationBorder;
   border-left-width: 0;
 */
 
@@ -42,15 +42,15 @@
   border: 1px solid @paginationBorder;
   margin-left: -1px; //Collapse the border
 }
-.pagination ul > li > a:hover,
-.pagination ul > li > a:focus {
+.sui-pagination ul > li > a:hover,
+.sui-pagination ul > li > a:focus {
   color: @white;
   background-color: @btnPrimaryBackgroundHighlight;
   border-color: @btnPrimaryBackgroundHighlight;
     
 }
-.pagination ul > .active > a,
-.pagination ul > .active > span {
+.sui-pagination ul > .active > a,
+.sui-pagination ul > .active > span {
   background-color: @paginationActiveBackground;
   color: @white; 
   border-color: @paginationActiveBackground;
@@ -63,21 +63,21 @@
   }
 }
 
-.pagination ul > .dotted > span,
-.pagination ul > .dotted > a {
+.sui-pagination ul > .dotted > span,
+.sui-pagination ul > .dotted > a {
   border-top: none;
   border-bottom: none;  
 }
-.pagination ul > .disabled > span,
-.pagination ul > .disabled > a,
-.pagination ul > .disabled > a:hover,
-.pagination ul > .disabled > a:focus {
+.sui-pagination ul > .disabled > span,
+.sui-pagination ul > .disabled > a,
+.sui-pagination ul > .disabled > a:hover,
+.sui-pagination ul > .disabled > a:focus {
   color: @grayLight;
   background-color: transparent;
   cursor: default;
 }
 //next&prev btn, depends on the disabled attribute
-.pagination ul {
+.sui-pagination ul {
     > .prev, > .next {
         > span, > a {
             background-color: @paginationBtnColor;
@@ -91,26 +91,26 @@
     }
 }
 /*
-.pagination ul > .disabled.prev > a:hover {
+.sui-pagination ul > .disabled.prev > a:hover {
     background-color: #00F;
 }
 */
 /*
-.pagination ul > li:first-child > a,
-.pagination ul > li:first-child > span {
+.sui-pagination ul > li:first-child > a,
+.sui-pagination ul > li:first-child > span {
   border-left-width: 1px;
 }
 */
 /*
-.pagination ul > li:last-child > a,
-.pagination ul > li:last-child > span {
+.sui-pagination ul > li:last-child > a,
+.sui-pagination ul > li:last-child > span {
 }
 */
 
-//pagination controller
+//sui-pagination controller
 //按钮右移
 /*
-.pagination {
+.sui-pagination {
     div {
         display: inline-block;
         position: relative;
@@ -142,7 +142,7 @@
 */
 
 //输入框拉长
-.pagination {
+.sui-pagination {
     div {
         display: inline-block;
         .page-num {
@@ -171,7 +171,7 @@
 
 //输入框拉长 按钮显隐
 /*
-.pagination {
+.sui-pagination {
     div {
         display: inline-block;
         .page-num {

@@ -1,0 +1,86 @@
+extends base
+
+block title
+  title paginationJS 
+
+block content
+  div.container
+    div.page-header
+        h1 pagination-JS组件 
+        p pagination-JS组件用于前端分页，无刷新等应用场景
+        a(href="pagination.html") 点击访问pagination-CSS组件
+    h3 示例
+    div.bs-docs-example
+        p.test
+    pre.prettyprint.linenums.
+        $('.test').pagination({
+         pages: 50,
+         styleClass: ['pagination-large'],
+         showCtrl: true,
+         displayPage: 6,
+         onSelect: function (num) {
+                    console.log(num)
+                    }        
+        })
+    h3 最小配置项
+    div.bs-docs-example
+        p.test1
+    pre.prettyprint.linenums.
+        $('.test1').pagination({
+         pages: 6
+        })
+    hr
+    h3 配置项
+    h4 pagination组件一共有8个配置项，较于其他分页插件，配置更为灵活简单，提供2种分页计算方式，且可控页码显示的数量。
+    dl
+        dt styleClass
+        dd styleClass接收一个数组，包括结合SUI CSS部分的pagination-small，pagiantion-large和默认的pagination样式,以后提供皮肤样式和自定义样式的时候也可以在这里引入
+        dd eg: styleClass: ['pagination-large', 'custom-red', 'custom-size']
+    dl
+        dt displayPage
+        dd displayPage指的是要显示多少个页码，如下图所示，展示了6个，默认显示5个
+        dd 
+            img(src="imgs/pagination1.png")
+        dd 指定了displayPage以后，pagination组件会根据该配置项自动分页，出于用户体验的考虑，displayPage最小为5个，低于5个会自动被改写为5个
+        dd 需要指出一种情况是，如果displayPage为n,但是总的页码为n+1时，pagination组件会展示全部的页码（也就是n+1），不出现省略号
+    dl
+        dt currentPage
+        dd 当前页，默认为第1页，不解释
+    dl
+        dt <strong style="color: red">itemsCount,pageSize和pages</strong>
+        dd pagination组件提供两种计算分页的方式，一种是直接给出pages,另一种是给出数据的总条数和每页显示的条数，pagination会自动计算出页数。
+        dd 当给出pages时，会忽略itemsCount和pageSize参数
+        dd P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况。
+    dl 
+        dt showCtrl
+        dd 是否展示总页数和跳转控制器，默认为false，设置为true时会在pagination节点上注册一些事件，对跳转页码做合法性校验，并支持键盘操作。
+    dl
+        dt onSelect
+        dd 点击页码时的回调函数，提供一个当前点击的页码的参数，可以在回调函数中使用自定义事件。
+    h3 函数 
+    h4 pagination组件对外暴露2个函数
+    dl 
+        dt $.pagination('updateItemsCount',itemsCount) 
+        dd 当数据条目总数发生变化时，调用此方法，参数为新的数据条目总数
+    dl 
+        dt $.pagination('updatePages',pages) 
+        dd 当分页直接采用pages配置项时，pageSize不存在，因此只能通过该方法直接更新分页数
+        dd P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况,不推荐使用此方法。
+
+
+block js_block
+  script.
+    $('.test').pagination({
+        pages: 50,
+        styleClass: ['pagination-large'],
+        showCtrl: true,
+        displayPage: 6,       
+        onSelect: function (num) {
+                    console.log(num)
+                    }        
+    })
+
+        $('.test1').pagination({
+         pages: 6
+        })
+    

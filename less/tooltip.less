@@ -8,7 +8,7 @@
 @attentionArrowOffset: @arrowOffset - @tipBorderWidth;
 
 // Base class
-.tooltip {
+.sui-tooltip {
   position: absolute;
   z-index: @zindexTooltip;
   display: block;
@@ -36,14 +36,15 @@
     }
   }
 
+  // Wrapper for the tooltip content
+  .tooltip-inner {
+    padding: 9px 11px;
+    text-decoration: none;
+  }
+
 }
 
-// Wrapper for the tooltip content
-.tooltip-inner {
-  padding: 9px 11px;
-  text-decoration: none;
 
-}
 
 // Arrows
 .tooltip-arrow {
@@ -59,7 +60,7 @@
   position: relative;
   //border-color: @tooltipBorderColor;
 }
-.tooltip ,.tooltip-only-arrow{
+.sui-tooltip ,.tooltip-only-arrow{
   &.attention {
     border: none;
     & .cover {
