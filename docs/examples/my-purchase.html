@@ -28,6 +28,36 @@ td .sui-btn{white-space: nowrap;}
 .label-tip-top:before{content:"";display: inline-block;border-style:solid;border-width:4px;border-color:transparent;border-bottom-color:#999;position: absolute;top:-8px;left:50%;margin-left:-4px;}
 .label-success.label-tip-top:before{border-bottom-color: #22cd6e;}
 .sui-btn + br + .sui-btn{margin-top:4px;} /* 相邻且换行的btn之间应该有间隙，IE没有 */
+/* nav-tabs上面的tip标签，用伪元素和data-tip属性实现 */
+.sui-nav.nav-tabs > li[data-tip]{position: relative;}
+.sui-nav.nav-tabs > li[data-tip]:before{
+	content: attr(data-tip);
+	background-color: rgba(75,162,5,.9);
+	color: white;
+	font-size: 12px;
+	display: inline-block;
+	position: absolute;
+	top: -14px;
+	right: 0;
+	line-height: 1;
+	padding: 1px 2px;
+	border-radius: 2px;
+	z-index: 2;
+	width: 20px;
+	text-align: center;;
+}
+.sui-nav.nav-tabs > li[data-tip]:after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	border-width: 5px 6px;
+	border-style: solid;
+	border-color: transparent;
+	border-left-color: rgba(75,162,5,.8);
+	right: 6px;
+	top: -5px;
+	z-index: 1;
+}
 	</style>
 </head>
 <body>
@@ -41,12 +71,12 @@ td .sui-btn{white-space: nowrap;}
 			<li class="active"><a href="">所有采购单</a></li>
 			<li><a href="">等待发货</a></li>
 			<li><a href="">待确认收货中</a></li>
-			<li><a href="">退款中</a></li>
-			<li><a href="">等待付款</a></li>
+			<li data-tip="NEW"><a href="">退款中</a></li>
+			<li data-tip="NEW"><a href="">等待付款</a></li>
 			<li><a href="">已发货</a></li>
 			<li><a href="">采购成功</a></li>
 			<li><a href="">已关闭</a></li>
-			<li><a href="">维权中</a></li>
+			<li data-tip="HOT"><a href="">维权中</a></li>
 		</ul>
 		<form class="row-fluid form-horizontal" id="filterForm" action="" method="post">
 			<div class="span4">
