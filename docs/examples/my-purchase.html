@@ -24,6 +24,9 @@ td hr{margin:5px 0;border-top-color:#cce1ff;} /* table内的分割线 */
 .pagination > div > span{vertical-align: middle;color:#999;} /* 分页里面的文字位置及颜色 */
 .price{font-size:16px;font-weight: bold;}
 td .btn{white-space: nowrap;}
+.label-tip-top{margin-top:3px;position:relative;} /* 带尖角的label，分成top,right,bottom,left四个方向，颜色应该和label保持一致 */
+.label-tip-top:before{content:"";display: inline-block;border-style:solid;border-width:4px;border-color:transparent;border-bottom-color:#999;position: absolute;top:-8px;left:50%;margin-left:-4px;}
+.label-success.label-tip-top:before{border-bottom-color: #22cd6e;}
 	</style>
 </head>
 <body>
@@ -218,7 +221,7 @@ td .btn{white-space: nowrap;}
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(供应商包邮)</span><br>
-							<span class="label label-success">调价：±0.01</span>
+							<span class="label label-success label-tip-top">调价：±0.01</span>
 						</td>
 						<td class="center" width="10%" rowspan="4">
 							付款信息待确认，待发货<hr>
