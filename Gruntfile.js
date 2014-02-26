@@ -132,6 +132,10 @@ module.exports = function(grunt) {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
       },
+      docs: {
+        files: 'docs/templates/**/*.mustache',
+        tasks: ['hogan']
+      },
       demos: {
         files: 'docs/demos/templates/**/*.jade',
         tasks: ['jade:demos']
