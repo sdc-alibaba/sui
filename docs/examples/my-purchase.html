@@ -13,20 +13,21 @@
 	<![endif]-->
 	<style>
 #filterForm{border:1px solid #cce1ff;border-radius:1px;padding:10px 0 0;margin-bottom: 20px;}
-#filterForm .control-group{margin-bottom: 10px;}/* 这个是否应该改成全局的 */
+#filterForm .control-group{margin-bottom: 10px;}/* 全局的是20px，感觉太大了 */
 #filterForm input.input-small{width:46px;}
 .glyphicon{font-size:inherit;}/* 建议让glyphicon的字体大小继承 */
 label{font-weight: inherit;} /* label的font-weight显示设成了normal，建议改成inherit */
 .typographic span{text-align: left;}/* ... */
-.typographic img + a{margin-top:4%;}
+.typographic img + span, .typographic img + a{margin-top:4%;} /* 嵌套的元素在td里面无法垂直居中 */
 td hr{margin:5px 0;border-top-color:#cce1ff;} /* table内的分割线 */
 .sui-table-bordered td.left-con{border-left:0;} /* 相连的td */
 .pagination > div > span{vertical-align: middle;color:#999;} /* 分页里面的文字位置及颜色 */
 .price{font-size:16px;font-weight: bold;}
-td .btn{white-space: nowrap;}
+td .sui-btn{white-space: nowrap;}
 .label-tip-top{margin-top:3px;position:relative;} /* 带尖角的label，分成top,right,bottom,left四个方向，颜色应该和label保持一致 */
 .label-tip-top:before{content:"";display: inline-block;border-style:solid;border-width:4px;border-color:transparent;border-bottom-color:#999;position: absolute;top:-8px;left:50%;margin-left:-4px;}
 .label-success.label-tip-top:before{border-bottom-color: #22cd6e;}
+.sui-btn + br + .sui-btn{margin-top:4px;} /* 相邻且换行的btn之间应该有间隙，IE没有 */
 	</style>
 </head>
 <body>
@@ -36,7 +37,7 @@ td .btn{white-space: nowrap;}
 			<li><a href="">采购单管理</a></li>
 			<li class="active">我的采购单</li>
 		</ul>
-		<ul class="nav nav-tabs">
+		<ul class="sui-nav nav-tabs">
 			<li class="active"><a href="">所有采购单</a></li>
 			<li><a href="">等待发货</a></li>
 			<li><a href="">待确认收货中</a></li>
@@ -108,7 +109,7 @@ td .btn{white-space: nowrap;}
 				</div>
 				<div class="control-group">
 					<label class="control-label">&nbsp;</label>
-					<div class="controls"><button class="btn btn-default btn-small" type="submit">搜索</button></div>
+					<div class="controls"><button class="sui-btn btn-default btn-small" type="submit">搜索</button></div>
 				</div>
 			</div>
 		</form><!-- /#filterForm END -->
@@ -116,13 +117,13 @@ td .btn{white-space: nowrap;}
 		<form id="listForm" action="" method="post">
 			<div class="clearfix" style="margin-bottom: 10px;">
 				<div class="pull-left">
-					<button class="btn btn-default" type="button">发货</button>
+					<button class="sui-btn btn-default" type="button">发货</button>
 					<span class="muted"> <i class="glyphicon glyphicon-hand-right"></i> 去淘宝物流平台批量打印发货单和运单 </span>
 					<a href="">请点击这里</a>
 				</div>
 				<div class="pull-right">
-					<button class="btn btn-default" type="button">导出物流单</button>
-					<button class="btn btn-default" type="button">导出采购单</button>
+					<button class="sui-btn btn-default" type="button">导出物流单</button>
+					<button class="sui-btn btn-default" type="button">导出采购单</button>
 				</div>
 			</div><!-- /.clearfix END -->
 
@@ -161,8 +162,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：白色 <br>商家编码：</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">122.00</td>
@@ -171,7 +171,7 @@ td .btn{white-space: nowrap;}
 						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
 						<td class="center" width="10%">
 							<a href="">yexue</a><br>
-							<a class="btn btn-default btn-default" href="">给我留言</a></td>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
 						<td class="center" width="10%">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(含快递：2.00)</span><br>
@@ -207,8 +207,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：白色 <br>商家编码：</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">122.00</td>
@@ -217,7 +216,7 @@ td .btn{white-space: nowrap;}
 						<td class="center left-con" width="10%"><a href=""></a></td>
 						<td class="center" width="10%" rowspan="4">
 							<a href="">yexue</a><br>
-							<a class="btn btn-default btn-default" href="">给我留言</a></td>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(供应商包邮)</span><br>
@@ -225,7 +224,7 @@ td .btn{white-space: nowrap;}
 						</td>
 						<td class="center" width="10%" rowspan="4">
 							付款信息待确认，待发货<hr>
-							<a href="" class="btn btn-primary">确认收款</a><br>
+							<a href="" class="sui-btn btn-primary">确认收款</a><br>
 							<a href="">查看详情</a>
 						</td>
 					</tr>
@@ -233,8 +232,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：白色 <br>商家编码：</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">122.00</td>
@@ -246,8 +244,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：白色 <br>商家编码：</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">122.00</td>
@@ -259,8 +256,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：白色 <br>商家编码：</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">122.00</td>
@@ -288,8 +284,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">100.00</td>
@@ -298,7 +293,7 @@ td .btn{white-space: nowrap;}
 						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<a href="">yexue</a><br>
-							<a class="btn btn-default btn-default" href="">给我留言</a></td>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(供应商包邮)</span><br>
@@ -331,8 +326,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">100.00</td>
@@ -341,7 +335,7 @@ td .btn{white-space: nowrap;}
 						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<a href="">yexue</a><br>
-							<a class="btn btn-default btn-default" href="">给我留言</a></td>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(供应商包邮)</span><br>
@@ -350,8 +344,8 @@ td .btn{white-space: nowrap;}
 						</td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-error">出库失败 <i class="glyphicon glyphicon-question-sign text-warning" title="没货了~~"></i></span><hr>
-							<a class="btn btn-primary btn-small" href="" style="margin-bottom: 4px;">淘宝仓发货</a><br>
-							<a class="btn btn-primary btn-small" href="">商家仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">淘宝仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">商家仓发货</a><br>
 							<a href="">查看详情</a>
 						</td>
 					</tr>
@@ -375,8 +369,7 @@ td .btn{white-space: nowrap;}
 						<td colspan="2" width="30%">
 							<div class="typographic clearfix">
 								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
-								<a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a>
-								<span>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
 							</div>
 						</td>
 						<td class="center left-con" width="10%">100.00</td>
@@ -385,7 +378,7 @@ td .btn{white-space: nowrap;}
 						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<a href="">yexue</a><br>
-							<a class="btn btn-default btn-default" href="">给我留言</a></td>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-warning price">124.00</span><br>
 							<span class="muted">(供应商包邮)</span><br>
@@ -394,8 +387,8 @@ td .btn{white-space: nowrap;}
 						</td>
 						<td class="center" width="10%" rowspan="4">
 							<span class="text-error">出库失败 <i class="glyphicon glyphicon-question-sign text-warning" title="没货了~~"></i></span><hr>
-							<a class="btn btn-primary btn-small" href="" style="margin-bottom:4px;">淘宝仓发货</a><br>
-							<a class="btn btn-primary btn-small" href="">商家仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">淘宝仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">商家仓发货</a><br>
 							<a href="">查看详情</a>
 						</td>
 					</tr>
