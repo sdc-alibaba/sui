@@ -132,10 +132,6 @@ module.exports = function(grunt) {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
       },
-      docs: {
-        files: 'docs/templates/**/*.mustache',
-        tasks: ['hogan']
-      },
       demos: {
         files: 'docs/demos/templates/**/*.jade',
         tasks: ['jade:demos']
@@ -156,11 +152,6 @@ module.exports = function(grunt) {
   // Test task.
   grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('hogan', 'compile mustache template', function() {
-    var done = this.async();
-    var child = exec('node docs/build', function(e) { done(); })
-  });
-
   // JS distribution task.
   grunt.registerTask('dist-js', ['requirejs']);
 
@@ -172,7 +163,7 @@ module.exports = function(grunt) {
 
   // Full distribution task.
   grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
-  grunt.registerTask('docs', ['hogan', 'jade']); //必须先执行dist才能执行此任务
+  grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist', 'docs']);
