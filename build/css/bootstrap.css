@@ -8532,6 +8532,7 @@ a.sui-badge:focus {
 .sui-steps {
   overflow: hidden;
   font-size: 0;
+  line-height: 0;
 }
 
 .sui-steps .wrap {
@@ -8568,7 +8569,7 @@ a.sui-badge:focus {
   position: absolute;
   top: -4px;
   right: -23px;
-  right: -31px;
+  right: -32px;
   z-index: 1;
   display: inline-block;
   width: 0;
@@ -8654,7 +8655,7 @@ a.sui-badge:focus {
 }
 
 .steps-large .triangle-right-bg {
-  right: -43px;
+  right: -44px;
   border-width: 22px;
 }
 
@@ -8670,7 +8671,6 @@ a.sui-badge:focus {
 .steps-auto {
   display: table;
   width: 100%;
-  line-height: 0;
 }
 
 .steps-auto .wrap > div {

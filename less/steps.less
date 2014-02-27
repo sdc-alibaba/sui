@@ -1,6 +1,7 @@
 .sui-steps {
     font-size: 0px;
     overflow: hidden;
+    line-height: 0px;
     .wrap {
         position: relative;
         display: inline-block;
@@ -24,17 +25,63 @@
         border-style: solid;
         border-width: @stepsBaseHeight / 2;
         position: absolute;
-        right: -@stepsBaseHeight + 1; //消除wrap层的1px
+        right: -@stepsBaseHeight + 1; //加一个1px，fix wrap带来的宽度
         z-index: 1;
     }
     .triangle-right-bg {
         .triangle-right;
         border-width: @stepsBaseHeight / 2 + 4;
-        right: -@stepsBaseHeight -  4 * 2 + 1;
+        right: -@stepsBaseHeight -  4 * 2;
         border-color: transparent transparent transparent #FFF;
         top: -4px;
     }
 
+    .round {
+        display: inline-block;
+        width: @baseFontSize;  
+        height: @baseFontSize;
+        .border-radius(@baseFontSize / 2);
+        text-align: center;
+        line-height: @baseFontSize;
+        font-style: italic;
+    }
+    .finished {
+        background-color: @stepsFinishedColor;
+        color: @stepsFinishedTextColor;
+         .triangle-right {
+            border-color: transparent transparent transparent @stepsFinishedColor;
+        }
+        .round {
+            background-color: @stepsCurrentColor;
+            background-color: transparent\9;
+            color: @white;
+        }
+    }
+    .current {
+        background-color: @stepsCurrentColor;
+        color: @stepsCurrentTextColor;
+         .triangle-right {
+            border-color: transparent transparent transparent @stepsCurrentColor;
+        }
+        .round {
+            background-color: @white;
+            color: @stepsCurrentColor;
+            color: #FFF\9;
+            background-color: transparent\9;
+        }
+    }
+    .todo {
+        background-color: @stepsTodoColor;
+        color : @stepsTodoTextColor;
+         .triangle-right {
+            border-color: transparent transparent transparent @stepsTodoColor;
+        }
+        .round {
+            background-color: @white;
+            background-color: transparent\9;
+        }
+    }
+}
 
 .steps-large {
     .wrap > div {
@@ -53,7 +100,7 @@
     }
     .triangle-right-bg {
         border-width: @stepsBaseHeight * 1.5 / 2 + 4;
-        right: -@stepsBaseHeight * 1.5 -  4 * 2 + 1;
+        right: -@stepsBaseHeight * 1.5 -  4 * 2;
     }
     .round {
         width: @fontSizeLarge;  
@@ -65,8 +112,6 @@
 .steps-auto {
     display: table;
     width: 100%;
-    line-height: 0px;
-
     .wrap > div {
         display: table-cell;
     }
