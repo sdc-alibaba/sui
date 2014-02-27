@@ -22,110 +22,162 @@
         float: left;
         margin-right: 20px;
       }
+      .bs-docs-sidenav li a {
+        padding: 10px 15px!important;
+      }
       
     </style>
   </head>
   <body>
+    <div class="sui-navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="sui-container">
+          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="sui-brand" href="./index.html">SUI</a>
+          <div class="nav-collapse collapse">
+            <ul class="sui-nav">
+              <li class="">
+                <a href="./index.html">首页</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">教程</a>
+              </li>
+              <li class="active">
+                <a href="./buttons.html">Demos</a>
+              </li>
+              <li class="">
+                <a href="./about.html">关于</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
     <div class="sui-container">
-      <div class="sui-page-header">
-        <h1>标签页 <small>tabs</small></h1>
-      </div>
-      <h2>1. 通过标记使用</h2>
-      <ul class="sui-nav nav-tabs nav-tabs-large">
-        <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
-        <li><a href="#code1" data-toggle="tab">代码</a></li>
-        <li><a href="#doc1" data-toggle="tab">文档</a></li>
-      </ul>
-      <div class="tab-content">
-        <div id="demo1" class="tab-pane active">
-          <div class="bs-docs-example">
-            <ul class="sui-nav nav-tabs">
-              <li class="active"><a href="#index" data-toggle="tab">首页</a></li>
-              <li><a href="#profile" data-toggle="tab">教程</a></li>
-              <li><a href="#about" data-toggle="tab">关于</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="index" class="tab-pane active">
-                <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-              </div>
-              <div id="profile" class="tab-pane">
-                <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
-              </div>
-              <div id="about" class="tab-pane">
-                <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+      <div class="sui-row">
+        <div class="span3">
+              <ul class="sui-nav nav-list bs-docs-sidenav affix-top">
+                <li><a href="global.html">全局样式<i class="icon-chevron-right"></i></a></li>
+                <li><a href="grid.html">栅格<i class="icon-chevron-right"></i></a></li>
+                <li><a href="layout.html">布局<i class="icon-chevron-right"></i></a></li>
+                <li><a href="buttons.html">按钮<i class="icon-chevron-right"></i></a></li>
+                <li><a href="dialog.html">对话框<i class="icon-chevron-right"></i></a></li>
+                <li><a href="forms.html">表单<i class="icon-chevron-right"></i></a></li>
+                <li><a href="msg.html">提示消息<i class="icon-chevron-right"></i></a></li>
+                <li><a href="pagination.html">分页器<i class="icon-chevron-right"></i></a></li>
+                <li><a href="step.html">步骤条<i class="icon-chevron-right"></i></a></li>
+                <li><a href="tab.html">标签页<i class="icon-chevron-right"></i></a></li>
+                <li><a href="tables.html">表格<i class="icon-chevron-right"></i></a></li>
+                <li><a href="tooltip.html">tooltip<i class="icon-chevron-right"></i></a></li>
+              </ul>
+        </div>
+        <div class="span9">
+          <div class="sui-page-header">
+            <h1>标签页 <small>tabs</small></h1>
+          </div>
+          <h2>1. 通过标记使用</h2>
+          <ul class="sui-nav nav-tabs nav-tabs-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <ul class="sui-nav nav-tabs">
+                  <li class="active"><a href="#index" data-toggle="tab">首页</a></li>
+                  <li><a href="#profile" data-toggle="tab">教程</a></li>
+                  <li><a href="#about" data-toggle="tab">关于</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div id="index" class="tab-pane active">
+                    <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                  </div>
+                  <div id="profile" class="tab-pane">
+                    <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
+                  </div>
+                  <div id="about" class="tab-pane">
+                    <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                  </div>
+                </div>
               </div>
             </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.</div>
           </div>
-        </div>
-        <div id="code1" class="tab-pane">
-          <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-        </div>
-        <div id="doc1" class="tab-pane">通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.</div>
-      </div>
-      <ul class="demo-operations clearfix">
-        <li><a href="#">下载psd文件</a></li>
-        <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-      </ul>
-      <h2>2. 通过js调用</h2>
-      <ul class="sui-nav nav-tabs nav-tabs-large">
-        <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
-        <li><a href="#code2" data-toggle="tab">代码</a></li>
-        <li><a href="#doc2" data-toggle="tab">文档</a></li>
-        <li><a href="#event2" data-toggle="tab">事件</a></li>
-      </ul>
-      <div class="tab-content">
-        <div id="demo2" class="tab-pane active">
-          <div class="bs-docs-example">
-            <ul id="tab-demo2" class="sui-nav nav-tabs">
-              <li class="active"><a href="#index">首页</a></li>
-              <li><a href="#profile">教程</a></li>
-              <li><a href="#about">关于</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="index" class="tab-pane active">
-                <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-              </div>
-              <div id="profile" class="tab-pane">
-                <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
-              </div>
-              <div id="about" class="tab-pane">
-                <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>2. 通过js调用</h2>
+          <ul class="sui-nav nav-tabs nav-tabs-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+            <li><a href="#event2" data-toggle="tab">事件</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <ul id="tab-demo2" class="sui-nav nav-tabs">
+                  <li class="active"><a href="#index">首页</a></li>
+                  <li><a href="#profile">教程</a></li>
+                  <li><a href="#about">关于</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div id="index" class="tab-pane active">
+                    <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                  </div>
+                  <div id="profile" class="tab-pane">
+                    <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
+                  </div>
+                  <div id="about" class="tab-pane">
+                    <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                  </div>
+                </div>
+                <script>
+                  $('#tab-demo2 a').click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                  })
+                  
+                </script>
               </div>
             </div>
-            <script>
-              $('#tab-demo2 a').click(function (e) {
-                e.preventDefault();
-                $(this).tab('show');
-              })
-              
-            </script>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane"></div>
+            <div id="event2" class="tab-pane">
+              <table class="sui-table sui-table-bordered">
+                <tr>
+                  <th>事件</th>
+                  <th>说明</th>
+                </tr>
+                <tr>
+                  <td>show</td>
+                  <td>This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                </tr>
+                <tr>
+                  <td>shown</td>
+                  <td>This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
-        <div id="code2" class="tab-pane">
-          <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-        </div>
-        <div id="doc2" class="tab-pane"></div>
-        <div id="event2" class="tab-pane">
-          <table class="sui-table sui-table-bordered">
-            <tr>
-              <th>事件</th>
-              <th>说明</th>
-            </tr>
-            <tr>
-              <td>show</td>
-              <td>This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
-            </tr>
-            <tr>
-              <td>shown</td>
-              <td>This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
-            </tr>
-          </table>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
         </div>
       </div>
-      <ul class="demo-operations clearfix">
-        <li><a href="#">下载psd文件</a></li>
-        <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-      </ul>
     </div>
     <script>
       $('.prettyprint').each(function() {

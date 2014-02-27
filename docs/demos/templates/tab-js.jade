@@ -6,106 +6,109 @@ block title
 block content
 
   .sui-container
+    .sui-row
+      .span3
+        +sidebar()
+      .span9
+        div.sui-page-header
+          h1 标签页 
+            small tabs
 
-    div.sui-page-header
-      h1 标签页 
-        small tabs
+        h2 1. 通过标记使用
 
-    h2 1. 通过标记使用
+        ul.sui-nav.nav-tabs.nav-tabs-large
+          li.active
+            a(href='#demo1', data-toggle='tab') 示例
+          li
+            a(href='#code1', data-toggle='tab') 代码
+          li
+            a(href='#doc1', data-toggle='tab') 文档
 
-    ul.sui-nav.nav-tabs.nav-tabs-large
-      li.active
-        a(href='#demo1', data-toggle='tab') 示例
-      li
-        a(href='#code1', data-toggle='tab') 代码
-      li
-        a(href='#doc1', data-toggle='tab') 文档
+        div.tab-content
+          div.tab-pane.active#demo1
+            div.bs-docs-example
+              ul.sui-nav.nav-tabs
+                li.active
+                  a(href='#index', data-toggle='tab') 首页
+                li
+                  a(href='#profile', data-toggle='tab') 教程
+                li
+                  a(href='#about', data-toggle='tab') 关于
+              div.tab-content
+                div.tab-pane.active#index
+                  p qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                div.tab-pane#profile
+                  p Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
+                div.tab-pane#about
+                  p Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+          div.tab-pane#code1
+            pre.prettyprint.linenums(data-target='#demo1>div')
+          div.tab-pane#doc1
+            通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
 
-    div.tab-content
-      div.tab-pane.active#demo1
-        div.bs-docs-example
-          ul.sui-nav.nav-tabs
-            li.active
-              a(href='#index', data-toggle='tab') 首页
-            li
-              a(href='#profile', data-toggle='tab') 教程
-            li
-              a(href='#about', data-toggle='tab') 关于
-          div.tab-content
-            div.tab-pane.active#index
-              p qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-            div.tab-pane#profile
-              p Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
-            div.tab-pane#about
-              p Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
-      div.tab-pane#code1
-        pre.prettyprint.linenums(data-target='#demo1>div')
-      div.tab-pane#doc1
-        通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
-
-    ul.demo-operations.clearfix
-      li
-        a(href='#') 下载psd文件
-      li
-        a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+        ul.demo-operations.clearfix
+          li
+            a(href='#') 下载psd文件
+          li
+            a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
 
 
-    h2 2. 通过js调用
+        h2 2. 通过js调用
 
-    ul.sui-nav.nav-tabs.nav-tabs-large
-      li.active
-        a(href='#demo2', data-toggle='tab') 示例
-      li
-        a(href='#code2', data-toggle='tab') 代码
-      li
-        a(href='#doc2', data-toggle='tab') 文档
-      li
-        a(href='#event2', data-toggle='tab') 事件
+        ul.sui-nav.nav-tabs.nav-tabs-large
+          li.active
+            a(href='#demo2', data-toggle='tab') 示例
+          li
+            a(href='#code2', data-toggle='tab') 代码
+          li
+            a(href='#doc2', data-toggle='tab') 文档
+          li
+            a(href='#event2', data-toggle='tab') 事件
 
-    div.tab-content
+        div.tab-content
 
-      div.tab-pane.active#demo2
-        div.bs-docs-example
-          ul.sui-nav.nav-tabs#tab-demo2
-            li.active
-              a(href='#index') 首页
-            li
-              a(href='#profile') 教程
-            li
-              a(href='#about') 关于
-          div.tab-content
-            div.tab-pane.active#index
-              p qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-            div.tab-pane#profile
-              p Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
-            div.tab-pane#about
-              p Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+          div.tab-pane.active#demo2
+            div.bs-docs-example
+              ul.sui-nav.nav-tabs#tab-demo2
+                li.active
+                  a(href='#index') 首页
+                li
+                  a(href='#profile') 教程
+                li
+                  a(href='#about') 关于
+              div.tab-content
+                div.tab-pane.active#index
+                  p qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                div.tab-pane#profile
+                  p Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
+                div.tab-pane#about
+                  p Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
 
-          script.
-            $('#tab-demo2 a').click(function (e) {
-              e.preventDefault();
-              $(this).tab('show');
-            })
+              script.
+                $('#tab-demo2 a').click(function (e) {
+                  e.preventDefault();
+                  $(this).tab('show');
+                })
 
-      div.tab-pane#code2
-        pre.prettyprint.linenums(data-target='#demo2>div')
-      div.tab-pane#doc2
+          div.tab-pane#code2
+            pre.prettyprint.linenums(data-target='#demo2>div')
+          div.tab-pane#doc2
 
-      div.tab-pane#event2
-        table.sui-table.sui-table-bordered
-          tr
-            th 事件
-            th 说明
+          div.tab-pane#event2
+            table.sui-table.sui-table-bordered
+              tr
+                th 事件
+                th 说明
 
-          tr
-            td show
-            td This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
-          tr
-            td shown
-            td This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
+              tr
+                td show
+                td This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
+              tr
+                td shown
+                td This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
 
-    ul.demo-operations.clearfix
-      li
-        a(href='#') 下载psd文件
-      li
-        a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+        ul.demo-operations.clearfix
+          li
+            a(href='#') 下载psd文件
+          li
+            a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
