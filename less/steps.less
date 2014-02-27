@@ -1,10 +1,14 @@
 .sui-steps {
     font-size: 0px;
     overflow: hidden;
-    > div {
+    line-height: 0px;
+    .wrap {
+        position: relative;
+        display: inline-block;
+    }
+    .wrap > div {
         width: @stepsBaseWidth;
         height: @stepsBaseHeight;
-        position: relative;
         display: inline-block;
         line-height: @stepsBaseHeight;
         vertical-align: top;
@@ -21,7 +25,7 @@
         border-style: solid;
         border-width: @stepsBaseHeight / 2;
         position: absolute;
-        right: -@stepsBaseHeight;
+        right: -@stepsBaseHeight + 1; //加一个1px，fix wrap带来的宽度
         z-index: 1;
     }
     .triangle-right-bg {
@@ -80,7 +84,7 @@
 }
 
 .steps-large {
-    > div {
+    .wrap > div {
         font-size: @fontSizeLarge;
         width: @stepsBaseWidth * 1.5;
         height: @stepsBaseHeight * 1.5;
@@ -92,7 +96,7 @@
     }
     .triangle-right {
         border-width: @stepsBaseHeight * 1.5 / 2;
-        right: -@stepsBaseHeight * 1.5;
+        right: -@stepsBaseHeight * 1.5 + 1;
     }
     .triangle-right-bg {
         border-width: @stepsBaseHeight * 1.5 / 2 + 4;
@@ -108,7 +112,7 @@
 .steps-auto {
     display: table;
     width: 100%;
-    > div {
+    .wrap > div {
         display: table-cell;
     }
 }
