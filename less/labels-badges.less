@@ -4,8 +4,8 @@
 
 
 // Base classes
-.label,
-.badge {
+.sui-label,
+.sui-badge {
   display: inline-block;
   padding: 2px 4px;
   font-size: @baseFontSize * .846;
@@ -18,18 +18,18 @@
   background-color: @grayLight;
 }
 // Set unique padding and border-radii
-.label {
+.sui-label {
   .border-radius(3px);
 }
-.badge {
+.sui-badge {
   padding-left: 9px;
   padding-right: 9px;
   .border-radius(9px);
 }
 
 // Empty labels/badges collapse
-.label,
-.badge {
+.sui-label,
+.sui-badge {
   &:empty {
     display: none;
   }
@@ -37,10 +37,10 @@
 
 // Hover/focus state, but only for links
 a {
-  &.label:hover,
-  &.label:focus,
-  &.badge:hover,
-  &.badge:focus {
+  &.sui-label:hover,
+  &.sui-label:focus,
+  &.sui-badge:hover,
+  &.sui-badge:focus {
     color: @white;
     text-decoration: none;
     cursor: pointer;
@@ -49,8 +49,8 @@ a {
 
 // Colors
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
-.label,
-.badge {
+.sui-label,
+.sui-badge {
   // Important (red)
   &-important         { background-color: @errorText; }
   &-important[href]   { background-color: darken(@errorText, 10%); }
@@ -69,16 +69,16 @@ a {
 }
 
 // Quick fix for labels/badges in buttons
-.btn {
-  .label,
-  .badge {
+.sui-btn {
+  .sui-label,
+  .sui-badge {
     position: relative;
     top: -1px;
   }
 }
 .btn-mini {
-  .label,
-  .badge {
+  .sui-label,
+  .sui-badge {
     top: 0;
   }
 }

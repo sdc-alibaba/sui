@@ -14,7 +14,7 @@
     ================================================== -->
     <div class="row">
       <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
+        <ul class="sui-nav nav-list bs-docs-sidenav">
           <li><a href="#dropdowns"><i class="icon-chevron-right"></i> {{_i}}Dropdowns{{/i}}</a></li>
           <li><a href="#buttonGroups"><i class="icon-chevron-right"></i> {{_i}}Button groups{{/i}}</a></li>
           <li><a href="#buttonDropdowns"><i class="icon-chevron-right"></i> {{_i}}Button dropdowns{{/i}}</a></li>
@@ -2012,22 +2012,22 @@
           <p>{{_i}}Wrap any text and an optional dismiss button in <code>.alert</code> for a basic warning alert message.{{/i}}</p>
           <div class="bs-docs-example">
             <div class="alert">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" class="sui-close" data-dismiss="alert">&times;</button>
               <strong>{{_i}}Warning!{{/i}}</strong> {{_i}}Best check yo self, you're not looking too good.{{/i}}
             </div>
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="alert"&gt;
-  &lt;button type="button" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;
+  &lt;button type="button" class="sui-close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;
   &lt;strong&gt;{{_i}}Warning!{{/i}}&lt;/strong&gt; {{_i}}Best check yo self, you're not looking too good.{{/i}}
 &lt;/div&gt;
 </pre>
 
           <h3>{{_i}}Dismiss buttons{{/i}}</h3>
           <p>{{_i}}Mobile Safari and Mobile Opera browsers, in addition to the <code>data-dismiss="alert"</code> attribute, require an <code>href="#"</code> for the dismissal of alerts when using an <code>&lt;a&gt;</code> tag.{{/i}}</p>
-          <pre class="prettyprint linenums">&lt;a href="#" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/a&gt;</pre>
+          <pre class="prettyprint linenums">&lt;a href="#" class="sui-close" data-dismiss="alert"&gt;&amp;times;&lt;/a&gt;</pre>
           <p>{{_i}}Alternatively, you may use a <code>&lt;button&gt;</code> element with the data attribute, which we have opted to do for our docs. When using <code>&lt;button&gt;</code>, you must include <code>type="button"</code> or your forms may not submit.{{/i}}</p>
-          <pre class="prettyprint linenums">&lt;button type="button" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;</pre>
+          <pre class="prettyprint linenums">&lt;button type="button" class="sui-close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;</pre>
 
           <h3>{{_i}}Dismiss alerts via JavaScript{{/i}}</h3>
           <p>{{_i}}Use the <a href="./javascript.html#alerts">alerts jQuery plugin</a> for quick and easy dismissal of alerts.{{/i}}</p>
@@ -2040,14 +2040,14 @@
           <p>{{_i}}For longer messages, increase the padding on the top and bottom of the alert wrapper by adding <code>.alert-block</code>.{{/i}}</p>
           <div class="bs-docs-example">
             <div class="alert alert-block">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" class="sui-close" data-dismiss="alert">&times;</button>
               <h4>{{_i}}Warning!{{/i}}</h4>
               <p>{{_i}}Best check yo self, you're not looking too good.{{/i}} Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
             </div>
           </div>
 <pre class="prettyprint linenums">
 &lt;div class="alert alert-block"&gt;
-  &lt;button type="button" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;
+  &lt;button type="button" class="sui-close" data-dismiss="alert"&gt;&amp;times;&lt;/button&gt;
   &lt;h4&gt;{{_i}}Warning!{{/i}}&lt;/h4&gt;
   {{_i}}Best check yo self, you're not...{{/i}}
 &lt;/div&gt;
@@ -2063,7 +2063,7 @@
           <h3>{{_i}}Error or danger{{/i}}</h3>
           <div class="bs-docs-example">
             <div class="alert alert-error">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" class="sui-close" data-dismiss="alert">&times;</button>
               <strong>{{_i}}Oh snap!{{/i}}</strong> {{_i}}Change a few things up and try submitting again.{{/i}}
             </div>
           </div>
@@ -2076,7 +2076,7 @@
           <h3>{{_i}}Success{{/i}}</h3>
           <div class="bs-docs-example">
             <div class="alert alert-success">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" class="sui-close" data-dismiss="alert">&times;</button>
               <strong>{{_i}}Well done!{{/i}}</strong> {{_i}}You successfully read this important alert message.{{/i}}
             </div>
           </div>
@@ -2089,7 +2089,7 @@
           <h3>{{_i}}Information{{/i}}</h3>
           <div class="bs-docs-example">
             <div class="alert alert-info">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <button type="button" class="sui-close" data-dismiss="alert">&times;</button>
               <strong>{{_i}}Heads up!{{/i}}</strong> {{_i}}This alert needs your attention, but it's not super important.{{/i}}
             </div>
           </div>
@@ -2434,11 +2434,11 @@
           <h2>{{_i}}Close icon{{/i}}</h2>
           <p>{{_i}}Use the generic close icon for dismissing content like modals and alerts.{{/i}}</p>
           <div class="bs-docs-example">
-            <p><button class="close" style="float: none;">&times;</button></p>
+            <p><button class="sui-close" style="float: none;">&times;</button></p>
           </div>
-          <pre class="prettyprint linenums">&lt;button class="close"&gt;&amp;times;&lt;/button&gt;</pre>
+          <pre class="prettyprint linenums">&lt;button class="sui-close"&gt;&amp;times;&lt;/button&gt;</pre>
           <p>{{_i}}iOS devices require an <code>href="#"</code> for click events if you would rather use an anchor.{{/i}}</p>
-          <pre class="prettyprint linenums">&lt;a class="close" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
+          <pre class="prettyprint linenums">&lt;a class="sui-close" href="#"&gt;&amp;times;&lt;/a&gt;</pre>
 
           <h2>{{_i}}Helper classes{{/i}}</h2>
           <p>{{_i}}Simple, focused classes for small display or behavior tweaks.{{/i}}</p>

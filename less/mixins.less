@@ -630,7 +630,7 @@
       width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
     }
 
-    .row {
+    .sui-row {
       margin-left: @gridGutterWidth * -1;
       .clearfix();
     }
@@ -642,10 +642,10 @@
     }
 
     // Set the container width, and override it for fixed navbars in media queries
-    .container,
-    .navbar-static-top .container,
-    .navbar-fixed-top .container,
-    .navbar-fixed-bottom .container { .span(@gridColumns); }
+    .sui-container,
+    .navbar-static-top .sui-container,
+    .navbar-fixed-top .sui-container,
+    .navbar-fixed-bottom .sui-container { .span(@gridColumns); }
 
     // generate .spanX and .offsetX
     .spanX (@gridColumns);
@@ -683,7 +683,7 @@
       *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
     }
 
-    .row-fluid {
+    .sui-row-fluid {
       width: 100%;
       .clearfix();
       [class*="span"] {

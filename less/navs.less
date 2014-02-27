@@ -237,13 +237,13 @@
 // Default dropdown links
 // -------------------------
 // Make carets use linkColor to start
-.nav .dropdown-toggle .caret {
+.sui-nav .dropdown-toggle .caret {
   border-top-color: @linkColor;
   border-bottom-color: @linkColor;
   margin-top: 6px;
 }
-.nav .dropdown-toggle:hover .caret,
-.nav .dropdown-toggle:focus .caret {
+.sui-nav .dropdown-toggle:hover .caret,
+.sui-nav .dropdown-toggle:focus .caret {
   border-top-color: @linkColorHover;
   border-bottom-color: @linkColorHover;
 }
@@ -254,7 +254,7 @@
 
 // Active dropdown links
 // -------------------------
-.nav .active .dropdown-toggle .caret {
+.sui-nav .active .dropdown-toggle .caret {
   border-top-color: #fff;
   border-bottom-color: #fff;
 }
@@ -265,8 +265,8 @@
 
 // Active:hover/:focus dropdown links
 // -------------------------
-.nav > .dropdown.active > a:hover,
-.nav > .dropdown.active > a:focus {
+.sui-nav > .sui-dropdown.active > a:hover,
+.sui-nav > .sui-dropdown.active > a:focus {
   cursor: pointer;
 }
 
@@ -274,16 +274,16 @@
 // -------------------------
 .nav-tabs .open .dropdown-toggle,
 .nav-pills .open .dropdown-toggle,
-.nav > li.dropdown.open.active > a:hover,
-.nav > li.dropdown.open.active > a:focus {
+.sui-nav > li.sui-dropdown.open.active > a:hover,
+.sui-nav > li.sui-dropdown.open.active > a:focus {
   color: @white;
   background-color: @grayLight;
   border-color: @grayLight;
 }
-.nav li.dropdown.open .caret,
-.nav li.dropdown.open.active .caret,
-.nav li.dropdown.open a:hover .caret,
-.nav li.dropdown.open a:focus .caret {
+.sui-nav li.sui-dropdown.open .caret,
+.sui-nav li.sui-dropdown.open.active .caret,
+.sui-nav li.sui-dropdown.open a:hover .caret,
+.sui-nav li.sui-dropdown.open a:focus .caret {
   border-top-color: @white;
   border-bottom-color: @white;
   .opacity(100);
@@ -417,12 +417,12 @@
 // ---------------
 
 // Gray out text
-.nav > .disabled > a {
+.sui-nav > .disabled > a {
   color: @grayLight;
 }
 // Nuke hover/focus effects
-.nav > .disabled > a:hover,
-.nav > .disabled > a:focus {
+.sui-nav > .disabled > a:hover,
+.sui-nav > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   cursor: default;
