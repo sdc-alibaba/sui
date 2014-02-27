@@ -28,100 +28,125 @@
 
   <body style="padding: 20px 50px 50px;">
     <div class="container">
-
+        <div><i></i></div>
 		<div class="page-header">
 			<h1>steps组件</h1>
-			<p>
-			</p>
 		</div>
       <h3>步骤导航器</h3>
+      <h4>修复日志</h4>
+      <ul>
+          <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
+          <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
+      </ul>
       <form class="bs-docs-example" style="padding-bottom: 15px;">
           <div class="sui-steps">
-            <div class="finished">
-                <label>
-                    <span class="round">&#10004;</span>
-                    <span>第一步 #4AA4D5</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
-            </div> 
-            <div class="current">
-                <label>
-                    <span class="round">2</span>
-                    <span>第二步 #333333</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
+            <div class="wrap">
+                <div class="finished">
+                    <label>
+                        <span class="round">&#10004;</span>
+                        <span>第一步 #4AA4D5</span>
+                    </label>
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </div> 
             </div>
-            <div class="todo">
-                <label>
-                    <span class="round">3</span>
-                    <span>第三步 #999999</span>
-                </label>
+            <div class="wrap">
+                <div class="current">
+                    <label>
+                        <span class="round">2</span>
+                        <span>第二步 #333333</span>
+                    </label>
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </div>
+            </div>
+            <div class="wrap">
+                <div class="todo">
+                    <label>
+                        <span class="round">3</span>
+                        <span>第三步 #999999</span>
+                    </label>
+                </div>
             </div>
           </div>
           </br>
           <div class="sui-steps steps-large">
-            <div class="finished">
-                <label>
-                    <span class="round">&#10004;</span>
-                    <span>第一步 #4AA4D5</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
-            </div> 
-            <div class="current">
-                <label>
-                    <span class="round">2</span>
-                    <span>第二步 #333333</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
+            <div class="wrap">
+                <div class="finished">
+                    <label>
+                        <span class="round">&#10004;</span>
+                        <span>第一步 #4AA4D5</span>
+                    </label>
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </div> 
             </div>
-            <div class="todo">
-                <label>
-                    <span class="round">3</span>
-                    <span>第三步 #999999</span>
-                </label>
+            <div class="wrap">
+                <div class="current">
+                    <label>
+                        <span class="round">2</span>
+                        <span>第二步 #333333</span>
+                    </label>
+                    <i class="triangle-right-bg"></i>
+                    <i class="triangle-right"></i>
+                </div>
+            </div>
+            <div class="wrap">
+                <div class="todo">
+                    <label>
+                        <span class="round">3</span>
+                        <span>第三步 #999999</span>
+                    </label>
+                </div>
             </div>
           </div>
           </br>
           <span>根据页面大小自适应的steps,需要display:table,display:table-cell属性</span>
           <div class="sui-steps steps-large steps-auto">
-            <div class="finished">
-                <label>
-                    <span class="round">&#10004;</span>
-                    <span>第一步 #4AA4D5</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
-            </div> 
-            <div class="current">
-                <label>
-                    <span class="round">2</span>
-                    <span>第二步 #333333</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
-            </div>
-            <div class="todo">
-                <label>
-                    <span class="round">3</span>
-                    <span>第三步 #999999</span>
-                </label>
-                <i class="triangle-right-bg"></i>
-                <i class="triangle-right"></i>
-            </div>
-            <div class="todo">
-                <label>
-                    <span class="round">3</span>
-                    <span>第三步 #999999</span>
-                </label>
-            </div>
+              <div class="wrap">
+                  <div class="finished">
+                      <label>
+                          <span class="round">&#10004;</span>
+                          <span>第一步 #4AA4D5</span>
+                      </label>
+                      <i class="triangle-right-bg"></i>
+                      <i class="triangle-right"></i>
+                  </div> 
+              </div>
+              <div class="wrap">
+                  <div class="current">
+                      <label>
+                          <span class="round">2</span>
+                          <span>第二步 #333333</span>
+                      </label>
+                      <i class="triangle-right-bg"></i>
+                      <i class="triangle-right"></i>
+                  </div>
+              </div>
+              <div class="wrap">
+                  <div class="todo">
+                      <label>
+                          <span class="round">3</span>
+                          <span>第三步 #999999</span>
+                      </label>
+                      <i class="triangle-right-bg"></i>
+                      <i class="triangle-right"></i>
+                  </div>
+              </div>
+              <div class="wrap">
+                  <div class="todo">
+                      <label>
+                          <span class="round">3</span>
+                          <span>第三步 #999999</span>
+                      </label>
+                  </div>
+              
+              </div>
           </div>
       </form>
       <pre class="prettyprint linenums">
           &lt;div class="sui-steps"&gt;
+            &lt;div class="wrap"&gt;
             &lt;div class="finished"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;&#10004;&lt;/span&gt;
@@ -130,6 +155,9 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt; 
+            &lt;/div&gt; 
+
+            &lt;div class="wrap"&gt;
             &lt;div class="current"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;2&lt;/span&gt;
@@ -138,15 +166,21 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="wrap"&gt;
             &lt;div class="todo"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;3&lt;/span&gt;
                     &lt;span&gt;第三步 #999999&lt;/span&gt;
                 &lt;/label&gt;
+            &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
 </br>
           &lt;div class="sui-steps steps-large"&gt;
+
+            &lt;div class="wrap"&gt;
             &lt;div class="finished"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;&#10004;&lt;/span&gt;
@@ -155,6 +189,9 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt; 
+            &lt;/div&gt; 
+
+            &lt;div class="wrap"&gt;
             &lt;div class="current"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;2&lt;/span&gt;
@@ -163,15 +200,21 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="wrap"&gt;
             &lt;div class="todo"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;3&lt;/span&gt;
                     &lt;span&gt;第三步 #999999&lt;/span&gt;
                 &lt;/label&gt;
+            &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
 </br>
           &lt;div class="sui-steps steps-large steps-auto"&gt;
+
+            &lt;div class="wrap"&gt;
             &lt;div class="finished"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;&#10004;&lt;/span&gt;
@@ -180,6 +223,9 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt; 
+            &lt;/div&gt; 
+
+            &lt;div class="wrap"&gt;
             &lt;div class="current"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;2&lt;/span&gt;
@@ -188,11 +234,15 @@
                 &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
                 &lt;i class="triangle-right"&gt;&lt;/i&gt;
             &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="wrap"&gt;
             &lt;div class="todo"&gt;
                 &lt;label&gt;
                     &lt;span class="round"&gt;3&lt;/span&gt;
                     &lt;span&gt;第三步 #999999&lt;/span&gt;
                 &lt;/label&gt;
+            &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
       </pre>
