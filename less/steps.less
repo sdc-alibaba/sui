@@ -1,10 +1,13 @@
 .sui-steps {
     font-size: 0px;
     overflow: hidden;
-    > div {
+    .wrap {
+        position: relative;
+        display: inline-block;
+    }
+    .wrap > div {
         width: @stepsBaseWidth;
         height: @stepsBaseHeight;
-        position: relative;
         display: inline-block;
         line-height: @stepsBaseHeight;
         vertical-align: top;
@@ -21,66 +24,20 @@
         border-style: solid;
         border-width: @stepsBaseHeight / 2;
         position: absolute;
-        right: -@stepsBaseHeight;
+        right: -@stepsBaseHeight + 1; //消除wrap层的1px
         z-index: 1;
     }
     .triangle-right-bg {
         .triangle-right;
         border-width: @stepsBaseHeight / 2 + 4;
-        right: -@stepsBaseHeight -  4 * 2;
+        right: -@stepsBaseHeight -  4 * 2 + 1;
         border-color: transparent transparent transparent #FFF;
         top: -4px;
     }
 
-    .round {
-        display: inline-block;
-        width: @baseFontSize;  
-        height: @baseFontSize;
-        .border-radius(@baseFontSize / 2);
-        text-align: center;
-        line-height: @baseFontSize;
-        font-style: italic;
-    }
-    .finished {
-        background-color: @stepsFinishedColor;
-        color: @stepsFinishedTextColor;
-         .triangle-right {
-            border-color: transparent transparent transparent @stepsFinishedColor;
-        }
-        .round {
-            background-color: @stepsCurrentColor;
-            background-color: transparent\9;
-            color: @white;
-        }
-    }
-    .current {
-        background-color: @stepsCurrentColor;
-        color: @stepsCurrentTextColor;
-         .triangle-right {
-            border-color: transparent transparent transparent @stepsCurrentColor;
-        }
-        .round {
-            background-color: @white;
-            color: @stepsCurrentColor;
-            color: #FFF\9;
-            background-color: transparent\9;
-        }
-    }
-    .todo {
-        background-color: @stepsTodoColor;
-        color : @stepsTodoTextColor;
-         .triangle-right {
-            border-color: transparent transparent transparent @stepsTodoColor;
-        }
-        .round {
-            background-color: @white;
-            background-color: transparent\9;
-        }
-    }
-}
 
 .steps-large {
-    > div {
+    .wrap > div {
         font-size: @fontSizeLarge;
         width: @stepsBaseWidth * 1.5;
         height: @stepsBaseHeight * 1.5;
@@ -92,11 +49,11 @@
     }
     .triangle-right {
         border-width: @stepsBaseHeight * 1.5 / 2;
-        right: -@stepsBaseHeight * 1.5;
+        right: -@stepsBaseHeight * 1.5 + 1;
     }
     .triangle-right-bg {
         border-width: @stepsBaseHeight * 1.5 / 2 + 4;
-        right: -@stepsBaseHeight * 1.5 -  4 * 2;
+        right: -@stepsBaseHeight * 1.5 -  4 * 2 + 1;
     }
     .round {
         width: @fontSizeLarge;  
@@ -108,7 +65,9 @@
 .steps-auto {
     display: table;
     width: 100%;
-    > div {
+    line-height: 0px;
+
+    .wrap > div {
         display: table-cell;
     }
 }

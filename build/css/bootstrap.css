@@ -8534,8 +8534,12 @@ a.sui-badge:focus {
   font-size: 0;
 }
 
-.sui-steps > div {
+.sui-steps .wrap {
   position: relative;
+  display: inline-block;
+}
+
+.sui-steps .wrap > div {
   display: inline-block;
   width: 195px;
   height: 24px;
@@ -8544,14 +8548,14 @@ a.sui-badge:focus {
   vertical-align: top;
 }
 
-.sui-steps > div > label {
+.sui-steps .wrap > div > label {
   margin-left: 22px;
   cursor: default;
 }
 
 .sui-steps .triangle-right {
   position: absolute;
-  right: -24px;
+  right: -23px;
   z-index: 1;
   display: inline-block;
   width: 0;
@@ -8563,8 +8567,8 @@ a.sui-badge:focus {
 .sui-steps .triangle-right-bg {
   position: absolute;
   top: -4px;
-  right: -24px;
-  right: -32px;
+  right: -23px;
+  right: -31px;
   z-index: 1;
   display: inline-block;
   width: 0;
@@ -8632,25 +8636,25 @@ a.sui-badge:focus {
   background-color: transparent\9;
 }
 
-.steps-large > div {
+.steps-large .wrap > div {
   width: 292.5px;
   height: 36px;
   font-size: 14px;
   line-height: 36px;
 }
 
-.steps-large > div > label {
+.steps-large .wrap > div > label {
   margin-left: 28px;
   font-size: 14px;
 }
 
 .steps-large .triangle-right {
-  right: -36px;
+  right: -35px;
   border-width: 18px;
 }
 
 .steps-large .triangle-right-bg {
-  right: -44px;
+  right: -43px;
   border-width: 22px;
 }
 
@@ -8666,9 +8670,10 @@ a.sui-badge:focus {
 .steps-auto {
   display: table;
   width: 100%;
+  line-height: 0;
 }
 
-.steps-auto > div {
+.steps-auto .wrap > div {
   display: table-cell;
 }
 
