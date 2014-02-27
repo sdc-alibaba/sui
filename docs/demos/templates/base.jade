@@ -8,14 +8,34 @@ html(lang="en")
     link(href="../assets/css/docs.css" rel="stylesheet")
     link(href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet")
     link(rel="shortcut icon" href="../assets/ico/favicon.png")
+    script(src="../../js/lib/jquery.js")
+    script(src="../../build/js/bootstrap.js")
+    style(type='text/css').
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
 
     block head
 
   body
     block content
-    script(src="../../js/lib/jquery.js")
-    script(src="../../build/js/bootstrap.js")
+
+    script.
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
     script(src="../assets/js/google-code-prettify/prettify.js")
     script(src="../assets/js/application.js")
-    script(src="http://localhost:3456/livereload.js")
     block js_block
+    script(src="http://localhost:3456/livereload.js")

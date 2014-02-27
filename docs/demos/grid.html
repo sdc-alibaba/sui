@@ -8,6 +8,22 @@
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <style type="text/css">
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
+      
+    </style>
     <style type="text/css">
       .sui-row div {
         background: #f1f1f1;
@@ -51,8 +67,14 @@
         <div class="span9">9</div>
       </div>
     </div>
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
+    <script>
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
+    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>

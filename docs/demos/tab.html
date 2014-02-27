@@ -8,28 +8,72 @@
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <style type="text/css">
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
+      
+    </style>
   </head>
   <body>
     <div class="sui-container">
-      <h2>不同尺寸</h2>
-      <ul class="sui-nav nav-tabs">
-        <li class="active"><a>标签一</a></li>
-        <li><a href="#">标签二</a></li>
-        <li><a href="#">标签二</a></li>
-      </ul>
+      <div class="sui-page-header">
+        <h1>标签页 <small>tabs</small></h1>
+      </div>
+      <h2>示例</h2>
       <ul class="sui-nav nav-tabs nav-tabs-large">
-        <li><a>语文</a></li>
-        <li class="active"><a href="#">数学</a></li>
-        <li><a href="#">英语</a></li>
+        <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+        <li><a href="#code1" data-toggle="tab">代码</a></li>
+        <li><a href="#doc1" data-toggle="tab">文档</a></li>
       </ul>
-      <ul class="sui-nav nav-tabs nav-tabs-xlarge">
-        <li><a>前端</a></li>
-        <li class="active"><a href="#">后端</a></li>
-        <li><a href="#">运维</a></li>
+      <div class="tab-content">
+        <div id="demo1" class="tab-pane active">
+          <div class="bs-docs-example">
+            <ul class="sui-nav nav-tabs">
+              <li class="active"><a>标签一</a></li>
+              <li><a href="#">标签二</a></li>
+              <li><a href="#">标签二</a></li>
+            </ul>
+            <ul class="sui-nav nav-tabs nav-tabs-large">
+              <li><a>语文</a></li>
+              <li class="active"><a href="#">数学</a></li>
+              <li><a href="#">英语</a></li>
+            </ul>
+            <ul class="sui-nav nav-tabs nav-tabs-xlarge">
+              <li><a>前端</a></li>
+              <li class="active"><a href="#">后端</a></li>
+              <li><a href="#">运维</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="code1" class="tab-pane">
+          <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+        </div>
+        <div id="doc1" class="tab-pane">三种尺寸: default, .nav-tabs-large, .nav-tabs-xlarge</div>
+      </div>
+      <ul class="demo-operations clearfix">
+        <li><a href="#">下载psd文件</a></li>
+        <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
       </ul>
     </div>
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
+    <script>
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
+    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
