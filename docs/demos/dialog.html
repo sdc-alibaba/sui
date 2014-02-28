@@ -8,45 +8,94 @@
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <style type="text/css">
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
+      .bs-docs-sidenav li a {
+        padding: 10px 15px!important;
+      }
+      
+    </style>
   </head>
   <body>
-    <h1>dialog(bootstrap中命名为Modal)</h1><br>
-    <h3>无js触发,确定按钮对应html添加data-ok="modal"属性</h3>
-    <p>data-属性都是必须的。也可通过$("xx").modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>
-    </p>
-    <p>涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可</p>
-    <p>
-      .modal 改为 .sui-modal  |  .modal-backdrop 改为 .sui-modal-backdrop
-      
-    </p>
-    <textarea cols="200" rows="22">
-      button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
-      <!-- Modal -->
-      <div class="sui-modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              我是内容body
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
-            </div>
+    <div class="sui-navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="sui-container">
+          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="sui-brand" href="./index.html">SUI</a>
+          <div class="nav-collapse collapse">
+            <ul class="sui-nav">
+              <li class="">
+                <a href="./index.html">首页</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">教程</a>
+              </li>
+              <li class="active">
+                <a href="./buttons.html">Demos</a>
+              </li>
+              <li class="">
+                <a href="./about.html">关于</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </textarea><br>
-    <!--Button trigger modal -->
-    <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="btn btn-primary btn-lg">dialog 有html</button>
-    <hr>
-    <h3>js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)</h3>
-    <p>jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')</p>
-    <p>若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用</p>
-    <pre>/* 
+      
+    </div>
+    <div class="sui-container">
+      <h1>dialog(bootstrap中命名为Modal)</h1><br>
+      <h3>无js触发,确定按钮对应html添加data-ok="modal"属性</h3>
+      <p>data-属性都是必须的。也可通过$("xx").modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>
+      </p>
+      <p>涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可</p>
+      <p>
+        .modal 改为 .sui-modal  |  .modal-backdrop 改为 .sui-modal-backdrop
+        
+      </p>
+      <textarea cols="200" rows="22">
+        button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
+        <!-- Modal -->
+        <div class="sui-modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                我是内容body
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="sui-btn btn-primary" data-ok="modal">可自定ok</button>
+                <button type="button" class="sui-btn btn-default" data-dismiss="modal">可自定dismiss</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </textarea><br>
+      <!--Button trigger modal -->
+      <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="btn btn-primary btn-lg">dialog 有html</button>
+      <hr>
+      <h3>js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)</h3>
+      <p>jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')</p>
+      <p>若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用</p>
+      <pre>/* 
 * 
 * example
 * $.alert({
@@ -69,15 +118,15 @@
 *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
 * })
 */   </pre>
-    <hr>
-    <h3>demo</h3>
-    <pre>$('#J_alert').on('click', function(e){
+      <hr>
+      <h3>demo</h3>
+      <pre>$('#J_alert').on('click', function(e){
   $.alert('alert it is&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isisis&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;&lt;br&gt;&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is')
 })
 </pre>
-    <button id="J_alert" class="btn btn-primary btn-lg">dialog 无html alert</button>
-    <hr>
-    <pre>$('#J_confirm').on('click', function(e){
+      <button id="J_alert" class="sui-btn btn-primary btn-lg">dialog 无html alert</button>
+      <hr>
+      <pre>$('#J_confirm').on('click', function(e){
   $.confirm({
     body: 'confirm again'
     ,width: 'normal'
@@ -91,33 +140,29 @@
     ,okHidden: function(){console.log('okHidden')}
   })
 })</pre>
-    <button id="J_confirm" class="btn btn-primary btn-lg">dialog 无html confirm</button>
-    <div>
-      <div class="sui-modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              我是内容body
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-ok="modal">可自定ok</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">可自定dismiss</button>
+      <button id="J_confirm" class="btn btn-primary btn-lg">dialog 无html confirm</button>
+      <div>
+        <div class="sui-modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                我是内容body
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="sui-btn btn-primary" data-ok="modal">可自定ok</button>
+                <button type="button" class="sui-btn btn-default" data-dismiss="modal">可自定dismiss</button>
+              </div>
             </div>
           </div>
         </div>
+        
+        
       </div>
-      
-      
     </div>
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
-    <script src="../assets/js/google-code-prettify/prettify.js"></script>
-    <script src="../assets/js/application.js"></script>
-    <script src="http://localhost:3456/livereload.js"></script>
     <script>
       $('#J_alert').on('click', function(e){
         $.alert('alert it is<br><br>isis<br><br>isis<br><br>isisis<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br><br><br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>isis<br><br>isis<br><br>')
@@ -139,5 +184,37 @@
       
       
     </script>
+    <script>
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
+    </script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script>
+      $('#J_alert').on('click', function(e){
+        $.alert('alert it is<br><br>isis<br><br>isis<br><br>isisis<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br><br><br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>isis<br><br>isis<br><br>')
+      })
+      $('#J_confirm').on('click', function(e){
+        $.confirm({
+          body: 'confirm again'
+          ,width: 'normal'
+          ,backdrop: false
+          ,timeout: 1000
+          ,show: function(){console.log('show')}
+          ,shown: function(){console.log('shown')}
+          ,hide: function(){console.log('hide')}
+          ,hidden: function(){console.log('hiden')}
+          ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+          ,okHidden: function(){console.log('okHidden')}
+        })
+      })
+      
+      
+    </script>
+    <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 
-.popover {
+.sui-popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,24 +54,25 @@
 //
 // .arrow is outer, .arrow:after is inner
 
-.popover .arrow,
-.popover .arrow:after {
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-}
-.popover .arrow {
-  border-width: @popoverArrowOuterWidth;
-}
-.popover .arrow:after {
-  border-width: @popoverArrowWidth;
-  content: "";
+.sui-popover .arrow {
+  &, &:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+  .arrow {
+    border-width: @popoverArrowOuterWidth;
+  }
+  .arrow:after {
+    border-width: @popoverArrowWidth;
+    content: "";
+  }
 }
 
-.popover {
+.sui-popover {
   &.top .arrow {
     left: 50%;
     margin-left: -@popoverArrowOuterWidth;

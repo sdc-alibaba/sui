@@ -5,25 +5,25 @@ block title
 
 block head
   style(type="text/css").
-    .row div {
+    .sui-row div {
       background: #f1f1f1;
       min-height: 50px;
     }
-    .row + .row{
+    .sui-row + .sui-row{
       margin-top: 10px;
     }
 
 block content
-  div.container
-    div.row
+  div.sui-container
+    div.sui-row
       - for (var x = 1; x <= 12; x++)
         div(class="span#{1}")=1
-    div.row
+    div.sui-row
       - each x in [1, 2, 2, 3, 4]
         div(class="span#{x}")=x
-    div.row
+    div.sui-row
       - each x in [6, 6]
         div(class="span#{x}")=x
-    div.row
+    div.sui-row
       - each x in [3, 9]
         div(class="span#{x}")=x

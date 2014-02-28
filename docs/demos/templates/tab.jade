@@ -4,28 +4,51 @@ block title
   title 标签页
 
 block content
-  .container
-    h2 不同尺寸
-    ul.sui-nav.nav-tabs
-      li.active
-        a 标签一
-      li
-        a(href='#') 标签二
-      li
-        a(href='#') 标签二
-
+  .sui-container
+    div.sui-page-header
+      h1 标签页 
+        small tabs
+    h2 示例
     ul.sui-nav.nav-tabs.nav-tabs-large
-      li
-        a 语文
       li.active
-        a(href='#') 数学
+        a(href='#demo1', data-toggle='tab') 示例
       li
-        a(href='#') 英语
+        a(href='#code1', data-toggle='tab') 代码
+      li
+        a(href='#doc1', data-toggle='tab') 文档
+    div.tab-content
+      div.tab-pane.active#demo1
+        div.bs-docs-example
+          ul.sui-nav.nav-tabs
+            li.active
+              a 标签一
+            li
+              a(href='#') 标签二
+            li
+              a(href='#') 标签二
 
-    ul.sui-nav.nav-tabs.nav-tabs-xlarge
+          ul.sui-nav.nav-tabs.nav-tabs-large
+            li
+              a 语文
+            li.active
+              a(href='#') 数学
+            li
+              a(href='#') 英语
+
+          ul.sui-nav.nav-tabs.nav-tabs-xlarge
+            li
+              a 前端
+            li.active
+              a(href='#') 后端
+            li
+              a(href='#') 运维
+      div.tab-pane#code1
+        pre.prettyprint.linenums(data-target='#demo1>div')
+      div.tab-pane#doc1
+        三种尺寸: default, .nav-tabs-large, .nav-tabs-xlarge
+
+    ul.demo-operations.clearfix
       li
-        a 前端
-      li.active
-        a(href='#') 后端
+        a(href='#') 下载psd文件
       li
-        a(href='#') 运维
+        a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

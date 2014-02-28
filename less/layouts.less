@@ -4,12 +4,12 @@
 
 
 // Container (centered, fixed-width layouts)
-.container {
+.sui-container {
   .container-fixed();
 }
 
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)
-.container-fluid {
+.sui-container-fluid {
   padding-right: @gridGutterWidth;
   padding-left: @gridGutterWidth;
   .clearfix();
@@ -17,7 +17,7 @@
 
 // 2 & 3 column layout
 
-.layout > {
+.sui-layout > {
   position: relative;
   .sidebar {
     width: @layoutSidebarWidth;
@@ -36,7 +36,7 @@
   }
 
   &.layout3 {
-    .content {
+    > .content {
       margin-right: @layoutSidebarWidth;
     }
   }

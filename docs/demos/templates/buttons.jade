@@ -4,7 +4,7 @@ block title
   title 按钮
 
 block content
-  div.container
+  div.sui-container
     - var SIZES = ['xlarge', 'large', '', 'small']
     - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
     h2 不同大小的按钮
@@ -38,7 +38,7 @@ block content
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}')
-        <i class='glyphicon glyphicon-user'></i>
+        <i class='sui-glyphicon glyphicon-user'></i>
         | 按钮
       | &nbsp;
 
@@ -50,7 +50,7 @@ block content
       if v
         - classname += ' btn-' + v
       a(href='javascript:void(0);', class='#{classname}')
-        <i class='glyphicon glyphicon-user'></i>
+        <i class='sui-glyphicon glyphicon-user'></i>
         按钮
       | &nbsp;
 

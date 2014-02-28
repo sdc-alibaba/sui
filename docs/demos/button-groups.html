@@ -8,6 +8,25 @@
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <style type="text/css">
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
+      .bs-docs-sidenav li a {
+        padding: 10px 15px!important;
+      }
+      
+    </style>
     <style type="text/css">
       .btn-group-vertical .sui-btn {
         min-width: 100px;
@@ -16,7 +35,36 @@
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="sui-navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="sui-container">
+          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="sui-brand" href="./index.html">SUI</a>
+          <div class="nav-collapse collapse">
+            <ul class="sui-nav">
+              <li class="">
+                <a href="./index.html">首页</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">教程</a>
+              </li>
+              <li class="active">
+                <a href="./buttons.html">Demos</a>
+              </li>
+              <li class="">
+                <a href="./about.html">关于</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="sui-container">
       <h2>水平方向</h2>
       <div class="sui-btn-group">
         <button class="sui-btn">左边</button>
@@ -49,8 +97,14 @@
         </div>
       </div>
     </div>
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
+    <script>
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
+    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>

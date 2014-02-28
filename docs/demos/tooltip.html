@@ -8,14 +8,62 @@
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <style type="text/css">
+      .bs-docs-example {
+        margin: 0;
+      }
+      .demo-operations {
+        margin: 15px 0;
+        list-style: none;
+      }
+      .demo-operations li {
+        float: left;
+        margin-right: 20px;
+      }
+      .bs-docs-sidenav li a {
+        padding: 10px 15px!important;
+      }
+      
+    </style>
   </head>
   <body>
+    <div class="sui-navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="sui-container">
+          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="sui-brand" href="./index.html">SUI</a>
+          <div class="nav-collapse collapse">
+            <ul class="sui-nav">
+              <li class="">
+                <a href="./index.html">首页</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">教程</a>
+              </li>
+              <li class="active">
+                <a href="./buttons.html">Demos</a>
+              </li>
+              <li class="">
+                <a href="./about.html">关于</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
     <style>
       li{display: inline-block; list-style:none; margin: 0 10px}
       body{padding-bottom: 400px}
       
     </style>
-    <div class="container">
+    <div class="sui-container">
       <h1>Tooltip 绝大部分参数可写在触发元素的data-xxx属性里</h1>
       <p>参数解释，补充信息见a(href="http://getbootstrap.com/2.3.2/javascript.html#tooltips") bootstrap tooltip</p>
       <pre>/* 
@@ -45,9 +93,9 @@
       </ul>
       <ul>
         <li>右方click触发tooltip</li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="0.397734113736078140.462801794288679960.89130242564715450.68942428147420290.4525545940268785&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="0.397734113736078140.462801794288679960.89130242564715450.68942428147420290.4525545940268785&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="0.397734113736078140.462801794288679960.89130242564715450.68942428147420290.4525545940268785&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
+        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
       </ul>
       <ul>
         <li><a href="javascript:void(0)" data-placement="top" data-toggle="tooltip" data-type="attention" title="强调tooltip">top opt.type = 'attention'</a></li>
@@ -73,11 +121,17 @@
         </div>
       </div>
     </div>
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
+    <script>
+      $('.prettyprint').each(function() {
+        $this = $(this)
+        $target = $($this.data("target"))
+        if(!$target[0]) return;
+          $this.text($target.html())
+      })
+    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
-    <script src="http://localhost:3456/livereload.js"></script>
     <script>$('#J_set').tooltip({okHide: function(){console.log(this);this.hide()}})</script>
+    <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>
