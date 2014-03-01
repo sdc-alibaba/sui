@@ -13,25 +13,21 @@
   </head>
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="sui-container"><a href="./index.html" class="sui-brand">SUI</a>
-          <div class="nav-collapse collapse">
-            <ul class="sui-nav">
-              <li><a href="./index.html">首页</a></li>
-              <li class="active"><a href="./buttons.html">组件库</a></li>
-              <li><a href="./examples.html">案例</a></li>
-              <li><a href="./scaffolding.html">教程</a></li>
-              <li><a href="./about.html">关于</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon-github-alt">&nbsp;</i>SUI</a>
+        <ul class="sui-nav">
+          <li><a href="./index.html">首页</a></li>
+          <li class="active"><a href="./buttons.html">组件库</a></li>
+          <li><a href="./examples.html">案例</a></li>
+          <li><a href="./scaffolding.html">教程</a></li>
+          <li><a href="./about.html">关于</a></li>
+        </ul>
       </div>
     </div>
-    <div class="sui-container">
-      <div class="sui-row">
-        <div class="span3">
-        </div>
-        <div class="span9 content">
+    <div class="sui-layout">
+      <div class="sidebar">
+      </div>
+      <div class="content">
+        <div class="content-inner">
           <div class="sui-container">
             <div class="page-header">
               <h1>Breadcrumb 面包屑</h1>
@@ -49,7 +45,7 @@
               <li><a href="#">手机数码、电脑办公</a></li>
               <li class="active">智能手机</li>
             </ul>
-            <pre>&lt;ul class="sui-breadcrumb"&gt;
+            <pre class="prettyprint linenums">&lt;ul class="sui-breadcrumb"&gt;
   &lt;li class="active"&gt;首页&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul class="sui-breadcrumb"&gt;

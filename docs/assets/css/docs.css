@@ -12,9 +12,17 @@
 
 body {
   position: relative;
-  padding-top: 50px;
+  padding-top: 40px;
+  font-size: 14px;
 }
 
+html, body, .sui-layout,
+body > .sui-layout > .sidebar {
+  height: 100%;
+}
+body > .sui-layout > .sidebar {
+  position: fixed;
+}
 /* Code in headings */
 h3 code {
   font-size: 14px;
@@ -22,12 +30,54 @@ h3 code {
 }
 
 
-
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
-body > .navbar {
-  font-size: 13px;
+body {
+  background: #f9f9f9;
+}
+
+.sui-layout .content {
+  padding: 0 25px;
+  margin-left: 150px;
+  background: #fff;
+}
+.sui-layout .content-inner {
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.sui-layout .sidebar {
+  width: 150px;
+  font-size: 14px;
+  line-height: 22px;
+  border-right: 1px solid #ddd;
+}
+
+.docs-sidenav {
+  position: fixed;
+  width: 151px;
+}
+.docs-sidenav [class^="sui-icon-"] {
+  font-size: 18px;
+  vertical-align: -2px;
+}
+.sui-nav.nav-xlarge > li > a {
+  padding: 10px 18px;
+}
+
+body > .sui-navbar {
+  font-size: 14px;
+}
+body > .sui-navbar .sui-brand {
+  line-height: 22px;
+  padding: 8px 20px;
+}
+body > .sui-navbar > .navbar-inner {
+  padding-left: 25px;
+}
+body > .sui-navbar .sui-nav {
+  margin-left: 50px;
 }
 
 /* Change the docs' brand */
@@ -48,14 +98,7 @@ body > .navbar .brand:hover {
   text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
 }
 
-.sui-navbar {
-  font-size: 15px;
-}
 
-.content {
-  box-sizing: border-box;
-  padding: 0 30px;
-}
 
 .docs-example {
   margin: 0;
@@ -68,10 +111,6 @@ body > .navbar .brand:hover {
   float: left;
   margin-right: 20px;
 }
-.docs-sidenav {
-  margin-top: 20px;
-}
-
 .bs-docs-example {
   position: relative;
   margin-bottom: 15px;

@@ -16,28 +16,28 @@ html(lang="en")
   body
     div.sui-navbar.navbar-inverse.navbar-fixed-top
       div.navbar-inner
-        div.sui-container
-          a.sui-brand(href="./index.html") SUI
-          div.nav-collapse.collapse
-            ul.sui-nav
-              li
-                a(href="./index.html") 首页
-              li.active
-                a(href="./buttons.html") 组件库
-              li
-                a(href="./examples.html") 案例
-              li
-                a(href="./scaffolding.html") 教程
-              li
-                a(href="./about.html") 关于
+        a.sui-brand(href="./index.html")
+          i.sui-icon-github-alt &nbsp;
+          |SUI
+        ul.sui-nav
+          li
+            a(href="./index.html") 首页
+          li.active
+            a(href="./buttons.html") 组件库
+          li
+            a(href="./examples.html") 案例
+          li
+            a(href="./scaffolding.html") 教程
+          li
+            a(href="./about.html") 关于
 
     mixin sidebar(highlight)
       include sidenav
-    .sui-container
-      .sui-row
-        .span3
-          block sidebar
-        .span9.content
+    .sui-layout
+      .sidebar
+        block sidebar
+      .content
+        .content-inner
           block content
 
     script(src="../assets/js/google-code-prettify/prettify.js")

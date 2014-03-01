@@ -1,10 +1,10 @@
 ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - var items = []
-  - items.push({name: 'global', title:'全局样式', url: 'global.html'})
-  - items.push({name: 'layouts', title:'布局', children:[]})
-  - items.push({name: 'base-css', title: '基础css', children:[]})
-  - items.push({name: 'css-components', title: 'css组件', children:[]})
-  - items.push({name: 'js-components', title: 'js组件', children:[]})
+  - items.push({name: 'global', title:'全局样式', url: 'global.html', icon: 'sui-icon-globe'})
+  - items.push({name: 'layouts', title:'布局', children:[], icon: 'sui-icon-th'})
+  - items.push({name: 'base-css', title: '基础css', children:[], icon: 'sui-icon-magic' })
+  - items.push({name: 'css-components', title: 'css组件', children:[], icon: 'sui-icon-puzzle'})
+  - items.push({name: 'js-components', title: 'js组件', children:[], icon: 'sui-icon-shopping-cart'})
 
   - items[1].children.push({name: 'grid', title:'栅格', url:'grid.html'})
   - items[1].children.push({name: 'layout', title:'布局', url:'layout.html'})
@@ -12,6 +12,7 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items[2].children.push({name: 'btn', title:'按钮', url:'buttons.html'})
   - items[2].children.push({name: 'form', title:'表单', url:'forms.html'})
   - items[2].children.push({name: 'table', title:'表格', url:'tables.html'})
+  - items[2].children.push({name: 'icons', title:'图标', url:'icons.html'})
 
   - items[3].children.push({name: 'tip', title:'提示消息', url:'msgs.html'})
   - items[3].children.push({name: 'step', title:'步骤条', url:'steps.html'})
@@ -35,10 +36,14 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
           - classname = 'active'
     li(class=classname)
       if !cat.children
-        a(href=cat.url) #{cat.title}
+        a(href=cat.url)
+          i(class='#{cat.icon}') &nbsp;
+          |#{cat.title}
       else
-        a(href=cat.url) #{cat.title}
-          i.sui-glyphicon.glyphicon-chevron-down.pull-right
+        a(href=cat.url)
+          i(class='#{cat.icon}') &nbsp;
+          |#{cat.title}
+          i.sui-icon-angle-down.pull-right
         ul.sui-nav.nav-tabs.nav-stacked
 
           for item,j in cat.children

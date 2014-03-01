@@ -8,7 +8,7 @@ block sidebar
 
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
-  - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
+  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["inverse", "相反"]]
   div.sui-page-header
     h1 按钮
 
@@ -34,8 +34,8 @@ block content
             if s
               - classname += ' btn-' + s
             if r  
-              - classname += ' btn-' + r
-            | <a href='javascript:void(0);' class='#{classname}'>按钮</a>
+              - classname += ' btn-' + r[0]
+            | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
             | 
           br
           br
@@ -68,8 +68,8 @@ block content
         each v in ROLES
           - var classname = 'sui-btn'
           if v
-            - classname += ' btn-' + v
-          |<a href='javascript:void(0);' class='#{classname}'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+            - classname += ' btn-' + v[0]
+          |<a href='javascript:void(0);' class='#{classname}'><i class='sui-glyphicon glyphicon-user'></i>#{v[1]}</a>
           | 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
@@ -97,8 +97,8 @@ block content
         each v in ROLES
           - var classname = 'sui-btn btn-block btn-xlarge'
           if v
-            - classname += ' btn-' + v
-          |<a href='javascript:void(0);' class='#{classname}'>按钮</a>
+            - classname += ' btn-' + v[0]
+          |<a href='javascript:void(0);' class='#{classname}'>#{v[1]}</a>
           | 
     div.tab-pane#code3
       pre.prettyprint.linenums(data-target='#demo3>div')

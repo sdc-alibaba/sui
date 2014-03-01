@@ -13,60 +13,57 @@
   </head>
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="sui-container"><a href="./index.html" class="sui-brand">SUI</a>
-          <div class="nav-collapse collapse">
-            <ul class="sui-nav">
-              <li><a href="./index.html">首页</a></li>
-              <li class="active"><a href="./buttons.html">组件库</a></li>
-              <li><a href="./examples.html">案例</a></li>
-              <li><a href="./scaffolding.html">教程</a></li>
-              <li><a href="./about.html">关于</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon-github-alt">&nbsp;</i>SUI</a>
+        <ul class="sui-nav">
+          <li><a href="./index.html">首页</a></li>
+          <li class="active"><a href="./buttons.html">组件库</a></li>
+          <li><a href="./examples.html">案例</a></li>
+          <li><a href="./scaffolding.html">教程</a></li>
+          <li><a href="./about.html">关于</a></li>
+        </ul>
       </div>
     </div>
-    <div class="sui-container">
-      <div class="sui-row">
-        <div class="span3">
-              <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
-                <li><a href="global.html">全局样式</a>
-                </li>
-                <li><a>布局<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
-                  <ul class="sui-nav nav-tabs nav-stacked">
-                    <li><a href="grid.html">栅格</a></li>
-                    <li><a href="layout.html">布局</a></li>
-                  </ul>
-                </li>
-                <li class="active"><a>基础css<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
-                  <ul class="sui-nav nav-tabs nav-stacked">
-                    <li class="active"><a href="buttons.html">按钮</a></li>
-                    <li><a href="forms.html">表单</a></li>
-                    <li><a href="tables.html">表格</a></li>
-                  </ul>
-                </li>
-                <li><a>css组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
-                  <ul class="sui-nav nav-tabs nav-stacked">
-                    <li><a href="msgs.html">提示消息</a></li>
-                    <li><a href="steps.html">步骤条</a></li>
-                    <li><a href="tab.html">标签页</a></li>
-                    <li><a href="breadcrumb.html">面包屑</a></li>
-                    <li><a href="pagination.html">分页器</a></li>
-                    <li><a href="button-groups.html">按钮组</a></li>
-                  </ul>
-                </li>
-                <li><a>js组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
-                  <ul class="sui-nav nav-tabs nav-stacked">
-                    <li><a href="dialog.html">对话框</a></li>
-                    <li><a href="tooltip.html">tooltip</a></li>
-                    <li><a href="tab-js.html">标签页</a></li>
-                    <li><a href="paginationJS.html">分页器</a></li>
-                  </ul>
-                </li>
-              </ul>
-        </div>
-        <div class="span9 content">
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon-th">&nbsp;</i>布局<i class="sui-icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon-magic">&nbsp;</i>基础css<i class="sui-icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li class="active"><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon-puzzle">&nbsp;</i>css组件<i class="sui-icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="paginationJS.html">分页器</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
           <div class="sui-page-header">
             <h1>按钮</h1>
           </div>
@@ -79,34 +76,34 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-xlarge'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-primary'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-success'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-info'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-warning'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-danger'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-inverse'>按钮</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn btn-large'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-primary'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-success'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-info'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-warning'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-danger'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-inverse'>按钮</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-primary'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-success'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-info'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-warning'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-danger'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-inverse'>按钮</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn btn-small'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-primary'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-success'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-info'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-warning'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-inverse'>按钮</a>
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-xlarge btn-'>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-primary'>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-success'>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-info'>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-warning'>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-danger'>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-inverse'>相反</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-large btn-'>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-primary'>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-success'>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-info'>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-warning'>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-danger'>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-inverse'>相反</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-'>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-primary'>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-success'>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-info'>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-warning'>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-danger'>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-inverse'>相反</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-small btn-'>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-primary'>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-success'>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-info'>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-warning'>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-inverse'>相反</a>
                  <br><br>
               </div>
             </div>
@@ -131,13 +128,13 @@
           </ul>
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-primary'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-success'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-info'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-warning'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-danger'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-inverse'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-'><i class='sui-glyphicon glyphicon-user'></i>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-primary'><i class='sui-glyphicon glyphicon-user'></i>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-success'><i class='sui-glyphicon glyphicon-user'></i>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-info'><i class='sui-glyphicon glyphicon-user'></i>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-warning'><i class='sui-glyphicon glyphicon-user'></i>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-danger'><i class='sui-glyphicon glyphicon-user'></i>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-inverse'><i class='sui-glyphicon glyphicon-user'></i>相反</a>
                  
               </div>
             </div>
@@ -158,13 +155,13 @@
           </ul>
           <div class="tab-content">
             <div id="demo3" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-primary'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-success'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-info'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-warning'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-danger'>按钮</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-inverse'>按钮</a>
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-'>默认</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-primary'>首要</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-success'>成功</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-info'>信息</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-warning'>警告</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-danger'>危险</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-inverse'>相反</a>
                  
               </div>
             </div>
