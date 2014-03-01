@@ -1,29 +1,52 @@
 extends base
 
 block title
-  title 12栏栅格
+  title 12 栏栅格
 
 block head
   style(type="text/css").
-    .sui-row div {
+    .grid-demo .sui-row div {
       background: #f1f1f1;
       min-height: 50px;
     }
-    .sui-row + .sui-row{
+    .grid-demo .sui-row + .sui-row{
       margin-top: 10px;
     }
+block sidebar
+  +sidebar('grid')
 
 block content
-  div.sui-container
-    div.sui-row
-      - for (var x = 1; x <= 12; x++)
-        div(class="span#{1}")=1
-    div.sui-row
-      - each x in [1, 2, 2, 3, 4]
-        div(class="span#{x}")=x
-    div.sui-row
-      - each x in [6, 6]
-        div(class="span#{x}")=x
-    div.sui-row
-      - each x in [3, 9]
-        div(class="span#{x}")=x
+  div.sui-page-header
+    h1 栅格系统
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.grid-demo
+          div.sui-row
+            - for (var x = 1; x <= 8; x++)
+              div(class="span#{1}")=1
+          div.sui-row
+            - each x in [1, 2, 2, 3, ]
+              div(class="span#{x}")=x
+          div.sui-row
+            - each x in [4, 4]
+              div(class="span#{x}")=x
+          div.sui-row
+            - each x in [2, 6]
+              div(class="span#{x}")=x
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 12 栏栅格，当引入response.css后会变成响应式栅格。适应主流的三种屏幕宽度：1024px, 1280px, 1440px。
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

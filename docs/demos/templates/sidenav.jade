@@ -1,0 +1,49 @@
+ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
+  - var items = []
+  - items.push({name: 'global', title:'全局样式', url: 'global.html'})
+  - items.push({name: 'layouts', title:'布局', children:[]})
+  - items.push({name: 'base-css', title: '基础css', children:[]})
+  - items.push({name: 'css-components', title: 'css组件', children:[]})
+  - items.push({name: 'js-components', title: 'js组件', children:[]})
+
+  - items[1].children.push({name: 'grid', title:'栅格', url:'grid.html'})
+  - items[1].children.push({name: 'layout', title:'布局', url:'layout.html'})
+
+  - items[2].children.push({name: 'btn', title:'按钮', url:'buttons.html'})
+  - items[2].children.push({name: 'form', title:'表单', url:'forms.html'})
+  - items[2].children.push({name: 'table', title:'表格', url:'tables.html'})
+
+  - items[3].children.push({name: 'tip', title:'提示消息', url:'msgs.html'})
+  - items[3].children.push({name: 'step', title:'步骤条', url:'steps.html'})
+  - items[3].children.push({name: 'tab', title:'标签页', url:'tab.html'})
+  - items[3].children.push({name: 'breadcrumb', title:'面包屑', url:'breadcrumb.html'})
+  - items[3].children.push({name: 'pagination', title:'分页器', url:'pagination.html'})
+  - items[3].children.push({name: 'btn-group', title:'按钮组', url:'button-groups.html'})
+
+  - items[4].children.push({name: 'dialog', title:'对话框', url:'dialog.html'})
+  - items[4].children.push({name: 'tooltip', title:'tooltip', url:'tooltip.html'})
+  - items[4].children.push({name: 'tab-js', title:'标签页', url:'tab-js.html'})
+  - items[4].children.push({name: 'pagination-js', title:'分页器', url:'paginationJS.html'})
+
+  for cat, i in items
+    - var classname = ''
+    if highlight == cat.name
+      - classname = "active"
+    if cat.children
+      for item,j in cat.children
+        if highlight == item.name
+          - classname = 'active'
+    li(class=classname)
+      if !cat.children
+        a(href=cat.url) #{cat.title}
+      else
+        a(href=cat.url) #{cat.title}
+          i.sui-glyphicon.glyphicon-chevron-down.pull-right
+        ul.sui-nav.nav-tabs.nav-stacked
+
+          for item,j in cat.children
+            - var classname = ''
+            if highlight == item.name
+              - classname = "active"
+            li(class=classname)
+              a(href=item.url) #{item.title}

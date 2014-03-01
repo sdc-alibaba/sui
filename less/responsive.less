@@ -70,7 +70,7 @@
 }
 
 // Tablets to regular desktops
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 1023px) {
 
   // Fixed grid
   #grid > .core(@gridColumnWidthSmall, @gridGutterWidthSmall);
@@ -84,10 +84,3 @@
   // No need to reset .thumbnails here since it's the same @gridGutterWidth
 
 }
-
-
-// RESPONSIVE NAVBAR
-// ------------------
-
-// From 979px and below, show a button to toggle navbar contents
-@import "responsive-navbar.less";

@@ -11,23 +11,6 @@
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
     <style type="text/css">
-      .bs-docs-example {
-        margin: 0;
-      }
-      .demo-operations {
-        margin: 15px 0;
-        list-style: none;
-      }
-      .demo-operations li {
-        float: left;
-        margin-right: 20px;
-      }
-      .bs-docs-sidenav li a {
-        padding: 10px 15px!important;
-      }
-      
-    </style>
-    <style type="text/css">
       .sui-layout div { background-color: #f5faff; min-height: 100px; }
       .sui-layout .sidebar { background: #3096de; }
       
@@ -36,52 +19,95 @@
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="sui-container">
-          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="sui-brand" href="./index.html">SUI</a>
+        <div class="sui-container"><a href="./index.html" class="sui-brand">SUI</a>
           <div class="nav-collapse collapse">
             <ul class="sui-nav">
-              <li class="">
-                <a href="./index.html">首页</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">教程</a>
-              </li>
-              <li class="active">
-                <a href="./buttons.html">Demos</a>
-              </li>
-              <li class="">
-                <a href="./about.html">关于</a>
-              </li>
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./buttons.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./scaffolding.html">教程</a></li>
+              <li><a href="./about.html">关于</a></li>
             </ul>
           </div>
         </div>
       </div>
-      
     </div>
-    <h2>2 col layout</h2>
-    <div class="sui-layout">
-      <div class="sidebar">sidebar</div>
-      <div class="content">content</div>
+    <div class="sui-container">
+      <div class="sui-row">
+        <div class="span3">
+              <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+                <li><a href="global.html">全局样式</a>
+                </li>
+                <li class="active"><a>布局<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="grid.html">栅格</a></li>
+                    <li class="active"><a href="layout.html">布局</a></li>
+                  </ul>
+                </li>
+                <li><a>基础css<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="buttons.html">按钮</a></li>
+                    <li><a href="forms.html">表单</a></li>
+                    <li><a href="tables.html">表格</a></li>
+                  </ul>
+                </li>
+                <li><a>css组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="msgs.html">提示消息</a></li>
+                    <li><a href="steps.html">步骤条</a></li>
+                    <li><a href="tab.html">标签页</a></li>
+                    <li><a href="breadcrumb.html">面包屑</a></li>
+                    <li><a href="pagination.html">分页器</a></li>
+                    <li><a href="button-groups.html">按钮组</a></li>
+                  </ul>
+                </li>
+                <li><a>js组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="dialog.html">对话框</a></li>
+                    <li><a href="tooltip.html">tooltip</a></li>
+                    <li><a href="tab-js.html">标签页</a></li>
+                    <li><a href="paginationJS.html">分页器</a></li>
+                  </ul>
+                </li>
+              </ul>
+        </div>
+        <div class="span9 content">
+          <div class="sui-page-header">
+            <h1>左右两边固定的三栏布局</h1>
+          </div>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <h2>2 col layout</h2>
+                <div class="sui-layout">
+                  <div class="sidebar">sidebar</div>
+                  <div class="content">content</div>
+                </div>
+                <h2>3 col layout</h2>
+                <div class="sui-layout layout3">
+                  <div class="sidebar">sidebar</div>
+                  <div class="content">content</div>
+                  <div class="sidebar">sidebar</div>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">左右宽度固定中间自适应的布局，默认宽度会铺满整个屏幕。</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <h2>3 col layout</h2>
-    <div class="sui-layout layout3">
-      <div class="sidebar">sidebar</div>
-      <div class="content">content</div>
-      <div class="sidebar">sidebar</div>
-    </div>
-    <script>
-      $('.prettyprint').each(function() {
-        $this = $(this)
-        $target = $($this.data("target"))
-        if(!$target[0]) return;
-          $this.text($target.html())
-      })
-    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>

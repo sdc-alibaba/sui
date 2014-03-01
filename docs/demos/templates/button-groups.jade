@@ -9,33 +9,64 @@ block head
         min-width: 100px;
       }
 
+block sidebar
+  +sidebar('btn-group')
+
 block content
-  .sui-container
-    h2 水平方向
-    div.sui-btn-group
-      button.sui-btn 左边
-      button.sui-btn 中间
-      button.sui-btn 右边
-    div.sui-btn-group
-      button.sui-btn 按钮
-      button.sui-btn.btn-primray 按钮
-      button.sui-btn.btn-warning 按钮
-      button.sui-btn.btn-success 按钮
-      button.sui-btn.btn-danger 按钮
+  div.sui-page-header
+    h1 按钮组
 
-    h2 垂直方向
-    div.sui-btn-group.btn-group-vertical
-      button.sui-btn 左边
-      button.sui-btn 中间
-      button.sui-btn 右边
+  p
+    | 垂直和水平方向按钮组
 
-    h2 工具栏
-    div.sui-btn-toolbar(style="margin: 0;")
-      div.sui-btn-group
-        button.sui-btn 复制
-        button.sui-btn 粘贴
-        button.sui-btn 缩进
+  h3 1. 不同大小和功能的按钮
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
 
-      div.sui-btn-group
-        button.sui-btn.btn-danger 删除
-        button.sui-btn.btn-primary 插入
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.sui-btn-group
+          button.sui-btn 左边
+          button.sui-btn 中间
+          button.sui-btn 右边
+        div.sui-btn-group
+          button.sui-btn 按钮
+          button.sui-btn.btn-primray 按钮
+          button.sui-btn.btn-warning 按钮
+          button.sui-btn.btn-success 按钮
+          button.sui-btn.btn-danger 按钮
+
+        h2 垂直方向
+        div.sui-btn-group.btn-group-vertical
+          button.sui-btn 左边
+          button.sui-btn 中间
+          button.sui-btn 右边
+
+        h2 工具栏
+        div.sui-btn-toolbar(style="margin: 0;")
+          div.sui-btn-group
+            button.sui-btn 复制
+            button.sui-btn 粘贴
+            button.sui-btn 缩进
+
+          div.sui-btn-group
+            button.sui-btn.btn-danger 删除
+            button.sui-btn.btn-primary 插入
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 按钮组，默认是水平排列，通过class <code>btn-group-vertical</code> 控制按钮组垂直排列。
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+

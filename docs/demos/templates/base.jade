@@ -10,82 +10,36 @@ html(lang="en")
     link(rel="shortcut icon" href="../assets/ico/favicon.png")
     script(src="../../js/lib/jquery.js")
     script(src="../../build/js/bootstrap.js")
-    style(type='text/css').
-      .bs-docs-example {
-        margin: 0;
-      }
-      .demo-operations {
-        margin: 15px 0;
-        list-style: none;
-      }
-      .demo-operations li {
-        float: left;
-        margin-right: 20px;
-      }
-      .bs-docs-sidenav li a {
-        padding: 10px 15px!important;
-      }
 
     block head
 
   body
-    div.sui-navbar.navbar-inverse.navbar-fixed-top.
-      <div class="navbar-inner">
-        <div class="sui-container">
-          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="sui-brand" href="./index.html">SUI</a>
-          <div class="nav-collapse collapse">
-            <ul class="sui-nav">
-              <li class="">
-                <a href="./index.html">首页</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">教程</a>
-              </li>
-              <li class="active">
-                <a href="./buttons.html">Demos</a>
-              </li>
-              <li class="">
-                <a href="./about.html">关于</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    div.sui-navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.sui-container
+          a.sui-brand(href="./index.html") SUI
+          div.nav-collapse.collapse
+            ul.sui-nav
+              li
+                a(href="./index.html") 首页
+              li.active
+                a(href="./buttons.html") 组件库
+              li
+                a(href="./examples.html") 案例
+              li
+                a(href="./scaffolding.html") 教程
+              li
+                a(href="./about.html") 关于
 
     mixin sidebar(highlight)
-      ul.sui-nav.nav-list.bs-docs-sidenav.affix-top
-        - var items = []
-        - items.push(['全局样式', 'global.html'])
-        - items.push(['栅格', 'grid.html'])
-        - items.push(['布局', 'layout.html'])
-        - items.push(['按钮', 'buttons.html'])
-        - items.push(['对话框', 'dialog.html'])
-        - items.push(['表单', 'forms.html'])
-        - items.push(['提示消息', 'msg.html'])
-        - items.push(['分页器', 'pagination.html'])
-        - items.push(['步骤条', 'step.html'])
-        - items.push(['标签页', 'tab.html'])
-        - items.push(['表格', 'tables.html'])
-        - items.push(['tooltip', 'tooltip.html'])
+      include sidenav
+    .sui-container
+      .sui-row
+        .span3
+          block sidebar
+        .span9.content
+          block content
 
-        for d,i in items
-          li
-            a(href=d[1]) #{d[0]}
-              i.icon-chevron-right
-    block content
-
-    script.
-      $('.prettyprint').each(function() {
-        $this = $(this)
-        $target = $($this.data("target"))
-        if(!$target[0]) return;
-          $this.text($target.html())
-      })
     script(src="../assets/js/google-code-prettify/prettify.js")
     script(src="../assets/js/application.js")
     block js_block

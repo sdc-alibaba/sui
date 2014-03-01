@@ -13,6 +13,7 @@
 
   > li > a {
     display: block;
+    cursor: pointer;
     &:hover, &:focus {
       text-decoration: none;
       background-color: @grayLighter;
@@ -101,6 +102,17 @@
     }
   }
 
+  // 整个nav的统一尺寸在这里定义，各个不同形态可以重载这些尺寸
+  > li > a {
+    padding: @navPadding;
+  }
+  &.nav-large > li > a {
+    padding: @navPaddingLarge;
+  }
+  &.nav-xlarge > li > a {
+    padding: @navPaddingXLarge;
+  }
+
 // TABS
 // ----
 
@@ -113,7 +125,6 @@
       margin-bottom: -1px;
       & > a {
         color: @navTabsColor;
-        padding: @navTabsPadding;
         line-height: @baseLineHeight;
         border: 1px solid @navTabsBorderColor;
         border-bottom-color: @navTabsBorderHighlightColor;
@@ -128,12 +139,7 @@
         margin-left: -1px;
       }
     }
-    &.nav-tabs-large > li > a {
-      padding: @navTabsPaddingLarge;
-    }
-    &.nav-tabs-xlarge > li > a {
-      padding: @navTabsPaddingXLarge;
-    }
+    
   // Active state, and it's :hover/:focus to override normal :hover/:focus
     > .active {
       border-bottom: 0;
@@ -179,59 +185,124 @@
       }
     }
   }
-}
 
 
 
-// STACKED NAV
-// -----------
+  // STACKED NAV
+  // -----------
 
-// Stacked tabs and pills
-.nav-stacked > li {
-  float: none;
-}
-.nav-stacked > li > a {
-  margin-right: 0; // no need for the gap between nav items
-}
+  // Stacked tabs and pills
+  &.nav-stacked > li {
+    float: none;
+  }
+  &.nav-stacked > li > a {
+    margin-right: 0; // no need for the gap between nav items
+  }
 
-// Tabs
-.nav-tabs.nav-stacked {
-  border-bottom: 0;
-}
-.nav-tabs.nav-stacked > li > a {
-  border: 1px solid #ddd;
-  .border-radius(0);
-}
-.nav-tabs.nav-stacked > li:first-child > a {
-  .border-top-radius(4px);
-}
-.nav-tabs.nav-stacked > li:last-child > a {
-  .border-bottom-radius(4px);
-}
-.nav-tabs.nav-stacked > li > a:hover,
-.nav-tabs.nav-stacked > li > a:focus {
-  border-color: #ddd;
-  z-index: 2;
-}
+  // Tabs
+  &.nav-tabs.nav-stacked {
+    border-bottom: 0;
+    padding-left: 0;
+  }
+  &.nav-tabs.nav-stacked > li {
+    border: 1px solid #ddd;
+    overflow: hidden;
+    .border-radius(0);
+    background: @navTabsBackgroundColor;
 
-// Pills
-.nav-pills.nav-stacked > li > a {
-  margin-bottom: 3px;
-}
-.nav-pills.nav-stacked > li:last-child > a {
-  margin-bottom: 1px; // decrease margin to match sizing of stacked tabs
-}
+    > a {
+      border: 0;
+      margin-left: 0;
+      background: none;
+    }
+
+    &:hover {
+      background: @white;
+    }
+  }
+  &.nav-tabs.nav-stacked > li:first-child {
+    .border-top-radius(4px);
+  }
+  &.nav-tabs.nav-stacked > li:last-child {
+    .border-bottom-radius(4px);
+  }
+  &.nav-tabs.nav-stacked > li.active {
+    border-right: 2px solid @navTabsBorderHighlightColor;
+    a, a:hover {
+      color: #2270bf;
+    }
+  }
+  &.nav-tabs.nav-stacked > li > a:hover,
+  &.nav-tabs.nav-stacked > li > a:focus {
+    border-color: #ddd;
+    z-index: 2;
+  }
+
+  // 嵌套结构
+  &.nav-tabs.nav-stacked .nav-tabs.nav-stacked {
+    display: none;
+    margin-bottom: 0;
+    > li {
+      border: 0;
+      .border-radius(0);
+      background: #fff;
+      &:hover {
+        background: @white;
+      }
+      a {
+        margin-left: 20px;
+        color: @grayLight;
+        position: static;
+        border: 1px solid #ddd;
+        border-left: 0;
+        border-right: 0;
+        margin: 0;
+
+      }
+      &.active a,
+      &:hover a
+      {
+        color: #2270bf;
+      }
+      &:first-child {
+        border-top: 1px solid #ddd;
+        > a {
+          border-top: 0;
+        }
+      }
+    }
+  }
+  &.nav-tabs.nav-stacked {
+    > li.active .nav-tabs.nav-stacked {
+      display: block;
+    }
+    &.nav-large .nav-tabs.nav-stacked > li > a {
+      padding: @navPaddingLarge;
+    }
+    &.nav-xlarge .nav-tabs.nav-stacked > li > a {
+      padding: @navPaddingXLarge;
+    }
+  }
+
+  // Pills
+  &.nav-pills.nav-stacked > li > a {
+    margin-bottom: 3px;
+  }
+  &.nav-pills.nav-stacked > li:last-child > a {
+    margin-bottom: 1px; // decrease margin to match sizing of stacked tabs
+  }
 
 
 
-// DROPDOWNS
-// ---------
+  // DROPDOWNS
+  // ---------
 
-.nav-tabs .dropdown-menu {
-  .border-radius(0 0 6px 6px); // remove the top rounded corners here since there is a hard edge above the menu
-}
-.nav-pills .dropdown-menu {
-  .border-radius(6px); // make rounded corners match the pills
+  &.nav-tabs .dropdown-menu {
+    .border-radius(0 0 6px 6px); // remove the top rounded corners here since there is a hard edge above the menu
+  }
+  &.nav-pills .dropdown-menu {
+    .border-radius(6px); // make rounded corners match the pills
+  }
 }
 
 // Default dropdown links

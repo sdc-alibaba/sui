@@ -10,68 +10,42 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
-    <style type="text/css">
-      .bs-docs-example {
-        margin: 0;
-      }
-      .demo-operations {
-        margin: 15px 0;
-        list-style: none;
-      }
-      .demo-operations li {
-        float: left;
-        margin-right: 20px;
-      }
-      .bs-docs-sidenav li a {
-        padding: 10px 15px!important;
-      }
-      
-    </style>
   </head>
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="sui-container">
-          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="sui-brand" href="./index.html">SUI</a>
+        <div class="sui-container"><a href="./index.html" class="sui-brand">SUI</a>
           <div class="nav-collapse collapse">
             <ul class="sui-nav">
-              <li class="">
-                <a href="./index.html">首页</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">教程</a>
-              </li>
-              <li class="active">
-                <a href="./buttons.html">Demos</a>
-              </li>
-              <li class="">
-                <a href="./about.html">关于</a>
-              </li>
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./buttons.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./scaffolding.html">教程</a></li>
+              <li><a href="./about.html">关于</a></li>
             </ul>
           </div>
         </div>
       </div>
-      
     </div>
-    <style>
-      li{display: inline-block; list-style:none; margin: 0 10px}
-      body{padding-bottom: 400px}
-      
-    </style>
     <div class="sui-container">
-      <h1>Tooltip 绝大部分参数可写在触发元素的data-xxx属性里</h1>
-      <p>参数解释，补充信息见a(href="http://getbootstrap.com/2.3.2/javascript.html#tooltips") bootstrap tooltip</p>
-      <pre>/* 
+      <div class="sui-row">
+        <div class="span3">
+        </div>
+        <div class="span9 content">
+          <style>
+            li{display: inline-block; list-style:none; margin: 0 10px}
+            body{padding-bottom: 400px}
+            
+          </style>
+          <div class="sui-container">
+            <h1>Tooltip 绝大部分参数可写在触发元素的data-xxx属性里</h1>
+            <p>参数解释，补充信息见a(href="http://getbootstrap.com/2.3.2/javascript.html#tooltips") bootstrap tooltip</p>
+            <pre>/* 
  * 原bootstrap tooltip的参数template已废弃
  * 满足70%需求的简单tooltip可不写js直接调用，在触发元素上设置data-toggle="tooltip"（类似dialog）即可。扩展则可继续添加如下的data-xxx属性注入参数实现
  * .tooltip 改为 .sui-tooltip
  * /</pre>
-      <pre>{
+            <pre>{
     animation: true
 , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
@@ -85,50 +59,45 @@
   , okHide: fn       //带确认取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
 }
 </pre>
-      <ul>
-        <li><a href="#" data-placement="top" data-toggle="tooltip" title="浮出在&lt;b&gt;top&lt;/b&gt;的tooltip">看top</a></li>
-        <li><a href="#" data-placement="right" data-toggle="tooltip" title="浮出在&lt;b&gt;right&lt;/b&gt;的tooltip">看right</a></li>
-        <li><a href="#" data-placement="bottom" data-toggle="tooltip" title="浮出在&lt;b&gt;bottom&lt;/b&gt;的tooltip">看bottom</a></li>
-        <li><a href="#" data-placement="left" data-toggle="tooltip" title="浮出在&lt;b&gt;left&lt;/b&gt;的tooltip">看left</a></li>
-      </ul>
-      <ul>
-        <li>右方click触发tooltip</li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
-        <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
-      </ul>
-      <ul>
-        <li><a href="javascript:void(0)" data-placement="top" data-toggle="tooltip" data-type="attention" title="强调tooltip">top opt.type = 'attention'</a></li>
-        <li><a href="javascript:void(0)" data-placement="right" data-toggle="tooltip" data-type="attention" title="强调tooltip">right opt.type = 'attention'</a></li>
-        <li><a href="javascript:void(0)" data-placement="bottom" data-toggle="tooltip" data-type="attention" title="强调tooltip">bottom opt.type = 'attention'</a></li>
-        <li><a href="javascript:void(0)" data-placement="left" data-toggle="tooltip" data-type="attention" title="强调tooltip">left opt.type = 'attention'</a></li>
-      </ul>
-      <hr>
-      <pre>$('#J_set').tooltip({okHide: function(){this.hide()}})</pre>
-      <ul>
-        <li><a id="J_set" href="javascript:void(0)" data-type="confirm" data-placement="bottom" data-trigger="click" title="这里可以做一些setting类别的事务&lt;br&gt;&lt;input type=&quot;text&quot;&gt;">带确定取消按钮的tooltip </a></li>
-      </ul>
-      <hr>
-      <p>如果不想用tooltip，但若只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left</p>
-      <textarea cols="100" rows="5">
-        <div class="tooltip-only-arrow bottom" style="width:300px;height:40px;border:2px solid #b2b2b2">
-          <div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div>
-        </div>
-      </textarea><br><br>
-      <div style="width:300px;height:40px;border:2px solid #b2b2b2" class="tooltip-only-arrow bottom">
-        <div class="tooltip-arrow">
-          <div class="tooltip-arrow cover"></div>
+            <ul>
+              <li><a href="#" data-placement="top" data-toggle="tooltip" title="浮出在&lt;b&gt;top&lt;/b&gt;的tooltip">看top</a></li>
+              <li><a href="#" data-placement="right" data-toggle="tooltip" title="浮出在&lt;b&gt;right&lt;/b&gt;的tooltip">看right</a></li>
+              <li><a href="#" data-placement="bottom" data-toggle="tooltip" title="浮出在&lt;b&gt;bottom&lt;/b&gt;的tooltip">看bottom</a></li>
+              <li><a href="#" data-placement="left" data-toggle="tooltip" title="浮出在&lt;b&gt;left&lt;/b&gt;的tooltip">看left</a></li>
+            </ul>
+            <ul>
+              <li>右方click触发tooltip</li>
+              <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
+              <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
+              <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
+            </ul>
+            <ul>
+              <li><a href="javascript:void(0)" data-placement="top" data-toggle="tooltip" data-type="attention" title="强调tooltip">top opt.type = 'attention'</a></li>
+              <li><a href="javascript:void(0)" data-placement="right" data-toggle="tooltip" data-type="attention" title="强调tooltip">right opt.type = 'attention'</a></li>
+              <li><a href="javascript:void(0)" data-placement="bottom" data-toggle="tooltip" data-type="attention" title="强调tooltip">bottom opt.type = 'attention'</a></li>
+              <li><a href="javascript:void(0)" data-placement="left" data-toggle="tooltip" data-type="attention" title="强调tooltip">left opt.type = 'attention'</a></li>
+            </ul>
+            <hr>
+            <pre>$('#J_set').tooltip({okHide: function(){this.hide()}})</pre>
+            <ul>
+              <li><a id="J_set" href="javascript:void(0)" data-type="confirm" data-placement="bottom" data-trigger="click" title="这里可以做一些setting类别的事务&lt;br&gt;&lt;input type=&quot;text&quot;&gt;">带确定取消按钮的tooltip </a></li>
+            </ul>
+            <hr>
+            <p>如果不想用tooltip，但若只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left</p>
+            <textarea cols="100" rows="5">
+              <div class="tooltip-only-arrow bottom" style="width:300px;height:40px;border:2px solid #b2b2b2">
+                <div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div>
+              </div>
+            </textarea><br><br>
+            <div style="width:300px;height:40px;border:2px solid #b2b2b2" class="tooltip-only-arrow bottom">
+              <div class="tooltip-arrow">
+                <div class="tooltip-arrow cover"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <script>
-      $('.prettyprint').each(function() {
-        $this = $(this)
-        $target = $($this.data("target"))
-        if(!$target[0]) return;
-          $this.text($target.html())
-      })
-    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script>$('#J_set').tooltip({okHide: function(){console.log(this);this.hide()}})</script>

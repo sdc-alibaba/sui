@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>按钮组</title>
+    <title>全局样式</title>
     <link href="../../build/css/bootstrap.css" rel="stylesheet">
     <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
@@ -10,12 +10,6 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
-    <style type="text/css">
-      .btn-group-vertical .sui-btn {
-        min-width: 100px;
-      }
-      
-    </style>
   </head>
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -37,7 +31,7 @@
       <div class="sui-row">
         <div class="span3">
               <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
-                <li><a href="global.html">全局样式</a>
+                <li class="active"><a href="global.html">全局样式</a>
                 </li>
                 <li><a>布局<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
                   <ul class="sui-nav nav-tabs nav-stacked">
@@ -52,14 +46,14 @@
                     <li><a href="tables.html">表格</a></li>
                   </ul>
                 </li>
-                <li class="active"><a>css组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                <li><a>css组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
                   <ul class="sui-nav nav-tabs nav-stacked">
                     <li><a href="msgs.html">提示消息</a></li>
                     <li><a href="steps.html">步骤条</a></li>
                     <li><a href="tab.html">标签页</a></li>
                     <li><a href="breadcrumb.html">面包屑</a></li>
                     <li><a href="pagination.html">分页器</a></li>
-                    <li class="active"><a href="button-groups.html">按钮组</a></li>
+                    <li><a href="button-groups.html">按钮组</a></li>
                   </ul>
                 </li>
                 <li><a>js组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
@@ -74,10 +68,13 @@
         </div>
         <div class="span9 content">
           <div class="sui-page-header">
-            <h1>按钮组</h1>
+            <h1>全局样式</h1>
           </div>
-          <p>垂直和水平方向按钮组</p>
-          <h3>1. 不同大小和功能的按钮</h3>
+          <p>
+            SUI 默认定义了一些基本全局样式，包括基础字体、颜色、尺寸。
+            使用 <a href='http://necolas.github.com/normalize.css/'>normalize.css</a> 对全局样式进行了一些重载，当然我们针对SUI进行了一些修改。
+          </p>
+          <h2>1. 基础字体和颜色</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -86,42 +83,22 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <div class="sui-btn-group">
-                  <button class="sui-btn">左边</button>
-                  <button class="sui-btn">中间</button>
-                  <button class="sui-btn">右边</button>
-                </div>
-                <div class="sui-btn-group">
-                  <button class="sui-btn">按钮</button>
-                  <button class="sui-btn btn-primray">按钮</button>
-                  <button class="sui-btn btn-warning">按钮</button>
-                  <button class="sui-btn btn-success">按钮</button>
-                  <button class="sui-btn btn-danger">按钮</button>
-                </div>
-                <h2>垂直方向</h2>
-                <div class="sui-btn-group btn-group-vertical">
-                  <button class="sui-btn">左边</button>
-                  <button class="sui-btn">中间</button>
-                  <button class="sui-btn">右边</button>
-                </div>
-                <h2>工具栏</h2>
-                <div style="margin: 0;" class="sui-btn-toolbar">
-                  <div class="sui-btn-group">
-                    <button class="sui-btn">复制</button>
-                    <button class="sui-btn">粘贴</button>
-                    <button class="sui-btn">缩进</button>
-                  </div>
-                  <div class="sui-btn-group">
-                    <button class="sui-btn btn-danger">删除</button>
-                    <button class="sui-btn btn-primary">插入</button>
-                  </div>
-                </div>
+                <p>
+                  段落
+                  基础字体：12px, #333, 微软雅黑
+                  基础行高: 18px
+                </p>
+                <h1>标题一</h1>
+                <h2>标题二</h2>
+                <h3>标题三</h3>
+                <h4>标题四</h4>
+                <h5>标题五</h5>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">按钮组，默认是水平排列，通过class <code>btn-group-vertical</code> 控制按钮组垂直排列。</div>
+            <div id="doc1" class="tab-pane">默认字体：12px, #333, 微软雅黑</div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>

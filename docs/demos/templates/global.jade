@@ -1,0 +1,52 @@
+extends base
+
+block title
+  title 全局样式
+
+block sidebar
+  +sidebar('global')
+
+block content
+  - var SIZES = ['xlarge', 'large', '', 'small']
+  - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
+  div.sui-page-header
+    h1 全局样式
+
+  p
+    | SUI 默认定义了一些基本全局样式，包括基础字体、颜色、尺寸。
+    | 使用 <a href='http://necolas.github.com/normalize.css/'>normalize.css</a> 对全局样式进行了一些重载，当然我们针对SUI进行了一些修改。
+
+  h2 1. 基础字体和颜色
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        p
+          | 段落
+          | 基础字体：12px, #333, 微软雅黑
+          | 基础行高: 18px
+
+        h1 标题一
+        h2 标题二
+        h3 标题三
+        h4 标题四
+        h5 标题五
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 默认字体：12px, #333, 微软雅黑
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+

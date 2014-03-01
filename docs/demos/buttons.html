@@ -10,91 +10,176 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
-    <style type="text/css">
-      .bs-docs-example {
-        margin: 0;
-      }
-      .demo-operations {
-        margin: 15px 0;
-        list-style: none;
-      }
-      .demo-operations li {
-        float: left;
-        margin-right: 20px;
-      }
-      .bs-docs-sidenav li a {
-        padding: 10px 15px!important;
-      }
-      
-    </style>
   </head>
   <body>
     <div class="sui-navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="sui-container">
-          <button type="button" class="sui-btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="sui-brand" href="./index.html">SUI</a>
+        <div class="sui-container"><a href="./index.html" class="sui-brand">SUI</a>
           <div class="nav-collapse collapse">
             <ul class="sui-nav">
-              <li class="">
-                <a href="./index.html">首页</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">教程</a>
-              </li>
-              <li class="active">
-                <a href="./buttons.html">Demos</a>
-              </li>
-              <li class="">
-                <a href="./about.html">关于</a>
-              </li>
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./buttons.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./scaffolding.html">教程</a></li>
+              <li><a href="./about.html">关于</a></li>
             </ul>
           </div>
         </div>
       </div>
-      
     </div>
     <div class="sui-container">
-      <h2>不同大小的按钮</h2><a href="javascript:void(0);" class="sui-btn btn-xlarge">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-large">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-small">按钮</a>&nbsp;
-      <h2>不同功能的按钮</h2><a href="javascript:void(0);" class="sui-btn">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-primary">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-success">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-info">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-warning">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-danger">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-inverse">按钮</a>&nbsp;
-      <h2>禁用的按钮</h2><a href="javascript:void(0);" class="sui-btn disabled">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-primary">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-success">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-info">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-warning">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-danger">按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn disabled btn-inverse">按钮</a>&nbsp;
-      <h2>带图标的按钮</h2><a href="javascript:void(0);" class="sui-btn">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-primary">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-success">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-info">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-warning">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-danger">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-inverse">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<br><br><a href="javascript:void(0);" class="sui-btn btn-xlarge">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-large">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;<a href="javascript:void(0);" class="sui-btn btn-small">
-        <i class='sui-glyphicon glyphicon-user'></i>
-        按钮</a>&nbsp;
-      <h2>块级按钮</h2><a href="javascript:void(0);" class="sui-btn btn-block">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-primary">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-success">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-info">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-warning">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-danger">按钮</a><a href="javascript:void(0);" class="sui-btn btn-block btn-inverse">按钮</a>
+      <div class="sui-row">
+        <div class="span3">
+              <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+                <li><a href="global.html">全局样式</a>
+                </li>
+                <li><a>布局<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="grid.html">栅格</a></li>
+                    <li><a href="layout.html">布局</a></li>
+                  </ul>
+                </li>
+                <li class="active"><a>基础css<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li class="active"><a href="buttons.html">按钮</a></li>
+                    <li><a href="forms.html">表单</a></li>
+                    <li><a href="tables.html">表格</a></li>
+                  </ul>
+                </li>
+                <li><a>css组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="msgs.html">提示消息</a></li>
+                    <li><a href="steps.html">步骤条</a></li>
+                    <li><a href="tab.html">标签页</a></li>
+                    <li><a href="breadcrumb.html">面包屑</a></li>
+                    <li><a href="pagination.html">分页器</a></li>
+                    <li><a href="button-groups.html">按钮组</a></li>
+                  </ul>
+                </li>
+                <li><a>js组件<i class="sui-glyphicon glyphicon-chevron-down pull-right"></i></a>
+                  <ul class="sui-nav nav-tabs nav-stacked">
+                    <li><a href="dialog.html">对话框</a></li>
+                    <li><a href="tooltip.html">tooltip</a></li>
+                    <li><a href="tab-js.html">标签页</a></li>
+                    <li><a href="paginationJS.html">分页器</a></li>
+                  </ul>
+                </li>
+              </ul>
+        </div>
+        <div class="span9 content">
+          <div class="sui-page-header">
+            <h1>按钮</h1>
+          </div>
+          <p>不同功能和大小的按钮</p>
+          <h2>1. 不同大小和功能的按钮</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-xlarge'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-primary'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-success'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-info'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-warning'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-danger'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-inverse'>按钮</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-large'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-primary'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-success'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-info'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-warning'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-danger'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-large btn-inverse'>按钮</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-primary'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-success'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-info'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-warning'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-danger'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-inverse'>按钮</a>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-small'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-primary'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-success'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-info'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-warning'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-small btn-inverse'>按钮</a>
+                 <br><br>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">
+              按钮有四种尺寸：small, default, large 和 xlarge
+              按钮七种不同功能："default", "primary", "success", "info", "warning", "danger", "inverse"
+              还有一种是禁用的按钮，通过增加 <code>.disabled </code> class 或者添加 <code>disabled</code>属性
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>2.带图标的按钮 </h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-primary'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-success'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-info'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-warning'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-danger'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-inverse'><i class='sui-glyphicon glyphicon-user'></i>按钮</a>
+                 
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">带图标的按钮</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>3. 块级按钮</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-primary'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-success'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-info'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-warning'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-danger'>按钮</a>
+                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-inverse'>按钮</a>
+                 
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane">块级按钮会独占一行</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <script>
-      $('.prettyprint').each(function() {
-        $this = $(this)
-        $target = $($this.data("target"))
-        if(!$target[0]) return;
-          $this.text($target.html())
-      })
-    </script>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
