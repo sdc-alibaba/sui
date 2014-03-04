@@ -1,0 +1,32 @@
+extends base
+
+block title
+  title 案例
+
+block header
+  +header('examples')
+block content_wrap
+  .jumbotron
+    .sui-container
+      h1 经典案例
+      p.lead
+        使用SUI可以轻松搭建一个漂亮的页面，她有丰富的组件库可以像搭积木一样轻松搭建一个页面。
+
+  
+  .sui-container 
+    .sui-row
+      .span6
+        a.picture
+          img(src='../pictures/example-form.png')
+      .span6
+        h2 订购服务
+        p.lead
+          表单结合表格的页面
+    .sui-row
+      .span6
+        a.picture
+          img(src='../pictures/example-table.png')
+      .span6
+        h2 我的采购单
+        p.lead
+          一个复杂的form应用页面
