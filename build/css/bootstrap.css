@@ -5695,7 +5695,8 @@ button.sui-close {
           user-select: none;
 }
 
-.sui-btn .sui-glyphicon {
+.sui-btn .sui-icon {
+  margin-right: 8px;
   font-size: 12px;
 }
 
@@ -5705,7 +5706,7 @@ button.sui-close {
 }
 
 .btn-xlarge,
-.btn-xlarge .sui-glyphicon {
+.btn-xlarge .sui-icon {
   font-size: 14px;
 }
 
@@ -5715,7 +5716,7 @@ button.sui-close {
 }
 
 .btn-large,
-.btn-large .sui-glyphicon {
+.btn-large .sui-icon {
   font-size: 14px;
 }
 
@@ -5725,7 +5726,7 @@ button.sui-close {
 }
 
 .btn-small,
-.btn-small .sui-glyphicon {
+.btn-small .sui-icon {
   font-size: 12px;
 }
 
@@ -7658,7 +7659,8 @@ input[type="submit"].btn.btn-mini {
           user-select: none;
 }
 
-.sui-pagination div .page-num + .page-confirm .sui-glyphicon {
+.sui-pagination div .page-num + .page-confirm .sui-icon {
+  margin-right: 8px;
   font-size: 12px;
 }
 
@@ -7850,7 +7852,8 @@ input[type="submit"].btn.btn-mini {
           user-select: none;
 }
 
-.pagination-large div .page-num + .page-confirm .sui-glyphicon {
+.pagination-large div .page-num + .page-confirm .sui-icon {
+  margin-right: 8px;
   font-size: 12px;
 }
 
@@ -7861,7 +7864,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .pagination-large div .page-num + .page-confirm,
-.pagination-large div .page-num + .page-confirm .sui-glyphicon {
+.pagination-large div .page-num + .page-confirm .sui-icon {
   font-size: 14px;
 }
 
@@ -8003,7 +8006,8 @@ input[type="submit"].btn.btn-mini {
           user-select: none;
 }
 
-.pagination-xlarge div .page-num + .page-confirm .sui-glyphicon {
+.pagination-xlarge div .page-num + .page-confirm .sui-icon {
+  margin-right: 8px;
   font-size: 12px;
 }
 
@@ -8014,7 +8018,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .pagination-xlarge div .page-num + .page-confirm,
-.pagination-xlarge div .page-num + .page-confirm .sui-glyphicon {
+.pagination-xlarge div .page-num + .page-confirm .sui-icon {
   font-size: 14px;
 }
 
@@ -8153,7 +8157,8 @@ input[type="submit"].btn.btn-mini {
           user-select: none;
 }
 
-.pagination-small div .page-num + .page-confirm .sui-glyphicon {
+.pagination-small div .page-num + .page-confirm .sui-icon {
+  margin-right: 8px;
   font-size: 12px;
 }
 
@@ -8164,7 +8169,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .pagination-small div .page-num + .page-confirm,
-.pagination-small div .page-num + .page-confirm .sui-glyphicon {
+.pagination-small div .page-num + .page-confirm .sui-icon {
   font-size: 12px;
 }
 
