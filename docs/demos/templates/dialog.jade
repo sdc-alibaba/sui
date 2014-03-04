@@ -1,75 +1,198 @@
 extends base
 
 block title
-  title dialog 
+  title 对话框 
+
+block sidebar
+  +sidebar('dialog')
 
 block content
-  div.sui-container
-    h1 dialog(bootstrap中命名为Modal)
-    br
-    h3 无js触发,确定按钮对应html添加data-ok="modal"属性
+  div.sui-page-header
+    h1 对话框
 
-    p
-      != 'data-属性都是必须的。也可通过$("xx").modal(opt)触发,参数可参考 <a href="http://getbootstrap.com/2.3.2/javascript.html#modals" target="_blank">bootstrap2.3.2#Modal</a>'
-    p
-      涉及弹层html结构的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构完全是可控的，比如不要脚部，则.modal-footer不写到html里即可
-    p.
-      .modal 改为 .sui-modal  |  .modal-backdrop 改为 .sui-modal-backdrop
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
 
-    pre
-      button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
-      // Modal
-      div.sui-modal.hide.fade#myModal(tabindex='-1', role='dialog', data-hasfoot='false')
-        div.modal-dialog
-          div.modal-content
-            div.modal-header
-              button.sui-close(type='button', data-dismiss='modal', aria-hidden='true') &times;
-              h4.modal-title#myModalLabel Modal title
-            div.modal-body 我是内容body
-            div.modal-footer
-              button.sui-btn.btn-primary(type='button', data-ok='modal') 可自定ok
-              button.sui-btn.btn-default(type='button', data-dismiss='modal') 可自定dismiss
+  h2 概览
+  pre.prettyprint.linenums
+    原型方法 $ele需要事先写到html中
+    $ele.modal(options | 'toggle' | 'show' | 'hide') // $ele是对话框元素，不是触发元素
+    静态方法
+    $.alert('this is typical alert')
+    $.alert(options)
+    $.confirm('this is typical confirm')
+    $.confirm(options)
 
-    br
+  h3 差异
+  p 静态方法适宜于较少重复/多处出现/勿需记忆状态的弹层，可方便的直接调用，最简单形式就是$.alert('亚哈了他了该')。若弹层Dom结构复杂，本身可作为复杂业务组件，建议将弹层html结构写到html里，用$ele.modal(options) 调用
+  p 事件的应用机制不同.
 
-    //Button trigger modal 
-    button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") dialog 有html
 
-    hr
-    h3 js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)
-    p jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
-    p 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用
 
-    pre.prettyprint.linenums.
-      $.alert({
-       backdrop: true   true/false表示蒙层是黑／白 半透明
-       keyboard: true   是否可由esc按键关闭
-       title: '自定义标题'
-       body: 'html' //必填
-       okBtn : '好的'
-       cancelBtn : '雅达'
-       hasfoot: {Boolean}  是否显示脚部  默认true
-       width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
-       timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
-       show:     fn --------------function(e){}
-       shown:    fn
-       hide:     fn
-       hidden:   fn
-       okHide:   function(e){alert('点击确认后、dialog消失前的逻辑,
-                 函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
-                 注意不要人肉返回undefined！！')}
-       okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
-      })
-         
+  h2 1. 原型方法控制,初始化可不写js。  
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+    li
+      a(href='#api1', data-toggle='tab') API
+    li
+      a(href='#event1', data-toggle='tab') 事件
 
-    hr
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+
+        button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") 对话框已写入html
+        // Modal
+        div.sui-modal.hide.fade#myModal(tabindex='-1', role='dialog', data-hasfoot='false')
+          div.modal-dialog
+            div.modal-content
+              div.modal-header
+                button.sui-close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                h4.modal-title#myModalLabel Modal title
+              div.modal-body 我是内容body
+              div.modal-footer
+                button.sui-btn.btn-primary(type='button', data-ok='modal') 可自定ok
+                button.sui-btn.btn-default(type='button', data-dismiss='modal') 可自定dismiss
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      pre.prettyprint $ele.modal(opstions)  让指定的内容变成一个模态对话框。接受一个可选的参数
+      pre.prettyprint $ele.modal('show')  手动打开一个模态对话框。
+      pre.prettyprint $ele.modal('hide')  手动关闭一个模态对话框。
+      pre.prettyprint $ele.modal('toggle')  手动打开或关闭一个模态对话框。
+      p
+        无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。
+      p
+        data-属性都是必须的。也可通过
+          code $ele.modal(opt)
+        触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
+      p
+        涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可
+    div.tab-pane#api1
+      除了不能使用回调函数型的参数，其余均和js调用的对话框相同，注入data-**属性即可,可用的data-属性参数见下表：
+      table.sui-table.sui-table-bordered
+        thead
+          tr
+            th(style="width:100px") 名称
+            th(style="width:50px") 类型
+            th(style="width:50px") 默认值
+            th 描述
+        tbody
+          tr
+            td backdrop
+            td boolean
+            td true
+            td 为模态对话框添加一个背景元素。另外，为背景指定<code>static</code>时，点击模态对话框的外部区域不会将其关闭。
+          tr
+            td keyboard
+            td boolean
+            td true
+            td 按下esc键时关闭模态对话框
+          tr
+            td show
+            td boolean
+            td true
+            td 初始化时即显示模态对话框
+          tr 
+            td remote
+            td path
+            td false
+            td 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。如果你使用的是data属性api，你还可以使用<code>href</code>标签指定远程数据源。案例如下
+              pre.prettyprint &lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;
+    div.tab-pane#event1
+      p 原型方法的事件接口,与bootstrap提供的一致,与静态方法不互用
+        table.sui-table.sui-table-bordered
+          thead
+            tr
+              th(style="width:150px") 名称
+              th 类型
+          tbody
+            tr
+              td show
+              td 当<code>show</code>方法被调用时，此事件将被立即触发。
+            tr
+              td shown
+              td 当模态对话框呈现到用户面前时（会等待过渡效果执行结束）此事件被触发。
+            tr
+              td hide
+              td 当<code>hide</code>方法被调用时，此事件被立即触发。
+            tr
+              td hidden
+              td 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+        pre.prettyprint.linenums.
+          $('#myModal').on('hidden', function () {
+            // do something…
+          })
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+
+  h2 2. 通过js，更强力度、细粒度的控制对话框  
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+    li
+      a(href='#api2', data-toggle='tab') API
+
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        button.sui-btn.btn-primary.btn-lg#J_alert 无html alert
+        script.
+          $('#J_alert').on('click', function(e){
+            $.alert('alert it is')
+          })
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      h3 js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)
+      p jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
+      p 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到html里，用$(xx).modal(options) 调用
+    div.tab-pane#api2
+      pre.prettyprint.linenums.
+        $.alert({
+         backdrop: true   true/false表示蒙层是黑／白 半透明
+         keyboard: true   是否可由esc按键关闭
+         title: '自定义标题'
+         body: 'html' //必填
+         okBtn : '好的'
+         cancelBtn : '雅达'
+         hasfoot: {Boolean}  是否显示脚部  默认true
+         width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+         timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
+         show:     fn --------------function(e){}
+         shown:    fn
+         hide:     fn
+         hidden:   fn
+         okHide:   function(e){alert('点击确认后、对话框消失前的逻辑,
+                   函数返回true（默认）则对话框关闭，反之不关闭;若不传入则默认是直接返回true的函数
+                   注意不要人肉返回undefined！！')}
+         okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
+        })
+           
+
     h3 demo
     pre.prettyprint.linenums.
       $('#J_alert').on('click', function(e){
         $.alert('alert it is&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isisis&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;&lt;br&gt;&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is')
       })
 
-    button.sui-btn.btn-primary.btn-lg#J_alert dialog 无html alert
 
     hr
     pre.prettyprint.linenums.
@@ -87,33 +210,11 @@ block content
           ,okHidden: function(){console.log('okHidden')}
         })
       })
-    button.btn.btn-primary.btn-lg#J_confirm dialog 无html confirm
-
-    div.
-      <div class="sui-modal hide fade" id="myModal" tabindex="-1" role="dialog" data-hasfoot="false">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              我是内容body
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="sui-btn btn-primary" data-ok="modal">可自定ok</button>
-              <button type="button" class="sui-btn btn-default" data-dismiss="modal">可自定dismiss</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    button.btn.btn-primary.btn-lg#J_confirm 无html confirm
 
 
 block js_block
   script.
-    $('#J_alert').on('click', function(e){
-      $.alert('alert it is<br><br>isis<br><br>isis<br><br>isisis<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br><br><br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>is<br>isis<br><br>isis<br><br>')
-    })
     $('#J_confirm').on('click', function(e){
       $.confirm({
         body: 'confirm again'
