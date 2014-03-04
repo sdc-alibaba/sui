@@ -9,7 +9,7 @@ block sidebar
 block content
     .sui-page-header
         h1 面包屑
-            small &nbsp;&nbsp;breadcrumb 
+            small &nbsp;&nbsp;breadcrumb
     ul.sui-nav.nav-tabs.nav-large
         li.active
             a(href='#demo1', data-toggle='tab') 示例
@@ -37,7 +37,7 @@ block content
         div.tab-pane#code1
             pre.prettyprint.linenums(data-target='#demo1>div')
         div.tab-pane#doc1
-            | 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加。
+            | 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。
     ul.demo-operations.clearfix
         li
             a(href='#') 下载psd文件
