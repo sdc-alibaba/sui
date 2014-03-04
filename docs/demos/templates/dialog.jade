@@ -144,6 +144,8 @@ block content
       a(href='#doc2', data-toggle='tab') 文档
     li
       a(href='#api2', data-toggle='tab') API
+    li
+      a(href='#event2', data-toggle='tab') 事件
 
 
   div.tab-content
@@ -163,6 +165,7 @@ block content
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
+      p 静态方法有alert和confirm
       h3 静态方法的构造原则
       p 最大限度的还原系统自带alert，confirm的使用体验，快捷同时可通过扩展参数加强功能。
       h3 静态方法和原型方法使用的基本原则
@@ -170,6 +173,8 @@ block content
       p 若弹层Dom结构复杂，本身可作为复杂业务组件，建议将弹层html结构写到html里，用$ele.modal(options) 调用。
       p 静态方法不调用后不返回实例对象。
     div.tab-pane#api2
+      alert和confirm2个方法的参数一致，参见下面：
+
       pre.prettyprint.linenums.
         $.alert({
          backdrop: true   true/false表示蒙层是黑／白 半透明
@@ -190,42 +195,63 @@ block content
                    注意不要人肉返回undefined！！')}
          okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
         })
-           
-    hr
-    h3 demo
+    div.tab-pane#event2
+      静态方法事件不用人肉再去写绑定代码，直接将事件回调写进参数。
+      table.sui-table.sui-table-bordered
+        thead
+          tr
+            th(style="width:150px") 名称
+            th 类型
+        tbody
+          tr
+            td show
+            td 方法被调用时对话框尚未展现前，此事件将被立即触发。
+          tr
+            td shown
+            td 对话框展现后此事件被触发。
+          tr
+            td hide
+            td 当对话框因为任何原因（点击确定或取消，等等）要关闭，但尚未关闭前，此事件被立即触发。
+          tr
+            td hidden
+            td 当对话框因为任何原因（点击确定或取消，等等）要关闭，并确实关闭后，此事件被触发。
+          tr
+            td okHide
+            td 当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，但尚未关闭前，此事件被立即触发。
+          tr
+            td okHidden
+            td 当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，并确实关闭后，此事件被触发。
 
-    pre.prettyprint.linenums.
-      $('#J_confirm').on('click', function(e){
-        $.confirm({
-          body: 'confirm again'
-          ,width: 'normal'
-          ,backdrop: false
-          ,timeout: 1000
-          ,show: function(){console.log('show')}
-          ,shown: function(){console.log('shown')}
-          ,hide: function(){console.log('hide')}
-          ,hidden: function(){console.log('hiden')}
-          ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-          ,okHidden: function(){console.log('okHidden')}
-        })
-      })
-    button.btn.btn-primary.btn-lg#J_confirm $.confirm(options)
+  hr
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        button.sui-btn.btn-primary.btn-lg#J_lizi1 栗子
+        script.
+          $('#J_lizi1').on('click', function(e){
+            $.confirm({
+              body: 'confirm again'
+              ,width: 'normal'
+              ,backdrop: false
+              ,timeout: 1000
+              ,show: function(){console.log('show')}
+              ,shown: function(){console.log('shown')}
+              ,hide: function(){console.log('hide')}
+              ,hidden: function(){console.log('hiden')}
+              ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+              ,okHidden: function(){console.log('okHidden')}
+            })
+          })
+
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
 
 
 block js_block
-  script.
-    $('#J_confirm').on('click', function(e){
-      $.confirm({
-        body: 'confirm again'
-        ,width: 'normal'
-        ,backdrop: false
-        ,timeout: 1000
-        ,show: function(){console.log('show')}
-        ,shown: function(){console.log('shown')}
-        ,hide: function(){console.log('hide')}
-        ,hidden: function(){console.log('hiden')}
-        ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-        ,okHidden: function(){console.log('okHidden')}
-      })
-    })
 

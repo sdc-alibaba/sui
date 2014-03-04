@@ -207,6 +207,7 @@ $.confirm(options)</pre>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
             <li><a href="#doc2" data-toggle="tab">文档</a></li>
             <li><a href="#api2" data-toggle="tab">API</a></li>
+            <li><a href="#event2" data-toggle="tab">事件</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
@@ -229,6 +230,7 @@ $.confirm(options)</pre>
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc2" class="tab-pane">
+              <p>静态方法有alert和confirm</p>
               <h3>静态方法的构造原则</h3>
               <p>最大限度的还原系统自带alert，confirm的使用体验，快捷同时可通过扩展参数加强功能。</p>
               <h3>静态方法和原型方法使用的基本原则</h3>
@@ -237,6 +239,7 @@ $.confirm(options)</pre>
               <p>静态方法不调用后不返回实例对象。</p>
             </div>
             <div id="api2" class="tab-pane">
+              <alert>和confirm2个方法的参数一致，参见下面：</alert>
               <pre class="prettyprint linenums">$.alert({
  backdrop: true   true/false表示蒙层是黑／白 半透明
  keyboard: true   是否可由esc按键关闭
@@ -255,49 +258,82 @@ $.confirm(options)</pre>
            函数返回true（默认）则对话框关闭，反之不关闭;若不传入则默认是直接返回true的函数
            注意不要人肉返回undefined！！')}
  okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
-})
-</pre>
-            </div>
-            <hr>
-            <h3>demo</h3>
-            <pre class="prettyprint linenums">$('#J_confirm').on('click', function(e){
-  $.confirm({
-    body: 'confirm again'
-    ,width: 'normal'
-    ,backdrop: false
-    ,timeout: 1000
-    ,show: function(){console.log('show')}
-    ,shown: function(){console.log('shown')}
-    ,hide: function(){console.log('hide')}
-    ,hidden: function(){console.log('hiden')}
-    ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-    ,okHidden: function(){console.log('okHidden')}
-  })
 })</pre>
-            <button id="J_confirm" class="btn btn-primary btn-lg">$.confirm(options)</button>
+            </div>
+            <div id="event2" class="tab-pane">静态方法事件不用人肉再去写绑定代码，直接将事件回调写进参数。
+              <table class="sui-table sui-table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width:150px">名称</th>
+                    <th>类型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>show</td>
+                    <td>方法被调用时对话框尚未展现前，此事件将被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>shown</td>
+                    <td>对话框展现后此事件被触发。</td>
+                  </tr>
+                  <tr>
+                    <td>hide</td>
+                    <td>当对话框因为任何原因（点击确定或取消，等等）要关闭，但尚未关闭前，此事件被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>hidden</td>
+                    <td>当对话框因为任何原因（点击确定或取消，等等）要关闭，并确实关闭后，此事件被触发。</td>
+                  </tr>
+                  <tr>
+                    <td>okHide</td>
+                    <td>当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，但尚未关闭前，此事件被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>okHidden</td>
+                    <td>当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，并确实关闭后，此事件被触发。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                <button id="J_lizi1" class="sui-btn btn-primary btn-lg">栗子</button>
+                <script>
+                  $('#J_lizi1').on('click', function(e){
+                    $.confirm({
+                      body: 'confirm again'
+                      ,width: 'normal'
+                      ,backdrop: false
+                      ,timeout: 1000
+                      ,show: function(){console.log('show')}
+                      ,shown: function(){console.log('shown')}
+                      ,hide: function(){console.log('hide')}
+                      ,hidden: function(){console.log('hiden')}
+                      ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+                      ,okHidden: function(){console.log('okHidden')}
+                    })
+                  })
+                  
+                </script>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
     <script src="../assets/js/application.js"></script>
-    <script>
-      $('#J_confirm').on('click', function(e){
-        $.confirm({
-          body: 'confirm again'
-          ,width: 'normal'
-          ,backdrop: false
-          ,timeout: 1000
-          ,show: function(){console.log('show')}
-          ,shown: function(){console.log('shown')}
-          ,hide: function(){console.log('hide')}
-          ,hidden: function(){console.log('hiden')}
-          ,okHide: function(){var a=confirm('true or false');if(!a) return false}
-          ,okHidden: function(){console.log('okHidden')}
-        })
-      })
-      
-    </script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>
