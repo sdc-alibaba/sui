@@ -659,11 +659,15 @@ a:focus {
   margin-right: 190px;
 }
 
+p {
+  margin-bottom: 18px;
+}
+
 .sui-lead {
   margin-bottom: 18px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 27px;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 22.5px;
 }
 
 small {
