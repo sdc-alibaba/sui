@@ -768,34 +768,30 @@ h6 small {
   color: #999999;
 }
 
-h1,
-h2,
-h3 {
-  line-height: 36px;
-}
-
 h1 {
   font-size: 24px;
+  line-height: 36px;
 }
 
 h2 {
   font-size: 21.96px;
+  line-height: 32.94px;
 }
 
 h3 {
   font-size: 20.04px;
+  line-height: 30.06px;
 }
 
 h4 {
   font-size: 14.04px;
+  line-height: 21.06px;
 }
 
-h5 {
-  font-size: 12px;
-}
-
+h5,
 h6 {
   font-size: 12px;
+  line-height: 18px;
 }
 
 h1 small {

@@ -71,16 +71,26 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-h1,
-h2,
-h3 { line-height: @baseLineHeight * 2; }
-
-h1 { font-size: @baseFontSize * 2; } // 24px
-h2 { font-size: @baseFontSize * 1.83; } // ~22px
-h3 { font-size: @baseFontSize * 1.67; } // ~20px
-h4 { font-size: @baseFontSize * 1.17; } // ~14px
-h5 { font-size: @baseFontSize; }
-h6 { font-size: @baseFontSize; }
+h1 {
+  font-size: @baseFontSize * 2; // 24px
+  line-height: @baseFontSize * 2 * 1.5;
+}
+h2 {
+  font-size: @baseFontSize * 1.83; // ~22px
+  line-height: @baseFontSize * 1.83 * 1.5;
+}
+h3 {
+  font-size: @baseFontSize * 1.67; // ~20px
+  line-height: @baseFontSize * 1.67 * 1.5;
+}
+h4 {
+  font-size: @baseFontSize * 1.17; // ~14px
+  line-height: @baseFontSize * 1.17 * 1.5;
+}
+h5, h6 {
+  font-size: @baseFontSize;
+  line-height: @baseFontSize * 1.5;
+}
 
 h1 small { font-size: @baseFontSize * 1.75; } // ~24px
 h2 small { font-size: @baseFontSize * 1.25; } // ~18px

@@ -19,9 +19,9 @@
           <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon-github-alt">&nbsp;</i>SUI</a>
             <ul class="sui-nav">
               <li><a href="./index.html">首页</a></li>
-              <li class="active"><a href="./buttons.html">组件库</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
               <li><a href="./examples.html">案例</a></li>
-              <li><a href="./scaffolding.html">教程</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
               <li><a href="./about.html">关于</a></li>
             </ul>
           </div>
@@ -70,7 +70,7 @@
           <div class="sui-page-header">
             <h1>标签页 <small>tab</small></h1>
           </div>
-          <p class="docs-">通过js添加动态的标签页切换。</p>
+          <p class="docs">通过此组件轻松添加动态的标签页切换功能。此文档的标签页切换效果正是通过这个组件实现的。</p>
           <h2>1. 通过标记使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -101,7 +101,10 @@
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.</div>
+            <div id="doc1" class="tab-pane">
+              通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
+              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
@@ -145,7 +148,10 @@
             <div id="code2" class="tab-pane">
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc2" class="tab-pane">通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定</div>
+            <div id="doc2" class="tab-pane">
+              通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。
+              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
+            </div>
             <div id="event2" class="tab-pane">
               <table class="sui-table sui-table-bordered">
                 <tr>
@@ -154,11 +160,11 @@
                 </tr>
                 <tr>
                   <td>show</td>
-                  <td>This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                  <td>在标签页显示之前触发，在shown事件之前。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
                 </tr>
                 <tr>
                   <td>shown</td>
-                  <td>This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                  <td>在标签页显示之后触发，在show事件之后。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
                 </tr>
               </table>
             </div>
