@@ -24,11 +24,6 @@ block content
     $.confirm('this is typical confirm')
     $.confirm(options)
 
-  h3 差异
-  p 静态方法适宜于较少重复/多处出现/勿需记忆状态的弹层，可方便的直接调用，最简单形式就是$.alert('亚哈了他了该')。若弹层Dom结构复杂，本身可作为复杂业务组件，建议将弹层html结构写到html里，用$ele.modal(options) 调用
-  p 事件的应用机制不同.
-
-
 
   h2 1. 原型方法控制,初始化可不写js。  
   ul.sui-nav.nav-tabs.nav-large
@@ -130,6 +125,8 @@ block content
             // do something…
           })
 
+  hr
+
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
@@ -152,18 +149,26 @@ block content
   div.tab-content
     div.tab-pane.active#demo2
       div.bs-docs-example
-        button.sui-btn.btn-primary.btn-lg#J_alert 无html alert
+        button.sui-btn.btn-primary.btn-lg#J_alert1 $.alert('xxx')
+        button.sui-btn.btn-primary.btn-lg#J_confirm1 $.confirm('xxx')
         script.
-          $('#J_alert').on('click', function(e){
-            $.alert('alert it is')
+          $('#J_alert1').on('click', function(e){
+            $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | ')
           })
+          $('#J_confirm1').on('click', function(e){
+            $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
+          })
+
 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
-      h3 js触发,静态方法$.alert(opt) $.confirm(opt) ,以及原型方法$('xx').modal(opt)
-      p jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
-      p 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到html里，用$(xx).modal(options) 调用
+      h3 静态方法的构造原则
+      p 最大限度的还原系统自带alert，confirm的使用体验，快捷同时可通过扩展参数加强功能。
+      h3 静态方法和原型方法使用的基本原则
+      p 静态方法适宜于较少重复/多处出现/勿需记忆状态的弹层，可方便的直接调用，最简单形式就是$.alert('亚哈了他了该')。
+      p 若弹层Dom结构复杂，本身可作为复杂业务组件，建议将弹层html结构写到html里，用$ele.modal(options) 调用。
+      p 静态方法不调用后不返回实例对象。
     div.tab-pane#api2
       pre.prettyprint.linenums.
         $.alert({
@@ -186,15 +191,9 @@ block content
          okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
         })
            
-
-    h3 demo
-    pre.prettyprint.linenums.
-      $('#J_alert').on('click', function(e){
-        $.alert('alert it is&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isis&lt;br&gt;&lt;br&gt;isisis&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;&lt;br&gt;&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is&lt;br&gt;is')
-      })
-
-
     hr
+    h3 demo
+
     pre.prettyprint.linenums.
       $('#J_confirm').on('click', function(e){
         $.confirm({
@@ -210,7 +209,7 @@ block content
           ,okHidden: function(){console.log('okHidden')}
         })
       })
-    button.btn.btn-primary.btn-lg#J_confirm 无html confirm
+    button.btn.btn-primary.btn-lg#J_confirm $.confirm(options)
 
 
 block js_block
