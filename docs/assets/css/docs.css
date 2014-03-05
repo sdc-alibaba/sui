@@ -38,10 +38,10 @@ body {
   padding: 0 25px;
   margin-left: 150px;
   background: #fff;
+  overflow: hidden;
 }
 .sui-layout .content-inner {
   max-width: 1200px;
-  overflow: hidden;
 }
 
 .sui-layout .sidebar {
@@ -49,10 +49,10 @@ body {
   font-size: 14px;
   line-height: 22px;
   border-right: 1px solid #ddd;
+  position: fixed;
 }
 
 .docs-sidenav {
-  position: fixed;
   width: 151px;
 }
 .docs-sidenav [class^="sui-icon-"] {
