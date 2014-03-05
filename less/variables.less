@@ -89,9 +89,9 @@
 @paddingSmall:           0px 6px;
 
 //块级组件margin规范,具体值可以再讨论
-@baseMargin: 20px;
-@marginSmall: 10px;
-@marginLarge: 30px;
+@baseMargin: @baseLineHeight; // 18px
+@marginSmall: @baseLineHeight * 0.67; //~ 12px
+@marginLarge: @baseLineHeight * 1.33; // ~ 24px
 
 
 // Tables

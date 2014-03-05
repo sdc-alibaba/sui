@@ -1,10 +1,10 @@
 ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - var items = []
-  - items.push({name: 'global', title:'全局样式', url: 'global.html', icon: 'sui-icon-globe'})
-  - items.push({name: 'layouts', title:'布局', children:[], icon: 'sui-icon-th'})
-  - items.push({name: 'base-css', title: '基础css', children:[], icon: 'sui-icon-magic' })
-  - items.push({name: 'css-components', title: 'css组件', children:[], icon: 'sui-icon-puzzle'})
-  - items.push({name: 'js-components', title: 'js组件', children:[], icon: 'sui-icon-shopping-cart'})
+  - items.push({name: 'global', title:'全局样式', url: 'global.html', icon: 'sui-icon icon-globe'})
+  - items.push({name: 'layouts', title:'布局', children:[], icon: 'sui-icon icon-th'})
+  - items.push({name: 'base-css', title: '基础css', children:[], icon: 'sui-icon icon-magic' })
+  - items.push({name: 'css-components', title: 'css组件', children:[], icon: 'sui-icon icon-puzzle'})
+  - items.push({name: 'js-components', title: 'js组件', children:[], icon: 'sui-icon icon-shopping-cart'})
 
   - items[1].children.push({name: 'grid', title:'栅格', url:'grid.html'})
   - items[1].children.push({name: 'layout', title:'布局', url:'layout.html'})
@@ -43,7 +43,7 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
         a(href=cat.url)
           i(class='#{cat.icon}') &nbsp;
           |#{cat.title}
-          i.sui-icon-angle-down.pull-right
+          i.sui-icon.icon-angle-down.pull-right
         ul.sui-nav.nav-tabs.nav-stacked
 
           for item,j in cat.children
