@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>全局样式</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li class="active"><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="paginationJS.html">分页器</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h1 class="sui-page-header">全局样式</h1>
+          <p>
+            SUI 默认定义了一些基本全局样式，包括基础字体、链接色、段落和列表样式等。
+            我们使用 <a href='http://necolas.github.com/normalize.css/'>normalize.css</a> 对全局样式进行了一些重载，并且针对我们的需求做了一些修改。
+          </p>
+          <h2>1. 基础字体和颜色</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <p>
+                  段落
+                  基础字体：12px, #333, 微软雅黑
+                  基础行高: 18px
+                </p>
+                <h1>标题一</h1>
+                <h2>标题二</h2>
+                <h3>标题三</h3>
+                <h4>标题四</h4>
+                <h5>标题五</h5>
+                <p><a href="#">链接颜色</a></p>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">
+              <h4>全局样式的修改主要包含以下几点</h4>
+              <ul class="unstyled">
+                <li><strong>字体：</strong><code>font-family: Arial, "微软雅黑", "宋体", sans-serif; font-size: 12px; line-height: 18px; color: #333333;</code></li>
+                <li><strong>链接颜色：</strong>修改了默认的链接颜色，默认颜色改为 <code>#06c</code>, hover 状态颜色改为 <code>#004080</code></li>
+                <li><strong>移除了body元素的margin</strong></li>
+                <li><strong>标题：</strong>从 <code>h1</code> 至 <code>h5</code> 的 <code>font-size</code>分别是：24px,22px,20px,14px,12px，行高是文字大小的1.5倍，上下margin都是9px</li>
+                <li><strong>段落：</strong>默认段落之间的间距是默认的行高 18px</li>
+                <li><strong>列表：</strong>移除了 <code>ul</code> 和 <code>ol</code> 的默认margin和padding</li>
+              </ul>
+              <p>
+                除此之外，还对 <code>small</code>, <code>strong</code>, <code>blockquote</code>等样式进行了调整。<br />
+                对于 form，table 等的样式设置大部分都被封装在了对应的class之下，不会影响全局样式。
+              </p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

@@ -4,13 +4,13 @@
 
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
-.dropup,
-.dropdown {
+.sui-dropup,
+.sui-dropdown {
   position: relative;
-}
-.dropdown-toggle {
-  // The caret makes the toggle a bit too tall in IE7
-  *margin-bottom: -3px;
+  .dropdown-toggle {
+    // The caret makes the toggle a bit too tall in IE7
+    *margin-bottom: -3px;
+  }
 }
 .dropdown-toggle:active,
 .open .dropdown-toggle {
@@ -31,14 +31,17 @@
 }
 
 // Place the caret
-.dropdown .caret {
-  margin-top: 8px;
-  margin-left: 2px;
+.sui-dropdown {
+  .caret {
+    margin-top: 8px;
+    margin-left: 2px;
+  }
 }
 
-// The dropdown menu (ul)
+// The dropdown menu (ul) 
+// 这个是可以独立使用的
 // ----------------------
-.dropdown-menu {
+.sui-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -85,8 +88,8 @@
 
 // Hover/Focus state
 // -----------
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus,
+.sui-dropdown-menu > li > a:hover,
+.sui-dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
   text-decoration: none;
@@ -96,31 +99,34 @@
 
 // Active state
 // ------------
-.dropdown-menu > .active > a,
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
-  color: @dropdownLinkColorActive;
-  text-decoration: none;
-  outline: 0;
-  #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
-}
+.sui-dropdown-menu {
+  > .active  a {
+    &, &:hover, &:focus {
+      color: @dropdownLinkColorActive;
+      text-decoration: none;
+      outline: 0;
+      #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
+    }
+  }
 
 // Disabled state
 // --------------
 // Gray out text and ensure the hover/focus state remains gray
-.dropdown-menu > .disabled > a,
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
-  color: @grayLight;
-}
+  > .disabled > a {
+    &, &:hover, &:focus {
+      color: @grayLight;
+    }
+  }
 // Nuke hover/focus effects
-.dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  background-image: none; // Remove CSS gradient
-  .reset-filter();
-  cursor: default;
+  > .disabled > a {
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: transparent;
+      background-image: none; // Remove CSS gradient
+      .reset-filter();
+      cursor: default;
+    }
+  }
 }
 
 // Open state for the dropdown
@@ -148,7 +154,7 @@
 
 // Right aligned dropdowns
 // ---------------------------
-.pull-right > .dropdown-menu {
+.pull-right > .sui-dropdown-menu {
   right: 0;
   left: auto;
 }
@@ -157,8 +163,8 @@
 // ------------------------------------------------------
 // Just add .dropup after the standard .dropdown class and you're set, bro.
 // TODO: abstract this so that the navbar fixed styles are not placed here?
-.dropup,
-.navbar-fixed-bottom .dropdown {
+.sui-dropup,
+.navbar-fixed-bottom .sui-dropdown {
   // Reverse the caret
   .caret {
     border-top: 0;
@@ -166,7 +172,7 @@
     content: "";
   }
   // Different positioning for bottom up menu
-  .dropdown-menu {
+  .sui-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
@@ -179,19 +185,19 @@
   position: relative;
 }
 // Default dropdowns
-.dropdown-submenu > .dropdown-menu {
+.dropdown-submenu > .sui-dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
   .border-radius(0 6px 6px 6px);
 }
-.dropdown-submenu:hover > .dropdown-menu {
+.dropdown-submenu:hover > .sui-dropdown-menu {
   display: block;
 }
 
 // Dropups
-.dropup .dropdown-submenu > .dropdown-menu {
+.sui-dropup .dropdown-submenu > .sui-dropdown-menu {
   top: auto;
   bottom: 0;
   margin-top: 0;
@@ -224,7 +230,7 @@
   float: none;
 
   // Positioning the submenu
-  > .dropdown-menu {
+  > .sui-dropdown-menu {
     left: -100%;
     margin-left: 10px;
     .border-radius(6px 0 6px 6px);
@@ -234,14 +240,14 @@
 // Tweak nav headers
 // -----------------
 // Increase padding from 15px to 20px on sides
-.dropdown .dropdown-menu .nav-header {
+.sui-dropdown .sui-dropdown-menu .nav-header {
   padding-left: 20px;
   padding-right: 20px;
 }
 
 // Typeahead
 // ---------
-.typeahead {
+.sui-typeahead {
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
   .border-radius(@baseBorderRadius);

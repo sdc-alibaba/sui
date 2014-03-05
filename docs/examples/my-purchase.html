@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的采购单 - 供应商</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<!-- Le styles -->
+	<link href="../../build/css/bootstrap.css" rel="stylesheet">
+	<link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="../assets/js/html5shiv.js"></script>
+	<![endif]-->
+	<style>
+#filterForm{border:1px solid #cce1ff;border-radius:1px;padding:10px 0 0;margin-bottom: 20px;}
+#filterForm .control-group{margin-bottom: 10px;}/* 全局的是20px，感觉太大了 */
+#filterForm input.input-small{width:46px;}
+.sui-glyphicon{font-size:inherit;}/* 建议让glyphicon的字体大小继承 */
+label{font-weight: inherit;} /* label的font-weight显示设成了normal，建议改成inherit */
+.typographic span{text-align: left;}/* ... */
+.typographic img + span, .typographic img + a{margin-top:4%;} /* 嵌套的元素在td里面无法垂直居中 */
+td hr{margin:5px 0;border-top-color:#cce1ff;} /* table内的分割线 */
+.sui-table-bordered td.left-con{border-left:0;} /* 相连的td */
+.sui-pagination > div > span{vertical-align: middle;color:#999;} /* 分页里面的文字位置及颜色 */
+.price{font-size:16px;font-weight: bold;}
+td .sui-btn{white-space: nowrap;}
+.label-tip-top{margin-top:3px;position:relative;} /* 带尖角的label，分成top,right,bottom,left四个方向，颜色应该和label保持一致 */
+.label-tip-top:before{content:"";display: inline-block;border-style:solid;border-width:4px;border-color:transparent;border-bottom-color:#999;position: absolute;top:-8px;left:50%;margin-left:-4px;}
+.sui-label-success.label-tip-top:before{border-bottom-color: #22cd6e;}
+.sui-btn + br + .sui-btn{margin-top:4px;} /* 相邻且换行的btn之间应该有间隙，IE没有 */
+/* nav-tabs上面的tip标签，用伪元素和data-tip属性实现 */
+.sui-nav.nav-tabs > li[data-tip]{position: relative;}
+.sui-nav.nav-tabs > li[data-tip]:before{
+	content: attr(data-tip);
+	background-color: #4BA205;
+	background-color: rgba(75,162,5,.9);
+	color: white;
+	font-size: 8px;
+	-webkit-transform: scale(0.67);
+	display: inline-block;
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	line-height: 1;
+	padding: 2px 4px;;
+	border-radius: 2px;
+	z-index: 2;
+}
+.sui-nav.nav-tabs > li[data-tip]:after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	border-width: 5px 6px;
+	border-style: solid;
+	border-color: transparent;
+	border-left-color: #4BA205;
+	border-left-color: rgba(75,162,5,.8);
+	left: 65%;
+	top: -7px;
+	z-index: 1;
+}
+	</style>
+</head>
+<body>
+	<div class="sui-container">
+		<ul class="sui-breadcrumb">
+			<li><a href="">首页</a></li>
+			<li><a href="">采购单管理</a></li>
+			<li class="active">我的采购单</li>
+		</ul>
+		<ul class="sui-nav nav-tabs">
+			<li class="active"><a href="">所有采购单</a></li>
+			<li><a href="">等待发货</a></li>
+			<li><a href="">待确认收货中</a></li>
+			<li data-tip="NEW"><a href="">退款中</a></li>
+			<li data-tip="NEW"><a href="">等待付款</a></li>
+			<li><a href="">已发货</a></li>
+			<li><a href="">采购成功</a></li>
+			<li><a href="">已关闭</a></li>
+			<li data-tip="HOT"><a href="">维权中</a></li>
+		</ul>
+		<form class="sui-row-fluid form-horizontal" id="filterForm" action="" method="post">
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label" for="input001">成交时间：</label>
+					<div class="controls">
+						<input class="input-thin input-small" type="text" name="" id="input001" ><label for="input002"> 至 </label>
+						<input class="input-thin input-small" type="text" name="" id="input002">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input003">分销商：</label>
+					<div class="controls">
+						<input class="input-thin" type="text" name="" id="input003">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input004">产品名称：</label>
+					<div class="controls">
+						<input class="input-thin" type="text" name="" id="input004">
+					</div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label" for="input005">采购单编号：</label>
+					<div class="controls">
+						<input class="input-thin" type="text" name="" id="input005">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input006">订单编号：</label>
+					<div class="controls">
+						<input class="input-thin" type="text" name="" id="input006">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="input007">收货人：</label>
+					<div class="controls">
+						<input class="input-thin" type="text" name="" id="input007">
+					</div>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label" for="select001">支付类型：</label>
+					<div class="controls">
+						<select class="input-thin input-medium" name="" id="select001">
+							<option value="">所有</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="select002">采购单类型：</label>
+					<div class="controls">
+						<select class="input-thin input-medium" name="" id="select002">
+							<option value="">所有</option>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">&nbsp;</label>
+					<div class="controls"><button class="sui-btn btn-default btn-small" type="submit">搜索</button></div>
+				</div>
+			</div>
+		</form><!-- /#filterForm END -->
+
+		<form id="listForm" action="" method="post">
+			<div class="clearfix" style="margin-bottom: 10px;">
+				<div class="pull-left">
+					<button class="sui-btn btn-default" type="button">发货</button>
+					<span class="sui-muted"> <i class="sui-glyphicon glyphicon-hand-right"></i> 去淘宝物流平台批量打印发货单和运单 </span>
+					<a href="">请点击这里</a>
+				</div>
+				<div class="pull-right">
+					<button class="sui-btn btn-default" type="button">导出物流单</button>
+					<button class="sui-btn btn-default" type="button">导出采购单</button>
+				</div>
+			</div><!-- /.clearfix END -->
+
+			<table class="sui-table sui-table-nobody">
+				<thead>
+					<tr>
+						<th width="8%">
+							<label class="checkbox"><input type="checkbox" name="" >全选</label>
+						</th>
+						<th class="center" width="22%">商品</th>
+						<th class="center" width="10%">零售价(元)<i class="sui-glyphicon glyphicon-question-sign sui-text-warning" title="就是零售的价格..."></i></th>
+						<th class="center" width="10%">采购价(元)</th>
+						<th class="center" width="10%">数量</th>
+						<th class="center" width="10%">操作</th>
+						<th class="center" width="10%">分销商</th>
+						<th class="center" width="10%">实收款(元)</th>
+						<th class="center" width="10%">采购状态/操作</th>
+					</tr>
+				</thead>
+			</table>
+
+			<table class="sui-table sui-table-bordered">
+				<thead>
+					<tr>
+						<th colspan="9" class="sui-muted">
+							<label class="checkbox pull-left">
+								<input type="checkbox" name="" > 1) <span class="sui-label sui-label-info">代销</span>
+								分销流水号：212500 订单编号：921516111531445 收货人：未免 <i class="sui-glyphicon glyphicon-filter"></i>
+							</label>
+							<span class="pull-right">成交时间：2014-01-01 线下转账 <i class="sui-glyphicon glyphicon-flag"></i></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
+						<td class="center" width="10%">
+							<a href="">yexue</a><br>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
+						<td class="center" width="10%">
+							<span class="sui-text-warning price">124.00</span><br>
+							<span class="sui-muted">(含快递：2.00)</span><br>
+							<a href="">修改价格</a><br>
+							<span class="sui-text-error">买家实付：122.00</span>
+						</td>
+						<td class="center" width="10%">
+							等待付款<hr>
+							<a href="">关闭交易</a><br>
+							<a href="">查看详情</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="sui-table sui-table-bordered">
+				<thead>
+					<tr>
+						<th colspan="9" class="sui-muted">
+							<label class="checkbox pull-left">
+								<input type="checkbox" name="" > 2) <span class="sui-label sui-label-important">经销</span>
+								分销流水号：212500 订单编号：921516111531445 收货人：未免 <i class="sui-glyphicon glyphicon-filter"></i>
+							</label>
+							<span class="pull-right">成交时间：2014-01-01 线下转账 <i class="sui-glyphicon glyphicon-flag"></i></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="9">&nbsp;&nbsp;&nbsp;最新留言：退款说明：退款说明：退款说明： &nbsp;&nbsp; <a href=""><i class="sui-glyphicon glyphicon-eye-open"></i> 查看全部</a></td>
+					</tr>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href=""></a></td>
+						<td class="center" width="10%" rowspan="4">
+							<a href="">yexue</a><br>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-warning price">124.00</span><br>
+							<span class="sui-muted">(供应商包邮)</span><br>
+							<span class="sui-label sui-label-success label-tip-top">调价：±0.01</span>
+						</td>
+						<td class="center" width="10%" rowspan="4">
+							付款信息待确认，待发货<hr>
+							<a href="" class="sui-btn btn-primary">确认收款</a><br>
+							<a href="">查看详情</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href=""></a></td>
+					</tr>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href=""></a></td>
+					</tr>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：白色 <br>商家编码：</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">122.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href=""></a></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="sui-table sui-table-bordered">
+				<thead>
+					<tr>
+						<th colspan="9" class="sui-muted">
+							<label class="checkbox pull-left">
+								<input type="checkbox" name="" > 3) <span class="sui-label sui-label-info">代销</span>
+								分销流水号：212500 订单编号：921516111531445 收货人：国国国 <i class="sui-glyphicon glyphicon-filter"></i>
+							</label>
+							<span class="pull-right">成交时间：2014-01-01 代销分帐 <i class="sui-glyphicon glyphicon-flag"></i></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<a href="">yexue</a><br>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-warning price">124.00</span><br>
+							<span class="sui-muted">(供应商包邮)</span><br>
+							<a href="">修改价格</a><br>
+							<span class="sui-text-error">买家实付：100.00</span>
+						</td>
+						<td class="center" width="10%" rowspan="4">
+							等待付款<hr>
+							<a href="">关闭交易</a><br>
+							<a href="">查看详情</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="sui-table sui-table-bordered">
+				<thead>
+				<tr>
+					<th colspan="9" class="sui-muted">
+						<label class="checkbox pull-left">
+							<input type="checkbox" name="" > 4) <span class="sui-label sui-label-info">代销</span>
+							分销流水号：212500 订单编号：921516111531445 收货人：国国国 <i class="sui-glyphicon glyphicon-filter"></i>
+						</label>
+						<span class="pull-right">成交时间：2014-01-01 代销分帐 <i class="sui-glyphicon glyphicon-flag"></i></span>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<a href="">yexue</a><br>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-warning price">124.00</span><br>
+							<span class="sui-muted">(供应商包邮)</span><br>
+							<a href="">修改价格</a><br>
+							<span class="sui-text-error">买家实付：100.00</span>
+						</td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-error">出库失败 <i class="sui-glyphicon glyphicon-question-sign text-warning" title="没货了~~"></i></span><hr>
+							<a class="sui-btn btn-primary btn-small" href="">淘宝仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">商家仓发货</a><br>
+							<a href="">查看详情</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="sui-table sui-table-bordered">
+				<thead>
+					<tr>
+						<th colspan="9" class="sui-muted">
+							<label class="checkbox pull-left">
+								<input type="checkbox" name="" > 5) <span class="sui-label sui-label-info">代销</span>
+								分销流水号：212500 订单编号：921516111531445 收货人：国国国 <i class="sui-glyphicon glyphicon-filter"></i>
+							</label>
+							<span class="pull-right">成交时间：2014-01-01 代销分帐 <i class="sui-glyphicon glyphicon-flag"></i></span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="2" width="30%">
+							<div class="typographic clearfix">
+								<img src="http://img.f2e.taobao.net/img.png_100x100.jpg" alt=""/>
+								<span><a href="">特步供应商特步品牌-士敦 <i class="sui-glyphicon glyphicon-ok-sign"></i></a><br>颜色分类：蓝色，尺码：XS <br>商家编码：1561561</span>
+							</div>
+						</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">100.00</td>
+						<td class="center left-con" width="10%">1</td>
+						<td class="center left-con" width="10%"><a href="">退回采购单</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<a href="">yexue</a><br>
+							<a class="sui-btn btn-default btn-default" href="">给我留言</a></td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-warning price">124.00</span><br>
+							<span class="sui-muted">(供应商包邮)</span><br>
+							<a href="">修改价格</a><br>
+							<span class="sui-text-error">买家实付：100.00</span>
+						</td>
+						<td class="center" width="10%" rowspan="4">
+							<span class="sui-text-error">出库失败 <i class="sui-glyphicon glyphicon-question-sign text-warning" title="没货了~~"></i></span><hr>
+							<a class="sui-btn btn-primary btn-small" href="">淘宝仓发货</a><br>
+							<a class="sui-btn btn-primary btn-small" href="">商家仓发货</a><br>
+							<a href="">查看详情</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+
+		<div class="sui-pagination pagination-right">
+			<div>
+				<span>共<span class="sui-text-warning">234</span>个查询结果</span>
+			</div>
+			<ul>
+				<li class="prev disabled"><a href="#">«上一页</a></li>
+				<li class="active"><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">8</a></li>
+				<li class="dotted"><span>...</span></li>
+				<li class="next"><a href="#">下一页»</a></li>
+			</ul>
+		</div>
+	</div><!-- /.container END -->
+
+	<br/><br/><br/><br/><br/>
+</body>
+</html>

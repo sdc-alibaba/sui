@@ -442,6 +442,7 @@ textarea[class*="span"],
 .row-fluid .controls-row [class*="span"] {
   float: left;
 }
+
 // Explicity set top padding on all checkboxes/radios, not just first-child
 /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
 .controls-row .checkbox[class*="span"],
@@ -449,6 +450,13 @@ textarea[class*="span"],
   padding-top: 5px;
 }
 */
+
+// 新增row-fluid扩展 @by kai 2014-01-30
+.row-fluid {
+  + .row-fluid {
+    margin-top: @baseLineHeight / 2;
+  }
+}
 
 
 // DISABLED STATE
@@ -829,6 +837,7 @@ input.search-query {
   vertical-align: middle;
 }
 // Remove float and margin, set to inline-block
+/* 注释掉这一块 @by kai 2014-02-23
 .form-search .radio input[type="radio"],
 .form-search .checkbox input[type="checkbox"],
 .form-inline .radio input[type="radio"],
@@ -837,6 +846,7 @@ input.search-query {
   margin-right: 3px;
   margin-left: 0;
 }
+*/
 
 
 // Margin to space out fieldsets
@@ -848,13 +858,6 @@ input.search-query {
 .control-label {
   display: block;
   margin-bottom: 5px;
-}
-
-// 新增controls-wrap @by kai 2014-01-30
-.controls-wrap {
-  + .controls-wrap {
-    margin-top: @baseLineHeight / 2;
-  }
 }
 
 // Legend collapses margin, so next element is responsible for spacing

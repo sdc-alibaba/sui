@@ -3,29 +3,55 @@ extends base
 block title
   title 标签页
 
+block sidebar
+  +sidebar('tab')
+
 block content
-  .container
-    h2 不同尺寸
-    ul.nav.nav-tabs
-      li.active
-        a 标签一
-      li
-        a(href='#') 标签二
-      li
-        a(href='#') 标签二
+  h1.sui-page-header 标签页 
+      small tabs
+  p.lead
+    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        ul.sui-nav.nav-tabs
+          li.active
+            a 标签一
+          li
+            a(href='#') 标签二
+          li
+            a(href='#') 标签二
 
-    ul.nav.nav-tabs.nav-tabs-large
-      li
-        a 语文
-      li.active
-        a(href='#') 数学
-      li
-        a(href='#') 英语
+        ul.sui-nav.nav-tabs.nav-large
+          li
+            a 语文
+          li.active
+            a(href='#') 数学
+          li
+            a(href='#') 英语
 
-    ul.nav.nav-tabs.nav-tabs-xlarge
-      li
-        a 前端
-      li.active
-        a(href='#') 后端
-      li
-        a(href='#') 运维
+        ul.sui-nav.nav-tabs.nav-tabs-xlarge
+          li
+            a 前端
+          li.active
+            a(href='#') 后端
+          li
+            a(href='#') 运维
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 有三种尺寸: default, <code>.nav-large</code>, <code>.nav-tabs-xlarge</code>。通过在 <code>li</code> 标签上添加 <code>.active</code> 可以指定当前高亮的tab。<br />
+      | 默认标签页是静态的，如果需要动态的标签页可以参考这里 <a href='tab-js.html'>js 标签页</a>
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

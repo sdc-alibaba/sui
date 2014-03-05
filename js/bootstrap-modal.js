@@ -22,14 +22,14 @@
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
-                + '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>'
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
               + (options.hasfoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
-                + '<button type="button" class="btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
-                + (options.cancelBtn ? '<button type="button" class="btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+                + '<button type="button" class="sui-btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
               + '</div>' : '')
             + '</div>'
           + '</div>'

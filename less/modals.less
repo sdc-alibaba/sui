@@ -1,6 +1,29 @@
 //
 // Modals
 // --------------------------------------------------
+.popdiv-footer {
+  padding: 7px 10px 5px;
+  margin-bottom: 0;
+  text-align: right; // right align buttons
+  background-color: #f1f4f5;
+  .border-radius(0 0 6px 6px);
+  .box-shadow(inset 0 1px 0 @white);
+  .clearfix(); // clear it in case folks use .pull-* classes on buttons
+
+  // Properly space out buttons
+  .sui-btn + .sui-btn {
+    margin-left: 7px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+  // but override that for button groups
+  .sui-btn-group .sui-btn + .sui-btn {
+    margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
 
 // Background
 .sui-modal-backdrop {
@@ -78,28 +101,11 @@
 
   // Footer (for actions)
   .modal-footer {
-    padding: 7px 10px 5px;
-    margin-bottom: 0;
-    text-align: right; // right align buttons
-    background-color: #f1f4f5;
-    .border-radius(0 0 6px 6px);
-    .box-shadow(inset 0 1px 0 @white);
-    .clearfix(); // clear it in case folks use .pull-* classes on buttons
-
-    // Properly space out buttons
-    .btn + .btn {
-      margin-left: 7px;
-      margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-    }
-    // but override that for button groups
-    .btn-group .btn + .btn {
-      margin-left: -1px;
-    }
-    // and override it for block buttons as well
-    .btn-block + .btn-block {
-      margin-left: 0;
-    }
+    .popdiv-footer()
   }
 
+}
+.tooltip-footer {
+  .popdiv-footer()
 }
 
