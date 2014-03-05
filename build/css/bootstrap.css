@@ -8472,6 +8472,8 @@ input[type="submit"].btn.btn-mini {
 
 .tooltip-only-arrow {
   position: relative;
+  padding: 5px;
+  border: 2px solid #b2b2b2;
 }
 
 .sui-tooltip.attention,
