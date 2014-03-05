@@ -1,0 +1,338 @@
+extends base
+
+block title
+  title 提示消息
+
+block head
+    style(type="text/css").
+      code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        padding: 2px 4px;
+        border: 1px solid #e1e1e8;
+        font-size: 12px;
+      }
+
+block sidebar
+  +sidebar('msg')
+block content
+  div.sui-page-header
+    h1 提示消息
+      small msgs
+
+  h2 小尺寸（默认尺寸）
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.sui-msg.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-stop
+          div.msg-con 禁止信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-success
+          div.msg-con 成功信息提示#4ab933
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-warning
+          div.msg-con 警示信息提示#cf700b
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-notice
+          div.msg-con 公告信息提示#ee9f28
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-tips
+          div.msg-con 提示信息提示#ee9f28
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-info
+          div.msg-con 提醒信息提示#ca9ed5
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-question
+          div.msg-con 疑问信息提示#333333
+          s.msg-icon
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 大尺寸
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        div.sui-msg.sui-msg-large.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-stop
+          div.msg-con 禁止信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-success
+          div.msg-con 成功信息提示#4ab933
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-warning
+          div.msg-con 警示信息提示#cf700b
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-notice
+          div.msg-con 公告信息提示#ee9f28
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-tips
+          div.msg-con 提示信息提示#ee9f28
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-info
+          div.msg-con 提醒信息提示#ca9ed5
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-question
+          div.msg-con 疑问信息提示#333333
+          s.msg-icon
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 成块级
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        div.sui-msg.sui-msg-block.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br />
+
+        div.sui-msg.sui-msg-large.sui-msg-block.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+    div.tab-pane#doc3
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+
+  h2 清除模式
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+    li
+      a(href='#doc4', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example
+        div.sui-msg.sui-msg-clear.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br />
+
+        div.sui-msg.sui-msg-large.sui-msg-clear.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+    div.tab-pane#doc4
+      清除模式区别于成块级模式，Msg内联状态独占一行，常用于表单校验
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
+
+  h2 默认字体颜色
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo5', data-toggle='tab') 示例
+    li
+      a(href='#code5', data-toggle='tab') 代码
+    li
+      a(href='#doc5', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo5
+      div.bs-docs-example
+        div.sui-msg.sui-msg-default.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-default.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+    div.tab-pane#code5
+      pre.prettyprint.linenums(data-target='#demo5>div')
+    div.tab-pane#doc5
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo5>div') 复制代码
+
+
+
+  h2 去边框和底色
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo6', data-toggle='tab') 示例
+    li
+      a(href='#code6', data-toggle='tab') 代码
+    li
+      a(href='#doc6', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo6
+      div.bs-docs-example
+        div.sui-msg.sui-msg-naked.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-naked.sui-msg-error
+          div.msg-con 错误信息提示#ea4a36
+          s.msg-icon
+    div.tab-pane#code6
+      pre.prettyprint.linenums(data-target='#demo6>div')
+    div.tab-pane#doc6
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
+
+
+  h2 多行模式
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo7', data-toggle='tab') 示例
+    li
+      a(href='#code7', data-toggle='tab') 代码
+    li
+      a(href='#doc7', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo7
+      div.bs-docs-example
+        div.sui-msg.sui-msg-question
+          div.msg-con 多行提示展示
+            p
+              | 1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+              | 2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.sui-msg-large.sui-msg-question
+          div.msg-con 多行提示展示
+            p
+              | 1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+              | 2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+          s.msg-icon
+    div.tab-pane#code7
+      pre.prettyprint.linenums(data-target='#demo7>div')
+    div.tab-pane#doc7
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo7>div') 复制代码
