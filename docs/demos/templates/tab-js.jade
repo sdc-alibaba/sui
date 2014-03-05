@@ -10,8 +10,8 @@ block content
     h1 标签页 
       small tab
 
-  p.docs-
-    通过js添加动态的标签页切换。
+  p.docs
+    通过此组件轻松添加动态的标签页切换功能。此文档的标签页切换效果正是通过这个组件实现的。
 
   h2 1. 通过标记使用
 
@@ -43,7 +43,8 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
+      | 通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
+      | 每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
 
   ul.demo-operations.clearfix
     li
@@ -92,7 +93,8 @@ block content
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
-      | 通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定
+      | 通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。
+      | 每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
 
     div.tab-pane#event2
       table.sui-table.sui-table-bordered
@@ -102,10 +104,10 @@ block content
 
         tr
           td show
-          td This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
+          td 在标签页显示之前触发，在shown事件之前。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。
         tr
           td shown
-          td This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.
+          td 在标签页显示之后触发，在show事件之后。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。
 
   ul.demo-operations.clearfix
     li

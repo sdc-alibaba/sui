@@ -11,12 +11,12 @@
   .clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
-  .btn + .btn {
+  .sui-btn + .sui-btn {
     margin-left: 7px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
   // but override that for button groups
-  .btn-group .btn + .btn {
+  .sui-btn-group .sui-btn + .sui-btn {
     margin-left: -1px;
   }
   // and override it for block buttons as well

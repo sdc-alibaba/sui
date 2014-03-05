@@ -1,0 +1,35 @@
+mixin header(highlight)
+  - var classIndex = ''
+  - var classDemos = ''
+  - var classExamples = ''
+  - var classTutorial = ''
+  - var classAbout = ''
+  
+  if highlight == 'demos'
+    - classDemos = 'active'
+  else if highlight == 'examples'
+    - classExamples = 'active'
+  else if highlight == 'tutorial'
+    - classTutorial = 'active'
+  else if highlight == 'about'
+    - classAbout = 'active'
+  else
+    - classIndex = 'active'
+  div.sui-navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-inner
+      a.sui-brand(href="./index.html")
+        i.sui-icon.icon-github-alt &nbsp;
+        |SUI
+      ul.sui-nav
+        li(class=classIndex)
+          a(href="./index.html") 首页
+        li(class=classDemos)
+          a(href="./global.html") 组件库
+        li(class=classExamples)
+          a(href="./examples.html") 案例
+        li(class=classTutorial)
+          a(href="./tutorial.html") 教程
+        li(class=classAbout)
+          a(href="./about.html") 关于
+
+
