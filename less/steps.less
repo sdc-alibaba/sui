@@ -2,8 +2,8 @@
     font-size: 0px;
     overflow: hidden;
     line-height: 0px;
+    margin: @baseMargin 0px;
     .wrap {
-        position: relative;
         display: inline-block;
     }
     .wrap > div {
@@ -13,6 +13,7 @@
         line-height: @stepsBaseHeight;
         vertical-align: top;
         font-size: @baseFontSize;
+        position: relative;
         > label {
             margin-left: @stepsBaseHeight / 2 + 10px;
             cursor: default;
@@ -112,7 +113,11 @@
 .steps-auto {
     display: table;
     width: 100%;
-    .wrap > div {
+    .wrap  {
         display: table-cell;
+        > div {
+            width: 100%;
+        }
+
     }
 }
