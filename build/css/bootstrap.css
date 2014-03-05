@@ -2751,7 +2751,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 96px;
+  margin-left: 102px;
   *margin-left: 0;
 }
 
@@ -5423,7 +5423,7 @@ table th[class*="span"],
   *z-index: 1000;
 }
 
-.open > .dropdown-menu {
+.open > .sui-dropdown-menu {
   display: block;
 }
 
