@@ -3,6 +3,7 @@ mixin header(highlight)
   - var classDemos = ''
   - var classExamples = ''
   - var classTutorial = ''
+  - var classDownload = ''
   - var classAbout = ''
   
   if highlight == 'demos'
@@ -11,6 +12,8 @@ mixin header(highlight)
     - classExamples = 'active'
   else if highlight == 'tutorial'
     - classTutorial = 'active'
+  else if highlight == 'download'
+    - classDownload = 'active'
   else if highlight == 'about'
     - classAbout = 'active'
   else
@@ -29,7 +32,7 @@ mixin header(highlight)
           a(href="./examples.html") 案例
         li(class=classTutorial)
           a(href="./tutorial.html") 教程
+        li(class=classDownload)
+          a(href="./download.html") 下载
         li(class=classAbout)
           a(href="./about.html") 关于
-
-
