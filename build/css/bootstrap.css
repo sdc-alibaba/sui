@@ -8231,12 +8231,12 @@ input[type="submit"].btn.btn-mini {
   clear: both;
 }
 
-.popdiv-footer .btn + .btn {
+.popdiv-footer .sui-btn + .sui-btn {
   margin-bottom: 0;
   margin-left: 7px;
 }
 
-.popdiv-footer .btn-group .btn + .btn {
+.popdiv-footer .sui-btn-group .sui-btn + .sui-btn {
   margin-left: -1px;
 }
 
@@ -8360,12 +8360,12 @@ input[type="submit"].btn.btn-mini {
   clear: both;
 }
 
-.sui-modal .modal-footer .btn + .btn {
+.sui-modal .modal-footer .sui-btn + .sui-btn {
   margin-bottom: 0;
   margin-left: 7px;
 }
 
-.sui-modal .modal-footer .btn-group .btn + .btn {
+.sui-modal .modal-footer .sui-btn-group .sui-btn + .sui-btn {
   margin-left: -1px;
 }
 
@@ -8398,12 +8398,12 @@ input[type="submit"].btn.btn-mini {
   clear: both;
 }
 
-.tooltip-footer .btn + .btn {
+.tooltip-footer .sui-btn + .sui-btn {
   margin-bottom: 0;
   margin-left: 7px;
 }
 
-.tooltip-footer .btn-group .btn + .btn {
+.tooltip-footer .sui-btn-group .sui-btn + .sui-btn {
   margin-left: -1px;
 }
 
