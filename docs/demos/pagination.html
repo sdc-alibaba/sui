@@ -2,328 +2,203 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>pagination demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
+    <title>分页器 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../build/css/bootstrap.css" rel="stylesheet">
     <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
   </head>
-
-  <body style="padding: 20px 50px 50px;">
-    <div class="container">
-
-		<div class="page-header">
-			<h1>pagination组件</h1>
-			<p>pagination组件包括3种形态，无需跳转到指定页面的小分页器(4种)，常态分页器(3种),以及不需要显示页码的分页器(3种) </p>
-            <a href="paginationJS.html">点击访问：pagination-JS组件</a>
-		</div>
-      <h3>小型分页器</h3>
-      <form class="bs-docs-example" style="padding-bottom: 15px;">
-          <div class="sui-pagination pagination-small">
-              <ul>
-                  <li class="prev disabled"><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li class="next"><a href="#">»</a></li>
-              </ul>
-          </div>
-          </br>
-          <div class="sui-pagination">
-              <ul>
-                  <li class="prev disabled"><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li class="next"><a href="#">»</a></li>
-              </ul>
-          </div>
-          </br>
-          <div class="sui-pagination pagination-large">
-              <ul>
-                  <li class="prev disabled"><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li class="next"><a href="#">»</a></li>
-              </ul>
-          </div>
-          </br>
-          <div class="sui-pagination pagination-xlarge">
-              <ul>
-                  <li class="prev disabled"><a href="#">«</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li class="next"><a href="#">»</a></li>
-              </ul>
-          </div>
-      </form>
-      <pre class="prettyprint linenums">
-          &lt;div class="sui-pagination pagination-mini"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-pagination pagination-small"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-pagination"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-pagination pagination-large"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-pagination pagination-xlarge"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-          &lt;/div&gt;
-      </pre>
-
-      <h3>常态分页器</h3>
-      <form class="bs-docs-example" style="padding-bottom: 15px;">
-          <div class="sui-pagination pagination-small">
-              <ul>
-                  <li class="prev disabled"><a href="#">«上一页</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">6</a></li>
-                  <li><a href="#">7</a></li>
-                  <li><a href="#">8</a></li>
-                  <li class="dotted"><span>...</span></li>
-                  <li class="next"><a href="#">下一页»</a></li>
-              </ul>
-              <div>
-                  <span>共10页</span>&nbsp;
-                  <span>
-                      到
-                      <input type="text" class="input-default page-num"/><button class="btn btn-small btn-primary page-confirm" onclick="alert(1)">确定</button>
-                      页
-                  </span>
-              </div>
-          </div>
-          </br>
-          <div class="sui-pagination">
-              <ul>
-                  <li class="prev disabled"><a href="#">«上一页</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">6</a></li>
-                  <li><a href="#">7</a></li>
-                  <li><a href="#">8</a></li>
-                  <li class="dotted"><span>...</span></li>
-                  <li class="next"><a href="#">下一页»</a></li>
-              </ul>
-              <div>
-                  <span>共10页</span>&nbsp;
-                  <span>
-                      到
-                      <input type="text" class="input-fat page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
-                      页
-                  </span>
-              </div>
-          </div>
-          </br>
-
-          <div class="sui-pagination pagination-large">
-              <ul>
-                  <li class="prev disabled"><a href="#">«上一页</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">6</a></li>
-                  <li><a href="#">7</a></li>
-                  <li><a href="#">8</a></li>
-                  <li class="dotted"><span>...</span></li>
-                  <li class="next"><a href="#">下一页»</a></li>
-              </ul>
-              <div>
-                  <span>共10页</span>&nbsp;
-                  <span>
-                      到
-                      <input type="text" class="input-xfat page-num"/><button class="btn btn-large btn-primary page-confirm" onclick="alert(1)">确定</button>
-                      页
-                  </span>
-              </div>
-          </div>
-         
-      </form>
-
-      <pre class="prettyprint linenums">
-          &lt;div class="sui-pagination pagination-small"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«上一页&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;7&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;8&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="dotted"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;下一页»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-              &lt;div&gt;
-                  &lt;span&gt;共10页&lt;/span&gt;&nbsp;
-                  &lt;span&gt;
-                      到
-                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
-                      页
-                  &lt;/span&gt;
-              &lt;/div&gt;
-          &lt;/div&gt;
-          </br>
-          &lt;div class="sui-pagination"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«上一页&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;7&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;8&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="dotted"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;下一页»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-              &lt;div&gt;
-                  &lt;span&gt;共10页&lt;/span&gt;&nbsp;
-                  &lt;span&gt;
-                      到
-                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
-                      页
-                  &lt;/span&gt;
-              &lt;/div&gt;
-          &lt;/div&gt;
-          </br>
-          &lt;div class="sui-pagination pagination-large"&gt;
-              &lt;ul&gt;
-                  &lt;li class="prev disabled"&gt;&lt;a href="#"&gt;«上一页&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;6&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;7&lt;/a&gt;&lt;/li&gt;
-                  &lt;li&gt;&lt;a href="#"&gt;8&lt;/a&gt;&lt;/li&gt;
-                  &lt;li class="dotted"&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
-                  &lt;li class="next"&gt;&lt;a href="#"&gt;下一页»&lt;/a&gt;&lt;/li&gt;
-              &lt;/ul&gt;
-              &lt;div&gt;
-                  &lt;span&gt;共10页&lt;/span&gt;&nbsp;
-                  &lt;span&gt;
-                      到
-                      &lt;input type="text" class="page-num"/&gt;&lt;button class="page-confirm" onclick="alert(1)"&gt;确定&lt;/button&gt;
-                      页
-                  &lt;/span&gt;
-              &lt;/div&gt;
-          &lt;/div&gt;
-      </pre>
-      <h3>无页码分页器</h3>
-      <form class="bs-docs-example" style="padding-bottom: 15px;">
-        <div class="sui-pagination pagination-small">
-            <ul>
-                <li class="prev"><a href="#">«上一页</a></li>
-                <li class="next"><a href="#">下一页»</a></li>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
             </ul>
+          </div>
         </div>
-        </br>
-        <div class="sui-pagination">
-            <ul>
-                <li class="prev"><a href="#">«上一页</a></li>
-                <li class="next"><a href="#">下一页»</a></li>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li class="active"><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="paginationJS.html">分页器</a></li>
+                </ul>
+              </li>
             </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h1 class="sui-page-header">分页器 <small>pagination</small></h1>
+          <p class="sui-lead">分页器组件，多种尺寸 
+            <div><a href="pagination-js.html">点击访问：pagination-JS组件</a></div>
+          </p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <h2>小型分页器</h2>
+                <div class="sui-pagination pagination-small">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="next"><a href="#">»</a></li>
+                  </ul>
+                </div>
+                <div class="sui-pagination">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="next"><a href="#">»</a></li>
+                  </ul>
+                </div>
+                <div class="sui-pagination pagination-large">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="next"><a href="#">»</a></li>
+                  </ul>
+                </div>
+                <h2>常态分页器</h2>
+                <div class="sui-pagination pagination-small">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«上一页</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="dotted"><span>...</span></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                  <div><span>共10页&nbsp;</span><span>
+                      到
+                      <input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                      页</span></div>
+                </div>
+                <div class="sui-pagination">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«上一页</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="dotted"><span>...</span></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                  <div><span>共10页&nbsp;</span><span>
+                      到
+                      <input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                      页</span></div>
+                </div>
+                <div class="sui-pagination pagination-large">
+                  <ul>
+                    <li class="prev disabled"><a href="#">«上一页</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li class="dotted"><span>...</span></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                  <div><span>共10页&nbsp;</span><span>
+                      到
+                      <input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                      页</span></div>
+                </div>
+                <h2>无页码分页器</h2>
+                <div class="sui-pagination pagination-small">
+                  <ul>
+                    <li class="prev"><a href="#">«上一页</a></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                </div>
+                <div class="sui-pagination">
+                  <ul>
+                    <li class="prev"><a href="#">«上一页</a></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                </div>
+                <div class="sui-pagination pagination-large">
+                  <ul>
+                    <li class="prev"><a href="#">«上一页</a></li>
+                    <li class="next"><a href="#">下一页»</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">所有形式的分页器都提供三种尺寸,除此之外，还有<code>pagination-centered,,pagination-right</code> 控制分页器的水平位置</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
         </div>
-        </br>
-        <div class="sui-pagination pagination-large">
-            <ul>
-                <li class="prev disabled"><a href="#">«上一页</a></li>
-                <li class="next disabled"><a href="#">下一页»</a></li>
-            </ul>
-        </div>
-      </form>
+      </div>
     </div>
-	<script src="../../js/lib/jquery.js"></script>
-    <script type="text/javascript" src="../../build/js/bootstrap.js"></script>
-	<script src="../assets/js/google-code-prettify/prettify.js"></script>
-	<script src="../assets/js/application.js"></script>
-  <script src="http://localhost:3456/livereload.js"></script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>

@@ -8472,6 +8472,8 @@ input[type="submit"].btn.btn-mini {
 
 .tooltip-only-arrow {
   position: relative;
+  padding: 5px;
+  border: 2px solid #b2b2b2;
 }
 
 .sui-tooltip.attention,
@@ -9236,17 +9238,18 @@ a.sui-badge:focus {
 }
 
 .sui-steps {
+  margin: 18px 0;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
 }
 
 .sui-steps .wrap {
-  position: relative;
   display: inline-block;
 }
 
 .sui-steps .wrap > div {
+  position: relative;
   display: inline-block;
   width: 195px;
   height: 24px;
@@ -9379,8 +9382,12 @@ a.sui-badge:focus {
   width: 100%;
 }
 
-.steps-auto .wrap > div {
+.steps-auto .wrap {
   display: table-cell;
+}
+
+.steps-auto .wrap > div {
+  width: 100%;
 }
 
 .pull-right {
