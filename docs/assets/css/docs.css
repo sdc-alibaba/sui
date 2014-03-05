@@ -44,7 +44,7 @@ body {
   max-width: 1200px;
 }
 
-.sui-layout .sidebar {
+body > .sui-layout > .sidebar {
   width: 150px;
   font-size: 14px;
   line-height: 22px;
@@ -55,7 +55,7 @@ body {
 .docs-sidenav {
   width: 151px;
 }
-.docs-sidenav [class^="sui-icon-"] {
+.docs-sidenav [class^="sui-icon"] {
   font-size: 18px;
   vertical-align: -2px;
 }
