@@ -1,0 +1,35 @@
+extends base
+
+block title
+  title 下载
+
+block head
+  style(type='text/css').
+    .btn-huge {
+      padding: 15px 40px;
+      font-size: 20px;
+    }
+block header
+  +header('download')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 下载 SUI
+
+    h2 下载zip文件
+
+    p.sui-lead
+      |下载打包好的文件
+
+    p
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='#')
+        i.sui-icon.icon-download
+        | SUI-1.0.zip
+
+    h2 获取最新源码
+
+    p.sui-lead
+      |可以从 <strong>gitlab</strong> 上直接获取最新的代码，项目地址：
+    a.sui-btn.btn-success.btn-huge(href='#')
+      i.sui-icon.icon-github-alt
+      | SUI on gitlab

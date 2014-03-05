@@ -3841,7 +3841,7 @@ table th[class*="span"],
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
-  line-height: 1;
+  line-height: inherit;
   text-transform: none;
   speak: none;
   font-variant: normal;
@@ -5628,6 +5628,7 @@ button.sui-close {
      -moz-border-radius: 2px;
           border-radius: 2px;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -5697,37 +5698,24 @@ button.sui-close {
 
 .sui-btn .sui-icon {
   margin-right: 8px;
-  font-size: 12px;
 }
 
 .btn-xlarge {
   padding: 4px 20px;
-  line-height: 22px;
-}
-
-.btn-xlarge,
-.btn-xlarge .sui-icon {
   font-size: 14px;
+  line-height: 22px;
 }
 
 .btn-large {
   padding: 2px 14px;
-  line-height: 22px;
-}
-
-.btn-large,
-.btn-large .sui-icon {
   font-size: 14px;
+  line-height: 22px;
 }
 
 .btn-small {
   padding: 0 6px;
-  line-height: 18px;
-}
-
-.btn-small,
-.btn-small .sui-icon {
   font-size: 12px;
+  line-height: 18px;
 }
 
 .btn-block {
@@ -7592,6 +7580,7 @@ input[type="submit"].btn.btn-mini {
           border-radius: 2px;
   border-radius: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -7661,7 +7650,6 @@ input[type="submit"].btn.btn-mini {
 
 .sui-pagination div .page-num + .page-confirm .sui-icon {
   margin-right: 8px;
-  font-size: 12px;
 }
 
 .sui-pagination div .page-num + .page-confirm .sui-label,
@@ -7766,6 +7754,7 @@ input[type="submit"].btn.btn-mini {
   padding: 2px 14px;
   margin-bottom: 0;
   font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
   line-height: 22px;
   color: #333333;
@@ -7785,6 +7774,7 @@ input[type="submit"].btn.btn-mini {
           border-radius: 2px;
   border-radius: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -7854,18 +7844,12 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-large div .page-num + .page-confirm .sui-icon {
   margin-right: 8px;
-  font-size: 12px;
 }
 
 .pagination-large div .page-num + .page-confirm .sui-label,
 .pagination-large div .page-num + .page-confirm .sui-badge {
   position: relative;
   top: -1px;
-}
-
-.pagination-large div .page-num + .page-confirm,
-.pagination-large div .page-num + .page-confirm .sui-icon {
-  font-size: 14px;
 }
 
 .pagination-large div .page-num + .page-confirm:hover,
@@ -7920,6 +7904,7 @@ input[type="submit"].btn.btn-mini {
   padding: 4px 20px;
   margin-bottom: 0;
   font-size: 12px;
+  font-size: 14px;
   line-height: 18px;
   line-height: 22px;
   color: #333333;
@@ -7939,6 +7924,7 @@ input[type="submit"].btn.btn-mini {
           border-radius: 2px;
   border-radius: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -8008,18 +7994,12 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-xlarge div .page-num + .page-confirm .sui-icon {
   margin-right: 8px;
-  font-size: 12px;
 }
 
 .pagination-xlarge div .page-num + .page-confirm .sui-label,
 .pagination-xlarge div .page-num + .page-confirm .sui-badge {
   position: relative;
   top: -1px;
-}
-
-.pagination-xlarge div .page-num + .page-confirm,
-.pagination-xlarge div .page-num + .page-confirm .sui-icon {
-  font-size: 14px;
 }
 
 .pagination-xlarge div .page-num + .page-confirm:hover,
@@ -8090,6 +8070,7 @@ input[type="submit"].btn.btn-mini {
           border-radius: 2px;
   border-radius: 0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -8159,18 +8140,12 @@ input[type="submit"].btn.btn-mini {
 
 .pagination-small div .page-num + .page-confirm .sui-icon {
   margin-right: 8px;
-  font-size: 12px;
 }
 
 .pagination-small div .page-num + .page-confirm .sui-label,
 .pagination-small div .page-num + .page-confirm .sui-badge {
   position: relative;
   top: -1px;
-}
-
-.pagination-small div .page-num + .page-confirm,
-.pagination-small div .page-num + .page-confirm .sui-icon {
-  font-size: 12px;
 }
 
 .pagination-small div .page-num + .page-confirm:hover,

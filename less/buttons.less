@@ -10,6 +10,7 @@
 .sui-btn {
   display: inline-block;
   padding: @basePadding;
+  box-sizing: border-box;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
@@ -52,7 +53,6 @@
   }
 
   .sui-icon {
-    font-size: @baseFontSize;
     margin-right: 8px;
   }
 
@@ -67,27 +67,21 @@
 .btn-xlarge {
   padding: @paddingXLarge;
   line-height: @lineHeightLarge;
-  &, .sui-icon {
-    font-size: @fontSizeLarge;
-  }
+  font-size: @fontSizeLarge;
 }
 
 // Large
 .btn-large {
   padding: @paddingLarge;
   line-height: @lineHeightLarge;
-  &, .sui-icon {
-    font-size: @fontSizeLarge;
-  }
+  font-size: @fontSizeLarge;
 }
 
 // Small
 .btn-small {
   padding: @paddingSmall;
   line-height: @lineHeightSmall;
-  &, .sui-icon {
-    font-size: @fontSizeSmall;
-  }
+  font-size: @fontSizeSmall;
 }
 
 
