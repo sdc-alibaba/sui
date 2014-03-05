@@ -3,16 +3,17 @@
 // --------------------------------------------------
 
 .sui-breadcrumb {
-  padding: 8px 15px;
+  padding: 9px 14px;
   margin: 0 0 @baseLineHeight;
   list-style: none;
   background-color: #f5f5f5;
-  #gradient > .horizontal(#f5f5f5, #fafafa);
-  .border-radius(@baseBorderRadius);
+  font-weight: bold;
+//  #gradient > .horizontal(#f5f5f5, #f4f4f4);
+  .border-radius(@borderRadiusSmall);
   > li {
     display: inline-block;
     .ie7-inline-block();
-    text-shadow: 0 1px 0 @white;
+//    text-shadow: 0 1px 0 @white;
     + li:before {
       content: "/\00a0";
       padding: 0 5px;
