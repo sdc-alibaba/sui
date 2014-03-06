@@ -229,7 +229,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: Arial, "微软雅黑", "宋体", sans-serif;
+  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
   font-size: 12px;
   line-height: 18px;
   color: #333333;
@@ -1075,7 +1075,7 @@ input,
 button,
 select,
 textarea {
-  font-family: Arial, "微软雅黑", "宋体", sans-serif;
+  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
 }
 
 /* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
@@ -6941,7 +6941,7 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .navbar-search .search-query {
   padding: 4px 14px;
   margin-bottom: 0;
-  font-family: Arial, "微软雅黑", "宋体", sans-serif;
+  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
