@@ -243,7 +243,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #004080;
+  color: #ff7300;
   text-decoration: underline;
 }
 
@@ -6005,7 +6005,7 @@ input[type="submit"].btn.btn-mini {
 
 .btn-link:hover,
 .btn-link:focus {
-  color: #004080;
+  color: #ff7300;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -6429,7 +6429,6 @@ input[type="submit"].btn.btn-mini {
 }
 
 .sui-nav.nav-tabs > .active > a {
-  margin-top: -1px;
   font-weight: bold;
   cursor: default;
   background-color: #ffffff;
@@ -6452,10 +6451,6 @@ input[type="submit"].btn.btn-mini {
 
 .sui-nav.nav-tabs.nav-primary > li {
   margin-bottom: -2px;
-}
-
-.sui-nav.nav-tabs.nav-primary > li > a {
-  border-bottom: 2px solid #3096dc;
 }
 
 .sui-nav.nav-tabs.nav-primary > .active > a {
@@ -6605,8 +6600,8 @@ input[type="submit"].btn.btn-mini {
 
 .sui-nav .dropdown-toggle:hover .caret,
 .sui-nav .dropdown-toggle:focus .caret {
-  border-top-color: #004080;
-  border-bottom-color: #004080;
+  border-top-color: #ff7300;
+  border-bottom-color: #ff7300;
 }
 
 /* move down carets for tabs */

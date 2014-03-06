@@ -9,7 +9,6 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
-    demosRoot: '<%= docsRoot %>/demos',
 
     jshint: {
       options: {
@@ -89,9 +88,9 @@ module.exports = function(grunt) {
         files: [
           {
           expand: true,
-          cwd: '<%= demosRoot %>/templates',
+          cwd: '<%= docsRoot %>/templates',
           src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade'],
-          dest: '<%= demosRoot %>',
+          dest: '<%= docsRoot %>',
           ext: '.html'
         },
         ],
@@ -133,7 +132,7 @@ module.exports = function(grunt) {
         tasks: ['dist-js', 'copy']
       },
       demos: {
-        files: 'docs/demos/templates/**/*.jade',
+        files: '<%= docsRoot %>/templates/**/*.jade',
         tasks: ['jade:demos']
       }
     }

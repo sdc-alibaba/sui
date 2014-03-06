@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-dropdowns")
+    module("dropdowns")
 
       test("should provide no conflict", function () {
         var dropdown = $.fn.dropdown.noConflict()

@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-tooltip")
+    module("tooltip")
 
       test("should provide no conflict", function () {
         var tooltip = $.fn.tooltip.noConflict()

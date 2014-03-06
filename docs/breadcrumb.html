@@ -2,22 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>左右定宽三栏布局</title>
+    <title>Breadcrumb 面包屑</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../build/css/sui.css" rel="stylesheet">
-    <link href="../../build/css/sui-responsive.css" rel="stylesheet">
-    <link href="../assets/css/docs.css" rel="stylesheet">
-    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/sui.js"></script>
-    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
-    <style type="text/css">
-      .bs-docs-example .sui-layout div { background-color: #f5faff; min-height: 100px; }
-      .bs-docs-example .sui-layout .sidebar { background: #3096de; }
-      
-    </style>
+    <link href="../build/css/sui.css" rel="stylesheet">
+    <link href="../build/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../build/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -37,10 +32,10 @@
             <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
               <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
               </li>
-              <li class="active"><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="grid.html">栅格</a></li>
-                  <li class="active"><a href="layout.html">布局</a></li>
+                  <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -51,12 +46,12 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
                   <li><a href="tab.html">标签页</a></li>
-                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li class="active"><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                 </ul>
@@ -73,8 +68,9 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1 class="sui-page-header">左右定宽三栏布局</h1>
-          <p class="sui-lead">不同与栅格系统的响应式布局，<strong>layout</strong> 是一个简单的两边固定宽度中间自适应的布局。</p>
+          <div class="sui-page-header">
+            <h1>面包屑<small>&nbsp;&nbsp;breadcrumb</small></h1>
+          </div>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -83,23 +79,24 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <h2>2 col layout</h2>
-                <div class="sui-layout">
-                  <div class="sidebar">sidebar</div>
-                  <div class="content">content</div>
-                </div>
-                <h2>3 col layout</h2>
-                <div class="sui-layout layout3">
-                  <div class="sidebar">sidebar</div>
-                  <div class="content">content</div>
-                  <div class="sidebar">sidebar</div>
-                </div>
+                <ul class="sui-breadcrumb">
+                  <li class="active">首页</li>
+                </ul>
+                <ul class="sui-breadcrumb">
+                  <li><a href="#">首页</a></li>
+                  <li class="active">手机数码、电脑办公</li>
+                </ul>
+                <ul class="sui-breadcrumb">
+                  <li><a href="#">首页</a></li>
+                  <li><a href="#">手机数码、电脑办公</a></li>
+                  <li class="active">智能手机</li>
+                </ul>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">左右宽度固定中间自适应的布局，默认宽度会铺满整个屏幕。非常适合用在有侧边栏的全屏页面布局。默认的两边宽度是150px，可以根据需要自己重载。</div>
+            <div id="doc1" class="tab-pane">由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。</div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
@@ -108,9 +105,9 @@
         </div>
       </div>
     </div>
-    <script src="../assets/js/google-code-prettify/prettify.js"></script>
-    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
-    <script src="../assets/js/application.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>

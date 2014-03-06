@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-carousel")
+    module("carousel")
 
       test("should provide no conflict", function () {
         var carousel = $.fn.carousel.noConflict()

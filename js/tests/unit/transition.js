@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-transition")
+    module("transition")
 
       test("should be defined on jquery support object", function () {
         ok($.support.transition !== undefined, 'transition object is defined')

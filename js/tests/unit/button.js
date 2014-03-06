@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-buttons")
+    module("buttons")
 
       test("should provide no conflict", function () {
         var button = $.fn.button.noConflict()

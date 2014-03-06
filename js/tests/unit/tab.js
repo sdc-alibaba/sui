@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-tabs")
+    module("tabs")
 
       test("should provide no conflict", function () {
         var tab = $.fn.tab.noConflict()

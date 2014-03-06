@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-affix")
+    module("affix")
 
       test("should provide no conflict", function () {
         var affix = $.fn.affix.noConflict()

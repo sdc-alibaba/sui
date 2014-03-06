@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-modal")
+    module("modal")
 
       test("should provide no conflict", function () {
         var modal = $.fn.modal.noConflict()

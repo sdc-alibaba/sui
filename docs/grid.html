@@ -2,17 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>标签页</title>
+    <title>12 栏栅格</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../build/css/sui.css" rel="stylesheet">
-    <link href="../../build/css/sui-responsive.css" rel="stylesheet">
-    <link href="../assets/css/docs.css" rel="stylesheet">
-    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
-    <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/sui.js"></script>
-    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+    <link href="../build/css/sui.css" rel="stylesheet">
+    <link href="../build/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../build/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .grid-demo .sui-row div,
+      .grid-demo .sui-row-fluid div {
+        background: #dfedfc;
+        min-height: 50px;
+      }
+      .grid-demo .sui-row + .sui-row,
+      .grid-demo .sui-row-fluid + .sui-row-fluid {
+        margin-top: 10px;
+      }
+    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -32,9 +43,9 @@
             <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
               <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
               </li>
-              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
-                  <li><a href="grid.html">栅格</a></li>
+                  <li class="active"><a href="grid.html">栅格</a></li>
                   <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
@@ -46,11 +57,11 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
-                  <li class="active"><a href="tab.html">标签页</a></li>
+                  <li><a href="tab.html">标签页</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
@@ -68,9 +79,12 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1 class="sui-page-header">标签页 <small>tabs</small></h1>
-          <p class="sui-lead">三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。</p>
-          <h2>默认标签页</h2>
+          <h1 class="sui-page-header">响应式栅格系统</h1>
+          <p class="sui-lead">
+            响应式的12栏栅格系统，兼容三种主流屏幕尺寸 <strong>1024</strong>,<strong>1280/1366</strong>以及<strong>1440</strong>。实际上用户屏幕宽度在1024px以上的情况下会自动选择一个最佳的栅格宽度。<br />
+            如果想关闭响应式布局，只需要删除 <code>sui-responsive.less</code>文件即可。
+          </p>
+          <h2>1. 默认栅格系统</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -79,36 +93,46 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <ul class="sui-nav nav-tabs">
-                  <li class="active"><a>标签一</a></li>
-                  <li><a href="#">标签二</a></li>
-                  <li><a href="#">标签二</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-large">
-                  <li><a>语文</a></li>
-                  <li class="active"><a href="#">数学</a></li>
-                  <li><a href="#">英语</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-tabs-xlarge">
-                  <li><a>前端</a></li>
-                  <li class="active"><a href="#">后端</a></li>
-                  <li><a href="#">运维</a></li>
-                </ul>
+                <div class="grid-demo">
+                  <div class="sui-row">
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span1">1</div>
+                    <div class="span2">2</div>
+                    <div class="span2">2</div>
+                    <div class="span3">3</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span4">4</div>
+                    <div class="span4">4</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span2">2</div>
+                    <div class="span6">6</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              有三种尺寸: default, <code>.nav-large</code>, <code>.nav-tabs-xlarge</code>。通过在 <code>li</code> 标签上添加 <code>.active</code> 可以指定当前高亮的tab。<br />
-              默认标签页是静态的，如果需要动态的标签页可以参考这里 <a href='tab-js.html'>js 标签页</a>
+              <p>默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>首要标签页</h2>
+          <h2>2. 流式栅格系统</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
@@ -117,27 +141,40 @@
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
               <div class="bs-docs-example">
-                <ul class="sui-nav nav-tabs nav-primary">
-                  <li class="active"><a>标签一</a></li>
-                  <li><a href="#">标签二</a></li>
-                  <li><a href="#">标签二</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-large nav-primary">
-                  <li><a>语文</a></li>
-                  <li class="active"><a href="#">数学</a></li>
-                  <li><a href="#">英语</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-xlarge nav-primary">
-                  <li><a>前端</a></li>
-                  <li class="active"><a href="#">后端</a></li>
-                  <li><a href="#">运维</a></li>
-                </ul>
+                <div class="grid-demo">
+                  <div class="sui-row-fluid">
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span1">1</div>
+                    <div class="span2">2</div>
+                    <div class="span2">2</div>
+                    <div class="span3">3</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span4">4</div>
+                    <div class="span4">4</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span2">2</div>
+                    <div class="span6">6</div>
+                  </div>
+                </div>
               </div>
             </div>
             <div id="code2" class="tab-pane">
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc2" class="tab-pane">首要标签页，添加 <code>nav-primary</code></div>
+            <div id="doc2" class="tab-pane">
+              <p>流式栅格系统每一栏的宽度都是其容器的百分比，因此会随着屏幕宽度的变化而不断变化，没有一个固定的宽度像素值。</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
@@ -146,9 +183,9 @@
         </div>
       </div>
     </div>
-    <script src="../assets/js/google-code-prettify/prettify.js"></script>
-    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
-    <script src="../assets/js/application.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>

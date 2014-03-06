@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-typeahead")
+    module("typeahead")
 
       test("should provide no conflict", function () {
         var typeahead = $.fn.typeahead.noConflict()

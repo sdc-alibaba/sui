@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-scrollspy")
+    module("scrollspy")
 
       test("should provide no conflict", function () {
         var scrollspy = $.fn.scrollspy.noConflict()

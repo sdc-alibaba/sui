@@ -115,6 +115,7 @@ body > .navbar .brand:hover {
 }
 .copy-btn.zeroclipboard-is-hover {
   text-decoration: underline;
+  color: #ff7300;
 }
 .bs-docs-example {
   position: relative;

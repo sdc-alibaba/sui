@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-collapse")
+    module("collapse")
 
       test("should provide no conflict", function () {
         var collapse = $.fn.collapse.noConflict()

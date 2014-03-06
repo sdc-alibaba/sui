@@ -2,7 +2,7 @@
  * 目前不会用popover，取消qunit
 $(function () {
 
-    module("bootstrap-popover")
+    module("popover")
 
       test("should provide no conflict", function () {
         var popover = $.fn.popover.noConflict()

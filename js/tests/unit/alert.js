@@ -1,6 +1,6 @@
 $(function () {
 
-    module("bootstrap-alerts")
+    module("alerts")
 
       test("should provide no conflict", function () {
         var alert = $.fn.alert.noConflict()
