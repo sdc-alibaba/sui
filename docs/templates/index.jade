@@ -1,0 +1,38 @@
+extends base
+
+block title
+  title 案例
+
+block head
+  style(type='text/css').
+    h1 {
+      font-size: 36px;
+      line-height: 1.5;
+      padding: 12px 0;
+    }
+    .jumbotron {
+      background-color: #6f5499;
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .sui-row {
+      margin-top: 20px;
+      border-radius: 6px;
+      background: #DEE8F3;
+    }
+
+    .sui-row [class^='span'] {
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+block header
+  +header('index')
+
+block content_wrap
+  .jumbotron
+    .sui-container
+      h1 SUI
+      p.sui-lead
+        | SUI 是一个基于bootstrap开发的前端组件库。
