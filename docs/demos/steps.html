@@ -2,254 +2,177 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>steps demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
+    <title>步骤条</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../build/css/bootstrap.css" rel="stylesheet">
     <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
   </head>
-
-  <body style="padding: 20px 50px 50px;">
-    <div class="container">
-        <div><i></i></div>
-		<div class="page-header">
-			<h1>steps组件</h1>
-		</div>
-      <h3>步骤导航器</h3>
-      <h4>修复日志</h4>
-      <ul>
-          <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
-          <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
-      </ul>
-      <form class="bs-docs-example" style="padding-bottom: 15px;">
-          <div class="sui-steps">
-            <div class="wrap">
-                <div class="finished">
-                    <label>
-                        <span class="round">&#10004;</span>
-                        <span>第一步 #4AA4D5</span>
-                    </label>
-                    <i class="triangle-right-bg"></i>
-                    <i class="triangle-right"></i>
-                </div> 
-            </div>
-            <div class="wrap">
-                <div class="current">
-                    <label>
-                        <span class="round">2</span>
-                        <span>第二步 #333333</span>
-                    </label>
-                    <i class="triangle-right-bg"></i>
-                    <i class="triangle-right"></i>
-                </div>
-            </div>
-            <div class="wrap">
-                <div class="todo">
-                    <label>
-                        <span class="round">3</span>
-                        <span>第三步 #999999</span>
-                    </label>
-                </div>
-            </div>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
           </div>
-          </br>
-          <div class="sui-steps steps-large">
-            <div class="wrap">
-                <div class="finished">
-                    <label>
-                        <span class="round">&#10004;</span>
-                        <span>第一步 #4AA4D5</span>
-                    </label>
-                    <i class="triangle-right-bg"></i>
-                    <i class="triangle-right"></i>
-                </div> 
-            </div>
-            <div class="wrap">
-                <div class="current">
-                    <label>
-                        <span class="round">2</span>
-                        <span>第二步 #333333</span>
-                    </label>
-                    <i class="triangle-right-bg"></i>
-                    <i class="triangle-right"></i>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li class="active"><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h1 class="sui-page-header">步骤条<small>steps</small></h1>
+          <p class="sui-lead">
+            适用于需要步骤条的业务场景 
+            <h4>修复日志</h4>
+            <ul>
+            <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
+            <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
+            </ul>
+          </p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <h2>定宽步骤条</h2>
+                <div class="sui-steps">
+                  <div class="wrap">
+                    <div class="finished">
+                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="current">
+                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="todo">
+                      <label><span class="round">3</span><span>第三步 #999999</span></label>
+                    </div>
+                  </div>
                 </div>
-            </div>
-            <div class="wrap">
-                <div class="todo">
-                    <label>
-                        <span class="round">3</span>
-                        <span>第三步 #999999</span>
-                    </label>
+                <div class="sui-steps steps-large">
+                  <div class="wrap">
+                    <div class="finished">
+                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="current">
+                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="todo">
+                      <label><span class="round">3</span><span>第三步 #999999</span></label>
+                    </div>
+                  </div>
                 </div>
+                <h2>自适应步骤条</h2><span>根据页面大小自适应的steps,需要浏览器支持display:table,display:table-cell属性</span>
+                <div class="sui-steps steps-auto">
+                  <div class="wrap">
+                    <div class="finished">
+                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="current">
+                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="todo">
+                      <label><span class="round">3</span><span>第三步 #999999</span></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="sui-steps steps-large steps-auto">
+                  <div class="wrap">
+                    <div class="finished">
+                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="current">
+                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="todo">
+                      <label><span class="round">3</span><span>第三步 #999999</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                  <div class="wrap">
+                    <div class="todo">
+                      <label><span class="round">3</span><span>第四步 #999999</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane"><code>steps-auto</code>适用于步骤条内容不能过长的情景，极端情况下请自行修改每个step的宽度</div>
           </div>
-          </br>
-          <span>根据页面大小自适应的steps,需要display:table,display:table-cell属性</span>
-          <div class="sui-steps steps-large steps-auto">
-              <div class="wrap">
-                  <div class="finished">
-                      <label>
-                          <span class="round">&#10004;</span>
-                          <span>第一步 #4AA4D5</span>
-                      </label>
-                      <i class="triangle-right-bg"></i>
-                      <i class="triangle-right"></i>
-                  </div> 
-              </div>
-              <div class="wrap">
-                  <div class="current">
-                      <label>
-                          <span class="round">2</span>
-                          <span>第二步 #333333</span>
-                      </label>
-                      <i class="triangle-right-bg"></i>
-                      <i class="triangle-right"></i>
-                  </div>
-              </div>
-              <div class="wrap">
-                  <div class="todo">
-                      <label>
-                          <span class="round">3</span>
-                          <span>第三步 #999999</span>
-                      </label>
-                      <i class="triangle-right-bg"></i>
-                      <i class="triangle-right"></i>
-                  </div>
-              </div>
-              <div class="wrap">
-                  <div class="todo">
-                      <label>
-                          <span class="round">3</span>
-                          <span>第三步 #999999</span>
-                      </label>
-                  </div>
-              
-              </div>
-          </div>
-      </form>
-      <pre class="prettyprint linenums">
-          &lt;div class="sui-steps"&gt;
-            &lt;div class="wrap"&gt;
-            &lt;div class="finished"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;&#10004;&lt;/span&gt;
-                    &lt;span&gt;第一步 #4AA4D5&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt; 
-            &lt;/div&gt; 
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="current"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;2&lt;/span&gt;
-                    &lt;span&gt;第二步 #333333&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="todo"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;3&lt;/span&gt;
-                    &lt;span&gt;第三步 #999999&lt;/span&gt;
-                &lt;/label&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-steps steps-large"&gt;
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="finished"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;&#10004;&lt;/span&gt;
-                    &lt;span&gt;第一步 #4AA4D5&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt; 
-            &lt;/div&gt; 
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="current"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;2&lt;/span&gt;
-                    &lt;span&gt;第二步 #333333&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="todo"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;3&lt;/span&gt;
-                    &lt;span&gt;第三步 #999999&lt;/span&gt;
-                &lt;/label&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-</br>
-          &lt;div class="sui-steps steps-large steps-auto"&gt;
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="finished"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;&#10004;&lt;/span&gt;
-                    &lt;span&gt;第一步 #4AA4D5&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt; 
-            &lt;/div&gt; 
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="current"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;2&lt;/span&gt;
-                    &lt;span&gt;第二步 #333333&lt;/span&gt;
-                &lt;/label&gt;
-                &lt;i class="triangle-right-bg"&gt;&lt;/i&gt;
-                &lt;i class="triangle-right"&gt;&lt;/i&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class="wrap"&gt;
-            &lt;div class="todo"&gt;
-                &lt;label&gt;
-                    &lt;span class="round"&gt;3&lt;/span&gt;
-                    &lt;span&gt;第三步 #999999&lt;/span&gt;
-                &lt;/label&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-      </pre>
+        </div>
+      </div>
     </div>
-	<script src="../../js/lib/jquery.js"></script>
-	<script src="../assets/js/google-code-prettify/prettify.js"></script>
-	<script src="../assets/js/application.js"></script>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>
 </html>
