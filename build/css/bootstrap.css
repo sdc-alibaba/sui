@@ -6503,6 +6503,7 @@ input[type="submit"].btn.btn-mini {
 
 .sui-nav.nav-tabs.nav-stacked > li.active a,
 .sui-nav.nav-tabs.nav-stacked > li.active a:hover {
+  margin-top: 0;
   color: #2270bf;
 }
 
