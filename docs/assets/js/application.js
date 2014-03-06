@@ -5,7 +5,10 @@
 (function($) {
   "use strict";
   var parseCode = function(code) {
-    return code.replace(/ {16}/g, '');  //临时修复很多空格的问题
+    //格式化代码，删除多余缩进空格，删除多余空行
+    code = code.replace(/^ *\n/g, '').replace(/\s+$/g, '')
+    var indentNum = /^\s+/.exec(code)[0].length
+    return code.replace(new RegExp(' {'+indentNum+'}', 'g'), '')
   }
   // 侧边栏
   var $sidenav = $(".docs-sidenav").on("click", '> li', function(e) {
