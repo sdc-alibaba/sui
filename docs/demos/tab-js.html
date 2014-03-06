@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>标签页</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../build/css/bootstrap.css" rel="stylesheet">
     <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
@@ -10,31 +12,33 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script src="../../js/lib/jquery.js"></script>
     <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
   </head>
   <body>
-    <div class="sui-navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon-github-alt">&nbsp;</i>SUI</a>
-        <ul class="sui-nav">
-          <li><a href="./index.html">首页</a></li>
-          <li class="active"><a href="./buttons.html">组件库</a></li>
-          <li><a href="./examples.html">案例</a></li>
-          <li><a href="./scaffolding.html">教程</a></li>
-          <li><a href="./about.html">关于</a></li>
-        </ul>
-      </div>
-    </div>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
     <div class="sui-layout">
       <div class="sidebar">
             <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
-              <li><a href="global.html"><i class="sui-icon-globe">&nbsp;</i>全局样式</a>
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
               </li>
-              <li><a><i class="sui-icon-th">&nbsp;</i>布局<i class="sui-icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="grid.html">栅格</a></li>
                   <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon-magic">&nbsp;</i>基础css<i class="sui-icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="buttons.html">按钮</a></li>
                   <li><a href="forms.html">表单</a></li>
@@ -42,7 +46,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon-puzzle">&nbsp;</i>css组件<i class="sui-icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -52,12 +56,12 @@
                   <li><a href="button-groups.html">按钮组</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
                   <li class="active"><a href="tab-js.html">标签页</a></li>
-                  <li><a href="paginationJS.html">分页器</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
                 </ul>
               </li>
             </ul>
@@ -67,7 +71,7 @@
           <div class="sui-page-header">
             <h1>标签页 <small>tab</small></h1>
           </div>
-          <p class="docs-">通过js添加动态的标签页切换。</p>
+          <p class="docs">通过此组件轻松添加动态的标签页切换功能。此文档的标签页切换效果正是通过这个组件实现的。</p>
           <h2>1. 通过标记使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -98,7 +102,10 @@
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.</div>
+            <div id="doc1" class="tab-pane">
+              通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
+              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
@@ -142,7 +149,10 @@
             <div id="code2" class="tab-pane">
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc2" class="tab-pane">通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定</div>
+            <div id="doc2" class="tab-pane">
+              通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。
+              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
+            </div>
             <div id="event2" class="tab-pane">
               <table class="sui-table sui-table-bordered">
                 <tr>
@@ -151,11 +161,11 @@
                 </tr>
                 <tr>
                   <td>show</td>
-                  <td>This event fires on tab show, but before the new tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                  <td>在标签页显示之前触发，在shown事件之前。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
                 </tr>
                 <tr>
                   <td>shown</td>
-                  <td>This event fires on tab show after a tab has been shown. Use event.target and event.relatedTarget to target the active tab and the previous active tab (if available) respectively.</td>
+                  <td>在标签页显示之后触发，在show事件之后。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
                 </tr>
               </table>
             </div>
@@ -168,6 +178,7 @@
       </div>
     </div>
     <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
     <script src="../assets/js/application.js"></script>
     <script src="http://localhost:3456/livereload.js"></script>
   </body>

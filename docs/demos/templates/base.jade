@@ -3,6 +3,8 @@ html(lang="en")
   head
     meta(charset="utf-8")
     block title
+    meta(http-equiv="X-UA-Compatible",content="IE=edge")
+    meta(name="viewport",content="width=device-width, initial-scale=1")
     link(href="../../build/css/bootstrap.css",rel="stylesheet")
     link(href="../../build/css/bootstrap-responsive.css",rel="stylesheet")
     link(href="../assets/css/docs.css" rel="stylesheet")
@@ -11,36 +13,26 @@ html(lang="en")
     script(src="../../js/lib/jquery.js")
     script(src="../../build/js/bootstrap.js")
 
+    //[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]
+
     block head
 
   body
-    div.sui-navbar.navbar-inverse.navbar-fixed-top
-      div.navbar-inner
-        a.sui-brand(href="./index.html")
-          i.sui-icon-github-alt &nbsp;
-          |SUI
-        ul.sui-nav
-          li
-            a(href="./index.html") 首页
-          li.active
-            a(href="./buttons.html") 组件库
-          li
-            a(href="./examples.html") 案例
-          li
-            a(href="./scaffolding.html") 教程
-          li
-            a(href="./about.html") 关于
-
+    include header
+    block header
+      +header('demos')
     mixin sidebar(highlight)
       include sidenav
-    .sui-layout
-      .sidebar
-        block sidebar
-      .content
-        .content-inner
-          block content
+    block content_wrap
+      .sui-layout
+        .sidebar
+          block sidebar
+        .content
+          .content-inner
+            block content
 
     script(src="../assets/js/google-code-prettify/prettify.js")
+    script(src='../assets/zeroclipboard/ZeroClipboard.js')
     script(src="../assets/js/application.js")
-    block js_block
     script(src="http://localhost:3456/livereload.js")
+    block js_block

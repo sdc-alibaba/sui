@@ -10,6 +10,7 @@
 .sui-btn {
   display: inline-block;
   padding: @basePadding;
+  box-sizing: border-box;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
@@ -51,8 +52,8 @@
     .user-select(none);
   }
 
-  .sui-glyphicon {
-    font-size: @baseFontSize;
+  .sui-icon {
+    margin-right: 8px;
   }
 
 }
@@ -66,27 +67,21 @@
 .btn-xlarge {
   padding: @paddingXLarge;
   line-height: @lineHeightLarge;
-  &, .sui-glyphicon {
-    font-size: @fontSizeLarge;
-  }
+  font-size: @fontSizeLarge;
 }
 
 // Large
 .btn-large {
   padding: @paddingLarge;
   line-height: @lineHeightLarge;
-  &, .sui-glyphicon {
-    font-size: @fontSizeLarge;
-  }
+  font-size: @fontSizeLarge;
 }
 
 // Small
 .btn-small {
   padding: @paddingSmall;
   line-height: @lineHeightSmall;
-  &, .sui-glyphicon {
-    font-size: @fontSizeSmall;
-  }
+  font-size: @fontSizeSmall;
 }
 
 

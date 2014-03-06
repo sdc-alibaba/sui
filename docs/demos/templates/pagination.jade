@@ -1,0 +1,179 @@
+extends base
+
+block title
+  title 分页器 
+
+block sidebar
+  +sidebar('pagination')
+
+block content
+  h1.sui-page-header 分页器 
+     small pagination
+
+  p.sui-lead
+    | 分页器组件，多种尺寸 
+    div
+        a(href='pagination-js.html') 点击访问：pagination-JS组件
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        h2 小型分页器
+        div.sui-pagination.pagination-small
+            ul
+                li.prev.disabled
+                    a(href='#') «
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.next
+                    a(href='#') »
+        div.sui-pagination
+            ul
+                li.prev.disabled
+                    a(href='#') «
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.next
+                    a(href='#') »
+        div.sui-pagination.pagination-large
+            ul
+                li.prev.disabled
+                    a(href='#') «
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.next
+                    a(href='#') »
+        h2 常态分页器
+        div.sui-pagination.pagination-small
+            ul
+                li.prev.disabled
+                    a(href='#') «上一页
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.dotted
+                    span ...
+                li.next
+                    a(href='#') 下一页»
+            div
+                span 共10页&nbsp;
+                span 
+                     |到
+                     |<input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                     |页
+        div.sui-pagination
+            ul
+                li.prev.disabled
+                    a(href='#') «上一页
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.dotted
+                    span ...
+                li.next
+                    a(href='#') 下一页»
+            div
+                span 共10页&nbsp;
+                span 
+                     |到
+                     |<input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                     |页
+        div.sui-pagination.pagination-large
+            ul
+                li.prev.disabled
+                    a(href='#') «上一页
+                li.active
+                    a(href='#') 1
+                li
+                    a(href='#') 2
+                li
+                    a(href='#') 3
+                li
+                    a(href='#') 4
+                li
+                    a(href='#') 5
+                li.dotted
+                    span ...
+                li.next
+                    a(href='#') 下一页»
+            div
+                span 共10页&nbsp;
+                span 
+                     |到
+                     |<input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+                     |页
+        h2 无页码分页器
+        div.sui-pagination.pagination-small
+            ul
+                li.prev
+                    a(href='#') «上一页
+                li.next
+                    a(href='#') 下一页»
+        div.sui-pagination
+            ul
+                li.prev
+                    a(href='#') «上一页
+                li.next
+                    a(href='#') 下一页»
+        div.sui-pagination.pagination-large
+            ul
+                li.prev
+                    a(href='#') «上一页
+                li.next
+                    a(href='#') 下一页»
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 所有形式的分页器都提供三种尺寸,除此之外，还有<code>pagination-centered,,pagination-right</code> 控制分页器的水平位置
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+        

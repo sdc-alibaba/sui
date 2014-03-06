@@ -5,10 +5,12 @@ block title
 
 block sidebar
   +sidebar('tab')
+
 block content
-  div.sui-page-header
-    h1 标签页 
+  h1.sui-page-header 标签页 
       small tabs
+  p.lead
+    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -45,7 +47,8 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      三种尺寸: default, .nav-large, .nav-tabs-xlarge
+      | 有三种尺寸: default, <code>.nav-large</code>, <code>.nav-tabs-xlarge</code>。通过在 <code>li</code> 标签上添加 <code>.active</code> 可以指定当前高亮的tab。<br />
+      | 默认标签页是静态的，如果需要动态的标签页可以参考这里 <a href='tab-js.html'>js 标签页</a>
 
   ul.demo-operations.clearfix
     li

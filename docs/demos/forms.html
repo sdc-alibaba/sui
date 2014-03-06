@@ -1,2701 +1,841 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>forms demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- Le styles -->
-<link href="../../build/css/bootstrap.css" rel="stylesheet">
-<link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="../assets/css/docs.css" rel="stylesheet">
-<link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-
-<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-  <script src="../assets/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Le fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-<link rel="shortcut icon" href="../assets/ico/favicon.png">
-<style type="text/css">
-p { margin: 0;}
-</style>
-</head>
-
-<body style="padding: 20px 50px 50px;">
-
-	<!-- Forms
-	================================================== -->
-	<section id="forms" style="padding-top: 0;">
-		<div class="page-header">
-			<h1>Forms</h1>
-			<p>
-				Forms 表单控件包括 <code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>、<code>&lt;checkbox&gt;</code>、<code>&lt;radio&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;label&gt;</code> 但不包括 <code>&lt;button&gt;</code>
-			</p>
-		</div>
-		
-		<h1>dpl组件</h1>
-		<hr class="bs-docs-separator">
-
-
-		<h2>inputs</h2>
-		<h3>按宽度分类（默认高度：24px）</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-mini" type="text" placeholder=".input-mini" />
-				<input class="input-small" type="text" placeholder=".input-small" />
-				<input class="input-medium" type="text" placeholder=".input-medium" />
-				<input class="input-large" type="text" placeholder=".input-large" />
-				<input class="input-xlarge" type="text" placeholder=".input-xlarge" />
-				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge" />
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-mini" type="text" placeholder=".input-mini" /&gt;
-		&lt;input class="input-small" type="text" placeholder=".input-small" /&gt;
-		&lt;input class="input-medium" type="text" placeholder=".input-medium" /&gt;
-		&lt;input class="input-large" type="text" placeholder=".input-large" /&gt;
-		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge" /&gt;
-		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge" /&gt;</pre>
-
-		<h3>按高度分类</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-thin" type="text" placeholder=".input-thin" />
-				<input class="input-default" type="text" placeholder=".input-default" />
-				<input class="input-fat" type="text" placeholder=".input-fat" />
-				<input class="input-xfat" type="text" placeholder=".input-xfat" />
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-thin" type="text" placeholder=".input-thin" /&gt;
-		&lt;input class="input-default" type="text" placeholder=".input-default" /&gt;
-		&lt;input class="input-fat" type="text" placeholder=".input-fat" /&gt;
-		&lt;input class="input-xfat" type="text" placeholder=".input-xfat" /&gt;</pre>
-
-		<h3>混合宽高使用</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-thin input-mini" type="text" placeholder=".input-thin .input-mini" />
-				<input class="input-thin input-small" type="text" placeholder=".input-thin .input-small" />
-				<input class="input-thin input-medium" type="text" placeholder=".input-thin .input-medium" />
-				<input class="input-thin input-large" type="text" placeholder=".input-thin .input-large" />
-				<input class="input-thin input-xlarge" type="text" placeholder=".input-thin .input-xlarge" />
-				<input class="input-thin input-xxlarge" type="text" placeholder=".input-thin .input-xxlarge" />
-
-				<br />
-
-				<input class="input-default input-mini" type="text" placeholder=".input-default .input-mini" />
-				<input class="input-default input-small" type="text" placeholder=".input-default .input-small" />
-				<input class="input-default input-medium" type="text" placeholder=".input-default .input-medium" />
-				<input class="input-default input-large" type="text" placeholder=".input-default .input-large" />
-				<input class="input-default input-xlarge" type="text" placeholder=".input-default .input-xlarge" />
-				<input class="input-default input-xxlarge" type="text" placeholder=".input-default .input-xxlarge" />
-
-				<br />
-
-				<input class="input-fat input-mini" type="text" placeholder=".input-fat .input-mini" />
-				<input class="input-fat input-small" type="text" placeholder=".input-fat .input-small" />
-				<input class="input-fat input-medium" type="text" placeholder=".input-fat .input-medium" />
-				<input class="input-fat input-large" type="text" placeholder=".input-fat .input-large" />
-				<input class="input-fat input-xlarge" type="text" placeholder=".input-fat .input-xlarge" />
-				<input class="input-fat input-xxlarge" type="text" placeholder=".input-fat .input-xxlarge" />
-
-				<br />
-
-				<input class="input-xfat input-mini" type="text" placeholder=".input-xfat .input-mini" />
-				<input class="input-xfat input-small" type="text" placeholder=".input-xfat .input-small" />
-				<input class="input-xfat input-medium" type="text" placeholder=".input-xfat .input-medium" />
-				<input class="input-xfat input-large" type="text" placeholder=".input-xfat .input-large" />
-				<input class="input-xfat input-xlarge" type="text" placeholder=".input-xfat .input-xlarge" />
-				<input class="input-xfat input-xxlarge" type="text" placeholder=".input-xfat .input-xxlarge" />
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-thin input-mini" type="text" placeholder=".input-thin .input-mini" /&gt;
-		&lt;input class="input-thin input-small" type="text" placeholder=".input-thin .input-small" /&gt;
-		&lt;input class="input-thin input-medium" type="text" placeholder=".input-thin .input-medium" /&gt;
-		&lt;input class="input-thin input-large" type="text" placeholder=".input-thin .input-large" /&gt;
-		&lt;input class="input-thin input-xlarge" type="text" placeholder=".input-thin .input-xlarge" /&gt;
-		&lt;input class="input-thin input-xxlarge" type="text" placeholder=".input-thin .input-xxlarge" /&gt;
-
-		&lt;input class="input-default input-mini" type="text" placeholder=".input-default .input-mini" /&gt;
-		&lt;input class="input-default input-small" type="text" placeholder=".input-default .input-small" /&gt;
-		&lt;input class="input-default input-medium" type="text" placeholder=".input-default .input-medium" /&gt;
-		&lt;input class="input-default input-large" type="text" placeholder=".input-default .input-large" /&gt;
-		&lt;input class="input-default input-xlarge" type="text" placeholder=".input-default .input-xlarge" /&gt;
-		&lt;input class="input-default input-xxlarge" type="text" placeholder=".input-default .input-xxlarge" /&gt;
-
-		&lt;input class="input-fat input-mini" type="text" placeholder=".input-fat .input-mini" /&gt;
-		&lt;input class="input-fat input-small" type="text" placeholder=".input-fat .input-small" /&gt;
-		&lt;input class="input-fat input-medium" type="text" placeholder=".input-fat .input-medium" /&gt;
-		&lt;input class="input-fat input-large" type="text" placeholder=".input-fat .input-large" /&gt;
-		&lt;input class="input-fat input-xlarge" type="text" placeholder=".input-fat .input-xlarge" /&gt;
-		&lt;input class="input-fat input-xxlarge" type="text" placeholder=".input-fat .input-xxlarge" /&gt;
-		
-		&lt;input class="input-xfat input-mini" type="text" placeholder=".input-xfat .input-mini" /&gt;
-		&lt;input class="input-xfat input-small" type="text" placeholder=".input-xfat .input-small" /&gt;
-		&lt;input class="input-xfat input-medium" type="text" placeholder=".input-xfat .input-medium" /&gt;
-		&lt;input class="input-xfat input-large" type="text" placeholder=".input-xfat .input-large" /&gt;
-		&lt;input class="input-xfat input-xlarge" type="text" placeholder=".input-xfat .input-xlarge" /&gt;
-		&lt;input class="input-xfat input-xxlarge" type="text" placeholder=".input-xfat .input-xxlarge" /&gt;</pre>
-
-		<h3>块级inputs</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls">
-				<input class="input-block-level" type="text" placeholder=".input-block-level" />
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-block-level" type="text" placeholder=".input-block-level" /&gt;</pre>
-
-		<h3>不可编辑 inputs</h3>
-		<form class="bs-docs-example">
-			<span class="input-xlarge uneditable-input">Some value here</span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;</pre>
-
-		<h3>Disabled inputs</h3>
-		<form class="bs-docs-example form-inline">
-			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled />
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled /&gt;</pre>
-
-		<h3>文本字段四态</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-warning" type="text" placeholder=".input-warning" />
-				<input class="input-error" type="text" placeholder=".input-error" />
-				<input class="input-success" type="text" placeholder=".input-success" />
-				<input class="input-info" type="text" placeholder=".input-info" />
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-warning" type="text" placeholder=".input-warning" /&gt;
-		&lt;input class="input-error" type="text" placeholder=".input-error" /&gt;
-		&lt;input class="input-success" type="text" placeholder=".input-success" /&gt;
-		&lt;input class="input-info" type="text" placeholder=".input-info" /&gt;</pre>
-
-		<h2>selects</h2>
-		<h3>按宽度分类（默认高度：24px）</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-mini">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-small">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-medium">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-large">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xxlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-mini"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-small"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-medium"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-large"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xxlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>按高度分类</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-thin">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-thin"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>混合宽高使用</h3>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<select class="input-thin input-mini">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-thin input-small">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-thin input-medium">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-thin input-large">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-thin input-xlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-thin input-xxlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-
-				<br />
-
-				<select class="input-default input-mini">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default input-small">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default input-medium">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default input-large">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default input-xlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-default input-xxlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-
-				<br />
-
-				<select class="input-fat input-mini">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat input-small">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat input-medium">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat input-large">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat input-xlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-fat input-xxlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-
-				<br />
-
-				<select class="input-xfat input-mini">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat input-small">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat input-medium">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat input-large">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat input-xlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="input-xfat input-xxlarge">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select class="input-thin input-mini"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-thin input-small"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-thin input-medium"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-thin input-large"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-thin input-xlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-thin input-xxlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-
-		&lt;select class="input-default input-mini"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default input-small"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default input-medium"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default input-large"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default input-xlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-default input-xxlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-
-		&lt;select class="input-fat input-mini"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat input-small"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat input-medium"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat input-large"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat input-xlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-fat input-xxlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-
-		&lt;select class="input-xfat input-mini"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat input-small"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat input-medium"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat input-large"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat input-xlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-		&lt;select class="input-xfat input-xxlarge"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<h3>Checkboxes and radios</h3>
-		<h4>默认状态</h4>
-		<form class="bs-docs-example">
-			<label class="checkbox">
-				<input name="multiple" type="checkbox" value="1" /> 多选1
-			</label>
-			<label class="checkbox">
-				<input name="multiple" type="checkbox" value="2" /> 多选2
-			</label>
-			<label class="checkbox">
-				<input name="multiple" type="checkbox" value="3" /> 多选3
-			</label>
-
-			<br /><br />
-
-			<label class="radio">
-				<input name="single" type="radio" value="1" /> 单选1
-			</label>
-			<label class="radio">
-				<input name="single" type="radio" value="2" /> 单选2
-			</label>
-			<label class="radio">
-				<input name="single" type="radio" value="3" /> 单选3
-			</label>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;label class="checkbox"&gt;
-			&lt;input name="multiple" type="checkbox" value="1" /&gt; 多选1
-		&lt;/label&gt;
-		&lt;label class="checkbox"&gt;
-			&lt;input name="multiple" type="checkbox" value="2" /&gt; 多选2
-		&lt;/label&gt;
-		&lt;label class="checkbox"&gt;
-			&lt;input name="multiple" type="checkbox" value="3" /&gt; 多选3
-		&lt;/label&gt;
-
-		&lt;label class="radio"&gt;
-			&lt;input name="single" type="radio" value="1" /&gt; 单选1
-		&lt;/label&gt;
-		&lt;label class="radio"&gt;
-			&lt;input name="single" type="radio" value="2" /&gt; 单选2
-		&lt;/label&gt;
-		&lt;label class="radio"&gt;
-			&lt;input name="single" type="radio" value="3" /&gt; 单选3
-		&lt;/label&gt;</pre>
-
-		<h4>内联状态</h4>
-		<form class="bs-docs-example">
-			<label class="checkbox inline">
-				<input name="multiple" type="checkbox" value="1" /> 多选1
-			</label>
-			<label class="checkbox inline">
-				<input name="multiple" type="checkbox" value="2" /> 多选2
-			</label>
-			<label class="checkbox inline">
-				<input name="multiple" type="checkbox" value="3" /> 多选3
-			</label>
-
-			<br /><br />
-
-			<label class="radio inline">
-				<input name="single" type="radio" value="1" /> 单选1
-			</label>
-			<label class="radio inline">
-				<input name="single" type="radio" value="2" /> 单选2
-			</label>
-			<label class="radio inline">
-				<input name="single" type="radio" value="3" /> 单选3
-			</label>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;label class="checkbox inline"&gt;
-			&lt;input name="multiple" type="checkbox" value="1" /&gt; 多选1
-		&lt;/label&gt;
-		&lt;label class="checkbox inline"&gt;
-			&lt;input name="multiple" type="checkbox" value="2" /&gt; 多选2
-		&lt;/label&gt;
-		&lt;label class="checkbox inline"&gt;
-			&lt;input name="multiple" type="checkbox" value="3" /&gt; 多选3
-		&lt;/label&gt;
-
-		&lt;label class="radio inline"&gt;
-			&lt;input name="single" type="radio" value="1" /&gt; 单选1
-		&lt;/label&gt;
-		&lt;label class="radio inline"&gt;
-			&lt;input name="single" type="radio" value="2" /&gt; 单选2
-		&lt;/label&gt;
-		&lt;label class="radio inline"&gt;
-			&lt;input name="single" type="radio" value="3" /&gt; 单选3
-		&lt;/label&gt;</pre>
-
-		<h3>Textarea</h3>
-		<form class="bs-docs-example form-inline">
-			<textarea rows="3"></textarea>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
-
-		<h3>关联校验</h3>
-		<p>关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code></p>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group warning">
-				<label class="control-label" for="inputWarning">警示输入框：</label>
-				<div class="controls">
-					<input type="text" id="inputWarning" />
-					<span class="help-inline">警示文案</span>
-				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label" for="inputError">错误输入框：</label>
-				<div class="controls">
-					<input type="text" id="inputError" />
-					<span class="help-inline">出错文案</span>
-				</div>
-			</div>
-			<div class="control-group success">
-				<label class="control-label" for="inputSuccess">成功输入框：</label>
-				<div class="controls">
-					<input type="text" id="inputSuccess" />
-					<span class="help-inline">成功文案</span>
-				</div>
-			</div>
-			<div class="control-group info">
-				<label class="control-label" for="inputInfo">帮助输入框：</label>
-				<div class="controls">
-					<input type="text" id="inputInfo" />
-					<span class="help-inline">帮助文案</span>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;警示输入框：&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputWarning" /&gt;
-				&lt;span class="help-inline"&gt;警示文案&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;错误输入框：&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputError" /&gt;
-				&lt;span class="help-inline"&gt;出错文案&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;成功输入框：&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputSuccess" /&gt;
-				&lt;span class="help-inline"&gt;成功文案&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;帮助输入框：&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputInfo" /&gt;
-				&lt;span class="help-inline"&gt;帮助文案&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-
-		<hr/>
-		<h2>按功能分类</h2>
-		<h3>搜索框</h3>
-		<p>
-			添加
-			<code>.form-search</code>
-			到
-			<code>&lt;form&gt;</code>
-			标签上并且添加
-			<code>.search-query</code>
-			到
-			<code>&lt;input&gt;</code>
-			标签上
-		</p>
-		<form class="bs-docs-example form-search">
-			<input type="text" class="input-medium search-query" />
-			<button type="submit" class="btn">Search</button>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-search"&gt;
-			&lt;input type="text" class="input-medium search-query" /&gt;
-			&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>内联表单</h3>
-		<p>
-			添加
-			<code>.form-inline</code>
-			让 labels 标签左对齐表单控件，成为内联块级标签
-		</p>
-		<form class="bs-docs-example form-inline">
-			<input type="text" class="input-small" placeholder="Email" />
-			<input type="password" class="input-small" placeholder="Password" />
-			<label class="checkbox">
-				<input type="checkbox" /> 记住我
-			</label>
-			<button type="submit" class="btn">Sign in</button>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-inline"&gt;
-			&lt;input type="text" class="input-small" placeholder="Email" /&gt;
-			&lt;input type="password" class="input-small" placeholder="Password" /&gt;
-			&lt;label class="checkbox"&gt;
-				&lt;input type="checkbox" /&gt; 记住我
-			&lt;/label&gt;
-			&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>水平表单</h3>
-		<ul>
-			<li>
-				添加
-				<code>.form-horizontal</code>
-				到form标签上
-			</li>
-			<li>
-				将labels和控件放到
-				<code>.control-group</code>
-				里面
-			</li>
-			<li>
-				添加
-				<code>.control-label</code>
-				到label标签上
-			</li>
-			<li>
-				将所有的控件放在
-				<code>.controls</code>
-				里面
-			</li>
-		</ul>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group">
-				<label class="control-label" for="inputEmail">邮箱：</label>
-				<div class="controls">
-					<input type="text" id="inputEmail" placeholder="Email" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputPassword">密码：</label>
-				<div class="controls">
-					<input type="password" id="inputPassword" placeholder="Password" />
-				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<label class="checkbox inline">
-						<input type="checkbox" /> 记住我
-					</label>
-				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<button type="submit" class="btn">Sign in</button>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-horizontal"&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label" for="inputEmail"&gt;邮箱：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input type="text" id="inputEmail" placeholder="Email" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label" for="inputPassword"&gt;密码：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input type="password" id="inputPassword" placeholder="Password" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;div class="controls"&gt;
-					&lt;label class="checkbox inline"&gt;
-						&lt;input type="checkbox" /&gt; 记住我
-					&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;div class="controls"&gt;
-					&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<hr />
-		<h2>扩展表单控件</h2>
-		<h3>默认选项</h3>
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<span class="add-on">@</span>
-				<input class="span2 input-fat" id="prependedInput" type="text" placeholder="Username"></div>
-			<br>
-			<div class="input-append">
-				<input class="span2 input-fat" id="appendedInput" type="text">
-				<span class="add-on">.00</span>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend"&gt;
-			&lt;span class="add-on"&gt;@&lt;/span&gt;
-			&lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
-		&lt;/div&gt;
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInput" type="text"&gt;
-			&lt;span class="add-on"&gt;.00&lt;/span&gt;
-		&lt;/div&gt;</pre>
-
-		<h3>联合体</h3>
-		<form class="bs-docs-example form-inline">
-			<div class="input-prepend input-append">
-				<span class="add-on">$</span>
-				<input class="span2 input-fat" id="appendedPrependedInput" type="text">
-				<span class="add-on">.00</span>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend input-append"&gt;
-			&lt;span class="add-on"&gt;$&lt;/span&gt;
-			&lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
-			&lt;span class="add-on"&gt;.00&lt;/span&gt;
-		&lt;/div&gt;</pre>
-
-		<h3>按钮替代文本</h3>
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedInputButton" type="text">
-				<button class="btn" type="button">Go!</button>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInputButton" type="text"&gt;
-			&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
-		&lt;/div&gt;</pre>
-
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedInputButtons" type="text">
-				<button class="btn" type="button">Search</button>
-				<button class="btn" type="button">Options</button>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
-			&lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
-			&lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
-		&lt;/div&gt;</pre>
-
-		<h3>按钮下拉菜单</h3>
-		<p></p>
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedDropdownButton" type="text">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-			</div>
-			<!-- /input-append -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-				<input class="span2" id="prependedDropdownButton" type="text"></div>
-			<!-- /input-prepend -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
-		&lt;/div&gt;</pre>
-
-		<form class="bs-docs-example">
-			<div class="input-prepend input-append">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-				<input class="span2" id="appendedPrependedDropdownButton" type="text">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-			</div>
-			<!-- /input-prepend input-append -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend input-append"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-
-		<h3>分段下拉菜单组</h3>
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<div class="btn-group">
-					<button class="btn" tabindex="-1">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<input type="text">
-			</div>
-			<div class="input-append">
-				<input type="text">
-				<div class="btn-group">
-					<button class="btn" tabindex="-1">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form&gt;
-			&lt;div class="input-prepend"&gt;
-				&lt;div class="btn-group"&gt;...&lt;/div&gt;
-				&lt;input type="text"&gt;
-			&lt;/div&gt;
-			&lt;div class="input-append"&gt;
-				&lt;input type="text"&gt;
-				&lt;div class="btn-group"&gt;...&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>搜索框</h3>
-		<form class="bs-docs-example form-search">
-			<div class="input-append">
-				<input type="text" class="span2 search-query">
-				<button type="submit" class="btn">Search</button>
-			</div>
-			<div class="input-prepend">
-				<button type="submit" class="btn">Search</button>
-				<input type="text" class="span2 search-query"></div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-search"&gt;
-			&lt;div class="input-append"&gt;
-				&lt;input type="text" class="span2 search-query"&gt;
-				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class="input-prepend"&gt;
-				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-				&lt;input type="text" class="span2 search-query"&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<hr/>
-		<h2>所有案例</h2>
-		<h3>demo1</h3>
-		<p>
-			<code>.form-horizontal</code>
-			用于切换表单字段水平操放
-		</p>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group">
-				<label class="control-label">单选框：</label>
-				<div class="controls">
-					<label class="radio inline">
-						<input name="single" type="radio" value="1" /> 选项一
-					</label>
-					<label class="radio inline">
-						<input name="single" type="radio" value="2" /> 选项二
-					</label>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">复选框：</label>
-				<div class="controls">
-					<label class="checkbox inline">
-						<input name="multiple" type="checkbox" value="1" /> 选项一
-					</label>
-					<label class="checkbox inline">
-						<input name="multiple" type="checkbox" value="2" /> 选项二
-					</label>
-					<label class="checkbox inline">
-						<input name="multiple" type="checkbox" value="3" /> 选项三
-					</label>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（迷你）：</label>
-				<div class="controls">
-					<input class="input-mini" type="text" />
-					<div class="sui-msg sui-msg-tips sui-msg-naked">
-						<div class="msg-con">
-							提示信息，比如：建议你设置安全密码
-						</div>
-						<s class="msg-icon"></s>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（小号）：</label>
-				<div class="controls">
-					<input class="input-small" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（中号）：</label>
-				<div class="controls">
-					<input class="input-medium" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（大号）：</label>
-				<div class="controls">
-					<input class="input-large" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（加大）：</label>
-				<div class="controls">
-					<input class="input-xlarge" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">输入框（加加）：</label>
-				<div class="controls">
-					<input class="input-xxlarge" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">时间选择：</label>
-				<div class="controls">
-					<input class="input-medium input-date" type="text" />
-					-
-					<input class="input-medium input-date" type="text" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label">备注：</label>
-				<div class="controls">
-					<textarea class="input-block-level" rows="3"></textarea>
-				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<button class="btn btn-primary" type="submit">提交审核</button>
-					<button class="btn" type="reset">重置</button>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-horizontal"&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;单选框：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;label class="radio inline"&gt;
-						&lt;input name="single" type="radio" value="1" /&gt; 选项一
-					&lt;/label&gt;
-					&lt;label class="radio inline"&gt;
-						&lt;input name="single" type="radio" value="2" /&gt; 选项二
-					&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;复选框：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;label class="checkbox inline"&gt;
-						&lt;input name="multiple" type="checkbox" value="1" /&gt; 选项一
-					&lt;/label&gt;
-					&lt;label class="checkbox inline"&gt;
-						&lt;input name="multiple" type="checkbox" value="2" /&gt; 选项二
-					&lt;/label&gt;
-					&lt;label class="checkbox inline"&gt;
-						&lt;input name="multiple" type="checkbox" value="3" /&gt; 选项三
-					&lt;/label&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（迷你）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-mini" type="text" /&gt;
-					&lt;div class="sui-msg sui-msg-tips sui-msg-naked"&gt;
-						&lt;div class="msg-con"&gt;
-							提示信息，比如：建议你设置安全密码
-						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（小号）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-small" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（中号）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-medium" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（大号）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-large" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（加大）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-xlarge" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;输入框（加加）：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-xxlarge" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;时间选择：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-medium input-date" type="text" /&gt;
-					-
-					&lt;input class="input-medium input-date" type="text" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;备注：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;textarea class="input-block-level" rows="3"&gt;&lt;/textarea&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;div class="controls"&gt;
-					&lt;button class="btn btn-primary" type="submit"&gt;提交审核&lt;/button&gt;
-					&lt;button class="btn" type="reset"&gt;重置&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>demo2</h3>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group">
-				<label class="control-label"><b style="color: #f00;">*</b> 对象场景：</label>
-				<div class="controls">
-					<select>
-						<option value="" selected>--------------请选择--------------</option>
-					</select>
-					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
-						<div class="msg-con">
-							该项为必填项
-						</div>
-						<s class="msg-icon"></s>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
-				<div class="controls">
-					<select>
-						<option value="" selected>---请选择---</option>
-					</select>
-					<input class="input-xlarge" type="text" value="" />
-					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
-						<div class="msg-con">
-							该项为必填项
-						</div>
-						<s class="msg-icon"></s>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
-				<div class="controls">
-					<textarea class="input-xxlarge" style="height: 190px;"></textarea>
-					<div class="sui-msg sui-msg-tips sui-msg-default" style="vertical-align: top;">
-						<div class="msg-con">
-							<p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
-							<p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
-							<p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
-							<p>站内信：XXXX个汉字</p>
-						</div>
-						<s class="msg-icon"></s>
-					</div>
-					<div class="sui-msg sui-msg-error sui-msg-clear help-block">
-						<div class="msg-con">
-							该项为必填项
-						</div>
-						<s class="msg-icon"></s>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label"><span style="padding:0 24px 0 0;">链</span>接：</label>
-				<div class="controls">
-					<input class="input-xxlarge" type="text" value="" />
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label"><b style="color: #f00;">*</b> 发送渠道：</label>
-				<div class="controls">
-					<div class="row-fluid">
-						<label class="checkbox inline">
-							<input name="m0" type="checkbox" value="1" /> 商家中心
-						</label>
-						<label class="checkbox inline">
-							<input name="m0" type="checkbox" value="2" /> 旺旺弹出
-						</label>
-						<label class="checkbox inline">
-							<input name="m0" type="checkbox" value="3" /> 站内信
-						</label>
-						<label class="checkbox inline">
-							<input name="m0" type="checkbox" value="4" /> 邮件
-						</label>
-						<div class="sui-msg sui-msg-tips sui-msg-default sui-msg-clear help-block">
-							<div class="msg-con">
-								是否向子账号发送消息：
-								<label class="radio inline">
-									<input name="s0" type="radio" value="1" /> 是
-								</label>
-								<label class="radio inline">
-									<input name="s0" type="radio" value="2" /> 否
-								</label>
-							</div>
-							<s class="msg-icon"></s>
-						</div>
-					</div>
-					<div class="row-fluid">
-						<label class="checkbox inline">
-							<input name="m1" type="checkbox" value="1" checked /> 短信发送给店长
-						</label>
-					</div>
-					<div class="row-fluid">
-						<label class="checkbox inline">
-							<input name="m1" type="checkbox" value="2" checked /> 短信发送给电商决策人
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label"><b style="color: #f00;">*</b> 审<span style="padding: 0 6px;">核</span>人：</label>
-				<div class="controls">
-					<select>
-						<option value="" selected>--------------请选择--------------</option>
-					</select>
-				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<button class="btn btn-primary" type="submit">提交审核</button>
-					<button class="btn" type="reset">重置</button>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-horizontal"&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 对象场景：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;select&gt;
-						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
-					&lt;/select&gt;
-					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
-							该项为必填项
-						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;主&lt;/span&gt;题：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;select&gt;
-						&lt;option value="" selected&gt;---请选择---&lt;/option&gt;
-					&lt;/select&gt;
-					&lt;input class="input-xlarge" type="text" value="" /&gt;
-					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
-							该项为必填项
-						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; &lt;span style="padding:0 24px 0 0;"&gt;内&lt;/span&gt;容：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;textarea class="input-xxlarge" style="height: 190px;"&gt;&lt;/textarea&gt;
-					&lt;div class="sui-msg sui-msg-tips sui-msg-default" style="vertical-align: top;"&gt;
-						&lt;div class="msg-con"&gt;
-							&lt;p style="margin-bottom: 8px; font-weight: bold;"&gt;消息渠道发送字数提示：&lt;/p&gt;
-							&lt;p&gt;短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送&lt;/p&gt;
-							&lt;p&gt;旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字&lt;/p&gt;
-							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字&lt;/p&gt;
-							&lt;p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字&lt;/p&gt;
-							&lt;p&gt;站内信：XXXX个汉字&lt;/p&gt;
-						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
-					&lt;/div&gt;
-					&lt;div class="sui-msg sui-msg-error sui-msg-clear help-block"&gt;
-						&lt;div class="msg-con"&gt;
-							该项为必填项
-						&lt;/div&gt;
-						&lt;s class="msg-icon"&gt;&lt;/s&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;span style="padding:0 24px 0 0;"&gt;链&lt;/span&gt;接：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input class="input-xxlarge" type="text" value="" /&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 发送渠道：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;div class="row-fluid"&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m0" type="checkbox" value="1" /&gt; 商家中心
-						&lt;/label&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m0" type="checkbox" value="2" /&gt; 旺旺弹出
-						&lt;/label&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m0" type="checkbox" value="3" /&gt; 站内信
-						&lt;/label&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m0" type="checkbox" value="4" /&gt; 邮件
-						&lt;/label&gt;
-						&lt;div class="sui-msg sui-msg-tips sui-msg-default sui-msg-clear help-block"&gt;
-							&lt;div class="msg-con"&gt;
-								是否向子账号发送消息：
-								&lt;label class="radio inline"&gt;
-									&lt;input name="s0" type="radio" value="1" /&gt; 是
-								&lt;/label&gt;
-								&lt;label class="radio inline"&gt;
-									&lt;input name="s0" type="radio" value="2" /&gt; 否
-								&lt;/label&gt;
-							&lt;/div&gt;
-							&lt;s class="msg-icon"&gt;&lt;/s&gt;
-						&lt;/div&gt;
-					&lt;/div&gt;
-					&lt;div class="row-fluid"&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m1" type="checkbox" value="1" checked /&gt; 短信发送给店长
-						&lt;/label&gt;
-					&lt;/div&gt;
-					&lt;div class="row-fluid"&gt;
-						&lt;label class="checkbox inline"&gt;
-							&lt;input name="m1" type="checkbox" value="2" checked /&gt; 短信发送给电商决策人
-						&lt;/label&gt;
-					&lt;/div&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label"&gt;&lt;b style="color: #f00;"&gt;*&lt;/b&gt; 审&lt;span style="padding: 0 6px;"&gt;核&lt;/span&gt;人：&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;select&gt;
-						&lt;option value="" selected&gt;--------------请选择--------------&lt;/option&gt;
-					&lt;/select&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;div class="controls"&gt;
-					&lt;button class="btn btn-primary" type="submit"&gt;提交审核&lt;/button&gt;
-					&lt;button class="btn" type="reset"&gt;重置&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>		
-	</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br />
-
-	<section>
-		<h1>Bootstrap组件</h1>
-		<hr class="bs-docs-separator">
-
-		<h2>默认样式</h2>
-		<!-- <p>
-			Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.
-		</p> -->
-		<form class="bs-docs-example">
-			<fieldset>
-				<legend>Legend</legend>
-				<label>Label name</label>
-				<input type="text" placeholder="Type something…">
-				<span class="help-block">Example block-level help text here.</span>
-				<label class="checkbox">
-					<input type="checkbox">Check me out
-				</label>
-				<button type="submit" class="btn">Submit</button>
-			</fieldset>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form&gt;
-			&lt;fieldset&gt;
-				&lt;legend&gt;Legend&lt;/legend&gt;
-				&lt;label&gt;Label name&lt;/label&gt;
-				&lt;input type="text" placeholder="Type something…"&gt;
-				&lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
-				&lt;label class="checkbox"&gt;
-					&lt;input type="checkbox"&gt; Check me out
-				&lt;/label&gt;
-				&lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
-			&lt;/fieldset&gt;
-		&lt;/form&gt;</pre>
-
-		<hr class="bs-docs-separator">
-
-		<h2>布局选项</h2>
-		<!-- <p>
-			Included with Bootstrap are three optional form layouts for common use cases.
-		</p> -->
-
-		<h3>搜索框</h3>
-		<p>
-			添加
-			<code>.form-search</code>
-			到
-			<code>&lt;form&gt;</code>
-			标签上并且添加
-			<code>.search-query</code>
-			到
-			<code>&lt;input&gt;</code>
-			标签上
-		</p>
-		<form class="bs-docs-example form-search">
-			<input type="text" class="input-medium search-query">
-			<button type="submit" class="btn">Search</button>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-search"&gt;
-			&lt;input type="text" class="input-medium search-query"&gt;
-			&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>内联表单</h3>
-		<p>
-			添加
-			<code>.form-inline</code>
-			让 labels 标签左对齐表单控件，成为内联块级标签
-		</p>
-		<form class="bs-docs-example form-inline">
-			<input type="text" class="input-small" placeholder="Email">
-			<input type="password" class="input-small" placeholder="Password">
-			<label class="checkbox">
-				<input type="checkbox">Remember me</label>
-			<button type="submit" class="btn">Sign in</button>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-inline"&gt;
-			&lt;input type="text" class="input-small" placeholder="Email"&gt;
-			&lt;input type="password" class="input-small" placeholder="Password"&gt;
-			&lt;label class="checkbox"&gt;
-				&lt;input type="checkbox"&gt; Remember me
-			&lt;/label&gt;
-			&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>水平表单</h3>
-		<!-- <p>
-			Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:
-		</p> -->
-		<ul>
-			<li>
-				添加
-				<code>.form-horizontal</code>
-				到form标签上
-			</li>
-			<li>
-				将labels和控件放到
-				<code>.control-group</code>
-				里面
-			</li>
-			<li>
-				添加
-				<code>.control-label</code>
-				到label标签上
-			</li>
-			<li>
-				将所有的控件放在
-				<code>.controls</code>
-				里面
-			</li>
-		</ul>
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group">
-				<label class="control-label" for="inputEmail">Email</label>
-				<div class="controls">
-					<input type="text" id="inputEmail" placeholder="Email">
-				</div>
-			</div>
-			<div class="control-group">
-				<label class="control-label" for="inputPassword">Password</label>
-				<div class="controls">
-					<input type="password" id="inputPassword" placeholder="Password">
-				</div>
-			</div>
-			<div class="control-group">
-				<div class="controls">
-					<label class="checkbox">
-						<input type="checkbox">Remember me</label>
-					<button type="submit" class="btn">Sign in</button>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-horizontal"&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input type="text" id="inputEmail" placeholder="Email"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
-				&lt;div class="controls"&gt;
-					&lt;input type="password" id="inputPassword" placeholder="Password"&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-			&lt;div class="control-group"&gt;
-				&lt;div class="controls"&gt;
-					&lt;label class="checkbox"&gt;
-						&lt;input type="checkbox"&gt; Remember me
-					&lt;/label&gt;
-					&lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<hr class="bs-docs-separator">
-
-		<h2>表单控件支持</h2>
-		<!-- <p>
-			Examples of standard form controls supported in an example form layout.
-		</p> -->
-
-		<h3>Inputs</h3>
-		<!-- <p>
-			Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.
-		</p> -->
-		<!-- <p>
-			Requires the use of a specified
-			<code>type</code>
-			at all times.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<input type="text" placeholder="Text input"></form>
-		<pre class="prettyprint linenums">&lt;input type="text" placeholder="Text input"&gt;</pre>
-
-		<h3>Textarea</h3>
-		<!-- <p>
-			Form control which supports multiple lines of text. Change
-			<code>rows</code>
-			attribute as necessary.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<textarea rows="3"></textarea>
-		</form>
-		<pre class="prettyprint linenums">&lt;textarea rows="3"&gt;&lt;/textarea&gt;</pre>
-
-		<h3>Checkboxes and radios</h3>
-		<!-- <p>
-			Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
-		</p> -->
-		<h4>默认</h4>
-		<form class="bs-docs-example">
-			<label class="checkbox">
-				<input type="checkbox" value="">
-				Option one is this and that&mdash;be sure to include why it's great
-			</label>
-			<br>
-			<label class="radio">
-				<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-				Option one is this and that&mdash;be sure to include why it's great
-			</label>
-			<label class="radio">
-				<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				Option two can be something else and selecting it will deselect option one
-			</label>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;label class="checkbox"&gt;
-			&lt;input type="checkbox" value=""&gt;
-			Option one is this and that&mdash;be sure to include why it's great
-		&lt;/label&gt;
-
-		&lt;label class="radio"&gt;
-			&lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
-			Option one is this and that&mdash;be sure to include why it's great
-		&lt;/label&gt;
-		&lt;label class="radio"&gt;
-			&lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
-			Option two can be something else and selecting it will deselect option one
-		&lt;/label&gt;</pre>
-
-		<h4>内联 checkboxes</h4>
-		<p>
-			Add the
-			<code>.inline</code>
-			class to a series of checkboxes or radios for controls appear on the same line.
-		</p>
-		<form class="bs-docs-example">
-			<label class="checkbox inline">
-				<input type="checkbox" id="inlineCheckbox1" value="option1">1</label>
-			<label class="checkbox inline">
-				<input type="checkbox" id="inlineCheckbox2" value="option2">2</label>
-			<label class="checkbox inline">
-				<input type="checkbox" id="inlineCheckbox3" value="option3">3</label>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;label class="checkbox inline"&gt;
-			&lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
-		&lt;/label&gt;
-		&lt;label class="checkbox inline"&gt;
-			&lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
-		&lt;/label&gt;
-		&lt;label class="checkbox inline"&gt;
-			&lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
-		&lt;/label&gt;</pre>
-
-		<h3>Selects</h3>
-		<p>
-			使用默认选项或者指定
-			<code>multiple="multiple"</code>
-			显示多选项.
-		</p>
-		<form class="bs-docs-example">
-			<select>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			<br>
-			<select multiple="multiple">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;select&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;
-
-		&lt;select multiple="multiple"&gt;
-			&lt;option&gt;1&lt;/option&gt;
-			&lt;option&gt;2&lt;/option&gt;
-			&lt;option&gt;3&lt;/option&gt;
-			&lt;option&gt;4&lt;/option&gt;
-			&lt;option&gt;5&lt;/option&gt;
-		&lt;/select&gt;</pre>
-
-		<hr class="bs-docs-separator">
-
-		<h2>扩展表单控件</h2>
-		<!-- <p>
-			Adding on top of existing browser controls, Bootstrap includes other useful form components.
-		</p> -->
-
-		<!-- <h3>Prepended and appended inputs</h3> -->
-		<!-- <p>
-			Add text or buttons before or after any text-based input. Do note that
-			<code>select</code>
-			elements are not supported here.
-		</p> -->
-
-		<h4>默认选项</h4>
-		<!-- <p>
-			Wrap an
-			<code>.add-on</code>
-			and an
-			<code>input</code>
-			with one of two classes to prepend or append text to an input.
-		</p> -->
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<span class="add-on">@</span>
-				<input class="span2 input-fat" id="prependedInput" type="text" placeholder="Username"></div>
-			<br>
-			<div class="input-append">
-				<input class="span2 input-fat" id="appendedInput" type="text">
-				<span class="add-on">.00</span>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend"&gt;
-			&lt;span class="add-on"&gt;@&lt;/span&gt;
-			&lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
-		&lt;/div&gt;
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInput" type="text"&gt;
-			&lt;span class="add-on"&gt;.00&lt;/span&gt;
-		&lt;/div&gt;</pre>
-
-		<h4>联合体</h4>
-		<!-- <p>
-			Use both classes and two instances of
-			<code>.add-on</code>
-			to prepend and append an input.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<div class="input-prepend input-append">
-				<span class="add-on">$</span>
-				<input class="span2 input-fat" id="appendedPrependedInput" type="text">
-				<span class="add-on">.00</span>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend input-append"&gt;
-			&lt;span class="add-on"&gt;$&lt;/span&gt;
-			&lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
-			&lt;span class="add-on"&gt;.00&lt;/span&gt;
-		&lt;/div&gt;</pre>
-
-		<h4>按钮替代文本</h4>
-		<!-- <p>
-			Instead of a
-			<code>&lt;span&gt;</code>
-			with text, use a
-			<code>.btn</code>
-			to attach a button (or two) to an input.
-		</p> -->
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedInputButton" type="text">
-				<button class="btn" type="button">Go!</button>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInputButton" type="text"&gt;
-			&lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
-		&lt;/div&gt;</pre>
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedInputButtons" type="text">
-				<button class="btn" type="button">Search</button>
-				<button class="btn" type="button">Options</button>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedInputButtons" type="text"&gt;
-			&lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
-			&lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
-		&lt;/div&gt;</pre>
-
-		<h4>按钮下拉菜单</h4>
-		<p></p>
-		<form class="bs-docs-example">
-			<div class="input-append">
-				<input class="span2" id="appendedDropdownButton" type="text">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-			</div>
-			<!-- /input-append -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-append"&gt;
-			&lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-				<input class="span2" id="prependedDropdownButton" type="text"></div>
-			<!-- /input-prepend -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
-		&lt;/div&gt;</pre>
-
-		<form class="bs-docs-example">
-			<div class="input-prepend input-append">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-				<input class="span2" id="appendedPrependedDropdownButton" type="text">
-				<div class="btn-group">
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						Action
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /btn-group -->
-			</div>
-			<!-- /input-prepend input-append -->
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="input-prepend input-append"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-			&lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
-			&lt;div class="btn-group"&gt;
-				&lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-					Action
-					&lt;span class="caret"&gt;&lt;/span&gt;
-				&lt;/button&gt;
-				&lt;ul class="dropdown-menu"&gt;
-				...
-				&lt;/ul&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-
-		<h4>分段下拉菜单组</h4>
-		<form class="bs-docs-example">
-			<div class="input-prepend">
-				<div class="btn-group">
-					<button class="btn" tabindex="-1">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-				<input type="text">
-			</div>
-			<div class="input-append">
-				<input type="text">
-				<div class="btn-group">
-					<button class="btn" tabindex="-1">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="#">Action</a>
-						</li>
-						<li>
-							<a href="#">Another action</a>
-						</li>
-						<li>
-							<a href="#">Something else here</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#">Separated link</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form&gt;
-			&lt;div class="input-prepend"&gt;
-				&lt;div class="btn-group"&gt;...&lt;/div&gt;
-				&lt;input type="text"&gt;
-			&lt;/div&gt;
-			&lt;div class="input-append"&gt;
-				&lt;input type="text"&gt;
-				&lt;div class="btn-group"&gt;...&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<h4>搜索框</h4>
-		<form class="bs-docs-example form-search">
-			<div class="input-append">
-				<input type="text" class="span2 search-query">
-				<button type="submit" class="btn">Search</button>
-			</div>
-			<div class="input-prepend">
-				<button type="submit" class="btn">Search</button>
-				<input type="text" class="span2 search-query"></div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;form class="form-search"&gt;
-			&lt;div class="input-append"&gt;
-				&lt;input type="text" class="span2 search-query"&gt;
-				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class="input-prepend"&gt;
-				&lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-				&lt;input type="text" class="span2 search-query"&gt;
-			&lt;/div&gt;
-		&lt;/form&gt;</pre>
-
-		<h3>控件尺寸</h3>
-		<p>
-			使用相对尺寸 classes 比如
-			<code>.input-large</code>
-			或者 使用栅格尺寸
-			<code>.span*</code>
-			classes.
-		</p>
-
-		<h4>块级inputs</h4>
-		<p>
-			使
-			<code>&lt;input&gt;</code>
-			或者
-			<code>&lt;textarea&gt;</code>
-			元素看起来像一个块级元素.
-		</p>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls">
-				<input class="input-block-level" type="text" placeholder=".input-block-level"></div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;</pre>
-
-		<h4>相对尺寸</h4>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="input-mini" type="text" placeholder=".input-mini">
-				<input class="input-small" type="text" placeholder=".input-small">
-				<input class="input-medium" type="text" placeholder=".input-medium">
-				<input class="input-large" type="text" placeholder=".input-large">
-				<input class="input-xlarge" type="text" placeholder=".input-xlarge">
-				<input class="input-xxlarge" type="text" placeholder=".input-xxlarge"></div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
-		&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
-		&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
-		&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
-		&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
-		&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;</pre>
-		<!-- <p>
-			<span class="label label-info">Heads up!</span>
-			In future versions, we'll be altering the use of these relative input classes to match our button sizes. For example,
-			<code>.input-large</code>
-			will increase the padding and font-size of an input.
-		</p> -->
-
-		<h4>栅格尺寸</h4>
-		<p>
-			使用
-			<code>.span1</code>
-			到
-			<code>.span12</code>
-			给 inputs 匹配合适的栅格尺寸
-		</p>
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls docs-input-sizes">
-				<input class="span1" type="text" placeholder=".span1">
-				<input class="span2" type="text" placeholder=".span2">
-				<input class="span3" type="text" placeholder=".span3">
-				<select class="span1">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="span2">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-				<select class="span3">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-				</select>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input class="span1" type="text" placeholder=".span1"&gt;
-		&lt;input class="span2" type="text" placeholder=".span2"&gt;
-		&lt;input class="span3" type="text" placeholder=".span3"&gt;
-		&lt;select class="span1"&gt;
-		...
-		&lt;/select&gt;
-		&lt;select class="span2"&gt;
-		...
-		&lt;/select&gt;
-		&lt;select class="span3"&gt;
-		...
-		&lt;/select&gt;</pre>
-
-		<!-- <p>
-			For multiple grid inputs per line, <strong>use the
-				<code>.controls-row</code>
-				modifier class for proper spacing</strong> 
-			. It floats the inputs to collapse white-space, sets the proper margins, and clears the float.
-		</p> -->
-		<form class="bs-docs-example" style="padding-bottom: 15px;">
-			<div class="controls">
-				<input class="span5" type="text" placeholder=".span5"></div>
-			<div class="controls controls-row">
-				<input class="span4" type="text" placeholder=".span4">
-				<input class="span1" type="text" placeholder=".span1"></div>
-			<div class="controls controls-row">
-				<input class="span3" type="text" placeholder=".span3">
-				<input class="span2" type="text" placeholder=".span2"></div>
-			<div class="controls controls-row">
-				<input class="span2" type="text" placeholder=".span2">
-				<input class="span3" type="text" placeholder=".span3"></div>
-			<div class="controls controls-row">
-				<input class="span1" type="text" placeholder=".span1">
-				<input class="span4" type="text" placeholder=".span4"></div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="controls"&gt;
-			&lt;input class="span5" type="text" placeholder=".span5"&gt;
-		&lt;/div&gt;
-		&lt;div class="controls controls-row"&gt;
-			&lt;input class="span4" type="text" placeholder=".span4"&gt;
-			&lt;input class="span1" type="text" placeholder=".span1"&gt;
-		&lt;/div&gt;
-		...</pre>
-
-		<h3>不可编辑 inputs</h3>
-		<!-- <p>
-			Present data in a form that's not editable without using actual form markup.
-		</p> -->
-		<form class="bs-docs-example">
-			<span class="input-xlarge uneditable-input">Some value here</span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;</pre>
-
-		<h3>Form actions</h3>
-		<p>
-			在表单的后面有一组action按钮，将它们放置在
-			<code>.form-actions</code>
-			里面, 按钮将自动进行缩进成行
-		</p>
-		<form class="bs-docs-example">
-			<div class="form-actions">
-				<button type="submit" class="btn btn-primary">Save changes</button>
-				<button type="button" class="btn">Cancel</button>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="form-actions"&gt;
-			&lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
-			&lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;
-		&lt;/div&gt;</pre>
-
-		<h3>Help text</h3>
-		<!-- <p>
-			Inline and block level support for help text that appears around form controls.
-		</p> -->
-		<h4>inline help</h4>
-		<form class="bs-docs-example form-inline">
-			<input type="text">
-			<span class="help-inline">Inline help text</span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;</pre>
-
-		<h4>block help</h4>
-		<form class="bs-docs-example form-inline">
-			<input type="text">
-			<span class="help-block">
-				A longer block of help text that breaks onto a new line and may extend beyond one line.
-			</span>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;</pre>
-
-		<hr class="bs-docs-separator">
-
-		<h2>表单控件状态</h2>
-		<!-- <p>
-			Provide feedback to users or visitors with basic feedback states on form controls and labels.
-		</p> -->
-
-		<h3>Input focus</h3>
-		<!-- <p>
-			We remove the default
-			<code>outline</code>
-			styles on some form controls and apply a
-			<code>box-shadow</code>
-			in its place for
-			<code>:focus</code>
-			.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused..."></form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;</pre>
-
-		<h3>无效的 inputs</h3>
-		<!-- <p>
-			Style inputs via default browser functionality with
-			<code>:invalid</code>
-			. Specify a
-			<code>type</code>
-			, add the
-			<code>required</code>
-			attribute if the field is not optional, and (if applicable) specify a
-			<code>pattern</code>
-			.
-		</p> -->
-		<!-- <p>
-			This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo selectors.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<input class="span3" type="email" placeholder="test@example.com" required></form>
-		<pre class="prettyprint linenums">&lt;input class="span3" type="email" required&gt;</pre>
-
-		<h3>Disabled inputs</h3>
-		<!-- <p>
-			Add the
-			<code>disabled</code>
-			attribute on an input to prevent user input and trigger a slightly different look.
-		</p> -->
-		<form class="bs-docs-example form-inline">
-			<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled></form>
-		<pre class="prettyprint linenums">
-		&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;</pre>
-
-		<h3>校验状态</h3>
-		<!-- <p>
-			Bootstrap includes validation styles for error, warning, info, and success messages. To use, add the appropriate class to the surrounding
-			<code>.control-group</code>
-			.
-		</p> -->
-
-		<form class="bs-docs-example form-horizontal">
-			<div class="control-group warning">
-				<label class="control-label" for="inputWarning">Input with warning</label>
-				<div class="controls">
-					<input type="text" id="inputWarning">
-					<span class="help-inline">Something may have gone wrong</span>
-				</div>
-			</div>
-			<div class="control-group error">
-				<label class="control-label" for="inputError">Input with error</label>
-				<div class="controls">
-					<input type="text" id="inputError">
-					<span class="help-inline">Please correct the error</span>
-				</div>
-			</div>
-			<div class="control-group info">
-				<label class="control-label" for="inputInfo">Input with info</label>
-				<div class="controls">
-					<input type="text" id="inputInfo">
-					<span class="help-inline">Username is taken</span>
-				</div>
-			</div>
-			<div class="control-group success">
-				<label class="control-label" for="inputSuccess">Input with success</label>
-				<div class="controls">
-					<input type="text" id="inputSuccess">
-					<span class="help-inline">Woohoo!</span>
-				</div>
-			</div>
-		</form>
-		<pre class="prettyprint linenums">
-		&lt;div class="control-group warning"&gt;
-			&lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputWarning"&gt;
-				&lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group error"&gt;
-			&lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputError"&gt;
-				&lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group info"&gt;
-			&lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputInfo"&gt;
-				&lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-
-		&lt;div class="control-group success"&gt;
-			&lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
-			&lt;div class="controls"&gt;
-				&lt;input type="text" id="inputSuccess"&gt;
-				&lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;</pre>
-	</section>
-
-	<!-- Le javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<!-- <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> -->
-	<script src="../../js/lib/jquery.js"></script>
-	<script src="../../build/js/bootstrap.js"></script>
-
-	<!-- <script src="../assets/js/holder/holder.js"></script> -->
-	<script src="../assets/js/google-code-prettify/prettify.js"></script>
-
-	<script src="../assets/js/application.js"></script>
-
-	<!-- 自动刷新页面 -->
-	<!-- <script src="http://localhost:3456/livereload.js"></script> -->
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>表单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        padding: 2px 4px;
+        border: 1px solid #e1e1e8;
+        font-size: 12px;
+      }
+      .bs-docs-extra input[type="text"] { display: block; margin-bottom: 9px; }
+      
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li class="active"><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-page-header">
+            <h1>表单<small>forms</small></h1>
+          </div>
+          <h2>inputs</h2>
+          <h3>按宽度分类</h3>
+          <p><code>select</code> 元素同样适用</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-mini" class="input-mini">
+                  <input type="text" placeholder=".input-small" class="input-small">
+                  <input type="text" placeholder=".input-medium" class="input-medium">
+                  <input type="text" placeholder=".input-large" class="input-large">
+                  <input type="text" placeholder=".input-xlarge" class="input-xlarge">
+                  <input type="text" placeholder=".input-xxlarge" class="input-xxlarge">
+                </form>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>按高度分类</h3>
+          <p><code>select</code> 元素同样适用</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-thin" class="input-thin">
+                  <input type="text" placeholder=".input-default" class="input-default">
+                  <input type="text" placeholder=".input-fat" class="input-fat">
+                  <input type="text" placeholder=".input-xfat" class="input-xfat">
+                </form>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">四种尺寸：.input-thin, .input-default, .input-fat, .input-xfat</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>成块级</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-block-level" class="input-block-level">
+                </form>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>不可编辑</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form"><span class="input-xlarge uneditable-input">Some value here</span></form>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>Disabled inputs</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+            <li><a href="#code5" data-toggle="tab">代码</a></li>
+            <li><a href="#doc5" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo5" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <input id="disabledInput" type="text" placeholder="Disabled input here…" disabled class="input-xlarge">
+                </form>
+              </div>
+            </div>
+            <div id="code5" class="tab-pane">
+              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc5" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>文本字段四态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo6" data-toggle="tab">示例</a></li>
+            <li><a href="#code6" data-toggle="tab">代码</a></li>
+            <li><a href="#doc6" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo6" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-warning" class="input-warning">
+                  <input type="text" placeholder=".input-error" class="input-error">
+                  <input type="text" placeholder=".input-success" class="input-success">
+                  <input type="text" placeholder=".input-info" class="input-info">
+                </form>
+              </div>
+            </div>
+            <div id="code6" class="tab-pane">
+              <pre data-target="#demo6&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc6" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>Checkboxes and radios</h2>
+          <h3>默认状态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
+            <li><a href="#code7" data-toggle="tab">代码</a></li>
+            <li><a href="#doc7" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo7" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
+                  <label class="radio"><input name="single" type="radio" value="1" /> 单选1</label>
+                  <label class="radio"><input name="single" type="radio" value="2" /> 单选2</label>
+                  <label class="radio"><input name="single" type="radio" value="3" /> 单选3</label>
+                </form>
+              </div>
+            </div>
+            <div id="code7" class="tab-pane">
+              <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc7" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>内联状态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo8" data-toggle="tab">示例</a></li>
+            <li><a href="#code8" data-toggle="tab">代码</a></li>
+            <li><a href="#doc8" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo8" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
+                  <label class="checkbox inline"><input name="single" type="radio" value="1" /> 单选1</label>
+                  <label class="checkbox inline"><input name="single" type="radio" value="2" /> 单选2</label>
+                  <label class="checkbox inline"><input name="single" type="radio" value="3" /> 单选3</label>
+                </form>
+              </div>
+            </div>
+            <div id="code8" class="tab-pane">
+              <pre data-target="#demo8&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc8" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo8&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>Textarea</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo9" data-toggle="tab">示例</a></li>
+            <li><a href="#code9" data-toggle="tab">代码</a></li>
+            <li><a href="#doc9" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo9" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="form-inline">
+                  <textarea rows="3"></textarea>
+                </form>
+              </div>
+            </div>
+            <div id="code9" class="tab-pane">
+              <pre data-target="#demo9&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc9" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo9&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>关联校验</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo10" data-toggle="tab">示例</a></li>
+            <li><a href="#code10" data-toggle="tab">代码</a></li>
+            <li><a href="#doc10" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo10" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group warning">
+                    <label for="inputWarning" class="control-label">警示输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputWarning" />
+                      <span class="help-inline">警示文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group error">
+                    <label for="inputError" class="control-label">错误输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputError" />
+                      <span class="help-inline">出错文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group success">
+                    <label for="inputSuccess" class="control-label">成功输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputSuccess" />
+                      <span class="help-inline">成功文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group info">
+                    <label for="inputInfo" class="control-label">帮助输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputInfo" />
+                      <span class="help-inline">帮助文案</span>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code10" class="tab-pane">
+              <pre data-target="#demo10&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc10" class="tab-pane">关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo10&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>按功能分类</h2>
+          <h3>搜索框</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo11" data-toggle="tab">示例</a></li>
+            <li><a href="#code11" data-toggle="tab">代码</a></li>
+            <li><a href="#doc11" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo11" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-search">
+                  <input type="text" class="input-medium search-query">
+                  <button type="submit" class="sui-btn btn-primary">Search</button>
+                </form>
+              </div>
+            </div>
+            <div id="code11" class="tab-pane">
+              <pre data-target="#demo11&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc11" class="tab-pane">添加 <code>.form-search</code> 到 <code>&lt;form&gt;</code> 标签上并且添加 <code>.search-query</code> 到 <code>&lt;input&gt;</code> 标签上</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo11&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>内联表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo12" data-toggle="tab">示例</a></li>
+            <li><a href="#code12" data-toggle="tab">代码</a></li>
+            <li><a href="#doc12" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo12" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <input type="text" placeholder="Email" class="input-small">
+                  <input type="password" placeholder="Password" class="input-small">
+                  <label class="checkbox"><input type="checkbox" /> 记住我</label>
+                  <button type="submit" class="sui-btn btn-primary">Sign in</button>
+                </form>
+              </div>
+            </div>
+            <div id="code12" class="tab-pane">
+              <pre data-target="#demo12&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc12" class="tab-pane">添加 <code>.form-inline</code> 成为内联状态</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo12&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>水平表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo13" data-toggle="tab">示例</a></li>
+            <li><a href="#code13" data-toggle="tab">代码</a></li>
+            <li><a href="#doc13" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo13" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label for="inputEmail" class="control-label">邮箱：</label>
+                    <div class="controls">
+                      <input type="text" id="inputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputPassword" class="control-label">密码：</label>
+                    <div class="controls"><input type="password" id="inputPassword" placeholder="Password" /></div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <label class="checkbox inline"><input type="checkbox" /> 记住我</label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">Sign in</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code13" class="tab-pane">
+              <pre data-target="#demo13&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc13" class="tab-pane">添加 <code>.form-horizontal</code> 成为水平状态</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo13&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>扩展表单控件</h2>
+          <h3>默认选项</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo14" data-toggle="tab">示例</a></li>
+            <li><a href="#code14" data-toggle="tab">代码</a></li>
+            <li><a href="#doc14" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo14" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <div class="input-prepend"><span class="add-on">@</span>
+                    <input id="prependedInput" type="text" placeholder="Username" class="span2 input-fat">
+                  </div><br>
+                  <div class="input-append">
+                    <input id="appendedInput" type="text" class="span2 input-fat"><span class="add-on">.00</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code14" class="tab-pane">
+              <pre data-target="#demo14&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc14" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo14&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>联合体</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo15" data-toggle="tab">示例</a></li>
+            <li><a href="#code15" data-toggle="tab">代码</a></li>
+            <li><a href="#doc15" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo15" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <div class="input-prepend input-append"><span class="add-on">$</span>
+                    <input id="appendedPrependedInput" type="text" class="span2 input-fat"><span class="add-on">.00</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code15" class="tab-pane">
+              <pre data-target="#demo15&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc15" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo15&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>按钮替换文本</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo16" data-toggle="tab">示例</a></li>
+            <li><a href="#code16" data-toggle="tab">代码</a></li>
+            <li><a href="#doc16" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo16" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <div class="input-append">
+                    <input id="appendedInputButton" type="text" class="span2">
+                    <button type="button" class="sui-btn">Go!</button>
+                  </div>
+                </form><br />
+                <form class="sui-form form-inline">
+                  <div class="input-append">
+                    <input id="appendedInputButtons" type="text" class="span2">
+                    <button type="button" class="sui-btn">Search</button>
+                    <button type="button" class="sui-btn">Options</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code16" class="tab-pane">
+              <pre data-target="#demo16&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc16" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo16&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>搜索表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo17" data-toggle="tab">示例</a></li>
+            <li><a href="#code17" data-toggle="tab">代码</a></li>
+            <li><a href="#doc17" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo17" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-search">
+                  <div class="input-append">
+                    <input type="text" class="span2 search-query">
+                    <button type="button" class="sui-btn">Search</button>
+                  </div>
+                  <div class="input-prepend">
+                    <button type="button" class="sui-btn">Search</button>
+                    <input type="text" class="span2 search-query">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code17" class="tab-pane">
+              <pre data-target="#demo17&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc17" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo17&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>所有案例</h2>
+          <h3>demo1</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo18" data-toggle="tab">示例</a></li>
+            <li><a href="#code18" data-toggle="tab">代码</a></li>
+            <li><a href="#doc18" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo18" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label">单选框：</label>
+                    <div class="controls">
+                      <label class="radio inline">
+                        <input name="single" type="radio" value="1"> 
+                        选项一
+                      </label>
+                      <label class="radio inline">
+                        <input name="single" type="radio" value="2"> 
+                        选项二
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">复选框：</label>
+                    <div class="controls">
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="1"> 
+                        选项一
+                      </label>
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="2"> 
+                        选项二
+                      </label>
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="3"> 
+                        选项三
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（迷你）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-mini">
+                      <div class="sui-msg sui-msg-tips sui-msg-naked">
+                        <div class="msg-con">提示信息，比如：建议你设置安全密码</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（小号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-small">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（中号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（大号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-large">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（加大）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（加加）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">时间选择：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium input-date"> 
+                      -
+                      <input type="text" class="input-medium input-date">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls">
+                      <textarea rows="3" class="input-block-level"></textarea>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">提交审核</button>
+                      <button type="reset" class="sui-btn">重置</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code18" class="tab-pane">
+              <pre data-target="#demo18&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc18" class="tab-pane"><code>.form-horizontal</code> 用于切换表单字段水平操放</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo18&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>demo2</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo19" data-toggle="tab">示例</a></li>
+            <li><a href="#code19" data-toggle="tab">代码</a></li>
+            <li><a href="#doc19" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo19" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> 
+                      对象场景：
+                    </label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>--------------请选择--------------</option>
+                      </select>
+                      <div class="sui-msg sui-msg-error sui-msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>---请选择---</option>
+                      </select>
+                      <input type="text" value="" class="input-xlarge">
+                      <div class="sui-msg sui-msg-error sui-msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
+                    <div class="controls">
+                      <textarea style="height: 190px;" class="input-xxlarge"></textarea>
+                      <div style="vertical-align: top;" class="sui-msg sui-msg-tips sui-msg-default">
+                        <div class="msg-con">
+                          <p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
+                          <p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
+                          <p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
+                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
+                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
+                          <p>站内信：XXXX个汉字</p>
+                        </div>
+                        <s class="msg-icon"></s>
+                      </div>
+                      <div class="sui-msg sui-msg-error sui-msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><span style="padding:0 24px 0 0;">链</span> 
+                      接：
+                    </label>
+                    <div class="controls">
+                      <input type="text" value="" class="input-xxlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> 
+                      发送渠道：
+                    </label>
+                    <div class="controls">
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="1"> 
+                          商家中心
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="2"> 
+                          旺旺弹出
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="3"> 
+                          站内信
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="4"> 
+                          邮件
+                        </label>
+                        <div class="sui-msg sui-msg-tips sui-msg-default sui-msg-clear help-block">
+                          <div class="msg-con">是否向子账号发送消息：
+                            <label class="radio inline">
+                              <input name="s0" type="radio" value="1"> 
+                              是
+                            </label>
+                            <label class="radio inline">
+                              <input name="s0" type="radio" value="2"> 
+                              否
+                            </label>
+                          </div>
+                          <s class="msg-icon"></s>
+                        </div>
+                      </div>
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m1" type="checkbox" value="1" checked> 
+                          短信发送给店长
+                        </label>
+                      </div>
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m1" type="checkbox" value="2" checked> 
+                          短信发送给电商决策人
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> 
+                      审<span style="padding: 0 6px;">核</span>人：
+                    </label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>--------------请选择--------------</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">提交审核</button>
+                      <button type="reset" class="sui-btn">重置</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code19" class="tab-pane">
+              <pre data-target="#demo19&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc19" class="tab-pane"><code>.form-horizontal</code> 用于切换表单字段水平操放</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo19&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
 </html>

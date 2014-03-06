@@ -20,9 +20,6 @@ html, body, .sui-layout,
 body > .sui-layout > .sidebar {
   height: 100%;
 }
-body > .sui-layout > .sidebar {
-  position: fixed;
-}
 /* Code in headings */
 h3 code {
   font-size: 14px;
@@ -41,24 +38,24 @@ body {
   padding: 0 25px;
   margin-left: 150px;
   background: #fff;
+  overflow: hidden;
 }
 .sui-layout .content-inner {
   max-width: 1200px;
-  overflow: hidden;
 }
 
-.sui-layout .sidebar {
+body > .sui-layout > .sidebar {
   width: 150px;
   font-size: 14px;
   line-height: 22px;
   border-right: 1px solid #ddd;
+  position: fixed;
 }
 
 .docs-sidenav {
-  position: fixed;
   width: 151px;
 }
-.docs-sidenav [class^="sui-icon-"] {
+.docs-sidenav [class^="sui-icon"] {
   font-size: 18px;
   vertical-align: -2px;
 }
@@ -100,16 +97,27 @@ body > .navbar .brand:hover {
 
 
 
-.docs-example {
-  margin: 0;
-}
 .demo-operations {
   margin: 10px 0 40px 0;
   list-style: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  background: #fbfbfb;
 }
 .demo-operations li {
   float: left;
+  position: relative;
   margin-right: 20px;
+}
+.demo-operations li .sui-msg {
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  display: none;
+  width: 100px;
+}
+.copy-btn.zeroclipboard-is-hover {
+  text-decoration: underline;
 }
 .bs-docs-example {
   position: relative;

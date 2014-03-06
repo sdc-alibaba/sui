@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>教程</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li class="active"><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-container">
+      <h1 class="sui-page-header">教程内容</h1>
+      <p class="sui-lead">本教程是创建一个非常简单的”新建待办事项”页面，可以填写待办事项的名称、时间和补充说明，可以显示创建结果。<br>此页面共涉及到了三个组件：面包屑、提示消息、表单。<br>最终页面效果见&nbsp;<a href="../examples/todo-create.html" target="_blank">新建待办事项。</a></p>
+      <h1 class="sui-page-header">第一步，下载文件</h1>
+      <div>
+        <p>SUI 文件主要有三个，分别是：
+          <ul class="unstyled">
+            <li><strong>sui.css</strong>所有组件的样式文件，必须。</li>
+            <li><strong>sui-responsive.css</strong>响应式布局，可选。</li>
+            <li><strong>sui.js</strong>js文件，可选。</li>
+          </ul>其中除了sui.css是必须的，其他两个文件可以根据自己的需求选择。
+        </p>
+        <h3>引用CDN文件</h3>
+        <p>最简单使用方式是直接引用我们的CDN文件:</p>
+        <ul class="unstyled">
+          <li><a href="#" target="_blank">g.tbcdn.cn/sj/dpl/css/sui.min.css</a></li>
+          <li><a href="#" target="_blank">g.tbcdn.cn/sj/dpl/css/sui-responsive.min.css</a></li>
+          <li><a href="#" target="_blank">g.tbcdn.cn/sj/dpl/js/sui.min.js</a></li>
+        </ul>
+        <h3>下载文件</h3>
+        <p>如果不想引用CDN文件，可以直接下载源代码，也可以下载打包后的ZIP文件。</p>
+        <ul class="unstyled">
+          <li><a href="#" target="_blank">sui-source.zip</a></li>
+          <li><a href="#" target="_blank">sui-min.zip</a></li>
+        </ul>
+      </div>
+      <h1 class="sui-page-header">第二部，引用文件</h1>
+      <p>在head中依次引入sui.min.css, sui-responsive.min.css和sui.min.js文件，代码如下：</p>
+      <pre class="prettyprint linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;新建待办事项&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content=""&gt;
+  &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
+  &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+      <h1 class="sui-page-header">第三步，添加css组件代码</h1>
+      <p>我们使用三个css组件来生成这个页面，分别是面包屑、提示消息和表单。对应的代码如下</p>
+      <h4>面包屑代码</h4>
+      <pre class="prettyprint linenums">&lt;ul class="sui-breadcrumb"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;手机数码、电脑办公&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="active"&gt;智能手机&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      <h4>提示消息代码</h4>
+      <pre class="prettyprint linenums">&lt;div class="sui-msg sui-msg-large sui-msg-block sui-msg-success"&gt;
+  &lt;div class="msg-con"&gt;
+  新的待办事项”晚上9点拿夜宵”创建成功！
+  &lt;/div&gt;
+  &lt;s class="msg-icon"&gt;&lt;/s&gt;
+&lt;/div&gt;
+</pre>
+      <h4>表单代码</h4>
+      <pre class="prettyprint linenums">&lt;form class="sui-form form-horizontal" action="" method="post" id="servingForm"&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;名称：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;input class="input-xlarge" type='text' /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;时间：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;select class="input-medium " name='month'&gt;
+        &lt;option value="1"&gt;1&lt;/option&gt;
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+        &lt;option value="6"&gt;6&lt;/option&gt;
+        &lt;option value="7"&gt;8&lt;/option&gt;
+        &lt;option value="8"&gt;9&lt;/option&gt;
+        &lt;option value="9"&gt;9&lt;/option&gt;
+        &lt;option value="10"&gt;10&lt;/option&gt;
+        &lt;option value="11"&gt;11&lt;/option&gt;
+        &lt;option value="12"&gt;12&lt;/option&gt;
+      &lt;/select&gt;
+      月
+      &lt;select class="input-medium " name='date'&gt;
+        &lt;option value="1"&gt;1&lt;/option&gt;
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+        &lt;option value="6"&gt;6&lt;/option&gt;
+        &lt;option value="7"&gt;8&lt;/option&gt;
+        &lt;option value="8"&gt;9&lt;/option&gt;
+        &lt;option value="9"&gt;9&lt;/option&gt;
+        &lt;option value="10"&gt;10&lt;/option&gt;
+        &lt;option value="11"&gt;11&lt;/option&gt;
+        &lt;option value="12"&gt;12&lt;/option&gt;
+      &lt;/select&gt;
+      日
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;补充说明：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;textarea class='input-xlarge'&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;div class="controls"&gt;
+      &lt;button class="sui-btn btn-primary btn-xlarge"&gt;创建待办事项&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt; 
+</pre>
+      <h1 class="sui-page-header">第四步，完成</h1>
+      <p>经过上面三步我们就完成了一个简单的创建待办事项的页面，完整代码如下所示：</p>
+      <pre class="prettyprint linenums">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;新建待办事项&lt;/title&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content=""&gt;
+  &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
+  &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="sui-container"&gt;
+    &lt;ul class="sui-breadcrumb"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;待办事项&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="active"&gt;添加待办事项&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="sui-msg sui-msg-large sui-msg-block sui-msg-success"&gt;
+      &lt;div class="msg-con"&gt;
+        新的待办事项”晚上9点拿夜宵”创建成功！
+      &lt;/div&gt;
+      &lt;s class="msg-icon"&gt;&lt;/s&gt;
+    &lt;/div&gt;
+    &lt;form class="sui-form form-horizontal" action="" method="post" id="servingForm"&gt;
+      &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;名称：&lt;/label&gt;
+        &lt;div class="controls"&gt;
+          &lt;input class="input-xlarge" type='text' /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;时间：&lt;/label&gt;
+        &lt;div class="controls"&gt;
+          &lt;select class="input-medium " name='month'&gt;
+            &lt;option value="1"&gt;1&lt;/option&gt;
+            &lt;option value="2"&gt;2&lt;/option&gt;
+            &lt;option value="3"&gt;3&lt;/option&gt;
+            &lt;option value="4"&gt;4&lt;/option&gt;
+            &lt;option value="5"&gt;5&lt;/option&gt;
+            &lt;option value="6"&gt;6&lt;/option&gt;
+            &lt;option value="7"&gt;8&lt;/option&gt;
+            &lt;option value="8"&gt;9&lt;/option&gt;
+            &lt;option value="9"&gt;9&lt;/option&gt;
+            &lt;option value="10"&gt;10&lt;/option&gt;
+            &lt;option value="11"&gt;11&lt;/option&gt;
+            &lt;option value="12"&gt;12&lt;/option&gt;
+          &lt;/select&gt;
+          月
+          &lt;select class="input-medium " name='date'&gt;
+            &lt;option value="1"&gt;1&lt;/option&gt;
+            &lt;option value="2"&gt;2&lt;/option&gt;
+            &lt;option value="3"&gt;3&lt;/option&gt;
+            &lt;option value="4"&gt;4&lt;/option&gt;
+            &lt;option value="5"&gt;5&lt;/option&gt;
+            &lt;option value="6"&gt;6&lt;/option&gt;
+            &lt;option value="7"&gt;8&lt;/option&gt;
+            &lt;option value="8"&gt;9&lt;/option&gt;
+            &lt;option value="9"&gt;9&lt;/option&gt;
+            &lt;option value="10"&gt;10&lt;/option&gt;
+            &lt;option value="11"&gt;11&lt;/option&gt;
+            &lt;option value="12"&gt;12&lt;/option&gt;
+          &lt;/select&gt;
+          日
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="control-group"&gt;
+        &lt;label class="control-label"&gt;补充说明：&lt;/label&gt;
+        &lt;div class="controls"&gt;
+          &lt;textarea class='input-xlarge'&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="control-group"&gt;
+        &lt;div class="controls"&gt;
+          &lt;button class="sui-btn btn-primary btn-xlarge"&gt;创建待办事项&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+    </div>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

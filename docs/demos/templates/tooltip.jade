@@ -3,77 +3,139 @@ extends base
 block title
   title tooltip 
 
+block sidebar
+  +sidebar('tooltip')
+
+
 block content
   style.
-    li{display: inline-block; list-style:none; margin: 0 10px}
-    body{padding-bottom: 400px}
+    ul.example {margin-left: 30px;}
+    ul.example li {display: inline-block; margin: 20px;}
+    .sui-layout .content-inner, .tab-content{ overflow:visible}
 
-  div.sui-container
-    h1 Tooltip 绝大部分参数可写在触发元素的data-xxx属性里
+  div.sui-page-header
+    h1 Tooltip
 
-    p 参数解释，补充信息见a(href="http://getbootstrap.com/2.3.2/javascript.html#tooltips") bootstrap tooltip
-    pre.
-      /* 
-       * 原bootstrap tooltip的参数template已废弃
-       * 满足70%需求的简单tooltip可不写js直接调用，在触发元素上设置data-toggle="tooltip"（类似dialog）即可。扩展则可继续添加如下的data-xxx属性注入参数实现
-       * .tooltip 改为 .sui-tooltip
-       * /
-    pre.
-      {
-          animation: true
-        , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
-        , placement: 'top'
-        , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
-        , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
-        , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性。 
-        , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
-        , html: true  //决定是html()还是text()
-        , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
-        , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
-        , okHide: fn       //带确认取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
-      }
-      
-    ul
-      - var placement = ['top', 'right', 'bottom', 'left']
-      each dir in placement
-        li
-          a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+  h2 1.快速上手 
+  pre.prettyprint
+    &lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
 
-    ul
-      li 右方click触发tooltip
-      - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-      - var widthtype = ['false', 'true']
-      each type in widthtype
-        li
-          a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+    li
+      a(href='#api1', data-toggle='tab') API
+    li
+      a(href='#event1', data-toggle='tab') 事件
 
-      li
-        a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
 
-    ul
-      - var placement = ['top', 'right', 'bottom', 'left']
-      each dir in placement
-        li
-          a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', title='强调tooltip') #{dir} opt.type = 'attention'
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        ul.example
+          - var placement = ['top', 'right', 'bottom', 'left']
+          each dir in placement
+            li
+              a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+        ul.example
+          - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+          - var widthtype = ['true', 'false']
+          each type in widthtype
+            li
+              a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+
+          li
+            a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
+        ul.example
+          - var placement = ['top', 'right', 'bottom', 'left']
+          each dir in placement
+            li
+              a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', title='强调tooltip') #{dir} opt.type = 'attention'
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p 原bootstrap tooltip的参数<code>template</code>已废弃
+      p 可以通过data属性或JavaScript传递参数。绝大部分参数可写在触发元素的data-xxx属性里,在触发元素上设置<code>data-toggle="tooltip"</code>（类似dialog）即可。
+      p 扩展则可继续添加<code>data-xxx</code>属性注入参数实现。有一个例外，tooltip的内容参数<code>title</code>不需要加data-前缀，它是html标准属性。
+      h4 $eles.tooltip(options)
+      p 对一组页面元素绑定一个工具提示处理器。
+      h4 $eles.tooltip('show')
+      p 弹出某个页面元素的工具提示。
+      pre.prettyprint $('#element').tooltip('show')
+      h4 $eles.tooltip('toggle')
+      p 打开或隐藏某个页面元素的工具提示。
+      pre.prettyprint $('#element').tooltip('toggle')
+      h4 $eles.tooltip('destroy')
+      p 隐藏并销毁某个页面元素的工具提示。
+      pre.prettyprint $('#element').tooltip('destroy')
+
+
+    div.tab-pane#api1
+      下方参数值为默认值,每个参数用作data-**的html属性也可。
+      pre.prettyprint.linenums.
+        {
+            animation: true  //是否以动画效果淡入淡出tooltip
+          , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+          , placement: 'top'
+          , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
+          , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
+          , title: 'it is default title'  //默认tooltip的内容，如果给html元素添加了title属性则使用该html属性替代此属性。 
+          , delay: 0   //如果只传number，则show、hide时都会使用这个延时，若想差异化则传入形如{show:400, hide: 600} 的对象   注：delay参数对manual触发方式的tooltip无效
+          , html: true  //决定是html()还是text()
+          , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
+          , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
+          , okHide: fn       //带确认、取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
+        }
+    div.tab-pane#event1
+      p tooltip作为展示型便携组件本不需要事件，不过为了补充confirm类型的tooltip，目前提供一个常见事件: 
+      p <code>okHide</code> 带确认、取消按钮的confirm型tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip)
+        
+  hr
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo2
+      js调用的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数
+      div.bs-docs-example
+        ul.example
+          li
+            a(id="J_set", href='javascript:void(0)', data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text">') 带确定取消按钮的tooltip 
+        script.
+          $('#J_set').tooltip({
+            animation: false, 
+            type: 'confirm',
+            okHide: function(){alert('okHide');this.hide()}
+          })
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
     hr
-    pre
-      $('#J_set').tooltip({okHide: function(){this.hide()}})
-    ul
-      li
-        a(id="J_set", href='javascript:void(0)', data-type="confirm", data-placement="bottom", data-trigger='click', title='这里可以做一些setting类别的事务<br><input type="text">') 带确定取消按钮的tooltip 
-    hr
-    p 如果不想用tooltip，但若只想要三角效果，对三角父元素用.tooltip-only-arrow和.top|.bottom|.right|.left
-    textarea(cols="100", rows="5").
-      <div class="tooltip-only-arrow bottom" style="width:300px;height:40px;border:2px solid #b2b2b2">
-        <div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div>
-      </div>
-    br
-    br
-    div.tooltip-only-arrow.bottom(style="width:300px;height:40px;border:2px solid #b2b2b2")
-      div.tooltip-arrow
-        div.tooltip-arrow.cover
 
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+ 
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        div.tooltip-only-arrow.bottom(style="width:300px")
+          div.tooltip-arrow
+            div.tooltip-arrow.cover
+          使用SUI可以轻松搭建一个漂亮的页面，她有丰富的组件库可以像搭积木一样轻松搭建一个页面。
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+    div.tab-pane#doc3
+      p 如果不想用tooltip，但若只想要三角效果，对三角父元素用<code>.tooltip-only-arrow</code>和.top(或.bottom/.right/.left)
+      p 箭头的位置想自己调整可以根据业务需求修改外层<code>.tooltip-arrow</code>的left样式
 
-block js_block
-  script 
-    $('#J_set').tooltip({okHide: function(){console.log(this);this.hide()}})

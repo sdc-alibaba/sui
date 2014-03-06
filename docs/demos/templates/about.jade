@@ -1,0 +1,73 @@
+extends base
+
+block title
+  title 关于
+
+block head
+  style(type='text/css').
+    .jumbotron {
+      background-color: #6f5499;
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .sui-row {
+      margin-top: 20px;
+      border-radius: 6px;
+      background: #DEE8F3;
+    }
+
+    .sui-row [class^='span'] {
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+block header
+  +header('about')
+
+block content_wrap
+  .sui-container 
+    h1.sui-page-header 关于
+
+    p.sui-lead
+      | SUI 是商家后台系统的设计规范和前端组件库。
+
+    h3 设计师
+
+    p.sui-lead
+      a(href='#') 致轩
+      |，
+      a(href='#') 裴芸
+      |，
+      a(href='#') 泉源
+      | 以及
+      strong 商家业务事业部设计师团队。
+
+    h3 前端
+
+    p.sui-lead
+      a(href='#') 银鹏
+      |，
+      a(href='#') 半边
+      |，
+      a(href='#') 酥心
+      |，
+      a(href='#') 阿凯
+      |，
+      a(href='#') 墨焰
+      |，
+      a(href='#') 任行
+      | 以及
+      strong 商家业务事业部前端团队。
+
+    h3 联系我们
+    p.sui-lead
+      |如果有任何问题和建议可以直接联系我们。<br />
+      |设计和交互请联系
+      a(href='mailto:yun.peiy@alibaba-inc.com') 裴芸
+      a(href='mailto:jingzhu.caijzh@taobao.com') 泉源
+      |。
+      br
+      |技术以及其他任何问题都可以联系
+      a(href='mailto:hongxun.lhx@alibaba-inc.com') 任行
+      |。
