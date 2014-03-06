@@ -5,13 +5,13 @@
     <title>标签页</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../build/css/bootstrap.css" rel="stylesheet">
-    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../../build/css/sui.css" rel="stylesheet">
+    <link href="../../build/css/sui-responsive.css" rel="stylesheet">
     <link href="../assets/css/docs.css" rel="stylesheet">
     <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     <script src="../../js/lib/jquery.js"></script>
-    <script src="../../build/js/bootstrap.js"></script>
+    <script src="../../build/js/sui.js"></script>
     <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
   </head>
   <body>
@@ -69,7 +69,8 @@
       <div class="content">
         <div class="content-inner">
           <h1 class="sui-page-header">标签页 <small>tabs</small></h1>
-          <p class="lead">三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。</p>
+          <p class="sui-lead">三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。</p>
+          <h2>默认标签页</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -106,6 +107,41 @@
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>首要标签页</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <ul class="sui-nav nav-tabs nav-primary">
+                  <li class="active"><a>标签一</a></li>
+                  <li><a href="#">标签二</a></li>
+                  <li><a href="#">标签二</a></li>
+                </ul>
+                <ul class="sui-nav nav-tabs nav-large nav-primary">
+                  <li><a>语文</a></li>
+                  <li class="active"><a href="#">数学</a></li>
+                  <li><a href="#">英语</a></li>
+                </ul>
+                <ul class="sui-nav nav-tabs nav-xlarge nav-primary">
+                  <li><a>前端</a></li>
+                  <li class="active"><a href="#">后端</a></li>
+                  <li><a href="#">运维</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">首要标签页，添加 <code>nav-primary</code></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>

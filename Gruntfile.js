@@ -58,7 +58,7 @@ module.exports = function(grunt) {
       options: {
         compile: true
       },
-      bootstrap: {
+      css: {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
     },
     qunit: {
       options: {
-        inject: 'js/tests/unit/bootstrap-phantom.js'
+        inject: 'js/tests/unit/phantom.js'
       },
       files: ['js/tests/*.html']
     },

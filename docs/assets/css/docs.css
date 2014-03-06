@@ -30,10 +30,6 @@ h3 code {
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
-body {
-  background: #f9f9f9;
-}
-
 .sui-layout .content {
   padding: 0 25px;
   margin-left: 150px;
@@ -50,6 +46,7 @@ body > .sui-layout > .sidebar {
   line-height: 22px;
   border-right: 1px solid #ddd;
   position: fixed;
+  background: #f9f9f9;
 }
 
 .docs-sidenav {
