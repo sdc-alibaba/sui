@@ -78,10 +78,19 @@ module.exports = function(grunt) {
         },
         src: ['less/responsive.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
+      },
+      docs: {
+        files: [{
+          expand: true,
+          cwd: '<%= docsRoot %>/assets/less/',
+          src: ['**/*.less'],
+          dest: '<%= docsRoot %>/assets/css/',
+          ext: '.css'
+        }]
       }
     },
     jade: {
-      demos: {
+      docs: {
         options: {
           pretty: true
         },
@@ -131,9 +140,13 @@ module.exports = function(grunt) {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
       },
-      demos: {
+      docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',
-        tasks: ['jade:demos']
+        tasks: ['jade:docs']
+      },
+      docsCss: {
+        files: '<%= docsRoot %>/assets/less/**/*.less',
+        tasks: ['recess:docs']
       }
     }
   });

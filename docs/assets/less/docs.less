@@ -1,10 +1,11 @@
 /* Add additional stylesheets below
 -------------------------------------------------- */
-
 /*
   Bootstrap's documentation styles
   Special styles for presenting Bootstrap's documentation and examples
 */
+
+
 
 /* Body and structure
 -------------------------------------------------- */
@@ -15,19 +16,16 @@ body {
   font-size: 14px;
 }
 
-html,
-body,
-.sui-layout,
+html, body, .sui-layout,
 body > .sui-layout > .sidebar {
   height: 100%;
 }
-
 /* Code in headings */
-
 h3 code {
   font-size: 14px;
   font-weight: normal;
 }
+
 
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
@@ -35,32 +33,29 @@ h3 code {
 .sui-layout .content {
   padding: 0 25px;
   margin-left: 150px;
-  overflow: hidden;
   background: #fff;
+  overflow: hidden;
 }
-
 .sui-layout .content-inner {
   max-width: 1200px;
 }
 
 body > .sui-layout > .sidebar {
-  position: fixed;
   width: 150px;
   font-size: 14px;
   line-height: 22px;
-  background: #f9f9f9;
   border-right: 1px solid #ddd;
+  position: fixed;
+  background: #f9f9f9;
 }
 
 .docs-sidenav {
   width: 151px;
 }
-
 .docs-sidenav [class^="sui-icon"] {
   font-size: 18px;
   vertical-align: -2px;
 }
-
 .sui-nav.nav-xlarge > li > a {
   padding: 10px 18px;
 }
@@ -68,54 +63,49 @@ body > .sui-layout > .sidebar {
 body > .sui-navbar {
   font-size: 14px;
 }
-
 body > .sui-navbar .sui-brand {
-  padding: 8px 20px;
   line-height: 22px;
+  padding: 8px 20px;
 }
-
 body > .sui-navbar > .navbar-inner {
   padding-left: 25px;
 }
-
 body > .sui-navbar .sui-nav {
   margin-left: 50px;
 }
 
 /* Change the docs' brand */
-
 body > .navbar .brand {
-  float: right;
   padding-right: 0;
   padding-left: 0;
   margin-left: 20px;
+  float: right;
   font-weight: bold;
   color: #000;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
   -webkit-transition: all .2s linear;
      -moz-transition: all .2s linear;
           transition: all .2s linear;
 }
-
 body > .navbar .brand:hover {
   text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
 }
+
+
 
 .demo-operations {
-  padding: 4px 8px;
   margin: 10px 0 40px 0;
   list-style: none;
-  background: #fbfbfb;
+  padding: 4px 8px;
   border-radius: 3px;
+  background: #fbfbfb;
 }
-
 .demo-operations li {
-  position: relative;
   float: left;
+  position: relative;
   margin-right: 20px;
 }
-
 .demo-operations li .sui-msg {
   position: absolute;
   top: 25px;
@@ -123,48 +113,45 @@ body > .navbar .brand:hover {
   display: none;
   width: 100px;
 }
-
 .copy-btn.zeroclipboard-is-hover {
-  color: #ff7300;
   text-decoration: underline;
+  color: #ff7300;
 }
-
 .bs-docs-example {
   position: relative;
-  padding: 39px 19px 14px;
   margin-bottom: 15px;
+  padding: 39px 19px 14px;
   background-color: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
-
 .bs-docs-example:after {
+  content: "示例";
   position: absolute;
   top: -1px;
   left: -1px;
   padding: 3px 7px;
   font-size: 12px;
   font-weight: bold;
-  color: #9da0a4;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
+  color: #9da0a4;
   -webkit-border-radius: 4px 0 4px 0;
-     -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
-  content: "示例";
+  -moz-border-radius: 4px 0 4px 0;
+  border-radius: 4px 0 4px 0;
 }
 
 .footer {
-  padding: 30px;
-  margin-top: 50px;
-  font-size: 13px;
-  color: #666;
-  text-align: center;
   border-top: 1px solid #aaa;
-}
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 13px;
+  margin-top: 50px;
 
-.footer li {
-  padding: 4px 0;
+  li {
+    padding: 4px 0;
+  }
 }

@@ -4,62 +4,8 @@ block title
   title SUI
 
 block head
-  style(type='text/css').
-    .intro {
-      background-color: #6f5499;
-      color: #fff;
-      padding: 80px 0;
-    }
-
-    .jumbotron.components,
-    .jumbotron.features
-    {
-      padding: 60px 0;
-      color: #fff;
-    }
-    .components {
-      background-color: #45b7ed;
-    }
-    .features {
-      background: #d5dfbb;
-    }
-    .intro> .sui-container {
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 64px;
-      line-height: 1.5;
-    }
-    h2 {
-      font-size: 48px;
-      line-height: 1.5;
-    }
-    .center {
-      text-align: center;
-    }
-    .brand-intro .sui-lead {
-      font-size: 24px;
-      line-height: 2;
-    }
-
-    .btn-lead {
-      padding: 20px 80px;
-      font-size: 24px;
-    }
-
-    .btn-wrap {
-      margin-top: 50px;
-    }
-
-    .components {
-      color: #fff;
-    }
-
-    .details li {
-      font-size: 16px;
-      line-height: 2;
-    }
+  link(rel="stylesheet",href="assets/css/index.css")
+  script(src='assets/js/index.js')
 
 block header
   +header('index')
@@ -73,7 +19,7 @@ block content_wrap
         br
         | 通过SUI，可以非常方便的设计和实现精美的页面。
 
-      p.btn-wrap
+      p.btn-wrap.bounceInDown.animated
         a.sui-btn.btn-success.btn-lead(href='download.html') 立即下载 SUI V1.0
 
   .jumbotron.components
@@ -83,13 +29,15 @@ block content_wrap
           .details.center
             h2 丰富的组件库
             ul.unstyled
-              li 全局样式
-              li 栅格和布局
-              li 基础CSS
-              li CSS 组件
-              li JS 组件
+              li 响应式栅格
+              li icon font 字体图标
+              li 按钮，表单，表格，提示
+              li 标签页，步骤条，面包屑
+              li 对话框，Tooltip，分页器
+              li 更多组件敬请期待...
         .span8.center
-          img(src='pictures/index-demo-1.png')
+          a(href='global.html')
+            img(src='pictures/index-demo-components.png')
 
   .jumbotron.features
     .sui-container
@@ -102,5 +50,20 @@ block content_wrap
               li 响应式布局
               li icon font
               li CSS 特效
+              li 兼容chrome,firfox,safari,ie8+等主流浏览器
         .span8.center
-          img(src='pictures/index-demo-1.png')
+          img(src='pictures/index-demo-browsers.png')
+
+  .jumbotron.bootstrap
+    .sui-container
+      .sui-row
+        .span4
+          .details.center
+            h2 基于 bootstrap 2.3
+
+            ul.unstyled
+              li 基于 boostrap 2.3 ，有良好的代码结构和丰富的文档及示例
+              li 引入了 icon font, grunt, jade 等新技术
+
+        .span8.center
+          img.bootstrap-logo(src='pictures/bootstrap-logo.png')

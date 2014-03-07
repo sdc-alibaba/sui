@@ -7228,7 +7228,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .sui-brand,
 .navbar-inverse .sui-nav > li > a {
-  color: #999999;
+  color: #aaaaaa;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -7240,11 +7240,11 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .sui-brand {
-  color: #999999;
+  color: #aaaaaa;
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: #aaaaaa;
 }
 
 .navbar-inverse .sui-nav > li > a:focus,
@@ -7261,7 +7261,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .navbar-link {
-  color: #999999;
+  color: #aaaaaa;
 }
 
 .navbar-inverse .navbar-link:hover,
@@ -7288,8 +7288,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .sui-nav li.sui-dropdown > .dropdown-toggle .caret {
-  border-top-color: #999999;
-  border-bottom-color: #999999;
+  border-top-color: #aaaaaa;
+  border-bottom-color: #aaaaaa;
 }
 
 .navbar-inverse .sui-nav li.sui-dropdown.open > .dropdown-toggle .caret,
