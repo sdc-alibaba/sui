@@ -1,19 +1,19 @@
 {
-  "name": "bootstrap",
-  "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
-  "version": "3.0.0",
+  "name": "sui",
+  "description": "sui.",
+  "version": "1.0.0",
   "keywords": [
-    "bootstrap",
+    "sui",
     "css"
   ],
-  "homepage": "http://twbs.github.com/bootstrap/",
-  "author": "Twitter Inc.",
+  "homepage": "",
+  "author": "",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/twbs/bootstrap.git"
+    "url": "http://gitlab.alibaba-inc.com/sj/dpl"
   },
   "licenses": [
     {

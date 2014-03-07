@@ -9,7 +9,6 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
-    demosRoot: '<%= docsRoot %>/demos',
 
     jshint: {
       options: {
@@ -58,7 +57,7 @@ module.exports = function(grunt) {
       options: {
         compile: true
       },
-      bootstrap: {
+      css: {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
@@ -79,19 +78,28 @@ module.exports = function(grunt) {
         },
         src: ['less/responsive.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
+      },
+      docs: {
+        files: [{
+          expand: true,
+          cwd: '<%= docsRoot %>/assets/less/',
+          src: ['**/*.less'],
+          dest: '<%= docsRoot %>/assets/css/',
+          ext: '.css'
+        }]
       }
     },
     jade: {
-      demos: {
+      docs: {
         options: {
           pretty: true
         },
         files: [
           {
           expand: true,
-          cwd: '<%= demosRoot %>/templates',
+          cwd: '<%= docsRoot %>/templates',
           src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade'],
-          dest: '<%= demosRoot %>',
+          dest: '<%= docsRoot %>',
           ext: '.html'
         },
         ],
@@ -106,7 +114,7 @@ module.exports = function(grunt) {
     },
     qunit: {
       options: {
-        inject: 'js/tests/unit/bootstrap-phantom.js'
+        inject: 'js/tests/unit/phantom.js'
       },
       files: ['js/tests/*.html']
     },
@@ -132,9 +140,13 @@ module.exports = function(grunt) {
         files: 'js/*.js',
         tasks: ['dist-js', 'copy']
       },
-      demos: {
-        files: 'docs/demos/templates/**/*.jade',
-        tasks: ['jade:demos']
+      docs: {
+        files: '<%= docsRoot %>/templates/**/*.jade',
+        tasks: ['jade:docs']
+      },
+      docsCss: {
+        files: '<%= docsRoot %>/assets/less/**/*.less',
+        tasks: ['recess:docs']
       }
     }
   });

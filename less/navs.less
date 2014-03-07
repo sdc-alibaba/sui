@@ -111,6 +111,7 @@
   }
   &.nav-xlarge > li > a {
     padding: @navPaddingXLarge;
+    font-size: @fontSizeLarge * 1.15;
   }
 
 // TABS
@@ -118,22 +119,20 @@
 
 // Give the tabs something to sit on
   &.nav-tabs {
-    padding-left: 20px;
-    border-bottom: 1px solid @navTabsBorderHighlightColor;
+    border-bottom: 1px solid @navTabsBorderColor;
     // Make the list-items overlay the bottom border
     > li {
       margin-bottom: -1px;
       & > a {
         color: @navTabsColor;
         line-height: @baseLineHeight;
-        border: 1px solid @navTabsBorderColor;
-        border-bottom-color: @navTabsBorderHighlightColor;
-        .border-radius(0);
-        background-color: @navTabsBackgroundColor;
+        .border-radius(2px 2px 0 0);
       }
       & > a:hover {
-        color: @linkColor;
-        background-color: @navTabsBackgroundColor;  // reset hover
+        background-color: @bodyBackground;  // reset hover
+      }
+      + li {
+        margin-left: 10px;
       }
       + li > a {
         margin-left: -1px;
@@ -144,21 +143,35 @@
     > .active {
       border-bottom: 0;
       & + li > a {
-        border-left-color: @navTabsBorderHighlightColor;
       }
       & > a {
-        color: @navTabsColor;
         font-weight: bold;
         background-color: @bodyBackground;
-        border-top: 2px solid  @navTabsBorderHighlightColor;
-        border-color: @navTabsBorderHighlightColor;
-        margin-top: -1px;
+        border: 1px solid @navTabsBorderColor;
         border-bottom-color: transparent;
         cursor: default;
         &:hover {
           background-color: @bodyBackground;
-          color: @navTabsColor;
         }
+      }
+    }
+
+    > .active > a,
+    > li > a:hover {
+      color: @navTabsHilightColor;
+    }
+
+    &.nav-primary {
+      border-bottom: 2px solid @navTabsHilightColor;
+      > li {
+        margin-bottom: -2px;
+      }
+
+      >.active > a {
+        border-color: @navTabsHilightColor;
+        color: @white;
+        background: @navTabsHilightColor;
+        border-radius: 2px 2px 0 0;
       }
     }
   }
@@ -209,6 +222,7 @@
     overflow: hidden;
     .border-radius(0);
     background: @navTabsBackgroundColor;
+    margin-left: 0;
 
     > a {
       border: 0;
@@ -222,9 +236,6 @@
   }
   &.nav-tabs.nav-stacked > li.active {
     border-right: 2px solid @navTabsBorderHighlightColor;
-    a, a:hover {
-      color: #2270bf;
-    }
   }
   &.nav-tabs.nav-stacked > li > a:hover,
   &.nav-tabs.nav-stacked > li > a:focus {
@@ -256,7 +267,7 @@
       &.active a,
       &:hover a
       {
-        color: #2270bf;
+        color: @navTabsHilightColor;
       }
       &:first-child {
         border-top: 1px solid #ddd;

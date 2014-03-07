@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>表格</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../build/css/sui.css" rel="stylesheet">
+    <link href="../build/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../build/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li class="active"><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-page-header">
+            <h1>表格</h1>
+          </div>
+          <p class="sui-lead">表格有两种用法：
+            <ul class="unstyled">
+              <li>一种是简单的数据列表，只包含简单的文本和链接。</li>
+              <li>另一种是把表格当做容器，里面会有很复杂的结构，可能包括图片、链接、复杂的文案等。</li>
+            </ul>
+          </p>
+          <h2>1. 默认表格</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">默认的表格样式</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>2. 带边框和不带边框的表格</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="sui-table table-nobordered">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">通过 <code>tabled-bordered</code> 和 <code>table-nobordered</code> 可以控制表格的边框显示</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>3. 只有内边框的表格</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-bordered-simple">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>4. 表头在侧边</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-sideheader">
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">表头在侧面</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>5. 斑马线</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+            <li><a href="#code5" data-toggle="tab">代码</a></li>
+            <li><a href="#doc5" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo5" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-zebra">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                <table class="sui-table table-vzebra">
+                  <tbody>
+                    <tr>
+                      <td>所有交易</td>
+                      <td>9999.00</td>
+                      <td>所有交易</td>
+                      <td>99999.00</td>
+                    </tr>
+                    <tr>
+                      <td>待付款</td>
+                      <td>9999.00</td>
+                      <td>待付款</td>
+                      <td>99999.00</td>
+                    </tr>
+                    <tr>
+                      <td>已发货</td>
+                      <td>9999.00</td>
+                      <td>已发货</td>
+                      <td>99999.00</td>
+                    </tr>
+                    <tr>
+                      <td>已成功</td>
+                      <td>9999.00</td>
+                      <td>已成功</td>
+                      <td>99999.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="code5" class="tab-pane">
+              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc5" class="tab-pane">水平和垂直的斑马线</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>6. 首要表格</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo6" data-toggle="tab">示例</a></li>
+            <li><a href="#code6" data-toggle="tab">代码</a></li>
+            <li><a href="#doc6" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo6" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-primary">
+                            <thead>
+                              <tr>
+                                <th>＃</th>
+                                <th>待付款</th>
+                                <th>宝宝数量</th>
+                                <th>交易金额</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>所有交易</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>待付款</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已发货</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                              <tr>
+                                <td>已成功</td>
+                                <td>9999.00</td>
+                                <td>999</td>
+                                <td>99999.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code6" class="tab-pane">
+              <pre data-target="#demo6&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc6" class="tab-pane">首要表格，颜色接近首要按钮的颜色</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>7. 二维表格</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
+            <li><a href="#code7" data-toggle="tab">代码</a></li>
+            <li><a href="#doc7" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo7" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-bordered table-sideheader">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>新客户 uv</th>
+                                <th>新客户转化率（％）</th>
+                                <th>老客户 uv</th>
+                                <th>老客户转化率（％）</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>昨日</td>
+                                <td>1.0</td>
+                                <td>1.0</td>
+                                <td>1.0</td>
+                                <td>1.0</td>
+                              </tr>
+                              <tr>
+                                <td>前日</td>
+                                <td>1.0</td>
+                                <td>0.0</td>
+                                <td>0.0</td>
+                                <td>0.0</td>
+                              </tr>
+                              <tr>
+                                <td>前两天</td>
+                                <td>1.0</td>
+                                <td>1.0</td>
+                                <td>0.0</td>
+                                <td>0.0</td>
+                              </tr>
+                              <tr>
+                                <td>行业平均</td>
+                                <td>50.73</td>
+                                <td>0.73</td>
+                                <td>0.73</td>
+                                <td>0.73</td>
+                              </tr>
+                              <tr>
+                                <td>当前现状</td>
+                                <td>低于平均</td>
+                                <td>持平</td>
+                                <td>高于平均</td>
+                                <td>持平</td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code7" class="tab-pane">
+              <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc7" class="tab-pane">二维表格</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>8. 综合表格一</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo8" data-toggle="tab">示例</a></li>
+            <li><a href="#code8" data-toggle="tab">代码</a></li>
+            <li><a href="#doc8" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo8" class="tab-pane active">
+              <div class="bs-docs-example">
+                <table class="sui-table table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="5"> 
+                        <label class="checkbox pull-left">
+                          <input type="checkbox">订单编号：7867473872181848
+                        </label><span class="pull-right">成交时间：2014-01-11 11:59</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td width="50%">
+                        <div class="typographic"><img src="http://img.f2e.taobao.net/img.png_50x50.jpg"><a href="#" class="block-text">包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款</a><span>1</span>
+                          <ul class="unstyled">
+                            <li>申请售后</li>
+                            <li>投诉卖家</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td rowspan="2" width="11%" class="center">56.50</td>
+                      <td rowspan="2" width="13%" class="center">
+                        <ul class="unstyled">
+                          <li>交易成功</li>
+                          <li><a href="#">订单详情</a></li>
+                          <li><a href="#">对方已评</a></li>
+                        </ul>
+                      </td>
+                      <td rowspan="2" width="13%" class="center"><a href="#" class="btn">评价 </a></td>
+                      <td rowspan="2" width="13%" class="center">
+                        <ul class="unstyled">
+                          <li><a href="#">删除</a></li>
+                          <li><a href="#">标记</a></li>
+                          <li><a href="#">分享</a></li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="50%">
+                        <div class="typographic"><img src="http://img.f2e.taobao.net/img.png_50x50.jpg"><a href="#" class="block-text">包邮 正品玛姬儿压缩面膜无纺布纸膜100粒 送泡瓶面膜刷喷瓶 新款</a><span>1</span>
+                          <ul class="unstyled">
+                            <li>申请售后</li>
+                            <li>投诉卖家</li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="code8" class="tab-pane">
+              <pre data-target="#demo8&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc8" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo8&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>9. 综合表格二</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo9" data-toggle="tab">示例</a></li>
+            <li><a href="#code9" data-toggle="tab">代码</a></li>
+            <li><a href="#doc9" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo9" class="tab-pane active">
+              <div class="bs-docs-example">
+                          <table class="sui-table table-bordered-simple">
+                            <thead>
+                              <tr>
+                                <th colspan="7">
+                                  <label class="checkbox">
+                                    <input type="checkbox">
+                                  </label><a href="#">对比海外卖家</a><span class="pull-right gray">合作时间: 2013-05-22起</span>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td width="20%" class="center">001</td>
+                                <td width="13%" class="center">
+                                  <ul class="unstyled">
+                                    <li>0 (一个月)</li>
+                                    <li>0 (三个月)</li>
+                                  </ul>
+                                </td>
+                                <td width="13%" class="center">
+                                  <ul class="unstyled">
+                                    <li>0 (一个月) </li>
+                                    <li>0 (三个月)</li>
+                                  </ul>
+                                </td>
+                                <td width="13%" class="center">0</td>
+                                <td width="13%" class="center">0.00%</td>
+                                <td width="13%" class="center">0.00%</td>
+                                <td class="center">
+                                  <ul class="unstyled">
+                                    <li><a href="#">终止</a></li>
+                                    <li><a href="#">查看分销商品</a></li>
+                                    <li><a href="#">授权</a></li>
+                                    <li><a href="#">授权品牌</a></li>
+                                    <li><a href="#">开通代销</a></li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+              </div>
+            </div>
+            <div id="code9" class="tab-pane">
+              <pre data-target="#demo9&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc9" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo9&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <ul class="unstyled">
+        <li>@time 2014.03.07</li>
+        <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+      </ul>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>
