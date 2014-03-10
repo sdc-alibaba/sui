@@ -43,7 +43,7 @@
     }
     $btn.attr('data-clipboard-text', parseCode($target.html()))
     var cp = new ZeroClipboard(this, {
-      moviePath: "../assets/zeroclipboard/ZeroClipboard.swf"
+      moviePath: "assets/zeroclipboard/ZeroClipboard.swf"
     })
     cp.on('load', function(cp) {
       cp.on( "complete", function(cp, args) {
