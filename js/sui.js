@@ -1,4 +1,5 @@
 require([
+  'moment',
   'transition.js',
   'alert.js',
   'button.js',
@@ -11,7 +12,8 @@ require([
   'scrollspy.js',
   'tab.js',
   'affix.js',
-  'pagination.js'
+  'pagination.js',
+  'validate.js'
 ], function() {
   'use strict';
 });

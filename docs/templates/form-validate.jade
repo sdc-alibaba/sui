@@ -1,0 +1,56 @@
+extends base
+
+block title
+  title 表单校验
+
+block sidebar
+  +sidebar('form-validate')
+
+block content
+
+  h1.sui-page-header 表单校验
+  
+  p.sui-lead
+    | 表单校验，通过简单的配置规则即可实现表单校验。<br />
+    | 并且支持自定义校验插件
+
+  h2 通过html标记自动启用表单校验
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        form.sui-form.form-horizontal.form-validate.
+          <div class="control-group">
+            <label for="inputEmail" class="control-label">邮箱：</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" placeholder="Email" data-rules='required|email'>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="inputPassword" class="control-label">密码：</label>
+            <div class="controls"><input type="password" id="inputPassword" placeholder="Password" data-rules='required'></div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="sui-btn btn-primary">Sign in</button>
+            </div>
+          </div>
+        </form> 
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p
+        | 默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
