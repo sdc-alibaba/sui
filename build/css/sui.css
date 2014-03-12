@@ -1038,13 +1038,63 @@ sui-pre .sui-code {
   overflow-y: scroll;
 }
 
-fieldset {
+.sui-form {
+  margin: 0 0 18px;
+  /* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  */
+
+  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
+  .radio input[type="radio"],
+  .checkbox input[type="checkbox"] {
+    float: left;
+    margin-left: -20px;
+  }
+  */
+
+  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
+  .controls > .radio:first-child,
+  .controls > .checkbox:first-child {
+    padding-top: 5px; // has to be padding because margin collaspes
+  }
+  */
+
+  /* ע�͵���һ�����룬ֱ��ɾ�� @by kai 2014-01-30
+  .radio.inline + .radio.inline,
+  .checkbox.inline + .checkbox.inline {
+    margin-left: 10px; // space out consecutive inline controls
+  }
+  */
+
+  /* ע�͵���һ������ ���¶������� @by kai 2014-01-30
+  .input-mini       { width: 60px; }
+  .input-small      { width: 90px; }
+  .input-medium     { width: 150px; }
+  .input-large      { width: 210px; }
+  .input-xlarge     { width: 270px; }
+  .input-xxlarge    { width: 530px; }*/
+
+  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
+  .controls-row .checkbox[class*="span"],
+  .controls-row .radio[class*="span"] {
+    padding-top: 5px;
+  }
+  */
+
+  /* Allow for input prepend/append in search forms */
+
+}
+
+.sui-form fieldset {
   padding: 0;
   margin: 0;
   border: 0;
 }
 
-legend {
+.sui-form legend {
   display: block;
   width: 100%;
   padding: 0;
@@ -1056,52 +1106,45 @@ legend {
   border-bottom: 1px solid #e5e5e5;
 }
 
-legend small {
+.sui-form legend small {
   font-size: 13.5px;
   color: #999999;
 }
 
-label,
-input,
-button,
-select,
-textarea {
+.sui-form label,
+.sui-form input,
+.sui-form button,
+.sui-form select,
+.sui-form textarea {
   font-size: 12px;
   font-weight: normal;
   line-height: 18px;
 }
 
-input,
-button,
-select,
-textarea {
+.sui-form input,
+.sui-form button,
+.sui-form select,
+.sui-form textarea {
   font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
 }
 
-/* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-*/
-
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
+.sui-form select,
+.sui-form textarea,
+.sui-form input[type="text"],
+.sui-form input[type="password"],
+.sui-form input[type="datetime"],
+.sui-form input[type="datetime-local"],
+.sui-form input[type="date"],
+.sui-form input[type="month"],
+.sui-form input[type="time"],
+.sui-form input[type="week"],
+.sui-form input[type="number"],
+.sui-form input[type="email"],
+.sui-form input[type="url"],
+.sui-form input[type="search"],
+.sui-form input[type="tel"],
+.sui-form input[type="color"],
+.sui-form .uneditable-input {
   display: inline-block;
   height: 18px;
   padding: 2px 4px;
@@ -1114,26 +1157,26 @@ input[type="color"],
           border-radius: 2px;
 }
 
-textarea {
+.sui-form textarea {
   height: auto;
 }
 
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
+.sui-form textarea,
+.sui-form input[type="text"],
+.sui-form input[type="password"],
+.sui-form input[type="datetime"],
+.sui-form input[type="datetime-local"],
+.sui-form input[type="date"],
+.sui-form input[type="month"],
+.sui-form input[type="time"],
+.sui-form input[type="week"],
+.sui-form input[type="number"],
+.sui-form input[type="email"],
+.sui-form input[type="url"],
+.sui-form input[type="search"],
+.sui-form input[type="tel"],
+.sui-form input[type="color"],
+.sui-form .uneditable-input {
   background-color: #ffffff;
   border: 1px solid #cccccc;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1145,22 +1188,22 @@ input[type="color"],
           transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {
+.sui-form textarea:focus,
+.sui-form input[type="text"]:focus,
+.sui-form input[type="password"]:focus,
+.sui-form input[type="datetime"]:focus,
+.sui-form input[type="datetime-local"]:focus,
+.sui-form input[type="date"]:focus,
+.sui-form input[type="month"]:focus,
+.sui-form input[type="time"]:focus,
+.sui-form input[type="week"]:focus,
+.sui-form input[type="number"]:focus,
+.sui-form input[type="email"]:focus,
+.sui-form input[type="url"]:focus,
+.sui-form input[type="search"]:focus,
+.sui-form input[type="tel"]:focus,
+.sui-form input[type="color"]:focus,
+.sui-form .uneditable-input:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
   outline: thin dotted \9;
@@ -1168,23 +1211,23 @@ input[type="color"]:focus,
 
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+.sui-form input[type="radio"],
+.sui-form input[type="checkbox"] {
   width: 13px;
   height: 13px;
   vertical-align: middle;
 }
 
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+.sui-form input[type="file"],
+.sui-form input[type="image"],
+.sui-form input[type="submit"],
+.sui-form input[type="reset"],
+.sui-form input[type="button"] {
   width: auto;
 }
 
-select,
-input[type="file"] {
+.sui-form select,
+.sui-form input[type="file"] {
   height: 24px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
@@ -1194,27 +1237,27 @@ input[type="file"] {
   line-height: 24px;
 }
 
-select {
+.sui-form select {
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }
 
-select[multiple],
-select[size] {
+.sui-form select[multiple],
+.sui-form select[size] {
   height: auto;
 }
 
-select:focus,
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
+.sui-form select:focus,
+.sui-form input[type="file"]:focus,
+.sui-form input[type="radio"]:focus,
+.sui-form input[type="checkbox"]:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
 
-.uneditable-input,
-.uneditable-textarea {
+.sui-form .uneditable-input,
+.sui-form .uneditable-textarea {
   color: #999999;
   cursor: not-allowed;
   background-color: #fcfcfc;
@@ -1224,800 +1267,744 @@ input[type="checkbox"]:focus {
           box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
 }
 
-.uneditable-input {
+.sui-form .uneditable-input {
   overflow: hidden;
   white-space: nowrap;
 }
 
-.uneditable-textarea {
+.sui-form .uneditable-textarea {
   width: auto;
   height: auto;
 }
 
-input:-moz-placeholder,
-textarea:-moz-placeholder {
+.sui-form input:-moz-placeholder,
+.sui-form textarea:-moz-placeholder {
   color: #999999;
 }
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+.sui-form input:-ms-input-placeholder,
+.sui-form textarea:-ms-input-placeholder {
   color: #999999;
 }
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
+.sui-form input::-webkit-input-placeholder,
+.sui-form textarea::-webkit-input-placeholder {
   color: #999999;
 }
 
-.radio,
-.checkbox {
+.sui-form .radio,
+.sui-form .checkbox {
   display: block;
 }
 
-.radio + .radio,
-.checkbox + .radio,
-.radio + .checkbox,
-.checkbox + .checkbox {
+.sui-form .radio + .radio,
+.sui-form .checkbox + .radio,
+.sui-form .radio + .checkbox,
+.sui-form .checkbox + .checkbox {
   margin-top: 5px;
 }
 
-/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-.radio input[type="radio"],
-.checkbox input[type="checkbox"] {
-  float: left;
-  margin-left: -20px;
-}
-*/
-
-/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-.controls > .radio:first-child,
-.controls > .checkbox:first-child {
-  padding-top: 5px; // has to be padding because margin collaspes
-}
-*/
-
-.radio.inline,
-.checkbox.inline {
+.sui-form .radio.inline,
+.sui-form .checkbox.inline {
   /* ע�͵���������ʽ ����������ʽ @by kai 2014-01-30
-  display: inline-block;
-  padding-top: 5px;
-  margin-bottom: 0;
-  vertical-align: middle;
-  */
+    display: inline-block;
+    padding-top: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    */
 
   display: inline-block;
   margin-top: 0;
 }
 
-.radio.inline + .radio.inline,
-.checkbox.inline + .radio.inline,
-.radio.inline + .checkbox.inline,
-.checkbox.inline + .checkbox.inline {
+.sui-form .radio.inline + .radio.inline,
+.sui-form .checkbox.inline + .radio.inline,
+.sui-form .radio.inline + .checkbox.inline,
+.sui-form .checkbox.inline + .checkbox.inline {
   margin-left: 6px;
 }
 
-/* ע�͵���һ�����룬ֱ��ɾ�� @by kai 2014-01-30
-.radio.inline + .radio.inline,
-.checkbox.inline + .checkbox.inline {
-  margin-left: 10px; // space out consecutive inline controls
-}
-*/
-
-/* ע�͵���һ������ ���¶������� @by kai 2014-01-30
-.input-mini       { width: 60px; }
-.input-small      { width: 90px; }
-.input-medium     { width: 150px; }
-.input-large      { width: 210px; }
-.input-xlarge     { width: 270px; }
-.input-xxlarge    { width: 530px; }*/
-
-.input-mini {
+.sui-form .input-mini {
   width: 40px;
 }
 
-.input-small {
+.sui-form .input-small {
   width: 60px;
 }
 
-.input-medium {
+.sui-form .input-medium {
   width: 120px;
 }
 
-.input-large {
+.sui-form .input-large {
   width: 200px;
 }
 
-.input-xlarge {
+.sui-form .input-xlarge {
   width: 350px;
 }
 
-.input-xxlarge {
+.sui-form .input-xxlarge {
   width: 500px;
 }
 
-.input-thin {
+.sui-form .input-thin {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.input-default {
+.sui-form .input-default {
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
-.input-fat {
+.sui-form .input-fat {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-.input-xfat {
+.sui-form .input-xfat {
   padding-top: 6px;
   padding-bottom: 6px;
 }
 
-.input-fat {
+.sui-form .input-fat {
   padding-right: 8px;
   padding-left: 8px;
 }
 
-.input-xfat {
+.sui-form .input-xfat {
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-mini,
-input[type="text"].input-mini,
-input[type="password"].input-mini,
-input[type="datetime"].input-mini,
-input[type="datetime-local"].input-mini,
-input[type="date"].input-mini,
-input[type="month"].input-mini,
-input[type="time"].input-mini,
-input[type="week"].input-mini,
-input[type="number"].input-mini,
-input[type="email"].input-mini,
-input[type="url"].input-mini,
-input[type="search"].input-mini,
-input[type="tel"].input-mini,
-input[type="color"].input-mini,
-.uneditable-input.input-mini {
+.sui-form textarea.input-mini,
+.sui-form input[type="text"].input-mini,
+.sui-form input[type="password"].input-mini,
+.sui-form input[type="datetime"].input-mini,
+.sui-form input[type="datetime-local"].input-mini,
+.sui-form input[type="date"].input-mini,
+.sui-form input[type="month"].input-mini,
+.sui-form input[type="time"].input-mini,
+.sui-form input[type="week"].input-mini,
+.sui-form input[type="number"].input-mini,
+.sui-form input[type="email"].input-mini,
+.sui-form input[type="url"].input-mini,
+.sui-form input[type="search"].input-mini,
+.sui-form input[type="tel"].input-mini,
+.sui-form input[type="color"].input-mini,
+.sui-form .uneditable-input.input-mini {
   width: 30px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-small,
-input[type="text"].input-small,
-input[type="password"].input-small,
-input[type="datetime"].input-small,
-input[type="datetime-local"].input-small,
-input[type="date"].input-small,
-input[type="month"].input-small,
-input[type="time"].input-small,
-input[type="week"].input-small,
-input[type="number"].input-small,
-input[type="email"].input-small,
-input[type="url"].input-small,
-input[type="search"].input-small,
-input[type="tel"].input-small,
-input[type="color"].input-small,
-.uneditable-input.input-small {
+.sui-form textarea.input-small,
+.sui-form input[type="text"].input-small,
+.sui-form input[type="password"].input-small,
+.sui-form input[type="datetime"].input-small,
+.sui-form input[type="datetime-local"].input-small,
+.sui-form input[type="date"].input-small,
+.sui-form input[type="month"].input-small,
+.sui-form input[type="time"].input-small,
+.sui-form input[type="week"].input-small,
+.sui-form input[type="number"].input-small,
+.sui-form input[type="email"].input-small,
+.sui-form input[type="url"].input-small,
+.sui-form input[type="search"].input-small,
+.sui-form input[type="tel"].input-small,
+.sui-form input[type="color"].input-small,
+.sui-form .uneditable-input.input-small {
   width: 50px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-medium,
-input[type="text"].input-medium,
-input[type="password"].input-medium,
-input[type="datetime"].input-medium,
-input[type="datetime-local"].input-medium,
-input[type="date"].input-medium,
-input[type="month"].input-medium,
-input[type="time"].input-medium,
-input[type="week"].input-medium,
-input[type="number"].input-medium,
-input[type="email"].input-medium,
-input[type="url"].input-medium,
-input[type="search"].input-medium,
-input[type="tel"].input-medium,
-input[type="color"].input-medium,
-.uneditable-input.input-medium {
+.sui-form textarea.input-medium,
+.sui-form input[type="text"].input-medium,
+.sui-form input[type="password"].input-medium,
+.sui-form input[type="datetime"].input-medium,
+.sui-form input[type="datetime-local"].input-medium,
+.sui-form input[type="date"].input-medium,
+.sui-form input[type="month"].input-medium,
+.sui-form input[type="time"].input-medium,
+.sui-form input[type="week"].input-medium,
+.sui-form input[type="number"].input-medium,
+.sui-form input[type="email"].input-medium,
+.sui-form input[type="url"].input-medium,
+.sui-form input[type="search"].input-medium,
+.sui-form input[type="tel"].input-medium,
+.sui-form input[type="color"].input-medium,
+.sui-form .uneditable-input.input-medium {
   width: 110px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-large,
-input[type="text"].input-large,
-input[type="password"].input-large,
-input[type="datetime"].input-large,
-input[type="datetime-local"].input-large,
-input[type="date"].input-large,
-input[type="month"].input-large,
-input[type="time"].input-large,
-input[type="week"].input-large,
-input[type="number"].input-large,
-input[type="email"].input-large,
-input[type="url"].input-large,
-input[type="search"].input-large,
-input[type="tel"].input-large,
-input[type="color"].input-large,
-.uneditable-input.input-large {
+.sui-form textarea.input-large,
+.sui-form input[type="text"].input-large,
+.sui-form input[type="password"].input-large,
+.sui-form input[type="datetime"].input-large,
+.sui-form input[type="datetime-local"].input-large,
+.sui-form input[type="date"].input-large,
+.sui-form input[type="month"].input-large,
+.sui-form input[type="time"].input-large,
+.sui-form input[type="week"].input-large,
+.sui-form input[type="number"].input-large,
+.sui-form input[type="email"].input-large,
+.sui-form input[type="url"].input-large,
+.sui-form input[type="search"].input-large,
+.sui-form input[type="tel"].input-large,
+.sui-form input[type="color"].input-large,
+.sui-form .uneditable-input.input-large {
   width: 190px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-xlarge,
-input[type="text"].input-xlarge,
-input[type="password"].input-xlarge,
-input[type="datetime"].input-xlarge,
-input[type="datetime-local"].input-xlarge,
-input[type="date"].input-xlarge,
-input[type="month"].input-xlarge,
-input[type="time"].input-xlarge,
-input[type="week"].input-xlarge,
-input[type="number"].input-xlarge,
-input[type="email"].input-xlarge,
-input[type="url"].input-xlarge,
-input[type="search"].input-xlarge,
-input[type="tel"].input-xlarge,
-input[type="color"].input-xlarge,
-.uneditable-input.input-xlarge {
+.sui-form textarea.input-xlarge,
+.sui-form input[type="text"].input-xlarge,
+.sui-form input[type="password"].input-xlarge,
+.sui-form input[type="datetime"].input-xlarge,
+.sui-form input[type="datetime-local"].input-xlarge,
+.sui-form input[type="date"].input-xlarge,
+.sui-form input[type="month"].input-xlarge,
+.sui-form input[type="time"].input-xlarge,
+.sui-form input[type="week"].input-xlarge,
+.sui-form input[type="number"].input-xlarge,
+.sui-form input[type="email"].input-xlarge,
+.sui-form input[type="url"].input-xlarge,
+.sui-form input[type="search"].input-xlarge,
+.sui-form input[type="tel"].input-xlarge,
+.sui-form input[type="color"].input-xlarge,
+.sui-form .uneditable-input.input-xlarge {
   width: 340px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-xxlarge,
-input[type="text"].input-xxlarge,
-input[type="password"].input-xxlarge,
-input[type="datetime"].input-xxlarge,
-input[type="datetime-local"].input-xxlarge,
-input[type="date"].input-xxlarge,
-input[type="month"].input-xxlarge,
-input[type="time"].input-xxlarge,
-input[type="week"].input-xxlarge,
-input[type="number"].input-xxlarge,
-input[type="email"].input-xxlarge,
-input[type="url"].input-xxlarge,
-input[type="search"].input-xxlarge,
-input[type="tel"].input-xxlarge,
-input[type="color"].input-xxlarge,
-.uneditable-input.input-xxlarge {
+.sui-form textarea.input-xxlarge,
+.sui-form input[type="text"].input-xxlarge,
+.sui-form input[type="password"].input-xxlarge,
+.sui-form input[type="datetime"].input-xxlarge,
+.sui-form input[type="datetime-local"].input-xxlarge,
+.sui-form input[type="date"].input-xxlarge,
+.sui-form input[type="month"].input-xxlarge,
+.sui-form input[type="time"].input-xxlarge,
+.sui-form input[type="week"].input-xxlarge,
+.sui-form input[type="number"].input-xxlarge,
+.sui-form input[type="email"].input-xxlarge,
+.sui-form input[type="url"].input-xxlarge,
+.sui-form input[type="search"].input-xxlarge,
+.sui-form input[type="tel"].input-xxlarge,
+.sui-form input[type="color"].input-xxlarge,
+.sui-form .uneditable-input.input-xxlarge {
   width: 490px;
   padding-right: 4px;
   padding-left: 4px;
 }
 
-textarea.input-thin,
-input[type="text"].input-thin,
-input[type="password"].input-thin,
-input[type="datetime"].input-thin,
-input[type="datetime-local"].input-thin,
-input[type="date"].input-thin,
-input[type="month"].input-thin,
-input[type="time"].input-thin,
-input[type="week"].input-thin,
-input[type="number"].input-thin,
-input[type="email"].input-thin,
-input[type="url"].input-thin,
-input[type="search"].input-thin,
-input[type="tel"].input-thin,
-input[type="color"].input-thin,
-.uneditable-input.input-thin {
+.sui-form textarea.input-thin,
+.sui-form input[type="text"].input-thin,
+.sui-form input[type="password"].input-thin,
+.sui-form input[type="datetime"].input-thin,
+.sui-form input[type="datetime-local"].input-thin,
+.sui-form input[type="date"].input-thin,
+.sui-form input[type="month"].input-thin,
+.sui-form input[type="time"].input-thin,
+.sui-form input[type="week"].input-thin,
+.sui-form input[type="number"].input-thin,
+.sui-form input[type="email"].input-thin,
+.sui-form input[type="url"].input-thin,
+.sui-form input[type="search"].input-thin,
+.sui-form input[type="tel"].input-thin,
+.sui-form input[type="color"].input-thin,
+.sui-form .uneditable-input.input-thin {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-textarea.input-default,
-input[type="text"].input-default,
-input[type="password"].input-default,
-input[type="datetime"].input-default,
-input[type="datetime-local"].input-default,
-input[type="date"].input-default,
-input[type="month"].input-default,
-input[type="time"].input-default,
-input[type="week"].input-default,
-input[type="number"].input-default,
-input[type="email"].input-default,
-input[type="url"].input-default,
-input[type="search"].input-default,
-input[type="tel"].input-default,
-input[type="color"].input-default,
-.uneditable-input.input-default {
+.sui-form textarea.input-default,
+.sui-form input[type="text"].input-default,
+.sui-form input[type="password"].input-default,
+.sui-form input[type="datetime"].input-default,
+.sui-form input[type="datetime-local"].input-default,
+.sui-form input[type="date"].input-default,
+.sui-form input[type="month"].input-default,
+.sui-form input[type="time"].input-default,
+.sui-form input[type="week"].input-default,
+.sui-form input[type="number"].input-default,
+.sui-form input[type="email"].input-default,
+.sui-form input[type="url"].input-default,
+.sui-form input[type="search"].input-default,
+.sui-form input[type="tel"].input-default,
+.sui-form input[type="color"].input-default,
+.sui-form .uneditable-input.input-default {
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
-textarea.input-fat,
-input[type="text"].input-fat,
-input[type="password"].input-fat,
-input[type="datetime"].input-fat,
-input[type="datetime-local"].input-fat,
-input[type="date"].input-fat,
-input[type="month"].input-fat,
-input[type="time"].input-fat,
-input[type="week"].input-fat,
-input[type="number"].input-fat,
-input[type="email"].input-fat,
-input[type="url"].input-fat,
-input[type="search"].input-fat,
-input[type="tel"].input-fat,
-input[type="color"].input-fat,
-.uneditable-input.input-fat {
+.sui-form textarea.input-fat,
+.sui-form input[type="text"].input-fat,
+.sui-form input[type="password"].input-fat,
+.sui-form input[type="datetime"].input-fat,
+.sui-form input[type="datetime-local"].input-fat,
+.sui-form input[type="date"].input-fat,
+.sui-form input[type="month"].input-fat,
+.sui-form input[type="time"].input-fat,
+.sui-form input[type="week"].input-fat,
+.sui-form input[type="number"].input-fat,
+.sui-form input[type="email"].input-fat,
+.sui-form input[type="url"].input-fat,
+.sui-form input[type="search"].input-fat,
+.sui-form input[type="tel"].input-fat,
+.sui-form input[type="color"].input-fat,
+.sui-form .uneditable-input.input-fat {
   padding-top: 4px;
   padding-right: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-mini,
-input[type="text"].input-fat.input-mini,
-input[type="password"].input-fat.input-mini,
-input[type="datetime"].input-fat.input-mini,
-input[type="datetime-local"].input-fat.input-mini,
-input[type="date"].input-fat.input-mini,
-input[type="month"].input-fat.input-mini,
-input[type="time"].input-fat.input-mini,
-input[type="week"].input-fat.input-mini,
-input[type="number"].input-fat.input-mini,
-input[type="email"].input-fat.input-mini,
-input[type="url"].input-fat.input-mini,
-input[type="search"].input-fat.input-mini,
-input[type="tel"].input-fat.input-mini,
-input[type="color"].input-fat.input-mini,
-.uneditable-input.input-fat.input-mini {
+.sui-form textarea.input-fat.input-mini,
+.sui-form input[type="text"].input-fat.input-mini,
+.sui-form input[type="password"].input-fat.input-mini,
+.sui-form input[type="datetime"].input-fat.input-mini,
+.sui-form input[type="datetime-local"].input-fat.input-mini,
+.sui-form input[type="date"].input-fat.input-mini,
+.sui-form input[type="month"].input-fat.input-mini,
+.sui-form input[type="time"].input-fat.input-mini,
+.sui-form input[type="week"].input-fat.input-mini,
+.sui-form input[type="number"].input-fat.input-mini,
+.sui-form input[type="email"].input-fat.input-mini,
+.sui-form input[type="url"].input-fat.input-mini,
+.sui-form input[type="search"].input-fat.input-mini,
+.sui-form input[type="tel"].input-fat.input-mini,
+.sui-form input[type="color"].input-fat.input-mini,
+.sui-form .uneditable-input.input-fat.input-mini {
   width: 22px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-small,
-input[type="text"].input-fat.input-small,
-input[type="password"].input-fat.input-small,
-input[type="datetime"].input-fat.input-small,
-input[type="datetime-local"].input-fat.input-small,
-input[type="date"].input-fat.input-small,
-input[type="month"].input-fat.input-small,
-input[type="time"].input-fat.input-small,
-input[type="week"].input-fat.input-small,
-input[type="number"].input-fat.input-small,
-input[type="email"].input-fat.input-small,
-input[type="url"].input-fat.input-small,
-input[type="search"].input-fat.input-small,
-input[type="tel"].input-fat.input-small,
-input[type="color"].input-fat.input-small,
-.uneditable-input.input-fat.input-small {
+.sui-form textarea.input-fat.input-small,
+.sui-form input[type="text"].input-fat.input-small,
+.sui-form input[type="password"].input-fat.input-small,
+.sui-form input[type="datetime"].input-fat.input-small,
+.sui-form input[type="datetime-local"].input-fat.input-small,
+.sui-form input[type="date"].input-fat.input-small,
+.sui-form input[type="month"].input-fat.input-small,
+.sui-form input[type="time"].input-fat.input-small,
+.sui-form input[type="week"].input-fat.input-small,
+.sui-form input[type="number"].input-fat.input-small,
+.sui-form input[type="email"].input-fat.input-small,
+.sui-form input[type="url"].input-fat.input-small,
+.sui-form input[type="search"].input-fat.input-small,
+.sui-form input[type="tel"].input-fat.input-small,
+.sui-form input[type="color"].input-fat.input-small,
+.sui-form .uneditable-input.input-fat.input-small {
   width: 42px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-medium,
-input[type="text"].input-fat.input-medium,
-input[type="password"].input-fat.input-medium,
-input[type="datetime"].input-fat.input-medium,
-input[type="datetime-local"].input-fat.input-medium,
-input[type="date"].input-fat.input-medium,
-input[type="month"].input-fat.input-medium,
-input[type="time"].input-fat.input-medium,
-input[type="week"].input-fat.input-medium,
-input[type="number"].input-fat.input-medium,
-input[type="email"].input-fat.input-medium,
-input[type="url"].input-fat.input-medium,
-input[type="search"].input-fat.input-medium,
-input[type="tel"].input-fat.input-medium,
-input[type="color"].input-fat.input-medium,
-.uneditable-input.input-fat.input-medium {
+.sui-form textarea.input-fat.input-medium,
+.sui-form input[type="text"].input-fat.input-medium,
+.sui-form input[type="password"].input-fat.input-medium,
+.sui-form input[type="datetime"].input-fat.input-medium,
+.sui-form input[type="datetime-local"].input-fat.input-medium,
+.sui-form input[type="date"].input-fat.input-medium,
+.sui-form input[type="month"].input-fat.input-medium,
+.sui-form input[type="time"].input-fat.input-medium,
+.sui-form input[type="week"].input-fat.input-medium,
+.sui-form input[type="number"].input-fat.input-medium,
+.sui-form input[type="email"].input-fat.input-medium,
+.sui-form input[type="url"].input-fat.input-medium,
+.sui-form input[type="search"].input-fat.input-medium,
+.sui-form input[type="tel"].input-fat.input-medium,
+.sui-form input[type="color"].input-fat.input-medium,
+.sui-form .uneditable-input.input-fat.input-medium {
   width: 102px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-large,
-input[type="text"].input-fat.input-large,
-input[type="password"].input-fat.input-large,
-input[type="datetime"].input-fat.input-large,
-input[type="datetime-local"].input-fat.input-large,
-input[type="date"].input-fat.input-large,
-input[type="month"].input-fat.input-large,
-input[type="time"].input-fat.input-large,
-input[type="week"].input-fat.input-large,
-input[type="number"].input-fat.input-large,
-input[type="email"].input-fat.input-large,
-input[type="url"].input-fat.input-large,
-input[type="search"].input-fat.input-large,
-input[type="tel"].input-fat.input-large,
-input[type="color"].input-fat.input-large,
-.uneditable-input.input-fat.input-large {
+.sui-form textarea.input-fat.input-large,
+.sui-form input[type="text"].input-fat.input-large,
+.sui-form input[type="password"].input-fat.input-large,
+.sui-form input[type="datetime"].input-fat.input-large,
+.sui-form input[type="datetime-local"].input-fat.input-large,
+.sui-form input[type="date"].input-fat.input-large,
+.sui-form input[type="month"].input-fat.input-large,
+.sui-form input[type="time"].input-fat.input-large,
+.sui-form input[type="week"].input-fat.input-large,
+.sui-form input[type="number"].input-fat.input-large,
+.sui-form input[type="email"].input-fat.input-large,
+.sui-form input[type="url"].input-fat.input-large,
+.sui-form input[type="search"].input-fat.input-large,
+.sui-form input[type="tel"].input-fat.input-large,
+.sui-form input[type="color"].input-fat.input-large,
+.sui-form .uneditable-input.input-fat.input-large {
   width: 182px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-xlarge,
-input[type="text"].input-fat.input-xlarge,
-input[type="password"].input-fat.input-xlarge,
-input[type="datetime"].input-fat.input-xlarge,
-input[type="datetime-local"].input-fat.input-xlarge,
-input[type="date"].input-fat.input-xlarge,
-input[type="month"].input-fat.input-xlarge,
-input[type="time"].input-fat.input-xlarge,
-input[type="week"].input-fat.input-xlarge,
-input[type="number"].input-fat.input-xlarge,
-input[type="email"].input-fat.input-xlarge,
-input[type="url"].input-fat.input-xlarge,
-input[type="search"].input-fat.input-xlarge,
-input[type="tel"].input-fat.input-xlarge,
-input[type="color"].input-fat.input-xlarge,
-.uneditable-input.input-fat.input-xlarge {
+.sui-form textarea.input-fat.input-xlarge,
+.sui-form input[type="text"].input-fat.input-xlarge,
+.sui-form input[type="password"].input-fat.input-xlarge,
+.sui-form input[type="datetime"].input-fat.input-xlarge,
+.sui-form input[type="datetime-local"].input-fat.input-xlarge,
+.sui-form input[type="date"].input-fat.input-xlarge,
+.sui-form input[type="month"].input-fat.input-xlarge,
+.sui-form input[type="time"].input-fat.input-xlarge,
+.sui-form input[type="week"].input-fat.input-xlarge,
+.sui-form input[type="number"].input-fat.input-xlarge,
+.sui-form input[type="email"].input-fat.input-xlarge,
+.sui-form input[type="url"].input-fat.input-xlarge,
+.sui-form input[type="search"].input-fat.input-xlarge,
+.sui-form input[type="tel"].input-fat.input-xlarge,
+.sui-form input[type="color"].input-fat.input-xlarge,
+.sui-form .uneditable-input.input-fat.input-xlarge {
   width: 332px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-fat.input-xxlarge,
-input[type="text"].input-fat.input-xxlarge,
-input[type="password"].input-fat.input-xxlarge,
-input[type="datetime"].input-fat.input-xxlarge,
-input[type="datetime-local"].input-fat.input-xxlarge,
-input[type="date"].input-fat.input-xxlarge,
-input[type="month"].input-fat.input-xxlarge,
-input[type="time"].input-fat.input-xxlarge,
-input[type="week"].input-fat.input-xxlarge,
-input[type="number"].input-fat.input-xxlarge,
-input[type="email"].input-fat.input-xxlarge,
-input[type="url"].input-fat.input-xxlarge,
-input[type="search"].input-fat.input-xxlarge,
-input[type="tel"].input-fat.input-xxlarge,
-input[type="color"].input-fat.input-xxlarge,
-.uneditable-input.input-fat.input-xxlarge {
+.sui-form textarea.input-fat.input-xxlarge,
+.sui-form input[type="text"].input-fat.input-xxlarge,
+.sui-form input[type="password"].input-fat.input-xxlarge,
+.sui-form input[type="datetime"].input-fat.input-xxlarge,
+.sui-form input[type="datetime-local"].input-fat.input-xxlarge,
+.sui-form input[type="date"].input-fat.input-xxlarge,
+.sui-form input[type="month"].input-fat.input-xxlarge,
+.sui-form input[type="time"].input-fat.input-xxlarge,
+.sui-form input[type="week"].input-fat.input-xxlarge,
+.sui-form input[type="number"].input-fat.input-xxlarge,
+.sui-form input[type="email"].input-fat.input-xxlarge,
+.sui-form input[type="url"].input-fat.input-xxlarge,
+.sui-form input[type="search"].input-fat.input-xxlarge,
+.sui-form input[type="tel"].input-fat.input-xxlarge,
+.sui-form input[type="color"].input-fat.input-xxlarge,
+.sui-form .uneditable-input.input-fat.input-xxlarge {
   width: 482px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat,
-input[type="text"].input-xfat,
-input[type="password"].input-xfat,
-input[type="datetime"].input-xfat,
-input[type="datetime-local"].input-xfat,
-input[type="date"].input-xfat,
-input[type="month"].input-xfat,
-input[type="time"].input-xfat,
-input[type="week"].input-xfat,
-input[type="number"].input-xfat,
-input[type="email"].input-xfat,
-input[type="url"].input-xfat,
-input[type="search"].input-xfat,
-input[type="tel"].input-xfat,
-input[type="color"].input-xfat,
-.uneditable-input.input-xfat {
+.sui-form textarea.input-xfat,
+.sui-form input[type="text"].input-xfat,
+.sui-form input[type="password"].input-xfat,
+.sui-form input[type="datetime"].input-xfat,
+.sui-form input[type="datetime-local"].input-xfat,
+.sui-form input[type="date"].input-xfat,
+.sui-form input[type="month"].input-xfat,
+.sui-form input[type="time"].input-xfat,
+.sui-form input[type="week"].input-xfat,
+.sui-form input[type="number"].input-xfat,
+.sui-form input[type="email"].input-xfat,
+.sui-form input[type="url"].input-xfat,
+.sui-form input[type="search"].input-xfat,
+.sui-form input[type="tel"].input-xfat,
+.sui-form input[type="color"].input-xfat,
+.sui-form .uneditable-input.input-xfat {
   padding-top: 6px;
   padding-right: 8px;
   padding-bottom: 6px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-mini,
-input[type="text"].input-xfat.input-mini,
-input[type="password"].input-xfat.input-mini,
-input[type="datetime"].input-xfat.input-mini,
-input[type="datetime-local"].input-xfat.input-mini,
-input[type="date"].input-xfat.input-mini,
-input[type="month"].input-xfat.input-mini,
-input[type="time"].input-xfat.input-mini,
-input[type="week"].input-xfat.input-mini,
-input[type="number"].input-xfat.input-mini,
-input[type="email"].input-xfat.input-mini,
-input[type="url"].input-xfat.input-mini,
-input[type="search"].input-xfat.input-mini,
-input[type="tel"].input-xfat.input-mini,
-input[type="color"].input-xfat.input-mini,
-.uneditable-input.input-xfat.input-mini {
+.sui-form textarea.input-xfat.input-mini,
+.sui-form input[type="text"].input-xfat.input-mini,
+.sui-form input[type="password"].input-xfat.input-mini,
+.sui-form input[type="datetime"].input-xfat.input-mini,
+.sui-form input[type="datetime-local"].input-xfat.input-mini,
+.sui-form input[type="date"].input-xfat.input-mini,
+.sui-form input[type="month"].input-xfat.input-mini,
+.sui-form input[type="time"].input-xfat.input-mini,
+.sui-form input[type="week"].input-xfat.input-mini,
+.sui-form input[type="number"].input-xfat.input-mini,
+.sui-form input[type="email"].input-xfat.input-mini,
+.sui-form input[type="url"].input-xfat.input-mini,
+.sui-form input[type="search"].input-xfat.input-mini,
+.sui-form input[type="tel"].input-xfat.input-mini,
+.sui-form input[type="color"].input-xfat.input-mini,
+.sui-form .uneditable-input.input-xfat.input-mini {
   width: 22px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-small,
-input[type="text"].input-xfat.input-small,
-input[type="password"].input-xfat.input-small,
-input[type="datetime"].input-xfat.input-small,
-input[type="datetime-local"].input-xfat.input-small,
-input[type="date"].input-xfat.input-small,
-input[type="month"].input-xfat.input-small,
-input[type="time"].input-xfat.input-small,
-input[type="week"].input-xfat.input-small,
-input[type="number"].input-xfat.input-small,
-input[type="email"].input-xfat.input-small,
-input[type="url"].input-xfat.input-small,
-input[type="search"].input-xfat.input-small,
-input[type="tel"].input-xfat.input-small,
-input[type="color"].input-xfat.input-small,
-.uneditable-input.input-xfat.input-small {
+.sui-form textarea.input-xfat.input-small,
+.sui-form input[type="text"].input-xfat.input-small,
+.sui-form input[type="password"].input-xfat.input-small,
+.sui-form input[type="datetime"].input-xfat.input-small,
+.sui-form input[type="datetime-local"].input-xfat.input-small,
+.sui-form input[type="date"].input-xfat.input-small,
+.sui-form input[type="month"].input-xfat.input-small,
+.sui-form input[type="time"].input-xfat.input-small,
+.sui-form input[type="week"].input-xfat.input-small,
+.sui-form input[type="number"].input-xfat.input-small,
+.sui-form input[type="email"].input-xfat.input-small,
+.sui-form input[type="url"].input-xfat.input-small,
+.sui-form input[type="search"].input-xfat.input-small,
+.sui-form input[type="tel"].input-xfat.input-small,
+.sui-form input[type="color"].input-xfat.input-small,
+.sui-form .uneditable-input.input-xfat.input-small {
   width: 42px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-medium,
-input[type="text"].input-xfat.input-medium,
-input[type="password"].input-xfat.input-medium,
-input[type="datetime"].input-xfat.input-medium,
-input[type="datetime-local"].input-xfat.input-medium,
-input[type="date"].input-xfat.input-medium,
-input[type="month"].input-xfat.input-medium,
-input[type="time"].input-xfat.input-medium,
-input[type="week"].input-xfat.input-medium,
-input[type="number"].input-xfat.input-medium,
-input[type="email"].input-xfat.input-medium,
-input[type="url"].input-xfat.input-medium,
-input[type="search"].input-xfat.input-medium,
-input[type="tel"].input-xfat.input-medium,
-input[type="color"].input-xfat.input-medium,
-.uneditable-input.input-xfat.input-medium {
+.sui-form textarea.input-xfat.input-medium,
+.sui-form input[type="text"].input-xfat.input-medium,
+.sui-form input[type="password"].input-xfat.input-medium,
+.sui-form input[type="datetime"].input-xfat.input-medium,
+.sui-form input[type="datetime-local"].input-xfat.input-medium,
+.sui-form input[type="date"].input-xfat.input-medium,
+.sui-form input[type="month"].input-xfat.input-medium,
+.sui-form input[type="time"].input-xfat.input-medium,
+.sui-form input[type="week"].input-xfat.input-medium,
+.sui-form input[type="number"].input-xfat.input-medium,
+.sui-form input[type="email"].input-xfat.input-medium,
+.sui-form input[type="url"].input-xfat.input-medium,
+.sui-form input[type="search"].input-xfat.input-medium,
+.sui-form input[type="tel"].input-xfat.input-medium,
+.sui-form input[type="color"].input-xfat.input-medium,
+.sui-form .uneditable-input.input-xfat.input-medium {
   width: 102px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-large,
-input[type="text"].input-xfat.input-large,
-input[type="password"].input-xfat.input-large,
-input[type="datetime"].input-xfat.input-large,
-input[type="datetime-local"].input-xfat.input-large,
-input[type="date"].input-xfat.input-large,
-input[type="month"].input-xfat.input-large,
-input[type="time"].input-xfat.input-large,
-input[type="week"].input-xfat.input-large,
-input[type="number"].input-xfat.input-large,
-input[type="email"].input-xfat.input-large,
-input[type="url"].input-xfat.input-large,
-input[type="search"].input-xfat.input-large,
-input[type="tel"].input-xfat.input-large,
-input[type="color"].input-xfat.input-large,
-.uneditable-input.input-xfat.input-large {
+.sui-form textarea.input-xfat.input-large,
+.sui-form input[type="text"].input-xfat.input-large,
+.sui-form input[type="password"].input-xfat.input-large,
+.sui-form input[type="datetime"].input-xfat.input-large,
+.sui-form input[type="datetime-local"].input-xfat.input-large,
+.sui-form input[type="date"].input-xfat.input-large,
+.sui-form input[type="month"].input-xfat.input-large,
+.sui-form input[type="time"].input-xfat.input-large,
+.sui-form input[type="week"].input-xfat.input-large,
+.sui-form input[type="number"].input-xfat.input-large,
+.sui-form input[type="email"].input-xfat.input-large,
+.sui-form input[type="url"].input-xfat.input-large,
+.sui-form input[type="search"].input-xfat.input-large,
+.sui-form input[type="tel"].input-xfat.input-large,
+.sui-form input[type="color"].input-xfat.input-large,
+.sui-form .uneditable-input.input-xfat.input-large {
   width: 182px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-xlarge,
-input[type="text"].input-xfat.input-xlarge,
-input[type="password"].input-xfat.input-xlarge,
-input[type="datetime"].input-xfat.input-xlarge,
-input[type="datetime-local"].input-xfat.input-xlarge,
-input[type="date"].input-xfat.input-xlarge,
-input[type="month"].input-xfat.input-xlarge,
-input[type="time"].input-xfat.input-xlarge,
-input[type="week"].input-xfat.input-xlarge,
-input[type="number"].input-xfat.input-xlarge,
-input[type="email"].input-xfat.input-xlarge,
-input[type="url"].input-xfat.input-xlarge,
-input[type="search"].input-xfat.input-xlarge,
-input[type="tel"].input-xfat.input-xlarge,
-input[type="color"].input-xfat.input-xlarge,
-.uneditable-input.input-xfat.input-xlarge {
+.sui-form textarea.input-xfat.input-xlarge,
+.sui-form input[type="text"].input-xfat.input-xlarge,
+.sui-form input[type="password"].input-xfat.input-xlarge,
+.sui-form input[type="datetime"].input-xfat.input-xlarge,
+.sui-form input[type="datetime-local"].input-xfat.input-xlarge,
+.sui-form input[type="date"].input-xfat.input-xlarge,
+.sui-form input[type="month"].input-xfat.input-xlarge,
+.sui-form input[type="time"].input-xfat.input-xlarge,
+.sui-form input[type="week"].input-xfat.input-xlarge,
+.sui-form input[type="number"].input-xfat.input-xlarge,
+.sui-form input[type="email"].input-xfat.input-xlarge,
+.sui-form input[type="url"].input-xfat.input-xlarge,
+.sui-form input[type="search"].input-xfat.input-xlarge,
+.sui-form input[type="tel"].input-xfat.input-xlarge,
+.sui-form input[type="color"].input-xfat.input-xlarge,
+.sui-form .uneditable-input.input-xfat.input-xlarge {
   width: 332px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-textarea.input-xfat.input-xxlarge,
-input[type="text"].input-xfat.input-xxlarge,
-input[type="password"].input-xfat.input-xxlarge,
-input[type="datetime"].input-xfat.input-xxlarge,
-input[type="datetime-local"].input-xfat.input-xxlarge,
-input[type="date"].input-xfat.input-xxlarge,
-input[type="month"].input-xfat.input-xxlarge,
-input[type="time"].input-xfat.input-xxlarge,
-input[type="week"].input-xfat.input-xxlarge,
-input[type="number"].input-xfat.input-xxlarge,
-input[type="email"].input-xfat.input-xxlarge,
-input[type="url"].input-xfat.input-xxlarge,
-input[type="search"].input-xfat.input-xxlarge,
-input[type="tel"].input-xfat.input-xxlarge,
-input[type="color"].input-xfat.input-xxlarge,
-.uneditable-input.input-xfat.input-xxlarge {
+.sui-form textarea.input-xfat.input-xxlarge,
+.sui-form input[type="text"].input-xfat.input-xxlarge,
+.sui-form input[type="password"].input-xfat.input-xxlarge,
+.sui-form input[type="datetime"].input-xfat.input-xxlarge,
+.sui-form input[type="datetime-local"].input-xfat.input-xxlarge,
+.sui-form input[type="date"].input-xfat.input-xxlarge,
+.sui-form input[type="month"].input-xfat.input-xxlarge,
+.sui-form input[type="time"].input-xfat.input-xxlarge,
+.sui-form input[type="week"].input-xfat.input-xxlarge,
+.sui-form input[type="number"].input-xfat.input-xxlarge,
+.sui-form input[type="email"].input-xfat.input-xxlarge,
+.sui-form input[type="url"].input-xfat.input-xxlarge,
+.sui-form input[type="search"].input-xfat.input-xxlarge,
+.sui-form input[type="tel"].input-xfat.input-xxlarge,
+.sui-form input[type="color"].input-xfat.input-xxlarge,
+.sui-form .uneditable-input.input-xfat.input-xxlarge {
   width: 482px;
   padding-right: 8px;
   padding-left: 8px;
 }
 
-select.input-thin {
+.sui-form select.input-thin {
   height: 20px;
 }
 
-select.input-default {
+.sui-form select.input-default {
   height: 24px;
 }
 
-select.input-fat {
+.sui-form select.input-fat {
   height: 28px;
 }
 
-select.input-xfat {
+.sui-form select.input-xfat {
   height: 32px;
 }
 
-input[class*="span"],
-select[class*="span"],
-textarea[class*="span"],
-.uneditable-input[class*="span"],
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"] {
+.sui-form input[class*="span"],
+.sui-form select[class*="span"],
+.sui-form textarea[class*="span"],
+.sui-form .uneditable-input[class*="span"],
+.sui-form .row-fluid input[class*="span"],
+.sui-form .row-fluid select[class*="span"],
+.sui-form .row-fluid textarea[class*="span"],
+.sui-form .row-fluid .uneditable-input[class*="span"] {
   float: none;
   margin-left: 0;
 }
 
-.input-append input[class*="span"],
-.input-append .uneditable-input[class*="span"],
-.input-prepend input[class*="span"],
-.input-prepend .uneditable-input[class*="span"],
-.row-fluid input[class*="span"],
-.row-fluid select[class*="span"],
-.row-fluid textarea[class*="span"],
-.row-fluid .uneditable-input[class*="span"],
-.row-fluid .input-prepend [class*="span"],
-.row-fluid .input-append [class*="span"] {
+.sui-form .input-append input[class*="span"],
+.sui-form .input-append .uneditable-input[class*="span"],
+.sui-form .input-prepend input[class*="span"],
+.sui-form .input-prepend .uneditable-input[class*="span"],
+.sui-form .row-fluid input[class*="span"],
+.sui-form .row-fluid select[class*="span"],
+.sui-form .row-fluid textarea[class*="span"],
+.sui-form .row-fluid .uneditable-input[class*="span"],
+.sui-form .row-fluid .input-prepend [class*="span"],
+.sui-form .row-fluid .input-append [class*="span"] {
   display: inline-block;
 }
 
-input,
-textarea,
-.uneditable-input {
+.sui-form input,
+.sui-form textarea,
+.sui-form .uneditable-input {
   margin-left: 0;
 }
 
-.controls-row [class*="span"] + [class*="span"] {
+.sui-form .controls-row [class*="span"] + [class*="span"] {
   margin-left: 10px;
 }
 
-input.span12,
-textarea.span12,
-.uneditable-input.span12 {
+.sui-form input.span12,
+.sui-form textarea.span12,
+.sui-form .uneditable-input.span12 {
   width: 984px;
 }
 
-input.span11,
-textarea.span11,
-.uneditable-input.span11 {
+.sui-form input.span11,
+.sui-form textarea.span11,
+.sui-form .uneditable-input.span11 {
   width: 900px;
 }
 
-input.span10,
-textarea.span10,
-.uneditable-input.span10 {
+.sui-form input.span10,
+.sui-form textarea.span10,
+.sui-form .uneditable-input.span10 {
   width: 816px;
 }
 
-input.span9,
-textarea.span9,
-.uneditable-input.span9 {
+.sui-form input.span9,
+.sui-form textarea.span9,
+.sui-form .uneditable-input.span9 {
   width: 732px;
 }
 
-input.span8,
-textarea.span8,
-.uneditable-input.span8 {
+.sui-form input.span8,
+.sui-form textarea.span8,
+.sui-form .uneditable-input.span8 {
   width: 648px;
 }
 
-input.span7,
-textarea.span7,
-.uneditable-input.span7 {
+.sui-form input.span7,
+.sui-form textarea.span7,
+.sui-form .uneditable-input.span7 {
   width: 564px;
 }
 
-input.span6,
-textarea.span6,
-.uneditable-input.span6 {
+.sui-form input.span6,
+.sui-form textarea.span6,
+.sui-form .uneditable-input.span6 {
   width: 480px;
 }
 
-input.span5,
-textarea.span5,
-.uneditable-input.span5 {
+.sui-form input.span5,
+.sui-form textarea.span5,
+.sui-form .uneditable-input.span5 {
   width: 396px;
 }
 
-input.span4,
-textarea.span4,
-.uneditable-input.span4 {
+.sui-form input.span4,
+.sui-form textarea.span4,
+.sui-form .uneditable-input.span4 {
   width: 312px;
 }
 
-input.span3,
-textarea.span3,
-.uneditable-input.span3 {
+.sui-form input.span3,
+.sui-form textarea.span3,
+.sui-form .uneditable-input.span3 {
   width: 228px;
 }
 
-input.span2,
-textarea.span2,
-.uneditable-input.span2 {
+.sui-form input.span2,
+.sui-form textarea.span2,
+.sui-form .uneditable-input.span2 {
   width: 144px;
 }
 
-input.span1,
-textarea.span1,
-.uneditable-input.span1 {
+.sui-form input.span1,
+.sui-form textarea.span1,
+.sui-form .uneditable-input.span1 {
   width: 60px;
 }
 
-.controls-row {
+.sui-form .controls-row {
   *zoom: 1;
 }
 
-.controls-row:before,
-.controls-row:after {
+.sui-form .controls-row:before,
+.sui-form .controls-row:after {
   display: table;
   line-height: 0;
   content: "";
 }
 
-.controls-row:after {
+.sui-form .controls-row:after {
   clear: both;
 }
 
-.controls-row [class*="span"],
-.row-fluid .controls-row [class*="span"] {
+.sui-form .controls-row [class*="span"],
+.sui-form .row-fluid .controls-row [class*="span"] {
   float: left;
 }
 
-/* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-.controls-row .checkbox[class*="span"],
-.controls-row .radio[class*="span"] {
-  padding-top: 5px;
-}
-*/
-
-.row-fluid + .row-fluid {
+.sui-form .row-fluid + .row-fluid {
   margin-top: 9px;
 }
 
-input[disabled],
-select[disabled],
-textarea[disabled],
-input[readonly],
-select[readonly],
-textarea[readonly] {
+.sui-form input[disabled],
+.sui-form select[disabled],
+.sui-form textarea[disabled],
+.sui-form input[readonly],
+.sui-form select[readonly],
+.sui-form textarea[readonly] {
   cursor: not-allowed;
   background-color: #ffffff;
 }
 
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"][readonly],
-input[type="checkbox"][readonly] {
+.sui-form input[type="radio"][disabled],
+.sui-form input[type="checkbox"][disabled],
+.sui-form input[type="radio"][readonly],
+.sui-form input[type="checkbox"][readonly] {
   background-color: transparent;
 }
 
-/* ����У��״̬���£�ȥ��control-group����������У�鷶Χ @by kai 2014-02-13
-// Warning
-.control-group.warning {
-  .formFieldState(@warningText, @warningText, @warningBackground);
-}
-// Error
-.control-group.error {
-  .formFieldState(@errorText, @errorText, @errorBackground);
-}
-// Success
-.control-group.success {
-  .formFieldState(@successText, @successText, @successBackground);
-}
-// Info
-.control-group.info {
-  .formFieldState(@infoText, @infoText, @infoBackground);
-}
-*/
-
-.warning {
+.sui-form .warning {
   /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
   .checkbox,
   .radio,
@@ -2030,35 +2017,35 @@ input[type="checkbox"][readonly] {
 
 }
 
-.warning .control-label,
-.warning .help-block,
-.warning .help-inline {
+.sui-form .warning .control-label,
+.sui-form .warning .help-block,
+.sui-form .warning .help-inline {
   color: #ff7300;
 }
 
-.warning input,
-.warning select,
-.warning textarea {
+.sui-form .warning input,
+.sui-form .warning select,
+.sui-form .warning textarea {
   border-color: #ff7300;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.warning input:focus,
-.warning select:focus,
-.warning textarea:focus {
+.sui-form .warning input:focus,
+.sui-form .warning select:focus,
+.sui-form .warning textarea:focus {
   border-color: #cc5c00;
 }
 
-.warning .input-prepend .add-on,
-.warning .input-append .add-on {
+.sui-form .warning .input-prepend .add-on,
+.sui-form .warning .input-append .add-on {
   color: #ff7300;
   background-color: #fcf8e3;
   border-color: #ff7300;
 }
 
-.error {
+.sui-form .error {
   /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
   .checkbox,
   .radio,
@@ -2071,35 +2058,35 @@ input[type="checkbox"][readonly] {
 
 }
 
-.error .control-label,
-.error .help-block,
-.error .help-inline {
+.sui-form .error .control-label,
+.sui-form .error .help-block,
+.sui-form .error .help-inline {
   color: #ea4a36;
 }
 
-.error input,
-.error select,
-.error textarea {
+.sui-form .error input,
+.sui-form .error select,
+.sui-form .error textarea {
   border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.error input:focus,
-.error select:focus,
-.error textarea:focus {
+.sui-form .error input:focus,
+.sui-form .error select:focus,
+.sui-form .error textarea:focus {
   border-color: #d72c16;
 }
 
-.error .input-prepend .add-on,
-.error .input-append .add-on {
+.sui-form .error .input-prepend .add-on,
+.sui-form .error .input-append .add-on {
   color: #ea4a36;
   background-color: #f2dede;
   border-color: #ea4a36;
 }
 
-.success {
+.sui-form .success {
   /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
   .checkbox,
   .radio,
@@ -2112,35 +2099,35 @@ input[type="checkbox"][readonly] {
 
 }
 
-.success .control-label,
-.success .help-block,
-.success .help-inline {
+.sui-form .success .control-label,
+.sui-form .success .help-block,
+.sui-form .success .help-inline {
   color: #22cd6e;
 }
 
-.success input,
-.success select,
-.success textarea {
+.sui-form .success input,
+.sui-form .success select,
+.sui-form .success textarea {
   border-color: #22cd6e;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.success input:focus,
-.success select:focus,
-.success textarea:focus {
+.sui-form .success input:focus,
+.sui-form .success select:focus,
+.sui-form .success textarea:focus {
   border-color: #1ba157;
 }
 
-.success .input-prepend .add-on,
-.success .input-append .add-on {
+.sui-form .success .input-prepend .add-on,
+.sui-form .success .input-append .add-on {
   color: #22cd6e;
   background-color: #dff0d8;
   border-color: #22cd6e;
 }
 
-.info {
+.sui-form .info {
   /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
   .checkbox,
   .radio,
@@ -2153,254 +2140,254 @@ input[type="checkbox"][readonly] {
 
 }
 
-.info .control-label,
-.info .help-block,
-.info .help-inline {
+.sui-form .info .control-label,
+.sui-form .info .help-block,
+.sui-form .info .help-inline {
   color: #2597dd;
 }
 
-.info input,
-.info select,
-.info textarea {
+.sui-form .info input,
+.sui-form .info select,
+.sui-form .info textarea {
   border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.info input:focus,
-.info select:focus,
-.info textarea:focus {
+.sui-form .info input:focus,
+.sui-form .info select:focus,
+.sui-form .info textarea:focus {
   border-color: #1c7ab3;
 }
 
-.info .input-prepend .add-on,
-.info .input-append .add-on {
+.sui-form .info .input-prepend .add-on,
+.sui-form .info .input-append .add-on {
   color: #2597dd;
   background-color: #d9edf7;
   border-color: #2597dd;
 }
 
-input:focus:invalid,
-textarea:focus:invalid,
-select:focus:invalid {
+.sui-form input:focus:invalid,
+.sui-form textarea:focus:invalid,
+.sui-form select:focus:invalid {
   color: #b94a48;
   border-color: #ee5f5b;
 }
 
-input:focus:invalid:focus,
-textarea:focus:invalid:focus,
-select:focus:invalid:focus {
+.sui-form input:focus:invalid:focus,
+.sui-form textarea:focus:invalid:focus,
+.sui-form select:focus:invalid:focus {
   border-color: #e9322d;
 }
 
-.input-warning {
+.sui-form .input-warning {
   border-color: #ff7300;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.input-warning:focus {
+.sui-form .input-warning:focus {
   border-color: #cc5c00;
 }
 
-.input-error {
+.sui-form .input-error {
   border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.input-error:focus {
+.sui-form .input-error:focus {
   border-color: #d72c16;
 }
 
-.input-success {
+.sui-form .input-success {
   border-color: #22cd6e;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.input-success:focus {
+.sui-form .input-success:focus {
   border-color: #1ba157;
 }
 
-.input-info {
+.sui-form .input-info {
   border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.input-info:focus {
+.sui-form .input-info:focus {
   border-color: #1c7ab3;
 }
 
-textarea.input-warning,
-input[type="text"].input-warning,
-input[type="password"].input-warning,
-input[type="datetime"].input-warning,
-input[type="datetime-local"].input-warning,
-input[type="date"].input-warning,
-input[type="month"].input-warning,
-input[type="time"].input-warning,
-input[type="week"].input-warning,
-input[type="number"].input-warning,
-input[type="email"].input-warning,
-input[type="url"].input-warning,
-input[type="search"].input-warning,
-input[type="tel"].input-warning,
-input[type="color"].input-warning {
+.sui-form textarea.input-warning,
+.sui-form input[type="text"].input-warning,
+.sui-form input[type="password"].input-warning,
+.sui-form input[type="datetime"].input-warning,
+.sui-form input[type="datetime-local"].input-warning,
+.sui-form input[type="date"].input-warning,
+.sui-form input[type="month"].input-warning,
+.sui-form input[type="time"].input-warning,
+.sui-form input[type="week"].input-warning,
+.sui-form input[type="number"].input-warning,
+.sui-form input[type="email"].input-warning,
+.sui-form input[type="url"].input-warning,
+.sui-form input[type="search"].input-warning,
+.sui-form input[type="tel"].input-warning,
+.sui-form input[type="color"].input-warning {
   border-color: #ff7300;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-textarea.input-warning:focus,
-input[type="text"].input-warning:focus,
-input[type="password"].input-warning:focus,
-input[type="datetime"].input-warning:focus,
-input[type="datetime-local"].input-warning:focus,
-input[type="date"].input-warning:focus,
-input[type="month"].input-warning:focus,
-input[type="time"].input-warning:focus,
-input[type="week"].input-warning:focus,
-input[type="number"].input-warning:focus,
-input[type="email"].input-warning:focus,
-input[type="url"].input-warning:focus,
-input[type="search"].input-warning:focus,
-input[type="tel"].input-warning:focus,
-input[type="color"].input-warning:focus {
+.sui-form textarea.input-warning:focus,
+.sui-form input[type="text"].input-warning:focus,
+.sui-form input[type="password"].input-warning:focus,
+.sui-form input[type="datetime"].input-warning:focus,
+.sui-form input[type="datetime-local"].input-warning:focus,
+.sui-form input[type="date"].input-warning:focus,
+.sui-form input[type="month"].input-warning:focus,
+.sui-form input[type="time"].input-warning:focus,
+.sui-form input[type="week"].input-warning:focus,
+.sui-form input[type="number"].input-warning:focus,
+.sui-form input[type="email"].input-warning:focus,
+.sui-form input[type="url"].input-warning:focus,
+.sui-form input[type="search"].input-warning:focus,
+.sui-form input[type="tel"].input-warning:focus,
+.sui-form input[type="color"].input-warning:focus {
   border-color: #cc5c00;
 }
 
-textarea.input-success,
-input[type="text"].input-success,
-input[type="password"].input-success,
-input[type="datetime"].input-success,
-input[type="datetime-local"].input-success,
-input[type="date"].input-success,
-input[type="month"].input-success,
-input[type="time"].input-success,
-input[type="week"].input-success,
-input[type="number"].input-success,
-input[type="email"].input-success,
-input[type="url"].input-success,
-input[type="search"].input-success,
-input[type="tel"].input-success,
-input[type="color"].input-success {
+.sui-form textarea.input-success,
+.sui-form input[type="text"].input-success,
+.sui-form input[type="password"].input-success,
+.sui-form input[type="datetime"].input-success,
+.sui-form input[type="datetime-local"].input-success,
+.sui-form input[type="date"].input-success,
+.sui-form input[type="month"].input-success,
+.sui-form input[type="time"].input-success,
+.sui-form input[type="week"].input-success,
+.sui-form input[type="number"].input-success,
+.sui-form input[type="email"].input-success,
+.sui-form input[type="url"].input-success,
+.sui-form input[type="search"].input-success,
+.sui-form input[type="tel"].input-success,
+.sui-form input[type="color"].input-success {
   border-color: #22cd6e;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-textarea.input-success:focus,
-input[type="text"].input-success:focus,
-input[type="password"].input-success:focus,
-input[type="datetime"].input-success:focus,
-input[type="datetime-local"].input-success:focus,
-input[type="date"].input-success:focus,
-input[type="month"].input-success:focus,
-input[type="time"].input-success:focus,
-input[type="week"].input-success:focus,
-input[type="number"].input-success:focus,
-input[type="email"].input-success:focus,
-input[type="url"].input-success:focus,
-input[type="search"].input-success:focus,
-input[type="tel"].input-success:focus,
-input[type="color"].input-success:focus {
+.sui-form textarea.input-success:focus,
+.sui-form input[type="text"].input-success:focus,
+.sui-form input[type="password"].input-success:focus,
+.sui-form input[type="datetime"].input-success:focus,
+.sui-form input[type="datetime-local"].input-success:focus,
+.sui-form input[type="date"].input-success:focus,
+.sui-form input[type="month"].input-success:focus,
+.sui-form input[type="time"].input-success:focus,
+.sui-form input[type="week"].input-success:focus,
+.sui-form input[type="number"].input-success:focus,
+.sui-form input[type="email"].input-success:focus,
+.sui-form input[type="url"].input-success:focus,
+.sui-form input[type="search"].input-success:focus,
+.sui-form input[type="tel"].input-success:focus,
+.sui-form input[type="color"].input-success:focus {
   border-color: #1ba157;
 }
 
-textarea.input-error,
-input[type="text"].input-error,
-input[type="password"].input-error,
-input[type="datetime"].input-error,
-input[type="datetime-local"].input-error,
-input[type="date"].input-error,
-input[type="month"].input-error,
-input[type="time"].input-error,
-input[type="week"].input-error,
-input[type="number"].input-error,
-input[type="email"].input-error,
-input[type="url"].input-error,
-input[type="search"].input-error,
-input[type="tel"].input-error,
-input[type="color"].input-error {
+.sui-form textarea.input-error,
+.sui-form input[type="text"].input-error,
+.sui-form input[type="password"].input-error,
+.sui-form input[type="datetime"].input-error,
+.sui-form input[type="datetime-local"].input-error,
+.sui-form input[type="date"].input-error,
+.sui-form input[type="month"].input-error,
+.sui-form input[type="time"].input-error,
+.sui-form input[type="week"].input-error,
+.sui-form input[type="number"].input-error,
+.sui-form input[type="email"].input-error,
+.sui-form input[type="url"].input-error,
+.sui-form input[type="search"].input-error,
+.sui-form input[type="tel"].input-error,
+.sui-form input[type="color"].input-error {
   border-color: #ea4a36;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-textarea.input-error:focus,
-input[type="text"].input-error:focus,
-input[type="password"].input-error:focus,
-input[type="datetime"].input-error:focus,
-input[type="datetime-local"].input-error:focus,
-input[type="date"].input-error:focus,
-input[type="month"].input-error:focus,
-input[type="time"].input-error:focus,
-input[type="week"].input-error:focus,
-input[type="number"].input-error:focus,
-input[type="email"].input-error:focus,
-input[type="url"].input-error:focus,
-input[type="search"].input-error:focus,
-input[type="tel"].input-error:focus,
-input[type="color"].input-error:focus {
+.sui-form textarea.input-error:focus,
+.sui-form input[type="text"].input-error:focus,
+.sui-form input[type="password"].input-error:focus,
+.sui-form input[type="datetime"].input-error:focus,
+.sui-form input[type="datetime-local"].input-error:focus,
+.sui-form input[type="date"].input-error:focus,
+.sui-form input[type="month"].input-error:focus,
+.sui-form input[type="time"].input-error:focus,
+.sui-form input[type="week"].input-error:focus,
+.sui-form input[type="number"].input-error:focus,
+.sui-form input[type="email"].input-error:focus,
+.sui-form input[type="url"].input-error:focus,
+.sui-form input[type="search"].input-error:focus,
+.sui-form input[type="tel"].input-error:focus,
+.sui-form input[type="color"].input-error:focus {
   border-color: #d72c16;
 }
 
-textarea.input-info,
-input[type="text"].input-info,
-input[type="password"].input-info,
-input[type="datetime"].input-info,
-input[type="datetime-local"].input-info,
-input[type="date"].input-info,
-input[type="month"].input-info,
-input[type="time"].input-info,
-input[type="week"].input-info,
-input[type="number"].input-info,
-input[type="email"].input-info,
-input[type="url"].input-info,
-input[type="search"].input-info,
-input[type="tel"].input-info,
-input[type="color"].input-info {
+.sui-form textarea.input-info,
+.sui-form input[type="text"].input-info,
+.sui-form input[type="password"].input-info,
+.sui-form input[type="datetime"].input-info,
+.sui-form input[type="datetime-local"].input-info,
+.sui-form input[type="date"].input-info,
+.sui-form input[type="month"].input-info,
+.sui-form input[type="time"].input-info,
+.sui-form input[type="week"].input-info,
+.sui-form input[type="number"].input-info,
+.sui-form input[type="email"].input-info,
+.sui-form input[type="url"].input-info,
+.sui-form input[type="search"].input-info,
+.sui-form input[type="tel"].input-info,
+.sui-form input[type="color"].input-info {
   border-color: #2597dd;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-textarea.input-info:focus,
-input[type="text"].input-info:focus,
-input[type="password"].input-info:focus,
-input[type="datetime"].input-info:focus,
-input[type="datetime-local"].input-info:focus,
-input[type="date"].input-info:focus,
-input[type="month"].input-info:focus,
-input[type="time"].input-info:focus,
-input[type="week"].input-info:focus,
-input[type="number"].input-info:focus,
-input[type="email"].input-info:focus,
-input[type="url"].input-info:focus,
-input[type="search"].input-info:focus,
-input[type="tel"].input-info:focus,
-input[type="color"].input-info:focus {
+.sui-form textarea.input-info:focus,
+.sui-form input[type="text"].input-info:focus,
+.sui-form input[type="password"].input-info:focus,
+.sui-form input[type="datetime"].input-info:focus,
+.sui-form input[type="datetime-local"].input-info:focus,
+.sui-form input[type="date"].input-info:focus,
+.sui-form input[type="month"].input-info:focus,
+.sui-form input[type="time"].input-info:focus,
+.sui-form input[type="week"].input-info:focus,
+.sui-form input[type="number"].input-info:focus,
+.sui-form input[type="email"].input-info:focus,
+.sui-form input[type="url"].input-info:focus,
+.sui-form input[type="search"].input-info:focus,
+.sui-form input[type="tel"].input-info:focus,
+.sui-form input[type="color"].input-info:focus {
   border-color: #1c7ab3;
 }
 
-.input-date {
+.sui-form .input-date {
   background-image: url(http://gtms03.alicdn.com/tps/i3/T1vM02FrliXXbGfe_a-18-14.png);
   background-position: right center;
   background-repeat: no-repeat;
 }
 
-.form-actions {
+.sui-form.form-actions {
   padding: 17px 20px 18px;
   margin-top: 18px;
   margin-bottom: 18px;
@@ -2409,36 +2396,36 @@ input[type="color"].input-info:focus {
   *zoom: 1;
 }
 
-.form-actions:before,
-.form-actions:after {
+.sui-form.form-actions:before,
+.sui-form.form-actions:after {
   display: table;
   line-height: 0;
   content: "";
 }
 
-.form-actions:after {
+.sui-form.form-actions:after {
   clear: both;
 }
 
-.help-block,
-.help-inline {
+.sui-form .help-block,
+.sui-form .help-inline {
   color: #595959;
 }
 
-.help-block {
+.sui-form .help-block {
   display: block;
   margin-top: 9px;
 }
 
-.help-inline {
+.sui-form .help-inline {
   display: inline-block;
   *display: inline;
   vertical-align: middle;
   *zoom: 1;
 }
 
-.input-append,
-.input-prepend {
+.sui-form .input-append,
+.sui-form .input-prepend {
   display: inline-block;
   margin-bottom: 9px;
   font-size: 0;
@@ -2446,25 +2433,25 @@ input[type="color"].input-info:focus {
   vertical-align: middle;
 }
 
-.input-append input,
-.input-prepend input,
-.input-append select,
-.input-prepend select,
-.input-append .uneditable-input,
-.input-prepend .uneditable-input,
-.input-append .dropdown-menu,
-.input-prepend .dropdown-menu,
-.input-append .popover,
-.input-prepend .popover {
+.sui-form .input-append input,
+.sui-form .input-prepend input,
+.sui-form .input-append select,
+.sui-form .input-prepend select,
+.sui-form .input-append .uneditable-input,
+.sui-form .input-prepend .uneditable-input,
+.sui-form .input-append .dropdown-menu,
+.sui-form .input-prepend .dropdown-menu,
+.sui-form .input-append .popover,
+.sui-form .input-prepend .popover {
   font-size: 12px;
 }
 
-.input-append input,
-.input-prepend input,
-.input-append select,
-.input-prepend select,
-.input-append .uneditable-input,
-.input-prepend .uneditable-input {
+.sui-form .input-append input,
+.sui-form .input-prepend input,
+.sui-form .input-append select,
+.sui-form .input-prepend select,
+.sui-form .input-append .uneditable-input,
+.sui-form .input-prepend .uneditable-input {
   position: relative;
   margin-bottom: 0;
   *margin-left: 0;
@@ -2474,17 +2461,17 @@ input[type="color"].input-info:focus {
           border-radius: 0 2px 2px 0;
 }
 
-.input-append input:focus,
-.input-prepend input:focus,
-.input-append select:focus,
-.input-prepend select:focus,
-.input-append .uneditable-input:focus,
-.input-prepend .uneditable-input:focus {
+.sui-form .input-append input:focus,
+.sui-form .input-prepend input:focus,
+.sui-form .input-append select:focus,
+.sui-form .input-prepend select:focus,
+.sui-form .input-append .uneditable-input:focus,
+.sui-form .input-prepend .uneditable-input:focus {
   z-index: 2;
 }
 
-.input-append .add-on,
-.input-prepend .add-on {
+.sui-form .input-append .add-on,
+.sui-form .input-prepend .add-on {
   display: inline-block;
   width: auto;
   height: 18px;
@@ -2499,103 +2486,103 @@ input[type="color"].input-info:focus {
   border: 1px solid #ccc;
 }
 
-.input-append .add-on,
-.input-prepend .add-on,
-.input-append .btn,
-.input-prepend .btn,
-.input-append .btn-group > .dropdown-toggle,
-.input-prepend .btn-group > .dropdown-toggle {
+.sui-form .input-append .add-on,
+.sui-form .input-prepend .add-on,
+.sui-form .input-append .btn,
+.sui-form .input-prepend .btn,
+.sui-form .input-append .btn-group > .dropdown-toggle,
+.sui-form .input-prepend .btn-group > .dropdown-toggle {
   vertical-align: top;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
 }
 
-.input-append .active,
-.input-prepend .active {
+.sui-form .input-append .active,
+.sui-form .input-prepend .active {
   background-color: #a9dba9;
   border-color: #46a546;
 }
 
-.input-prepend .add-on,
-.input-prepend .btn {
+.sui-form .input-prepend .add-on,
+.sui-form .input-prepend .btn {
   margin-right: -1px;
 }
 
-.input-prepend .add-on:first-child,
-.input-prepend .btn:first-child {
+.sui-form .input-prepend .add-on:first-child,
+.sui-form .input-prepend .btn:first-child {
   -webkit-border-radius: 2px 0 0 2px;
      -moz-border-radius: 2px 0 0 2px;
           border-radius: 2px 0 0 2px;
 }
 
-.input-append input,
-.input-append select,
-.input-append .uneditable-input {
+.sui-form .input-append input,
+.sui-form .input-append select,
+.sui-form .input-append .uneditable-input {
   -webkit-border-radius: 2px 0 0 2px;
      -moz-border-radius: 2px 0 0 2px;
           border-radius: 2px 0 0 2px;
 }
 
-.input-append input + .btn-group .btn:last-child,
-.input-append select + .btn-group .btn:last-child,
-.input-append .uneditable-input + .btn-group .btn:last-child {
+.sui-form .input-append input + .btn-group .btn:last-child,
+.sui-form .input-append select + .btn-group .btn:last-child,
+.sui-form .input-append .uneditable-input + .btn-group .btn:last-child {
   -webkit-border-radius: 0 2px 2px 0;
      -moz-border-radius: 0 2px 2px 0;
           border-radius: 0 2px 2px 0;
 }
 
-.input-append .add-on,
-.input-append .btn,
-.input-append .btn-group {
+.sui-form .input-append .add-on,
+.sui-form .input-append .btn,
+.sui-form .input-append .btn-group {
   margin-left: -1px;
 }
 
-.input-append .add-on:last-child,
-.input-append .btn:last-child,
-.input-append .btn-group:last-child > .dropdown-toggle {
+.sui-form .input-append .add-on:last-child,
+.sui-form .input-append .btn:last-child,
+.sui-form .input-append .btn-group:last-child > .dropdown-toggle {
   -webkit-border-radius: 0 2px 2px 0;
      -moz-border-radius: 0 2px 2px 0;
           border-radius: 0 2px 2px 0;
 }
 
-.input-prepend.input-append input,
-.input-prepend.input-append select,
-.input-prepend.input-append .uneditable-input {
+.sui-form .input-prepend.input-append input,
+.sui-form .input-prepend.input-append select,
+.sui-form .input-prepend.input-append .uneditable-input {
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
 }
 
-.input-prepend.input-append input + .btn-group .btn,
-.input-prepend.input-append select + .btn-group .btn,
-.input-prepend.input-append .uneditable-input + .btn-group .btn {
+.sui-form .input-prepend.input-append input + .btn-group .btn,
+.sui-form .input-prepend.input-append select + .btn-group .btn,
+.sui-form .input-prepend.input-append .uneditable-input + .btn-group .btn {
   -webkit-border-radius: 0 2px 2px 0;
      -moz-border-radius: 0 2px 2px 0;
           border-radius: 0 2px 2px 0;
 }
 
-.input-prepend.input-append .add-on:first-child,
-.input-prepend.input-append .btn:first-child {
+.sui-form .input-prepend.input-append .add-on:first-child,
+.sui-form .input-prepend.input-append .btn:first-child {
   margin-right: -1px;
   -webkit-border-radius: 2px 0 0 2px;
      -moz-border-radius: 2px 0 0 2px;
           border-radius: 2px 0 0 2px;
 }
 
-.input-prepend.input-append .add-on:last-child,
-.input-prepend.input-append .btn:last-child {
+.sui-form .input-prepend.input-append .add-on:last-child,
+.sui-form .input-prepend.input-append .btn:last-child {
   margin-left: -1px;
   -webkit-border-radius: 0 2px 2px 0;
      -moz-border-radius: 0 2px 2px 0;
           border-radius: 0 2px 2px 0;
 }
 
-.input-prepend.input-append .btn-group:first-child {
+.sui-form .input-prepend.input-append .btn-group:first-child {
   margin-left: 0;
 }
 
-input.search-query {
+.sui-form input.search-query {
   padding-right: 14px;
   padding-right: 4px \9;
   padding-left: 14px;
@@ -2608,60 +2595,58 @@ input.search-query {
           border-radius: 15px;
 }
 
-/* Allow for input prepend/append in search forms */
-
-.form-search .input-append .search-query,
-.form-search .input-prepend .search-query {
+.sui-form.form-search .input-append .search-query,
+.sui-form.form-search .input-prepend .search-query {
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
           border-radius: 0;
 }
 
-.form-search .input-append .search-query {
+.sui-form.form-search .input-append .search-query {
   -webkit-border-radius: 14px 0 0 14px;
      -moz-border-radius: 14px 0 0 14px;
           border-radius: 14px 0 0 14px;
 }
 
-.form-search .input-append .btn {
+.sui-form.form-search .input-append .btn {
   -webkit-border-radius: 0 14px 14px 0;
      -moz-border-radius: 0 14px 14px 0;
           border-radius: 0 14px 14px 0;
 }
 
-.form-search .input-prepend .search-query {
+.sui-form.form-search .input-prepend .search-query {
   -webkit-border-radius: 0 14px 14px 0;
      -moz-border-radius: 0 14px 14px 0;
           border-radius: 0 14px 14px 0;
 }
 
-.form-search .input-prepend .btn {
+.sui-form.form-search .input-prepend .btn {
   -webkit-border-radius: 14px 0 0 14px;
      -moz-border-radius: 14px 0 0 14px;
           border-radius: 14px 0 0 14px;
 }
 
-.form-search input,
-.form-inline input,
-.form-horizontal input,
-.form-search textarea,
-.form-inline textarea,
-.form-horizontal textarea,
-.form-search select,
-.form-inline select,
-.form-horizontal select,
-.form-search .help-inline,
-.form-inline .help-inline,
-.form-horizontal .help-inline,
-.form-search .uneditable-input,
-.form-inline .uneditable-input,
-.form-horizontal .uneditable-input,
-.form-search .input-prepend,
-.form-inline .input-prepend,
-.form-horizontal .input-prepend,
-.form-search .input-append,
-.form-inline .input-append,
-.form-horizontal .input-append {
+.sui-form.form-search input,
+.sui-form.form-inline input,
+.sui-form.form-horizontal input,
+.sui-form.form-search textarea,
+.sui-form.form-inline textarea,
+.sui-form.form-horizontal textarea,
+.sui-form.form-search select,
+.sui-form.form-inline select,
+.sui-form.form-horizontal select,
+.sui-form.form-search .help-inline,
+.sui-form.form-inline .help-inline,
+.sui-form.form-horizontal .help-inline,
+.sui-form.form-search .uneditable-input,
+.sui-form.form-inline .uneditable-input,
+.sui-form.form-horizontal .uneditable-input,
+.sui-form.form-search .input-prepend,
+.sui-form.form-inline .input-prepend,
+.sui-form.form-horizontal .input-prepend,
+.sui-form.form-search .input-append,
+.sui-form.form-inline .input-append,
+.sui-form.form-horizontal .input-append {
   display: inline-block;
   *display: inline;
   margin-bottom: 0;
@@ -2669,77 +2654,66 @@ input.search-query {
   *zoom: 1;
 }
 
-.form-search .hide,
-.form-inline .hide,
-.form-horizontal .hide {
+.sui-form.form-search .hide,
+.sui-form.form-inline .hide,
+.sui-form.form-horizontal .hide {
   display: none;
 }
 
-.form-search label,
-.form-inline label,
-.form-search .btn-group,
-.form-inline .btn-group {
+.sui-form.form-search label,
+.sui-form.form-inline label,
+.sui-form.form-search .btn-group,
+.sui-form.form-inline .btn-group {
   display: inline-block;
 }
 
-.form-search .input-append,
-.form-inline .input-append,
-.form-search .input-prepend,
-.form-inline .input-prepend {
+.sui-form.form-search .input-append,
+.sui-form.form-inline .input-append,
+.sui-form.form-search .input-prepend,
+.sui-form.form-inline .input-prepend {
   margin-bottom: 0;
 }
 
-.form-search .radio,
-.form-search .checkbox,
-.form-inline .radio,
-.form-inline .checkbox {
+.sui-form.form-search .radio,
+.sui-form.form-search .checkbox,
+.sui-form.form-inline .radio,
+.sui-form.form-inline .checkbox {
   padding-left: 0;
   margin-bottom: 0;
   vertical-align: middle;
 }
 
-/* ע�͵���һ�� @by kai 2014-02-23
-.form-search .radio input[type="radio"],
-.form-search .checkbox input[type="checkbox"],
-.form-inline .radio input[type="radio"],
-.form-inline .checkbox input[type="checkbox"] {
-  float: left;
-  margin-right: 3px;
-  margin-left: 0;
-}
-*/
-
-.control-group {
+.sui-form .control-group {
   margin-bottom: 9px;
 }
 
-.control-label {
+.sui-form .control-label {
   display: block;
   margin-bottom: 5px;
 }
 
-legend + .control-group {
+.sui-form legend + .control-group {
   margin-top: 18px;
   -webkit-margin-top-collapse: separate;
 }
 
-.form-horizontal .control-group {
+.sui-form.form-horizontal .control-group {
   margin-bottom: 18px;
   *zoom: 1;
 }
 
-.form-horizontal .control-group:before,
-.form-horizontal .control-group:after {
+.sui-form.form-horizontal .control-group:before,
+.sui-form.form-horizontal .control-group:after {
   display: table;
   line-height: 0;
   content: "";
 }
 
-.form-horizontal .control-group:after {
+.sui-form.form-horizontal .control-group:after {
   clear: both;
 }
 
-.form-horizontal .control-label {
+.sui-form.form-horizontal .control-label {
   display: inline-block;
   float: left;
   width: 96px;
@@ -2748,106 +2722,34 @@ legend + .control-group {
   text-align: right;
 }
 
-.form-horizontal .controls {
+.sui-form.form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
   margin-left: 102px;
   *margin-left: 0;
 }
 
-.form-horizontal .controls:first-child {
+.sui-form.form-horizontal .controls:first-child {
   *padding-left: 96px;
 }
 
-.form-horizontal .help-block {
+.sui-form.form-horizontal .help-block {
   margin-top: 0;
 }
 
-.form-horizontal input ~ .help-block,
-.form-horizontal select ~ .help-block,
-.form-horizontal textarea ~ .help-block,
-.form-horizontal .uneditable-input ~ .help-block,
-.form-horizontal .input-prepend ~ .help-block,
-.form-horizontal .input-append ~ .help-block,
-.form-horizontal .radio ~ .help-block,
-.form-horizontal .checkbox ~ .help-block {
+.sui-form.form-horizontal input ~ .help-block,
+.sui-form.form-horizontal select ~ .help-block,
+.sui-form.form-horizontal textarea ~ .help-block,
+.sui-form.form-horizontal .uneditable-input ~ .help-block,
+.sui-form.form-horizontal .input-prepend ~ .help-block,
+.sui-form.form-horizontal .input-append ~ .help-block,
+.sui-form.form-horizontal .radio ~ .help-block,
+.sui-form.form-horizontal .checkbox ~ .help-block {
   margin-top: 9px;
 }
 
-.form-horizontal .form-actions {
+.sui-form.form-horizontal.form-actions {
   padding-left: 96px;
-}
-
-.msg-icon {
-  background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
-}
-
-.sui-msg-error .msg-icon {
-  background-position: 0 0;
-}
-
-.sui-msg-stop .msg-icon {
-  background-position: 0 -16px;
-}
-
-.sui-msg-success .msg-icon {
-  background-position: 0 -32px;
-}
-
-.sui-msg-warning .msg-icon {
-  background-position: 0 -48px;
-}
-
-.sui-msg-notice .msg-icon {
-  background-position: 0 -64px;
-}
-
-.sui-msg-tips .msg-icon {
-  background-position: 0 -80px;
-}
-
-.sui-msg-info .msg-icon {
-  background-position: 0 -96px;
-}
-
-.sui-msg-question .msg-icon {
-  background-position: 0 -112px;
-}
-
-.sui-msg-large .msg-icon {
-  background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png);
-}
-
-.sui-msg-large.sui-msg-error .msg-icon {
-  background-position: 0 0;
-}
-
-.sui-msg-large.sui-msg-stop .msg-icon {
-  background-position: 0 -24px;
-}
-
-.sui-msg-large.sui-msg-success .msg-icon {
-  background-position: 0 -48px;
-}
-
-.sui-msg-large.sui-msg-warning .msg-icon {
-  background-position: 0 -72px;
-}
-
-.sui-msg-large.sui-msg-notice .msg-icon {
-  background-position: 0 -96px;
-}
-
-.sui-msg-large.sui-msg-tips .msg-icon {
-  background-position: 0 -120px;
-}
-
-.sui-msg-large.sui-msg-info .msg-icon {
-  background-position: 0 -144px;
-}
-
-.sui-msg-large.sui-msg-question .msg-icon {
-  background-position: 0 -168px;
 }
 
 .sui-msg {
@@ -2856,6 +2758,74 @@ legend + .control-group {
   *display: inline;
   color: #333333;
   *zoom: 1;
+}
+
+.sui-msg.msg-error .msg-icon {
+  background-position: 0 0;
+}
+
+.sui-msg.msg-stop .msg-icon {
+  background-position: 0 -16px;
+}
+
+.sui-msg.msg-success .msg-icon {
+  background-position: 0 -32px;
+}
+
+.sui-msg.msg-warning .msg-icon {
+  background-position: 0 -48px;
+}
+
+.sui-msg.msg-notice .msg-icon {
+  background-position: 0 -64px;
+}
+
+.sui-msg.msg-tips .msg-icon {
+  background-position: 0 -80px;
+}
+
+.sui-msg.msg-info .msg-icon {
+  background-position: 0 -96px;
+}
+
+.sui-msg.msg-question .msg-icon {
+  background-position: 0 -112px;
+}
+
+.sui-msg.msg-large .msg-icon {
+  background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png);
+}
+
+.sui-msg.msg-large.msg-error .msg-icon {
+  background-position: 0 0;
+}
+
+.sui-msg.msg-large.msg-stop .msg-icon {
+  background-position: 0 -24px;
+}
+
+.sui-msg.msg-large.msg-success .msg-icon {
+  background-position: 0 -48px;
+}
+
+.sui-msg.msg-large.msg-warning .msg-icon {
+  background-position: 0 -72px;
+}
+
+.sui-msg.msg-large.msg-notice .msg-icon {
+  background-position: 0 -96px;
+}
+
+.sui-msg.msg-large.msg-tips .msg-icon {
+  background-position: 0 -120px;
+}
+
+.sui-msg.msg-large.msg-info .msg-icon {
+  background-position: 0 -144px;
+}
+
+.sui-msg.msg-large.msg-question .msg-icon {
+  background-position: 0 -168px;
 }
 
 .sui-msg .msg-con {
@@ -2875,6 +2845,7 @@ legend + .control-group {
   width: 16px;
   height: 16px;
   overflow: hidden;
+  background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
   *zoom: 1;
 }
 
@@ -2893,118 +2864,118 @@ legend + .control-group {
   left: 4px;
 }
 
-.sui-msg-large {
+.sui-msg.msg-large {
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
 }
 
-.sui-msg-large .msg-con {
+.sui-msg.msg-large .msg-con {
   padding: 11px 11px 11px 44px;
 }
 
-.sui-msg-large .msg-icon {
+.sui-msg.msg-large .msg-icon {
   top: 12px;
   left: 11px;
   width: 24px;
   height: 24px;
 }
 
-.sui-msg-error {
+.sui-msg.msg-error {
   color: #ea4a36;
 }
 
-.sui-msg-error .msg-con {
+.sui-msg.msg-error .msg-con {
   background-color: #fff2f2;
   border: 1px solid #ffe3e0;
 }
 
-.sui-msg-stop {
+.sui-msg.msg-stop {
   color: #ea4a36;
 }
 
-.sui-msg-stop .msg-con {
+.sui-msg.msg-stop .msg-con {
   background-color: #fff2f2;
   border: 1px solid #ffe3e0;
 }
 
-.sui-msg-success {
+.sui-msg.msg-success {
   color: #4ab933;
 }
 
-.sui-msg-success .msg-con {
+.sui-msg.msg-success .msg-con {
   background-color: #edffe9;
   border: 1px solid #dcf9d6;
 }
 
-.sui-msg-warning {
+.sui-msg.msg-warning {
   color: #cf700b;
 }
 
-.sui-msg-warning .msg-con {
+.sui-msg.msg-warning .msg-con {
   background-color: #fef1e3;
   border: 1px solid #fee8d7;
 }
 
-.sui-msg-notice {
+.sui-msg.msg-notice {
   color: #ee9f28;
 }
 
-.sui-msg-notice .msg-con {
+.sui-msg.msg-notice .msg-con {
   background-color: #fffff1;
   border: 1px solid #faf1d7;
 }
 
-.sui-msg-tips {
+.sui-msg.msg-tips {
   color: #ee9f28;
 }
 
-.sui-msg-tips .msg-con {
+.sui-msg.msg-tips .msg-con {
   background-color: #fffff1;
   border: 1px solid #faf1d7;
 }
 
-.sui-msg-info {
+.sui-msg.msg-info {
   color: #3a9ed5;
 }
 
-.sui-msg-info .msg-con {
+.sui-msg.msg-info .msg-con {
   background-color: #f2faff;
   border: 1px solid #e4f3fd;
 }
 
-.sui-msg-question {
+.sui-msg.msg-question {
   color: #333;
 }
 
-.sui-msg-question .msg-con {
+.sui-msg.msg-question .msg-con {
   background-color: #f7f7f7;
   border: 1px solid #eaeaea;
 }
 
-.sui-msg-block {
+.sui-msg.msg-block {
   display: block;
 }
 
-.sui-msg-clear {
+.sui-msg.msg-clear {
   display: block;
 }
 
-.sui-msg-clear .msg-con {
+.sui-msg.msg-clear .msg-con {
   display: inline-block;
   *display: inline;
   *zoom: 1;
 }
 
-.sui-msg-default {
+.sui-msg.msg-default {
   color: #333333;
 }
 
-.sui-msg-naked {
+.sui-msg.msg-naked {
   padding: 1px;
 }
 
-.sui-msg-naked .msg-con {
+.sui-msg.msg-naked .msg-con {
   background-color: transparent;
   border: none;
 }
