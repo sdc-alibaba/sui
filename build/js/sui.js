@@ -1376,6 +1376,7 @@ define("dropdown.js", function(){});
           this.hideModal()
       }
     , okHide: function(e){
+        var that = this
         // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
         // 那么直接执行hideWithOk
         if (!e) {
@@ -1396,8 +1397,8 @@ define("dropdown.js", function(){});
           hideWithOk()
         } 
         function hideWithOk (){
-          this.hideReason = 'ok'
-          this.hide(e)  
+          that.hideReason = 'ok'
+          that.hide(e)  
         }
     }
     , enforceFocus: function () {
