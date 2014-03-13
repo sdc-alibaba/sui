@@ -1376,6 +1376,7 @@ define("dropdown.js", function(){});
           this.hideModal()
       }
     , okHide: function(e){
+        console.log(e)
         var fn = this.options.okHide
           , ifNeedHide = true
         if (!fn) {
@@ -1385,7 +1386,6 @@ define("dropdown.js", function(){});
             }
         }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        console.log(ifNeedHide)
         //如果开发人员不设置返回值，默认走true的逻辑
         if (ifNeedHide === true || ifNeedHide === undefined){
           this.hideReason = 'ok'
