@@ -28,8 +28,8 @@
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
               + (options.hasfoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
-                + '<button type="button" class="sui-btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
-                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+                + '<button type="button" class="sui-btn btn-primary btn-large" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default btn-large" data-dismiss="modal">{%cancel_btn%}</button>' : '')
               + '</div>' : '')
             + '</div>'
           + '</div>'

@@ -8249,7 +8249,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .sui-modal .modal-header {
-  padding: 7px 0;
+  padding: 6px 0;
   margin: 0 10px;
   border-bottom: 1px solid #b7b7b7;
 }
@@ -8267,7 +8267,8 @@ input[type="submit"].btn.btn-mini {
   position: relative;
   max-height: 400px;
   min-height: 150px;
-  padding: 15px;
+  padding: 13px 15px;
+  margin: 0;
   overflow-y: auto;
 }
 
