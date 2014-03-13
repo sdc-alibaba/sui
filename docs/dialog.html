@@ -120,6 +120,7 @@ $.confirm(options)</pre>
               <pre class="prettyprint">$ele.modal(opstions)  让指定的内容变成一个模态对话框。接受一个可选的参数</pre>
               <pre class="prettyprint">$ele.modal('show')  手动打开一个模态对话框。</pre>
               <pre class="prettyprint">$ele.modal('hide')  手动关闭一个模态对话框。</pre>
+              <pre class="prettyprint">$ele.modal('okHide')  手动关闭一个模态对话框，此时不会再触发okHide事件回调，而是在对话框关闭后会触发okHidden事件。</pre>
               <pre class="prettyprint">$ele.modal('toggle')  手动打开或关闭一个模态对话框。</pre>
               <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
               <p>
@@ -199,7 +200,7 @@ $.confirm(options)</pre>
                     </tr>
                     <tr>
                       <td>okHidden</td>
-                      <td>当模态对话框因为被点击了确认按钮而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
+                      <td>当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
                     </tr>
                   </tbody>
                 </table>

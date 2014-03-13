@@ -1444,7 +1444,7 @@ define("dropdown.js", function(){});
             that.hideReason = null
           }
           ele.trigger('hidden')
-          //销毁静态方法生成的dialog元素
+          //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
