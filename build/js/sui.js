@@ -1376,7 +1376,12 @@ define("dropdown.js", function(){});
           this.hideModal()
       }
     , okHide: function(e){
-        console.log(e)
+        // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
+        // 那么直接执行hideWithOk
+        if (!e) {
+          hideWithOk()
+          return
+        }
         var fn = this.options.okHide
           , ifNeedHide = true
         if (!fn) {
@@ -1388,9 +1393,12 @@ define("dropdown.js", function(){});
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
         //如果开发人员不设置返回值，默认走true的逻辑
         if (ifNeedHide === true || ifNeedHide === undefined){
+          hideWithOk()
+        } 
+        function hideWithOk (){
           this.hideReason = 'ok'
           this.hide(e)  
-        } 
+        }
     }
     , enforceFocus: function () {
         var that = this
