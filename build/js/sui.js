@@ -1385,6 +1385,7 @@ define("dropdown.js", function(){});
             }
         }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
+        console.log(ifNeedHide)
         //如果开发人员不设置返回值，默认走true的逻辑
         if (ifNeedHide === true || ifNeedHide === undefined){
           this.hideReason = 'ok'
