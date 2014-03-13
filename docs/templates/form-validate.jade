@@ -14,7 +14,7 @@ block content
     | 表单校验，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件
 
-  h2 通过html标记自动启用表单校验
+  h2 启用表单校验
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -26,31 +26,133 @@ block content
   div.tab-content
     div.tab-pane.active#demo1
       div.bs-docs-example
-        form.sui-form.form-horizontal.form-validate.
-          <div class="control-group">
-            <label for="inputEmail" class="control-label">邮箱：</label>
-            <div class="controls">
-              <input type="text" id="inputEmail" placeholder="Email" data-rules='required|email'>
-            </div>
-          </div>
-          <div class="control-group">
-            <label for="inputPassword" class="control-label">密码：</label>
-            <div class="controls"><input type="password" id="inputPassword" placeholder="Password" data-rules='required'></div>
-          </div>
-          <div class="control-group">
-            <div class="controls">
-              <button type="submit" class="sui-btn btn-primary">Sign in</button>
-            </div>
-          </div>
-        </form> 
+        form.sui-form.form-horizontal.form-validate
+          div.control-group
+            label.control-label(for="inputEmail") 邮箱：
+            div.controls
+              input(type="text" id="inputEmail" placeholder="Email" data-rules='required|email')
+          div.control-group
+            label.control-label(for="inputPassword") 密码：
+            div.controls
+              input(type="password" id="inputPassword" placeholder="Password" data-rules='required')
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary(type="submit") Sign in
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      p
-        | 默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。
+      h4 通过两种方式可以启用表单校验
+      ol
+        li
+          | 通过在form上添加
+          code .form-validate
+        li
+          | 通过直接调用js方法
+          code $("form").validate()
 
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 内置校验规则
+
+  p.sui-lead
+    | 校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 内置校验规则
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        form.sui-form.form-horizontal.form-validate
+          div.control-group
+            label.control-label(for="name") 姓名：
+            div.controls
+              input(type="text" id="name" placeholder="required" data-rules='required' name='name')
+          div.control-group
+            label.control-label(for="email") 邮箱：
+            div.controls
+              input(type="text" id="email" placeholder="email" data-rules='required|email' name='email')
+          div.control-group
+            label.control-label(for="password") 密码：
+            div.controls
+              input(type="password" id="password" placeholder="required" data-rules='required' name='password')
+          div.control-group
+            label.control-label(for="repassword") 重复密码：
+            div.controls
+              input(type="password" id="repassword" placeholder="match" data-rules='required|match=password' name='repassword')
+          div.control-group
+            label.control-label(for="tel") 座机号码：
+            div.controls
+              input(type="text" id="tel" placeholder="tel" data-rules='required|tel' name='tel')
+          div.control-group
+            label.control-label(for="mobile") 手机号码：
+            div.controls
+              input(type="text" id="mobile" placeholder="mobild" data-rules='required|mobile' name='mobile')
+          div.control-group
+            label.control-label(for="zip") 邮编：
+            div.controls
+              input(type="text" id="zip" placeholder="zip" data-rules='required|zip' name='zip')
+          div.control-group
+            label.control-label(for="date") 出生年月日：
+            div.controls
+              input(type="text" id="date" placeholder="date" data-rules='required|date' name='date')
+          div.control-group
+            label.control-label(for="url") 个人网址(选填)：
+            div.controls
+              input(type="text" id="url" placeholder="url" data-rules='url' name='url')
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary.btn-large(type="submit") 注册
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      h4 内置校验规则包括这些
+      table.sui-table.table-bordered
+        tr
+          th 名称
+          th 内容
+
+        tr
+          td required
+          td 必填，不能为空
+
+        tr
+          td mobile
+          td 手机号码
+
+        tr
+          td tel
+          td 座机号码，包括区号
+
+        tr
+          td email
+          td email地址
+
+        tr
+          td zip
+          td 邮编
+
+        tr
+          td date
+          td 日期，例如 2012-02-02
+
+        tr
+          td url
+          td 网址，协议是可选的
+
+        tr
+          td minlength
+          td 最小长度
+
+        tr
+          td maxlength
+          td 最大长度

@@ -75,7 +75,7 @@
             表单校验，通过简单的配置规则即可实现表单校验。<br />
             并且支持自定义校验插件
           </p>
-          <h2>通过html标记自动启用表单校验</h2>
+          <h2>启用表单校验</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -88,32 +88,160 @@
                   <div class="control-group">
                     <label for="inputEmail" class="control-label">邮箱：</label>
                     <div class="controls">
-                      <input type="text" id="inputEmail" placeholder="Email" data-rules='required|email'>
+                      <input type="text" id="inputEmail" placeholder="Email" data-rules="required|email">
                     </div>
                   </div>
                   <div class="control-group">
                     <label for="inputPassword" class="control-label">密码：</label>
-                    <div class="controls"><input type="password" id="inputPassword" placeholder="Password" data-rules='required'></div>
+                    <div class="controls">
+                      <input type="password" id="inputPassword" placeholder="Password" data-rules="required">
+                    </div>
                   </div>
                   <div class="control-group">
                     <div class="controls">
                       <button type="submit" class="sui-btn btn-primary">Sign in</button>
                     </div>
                   </div>
-                </form></form> 
+                </form>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。</p>
+              <h4>通过两种方式可以启用表单校验</h4>
+              <ol>
+                <li>通过在form上添加<code>.form-validate</code></li>
+                <li>通过直接调用js方法<code>$("form").validate()</code></li>
+              </ol>
             </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>内置校验规则</h2>
+          <p class="sui-lead">校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">内置校验规则</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal form-validate">
+                  <div class="control-group">
+                    <label for="name" class="control-label">姓名：</label>
+                    <div class="controls">
+                      <input type="text" id="name" placeholder="required" data-rules="required" name="name">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="email" class="control-label">邮箱：</label>
+                    <div class="controls">
+                      <input type="text" id="email" placeholder="email" data-rules="required|email" name="email">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="password" class="control-label">密码：</label>
+                    <div class="controls">
+                      <input type="password" id="password" placeholder="required" data-rules="required" name="password">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="repassword" class="control-label">重复密码：</label>
+                    <div class="controls">
+                      <input type="password" id="repassword" placeholder="match" data-rules="required|match=password" name="repassword">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="tel" class="control-label">座机号码：</label>
+                    <div class="controls">
+                      <input type="text" id="tel" placeholder="tel" data-rules="required|tel" name="tel">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="mobile" class="control-label">手机号码：</label>
+                    <div class="controls">
+                      <input type="text" id="mobile" placeholder="mobild" data-rules="required|mobile" name="mobile">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="zip" class="control-label">邮编：</label>
+                    <div class="controls">
+                      <input type="text" id="zip" placeholder="zip" data-rules="required|zip" name="zip">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="date" class="control-label">出生年月日：</label>
+                    <div class="controls">
+                      <input type="text" id="date" placeholder="date" data-rules="required|date" name="date">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="url" class="control-label">个人网址(选填)：</label>
+                    <div class="controls">
+                      <input type="text" id="url" placeholder="url" data-rules="url" name="url">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary btn-large">注册</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <h4>内置校验规则包括这些</h4>
+              <table class="sui-table table-bordered">
+                <tr>
+                  <th>名称</th>
+                  <th>内容</th>
+                </tr>
+                <tr>
+                  <td>required</td>
+                  <td>必填，不能为空</td>
+                </tr>
+                <tr>
+                  <td>mobile</td>
+                  <td>手机号码</td>
+                </tr>
+                <tr>
+                  <td>tel</td>
+                  <td>座机号码，包括区号</td>
+                </tr>
+                <tr>
+                  <td>email</td>
+                  <td>email地址</td>
+                </tr>
+                <tr>
+                  <td>zip</td>
+                  <td>邮编</td>
+                </tr>
+                <tr>
+                  <td>date</td>
+                  <td>日期，例如 2012-02-02</td>
+                </tr>
+                <tr>
+                  <td>url</td>
+                  <td>网址，协议是可选的</td>
+                </tr>
+                <tr>
+                  <td>minlength</td>
+                  <td>最小长度</td>
+                </tr>
+                <tr>
+                  <td>maxlength</td>
+                  <td>最大长度</td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
