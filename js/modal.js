@@ -139,6 +139,12 @@
     , okHide: function(e){
         var fn = this.options.okHide
           , ifNeedHide = true
+        if (!fn) {
+            var eventArr = $._data(this.$element[0], 'events').okHide
+            if (eventArr.length) {
+                fn = eventArr[eventArr.length - 1].handler;
+            }
+        }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
         //如果开发人员不设置返回值，默认走true的逻辑
         if (ifNeedHide === true || ifNeedHide === undefined){

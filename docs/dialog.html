@@ -193,6 +193,14 @@ $.confirm(options)</pre>
                       <td>hidden</td>
                       <td>当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
                     </tr>
+                    <tr>
+                      <td>okHide</td>
+                      <td>当模态对话框因为被点击了确认按钮而被隐藏之前，此事件被立即触发。回调函数可以通过返回<code>true|false</code>控制对话框是否会被继续关闭</td>
+                    </tr>
+                    <tr>
+                      <td>okHidden</td>
+                      <td>当模态对话框因为被点击了确认按钮而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
+                    </tr>
                   </tbody>
                 </table>
                 <pre class="prettyprint linenums">$('#myModal').on('hidden', function () {
