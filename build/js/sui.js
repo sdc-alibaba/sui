@@ -1376,14 +1376,30 @@ define("dropdown.js", function(){});
           this.hideModal()
       }
     , okHide: function(e){
+        var that = this
+        // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
+        // 那么直接执行hideWithOk
+        if (!e) {
+          hideWithOk()
+          return
+        }
         var fn = this.options.okHide
           , ifNeedHide = true
+        if (!fn) {
+            var eventArr = $._data(this.$element[0], 'events').okHide
+            if (eventArr && eventArr.length) {
+                fn = eventArr[eventArr.length - 1].handler;
+            }
+        }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
         //如果开发人员不设置返回值，默认走true的逻辑
         if (ifNeedHide === true || ifNeedHide === undefined){
-          this.hideReason = 'ok'
-          this.hide(e)  
+          hideWithOk()
         } 
+        function hideWithOk (){
+          that.hideReason = 'ok'
+          that.hide(e)  
+        }
     }
     , enforceFocus: function () {
         var that = this
@@ -1428,7 +1444,7 @@ define("dropdown.js", function(){});
             that.hideReason = null
           }
           ele.trigger('hidden')
-          //销毁静态方法生成的dialog元素
+          //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
