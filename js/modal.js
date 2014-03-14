@@ -148,7 +148,7 @@
           , ifNeedHide = true
         if (!fn) {
             var eventArr = $._data(this.$element[0], 'events').okHide
-            if (eventArr.length) {
+            if (eventArr && eventArr.length) {
                 fn = eventArr[eventArr.length - 1].handler;
             }
         }
