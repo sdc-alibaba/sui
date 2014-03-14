@@ -39,7 +39,7 @@
     var $li = $btn.parents("li")
     var $msg = $li.find(".sui-msg")
     if (!$msg[0]) {
-      $msg = $('<div class="sui-msg sui-msg-success"> <div class="msg-con">代码已复制</div> <s class="msg-icon"></s> </div>').appendTo($li)
+      $msg = $('<div class="sui-msg msg-success"> <div class="msg-con">代码已复制</div> <s class="msg-icon"></s> </div>').appendTo($li)
     }
     $btn.attr('data-clipboard-text', parseCode($target.html()))
     var cp = new ZeroClipboard(this, {

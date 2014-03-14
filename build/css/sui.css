@@ -1128,6 +1128,36 @@ sui-pre .sui-code {
   font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
 }
 
+.sui-form .input-default {
+  display: inline-block;
+  height: 18px;
+  padding: 2px 4px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+          transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.sui-form .input-default:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+}
+
 .sui-form select,
 .sui-form textarea,
 .sui-form input[type="text"],
@@ -1148,37 +1178,17 @@ sui-pre .sui-code {
   display: inline-block;
   height: 18px;
   padding: 2px 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
   vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
-}
-
-.sui-form textarea {
-  height: auto;
-}
-
-.sui-form textarea,
-.sui-form input[type="text"],
-.sui-form input[type="password"],
-.sui-form input[type="datetime"],
-.sui-form input[type="datetime-local"],
-.sui-form input[type="date"],
-.sui-form input[type="month"],
-.sui-form input[type="time"],
-.sui-form input[type="week"],
-.sui-form input[type="number"],
-.sui-form input[type="email"],
-.sui-form input[type="url"],
-.sui-form input[type="search"],
-.sui-form input[type="tel"],
-.sui-form input[type="color"],
-.sui-form .uneditable-input {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -1188,6 +1198,7 @@ sui-pre .sui-code {
           transition: border linear 0.2s, box-shadow linear 0.2s;
 }
 
+.sui-form select:focus,
 .sui-form textarea:focus,
 .sui-form input[type="text"]:focus,
 .sui-form input[type="password"]:focus,
@@ -1209,6 +1220,10 @@ sui-pre .sui-code {
   outline: thin dotted \9;
   /* IE6-9 */
 
+}
+
+.sui-form textarea {
+  height: auto;
 }
 
 .sui-form input[type="radio"],
@@ -1540,8 +1555,50 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-default,
 .sui-form input[type="color"].input-default,
 .sui-form .uneditable-input.input-default {
+  display: inline-block;
+  height: 18px;
+  padding: 2px 4px;
   padding-top: 2px;
   padding-bottom: 2px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+          transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+.sui-form textarea.input-default:focus,
+.sui-form input[type="text"].input-default:focus,
+.sui-form input[type="password"].input-default:focus,
+.sui-form input[type="datetime"].input-default:focus,
+.sui-form input[type="datetime-local"].input-default:focus,
+.sui-form input[type="date"].input-default:focus,
+.sui-form input[type="month"].input-default:focus,
+.sui-form input[type="time"].input-default:focus,
+.sui-form input[type="week"].input-default:focus,
+.sui-form input[type="number"].input-default:focus,
+.sui-form input[type="email"].input-default:focus,
+.sui-form input[type="url"].input-default:focus,
+.sui-form input[type="search"].input-default:focus,
+.sui-form input[type="tel"].input-default:focus,
+.sui-form input[type="color"].input-default:focus,
+.sui-form .uneditable-input.input-default:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
 }
 
 .sui-form textarea.input-fat,
@@ -7513,17 +7570,44 @@ input[type="submit"].btn.btn-mini {
 }
 
 .sui-pagination div .page-num {
+  display: inline-block;
   width: 15px;
+  height: 18px;
+  padding: 2px 4px;
   padding-top: 2px;
   padding-bottom: 2px;
   margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 2px;
   -webkit-border-radius: 0;
+     -moz-border-radius: 2px;
      -moz-border-radius: 0;
-          border-radius: 0;
+          border-radius: 2px;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
   -webkit-transition: width 0.1s linear 0.1s;
+     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
      -moz-transition: width 0.1s linear 0.1s;
       -ms-transition: width 0.1s linear 0.1s;
-          transition: width 0.1s linear 0.1s;
+       -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+          transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: width 0.1s linear 0.1s;
+}
+
+.sui-pagination div .page-num:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
 }
 
 .sui-pagination div .page-num + .page-confirm {
