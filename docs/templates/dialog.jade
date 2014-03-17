@@ -249,7 +249,8 @@ block content
             $.confirm({
               body: 'confirm again'
               ,width: 'normal'
-              ,backdrop: false
+              ,backdrop: true
+              ,bgColor: 'none'
               ,show: function(){console.log('show')}
               ,shown: function(){console.log('shown')}
               ,hide: function(){console.log('hide')}

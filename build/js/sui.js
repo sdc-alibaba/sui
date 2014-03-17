@@ -1582,10 +1582,18 @@ define("dropdown.js", function(){});
           , dialogCfg
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
-      var dialog = new Modal(null, finalCfg)
-      _bind(modalId, finalCfg)
-      dialog.show();
-
+        //已经显示的静态方法生成的dialog
+        ,shownDialog = $('.sui-modal').filter(function(){
+          return /^\d+$/.test(this.id)
+        })
+      //如果已有静态方法生成的dialog，如果再触发，则销毁该dialog
+      if (shownDialog.length) {
+        shownDialog.find('[data-dismiss="modal"]').trigger('click.dismiss.modal')
+      } else {
+        var dialog = new Modal(null, finalCfg)
+        _bind(modalId, finalCfg)
+        dialog.show();     
+      }
       function _bind(id, eList){
         var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
         $.each(eType, function(k, v){
