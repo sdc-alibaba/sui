@@ -348,7 +348,7 @@
         ,shownDialog = $('.sui-modal').filter(function(){
           return /^\d+$/.test(this.id)
         })
-      //如果已有静态方法生成的dialog，如果再触发，则销毁该dialog
+      //如果已有静态方法生成的dialog，恰巧backdrop设置为false，再触发静态生成方法，则销毁该dialog
       if (shownDialog.length) {
         shownDialog.find('[data-dismiss="modal"]').trigger('click.dismiss.modal')
       } else {
