@@ -126,7 +126,7 @@ $.confirm(options)</pre>
               <p>
                 <data->属性都是必须的。也可通过<code>$ele.modal(opt)</code></data->触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
               </p>
-              <p>对确定按钮[data-ok="modal"]动态添加class="disabled" 可以阻止按钮被点击，同时阻止okHide事件的执行</p>
+              <p>对确定按钮<code>[data-ok="modal"]</code>动态添加<code>class="disabled"</code> 可以阻止按钮被点击，同时阻止okHide事件的执行</p>
               <p>涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可</p>
             </div>
             <div id="api1" class="tab-pane">属性参数<code>不止下方这些</code>。除了不能使用回调函数型的参数，其余均和<code>js调用的对话框参数相同</code>，注入data-**属性即可,部分data-属性参数举例：

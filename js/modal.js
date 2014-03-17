@@ -219,7 +219,6 @@
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
-          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
           var doAnimate = $.support.transition && animate
           //如果显示背景遮罩层

@@ -69,7 +69,7 @@ block content
           code $ele.modal(opt)
         触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
       p 
-        对确定按钮[data-ok="modal"]动态添加class="disabled" 可以阻止按钮被点击，同时阻止okHide事件的执行
+        对确定按钮<code>[data-ok="modal"]</code>动态添加<code>class="disabled"</code> 可以阻止按钮被点击，同时阻止okHide事件的执行
       p
         涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可
     div.tab-pane#api1
