@@ -221,23 +221,28 @@
           , opt = this.options
           , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
-            .appendTo(document.body)
-          //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
-          this.$backdrop.click(
-            opt.backdrop == 'static' ?
-              $.proxy(this.$element[0].focus, this.$element[0])
-            : $.proxy(this.hide, this)
-          )
-          if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-          this.$backdrop.addClass('in ' + cls)
-          if (!callback) return
-          doAnimate ?
-            this.$backdrop.one($.support.transition.end, callback) :
-            callback()
-        } else if (!this.isShown && this.$backdrop) {
-          if (this.$backdrop.hasClass('in')) {
+          //如果显示背景遮罩层
+          if (opt.backdrop !== false) {
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            .appendTo(document.body)         
+            //遮罩层背景黑色半透明
+            this.$backdrop.click(
+              opt.backdrop == 'static' ?
+                $.proxy(this.$element[0].focus, this.$element[0])
+              : $.proxy(this.hide, this)
+            )
+            if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+            this.$backdrop.addClass('in ')
+            if (!callback) return
+            doAnimate ?
+              this.$backdrop.one($.support.transition.end, callback) :
+              callback()
+          } else {
+            callback && callback()
+          }
+        } else {
+          if (this.$backdrop) {
             this.$backdrop.removeClass('in')
             $.support.transition && this.$element.hasClass('fade')?
               this.$backdrop.one($.support.transition.end, callback) :
@@ -245,8 +250,6 @@
           } else {
             callback && callback();
           }
-        } else if (callback) {
-          callback()
         }
       }
   }
@@ -275,6 +278,7 @@
 
   $.fn.modal.defaults = {
       backdrop: true
+    , bgColor: '#000'
     , keyboard: true
     , hasfoot: true
   }
@@ -317,6 +321,7 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true

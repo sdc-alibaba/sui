@@ -73,7 +73,7 @@ block content
       p
         涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可
     div.tab-pane#api1
-      除了不能使用回调函数型的参数，其余均和js调用的对话框相同，注入data-**属性即可,可用的data-属性参数见下表：
+      属性参数<code>不止下方这些</code>。除了不能使用回调函数型的参数，其余均和<code>js调用的对话框参数相同</code>，注入data-**属性即可,部分data-属性参数举例：
       table.sui-table.table-bordered
         thead
           tr
@@ -86,7 +86,7 @@ block content
             td backdrop
             td boolean
             td true
-            td 为模态对话框添加一个背景元素。另外，为背景指定<code>static</code>时，点击模态对话框的外部区域不会将其关闭。
+            td 决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
           tr
             td keyboard
             td boolean
@@ -187,7 +187,8 @@ block content
 
       pre.prettyprint.linenums.
         $.alert({
-         backdrop: true   true/false表示蒙层是黑／白 半透明
+         backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
+         bgColor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
          keyboard: true   是否可由esc按键关闭
          title: '自定义标题'
          body: 'html' //必填
@@ -249,7 +250,6 @@ block content
               body: 'confirm again'
               ,width: 'normal'
               ,backdrop: false
-              ,timeout: 1000
               ,show: function(){console.log('show')}
               ,shown: function(){console.log('shown')}
               ,hide: function(){console.log('hide')}

@@ -8291,16 +8291,6 @@ input[type="submit"].btn.btn-mini {
   filter: alpha(opacity=40);
 }
 
-.sui-modal-backdrop.bg-black,
-.sui-modal-backdrop.fade.in.bg-black {
-  background-color: #000000;
-}
-
-.sui-modal-backdrop.bg-white,
-.sui-modal-backdrop.fade.in.bg-white {
-  background-color: #ffffff;
-}
-
 .sui-modal {
   position: fixed;
   top: 50%;
