@@ -57,7 +57,7 @@
             ,large: 790
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
+        .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
       if(w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
