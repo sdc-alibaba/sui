@@ -120,11 +120,13 @@ $.confirm(options)</pre>
               <pre class="prettyprint">$ele.modal(opstions)  让指定的内容变成一个模态对话框。接受一个可选的参数</pre>
               <pre class="prettyprint">$ele.modal('show')  手动打开一个模态对话框。</pre>
               <pre class="prettyprint">$ele.modal('hide')  手动关闭一个模态对话框。</pre>
+              <pre class="prettyprint">$ele.modal('okHide')  手动关闭一个模态对话框，此时不会再触发okHide事件回调，而是在对话框关闭后会触发okHidden事件。</pre>
               <pre class="prettyprint">$ele.modal('toggle')  手动打开或关闭一个模态对话框。</pre>
               <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
               <p>
                 <data->属性都是必须的。也可通过<code>$ele.modal(opt)</code></data->触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
               </p>
+              <p>对确定按钮[data-ok="modal"]动态添加class="disabled" 可以阻止按钮被点击，同时阻止okHide事件的执行</p>
               <p>涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可</p>
             </div>
             <div id="api1" class="tab-pane">除了不能使用回调函数型的参数，其余均和js调用的对话框相同，注入data-**属性即可,可用的data-属性参数见下表：
@@ -192,6 +194,14 @@ $.confirm(options)</pre>
                     <tr>
                       <td>hidden</td>
                       <td>当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
+                    </tr>
+                    <tr>
+                      <td>okHide</td>
+                      <td>当模态对话框因为被点击了确认按钮而被隐藏之前，此事件被立即触发。回调函数可以通过返回<code>true|false</code>控制对话框是否会被继续关闭。如果多次绑定okHide事件，只取最后一次绑定的事件回调执行，并取返回值。</td>
+                    </tr>
+                    <tr>
+                      <td>okHidden</td>
+                      <td>当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
                     </tr>
                   </tbody>
                 </table>
