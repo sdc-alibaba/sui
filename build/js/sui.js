@@ -2681,7 +2681,7 @@ define("affix.js", function(){});
 
             function doPagination() {
                 var tmpNum = parseInt(pag.find('.page-num').val());
-                if ($.isNumeric(tmpNum) && tmpNum <= self.pages) {
+                if ($.isNumeric(tmpNum) && tmpNum <= self.pages && tmpNum > 0) {
                     self.currentPage = tmpNum;
                     self._drawInner();
                     if ($.isFunction(self.onSelect)) {
@@ -2742,14 +2742,13 @@ define("affix.js", function(){});
             args = $.makeArray(arguments);
             args.shift();
         }
-        return this.each(function () {
-            var $this = $(this),
-                pag = $this.data('sui-pagination');
-            if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
+        var $this = $(this),
+        pag = $this.data('sui-pagination');
+        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
             else if (typeof options == 'string') {
                 pag[options].apply(pag, args)
             }
-        });
+        return pag;
     };
 
     $.fn.pagination.Constructor = Pagination;
