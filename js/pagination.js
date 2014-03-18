@@ -9,6 +9,7 @@
         this.styleClass = opts.styleClass;
         this.onSelect = opts.onSelect;
         this.showCtrl = opts.showCtrl;
+        this.remote = opts.remote;
     }
 
     /* jshint ignore:start */
@@ -80,9 +81,11 @@
 
             function doPagination() {
                 var tmpNum = parseInt(pag.find('.page-num').val());
-                if ($.isNumeric(tmpNum) && tmpNum <= self.pages) {
-                    self.currentPage = tmpNum;
-                    self._drawInner();
+                if ($.isNumeric(tmpNum) && tmpNum <= self.pages && tmpNum > 0) {
+                    if (!self.remote) {
+                        self.currentPage = tmpNum;
+                        self._drawInner();
+                    }
                     if ($.isFunction(self.onSelect)) {
                         self.onSelect.call($(this), tmpNum);
                     }
@@ -101,8 +104,10 @@
             self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
                 e.preventDefault();
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
-                    self.currentPage = parseInt($(this).attr('data'));
-                    self._drawInner();
+                    if (!self.remote) {
+                        self.currentPage = parseInt($(this).attr('data'));
+                        self._drawInner();
+                    }
                     if ($.isFunction(self.onSelect)) {
                         self.onSelect.call($(this), self.currentPage);
                     }
@@ -129,6 +134,13 @@
             this.pages = pages;
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
             this._drawInner();
+        },
+
+        goToPage: function (page) {
+            if ($.isNumeric(page) && page <= this.pages && page > 0) {
+                this.currentPage = page;
+                this._drawInner()
+            }
         }
     }
     /* jshint ignore:end */
@@ -141,14 +153,13 @@
             args = $.makeArray(arguments);
             args.shift();
         }
-        return this.each(function () {
-            var $this = $(this),
-                pag = $this.data('sui-pagination');
-            if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
+        var $this = $(this),
+        pag = $this.data('sui-pagination');
+        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
             else if (typeof options == 'string') {
                 pag[options].apply(pag, args)
             }
-        });
+        return pag;
     };
 
     $.fn.pagination.Constructor = Pagination;
@@ -166,7 +177,8 @@
         styleClass: [],
         pages: null,
         showCtrl: false,
-        onSelect: null
+        onSelect: null,
+        remote: false
     }
 
 })(window.jQuery)
