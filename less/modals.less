@@ -25,13 +25,16 @@
   }
 }
 
-// Background
-.sui-modal-backdrop {
-  position: fixed;
+.overspread {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+}
+// Background
+.sui-modal-backdrop {
+  position: fixed;
+  .overspread;
   z-index: @zindexModalBackdrop;
   // Fade for backdrop
   &.fade { opacity: 0; }
@@ -40,6 +43,12 @@
 .sui-modal-backdrop,
 .sui-modal-backdrop.fade.in {
   .opacity(40);
+}
+// modal shade
+.sui-modal .shade {
+  position: absolute;
+  .overspread;
+  &.in {.opacity(40);}
 }
 
 // Base modal

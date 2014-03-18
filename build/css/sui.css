@@ -8272,6 +8272,13 @@ input[type="submit"].btn.btn-mini {
   margin-left: 0;
 }
 
+.overspread {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .sui-modal-backdrop {
   position: fixed;
   top: 0;
@@ -8287,6 +8294,19 @@ input[type="submit"].btn.btn-mini {
 
 .sui-modal-backdrop,
 .sui-modal-backdrop.fade.in {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+.sui-modal .shade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sui-modal .shade.in {
   opacity: 0.4;
   filter: alpha(opacity=40);
 }

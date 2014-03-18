@@ -62,14 +62,24 @@ block content
       pre.prettyprint $ele.modal('hide')  手动关闭一个模态对话框。
       pre.prettyprint $ele.modal('okHide')  手动关闭一个模态对话框，此时不会再触发okHide事件回调，而是在对话框关闭后会触发okHidden事件。
       pre.prettyprint $ele.modal('toggle')  手动打开或关闭一个模态对话框。
+
+      h3 简单使用方法
       p
         无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。
       p
         data-属性都是必须的。也可通过
           code $ele.modal(opt)
         触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
+
+      h3 对异步操作的增强支持
       p 
         对确定按钮<code>[data-ok="modal"]</code>动态添加<code>class="disabled"</code> 可以阻止按钮被点击，同时阻止okHide事件的执行
+      h3 此HTML模板方法对话框针对<code>层上层</code>的处理
+      p 
+        层上层通常是对 对话框操作的确认提示以及反馈，不会再有复杂业务逻辑,所以合理搭配是：<br>
+        下层为复杂业务的原型方法对话框，上层为简单静态方法对话框。其他组合可能会有问题。<br>
+        调用<code>$ele.modal('shade')</code>可以使自身被遮罩（不是全屏遮罩），然后可安心处理上层对话框弹出并让用户操作。
+      h3 2种对话框的取舍。
       p
         涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可
     div.tab-pane#api1

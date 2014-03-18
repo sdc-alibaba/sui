@@ -162,6 +162,21 @@
           that.hide(e)  
         }
     }
+    //对话框内部遮罩层
+    , shadeIn: function () {
+        var $ele = this.$element
+        if ($ele.find('.shade').length) return
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        $shadeEle.appendTo($ele)
+        this.hasShaded = true
+    }
+    , shadeOut: function () {
+        this.$element.find('.shade').remove()
+        this.hasShaded = false
+    }
+    , shadeToggle: function () {
+        return this[!this.hasShaded ? 'shadeIn' : 'shadeOut']()
+    }
     , enforceFocus: function () {
         var that = this
         //防止多实例时循环触发
@@ -349,7 +364,7 @@
           return /^\d+$/.test(this.id)
         })
       //如果已有静态方法生成的dialog，恰巧backdrop设置为false，再触发静态生成方法，则销毁该dialog
-      if (shownDialog.length) {
+      if (shownDialog.length && 0) {
         shownDialog.find('[data-dismiss="modal"]').trigger('click.dismiss.modal')
       } else {
         var dialog = new Modal(null, finalCfg)
