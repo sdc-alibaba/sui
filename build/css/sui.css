@@ -7155,7 +7155,7 @@ sui-pre .sui-code {
 
 .sui-dropup .caret:before,
 .sui-dropdown .caret:before {
-  content: "\e6be";
+  content: "\e6eb";
 }
 
 .sui-dropup.dropdown-bordered,
@@ -7261,7 +7261,7 @@ sui-pre .sui-code {
 .dropdown-submenu:focus > a {
   color: #ffffff;
   text-decoration: none;
-  background-color: #3096dc;
+  background-color: #46a1e0;
 }
 
 .sui-dropdown-menu > .active a,
@@ -7269,15 +7269,8 @@ sui-pre .sui-code {
 .sui-dropdown-menu > .active a:focus {
   color: #ffffff;
   text-decoration: none;
-  background-color: #2b91d7;
-  background-image: -moz-linear-gradient(top, #3096dc, #2389cf);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3096dc), to(#2389cf));
-  background-image: -webkit-linear-gradient(top, #3096dc, #2389cf);
-  background-image: -o-linear-gradient(top, #3096dc, #2389cf);
-  background-image: linear-gradient(to bottom, #3096dc, #2389cf);
-  background-repeat: repeat-x;
+  background-color: #3096dc;
   outline: 0;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3096dc', endColorstr='#ff2389cf', GradientType=0);
 }
 
 .sui-dropdown-menu > .disabled > a,

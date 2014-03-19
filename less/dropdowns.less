@@ -29,7 +29,7 @@
   .caret {
     .sui-icon;
     &:before {
-      content: "\e6be";
+      content: "\e6eb";
     }
   }
 
@@ -122,7 +122,7 @@
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: @dropdownLinkColorHover;
-  background-color: @dropdownLinkBackgroundActive;
+  background-color: lighten(@dropdownLinkBackgroundActive, 5%);
 }
 
 // Active state
@@ -133,7 +133,7 @@
       color: @dropdownLinkColorActive;
       text-decoration: none;
       outline: 0;
-      #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
+      background-color: @dropdownLinkBackgroundActive;
     }
   }
 
