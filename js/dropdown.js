@@ -29,6 +29,9 @@
   var toggle = '[data-toggle=dropdown]'
     , Dropdown = function (element) {
         var $el = $(element).on('click.dropdown.data-api', this.toggle)
+        if (!$el.data("toggle")) {
+          $el.attr("data-toggle", 'dropdown')
+        }
         $('html').on('click.dropdown.data-api', function () {
           $el.parent().removeClass('open')
         })
