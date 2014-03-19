@@ -1,4 +1,5 @@
-(function () {/**
+(function () {
+/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -1095,6 +1096,9 @@ define("collapse.js", function(){});
   var toggle = '[data-toggle=dropdown]'
     , Dropdown = function (element) {
         var $el = $(element).on('click.dropdown.data-api', this.toggle)
+        if (!$el.data("toggle")) {
+          $el.attr("data-toggle", 'dropdown')
+        }
         $('html').on('click.dropdown.data-api', function () {
           $el.parent().removeClass('open')
         })
@@ -2793,7 +2797,6 @@ require([
 });
 
 define("sui", function(){});
-
 
 require(["sui"]);
 }());

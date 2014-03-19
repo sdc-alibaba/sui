@@ -1,0 +1,84 @@
+extends base
+
+block title
+  title 下拉菜单
+
+block sidebar
+  +sidebar('dropdown-js')
+
+block content
+  div.sui-page-header
+    h1 下拉菜单
+
+  p.sui-lead
+    | JS 下拉菜单，比原生的select有更精美的样式并且有更好的可拓展性。
+
+  h2 通过标记使用
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example(style='height: 140px;')
+        span.sui-dropdown
+          a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+          ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+            li(role="presentation" class="divider")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 莫斯科
+        
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 通过JS调用
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example(style='height: 140px;')
+        span.sui-dropdown#dropdown-demo2
+          a.dropdown-toggle#drop2(role='button' href="#") 杭州 <i class='caret'></i>
+          ul#menu2.sui-dropdown-menu(role='menu' aria-labelledby="drop2")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 上海
+            li(role="presentation" class="divider")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 深圳       
+        script.
+          $('#dropdown-demo2 .dropdown-toggle').dropdown()
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      p
+        code $().dropdown()
+      p
+        | 提供一个 <code>$().dropdown('toggle')</code> 方法可以控制菜单的显示。
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码

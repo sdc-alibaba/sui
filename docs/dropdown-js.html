@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>标签页</title>
+    <title>下拉菜单</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -47,33 +47,35 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
-                  <li class="active"><a href="tab.html">标签页</a></li>
+                  <li><a href="tab.html">标签页</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
                   <li><a href="tab-js.html">标签页</a></li>
                   <li><a href="pagination-js.html">分页器</a></li>
-                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li class="active"><a href="dropdown-js.html">下拉菜单</a></li>
                 </ul>
               </li>
             </ul>
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1 class="sui-page-header">标签页 <small>tabs</small></h1>
-          <p class="sui-lead">三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。</p>
-          <h2>默认标签页</h2>
+          <div class="sui-page-header">
+            <h1>下拉菜单</h1>
+          </div>
+          <p class="sui-lead">JS 下拉菜单，比原生的select有更精美的样式并且有更好的可拓展性。</p>
+          <h2>通过标记使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -81,37 +83,24 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example">
-                <ul class="sui-nav nav-tabs">
-                  <li class="active"><a>标签一</a></li>
-                  <li><a href="#">标签二</a></li>
-                  <li><a href="#">标签二</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-large">
-                  <li><a>语文</a></li>
-                  <li class="active"><a href="#">数学</a></li>
-                  <li><a href="#">英语</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-tabs-xlarge">
-                  <li><a>前端</a></li>
-                  <li class="active"><a href="#">后端</a></li>
-                  <li><a href="#">运维</a></li>
-                </ul>
-              </div>
+              <div style="height: 140px;" class="bs-docs-example"><span class="sui-dropdown"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+                  <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
+                  </ul></span></div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">
-              有三种尺寸: default, <code>.nav-large</code>, <code>.nav-tabs-xlarge</code>。通过在 <code>li</code> 标签上添加 <code>.active</code> 可以指定当前高亮的tab。<br />
-              默认标签页是静态的，如果需要动态的标签页可以参考这里 <a href='tab-js.html'>js 标签页</a>
-            </div>
+            <div id="doc1" class="tab-pane"></div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>首要标签页</h2>
+          <h2>通过JS调用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
@@ -119,28 +108,23 @@
           </ul>
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example">
-                <ul class="sui-nav nav-tabs nav-primary">
-                  <li class="active"><a>标签一</a></li>
-                  <li><a href="#">标签二</a></li>
-                  <li><a href="#">标签二</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-large nav-primary">
-                  <li><a>语文</a></li>
-                  <li class="active"><a href="#">数学</a></li>
-                  <li><a href="#">英语</a></li>
-                </ul>
-                <ul class="sui-nav nav-tabs nav-xlarge nav-primary">
-                  <li><a>前端</a></li>
-                  <li class="active"><a href="#">后端</a></li>
-                  <li><a href="#">运维</a></li>
-                </ul>
+              <div style="height: 140px;" class="bs-docs-example"><span id="dropdown-demo2" class="sui-dropdown"><a id="drop2" role="button" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+                  <ul id="menu2" role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">深圳       </a></li>
+                  </ul></span>
+                <script>$('#dropdown-demo2 .dropdown-toggle').dropdown()</script>
               </div>
             </div>
             <div id="code2" class="tab-pane">
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc2" class="tab-pane">首要标签页，添加 <code>nav-primary</code></div>
+            <div id="doc2" class="tab-pane">
+              <p><code>$().dropdown()</code></p>
+              <p>提供一个 <code>$().dropdown('toggle')</code> 方法可以控制菜单的显示。</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>

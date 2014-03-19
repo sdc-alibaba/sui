@@ -1,0 +1,92 @@
+extends base
+
+block title
+  title 下拉菜单
+
+block sidebar
+  +sidebar('dropdown')
+
+block content
+  div.sui-page-header
+    h1 下拉菜单
+
+  p.sui-lead
+    | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。
+
+  h2 不同样式和大小
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example(style='min-height: 220px;')
+        h3 默认样式
+        span.sui-dropdown
+          span.dropdown-inner
+            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+        h3 带边框
+        span.sui-dropdown.dropdown-bordered
+          span.dropdown-inner
+            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 
+              i.caret
+              |杭州
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+        span.sui-dropdown.dropdown-bordered.dropdown-large
+          span.dropdown-inner
+            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#")
+              i.caret
+              | 杭州
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+        span.sui-dropdown.dropdown-bordered.dropdown-xlarge
+          span.dropdown-inner
+            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#")
+              i.caret
+              |更大一点的
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p 下拉菜单有两种样式：默认样式和带边框的样式，添加 <code>.dropdown-borderd</code> 是带边框的样式。
+      p 带边框的下拉菜单有三种尺寸：默认，<code>.dropdown-large</code>，<code>.dropdown-xlarge</code> 
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
