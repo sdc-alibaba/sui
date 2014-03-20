@@ -103,13 +103,14 @@
             var self = this;
             self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
                 e.preventDefault();
+                var tmpNum = parseInt($(this).attr('data'));
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
                     if (!self.remote) {
-                        self.currentPage = parseInt($(this).attr('data'));
+                        self.currentPage = tmpNum;
                         self._drawInner();
                     }
                     if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), self.currentPage);
+                        self.onSelect.call($(this), tmpNum);
                     }
                 }
             })
