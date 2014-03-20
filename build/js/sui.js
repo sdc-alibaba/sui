@@ -1,5 +1,4 @@
-(function () {
-/**
+(function () {/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -2708,13 +2707,14 @@ define("affix.js", function(){});
             var self = this;
             self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
                 e.preventDefault();
+                var tmpNum = parseInt($(this).attr('data'));
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
                     if (!self.remote) {
-                        self.currentPage = parseInt($(this).attr('data'));
+                        self.currentPage = tmpNum;
                         self._drawInner();
                     }
                     if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), self.currentPage);
+                        self.onSelect.call($(this), tmpNum);
                     }
                 }
             })
@@ -2809,6 +2809,7 @@ require([
 });
 
 define("sui", function(){});
+
 
 require(["sui"]);
 }());
