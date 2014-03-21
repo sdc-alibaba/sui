@@ -19,6 +19,13 @@
     .dropdown-toggle {
       outline: 0;
     }
+    
+  }
+
+  &.open {
+    .sui-dropdown-menu {
+      display: block;
+    }
   }
 
   a {
@@ -57,9 +64,17 @@
       }
 
       > .sui-dropdown-menu {
-        margin: -1px 0 0 0;
+        margin: 0;
         width: 100%;
         .box-sizing(border-box);
+      }
+    }
+  }
+  &.open {
+    .dropdown-inner {
+      border-color: @dropdownOpenColor;
+      a > .caret {
+        color: @dropdownOpenColor;
       }
     }
   }
@@ -159,15 +174,7 @@
 
 // Open state for the dropdown
 // ---------------------------
-.open {
-  // IE7's z-index only goes to the nearest positioned ancestor, which would
-  // make the menu appear below buttons that appeared later on the page
-  *z-index: @zindexDropdown;
 
-  & > .sui-dropdown-menu {
-    display: block;
-  }
-}
 
 // Backdrop to catch body clicks on mobile, etc.
 // ---------------------------

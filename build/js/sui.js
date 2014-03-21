@@ -1099,7 +1099,7 @@ define("collapse.js", function(){});
           $el.attr("data-toggle", 'dropdown')
         }
         $('html').on('click.dropdown.data-api', function () {
-          $el.parent().removeClass('open')
+          $el.parents('.sui-dropdown').removeClass('open')
         })
       }
 
@@ -1194,7 +1194,7 @@ define("collapse.js", function(){});
 
     $parent = selector && $(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parent()
+    if (!$parent || !$parent.length) $parent = $this.parents('.sui-dropdown')
 
     return $parent
   }

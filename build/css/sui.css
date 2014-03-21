@@ -5296,6 +5296,11 @@ sui-pre .sui-code {
   outline: 0;
 }
 
+.sui-dropup.open .sui-dropdown-menu,
+.sui-dropdown.open .sui-dropdown-menu {
+  display: block;
+}
+
 .sui-dropup a,
 .sui-dropdown a {
   outline: 0;
@@ -7156,10 +7161,20 @@ sui-pre .sui-code {
 .sui-dropup.dropdown-bordered .dropdown-inner > .sui-dropdown-menu,
 .sui-dropdown.dropdown-bordered .dropdown-inner > .sui-dropdown-menu {
   width: 100%;
-  margin: -1px 0 0 0;
+  margin: 0;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.sui-dropup.open .dropdown-inner,
+.sui-dropdown.open .dropdown-inner {
+  border-color: #69bbef;
+}
+
+.sui-dropup.open .dropdown-inner a > .caret,
+.sui-dropdown.open .dropdown-inner a > .caret {
+  color: #69bbef;
 }
 
 .sui-dropdown-menu {
@@ -7247,14 +7262,6 @@ sui-pre .sui-code {
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
-
-.open {
-  *z-index: 1000;
-}
-
-.open > .sui-dropdown-menu {
-  display: block;
 }
 
 .dropdown-backdrop {
