@@ -1023,13 +1023,8 @@ sui-pre .sui-code {
 
 .sui-form {
   margin: 0 0 18px;
-  /* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  */
-
+  font-size: 12px;
+  line-height: 18px;
   /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
   .radio input[type="radio"],
   .checkbox input[type="checkbox"] {
@@ -1092,23 +1087,6 @@ sui-pre .sui-code {
 .sui-form legend small {
   font-size: 13.5px;
   color: #999999;
-}
-
-.sui-form label,
-.sui-form input,
-.sui-form button,
-.sui-form select,
-.sui-form textarea {
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 18px;
-}
-
-.sui-form input,
-.sui-form button,
-.sui-form select,
-.sui-form textarea {
-  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
 }
 
 .sui-form .input-default {

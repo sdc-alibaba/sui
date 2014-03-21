@@ -9,6 +9,8 @@
 // Make all forms have space below them
 .sui-form {
   margin: 0 0 @baseMargin; // 注释掉这一行 保持form标签原生属性，不对它进行全局定义 @by kai 2014-01-16
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
 
   fieldset {
     padding: 0;
@@ -35,28 +37,6 @@
     }
   }
 
-  // Set font for forms
-  label,
-  input,
-  button,
-  select,
-  textarea {
-    #font > .shorthand(@baseFontSize,normal,@baseLineHeight); // Set size, weight, line-height here
-  }
-  input,
-  button,
-  select,
-  textarea {
-    font-family: @baseFontFamily; // And only set font-family here for those that need it (note the missing label element)
-  }
-
-  // Identify controls by their labels
-  /* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  */
 
   .input-default {
     display: inline-block;
