@@ -1599,8 +1599,9 @@ define("dropdown.js", function(){});
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
       var dialog = new Modal(null, finalCfg)
+        , $ele = dialog.$element 
       _bind(modalId, finalCfg)
-      dialog.show();     
+      $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
         var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
         $.each(eType, function(k, v){
@@ -1610,7 +1611,7 @@ define("dropdown.js", function(){});
         })
       }
       //静态方法对话框返回对话框元素的jQuery对象
-      return dialog.$element
+      return $ele
     }
     //为最常见的alert，confirm建立$.modal的快捷方式，
     ,alert: function(customCfg){
