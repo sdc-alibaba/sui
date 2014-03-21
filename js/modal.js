@@ -302,7 +302,6 @@
  /* MODAL NO CONFLICT
   * ================= */
 
-
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
@@ -310,7 +309,6 @@
 
  /* MODAL DATA-API
   * ============== */
-
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
@@ -370,6 +368,8 @@
           }
         })
       }
+      //静态方法对话框返回对话框元素的jQuery对象
+      return dialog.$element
     }
     //为最常见的alert，confirm建立$.modal的快捷方式，
     ,alert: function(customCfg){
@@ -377,7 +377,7 @@
         type: 'alert'
         ,title: '注意'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
     ,confirm: function(customCfg){
       var dialogCfg = {
@@ -385,7 +385,7 @@
         ,title: '提示'
         ,cancelBtn: '取消'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
   })
 
