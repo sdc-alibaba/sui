@@ -153,8 +153,8 @@
             }
         }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide === true || ifNeedHide === undefined){
+        //显式返回false，则不关闭对话框
+        if (ifNeedHide !== false){
           hideWithOk()
         } 
         function hideWithOk (){

@@ -1,5 +1,4 @@
-(function () {
-/**
+(function () {/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -1395,8 +1394,8 @@ define("dropdown.js", function(){});
             }
         }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide === true || ifNeedHide === undefined){
+        //显式返回false，则不关闭对话框
+        if (ifNeedHide !== false){
           hideWithOk()
         } 
         function hideWithOk (){
@@ -2810,6 +2809,7 @@ require([
 });
 
 define("sui", function(){});
+
 
 require(["sui"]);
 }());
