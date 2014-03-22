@@ -24,7 +24,8 @@ block content
       a(href='#doc1', data-toggle='tab') 文档
     li
       a(href='#api1', data-toggle='tab') API
-
+    li
+      a(href='#event1', data-toggle='tab') 事件
 
 
   div.tab-content
@@ -155,6 +156,23 @@ block content
             td $.validate.setMsg('required', '亲，不要忘了填哦')
             td
               | 自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。
+
+    div.tab-pane#event1
+      h4 事件
+      table.sui-table
+        tr
+          th 事件
+          th 说明
+        tr
+          td update
+          td 在输入框上手动触发这个事件，会立刻执行一次校验
+
+        tr
+          td highlight
+          td 高亮一个错误时会在输入框上触发此事件
+        tr
+          td unhighlight
+          td 取消高亮一个错误时会在输入框上触发此事件
 
   ul.demo-operations.clearfix
     li

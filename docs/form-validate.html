@@ -83,6 +83,7 @@
             <li><a href="#code1" data-toggle="tab">代码</a></li>
             <li><a href="#doc1" data-toggle="tab">文档</a></li>
             <li><a href="#api1" data-toggle="tab">API</a></li>
+            <li><a href="#event1" data-toggle="tab">事件</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
@@ -218,6 +219,27 @@
                     <td>自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。</td>
                   </tr>
                 </tbody>
+              </table>
+            </div>
+            <div id="event1" class="tab-pane">
+              <h4>事件</h4>
+              <table class="sui-table">
+                <tr>
+                  <th>事件</th>
+                  <th>说明</th>
+                </tr>
+                <tr>
+                  <td>update</td>
+                  <td>在输入框上手动触发这个事件，会立刻执行一次校验</td>
+                </tr>
+                <tr>
+                  <td>highlight</td>
+                  <td>高亮一个错误时会在输入框上触发此事件</td>
+                </tr>
+                <tr>
+                  <td>unhighlight</td>
+                  <td>取消高亮一个错误时会在输入框上触发此事件</td>
+                </tr>
               </table>
             </div>
           </div>

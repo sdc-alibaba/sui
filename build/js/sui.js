@@ -2905,6 +2905,7 @@ define("pagination.js", function(){});
     }
     $currentError.show();
     $input.addClass(this.options.inputErrorClass);
+    $input.trigger("highlight");
   };
   var hideError = function($input, errorName) {
     $input.removeClass(this.options.inputErrorClass);
@@ -2912,6 +2913,7 @@ define("pagination.js", function(){});
     if (!$errors) return;
     $error = $errors[errorName]
     $error && $error.hide();
+    $input.trigger("unhighlight");
   };
 
   //根据不同的input类型来取值
