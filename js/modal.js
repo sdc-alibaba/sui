@@ -28,8 +28,8 @@
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
               + (options.hasfoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
-                + '<button type="button" class="sui-btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
-                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+                + '<button type="button" class="sui-btn btn-primary btn-large" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default btn-large" data-dismiss="modal">{%cancel_btn%}</button>' : '')
               + '</div>' : '')
             + '</div>'
           + '</div>'
@@ -57,7 +57,7 @@
             ,large: 790
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
+        .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
       if(w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
@@ -137,18 +137,50 @@
           this.hideModal()
       }
     , okHide: function(e){
+        var that = this
+        // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
+        // 那么直接执行hideWithOk
+        if (!e) {
+          hideWithOk()
+          return
+        }
         var fn = this.options.okHide
           , ifNeedHide = true
+        if (!fn) {
+            var eventArr = $._data(this.$element[0], 'events').okHide
+            if (eventArr && eventArr.length) {
+                fn = eventArr[eventArr.length - 1].handler;
+            }
+        }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide === true || ifNeedHide === undefined){
-          this.hideReason = 'ok'
-          this.hide(e)  
+        //显式返回false，则不关闭对话框
+        if (ifNeedHide !== false){
+          hideWithOk()
         } 
+        function hideWithOk (){
+          that.hideReason = 'ok'
+          that.hide(e)  
+        }
+    }
+    //对话框内部遮罩层
+    , shadeIn: function () {
+        var $ele = this.$element
+        if ($ele.find('.shade').length) return
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        $shadeEle.appendTo($ele)
+        this.hasShaded = true
+    }
+    , shadeOut: function () {
+        this.$element.find('.shade').remove()
+        this.hasShaded = false
+    }
+    , shadeToggle: function () {
+        return this[!this.hasShaded ? 'shadeIn' : 'shadeOut']()
     }
     , enforceFocus: function () {
         var that = this
-        $(document).on('focusin.modal', function (e) {
+        //防止多实例时循环触发
+        $(document).off('focusin.modal') .on('focusin.modal', function (e) {
           if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
             that.$element.focus()
           }
@@ -189,7 +221,7 @@
             that.hideReason = null
           }
           ele.trigger('hidden')
-          //销毁静态方法生成的dialog元素
+          //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
@@ -203,25 +235,29 @@
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
-          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
-            .appendTo(document.body)
-          //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
-          this.$backdrop.click(
-            opt.backdrop == 'static' ?
-              $.proxy(this.$element[0].focus, this.$element[0])
-            : $.proxy(this.hide, this)
-          )
-          if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-          this.$backdrop.addClass('in ' + cls)
-          if (!callback) return
-          doAnimate ?
-            this.$backdrop.one($.support.transition.end, callback) :
-            callback()
-        } else if (!this.isShown && this.$backdrop) {
-          if (this.$backdrop.hasClass('in')) {
+          //如果显示背景遮罩层
+          if (opt.backdrop !== false) {
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            .appendTo(document.body)         
+            //遮罩层背景黑色半透明
+            this.$backdrop.click(
+              opt.backdrop == 'static' ?
+                $.proxy(this.$element[0].focus, this.$element[0])
+              : $.proxy(this.hide, this)
+            )
+            if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+            this.$backdrop.addClass('in ')
+            if (!callback) return
+            doAnimate ?
+              this.$backdrop.one($.support.transition.end, callback) :
+              callback()
+          } else {
+            callback && callback()
+          }
+        } else {
+          if (this.$backdrop) {
             this.$backdrop.removeClass('in')
             $.support.transition && this.$element.hasClass('fade')?
               this.$backdrop.one($.support.transition.end, callback) :
@@ -229,8 +265,6 @@
           } else {
             callback && callback();
           }
-        } else if (callback) {
-          callback()
         }
       }
   }
@@ -259,6 +293,7 @@
 
   $.fn.modal.defaults = {
       backdrop: true
+    , bgColor: '#000'
     , keyboard: true
     , hasfoot: true
   }
@@ -267,7 +302,6 @@
  /* MODAL NO CONFLICT
   * ================= */
 
-
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
@@ -275,7 +309,6 @@
 
  /* MODAL DATA-API
   * ============== */
-
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
@@ -301,6 +334,7 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
@@ -324,9 +358,9 @@
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
       var dialog = new Modal(null, finalCfg)
+        , $ele = dialog.$element 
       _bind(modalId, finalCfg)
-      dialog.show();
-
+      $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
         var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
         $.each(eType, function(k, v){
@@ -335,6 +369,8 @@
           }
         })
       }
+      //静态方法对话框返回对话框元素的jQuery对象
+      return $ele
     }
     //为最常见的alert，confirm建立$.modal的快捷方式，
     ,alert: function(customCfg){
@@ -342,7 +378,7 @@
         type: 'alert'
         ,title: '注意'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
     ,confirm: function(customCfg){
       var dialogCfg = {
@@ -350,7 +386,7 @@
         ,title: '提示'
         ,cancelBtn: '取消'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
   })
 

@@ -13,7 +13,8 @@ require([
   'tab.js',
   'affix.js',
   'pagination.js',
-  'validate.js'
+  'validate.js',
+  'validate-rules.js'
 ], function() {
   'use strict';
 });

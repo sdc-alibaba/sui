@@ -1102,8 +1102,11 @@ define("collapse.js", function(){});
   var toggle = '[data-toggle=dropdown]'
     , Dropdown = function (element) {
         var $el = $(element).on('click.dropdown.data-api', this.toggle)
+        if (!$el.data("toggle")) {
+          $el.attr("data-toggle", 'dropdown')
+        }
         $('html').on('click.dropdown.data-api', function () {
-          $el.parent().removeClass('open')
+          $el.parents('.sui-dropdown').removeClass('open')
         })
       }
 
@@ -1198,7 +1201,7 @@ define("collapse.js", function(){});
 
     $parent = selector && $(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parent()
+    if (!$parent || !$parent.length) $parent = $this.parents('.sui-dropdown')
 
     return $parent
   }
@@ -1273,8 +1276,8 @@ define("dropdown.js", function(){});
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
               + (options.hasfoot ? '<div class="modal-footer">'
               //增加data-ok="modal"参数
-                + '<button type="button" class="sui-btn btn-primary" data-ok="modal">{%ok_btn%}</button>'
-                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default" data-dismiss="modal">{%cancel_btn%}</button>' : '')
+                + '<button type="button" class="sui-btn btn-primary btn-large" data-ok="modal">{%ok_btn%}</button>'
+                + (options.cancelBtn ? '<button type="button" class="sui-btn btn-default btn-large" data-dismiss="modal">{%cancel_btn%}</button>' : '')
               + '</div>' : '')
             + '</div>'
           + '</div>'
@@ -1302,7 +1305,7 @@ define("dropdown.js", function(){});
             ,large: 790
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-        .delegate('[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
+        .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
       if(w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
@@ -1382,18 +1385,50 @@ define("dropdown.js", function(){});
           this.hideModal()
       }
     , okHide: function(e){
+        var that = this
+        // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
+        // 那么直接执行hideWithOk
+        if (!e) {
+          hideWithOk()
+          return
+        }
         var fn = this.options.okHide
           , ifNeedHide = true
+        if (!fn) {
+            var eventArr = $._data(this.$element[0], 'events').okHide
+            if (eventArr && eventArr.length) {
+                fn = eventArr[eventArr.length - 1].handler;
+            }
+        }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide === true || ifNeedHide === undefined){
-          this.hideReason = 'ok'
-          this.hide(e)  
+        //显式返回false，则不关闭对话框
+        if (ifNeedHide !== false){
+          hideWithOk()
         } 
+        function hideWithOk (){
+          that.hideReason = 'ok'
+          that.hide(e)  
+        }
+    }
+    //对话框内部遮罩层
+    , shadeIn: function () {
+        var $ele = this.$element
+        if ($ele.find('.shade').length) return
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        $shadeEle.appendTo($ele)
+        this.hasShaded = true
+    }
+    , shadeOut: function () {
+        this.$element.find('.shade').remove()
+        this.hasShaded = false
+    }
+    , shadeToggle: function () {
+        return this[!this.hasShaded ? 'shadeIn' : 'shadeOut']()
     }
     , enforceFocus: function () {
         var that = this
-        $(document).on('focusin.modal', function (e) {
+        //防止多实例时循环触发
+        $(document).off('focusin.modal') .on('focusin.modal', function (e) {
           if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
             that.$element.focus()
           }
@@ -1434,7 +1469,7 @@ define("dropdown.js", function(){});
             that.hideReason = null
           }
           ele.trigger('hidden')
-          //销毁静态方法生成的dialog元素
+          //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
         })
       }
@@ -1448,25 +1483,29 @@ define("dropdown.js", function(){});
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
-          , cls = opt.backdrop ? 'bg-black' : 'bg-white'
         if (this.isShown) {
-          this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '"/>')
-            .appendTo(document.body)
-          //遮罩层背景黑色半透明
           var doAnimate = $.support.transition && animate
-          this.$backdrop.click(
-            opt.backdrop == 'static' ?
-              $.proxy(this.$element[0].focus, this.$element[0])
-            : $.proxy(this.hide, this)
-          )
-          if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
-          this.$backdrop.addClass('in ' + cls)
-          if (!callback) return
-          doAnimate ?
-            this.$backdrop.one($.support.transition.end, callback) :
-            callback()
-        } else if (!this.isShown && this.$backdrop) {
-          if (this.$backdrop.hasClass('in')) {
+          //如果显示背景遮罩层
+          if (opt.backdrop !== false) {
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            .appendTo(document.body)         
+            //遮罩层背景黑色半透明
+            this.$backdrop.click(
+              opt.backdrop == 'static' ?
+                $.proxy(this.$element[0].focus, this.$element[0])
+              : $.proxy(this.hide, this)
+            )
+            if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
+            this.$backdrop.addClass('in ')
+            if (!callback) return
+            doAnimate ?
+              this.$backdrop.one($.support.transition.end, callback) :
+              callback()
+          } else {
+            callback && callback()
+          }
+        } else {
+          if (this.$backdrop) {
             this.$backdrop.removeClass('in')
             $.support.transition && this.$element.hasClass('fade')?
               this.$backdrop.one($.support.transition.end, callback) :
@@ -1474,8 +1513,6 @@ define("dropdown.js", function(){});
           } else {
             callback && callback();
           }
-        } else if (callback) {
-          callback()
         }
       }
   }
@@ -1504,6 +1541,7 @@ define("dropdown.js", function(){});
 
   $.fn.modal.defaults = {
       backdrop: true
+    , bgColor: '#000'
     , keyboard: true
     , hasfoot: true
   }
@@ -1512,7 +1550,6 @@ define("dropdown.js", function(){});
  /* MODAL NO CONFLICT
   * ================= */
 
-
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
@@ -1520,7 +1557,6 @@ define("dropdown.js", function(){});
 
  /* MODAL DATA-API
   * ============== */
-
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
@@ -1546,6 +1582,7 @@ define("dropdown.js", function(){});
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
@@ -1569,9 +1606,9 @@ define("dropdown.js", function(){});
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
       var dialog = new Modal(null, finalCfg)
+        , $ele = dialog.$element 
       _bind(modalId, finalCfg)
-      dialog.show();
-
+      $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
         var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
         $.each(eType, function(k, v){
@@ -1580,6 +1617,8 @@ define("dropdown.js", function(){});
           }
         })
       }
+      //静态方法对话框返回对话框元素的jQuery对象
+      return $ele
     }
     //为最常见的alert，confirm建立$.modal的快捷方式，
     ,alert: function(customCfg){
@@ -1587,7 +1626,7 @@ define("dropdown.js", function(){});
         type: 'alert'
         ,title: '注意'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
     ,confirm: function(customCfg){
       var dialogCfg = {
@@ -1595,7 +1634,7 @@ define("dropdown.js", function(){});
         ,title: '提示'
         ,cancelBtn: '取消'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
   })
 
@@ -2582,6 +2621,7 @@ define("affix.js", function(){});
         this.styleClass = opts.styleClass;
         this.onSelect = opts.onSelect;
         this.showCtrl = opts.showCtrl;
+        this.remote = opts.remote;
     }
 
     /* jshint ignore:start */
@@ -2653,9 +2693,11 @@ define("affix.js", function(){});
 
             function doPagination() {
                 var tmpNum = parseInt(pag.find('.page-num').val());
-                if ($.isNumeric(tmpNum) && tmpNum <= self.pages) {
-                    self.currentPage = tmpNum;
-                    self._drawInner();
+                if ($.isNumeric(tmpNum) && tmpNum <= self.pages && tmpNum > 0) {
+                    if (!self.remote) {
+                        self.currentPage = tmpNum;
+                        self._drawInner();
+                    }
                     if ($.isFunction(self.onSelect)) {
                         self.onSelect.call($(this), tmpNum);
                     }
@@ -2673,11 +2715,14 @@ define("affix.js", function(){});
             var self = this;
             self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
                 e.preventDefault();
+                var tmpNum = parseInt($(this).attr('data'));
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
-                    self.currentPage = parseInt($(this).attr('data'));
-                    self._drawInner();
+                    if (!self.remote) {
+                        self.currentPage = tmpNum;
+                        self._drawInner();
+                    }
                     if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), self.currentPage);
+                        self.onSelect.call($(this), tmpNum);
                     }
                 }
             })
@@ -2702,6 +2747,13 @@ define("affix.js", function(){});
             this.pages = pages;
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
             this._drawInner();
+        },
+
+        goToPage: function (page) {
+            if ($.isNumeric(page) && page <= this.pages && page > 0) {
+                this.currentPage = page;
+                this._drawInner()
+            }
         }
     }
     /* jshint ignore:end */
@@ -2714,14 +2766,13 @@ define("affix.js", function(){});
             args = $.makeArray(arguments);
             args.shift();
         }
-        return this.each(function () {
-            var $this = $(this),
-                pag = $this.data('sui-pagination');
-            if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
+        var $this = $(this),
+        pag = $this.data('sui-pagination');
+        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
             else if (typeof options == 'string') {
                 pag[options].apply(pag, args)
             }
-        });
+        return pag;
     };
 
     $.fn.pagination.Constructor = Pagination;
@@ -2739,39 +2790,52 @@ define("affix.js", function(){});
         styleClass: [],
         pages: null,
         showCtrl: false,
-        onSelect: null
+        onSelect: null,
+        remote: false
     }
 
 })(window.jQuery)
 ;
 define("pagination.js", function(){});
 
+/*
+ * validate 核心函数，只提供框架，不提供校验规则
+ */
+
 !function($) {
   
   var Validate = function(form, options) {
     var self = this;
     this.options = $.extend($.fn.validate.defaults, options)
-    this.$form = $(form);
+    this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
       return self.onsubmit();
     });
-    return this.$form.find('[data-rules]').each(function() {
-      return $(this).on('blur keyup change update', function(e) {
+    this.$form.find('[data-rules]').each(function() {
+      $(this).on('blur keyup change update', function(e) {
         var $target;
         $target = $(e.target);
         self.update.call(self, $target);
         return true;
       });
     });
+    this.errors = {};
   };
   Validate.rules = {};
 
-  Validate.setRule = (Validate.prototype.setRule = function(name, method, msg) {
-    return Validate.rules[name] = {
+  Validate.setRule = function(name, method, msg) {
+    var oldRule = Validate.rules[name];
+    if (oldRule && !method) {
+      method = oldRule.method
+    }
+    Validate.rules[name] = {
       method: method,
       msg: msg
     };
-  });
+  };
+  Validate.setMsg = function(name, msg) {
+    Validate.setRule(name, undefined, msg)
+  }
   Validate.prototype.onsubmit = function() {
     var hasError, self;
     self = this;
@@ -2791,86 +2855,181 @@ define("pagination.js", function(){});
   };
   Validate.prototype.update = function(input) {
     var $input = $(input);
-    var r = {};
-    var t = $input.data("rules").split('|');
-    for (var i = 0; i < t.length; i++) {
-      var v = t[i];
-      var tokens = v.split('=');
+    var rules = {};
+    var dataRules = $input.data("rules").split('|');
+    for (var i = 0; i < dataRules.length; i++) {
+      var tokens = dataRules[i].split('=');
       tokens[1] = tokens[1] || '';
-      r[tokens[0]] = tokens[1];
+      rules[tokens[0]] = tokens[1];
     }
+    var configRules = (this.options.rules && this.options.rules[$input.attr("name")]) || {};
+    rules = $.extend(rules, configRules)
     var error = false;
-    var msg = '';
-    for (k in r) {
-      var v = r[k];
-      var currentRule = Validate.rules[k];
-      if (!currentRule) {
-        continue;
+    var msg = null;
+    for (var name in rules) {
+      var value = rules[name];
+      var currentRule = Validate.rules[name];
+      if (!currentRule) { //未定义的rule
+        throw new Error("未定义的校验规则：" + name);
       }
-      var inputVal = $input.val();
-      if (!inputVal && !(currentRule == 'required')) {  //如果当前输入框没有值，并且当前不是required，则不报错
+      var inputVal = val($input);
+      if ((!inputVal) && name !== 'required') {  //特殊处理，如果当前输入框没有值，并且当前不是required，则不报错
         error = false;
-        this.hideError($input);
+        hideError.call(this, $input);
         continue
       }
-      if (currentRule.method.call(this, inputVal, $input, v)) {
+      if (currentRule.method.call(this, inputVal, $input, value)) {
         error = false;
-        this.hideError($input);
+        hideError.call(this, $input, name);
       } else {
         error = true;
         msg = currentRule.msg;
-        this.showError($input, msg.replace('$0', v));
+        if ($.isFunction(msg)) msg = msg($input)
+        showError.call(this, $input, name, msg.replace('$0', value));
         break;
       }
     }
 
     return error;
   };
-  Validate.prototype.showError = function($input, msg) {
-    var $msg, $wrap;
-    $wrap = getControl($input);
-    $msg = $wrap.find(".msg-error");
-    if (!$msg[0]) {
-      $msg = $(this.options.errorTpl.replace("$errorMsg", msg));
-      $msg.appendTo($wrap);
+  var showError = function($input, errorName, errorMsg) {
+    var inputName = $input.attr("name")
+    var $errors = this.errors[inputName] || (this.errors[inputName] = {});
+    var $currentError = $errors[errorName]
+    if (!$currentError) {
+      $currentError = ($errors[errorName] = $(this.options.errorTpl.replace("$errorMsg", errorMsg)));
+      this.options.placeError.call(this, $currentError, $input);
     }
-    $msg.show();
-    return $input.addClass("input-error");
+    for (var k in $errors) {
+      if (k !== errorName) $errors[k].hide()
+    }
+    $currentError.show();
+    $input.addClass(this.options.inputErrorClass);
   };
-  Validate.prototype.hideError = function($input) {
-    var $msg, $wrap;
-    $wrap = getControl($input);
-    $msg = $wrap.find(".msg-error");
-    $msg.hide();
-    return $input.removeClass("input-error");
+  var hideError = function($input, errorName) {
+    $input.removeClass(this.options.inputErrorClass);
+    var $errors = this.errors[$input.attr('name')];
+    if (!$errors) return;
+    $error = $errors[errorName]
+    $error && $error.hide();
   };
 
-  // add rules
+  //根据不同的input类型来取值
+  var val = function(input) {
+    var $input = $(input);
+    if (!$input[0]) return undefined;
+    var tagName = $input[0].tagName.toUpperCase();
+    var type = $input.attr("type").toUpperCase()
+    var name = $input.attr("name")
+    var $form = $input.parents("form")
+    switch(tagName) {
+      case 'INPUT':
+        switch(type) {
+          case 'CHECKBOX':
+          case 'RADIO':
+            return $form.find("[name='"+name+"']:checked").val()
+          case 'TEXTAREA':
+            return $input.html()
+          default:
+            return $input.val()
+        }
+    }
+  }
+
+  var old = $.fn.validate;
+  
+  $.fn.extend({
+    validate: function (options) {
+      return this.each(function() {
+        var $this = $(this),
+            data = $this.data("validate")
+        if (!data) $this.data('validate', (data = new Validate(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+  })
+  $.fn.validate.Constructor = Validate
+
+  $.fn.validate.defaults = {
+    errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n    <s class="msg-icon"></s>\n  </div>\n</div>',
+    inputErrorClass: 'input-error',
+    placeError: function($error, $input) {
+      $input = $($input);
+      var $wrap = $input.parents(".controls-wrap");
+      if (!$wrap[0]) {
+        $wrap = $input.parents(".controls");
+      }
+      $error.appendTo($wrap);
+    },
+    rules: undefined
+  };
+
+  $.fn.validate.noConflict = function () {
+    $.fn.validate = old
+    return this
+  }
+
+  $.validate = Validate;
+
+  //自动加载
+  $(function() {
+    $(".sui-validate").validate()
+  })
+}(window.jQuery);
+
+define("validate.js", function(){});
+
+// add rules
+!function($) {
+  Validate = $.validate;
   trim = function(v) {
+    if (!v) return v;
     return v.replace(/^\s+/g, '').replace(/\s+$/g, '');
   };
   var required = function(value, element, param) {
     return trim(value);
   };
-  Validate.setRule("required", required, '请填写');
+  Validate.setRule("required", required, function ($input) {
+    var tagName = $input[0].tagName.toUpperCase();
+    var type = $input[0].type.toUpperCase();
+    if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+      return '请选择'
+    }
+    return '请填写'
+  });
+  var match = function(value, element, param) {
+    value = trim(value);
+    return value == $(element).parents('form').find("[name='"+param+"']").val()
+  };
+  Validate.setRule("match", match, '必须与$0相同');
+  var number = function(value, element, param) {
+    value = trim(value);
+    return (/^\d+(.\d*)?$/).test(value)
+  };
+  Validate.setRule("number", number, '请输入数字');
+  var digits = function(value, element, param) {
+    value = trim(value);
+    return (/^\d+$/).test(value)
+  };
+  Validate.setRule("digits", digits, '请输入整数');
   var mobile = function(value, element, param) {
-    return /^0?1[3|4|5|8][0-9]\d{8,9}$/.test(trim(value));
+    return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
   };
   Validate.setRule("mobile", mobile, '请填写正确的手机号码');
   var tel = function(value, element, param) {
-    return /^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,11})+$/.test(trim(value));
+    return (/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,11})+$/).test(trim(value));
   };
   Validate.setRule("tel", tel, '请填写正确的电话号码');
   var email = function(value, element, param) {
-    return /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(trim(value));
+    return (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(trim(value)); //"
   };
   Validate.setRule("email", email, '请填写正确的email地址');
   var zip = function(value, element, param) {
-    return /^[1-9][0-9]{5}$/.test(trim(value));
+    return (/^[1-9][0-9]{5}$/).test(trim(value));
   };
   Validate.setRule("zip", zip, '请填写正确的邮编');
   var date = function(value, element, param) {
-    return /^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/.test(trim(value));
+    return (/^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/).test(trim(value));
   };
   Validate.setRule("date", date, '请填写正确的日期');
   var url = function(value, element, param) {
@@ -2891,51 +3050,9 @@ define("pagination.js", function(){});
     return trim(value).length <= param;
   };
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
-
-  var getControl = function(input) {
-    var $input, $wrap;
-    $input = $(input);
-    $wrap = $input.parents(".controls-wrap");
-    if (!$wrap[0]) {
-      $wrap = $input.parents(".controls");
-    }
-    return $wrap
-  };
-
-
-  var old = $.fn.validate;
-  
-  $.fn.extend({
-    validate: function (options) {
-      return this.each(function() {
-        var $this = $(this),
-            data = $this.data("validate")
-        if (!data) $this.data('validate', (data = new Validate(this, options)))
-        if (typeof option == 'string') data[option]()
-      })
-    }
-  })
-  $.fn.validate.Constructor = Validate
-
-  $.fn.validate.defaults = {
-    errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n    <s class="msg-icon"></s>\n  </div>\n</div>'
-  };
-
- /* SCROLLSPY NO CONFLICT
-  * ===================== */
-
-  $.fn.validate.noConflict = function () {
-    $.fn.validate = old
-    return this
-  }
-
-  //自动加载
-  $(function() {
-    $(".form-validate").validate()
-  })
-}(window.jQuery);
-
-define("validate.js", function(){});
+}(window.jQuery)
+;
+define("validate-rules.js", function(){});
 
 require([
   'moment',
@@ -2952,7 +3069,8 @@ require([
   'tab.js',
   'affix.js',
   'pagination.js',
-  'validate.js'
+  'validate.js',
+  'validate-rules.js'
 ], function() {
   
 });

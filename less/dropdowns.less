@@ -11,30 +11,72 @@
     // The caret makes the toggle a bit too tall in IE7
     *margin-bottom: -3px;
   }
-}
-.dropdown-toggle:active,
-.open .dropdown-toggle {
-  outline: 0;
-}
+  .dropdown-inner > a {
+    text-decoration: none;
+  }
+  .dropdown-toggle:active,
+  &.open {
+    .dropdown-toggle {
+      outline: 0;
+    }
+    
+  }
 
-// Dropdown arrow/caret
-// --------------------
-.caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  vertical-align: top;
-  border-top:   4px solid @black;
-  border-right: 4px solid transparent;
-  border-left:  4px solid transparent;
-  content: "";
-}
+  &.open {
+    .sui-dropdown-menu {
+      display: block;
+    }
+  }
+
+  a {
+    outline: 0;
+  }
 
 // Place the caret
-.sui-dropdown {
   .caret {
-    margin-top: 8px;
-    margin-left: 2px;
+    .sui-icon;
+    &:before {
+      content: "\e6eb";
+    }
+  }
+
+  &.dropdown-bordered {
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0;
+    .dropdown-inner {
+      border: 1px solid @dropdownBorder;
+      display: inline-block;
+      .border-radius(2px);
+      a {
+        color: #666;
+        min-width: 82px;  //总宽度100px
+        display: inline-block;
+        padding: @basePadding;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .caret {
+        float: right;
+        margin-left: 4px;
+      }
+
+      > .sui-dropdown-menu {
+        margin: 0;
+        width: 100%;
+        .box-sizing(border-box);
+      }
+    }
+  }
+  &.open {
+    .dropdown-inner {
+      border-color: @dropdownOpenColor;
+      a > .caret {
+        color: @dropdownOpenColor;
+      }
+    }
   }
 }
 
@@ -48,17 +90,14 @@
   z-index: @zindexDropdown;
   display: none; // none by default, but block on "open" of the menu
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
+  min-width: 100px;
+  padding: 1px;
   margin: 2px 0 0; // override default ul
   list-style: none;
   background-color: @dropdownBackground;
-  border: 1px solid #ccc; // Fallback for IE7-8
   border: 1px solid @dropdownBorder;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-  .border-radius(6px);
-  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  .border-radius(2px);
+  .box-shadow(0 2px 6px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -72,17 +111,21 @@
   // Dividers (basically an hr) within the dropdown
   .divider {
     .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
+    margin: 5px 1px;
   }
 
   // Links within the dropdown menu
   > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 3px 10px;
     clear: both;
     font-weight: normal;
     line-height: @baseLineHeight;
     color: @dropdownLinkColor;
     white-space: nowrap;
+    &:hover {
+      color: @white;
+    }
   }
 }
 
@@ -94,7 +137,7 @@
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: @dropdownLinkColorHover;
-  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  background-color: lighten(@dropdownLinkBackgroundActive, 5%);
 }
 
 // Active state
@@ -105,7 +148,7 @@
       color: @dropdownLinkColorActive;
       text-decoration: none;
       outline: 0;
-      #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
+      background-color: @dropdownLinkBackgroundActive;
     }
   }
 
@@ -131,15 +174,7 @@
 
 // Open state for the dropdown
 // ---------------------------
-.open {
-  // IE7's z-index only goes to the nearest positioned ancestor, which would
-  // make the menu appear below buttons that appeared later on the page
-  *z-index: @zindexDropdown;
 
-  & > .sui-dropdown-menu {
-    display: block;
-  }
-}
 
 // Backdrop to catch body clicks on mobile, etc.
 // ---------------------------
@@ -151,6 +186,49 @@
   top: 0;
   z-index: @zindexDropdown - 10;
 }
+
+// different size
+.sui-dropdown.dropdown-bordered {
+  // xLarge
+  &.dropdown-xlarge .dropdown-inner a {
+    padding: @paddingXLarge;
+    line-height: @lineHeightLarge;
+    font-size: @fontSizeLarge;
+  }
+
+  // Large
+  &.dropdown-large .dropdown-inner a {
+    padding: @paddingLarge;
+    line-height: @lineHeightLarge;
+    font-size: @fontSizeLarge;
+  }
+
+  // Small
+  &.dropdown-small .dropdown-inner  a {
+    padding: @paddingSmall;
+    line-height: @lineHeightSmall;
+    font-size: @fontSizeSmall;
+  }
+  &,
+  &.dropdown-xlarge,
+  &.dropdown-large,
+  &.dropdown-small {
+    .dropdown-inner {
+      a {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .sui-dropdown-menu a {
+        width: 100%;
+        .box-sizing(border-box);
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
 
 // Right aligned dropdowns
 // ---------------------------

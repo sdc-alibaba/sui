@@ -9,6 +9,8 @@
 // Make all forms have space below them
 .sui-form {
   margin: 0 0 @baseMargin; // 注释掉这一行 保持form标签原生属性，不对它进行全局定义 @by kai 2014-01-16
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
 
   fieldset {
     padding: 0;
@@ -35,28 +37,30 @@
     }
   }
 
-  // Set font for forms
-  label,
-  input,
-  button,
-  select,
-  textarea {
-    #font > .shorthand(@baseFontSize,normal,@baseLineHeight); // Set size, weight, line-height here
-  }
-  input,
-  button,
-  select,
-  textarea {
-    font-family: @baseFontFamily; // And only set font-family here for those that need it (note the missing label element)
-  }
 
-  // Identify controls by their labels
-  /* 注释掉这一块代码 保持label标签的原生属性，不对它进行全局定义 直接去掉 @by kai 2014-01-16
-  label {
-    display: block;
-    margin-bottom: 5px;
+  .input-default {
+    display: inline-block;
+    height: @baseLineHeight;
+    // padding: 4px 6px;
+    // margin-bottom: @baseLineHeight / 2;
+    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;  // 注释掉padding值和margin值同时修改padding值为默认值 @by kai 2014-01-30
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    color: @gray;
+    .border-radius(@inputBorderRadius);
+    vertical-align: middle;
+    background-color: @inputBackground;
+    border: 1px solid @inputBorder;
+    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+    .transition(~"border linear .2s, box-shadow linear .2s");
+
+    // Focus state
+    &:focus {
+      border-color: rgba(82,168,236,.8);
+      outline: 0;
+      outline: thin dotted \9; /* IE6-9 */
+    }
   }
-  */
 
 
   // Form controls
@@ -80,70 +84,14 @@
   input[type="tel"],
   input[type="color"],
   .uneditable-input {
-    display: inline-block;
-    height: @baseLineHeight;
-    // padding: 4px 6px;
-    // margin-bottom: @baseLineHeight / 2;
-    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;  // 注释掉padding值和margin值同时修改padding值为默认值 @by kai 2014-01-30
-    font-size: @baseFontSize;
-    line-height: @baseLineHeight;
-    color: @gray;
-    .border-radius(@inputBorderRadius);
-    vertical-align: middle;
+    .input-default;
   }
-
-  // Reset appearance properties for textual inputs and textarea
-  // Declare width for legacy (can't be on input[type=*] selectors or it's too specific)
-  input,
-  textarea,
-  .uneditable-input {
-    // width: 206px; // plus 12px padding and 2px border // 注释掉这一行，保持控件默认宽度为auto @by kai 2014-01-16
-  }
-
-  // Reset height since textareas have rows
   textarea {
     height: auto;
   }
-
-  // Everything else
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"],
-  .uneditable-input {
-    background-color: @inputBackground;
-    border: 1px solid @inputBorder;
-    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-    .transition(~"border linear .2s, box-shadow linear .2s");
-
-    // Focus state
-    &:focus {
-      border-color: rgba(82,168,236,.8);
-      outline: 0;
-      outline: thin dotted \9; /* IE6-9 */
-      // .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)");  // 注释掉字段焦点外发光效果 @by kai 2014-01-23
-    }
-  }
-
   // Position radios and checkboxes better
   input[type="radio"],
   input[type="checkbox"] {
-    // margin: 4px 0 0;
-    // *margin-top: 0; /* IE7 */
-    // margin-top: 1px \9; /* IE8-9 */
-    // line-height: normal;
-    // 注释掉上面的样式 添加下面样式 修复checkbox和radio后面的文本不对齐的问题 @by kai 2014-01-16
     width: 13px;
     height: 13px;
     vertical-align: middle;

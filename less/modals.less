@@ -25,13 +25,16 @@
   }
 }
 
-// Background
-.sui-modal-backdrop {
-  position: fixed;
+.overspread {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+}
+// Background
+.sui-modal-backdrop {
+  position: fixed;
+  .overspread;
   z-index: @zindexModalBackdrop;
   // Fade for backdrop
   &.fade { opacity: 0; }
@@ -40,9 +43,12 @@
 .sui-modal-backdrop,
 .sui-modal-backdrop.fade.in {
   .opacity(40);
-  &.bg-black { background-color: @black; }
-  &.bg-white { background-color: @white; }
-
+}
+// modal shade
+.sui-modal .shade {
+  position: absolute;
+  .overspread;
+  &.in {.opacity(40);}
 }
 
 // Base modal
@@ -70,7 +76,7 @@
   }
 
   .modal-header {
-    padding: 7px 0;
+    padding: 6px 0;
     margin: 0 10px;
     border-bottom: 1px solid #b7b7b7;
     // Heading
@@ -89,7 +95,8 @@
     overflow-y: auto;
     min-height: 150px;
     max-height: 400px;
-    padding: 15px;
+    margin: 0;
+    padding: 13px 15px;
     &.no-foot{
       min-height: 190px;
     }
