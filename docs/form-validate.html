@@ -77,7 +77,8 @@
             表单校验，通过简单的配置规则即可实现表单校验。<br />
             并且支持自定义校验插件。
           </p>
-          <h2>表单校验</h2>
+          <h2>通过HTML配置规则</h2>
+          <p class="lead">通过html标签可以直接配置规则，不用写任何js代码。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -130,13 +131,13 @@
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <h4>通过两种方式可以启用表单校验</h4>
+              <h4>一，通过两种方式可以启用表单校验</h4>
               <ol>
                 <li>通过在form上添加<code>.sui-validate</code></li>
                 <li>通过直接调用js方法<code>$("form").validate()</code></li>
               </ol>
               <h4>注意：表单校验需要依赖input元素的 <code>name</code>属性。</h4>
-              <h4>配置说明</h4>
+              <h4>二，配置说明</h4>
               <p>调用validate方法的时候可以传入一个配置对象，所有配置项如下：
                 <table class="sui-table">
                   <tr>
@@ -182,6 +183,8 @@
                   </tr>
                 </table>
               </p>
+              <h4>三，配置规则</h4>
+              <p>有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。<br>后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。</p>
             </div>
             <div id="api1" class="tab-pane">
               <table class="sui-table">
@@ -248,6 +251,114 @@
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>通过JS配置规则</h2>
+          <p>除了在html中直接配置规则，也可以在js中配置规则，两者可以结合使用，在JS中配置的规则会覆盖掉html中的同名规则。<br>HTML中的规则值只能为字符串，而JS中可以把规则值配置为函数从而实现更强大的功能。</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+            <li><a href="#code5" data-toggle="tab">代码</a></li>
+            <li><a href="#doc5" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo5" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form id="form5" class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label for="inputEmail" class="control-label">邮箱：</label>
+                    <div class="controls">
+                      <input type="text" id="inputEmail" name="email" placeholder="邮箱">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputPassword" class="control-label">密码：</label>
+                    <div class="controls">
+                      <input type="password" id="inputPassword" name="password" placeholder="密码" title="密码">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputRepassword" class="control-label">重复密码：</label>
+                    <div class="controls">
+                      <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputGender" class="control-label">性别：</label>
+                    <div class="controls">
+                      <label class="radio inline">
+                        <input type="radio" name="gender" value="1">男
+                      </label>
+                      <label class="radio inline">
+                        <input type="radio" name="gender" value="2">女
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="sanwei" class="control-label">三维：</label>
+                    <div class="controls">
+                      <input type="text" id="sanwei" name="sanwei" placeholder="三维">
+                      <div class="sui-msg msg-tips msg-naked">
+                        <div class="msg-con">女生必填</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                    </div>
+                  </div>
+                </form>
+                <script>
+                  $("#form5").validate({
+                    rules: {
+                      email: {
+                        required: 'required',
+                        minlength: 2,
+                        maxlength: 10
+                      },
+                      password: {
+                        required: 'required',
+                        minlength: 6,
+                        maxlength: 12
+                      },
+                      repassword: {
+                        required: 'required',
+                        match: 'password'
+                      },
+                      sanwei: {
+                        required: function($input) {
+                          var value = $input.val()
+                          var $form = $input.parents("form")
+                          var gender = $form.find("[name='gender']:checked").val()
+                          if (gender == 2 && !value) {
+                            return false
+                          }
+                          return true
+                        }
+                      },
+                      gender: {
+                        required: 'required',
+                      }
+                    }
+                  })
+                </script>
+              </div>
+            </div>
+            <div id="code5" class="tab-pane">
+              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc5" class="tab-pane">
+              <p>
+                在初始化参数中通过rules来定义规则，例如：
+                <br >
+                $("form").validate(<br>  rules: {
+                    name: {
+                      minlength: 2
+                    }
+                  }
+                }
+              </p>
+            </div>
+          </div>
           <h2>内置校验规则</h2>
           <p class="sui-lead">校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等。<br>校验规则可以带参数，而且参数可以是一个函数。比如minlength的值可以是一个数字也可以是一个函数，如果是函数，则会使用此函数的返回值作为规则值。</p>
           <ul class="sui-nav nav-tabs nav-large">

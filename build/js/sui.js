@@ -2811,8 +2811,10 @@ define("pagination.js", function(){});
     this.$form.submit(function() {
       return self.onsubmit();
     });
-    this.$form.find('[data-rules]').each(function() {
-      $(this).on('blur keyup change update', function(e) {
+    this.$form.find('input, select, textarea').each(function() {
+      var $this = $(this);
+      if ($this.attr("disabled")) return;
+      $this.on('blur keyup change update', function(e) {
         var $target;
         $target = $(e.target);
         self.update.call(self, $target);
@@ -2840,7 +2842,7 @@ define("pagination.js", function(){});
     var hasError, self;
     self = this;
     hasError = false;
-    this.$form.find("[data-rules]").each(function() {
+    this.$form.find("input, select, textarea").each(function() {
       var $input, error;
       $input = $(this);
       error = self.update(this);
@@ -2856,8 +2858,9 @@ define("pagination.js", function(){});
   Validate.prototype.update = function(input) {
     var $input = $(input);
     var rules = {};
-    var dataRules = $input.data("rules").split('|');
+    var dataRules = ($input.data("rules") || "").split('|');
     for (var i = 0; i < dataRules.length; i++) {
+      if (!dataRules[i]) continue;
       var tokens = dataRules[i].split('=');
       tokens[1] = tokens[1] || undefined;
       rules[tokens[0]] = tokens[1];
@@ -2868,9 +2871,7 @@ define("pagination.js", function(){});
     var msg = null;
     for (var name in rules) {
       var value = rules[name];
-      if ($.isFunction(value)) {
-        value = value.call(this, $input)
-      }
+
       var currentRule = Validate.rules[name];
       if (!currentRule) { //未定义的rule
         throw new Error("未定义的校验规则：" + name);
@@ -2881,7 +2882,14 @@ define("pagination.js", function(){});
         hideError.call(this, $input);
         continue
       }
-      if (currentRule.method.call(this, inputVal, $input, value)) {
+      var result = true
+      // 如果规则值是一个函数，则直接用此函数的返回值
+      if ($.isFunction(value)) {
+        result = value.call(this, $input)
+      } else {
+        result = currentRule.method.call(this, inputVal, $input, value)
+      }
+      if (result) {
         error = false;
         hideError.call(this, $input, name);
       } else {
@@ -2996,11 +3004,7 @@ define("validate.js", function(){});
     return v.replace(/^\s+/g, '').replace(/\s+$/g, '');
   };
   var required = function(value, element, param) {
-    if (param === undefined) {
-      return trim(value);
-    } else {
-      return param;
-    }
+    return trim(value);
   };
   Validate.setRule("required", required, function ($input) {
     var tagName = $input[0].tagName.toUpperCase();

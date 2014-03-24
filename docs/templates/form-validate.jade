@@ -14,7 +14,13 @@ block content
     | 表单校验，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件。
 
-  h2 表单校验
+  h2 通过HTML配置规则
+  p.lead
+    | 通过html标签可以直接配置规则，不用写任何js代码。
+    br
+    | 规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。
+    br
+    | 比如：<code>data-rules='required|email|minlength=8'</code>
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -59,7 +65,7 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      h4 通过两种方式可以启用表单校验
+      h4 一，通过两种方式可以启用表单校验
       ol
         li
           | 通过在form上添加
@@ -70,7 +76,7 @@ block content
 
       h4 注意：表单校验需要依赖input元素的 <code>name</code>属性。
 
-      h4 配置说明
+      h4 二，配置说明
       p
         | 调用validate方法的时候可以传入一个配置对象，所有配置项如下：
 
@@ -120,6 +126,11 @@ block content
               br
               | 表示为 name=password 的输入框定义了一条规则 minlength=10
 
+      h4 三，配置规则
+      p
+        | 有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。
+        br
+        | 后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。
 
     div.tab-pane#api1
       table.sui-table
@@ -181,6 +192,104 @@ block content
       a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 通过JS配置规则
+  p
+    | 除了在html中直接配置规则，也可以在js中配置规则，两者可以结合使用，在JS中配置的规则会覆盖掉html中的同名规则。
+    br
+    | HTML中的规则值只能为字符串，而JS中可以把规则值配置为函数从而实现更强大的功能。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo5', data-toggle='tab') 示例
+    li
+      a(href='#code5', data-toggle='tab') 代码
+    li
+      a(href='#doc5', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo5
+      div.bs-docs-example
+        form.sui-form.form-horizontal#form5
+          div.control-group
+            label.control-label(for="inputEmail") 邮箱：
+            div.controls
+              input(type="text" id="inputEmail" name='email' placeholder="邮箱")
+          div.control-group
+            label.control-label(for="inputPassword") 密码：
+            div.controls
+              input(type="password" id="inputPassword" name='password' placeholder="密码" title='密码')
+          div.control-group
+            label.control-label(for="inputRepassword") 重复密码：
+            div.controls
+              input(type="password" id="inputRepassword" name='repassword' placeholder="重复密码")
+          div.control-group
+            label.control-label(for="inputGender") 性别：
+            div.controls
+              label.radio.inline
+                input(type="radio" name='gender' value='1')
+                | 男
+              label.radio.inline
+                input(type="radio" name='gender' value='2')
+                | 女
+          div.control-group
+            label.control-label(for="sanwei") 三维：
+            div.controls
+              input(type="text" id="sanwei" name='sanwei' placeholder="三维")
+              div.sui-msg.msg-tips.msg-naked
+                div.msg-con 女生必填
+                s.msg-icon
+
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary(type="submit") 立即注册
+        script.
+          $("#form5").validate({
+            rules: {
+              email: {
+                required: 'required',
+                minlength: 2,
+                maxlength: 10
+              },
+              password: {
+                required: 'required',
+                minlength: 6,
+                maxlength: 12
+              },
+              repassword: {
+                required: 'required',
+                match: 'password'
+              },
+              sanwei: {
+                required: function($input) {
+                  var value = $input.val()
+                  var $form = $input.parents("form")
+                  var gender = $form.find("[name='gender']:checked").val()
+                  if (gender == 2 && !value) {
+                    return false
+                  }
+                  return true
+                }
+              },
+              gender: {
+                required: 'required',
+              }
+            }
+          })
+    div.tab-pane#code5
+      pre.prettyprint.linenums(data-target='#demo5>div')
+    div.tab-pane#doc5
+      p
+        | 在初始化参数中通过rules来定义规则，例如：
+        <br >
+        | $("form").validate(
+        br
+        |   rules: {
+        |     name: {
+        |       minlength: 2
+        |     }
+        |   }
+        | }
 
 
   h2 内置校验规则
