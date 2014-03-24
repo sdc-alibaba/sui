@@ -2921,7 +2921,7 @@ define("pagination.js", function(){});
     var $input = $(input);
     if (!$input[0]) return undefined;
     var tagName = $input[0].tagName.toUpperCase();
-    var type = $input.attr("type").toUpperCase()
+    var type = ($input.attr("type") || 'text').toUpperCase()
     var name = $input.attr("name")
     var $form = $input.parents("form")
     switch(tagName) {
@@ -2930,11 +2930,13 @@ define("pagination.js", function(){});
           case 'CHECKBOX':
           case 'RADIO':
             return $form.find("[name='"+name+"']:checked").val()
-          case 'TEXTAREA':
-            return $input.html()
           default:
             return $input.val()
         }
+      case 'TEXTAREA':
+        return $input.html()
+      default:
+        return $input.val()
     }
   }
 

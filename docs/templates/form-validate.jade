@@ -12,7 +12,7 @@ block content
   
   p.sui-lead
     | 表单校验，通过简单的配置规则即可实现表单校验。<br />
-    | 并且支持自定义校验插件
+    | 并且支持自定义校验插件。
 
   h2 表单校验
   ul.sui-nav.nav-tabs.nav-large
@@ -67,6 +67,8 @@ block content
         li
           | 通过直接调用js方法
           code $("form").validate()
+
+      h4 注意：表单校验需要依赖input元素的 <code>name</code>属性。
 
       h4 配置说明
       p

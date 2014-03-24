@@ -2973,6 +2973,7 @@ sui-pre .sui-code {
 
 .sui-msg.msg-block {
   display: block;
+  margin-bottom: 18px;
 }
 
 .sui-msg.msg-clear {
