@@ -186,7 +186,9 @@ block content
   h2 内置校验规则
 
   p.sui-lead
-    | 校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等
+    | 校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等。
+    br
+    | 校验规则可以带参数，而且参数可以是一个函数。比如minlength的值可以是一个数字也可以是一个函数，如果是函数，则会使用此函数的返回值作为规则值。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例

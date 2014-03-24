@@ -59,7 +59,7 @@
     var dataRules = $input.data("rules").split('|');
     for (var i = 0; i < dataRules.length; i++) {
       var tokens = dataRules[i].split('=');
-      tokens[1] = tokens[1] || '';
+      tokens[1] = tokens[1] || undefined;
       rules[tokens[0]] = tokens[1];
     }
     var configRules = (this.options.rules && this.options.rules[$input.attr("name")]) || {};
@@ -68,6 +68,9 @@
     var msg = null;
     for (var name in rules) {
       var value = rules[name];
+      if ($.isFunction(value)) {
+        value = value.call(this, $input)
+      }
       var currentRule = Validate.rules[name];
       if (!currentRule) { //未定义的rule
         throw new Error("未定义的校验规则：" + name);
@@ -133,8 +136,10 @@
           default:
             return $input.val()
         }
+        break;
       case 'TEXTAREA':
         return $input.html()
+        break;
       default:
         return $input.val()
     }

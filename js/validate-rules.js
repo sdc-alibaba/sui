@@ -6,7 +6,11 @@
     return v.replace(/^\s+/g, '').replace(/\s+$/g, '');
   };
   var required = function(value, element, param) {
-    return trim(value);
+    if (param === undefined) {
+      return trim(value);
+    } else {
+      return param;
+    }
   };
   Validate.setRule("required", required, function ($input) {
     var tagName = $input[0].tagName.toUpperCase();
