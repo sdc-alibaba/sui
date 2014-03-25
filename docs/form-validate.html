@@ -136,6 +136,10 @@
                 <li>通过在form上添加<code>.sui-validate</code></li>
                 <li>通过直接调用js方法<code>$("form").validate()</code></li>
               </ol>
+              <p class="sui-lead">
+                校验组件依赖name属性，所以请确保表单中的元素有合理的name。
+                部分规则如prefill会依赖title属性。
+              </p>
               <h4>注意：表单校验需要依赖input元素的 <code>name</code>属性。</h4>
               <h4>二，配置说明</h4>
               <p>调用validate方法的时候可以传入一个配置对象，所有配置项如下：
@@ -180,6 +184,26 @@
                     <td>rules</td>
                     <td>undefined</td>
                     <td>定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。<br>rules通过name来为input指定规则，比如<br>rules: { password: { minlength: 10}}<br>表示为 name=password 的输入框定义了一条规则 minlength=10</td>
+                  </tr>
+                  <tr>
+                    <td>hilight</td>
+                    <td>
+                      highlight: function($input, $error, inputErrorClass) {
+                        $input.addClass(inputErrorClass)
+                        $error.show()
+                      }
+                    </td>
+                    <td>高亮显示错误。</td>
+                  </tr>
+                  <tr>
+                    <td>unhilight</td>
+                    <td>
+                      unhighlight: function($input, $error, inputErrorClass) {
+                        $input.removeClass(inputErrorClass)
+                        $error.hide()
+                      }
+                    </td>
+                    <td>取消高亮显示错误。</td>
                   </tr>
                 </table>
               </p>
@@ -311,17 +335,18 @@
                   $("#form5").validate({
                     rules: {
                       email: {
-                        required: 'required',
+                        required: true,
                         minlength: 2,
                         maxlength: 10
                       },
                       password: {
-                        required: 'required',
+                        required: true,
                         minlength: 6,
                         maxlength: 12
                       },
                       repassword: {
-                        required: 'required',
+                        required: true,
+                        prefill: 'password',
                         match: 'password'
                       },
                       sanwei: {
@@ -336,7 +361,7 @@
                         }
                       },
                       gender: {
-                        required: 'required',
+                        required: true
                       }
                     }
                   })
@@ -451,6 +476,10 @@
                 <tr>
                   <td>required</td>
                   <td>必填，不能为空</td>
+                </tr>
+                <tr>
+                  <td>prefill</td>
+                  <td>必须先填写另一个输入框，规则值为另一个输入框的name属性</td>
                 </tr>
                 <tr>
                   <td>match</td>

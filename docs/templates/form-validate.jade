@@ -73,6 +73,10 @@ block content
         li
           | 通过直接调用js方法
           code $("form").validate()
+      p.sui-lead
+        | 校验组件依赖name属性，所以请确保表单中的元素有合理的name。
+        | 部分规则如prefill会依赖title属性。
+
 
       h4 注意：表单校验需要依赖input元素的 <code>name</code>属性。
 
@@ -125,6 +129,24 @@ block content
               | rules: { password: { minlength: 10}}
               br
               | 表示为 name=password 的输入框定义了一条规则 minlength=10
+          tr
+            td hilight
+            td
+              | highlight: function($input, $error, inputErrorClass) {
+              |   $input.addClass(inputErrorClass)
+              |   $error.show()
+              | }
+            td
+              | 高亮显示错误。
+          tr
+            td unhilight
+            td
+              | unhighlight: function($input, $error, inputErrorClass) {
+              |   $input.removeClass(inputErrorClass)
+              |   $error.hide()
+              | }
+            td
+              | 取消高亮显示错误。
 
       h4 三，配置规则
       p
@@ -247,17 +269,18 @@ block content
           $("#form5").validate({
             rules: {
               email: {
-                required: 'required',
+                required: true,
                 minlength: 2,
                 maxlength: 10
               },
               password: {
-                required: 'required',
+                required: true,
                 minlength: 6,
                 maxlength: 12
               },
               repassword: {
-                required: 'required',
+                required: true,
+                prefill: 'password',
                 match: 'password'
               },
               sanwei: {
@@ -272,7 +295,7 @@ block content
                 }
               },
               gender: {
-                required: 'required',
+                required: true
               }
             }
           })
@@ -365,6 +388,10 @@ block content
         tr
           td required
           td 必填，不能为空
+
+        tr
+          td prefill
+          td 必须先填写另一个输入框，规则值为另一个输入框的name属性
 
         tr
           td match

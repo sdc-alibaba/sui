@@ -2809,7 +2809,7 @@ define("pagination.js", function(){});
     this.options = $.extend($.fn.validate.defaults, options)
     this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
-      return self.onsubmit();
+      return onsubmit.call(self);
     });
     this.$form.find('input, select, textarea').each(function() {
       var $this = $(this);
@@ -2817,7 +2817,7 @@ define("pagination.js", function(){});
       $this.on('blur keyup change update', function(e) {
         var $target;
         $target = $(e.target);
-        self.update.call(self, $target);
+        update.call(self, $target);
         return true;
       });
     });
@@ -2838,14 +2838,15 @@ define("pagination.js", function(){});
   Validate.setMsg = function(name, msg) {
     Validate.setRule(name, undefined, msg)
   }
-  Validate.prototype.onsubmit = function() {
+
+  var onsubmit = function() {
     var hasError, self;
     self = this;
     hasError = false;
     this.$form.find("input, select, textarea").each(function() {
       var $input, error;
       $input = $(this);
-      error = self.update(this);
+      error = update.call(self, this);
       if (error && !hasError) {
         $input.focus();
       }
@@ -2855,7 +2856,7 @@ define("pagination.js", function(){});
     });
     return !hasError;
   };
-  Validate.prototype.update = function(input) {
+  var update = function(input) {
     var $input = $(input);
     var rules = {};
     var dataRules = ($input.data("rules") || "").split('|');
@@ -2895,7 +2896,7 @@ define("pagination.js", function(){});
       } else {
         error = true;
         msg = currentRule.msg;
-        if ($.isFunction(msg)) msg = msg($input)
+        if ($.isFunction(msg)) msg = msg($input, value)
         showError.call(this, $input, name, msg.replace('$0', value));
         break;
       }
@@ -2909,21 +2910,20 @@ define("pagination.js", function(){});
     var $currentError = $errors[errorName]
     if (!$currentError) {
       $currentError = ($errors[errorName] = $(this.options.errorTpl.replace("$errorMsg", errorMsg)));
-      this.options.placeError.call(this, $currentError, $input);
+      this.options.placeError.call(this, $input, $currentError);
     }
     for (var k in $errors) {
       if (k !== errorName) $errors[k].hide()
     }
-    $currentError.show();
-    $input.addClass(this.options.inputErrorClass);
+    this.options.highlight.call(this, $input, $currentError, this.options.inputErrorClass)
     $input.trigger("highlight");
   };
   var hideError = function($input, errorName) {
-    $input.removeClass(this.options.inputErrorClass);
     var $errors = this.errors[$input.attr('name')];
     if (!$errors) return;
-    $error = $errors[errorName]
-    $error && $error.hide();
+    var $error = $errors[errorName];
+    if (!$error) return;
+    this.options.unhighlight.call(this, $input, $error, this.options.inputErrorClass)
     $input.trigger("unhighlight");
   };
 
@@ -2970,13 +2970,21 @@ define("pagination.js", function(){});
   $.fn.validate.defaults = {
     errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n    <s class="msg-icon"></s>\n  </div>\n</div>',
     inputErrorClass: 'input-error',
-    placeError: function($error, $input) {
+    placeError: function($input, $error) {
       $input = $($input);
       var $wrap = $input.parents(".controls-wrap");
       if (!$wrap[0]) {
         $wrap = $input.parents(".controls");
       }
       $error.appendTo($wrap);
+    },
+    highlight: function($input, $error, inputErrorClass) {
+      $input.addClass(inputErrorClass)
+      $error.show()
+    },
+    unhighlight: function($input, $error, inputErrorClass) {
+      $input.removeClass(inputErrorClass)
+      $error.hide()
     },
     rules: undefined
   };
@@ -3001,18 +3009,51 @@ define("validate.js", function(){});
   Validate = $.validate;
   trim = function(v) {
     if (!v) return v;
-    return v.replace(/^\s+/g, '').replace(/\s+$/g, '');
+    return v.replace(/^\s+/g, '').replace(/\s+$/g, '')
   };
   var required = function(value, element, param) {
-    return trim(value);
+    var $input = $(element)
+    return !!trim(value);
   };
-  Validate.setRule("required", required, function ($input) {
-    var tagName = $input[0].tagName.toUpperCase();
-    var type = $input[0].type.toUpperCase();
-    if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
-      return '请选择'
+  var requiredMsg = function ($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
     }
-    return '请填写'
+    return "请" + getWord($input)
+  }
+  Validate.setRule("required", required, requiredMsg);
+
+  var prefill = function(value, element, param) {
+    var $input = $(element)
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      return !!$required.val()
+    }
+    return true
+  }
+  Validate.setRule("prefill", prefill, function($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
+    }
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      if (!$required.val()) {
+        return "请先" + getWord($required) + ($required.attr("title") || $required.attr("name"))
+      }
+    }
+    return '错误'
   });
   var match = function(value, element, param) {
     value = trim(value);

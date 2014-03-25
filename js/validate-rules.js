@@ -3,18 +3,51 @@
   Validate = $.validate;
   trim = function(v) {
     if (!v) return v;
-    return v.replace(/^\s+/g, '').replace(/\s+$/g, '');
+    return v.replace(/^\s+/g, '').replace(/\s+$/g, '')
   };
   var required = function(value, element, param) {
-    return trim(value);
+    var $input = $(element)
+    return !!trim(value);
   };
-  Validate.setRule("required", required, function ($input) {
-    var tagName = $input[0].tagName.toUpperCase();
-    var type = $input[0].type.toUpperCase();
-    if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
-      return '请选择'
+  var requiredMsg = function ($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
     }
-    return '请填写'
+    return "请" + getWord($input)
+  }
+  Validate.setRule("required", required, requiredMsg);
+
+  var prefill = function(value, element, param) {
+    var $input = $(element)
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      return !!$required.val()
+    }
+    return true
+  }
+  Validate.setRule("prefill", prefill, function($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
+    }
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      if (!$required.val()) {
+        return "请先" + getWord($required) + ($required.attr("title") || $required.attr("name"))
+      }
+    }
+    return '错误'
   });
   var match = function(value, element, param) {
     value = trim(value);

@@ -9,7 +9,7 @@
     this.options = $.extend($.fn.validate.defaults, options)
     this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
-      return self.onsubmit();
+      return onsubmit.call(self);
     });
     this.$form.find('input, select, textarea').each(function() {
       var $this = $(this);
@@ -17,7 +17,7 @@
       $this.on('blur keyup change update', function(e) {
         var $target;
         $target = $(e.target);
-        self.update.call(self, $target);
+        update.call(self, $target);
         return true;
       });
     });
@@ -38,14 +38,15 @@
   Validate.setMsg = function(name, msg) {
     Validate.setRule(name, undefined, msg)
   }
-  Validate.prototype.onsubmit = function() {
+
+  var onsubmit = function() {
     var hasError, self;
     self = this;
     hasError = false;
     this.$form.find("input, select, textarea").each(function() {
       var $input, error;
       $input = $(this);
-      error = self.update(this);
+      error = update.call(self, this);
       if (error && !hasError) {
         $input.focus();
       }
@@ -55,7 +56,7 @@
     });
     return !hasError;
   };
-  Validate.prototype.update = function(input) {
+  var update = function(input) {
     var $input = $(input);
     var rules = {};
     var dataRules = ($input.data("rules") || "").split('|');
@@ -95,7 +96,7 @@
       } else {
         error = true;
         msg = currentRule.msg;
-        if ($.isFunction(msg)) msg = msg($input)
+        if ($.isFunction(msg)) msg = msg($input, value)
         showError.call(this, $input, name, msg.replace('$0', value));
         break;
       }
@@ -109,21 +110,20 @@
     var $currentError = $errors[errorName]
     if (!$currentError) {
       $currentError = ($errors[errorName] = $(this.options.errorTpl.replace("$errorMsg", errorMsg)));
-      this.options.placeError.call(this, $currentError, $input);
+      this.options.placeError.call(this, $input, $currentError);
     }
     for (var k in $errors) {
       if (k !== errorName) $errors[k].hide()
     }
-    $currentError.show();
-    $input.addClass(this.options.inputErrorClass);
+    this.options.highlight.call(this, $input, $currentError, this.options.inputErrorClass)
     $input.trigger("highlight");
   };
   var hideError = function($input, errorName) {
-    $input.removeClass(this.options.inputErrorClass);
     var $errors = this.errors[$input.attr('name')];
     if (!$errors) return;
-    $error = $errors[errorName]
-    $error && $error.hide();
+    var $error = $errors[errorName];
+    if (!$error) return;
+    this.options.unhighlight.call(this, $input, $error, this.options.inputErrorClass)
     $input.trigger("unhighlight");
   };
 
@@ -170,13 +170,21 @@
   $.fn.validate.defaults = {
     errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n    <s class="msg-icon"></s>\n  </div>\n</div>',
     inputErrorClass: 'input-error',
-    placeError: function($error, $input) {
+    placeError: function($input, $error) {
       $input = $($input);
       var $wrap = $input.parents(".controls-wrap");
       if (!$wrap[0]) {
         $wrap = $input.parents(".controls");
       }
       $error.appendTo($wrap);
+    },
+    highlight: function($input, $error, inputErrorClass) {
+      $input.addClass(inputErrorClass)
+      $error.show()
+    },
+    unhighlight: function($input, $error, inputErrorClass) {
+      $input.removeClass(inputErrorClass)
+      $error.hide()
     },
     rules: undefined
   };
