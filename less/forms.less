@@ -810,24 +810,28 @@
 
     // Float the labels left
     .control-label {
-      float: left;
       width: @horizontalComponentOffset;
-      padding-top: 3px;
       text-align: right;
 
       // 新增下面样式 @by kai 2014-01-30
       display: inline-block;
       margin-bottom: 0;
+      vertical-align: middle;
+    }
+    .v-top {
+        vertical-align: top;
+    }
+    .v-bottom {
+        vertical-align: bottom;    
     }
 
     // Move over all input controls and content
     .controls {
       // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
       // don't inherit the margin of the parent, in this case .controls
-      *display: inline-block;
-      *padding-left: 20px;
-      margin-left: @horizontalComponentOffset + 6;
-      *margin-left: 0;
+      display: inline-block;
+      /*margin-left: @horizontalComponentOffset + 6;*/
+      margin-left: 3px;
       &:first-child {
         *padding-left: @horizontalComponentOffset;
       }
