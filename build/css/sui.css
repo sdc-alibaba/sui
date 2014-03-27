@@ -854,23 +854,6 @@ ol.inline > li {
   *zoom: 1;
 }
 
-dl {
-  margin-bottom: 18px;
-}
-
-dt,
-dd {
-  line-height: 18px;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 9px;
-}
-
 .dl-horizontal {
   *zoom: 1;
 }
@@ -1040,6 +1023,8 @@ sui-pre .sui-code {
 
 .sui-form {
   margin: 0 0 18px;
+  font-size: 12px;
+  line-height: 18px;
   /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
   .radio input[type="radio"],
   .checkbox input[type="checkbox"] {
@@ -1102,23 +1087,6 @@ sui-pre .sui-code {
 .sui-form legend small {
   font-size: 13.5px;
   color: #999999;
-}
-
-.sui-form label,
-.sui-form input,
-.sui-form button,
-.sui-form select,
-.sui-form textarea {
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 18px;
-}
-
-.sui-form input,
-.sui-form button,
-.sui-form select,
-.sui-form textarea {
-  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
 }
 
 .sui-form .input-default {
@@ -3010,6 +2978,7 @@ sui-pre .sui-code {
 
 .sui-msg.msg-block {
   display: block;
+  margin-bottom: 18px;
 }
 
 .sui-msg.msg-clear {
@@ -5333,6 +5302,11 @@ sui-pre .sui-code {
   outline: 0;
 }
 
+.sui-dropup.open .sui-dropdown-menu,
+.sui-dropdown.open .sui-dropdown-menu {
+  display: block;
+}
+
 .sui-dropup a,
 .sui-dropdown a {
   outline: 0;
@@ -7193,10 +7167,20 @@ sui-pre .sui-code {
 .sui-dropup.dropdown-bordered .dropdown-inner > .sui-dropdown-menu,
 .sui-dropdown.dropdown-bordered .dropdown-inner > .sui-dropdown-menu {
   width: 100%;
-  margin: -1px 0 0 0;
+  margin: 0;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.sui-dropup.open .dropdown-inner,
+.sui-dropdown.open .dropdown-inner {
+  border-color: #69bbef;
+}
+
+.sui-dropup.open .dropdown-inner a > .caret,
+.sui-dropdown.open .dropdown-inner a > .caret {
+  color: #69bbef;
 }
 
 .sui-dropdown-menu {
@@ -7284,14 +7268,6 @@ sui-pre .sui-code {
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
-
-.open {
-  *z-index: 1000;
-}
-
-.open > .sui-dropdown-menu {
-  display: block;
 }
 
 .dropdown-backdrop {

@@ -1,3 +1,4 @@
+// vim: tabstop=2 shiftwidth=2 softtabstop=2
 extends base
 
 block title
@@ -25,7 +26,7 @@ block content
     $.confirm(options)
 
 
-  h2 1. 原型方法控制,初始化可不写js。  
+  h2 1. 不写js初始化对话框,原型方法控制。用于复杂结构对话框。  
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -156,7 +157,7 @@ block content
 
 
 
-  h2 2. 通过js，更强力度、细粒度的控制对话框  
+  h2 2. $.alert/$.confirm静态方法快速生成，返回对话框元素的jQuery对象。用于简单对话框。 
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -276,6 +277,97 @@ block content
     div.tab-pane#code3
       pre.prettyprint.linenums(data-target='#demo3>div')
 
+  hr
+  h3 对话框叠加，层上层
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+    li
+      a(href='#doc4', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example
+        button.sui-btn.btn-primary#J_addsuppliers(data-toggle="modal", data-target="#J_addsuppliersDialog", data-width="large", data-backdrop="static") 添加供应商
+
+        | <div id="J_addsuppliersDialog" tabindex="-1" role="dialog" class="sui-modal hide fade" data-addSupplierUrl="http://" data-getSuppliersUrl="http://xxx">
+        |   <div class="modal-dialog">
+        |       <div class="modal-content">
+        |           <div class="modal-header">
+        |               <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button>
+        |               <h4 id="myModalLabel" class="modal-title">供应商收编</h4>
+        |           </div>
+        |           <div class="modal-body sui-form form-horizontal">
+        |               <div class="sui-msg msg-block msg-default msg-tips">
+        |                   <div class="msg-con">以下为供销平台上已经获得小二授权经营您的品牌但还未被您进行收编的供应商</div>
+        |                   <s class="msg-icon"></s>
+        |               </div>
+        |               <table class="sui-table table-bordered-simple">
+        |                   <thead>
+        |                       <tr>
+        |                           <th>供应商昵称</th>
+        |                           <th>公司名称</th>
+        |                           <th>供应商类型</th>
+        |                           <th>分销商数量</th>
+        |                           <th>授权品牌</th>
+        |                           <th>操作</th>
+        |                       </tr>
+        |                   </thead>
+        |                   <tbody>
+        |                       <tr>
+        |                           <td><span>only淘宝商城官方旗舰店</span></td>
+        |                           <td><span>九牧官方旗舰店</span></td>
+        |                           <td><span>企业</span></td>
+        |                           <td><span class="distributor-num">432</span></td>
+        |                           <td>
+        |                               <ul class="authorize-brand">
+        |                                   <li>海尔</li>
+        |                                   <li>统帅</li>
+        |                               </ul>
+        |                           </td>
+        |                           <td data-supplierid="111">
+        |                               <button class="sui-btn btn-small J_addOneSupplier" >添加</button>
+        |                           </td>
+        |                       </tr>
+        |                   </tbody>
+        |               </table>
+        |           </div>
+        |       </div>
+        |   </div>
+        | </div>
+        script.
+          $supDialog = $('#J_addsuppliersDialog')
+          $supDialog.on('click', '.J_addOneSupplier', function(e) {
+            $supDialog.modal('shadeIn');
+            return $.confirm({
+              title: '确认',
+              body: '您确认添加该供应商吗？',
+              backdrop: false,
+              okHide: function() {
+                $.alert({
+                  hasfoot: false,
+                  backdrop: false,
+                  title: '不管发生了什么，总之成功了',
+                  body: 'msg-large msg-block msg-',
+                  timeout: 1000
+                });
+              },
+              hide: function() {
+                return $supDialog.modal('shadeOut');
+              }
+            });
+          });
+         
+
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+
+    div.tab-pane#doc4
+      p 有几点注意，使用层上层时
+      p 底层：一定是复杂对话框，一定是使用的原型方法，即HTML写在模板中的对话框。要设置<code>backdrop:static</code>,已防止上层显示时不小心点击背景使底层消失了。。。
+      p 上层：只要不是底层，都设置<code>backdrop:false</code>,避免多背景。同时上层show时可以调用底层方法 <code>$supDialog.modal('shadeIn')</code>使底层被遮罩，防止又对底层做了其他操作。上层关闭后调用<code>$supDialog.modal('shadeOut')</code>复原。
 
 block js_block
 

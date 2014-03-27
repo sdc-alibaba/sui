@@ -7,6 +7,8 @@
 	<meta name="description" content="">
 	<link href="../../build/css/sui.css" rel="stylesheet">
 	<link href="../../build/css/sui-responsive.css" rel="stylesheet">
+  <script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"></script>;
+  <script type="text/javascript" src="../../build/js/sui.js"></script>;
 </head>
 <body>
   <div class="sui-container">
@@ -20,17 +22,18 @@
       </div>
       <s class="msg-icon"></s>
     </div>
-    <form class="sui-form form-horizontal" action="" method="post" id="servingForm">
+    <form class="sui-form form-horizontal sui-validate" action="" method="post" id="servingForm">
       <div class="control-group">
         <label class="control-label">名称：</label>
         <div class="controls">
-          <input class="input-xlarge" type='text' />
+          <input class="input-xlarge" type='text' data-rules="required|minlength=2|maxlength=50"/>
         </div>
       </div>
       <div class="control-group">
         <label class="control-label">时间：</label>
         <div class="controls">
-          <select class="input-medium " name='month'>
+          <select class="input-medium " name='month' data-rules='required'>
+            <option value="">--请选择--</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -45,7 +48,8 @@
             <option value="12">12</option>
           </select>
           月
-          <select class="input-medium " name='date'>
+          <select class="input-medium " name='date' data-rules='required'>
+            <option value="">--请选择--</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -65,7 +69,7 @@
       <div class="control-group">
         <label class="control-label">补充说明：</label>
         <div class="controls">
-          <textarea class='input-xlarge'></textarea>
+          <textarea class='input-xlarge' data-rules='maxlength=100'></textarea>
         </div>
       </div>
 			<div class="control-group">

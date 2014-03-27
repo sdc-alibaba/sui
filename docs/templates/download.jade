@@ -16,21 +16,24 @@ block content_wrap
   .sui-container
     h1.sui-page-header 下载 SUI
 
+    h2 直接引用CDN文件
+    p
+      | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
+    ul.unstyled
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
+
     h2 下载zip文件
 
     p.sui-lead
-      |下载打包好的压缩文件。
+      | 包括所有的源代码和文档。
 
     p
-      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='#', target="_blank")
-        i.sui-icon.icon-download
-        | SUI-1.0.zip
-
-    p.sui-lead
-      | 下载未压缩的源文件，包括所有的源代码和文档
-
-    p
-      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='#', target="_blank")
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl/repository/archive.zip?ref=dev', target="_blank")
         i.sui-icon.icon-download
         | SUI-1.0.source.zip
 

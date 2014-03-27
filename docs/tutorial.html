@@ -37,8 +37,8 @@
           <ul class="unstyled">
             <li><strong>sui.css</strong>所有组件的样式文件，必须。</li>
             <li><strong>sui-responsive.css</strong>响应式布局，可选。</li>
-            <li><strong>sui.js</strong>js文件，可选。</li>
-          </ul>其中除了sui.css是必须的，其他两个文件可以根据自己的需求选择。
+            <li><strong>sui.js</strong>js文件，可选。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。</li>
+          </ul>其中除了sui.css是必须的，其他两个文件可以根据自己的需求选择。<br>上述的三个文件都有对应的压缩版，分别是 sui.min.css,sui-responsive.min.css,sui.min.js。
         </p>
         <h3>引用CDN文件</h3>
         <p>最简单使用方式是直接引用我们的CDN文件:</p>
@@ -55,7 +55,7 @@
         </ul>
       </div>
       <h1 class="sui-page-header">第二部，引用文件</h1>
-      <p>在head中依次引入sui.min.css, sui-responsive.min.css和sui.min.js文件，代码如下：</p>
+      <p>在head中依次引入sui.css, sui-responsive.css和sui.js文件，代码如下：</p>
       <pre class="prettyprint linenums">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -65,12 +65,14 @@
   &lt;meta name="description" content=""&gt;
   &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
   &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
+  &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-      <h1 class="sui-page-header">第三步，添加css组件代码</h1>
+      <h1 class="sui-page-header">第三步，添加面包屑、提示消息和表单</h1>
       <p>我们使用三个css组件来生成这个页面，分别是面包屑、提示消息和表单。对应的代码如下</p>
       <h4>面包屑代码</h4>
       <pre class="prettyprint linenums">&lt;ul class="sui-breadcrumb"&gt;
@@ -143,8 +145,66 @@
   &lt;/div&gt;
 &lt;/form&gt; 
 </pre>
-      <h1 class="sui-page-header">第四步，完成</h1>
-      <p>经过上面三步我们就完成了一个简单的创建待办事项的页面，完整代码如下所示：</p>
+      <h1 class="sui-page-header">第四步，添加表单校验</h1>
+      <p>我们有现成的表单校验组件可以直接用。简单修改表单的html即可。</p>
+      <pre class="prettyprint linenums">&lt;form class="sui-form form-horizontal sui-validate" action="" method="post" id="servingForm"&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;名称：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;input class="input-xlarge" type='text' data-rules="required|minlength=2|maxlength=50" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;时间：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;select class="input-medium " name='month' data-rules='required'&gt;
+        &lt;option value="1"&gt;1&lt;/option&gt;
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+        &lt;option value="6"&gt;6&lt;/option&gt;
+        &lt;option value="7"&gt;8&lt;/option&gt;
+        &lt;option value="8"&gt;9&lt;/option&gt;
+        &lt;option value="9"&gt;9&lt;/option&gt;
+        &lt;option value="10"&gt;10&lt;/option&gt;
+        &lt;option value="11"&gt;11&lt;/option&gt;
+        &lt;option value="12"&gt;12&lt;/option&gt;
+      &lt;/select&gt;
+      月
+      &lt;select class="input-medium " name='date' data-rules='required'&gt;
+        &lt;option value="1"&gt;1&lt;/option&gt;
+        &lt;option value="2"&gt;2&lt;/option&gt;
+        &lt;option value="3"&gt;3&lt;/option&gt;
+        &lt;option value="4"&gt;4&lt;/option&gt;
+        &lt;option value="5"&gt;5&lt;/option&gt;
+        &lt;option value="6"&gt;6&lt;/option&gt;
+        &lt;option value="7"&gt;8&lt;/option&gt;
+        &lt;option value="8"&gt;9&lt;/option&gt;
+        &lt;option value="9"&gt;9&lt;/option&gt;
+        &lt;option value="10"&gt;10&lt;/option&gt;
+        &lt;option value="11"&gt;11&lt;/option&gt;
+        &lt;option value="12"&gt;12&lt;/option&gt;
+      &lt;/select&gt;
+      日
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label"&gt;补充说明：&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;textarea class='input-xlarge' data-rules='maxlength=100'&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;div class="controls"&gt;
+      &lt;button class="sui-btn btn-primary btn-xlarge"&gt;创建待办事项&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt; 
+
+</pre>
+      <h1 class="sui-page-header">第步，完成</h1>
+      <p>经过上面几步我们就完成了一个简单的创建待办事项的页面，完整代码如下所示：</p>
       <pre class="prettyprint linenums">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -154,6 +214,8 @@
   &lt;meta name="description" content=""&gt;
   &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
   &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
+  &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
   &lt;div class="sui-container"&gt;
@@ -167,17 +229,17 @@
       &lt;/div&gt;
       &lt;s class="msg-icon"&gt;&lt;/s&gt;
     &lt;/div&gt;
-    &lt;form class="sui-form form-horizontal" action="" method="post" id="servingForm"&gt;
+    &lt;form class="sui-form form-horizontal sui-validate" action="" method="post" id="servingForm"&gt;
       &lt;div class="control-group"&gt;
         &lt;label class="control-label"&gt;名称：&lt;/label&gt;
         &lt;div class="controls"&gt;
-          &lt;input class="input-xlarge" type='text' /&gt;
+          &lt;input class="input-xlarge" type='text' data-rules="required|minlength=2|maxlength=50" /&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="control-group"&gt;
         &lt;label class="control-label"&gt;时间：&lt;/label&gt;
         &lt;div class="controls"&gt;
-          &lt;select class="input-medium " name='month'&gt;
+          &lt;select class="input-medium " name='month' data-rules='required'&gt;
             &lt;option value="1"&gt;1&lt;/option&gt;
             &lt;option value="2"&gt;2&lt;/option&gt;
             &lt;option value="3"&gt;3&lt;/option&gt;
@@ -192,7 +254,7 @@
             &lt;option value="12"&gt;12&lt;/option&gt;
           &lt;/select&gt;
           月
-          &lt;select class="input-medium " name='date'&gt;
+          &lt;select class="input-medium " name='date' data-rules='required'&gt;
             &lt;option value="1"&gt;1&lt;/option&gt;
             &lt;option value="2"&gt;2&lt;/option&gt;
             &lt;option value="3"&gt;3&lt;/option&gt;
@@ -212,7 +274,7 @@
       &lt;div class="control-group"&gt;
         &lt;label class="control-label"&gt;补充说明：&lt;/label&gt;
         &lt;div class="controls"&gt;
-          &lt;textarea class='input-xlarge'&gt;&lt;/textarea&gt;
+          &lt;textarea class='input-xlarge' data-rules='maxlength=100'&gt;&lt;/textarea&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div class="control-group"&gt;
@@ -220,7 +282,9 @@
           &lt;button class="sui-btn btn-primary btn-xlarge"&gt;创建待办事项&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/form&gt;
+    &lt;/form&gt; 
+    
+    
   &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>

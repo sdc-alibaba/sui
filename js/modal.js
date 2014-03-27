@@ -153,8 +153,8 @@
             }
         }
         typeof fn == 'function' && (ifNeedHide = fn.call(this))
-        //如果开发人员不设置返回值，默认走true的逻辑
-        if (ifNeedHide === true || ifNeedHide === undefined){
+        //显式返回false，则不关闭对话框
+        if (ifNeedHide !== false){
           hideWithOk()
         } 
         function hideWithOk (){
@@ -302,7 +302,6 @@
  /* MODAL NO CONFLICT
   * ================= */
 
-
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
@@ -310,7 +309,6 @@
 
  /* MODAL DATA-API
   * ============== */
-
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
@@ -360,8 +358,9 @@
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
       var dialog = new Modal(null, finalCfg)
+        , $ele = dialog.$element 
       _bind(modalId, finalCfg)
-      dialog.show();     
+      $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
         var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
         $.each(eType, function(k, v){
@@ -370,6 +369,8 @@
           }
         })
       }
+      //静态方法对话框返回对话框元素的jQuery对象
+      return $ele
     }
     //为最常见的alert，confirm建立$.modal的快捷方式，
     ,alert: function(customCfg){
@@ -377,7 +378,7 @@
         type: 'alert'
         ,title: '注意'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
     ,confirm: function(customCfg){
       var dialogCfg = {
@@ -385,7 +386,7 @@
         ,title: '提示'
         ,cancelBtn: '取消'
       }
-      $._modal(dialogCfg, customCfg)
+      return $._modal(dialogCfg, customCfg)
     }
   })
 

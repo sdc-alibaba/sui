@@ -1,7 +1,8 @@
 (function() {
   requirejs.config({
     paths: {
-      "almond": "lib/almond"
+      "almond": "lib/almond",
+      "moment": "lib/moment.min"
     },
   });
 
