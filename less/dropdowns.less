@@ -11,25 +11,49 @@
     // The caret makes the toggle a bit too tall in IE7
     *margin-bottom: -3px;
   }
-  .dropdown-inner > a {
-    text-decoration: none;
+  .dropdown-inner {
+    > a {
+      text-decoration: none;
+    }
+  
+    > .sui-dropdown-menu {
+      top: 100%;
+      left: 0;
+      margin: 2px 0 0; // override default ul
+    }
   }
-  .dropdown-toggle:active,
+  .sui-dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: @zindexDropdown;
+  }
+  li {
+    position: relative;
+    > .sui-dropdown-menu {
+      top: 0;
+      left: 100%;
+    }
+    &:hover {
+      > .sui-dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
   &.open {
+    .dropdown-inner > .sui-dropdown-menu {
+      display: block;
+    }
     .dropdown-toggle {
       outline: 0;
     }
+  }
     
-  }
-
-  &.open {
-    .sui-dropdown-menu {
-      display: block;
-    }
-  }
-
   a {
     outline: 0;
+    > .sui-icon {
+      float: right;
+    }
   }
 
 // Place the caret
@@ -84,15 +108,9 @@
 // 这个是可以独立使用的
 // ----------------------
 .sui-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: @zindexDropdown;
-  display: none; // none by default, but block on "open" of the menu
-  float: left;
+  display: inline-block; 
+  padding: 1px 0;
   min-width: 100px;
-  padding: 1px;
-  margin: 2px 0 0; // override default ul
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
@@ -115,16 +133,22 @@
   }
 
   // Links within the dropdown menu
-  > li > a {
-    display: block;
-    padding: 3px 10px;
-    clear: both;
-    font-weight: normal;
-    line-height: @baseLineHeight;
-    color: @dropdownLinkColor;
-    white-space: nowrap;
-    &:hover {
-      color: @white;
+  > li {
+    padding: 0 1px; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
+    > a {
+      display: block;
+      padding: 3px 10px;
+      clear: both;
+      font-weight: normal;
+      line-height: @baseLineHeight;
+      color: @dropdownLinkColor;
+      white-space: nowrap;
+      &:hover {
+        color: @white;
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

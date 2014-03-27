@@ -5295,21 +5295,54 @@ sui-pre .sui-code {
   text-decoration: none;
 }
 
-.sui-dropup .dropdown-toggle:active .dropdown-toggle,
-.sui-dropdown .dropdown-toggle:active .dropdown-toggle,
+.sui-dropup .dropdown-inner > .sui-dropdown-menu,
+.sui-dropdown .dropdown-inner > .sui-dropdown-menu {
+  top: 100%;
+  left: 0;
+  margin: 2px 0 0;
+}
+
+.sui-dropup .sui-dropdown-menu,
+.sui-dropdown .sui-dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+}
+
+.sui-dropup li,
+.sui-dropdown li {
+  position: relative;
+}
+
+.sui-dropup li > .sui-dropdown-menu,
+.sui-dropdown li > .sui-dropdown-menu {
+  top: 0;
+  left: 100%;
+}
+
+.sui-dropup li:hover > .sui-dropdown-menu,
+.sui-dropdown li:hover > .sui-dropdown-menu {
+  display: block;
+}
+
+.sui-dropup.open .dropdown-inner > .sui-dropdown-menu,
+.sui-dropdown.open .dropdown-inner > .sui-dropdown-menu {
+  display: block;
+}
+
 .sui-dropup.open .dropdown-toggle,
 .sui-dropdown.open .dropdown-toggle {
   outline: 0;
 }
 
-.sui-dropup.open .sui-dropdown-menu,
-.sui-dropdown.open .sui-dropdown-menu {
-  display: block;
-}
-
 .sui-dropup a,
 .sui-dropdown a {
   outline: 0;
+}
+
+.sui-dropup a > .sui-icon,
+.sui-dropdown a > .sui-icon {
+  float: right;
 }
 
 .sui-dropup .caret,
@@ -7184,15 +7217,9 @@ sui-pre .sui-code {
 }
 
 .sui-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  float: left;
+  display: inline-block;
   min-width: 100px;
-  padding: 1px;
-  margin: 2px 0 0;
+  padding: 1px 0;
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -7223,6 +7250,10 @@ sui-pre .sui-code {
   border-bottom: 1px solid #ffffff;
 }
 
+.sui-dropdown-menu > li {
+  padding: 0 1px;
+}
+
 .sui-dropdown-menu > li > a {
   display: block;
   padding: 3px 10px;
@@ -7235,6 +7266,10 @@ sui-pre .sui-code {
 
 .sui-dropdown-menu > li > a:hover {
   color: #ffffff;
+}
+
+.sui-dropdown-menu > li > a:focus {
+  outline: none;
 }
 
 .sui-dropdown-menu > li > a:hover,
@@ -8177,6 +8212,7 @@ input[type="submit"].btn.btn-mini {
 .sui-nav > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee;
+  outline: 0;
 }
 
 .sui-nav img {

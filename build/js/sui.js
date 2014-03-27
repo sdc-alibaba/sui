@@ -1,4 +1,5 @@
-(function () {/**
+(function () {
+/**
  * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/almond for details
@@ -3133,7 +3134,6 @@ require([
 });
 
 define("sui", function(){});
-
 
 require(["sui"]);
 }());

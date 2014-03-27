@@ -24,7 +24,7 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo1
-      div.bs-docs-example(style='min-height: 220px;')
+      div.bs-docs-example(style='min-height: 250px;')
         h3 默认样式
         span.sui-dropdown
           span.dropdown-inner
@@ -51,13 +51,23 @@ block content
               li(role="presentation" class="divider")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 莫斯科
+                ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 北京
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+                  li(role="presentation" class="divider")
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+
 
         span.sui-dropdown.dropdown-bordered.dropdown-large
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#")
+            a.dropdown-toggle#drop2(role="button" data-toggle="dropdown" href="#")
               i.caret
               | 杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -68,10 +78,10 @@ block content
 
         span.sui-dropdown.dropdown-bordered.dropdown-xlarge
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#")
+            a.dropdown-toggle#drop3(role="button" data-toggle="dropdown" href="#")
               i.caret
               |更大一点的
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop3")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -90,3 +100,95 @@ block content
       a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 多级下拉
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example(style='min-height: 220px;')
+        span.sui-dropdown.dropdown-bordered
+          span.dropdown-inner
+            a.dropdown-toggle#drop5(role="button" data-toggle="dropdown" href="#") 
+              i.caret
+              |杭州
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#")
+                  <i class="sui-icon icon-caret-right"></i>
+                  |武汉
+                ul.sui-dropdown-menu
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 汉口
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#")
+                      <i class="sui-icon icon-caret-right"></i>
+                      |武昌
+                    ul.sui-dropdown-menu
+                      li(role="presentation")
+                        a(role="menuitem" tabindex="-1" href="#") 武汉大学
+                      li(role="presentation")
+                        a(role="menuitem" tabindex="-1" href="#") 华中科技大学
+                      li(role="presentation")
+                        a(role="menuitem" tabindex="-1" href="#") 华中师范大学
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 汉阳
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#")
+                  <i class="sui-icon icon-caret-right"></i>
+                  | 杭州
+                ul.sui-dropdown-menu
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 西湖区
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 余杭区
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 东城区
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+
+
+
+
+  h2 单独使用菜单
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        ul.sui-dropdown-menu(role="menu") 
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 上海
+          li(role="presentation" class="divider")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 广州
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
+

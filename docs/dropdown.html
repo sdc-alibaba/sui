@@ -84,7 +84,7 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div style="min-height: 220px;" class="bs-docs-example">
+              <div style="min-height: 250px;" class="bs-docs-example">
                 <h3>默认样式</h3><span class="sui-dropdown"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
                     <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
@@ -97,15 +97,22 @@
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-large"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a>
+                        <ul id="menu1" role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
+                        </ul>
+                      </li>
+                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-large"><span class="dropdown-inner"><a id="drop2" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
+                    <ul id="menu1" role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
                       <li role="presentation" class="divider"></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-xlarge"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>更大一点的</a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-xlarge"><span class="dropdown-inner"><a id="drop3" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>更大一点的</a>
+                    <ul id="menu1" role="menu" aria-labelledby="drop3" class="sui-dropdown-menu">
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
                       <li role="presentation" class="divider"></li>
@@ -124,6 +131,76 @@
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>多级下拉</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div style="min-height: 220px;" class="bs-docs-example"><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a id="drop5" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
+                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                          <i class="sui-icon icon-caret-right"></i>
+                          武汉</a>
+                        <ul class="sui-dropdown-menu">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">汉口</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                              <i class="sui-icon icon-caret-right"></i>
+                              武昌</a>
+                            <ul class="sui-dropdown-menu">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">武汉大学</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">华中科技大学</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">华中师范大学</a></li>
+                            </ul>
+                          </li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">汉阳</a></li>
+                        </ul>
+                      </li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                          <i class="sui-icon icon-caret-right"></i>
+                          杭州</a>
+                        <ul class="sui-dropdown-menu">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">西湖区</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">余杭区</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">东城区</a></li>
+                        </ul>
+                      </li>
+                    </ul></span></span></div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>单独使用菜单</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <ul role="menu" class="sui-dropdown-menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">广州</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>
