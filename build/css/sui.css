@@ -1040,13 +1040,6 @@ sui-pre .sui-code {
 
 .sui-form {
   margin: 0 0 18px;
-  /* ע�͵���һ������ ����label��ǩ��ԭ�����ԣ�����������ȫ�ֶ��� ֱ��ȥ�� @by kai 2014-01-16
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  */
-
   /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
   .radio input[type="radio"],
   .checkbox input[type="checkbox"] {
@@ -2788,8 +2781,6 @@ sui-pre .sui-code {
 
 .sui-form.form-horizontal .controls {
   display: inline-block;
-  /*margin-left: @horizontalComponentOffset + 6;*/
-
   margin-left: 3px;
 }
 
