@@ -25,10 +25,16 @@ block content_wrap
         ul.unstyled
           li
             strong sui.css
-            | 所有组件的样式文件，必须。
+            | 核心组件的样式文件，必须。
           li
             strong sui-responsive.css
             | 响应式布局，可选。
+          li
+            strong sui-extends.css
+            | 拓展组件样式，可选。
+          li
+            strong sui-all.css
+            | 全部样式，包括三部分：sui.less, sui-responsive.less, sui-extends.less。
           li
             strong sui.js
             | 核心组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。

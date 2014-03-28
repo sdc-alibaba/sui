@@ -109,11 +109,11 @@ module.exports = function(grunt) {
       options: {
         compile: true
       },
-      css: {
+      sui: {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
-      min: {
+      suiMin: {
         options: {
           compress: true
         },
@@ -130,6 +130,28 @@ module.exports = function(grunt) {
         },
         src: ['less/responsive.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
+      },
+      "extends": {
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.css'
+      },
+      extendsMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.min.css'
+      },
+      "all": {
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.css'
+      },
+      allMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.min.css'
       },
       docs: {
         files: [{
@@ -186,7 +208,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['recess', 'copy']
+        tasks: ['recess:sui', 'recess:extends', 'recess:all', 'copy']
       },
       js: {
         files: 'js/*.js',

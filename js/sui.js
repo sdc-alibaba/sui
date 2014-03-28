@@ -1,6 +1,5 @@
 //核心组件
 require([
-  'moment',
   'transition.js',
   'alert.js',
   'button.js',
