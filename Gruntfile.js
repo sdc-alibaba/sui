@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       }
     },
     requirejs: {
-      development: {
+      sui: {
         options: {
           baseUrl: "js",
           name: "almond",
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           wrap: true
         }
       },
-      production: {
+      suiMin: {
         options: {
           baseUrl: "js",
           name: "almond",
@@ -48,6 +48,58 @@ module.exports = function(grunt) {
           preserveLicenseComments: false, //这个不能和sourcemap同时使用
           generateSourceMaps: true,
           out: '<%= distRoot %>/js/<%= pkg.name %>.min.js',
+          wrap: true
+        }
+      },
+      "extends": {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          optimize: "none",
+          include: 'sui-extends',
+          insertRequire: ['sui-extends'],
+          mainConfigFile: "js/requirejs-config.js",
+          out: '<%= distRoot %>/js/sui-extends.js',
+          wrap: true
+        }
+      },
+      extendsMin: {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          include: 'sui-extends',
+          insertRequire: ['sui-extends'],
+          optimize: "uglify2",
+          mainConfigFile: "js/requirejs-config.js",
+          preserveLicenseComments: false, //这个不能和sourcemap同时使用
+          generateSourceMaps: true,
+          out: '<%= distRoot %>/js/sui-extends.min.js',
+          wrap: true
+        }
+      },
+      "all": {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          optimize: "none",
+          include: 'sui-all',
+          insertRequire: ['sui-all'],
+          mainConfigFile: "js/requirejs-config.js",
+          out: '<%= distRoot %>/js/sui-all.js',
+          wrap: true
+        }
+      },
+      allMin: {
+        options: {
+          baseUrl: "js",
+          name: "almond",
+          include: 'sui-all',
+          insertRequire: ['sui-all'],
+          optimize: "uglify2",
+          mainConfigFile: "js/requirejs-config.js",
+          preserveLicenseComments: false, //这个不能和sourcemap同时使用
+          generateSourceMaps: true,
+          out: '<%= distRoot %>/js/sui-all.min.js',
           wrap: true
         }
       }
@@ -138,7 +190,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: 'js/*.js',
-        tasks: ['dist-js', 'copy']
+        tasks: ['requirejs:sui', 'requirejs:extends', 'requirejs:all', 'copy']
       },
       docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',

@@ -3136,5 +3136,19 @@ require([
 
 define("sui", function(){});
 
-require(["sui"]);
+//拓展组件
+require([
+]);
+
+define("sui-extends", function(){});
+
+//全部打包
+require([
+  "sui",
+  "sui-extends"
+])
+;
+define("sui-all", function(){});
+
+require(["sui-all"]);
 }());
