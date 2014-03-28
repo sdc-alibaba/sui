@@ -132,6 +132,7 @@ $.confirm(options)</pre>
               <pre class="prettyprint">$ele.modal('shadeIn')  使该对话框自身被遮罩层遮住，方便层上层的调用操作。</pre>
               <pre class="prettyprint">$ele.modal('shadeOut')  顾名思义，上一条的逆操作。</pre>
               <pre class="prettyprint">$ele.modal('shadeToggle')  顾名思义，上两条的交替操作。</pre>
+              <pre class="prettyprint">$ele.modal('resize') dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用该接口使dialog重新定位居中</pre>
               <h3>简单使用方法</h3>
               <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
               <p>

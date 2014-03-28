@@ -83,16 +83,8 @@
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
-
-          var eleH = ele.height()
-            , winH = $(window).height()
-            , mt
-          if (eleH >= winH) {
-            mt = -winH/2
-          } else {
-            mt = (winH - eleH) / (1 + 1.618) - winH / 2
-          }
-          ele.css('margin-top', parseInt(mt))
+          //处理dialog在页面中的定位
+          that.resize()
 
           ele.show()
           if (transition) {
@@ -117,6 +109,7 @@
             }
           }
         })
+        return ele
       }
 
     , hide: function (e) {
@@ -135,6 +128,7 @@
         $.support.transition && this.$element.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
+        return that.$element
       }
     , okHide: function(e){
         var that = this
@@ -161,6 +155,7 @@
           that.hideReason = 'ok'
           that.hide(e)  
         }
+        return that.$element
     }
     //对话框内部遮罩层
     , shadeIn: function () {
@@ -169,13 +164,28 @@
         var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
         $shadeEle.appendTo($ele)
         this.hasShaded = true
+        return this.$element
     }
     , shadeOut: function () {
         this.$element.find('.shade').remove()
         this.hasShaded = false
+        return this.$element
     }
     , shadeToggle: function () {
         return this[!this.hasShaded ? 'shadeIn' : 'shadeOut']()
+    }
+    // dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用$dialog.modal('resize'),使dialog重新定位居中
+    , resize: function() {
+      var ele = this.$element
+        ,eleH = ele.height()
+        ,winH = $(window).height()
+        ,mt = 0
+      if (eleH >= winH)
+          mt = -winH/2
+      else
+          mt = (winH - eleH) / (1 + 1.618) - winH / 2
+      ele.css('margin-top', parseInt(mt))
+      return ele
     }
     , enforceFocus: function () {
         var that = this
