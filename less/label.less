@@ -4,8 +4,7 @@
 
 
 // Base classes
-.sui-label,
-.sui-badge {
+.sui-label {
   display: inline-block;
   padding: 2px 4px;
   font-size: @baseFontSize * .846;
@@ -16,31 +15,18 @@
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   background-color: @grayLight;
-}
-// Set unique padding and border-radii
-.sui-label {
   .border-radius(3px);
-}
-.sui-badge {
-  padding-left: 9px;
-  padding-right: 9px;
-  .border-radius(9px);
 }
 
 // Empty labels/badges collapse
-.sui-label,
-.sui-badge {
-  &:empty {
-    display: none;
-  }
+.sui-label:empty {
+  display: none;
 }
 
 // Hover/focus state, but only for links
 a {
   &.sui-label:hover,
-  &.sui-label:focus,
-  &.sui-badge:hover,
-  &.sui-badge:focus {
+  &.sui-label:focus {
     color: @white;
     text-decoration: none;
     cursor: pointer;
@@ -49,36 +35,33 @@ a {
 
 // Colors
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
-.sui-label,
-.sui-badge {
+.sui-label {
   // Important (red)
-  &-important         { background-color: @errorText; }
-  &-important[href]   { background-color: darken(@errorText, 10%); }
+  .label-important         { background-color: @errorText; }
+  .label-important[href]   { background-color: darken(@errorText, 10%); }
   // Warnings (orange)
-  &-warning           { background-color: @orange; }
-  &-warning[href]     { background-color: darken(@orange, 10%); }
+  .label-warning           { background-color: @orange; }
+  .label-warning[href]     { background-color: darken(@orange, 10%); }
   // Success (green)
-  &-success           { background-color: @successText; }
-  &-success[href]     { background-color: darken(@successText, 10%); }
+  .label-success           { background-color: @successText; }
+  .label-success[href]     { background-color: darken(@successText, 10%); }
   // Info (turquoise)
-  &-info              { background-color: @infoText; }
-  &-info[href]        { background-color: darken(@infoText, 10%); }
+  .label-info              { background-color: @infoText; }
+  .label-info[href]        { background-color: darken(@infoText, 10%); }
   // Inverse (black)
-  &-inverse           { background-color: @grayDark; }
-  &-inverse[href]     { background-color: darken(@grayDark, 10%); }
+  .label-inverse           { background-color: @grayDark; }
+  .label-inverse[href]     { background-color: darken(@grayDark, 10%); }
 }
 
-// Quick fix for labels/badges in buttons
+// Quick fix for labels in buttons
 .sui-btn {
-  .sui-label,
-  .sui-badge {
+  .sui-label {
     position: relative;
     top: -1px;
   }
 }
 .btn-mini {
-  .sui-label,
-  .sui-badge {
+  .sui-label {
     top: 0;
   }
 }
