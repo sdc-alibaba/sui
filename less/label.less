@@ -6,7 +6,7 @@
 // Base classes
 .sui-label {
   display: inline-block;
-  padding: 2px 4px;
+  padding: 2px 5px;
   font-size: @baseFontSize * .846;
   font-weight: bold;
   line-height: 14px; // ensure proper line-height if floated
@@ -15,7 +15,7 @@
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   background-color: @grayLight;
-  .border-radius(3px);
+  .border-radius(2px);
 }
 
 // Empty labels/badges collapse
@@ -37,20 +37,20 @@ a {
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
 .sui-label {
   // Important (red)
-  .label-important         { background-color: @errorText; }
-  .label-important[href]   { background-color: darken(@errorText, 10%); }
+  &.label-important         { background-color: @errorText; }
+  &.label-important[href]   { background-color: darken(@errorText, 10%); }
   // Warnings (orange)
-  .label-warning           { background-color: @orange; }
-  .label-warning[href]     { background-color: darken(@orange, 10%); }
+  &.label-warning           { background-color: @orange; }
+  &.label-warning[href]     { background-color: darken(@orange, 10%); }
   // Success (green)
-  .label-success           { background-color: @successText; }
-  .label-success[href]     { background-color: darken(@successText, 10%); }
+  &.label-success           { background-color: @successText; }
+  &.label-success[href]     { background-color: darken(@successText, 10%); }
   // Info (turquoise)
-  .label-info              { background-color: @infoText; }
-  .label-info[href]        { background-color: darken(@infoText, 10%); }
+  &.label-info              { background-color: @infoText; }
+  &.label-info[href]        { background-color: darken(@infoText, 10%); }
   // Inverse (black)
-  .label-inverse           { background-color: @grayDark; }
-  .label-inverse[href]     { background-color: darken(@grayDark, 10%); }
+  &.label-inverse           { background-color: @grayDark; }
+  &.label-inverse[href]     { background-color: darken(@grayDark, 10%); }
 }
 
 // Quick fix for labels in buttons

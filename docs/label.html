@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>下拉菜单</title>
+    <title>标签</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -55,8 +55,8 @@
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
-                  <li class="active"><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">标签</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li class="active"><a href="label.html">标签</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -78,52 +78,38 @@
       <div class="content">
         <div class="content-inner">
           <div class="sui-page-header">
-            <h1>下拉菜单</h1>
+            <h1>标签标识</h1>
           </div>
-          <p class="sui-lead">下拉菜单，可以结合结合下拉框使用，也可以单独使用。</p>
-          <h2>不同样式和大小</h2>
+          <h2>不同类型</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
             <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
+          <style>
+            .bs-docs-example li {
+              margin-bottom: 10px;
+            }
+          </style>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div style="min-height: 220px;" class="bs-docs-example">
-                <h3>默认样式</h3><span class="sui-dropdown"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span>
-                <h3>带边框</h3><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-large"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-xlarge"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>更大一点的</a>
-                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                      <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                    </ul></span></span>
+              <div class="bs-docs-example">
+                <ul>
+                  <li><span class="sui-label label-">默认</span></li>
+                  <li><span class="sui-label label-success">成功</span></li>
+                  <li><span class="sui-label label-warning">警示恩</span></li>
+                  <li><span class="sui-label label-important">重要重要</span></li>
+                  <li><span class="sui-label label-info">公告</span></li>
+                  <li><span class="sui-label label-inverse">反色!</span></li>
+                </ul>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>下拉菜单有两种样式：默认样式和带边框的样式，添加 <code>.dropdown-borderd</code> 是带边框的样式。</p>
-              <p>带边框的下拉菜单有三种尺寸：默认，<code>.dropdown-large</code>，<code>.dropdown-xlarge</code> </p>
+              <p>删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。</p>
+              <p><code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标签label</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">

@@ -19,13 +19,24 @@ block content
     li
       a(href='#doc1', data-toggle='tab') 文档
 
+  style.
+    .bs-docs-example li {
+      margin-bottom: 10px;
+    }
   div.tab-content
     div.tab-pane.active#demo1
       div.bs-docs-example
-        
+        ul
+          - var cls = ['', 'success', 'warning', 'important', 'info', 'inverse']
+          - var txt = ['默认', '成功', '警示恩', '重要重要', '公告', '反色!']
+          each clsi, i in cls
+            li
+              span.sui-label(class='label-#{clsi}') #{txt[i]}
     div.tab-pane#code1
-
+      pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
+      p 删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。
+      p <code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标签label
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件

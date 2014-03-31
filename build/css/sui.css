@@ -9567,8 +9567,7 @@ input[type="submit"].btn.btn-mini {
   margin-right: 8px;
 }
 
-.sui-pagination div .page-num + .page-confirm .sui-label,
-.sui-pagination div .page-num + .page-confirm .sui-badge {
+.sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
   top: -1px;
 }
@@ -9761,8 +9760,7 @@ input[type="submit"].btn.btn-mini {
   margin-right: 8px;
 }
 
-.pagination-large div .page-num + .page-confirm .sui-label,
-.pagination-large div .page-num + .page-confirm .sui-badge {
+.pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
   top: -1px;
 }
@@ -9911,8 +9909,7 @@ input[type="submit"].btn.btn-mini {
   margin-right: 8px;
 }
 
-.pagination-xlarge div .page-num + .page-confirm .sui-label,
-.pagination-xlarge div .page-num + .page-confirm .sui-badge {
+.pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
   top: -1px;
 }
@@ -10057,8 +10054,7 @@ input[type="submit"].btn.btn-mini {
   margin-right: 8px;
 }
 
-.pagination-small div .page-num + .page-confirm .sui-label,
-.pagination-small div .page-num + .page-confirm .sui-badge {
+.pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
   top: -1px;
 }
@@ -10624,10 +10620,9 @@ input[type="submit"].btn.btn-mini {
   border-right-width: 0;
 }
 
-.sui-label,
-.sui-badge {
+.sui-label {
   display: inline-block;
-  padding: 2px 4px;
+  padding: 2px 5px;
   font-size: 10.152px;
   font-weight: bold;
   line-height: 14px;
@@ -10636,94 +10631,68 @@ input[type="submit"].btn.btn-mini {
   white-space: nowrap;
   vertical-align: baseline;
   background-color: #999999;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 
-.sui-label {
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-}
-
-.sui-badge {
-  padding-right: 9px;
-  padding-left: 9px;
-  -webkit-border-radius: 9px;
-     -moz-border-radius: 9px;
-          border-radius: 9px;
-}
-
-.sui-label:empty,
-.sui-badge:empty {
+.sui-label:empty {
   display: none;
 }
 
 a.sui-label:hover,
-a.sui-label:focus,
-a.sui-badge:hover,
-a.sui-badge:focus {
+a.sui-label:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
 
-.sui-label-important,
-.sui-badge-important {
+.sui-label.label-important {
   background-color: #ea4a36;
 }
 
-.sui-label-important[href],
-.sui-badge-important[href] {
+.sui-label.label-important[href] {
   background-color: #d72c16;
 }
 
-.sui-label-warning,
-.sui-badge-warning {
+.sui-label.label-warning {
   background-color: #f89406;
 }
 
-.sui-label-warning[href],
-.sui-badge-warning[href] {
+.sui-label.label-warning[href] {
   background-color: #c67605;
 }
 
-.sui-label-success,
-.sui-badge-success {
+.sui-label.label-success {
   background-color: #22cd6e;
 }
 
-.sui-label-success[href],
-.sui-badge-success[href] {
+.sui-label.label-success[href] {
   background-color: #1ba157;
 }
 
-.sui-label-info,
-.sui-badge-info {
+.sui-label.label-info {
   background-color: #2597dd;
 }
 
-.sui-label-info[href],
-.sui-badge-info[href] {
+.sui-label.label-info[href] {
   background-color: #1c7ab3;
 }
 
-.sui-label-inverse,
-.sui-badge-inverse {
+.sui-label.label-inverse {
   background-color: #333333;
 }
 
-.sui-label-inverse[href],
-.sui-badge-inverse[href] {
+.sui-label.label-inverse[href] {
   background-color: #1a1a1a;
 }
 
-.sui-btn .sui-label,
-.sui-btn .sui-badge {
+.sui-btn .sui-label {
   position: relative;
   top: -1px;
 }
 
-.btn-mini .sui-label,
-.btn-mini .sui-badge {
+.btn-mini .sui-label {
   top: 0;
 }
 
