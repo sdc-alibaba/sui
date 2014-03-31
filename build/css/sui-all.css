@@ -9392,6 +9392,14 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 1px solid #3096dc;
 }
 
+.sui-nav.nav-tabs.tab-navbar > li:first-child > a {
+  border-radius: 3px 0 0 3px;
+}
+
+.sui-nav.nav-tabs.tab-navbar > li:last-child > a {
+  border-radius: 0 3px 3px 0;
+}
+
 .sui-nav.nav-stacked > li {
   float: none;
 }

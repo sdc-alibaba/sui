@@ -197,7 +197,7 @@
     &.tab-navbar {
       display: inline-block;
       border: 1px solid #ddd;
-      border-radius: 3px;
+      border-radius: @borderRadiusSmall;
       > li {
         margin-bottom: 0;
         margin-left: 0;
@@ -213,6 +213,13 @@
           margin-top: -1px;
           border-bottom: 1px solid #3096dc;
           margin-bottom: -1px;
+        }
+        
+        &:first-child > a {
+          border-radius: @borderRadiusSmall 0 0 @borderRadiusSmall;
+        }
+        &:last-child > a {
+          border-radius: 0 @borderRadiusSmall @borderRadiusSmall 0;
         }
       }
     }
