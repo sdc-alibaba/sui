@@ -174,31 +174,53 @@
         border-radius: 2px 2px 0 0;
       }
     }
+
+    &.nav-pills {
+      .nav-primary;
+      border-bottom: 0;
+      > li {
+        & > a,
+        &.active > a {
+          border-radius: 3px;
+          border: 0;
+        }
+        > a:hover {
+          background-color: #f1f1f1;
+          color: @linkColor;
+        }
+        &.active > a:hover {
+          background: @navTabsHilightColor;
+          color: #fff;
+        }
+      }
+    }
+    &.tab-navbar {
+      display: inline-block;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      > li {
+        margin-bottom: 0;
+        margin-left: 0;
+        > a {
+          margin-left: 0;
+          border-radius: 0;
+          border: none;
+        }
+        &.active > a {
+          background: @navTabsHilightColor;
+          color: #fff;
+          border-top: 1px solid #3096dc;
+          margin-top: -1px;
+          border-bottom: 1px solid #3096dc;
+          margin-bottom: -1px;
+        }
+      }
+    }
   }
 
 
   // PILLS
   // -----
-
-  // Links rendered as pills
-  &.nav-pills {
-    > li > a {
-      padding-top: 8px;
-      padding-bottom: 8px;
-      margin-top: 2px;
-      margin-bottom: 2px;
-      .border-radius(5px);
-    }
-
-    // Active state
-    > .active > a {
-      &, &:hover, &:focus {
-        color: @white;
-        background-color: @linkColor;
-      }
-    }
-  }
-
 
 
   // STACKED NAV

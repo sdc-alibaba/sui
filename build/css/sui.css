@@ -237,7 +237,7 @@ body {
 }
 
 a {
-  color: #0066cc;
+  color: #0088cc;
   text-decoration: none;
 }
 
@@ -7885,7 +7885,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .btn-link {
-  color: #0066cc;
+  color: #0088cc;
   cursor: pointer;
   border-color: transparent;
   -webkit-border-radius: 0;
@@ -8224,7 +8224,7 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-list > .active > a:focus {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  background-color: #0066cc;
+  background-color: #0088cc;
 }
 
 .sui-nav.nav-list [class^="icon-"],
@@ -8350,21 +8350,62 @@ input[type="submit"].btn.btn-mini {
   border-radius: 2px 2px 0 0;
 }
 
-.sui-nav.nav-pills > li > a {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+.sui-nav.nav-tabs.nav-pills {
+  border-bottom: 2px solid #3096dc;
+  border-bottom: 0;
 }
 
-.sui-nav.nav-pills > .active > a,
-.sui-nav.nav-pills > .active > a:hover,
-.sui-nav.nav-pills > .active > a:focus {
+.sui-nav.nav-tabs.nav-pills > li {
+  margin-bottom: -2px;
+}
+
+.sui-nav.nav-tabs.nav-pills > .active > a {
   color: #ffffff;
-  background-color: #0066cc;
+  background: #3096dc;
+  border-color: #3096dc;
+  border-radius: 2px 2px 0 0;
+}
+
+.sui-nav.nav-tabs.nav-pills > li > a,
+.sui-nav.nav-tabs.nav-pills > li.active > a {
+  border: 0;
+  border-radius: 3px;
+}
+
+.sui-nav.nav-tabs.nav-pills > li > a:hover {
+  color: #0088cc;
+  background-color: #f1f1f1;
+}
+
+.sui-nav.nav-tabs.nav-pills > li.active > a:hover {
+  color: #fff;
+  background: #3096dc;
+}
+
+.sui-nav.nav-tabs.tab-navbar {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.sui-nav.nav-tabs.tab-navbar > li {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.sui-nav.nav-tabs.tab-navbar > li > a {
+  margin-left: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.sui-nav.nav-tabs.tab-navbar > li.active > a {
+  margin-top: -1px;
+  margin-bottom: -1px;
+  color: #fff;
+  background: #3096dc;
+  border-top: 1px solid #3096dc;
+  border-bottom: 1px solid #3096dc;
 }
 
 .sui-nav.nav-stacked > li {
@@ -8484,8 +8525,8 @@ input[type="submit"].btn.btn-mini {
 
 .sui-nav .dropdown-toggle .caret {
   margin-top: 6px;
-  border-top-color: #0066cc;
-  border-bottom-color: #0066cc;
+  border-top-color: #0088cc;
+  border-bottom-color: #0088cc;
 }
 
 .sui-nav .dropdown-toggle:hover .caret,
@@ -9312,7 +9353,7 @@ input[type="submit"].btn.btn-mini {
   padding: 2px 8px;
   margin-left: -1px;
   line-height: 18px;
-  color: #0066cc;
+  color: #0088cc;
   text-decoration: none;
   background-color: #ffffff;
   border: 1px solid #e0e9ee;
