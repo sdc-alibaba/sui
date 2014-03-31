@@ -87,8 +87,12 @@
             <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <style>
+            .bs-docs-example ul {
+              margin-bottom: 20px;
+            }
             .bs-docs-example li {
-              margin-bottom: 10px;
+              display: inline-block;
+              margin: 0 10px 10px 0;
             }
           </style>
           <div class="tab-content">
@@ -101,6 +105,15 @@
                   <li><span class="sui-label label-important">重要重要</span></li>
                   <li><span class="sui-label label-info">公告</span></li>
                   <li><span class="sui-label label-inverse">反色!</span></li>
+                </ul>
+                <p>拥有href属性的链接作为标签载体时，标签亮度暗10%</p>
+                <ul>
+                  <li><a href="javascript:void(0)" class="sui-label label-">默认</a></li>
+                  <li><a href="javascript:void(0)" class="sui-label label-success">成功</a></li>
+                  <li><a href="javascript:void(0)" class="sui-label label-warning">警示恩</a></li>
+                  <li><a href="javascript:void(0)" class="sui-label label-important">重要重要</a></li>
+                  <li><a href="javascript:void(0)" class="sui-label label-info">公告</a></li>
+                  <li><a href="javascript:void(0)" class="sui-label label-inverse">反色!</a></li>
                 </ul>
               </div>
             </div>
