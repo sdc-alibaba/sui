@@ -91,17 +91,17 @@
                     }
                 }
             }
-            pag.on('click', '.page-confirm', function (e) {
+            pag.on('click.pag', '.page-confirm', function (e) {
                 doPagination.call(this)
             })
-            pag.on('keypress', '.page-num', function (e) {
+            pag.on('keypress.pag', '.page-num', function (e) {
                 e.which == 13 && doPagination.call(this)
             })
         },
 
         _select: function () {
             var self = this;
-            self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
+            self.hookNode.children('.sui-pagination').on('click.pag', 'a', function (e) {
                 e.preventDefault();
                 var tmpNum = parseInt($(this).attr('data'));
                 if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
@@ -154,9 +154,10 @@
             args = $.makeArray(arguments);
             args.shift();
         }
-        var $this = $(this);
+        var $this = $(this)
+        $this.children('.sui-pagination').off('click.pag, keypress.pag')
         //只要调用了方法，就无条件对$this元素进行分页器初始化，重置data('pagination')属性
-        pag = new Pagination(opts).init(opts, $(this));
+        pag = new Pagination(opts).init(opts, $(this))
         $this.data('pagination', pag)
 
         /* 分页器的原型方法不像modal、tooltip那样会有字符串参数，所以不需要判断options类型
