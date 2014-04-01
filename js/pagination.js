@@ -154,14 +154,19 @@
             args = $.makeArray(arguments);
             args.shift();
         }
-        var $this = $(this),
-            pag = $this.data('sui-pagination');
+        var $this = $(this);
+        //只要调用了方法，就无条件对$this元素进行分页器初始化，重置data('sui-pagination')属性
+        pag = new Pagination(opts).init(opts, $(this));
+        $this.data('sui-pagination', pag)
+
+        /* 分页器的原型方法不像modal、tooltip那样会有字符串参数，所以不需要判断options类型
         if (!pag) {
             pag = new Pagination(opts).init(opts, $(this));
             $this.data('sui-pagination', pag)
         } else if (typeof options == 'string') {
             pag[options].apply(pag, args)
         }
+        */
         return pag;
     };
 
