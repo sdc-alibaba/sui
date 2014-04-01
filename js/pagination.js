@@ -155,11 +155,13 @@
             args.shift();
         }
         var $this = $(this),
-        pag = $this.data('sui-pagination');
-        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
-            else if (typeof options == 'string') {
-                pag[options].apply(pag, args)
-            }
+            pag = $this.data('sui-pagination');
+        if (!pag) {
+            pag = new Pagination(opts).init(opts, $(this));
+            $this.data('sui-pagination', pag)
+        } else if (typeof options == 'string') {
+            pag[options].apply(pag, args)
+        }
         return pag;
     };
 
