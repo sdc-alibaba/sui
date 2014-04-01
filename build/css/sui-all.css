@@ -11964,18 +11964,17 @@ input[type="submit"].btn.btn-mini {
 
 .sui-label {
   display: inline-block;
-  padding: 2px 5px;
+  padding: 2px 10px;
   font-size: 10.152px;
-  font-weight: bold;
   line-height: 14px;
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   vertical-align: baseline;
   background-color: #999999;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  -webkit-border-radius: 1px;
+     -moz-border-radius: 1px;
+          border-radius: 1px;
 }
 
 .sui-label:empty {
