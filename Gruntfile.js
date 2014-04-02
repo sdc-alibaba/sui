@@ -24,88 +24,32 @@ module.exports = function(grunt) {
         src: ['js/tests/unit/*.js']
       }
     },
-    requirejs: {
-      sui: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          optimize: "none",
-          include: '<%= pkg.name %>',
-          insertRequire: ['<%= pkg.name %>'],
-          mainConfigFile: "js/requirejs-config.js",
-          out: '<%= distRoot %>/js/<%= pkg.name %>.js',
-          wrap: true
-        }
-      },
-      suiMin: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          include: '<%= pkg.name %>',
-          insertRequire: ['<%= pkg.name %>'],
-          optimize: "uglify2",
-          mainConfigFile: "js/requirejs-config.js",
-          preserveLicenseComments: false, //这个不能和sourcemap同时使用
-          generateSourceMaps: true,
-          out: '<%= distRoot %>/js/<%= pkg.name %>.min.js',
-          wrap: true
-        }
-      },
-      "extends": {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          optimize: "none",
-          include: 'sui-extends',
-          insertRequire: ['sui-extends'],
-          mainConfigFile: "js/requirejs-config.js",
-          out: '<%= distRoot %>/js/sui-extends.js',
-          wrap: true
-        }
-      },
-      extendsMin: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          include: 'sui-extends',
-          insertRequire: ['sui-extends'],
-          optimize: "uglify2",
-          mainConfigFile: "js/requirejs-config.js",
-          preserveLicenseComments: false, //这个不能和sourcemap同时使用
-          generateSourceMaps: true,
-          out: '<%= distRoot %>/js/sui-extends.min.js',
-          wrap: true
-        }
-      },
-      "all": {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          optimize: "none",
-          include: 'sui-all',
-          insertRequire: ['sui-all'],
-          mainConfigFile: "js/requirejs-config.js",
-          out: '<%= distRoot %>/js/sui-all.js',
-          wrap: true
-        }
-      },
-      allMin: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          include: 'sui-all',
-          insertRequire: ['sui-all'],
-          optimize: "uglify2",
-          mainConfigFile: "js/requirejs-config.js",
-          preserveLicenseComments: false, //这个不能和sourcemap同时使用
-          generateSourceMaps: true,
-          out: '<%= distRoot %>/js/sui-all.min.js',
-          wrap: true
+    browserify: {
+      build: {
+        files: {
+          '<%= distRoot %>/js/<%= pkg.name %>.js': ['js/<%= pkg.name %>.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-extends.js': ['js/<%= pkg.name %>-extends.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-all.js': ['js/<%= pkg.name %>-all.js']
         }
       }
     },
 
-    recess: {
+    uglify: {
+      build: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= distRoot %>/js/',
+          src: ['**/*.js', '!*.min.js'],
+          dest: '<%= distRoot %>/js/',
+          ext: '.min.js'
+        }]
+      }
+    },
+
+    less: {
       options: {
         compile: true
       },
@@ -208,19 +152,19 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['recess:sui', 'recess:extends', 'recess:all', 'copy']
+        tasks: ['less:sui', 'less:extends', 'less:all', 'newer:copy']
       },
       js: {
         files: 'js/*.js',
-        tasks: ['requirejs:sui', 'requirejs:extends', 'requirejs:all', 'copy']
+        tasks: ['newer:browserify', 'newer:copy']
       },
       docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',
-        tasks: ['jade:docs']
+        tasks: ['newer:jade:docs']
       },
       docsCss: {
         files: '<%= docsRoot %>/assets/less/**/*.less',
-        tasks: ['recess:docs']
+        tasks: ['newer:less:docs']
       }
     }
   });
@@ -233,16 +177,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-newer');
   // Test task.
   grunt.registerTask('test', ['jshint', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['requirejs']);
+  grunt.registerTask('dist-js', ['browserify', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['recess']);
+  grunt.registerTask('dist-css', ['less']);
 
   // CSS distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);
