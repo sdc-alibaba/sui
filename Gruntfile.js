@@ -156,7 +156,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: 'js/*.js',
-        tasks: ['newer:browserify', 'newer:copy']
+        tasks: ['browserify', 'newer:copy']
       },
       docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',
