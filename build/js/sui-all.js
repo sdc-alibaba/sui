@@ -1750,6 +1750,14 @@
 }(window.jQuery);
 
 },{}],11:[function(require,module,exports){
+//全部打包
+require("./sui")
+require("./sui-extends")
+
+},{"./sui":13,"./sui-extends":12}],12:[function(require,module,exports){
+//拓展组件
+
+},{}],13:[function(require,module,exports){
 //核心组件
 require('./transition')
 require('./alert')
@@ -1767,7 +1775,7 @@ require('./pagination')
 require('./validate')
 require('./validate-rules')
 
-},{"./affix":1,"./alert":2,"./button":3,"./carousel":4,"./collapse":5,"./dropdown":6,"./modal":7,"./pagination":8,"./popover":9,"./scrollspy":10,"./tab":12,"./tooltip":13,"./transition":14,"./validate":16,"./validate-rules":15}],12:[function(require,module,exports){
+},{"./affix":1,"./alert":2,"./button":3,"./carousel":4,"./collapse":5,"./dropdown":6,"./modal":7,"./pagination":8,"./popover":9,"./scrollspy":10,"./tab":14,"./tooltip":15,"./transition":16,"./validate":18,"./validate-rules":17}],14:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -1913,7 +1921,7 @@ require('./validate-rules')
 
 }(window.jQuery);
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -2331,7 +2339,7 @@ require('./validate-rules')
 
 }(window.jQuery);
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
@@ -2393,7 +2401,7 @@ require('./validate-rules')
 
 }(window.jQuery);
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // add rules
 !function($) {
   Validate = $.validate;
@@ -2500,7 +2508,7 @@ require('./validate-rules')
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 }(window.jQuery)
 
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */

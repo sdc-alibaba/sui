@@ -14,6 +14,12 @@
     <script src="../js/lib/jquery.js"></script>
     <script src="../build/js/sui.js"></script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .sui-dropdown {
+        margin-right: 8px;
+      }
+      
+    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -66,6 +72,10 @@
                   <li><a href="pagination-js.html">分页器</a></li>
                   <li><a href="form-validate.html">表单校验</a></li>
                   <li><a href="dropdown-js.html">下拉菜单</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
                 </ul>
               </li>
             </ul>
@@ -142,13 +152,13 @@
               <div style="min-height: 220px;" class="bs-docs-example"><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a id="drop5" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
                     <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-                          <i class="sui-icon icon-caret-right"></i>
+                      <li role="presentation" class="dropdown-submenu"><a role="menuitem" tabindex="-1" href="#">
+                          <i class="sui-icon icon-angle-right"></i>
                           武汉</a>
                         <ul class="sui-dropdown-menu">
                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">汉口</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-                              <i class="sui-icon icon-caret-right"></i>
+                          <li role="presentation" class="dropdown-submenu"><a role="menuitem" tabindex="-1" href="#">
+                              <i class="sui-icon icon-angle-right"></i>
                               武昌</a>
                             <ul class="sui-dropdown-menu">
                               <li role="presentation"><a role="menuitem" tabindex="-1" href="#">武汉大学</a></li>
@@ -160,8 +170,8 @@
                         </ul>
                       </li>
                       <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
-                          <i class="sui-icon icon-caret-right"></i>
+                      <li role="presentation" class="dropdown-submenu"><a role="menuitem" tabindex="-1" href="#">
+                          <i class="sui-icon icon-angle-right"></i>
                           杭州</a>
                         <ul class="sui-dropdown-menu">
                           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">西湖区</a></li>

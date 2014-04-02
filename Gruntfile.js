@@ -24,44 +24,40 @@ module.exports = function(grunt) {
         src: ['js/tests/unit/*.js']
       }
     },
-    requirejs: {
-      development: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          optimize: "none",
-          include: '<%= pkg.name %>',
-          insertRequire: ['<%= pkg.name %>'],
-          mainConfigFile: "js/requirejs-config.js",
-          out: '<%= distRoot %>/js/<%= pkg.name %>.js',
-          wrap: true
-        }
-      },
-      production: {
-        options: {
-          baseUrl: "js",
-          name: "almond",
-          include: '<%= pkg.name %>',
-          insertRequire: ['<%= pkg.name %>'],
-          optimize: "uglify2",
-          mainConfigFile: "js/requirejs-config.js",
-          preserveLicenseComments: false, //这个不能和sourcemap同时使用
-          generateSourceMaps: true,
-          out: '<%= distRoot %>/js/<%= pkg.name %>.min.js',
-          wrap: true
+    browserify: {
+      build: {
+        files: {
+          '<%= distRoot %>/js/<%= pkg.name %>.js': ['js/<%= pkg.name %>.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-extends.js': ['js/<%= pkg.name %>-extends.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-all.js': ['js/<%= pkg.name %>-all.js']
         }
       }
     },
 
-    recess: {
+    uglify: {
+      build: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= distRoot %>/js/',
+          src: ['**/*.js', '!*.min.js'],
+          dest: '<%= distRoot %>/js/',
+          ext: '.min.js'
+        }]
+      }
+    },
+
+    less: {
       options: {
         compile: true
       },
-      css: {
+      sui: {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
-      min: {
+      suiMin: {
         options: {
           compress: true
         },
@@ -78,6 +74,28 @@ module.exports = function(grunt) {
         },
         src: ['less/responsive.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
+      },
+      "extends": {
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.css'
+      },
+      extendsMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.min.css'
+      },
+      "all": {
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.css'
+      },
+      allMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.min.css'
       },
       docs: {
         files: [{
@@ -134,19 +152,19 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['recess', 'copy']
+        tasks: ['less:sui', 'less:extends', 'less:all', 'newer:copy']
       },
       js: {
         files: 'js/*.js',
-        tasks: ['dist-js', 'copy']
+        tasks: ['newer:browserify', 'newer:copy']
       },
       docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',
-        tasks: ['jade:docs']
+        tasks: ['newer:jade:docs']
       },
       docsCss: {
         files: '<%= docsRoot %>/assets/less/**/*.less',
-        tasks: ['recess:docs']
+        tasks: ['newer:less:docs']
       }
     }
   });
@@ -159,16 +177,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-newer');
   // Test task.
   grunt.registerTask('test', ['jshint', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['requirejs']);
+  grunt.registerTask('dist-js', ['browserify', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['recess']);
+  grunt.registerTask('dist-css', ['less']);
 
   // CSS distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);

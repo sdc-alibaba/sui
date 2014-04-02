@@ -25,16 +25,28 @@ block content_wrap
         ul.unstyled
           li
             strong sui.css
-            | 所有组件的样式文件，必须。
+            | 核心组件的样式文件，必须。
           li
             strong sui-responsive.css
             | 响应式布局，可选。
           li
+            strong sui-extends.css
+            | 拓展组件样式，可选。
+          li
+            strong sui-all.css
+            | 全部样式，包括三部分：sui.less, sui-responsive.less, sui-extends.less。
+          li
             strong sui.js
-            | js文件，可选。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。
+            | 核心组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。
+          li
+            strong sui-extends.js
+            | 拓展组件，可选。
+          li
+            strong sui-all.js
+            | 包含了全部的核心组件和拓展组件。
         | 其中除了sui.css是必须的，其他两个文件可以根据自己的需求选择。
         br 
-        | 上述的三个文件都有对应的压缩版，分别是 sui.min.css,sui-responsive.min.css,sui.min.js。
+        | 上述的所有文件都有对应的压缩版，分别是 sui.min.css,sui-responsive.min.css,sui.min.js,sui-extends.min.js,sui-all.min.js。
       h3 引用CDN文件
       p
         | 最简单使用方式是直接引用我们的CDN文件:

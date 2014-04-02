@@ -19,6 +19,8 @@ Gulp 和 Grunt 一样也是用来构建代码。Gulp 基于nodejs的stream来做
 
 gulp 默认配置了default和watch两个主要任务。
 
+**gulp 暂时无人维护，不要用**
+
 ### iconfont
 icon全部用iconfont实现，整个dpl不需要任何图片资源。目前的font-face是从3.0版本cp过来的，命名依然沿用3.0的命名。 
 而且icon font 是文字，所以可以调大小颜色等。

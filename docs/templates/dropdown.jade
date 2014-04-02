@@ -3,6 +3,12 @@ extends base
 block title
   title 下拉菜单
 
+block head
+  style(type='text/css').
+    .sui-dropdown {
+      margin-right: 8px;
+    }
+
 block sidebar
   +sidebar('dropdown')
 
@@ -121,16 +127,16 @@ block content
             ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
-              li(role="presentation")
+              li.dropdown-submenu(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#")
-                  <i class="sui-icon icon-caret-right"></i>
+                  <i class="sui-icon icon-angle-right"></i>
                   |武汉
                 ul.sui-dropdown-menu
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#") 汉口
-                  li(role="presentation")
+                  li.dropdown-submenu(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#")
-                      <i class="sui-icon icon-caret-right"></i>
+                      <i class="sui-icon icon-angle-right"></i>
                       |武昌
                     ul.sui-dropdown-menu
                       li(role="presentation")
@@ -142,9 +148,9 @@ block content
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#") 汉阳
               li(role="presentation" class="divider")
-              li(role="presentation")
+              li.dropdown-submenu(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#")
-                  <i class="sui-icon icon-caret-right"></i>
+                  <i class="sui-icon icon-angle-right"></i>
                   | 杭州
                 ul.sui-dropdown-menu
                   li(role="presentation")

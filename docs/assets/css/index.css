@@ -1,174 +1,147 @@
 .animated {
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
 @-webkit-keyframes myBounceInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(200px);
-            transform: translateY(200px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
-
 @keyframes myBounceInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(200px);
-            transform: translateY(200px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
-
 .myBounceInUp {
   -webkit-animation-name: myBounceInUp;
-          animation-name: myBounceInUp;
+  animation-name: myBounceInUp;
 }
-
 .intro {
-  padding: 80px 0;
-  color: #fff;
   background-color: #6f5499;
+  color: #fff;
+  padding: 80px 0;
 }
-
 .jumbotron {
   padding: 60px 0;
   color: #fff;
 }
-
 .components {
-  color: #555;
   background-color: #a2dbf6;
   -webkit-transition: background 0.5s, background ease-in-out 0.5s;
+  transition: background .5s, background .5s;
   -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-          transition: background .5s, background .5s;
   transition: color 1s .5s, color 1s .5s;
+  color: #555;
 }
-
 .components img {
   opacity: 0;
 }
-
 .components.inview {
-  color: #fff;
   background-color: #45b7ed;
+  color: #fff;
 }
-
 .components.inview img {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
   -webkit-animation-name: myBounceInUp;
-          animation-name: myBounceInUp;
+  animation-name: myBounceInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
 .features {
-  color: #555;
   background-color: #ddebcf;
   -webkit-transition: background 0.5s, background ease-in-out 0.5s;
+  transition: background .5s, background .5s;
   -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-          transition: background .5s, background .5s;
   transition: color 1s .5s, color 1s .5s;
+  color: #555;
 }
-
 .features img {
   opacity: 0;
 }
-
 .features.inview {
-  color: #fff;
   background-color: #aacc88;
+  color: #fff;
 }
-
 .features.inview img {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
   -webkit-animation-name: myBounceInUp;
-          animation-name: myBounceInUp;
+  animation-name: myBounceInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
 .bootstrap {
-  color: #555;
   background-color: #22ffd7;
   -webkit-transition: background 0.5s, background ease-in-out 0.5s;
+  transition: background .5s, background .5s;
   -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-          transition: background .5s, background .5s;
   transition: color 1s .5s, color 1s .5s;
+  color: #555;
 }
-
 .bootstrap img {
   opacity: 0;
 }
-
 .bootstrap.inview {
-  color: #fff;
   background-color: #00bb99;
+  color: #fff;
 }
-
 .bootstrap.inview img {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
   -webkit-animation-name: myBounceInUp;
-          animation-name: myBounceInUp;
+  animation-name: myBounceInUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
 .intro > .sui-container {
   text-align: center;
 }
-
 h1 {
   font-size: 64px;
   line-height: 1.5;
 }
-
 h2 {
   font-size: 48px;
   line-height: 1.5;
 }
-
 .center {
   text-align: center;
 }
-
 .brand-intro .sui-lead {
   font-size: 24px;
   line-height: 2;
 }
-
 .btn-lead {
   padding: 20px 80px;
   font-size: 24px;
 }
-
 .btn-wrap {
   margin-top: 50px;
 }
-
 .details ul {
   margin-top: 50px;
 }
-
 .details li {
   font-size: 18px;
   line-height: 2;
 }
-
 .bootstrap-logo {
   height: 300px;
 }

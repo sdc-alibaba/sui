@@ -27,7 +27,7 @@
     position: absolute;
     z-index: @zindexDropdown;
   }
-  li {
+  .dropdown-submenu {
     position: relative;
     > .sui-dropdown-menu {
       top: 0;
@@ -36,6 +36,11 @@
     &:hover {
       > .sui-dropdown-menu {
         display: block;
+      }
+    }
+    > a {
+      .sui-icon {
+        font-size: 120%;
       }
     }
   }
@@ -59,6 +64,7 @@
 // Place the caret
   .caret {
     .sui-icon;
+    font-size: 120%;
     &:before {
       content: "\e6eb";
     }
@@ -115,7 +121,7 @@
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
   .border-radius(2px);
-  .box-shadow(0 2px 6px rgba(0,0,0,.2));
+  .box-shadow(2px 2px 0px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -135,7 +141,7 @@
   // Links within the dropdown menu
   > li {
     padding: 0 1px; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
-    > a {
+    a {
       display: block;
       padding: 3px 10px;
       clear: both;
@@ -143,12 +149,13 @@
       line-height: @baseLineHeight;
       color: @dropdownLinkColor;
       white-space: nowrap;
-      &:hover {
-        color: @white;
-      }
+      
       &:focus {
         outline: none;
       }
+    }
+    &:hover > a {
+      color: #fff;
     }
   }
 }
@@ -242,10 +249,13 @@
         padding-left: 8px;
         padding-right: 8px;
       }
-      .sui-dropdown-menu a {
-        width: 100%;
-        .box-sizing(border-box);
-        &:hover {
+      > .sui-dropdown-menu {
+        a {
+          width: 100%;
+          .box-sizing(border-box);
+          color: @dropdownLinkColor;
+        }
+        li:hover > a {
           color: #fff;
         }
       }
@@ -278,64 +288,6 @@
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
-  }
-}
-
-// Sub menus
-// ---------------------------
-.dropdown-submenu {
-  position: relative;
-}
-// Default dropdowns
-.dropdown-submenu > .sui-dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  .border-radius(0 6px 6px 6px);
-}
-.dropdown-submenu:hover > .sui-dropdown-menu {
-  display: block;
-}
-
-// Dropups
-.sui-dropup .dropdown-submenu > .sui-dropdown-menu {
-  top: auto;
-  bottom: 0;
-  margin-top: 0;
-  margin-bottom: -2px;
-  .border-radius(5px 5px 5px 0);
-}
-
-// Caret to indicate there is a submenu
-.dropdown-submenu > a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: darken(@dropdownBackground, 20%);
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover > a:after {
-  border-left-color: @dropdownLinkColorHover;
-}
-
-// Left aligned submenus
-.dropdown-submenu.pull-left {
-  // Undo the float
-  // Yes, this is awkward since .pull-left adds a float, but it sticks to our conventions elsewhere.
-  float: none;
-
-  // Positioning the submenu
-  > .sui-dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    .border-radius(6px 0 6px 6px);
   }
 }
 
