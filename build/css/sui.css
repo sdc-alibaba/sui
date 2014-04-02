@@ -7670,7 +7670,7 @@ input[type="submit"].btn.btn-mini {
 .sui-btn-group .sui-dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 105%;
   left: 0;
 }
 .sui-btn-group.open .sui-dropdown-menu {
