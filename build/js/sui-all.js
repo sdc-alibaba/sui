@@ -739,9 +739,15 @@
           $el.attr("data-toggle", 'dropdown')
         }
         $('html').on('click.dropdown.data-api', function () {
-          $el.parents('.sui-dropdown').removeClass('open')
+          getContainer($el).removeClass('open')
         })
       }
+
+    , getContainer = function($el) {
+      var $parent = $el.parent()
+      if ($parent.hasClass("dropdown-inner")) return $parent.parent()
+      return $parent;
+    }
 
   Dropdown.prototype = {
 
@@ -834,7 +840,7 @@
 
     $parent = selector && $(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parents('.sui-dropdown')
+    if (!$parent || !$parent.length) $parent = getContainer($this)
 
     return $parent
   }

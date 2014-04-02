@@ -35,16 +35,34 @@
   > .sui-btn {
     position: relative;
     .border-radius(0);
+
+    > .caret {
+      .sui-icon;
+      &:before {
+        content: "\e6be";
+        float: right;
+        margin-left: 8px;
+      }
+    }
   }
   .sui-btn + .sui-btn {
     margin-left: -1px;
   }
   .sui-btn,
-  .dropdown-menu,
+  .sui-dropdown-menu,
   .popover {
     font-size: @baseFontSize; // redeclare as part 2 of font-size inline-block hack
   }
 
+  .sui-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  &.open .sui-dropdown-menu {
+    display: block;
+  }
   // Reset fonts for other sizes
   > .btn-mini {
     font-size: @fontSizeMini;
@@ -130,30 +148,35 @@
     // Remove the gradient and set the same inset shadow as the :active state
     .dropdown-toggle {
       background-image: none;
-      .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
-    }
 
-    // Keep the hover's background when dropdown is open
-    .sui-btn.dropdown-toggle {
-      background-color: @btnBackgroundHighlight;
-    }
-    .btn-primary.dropdown-toggle {
-      background-color: @btnPrimaryBackgroundHighlight;
-    }
-    .btn-warning.dropdown-toggle {
-      background-color: @btnWarningBackgroundHighlight;
-    }
-    .btn-danger.dropdown-toggle {
-      background-color: @btnDangerBackgroundHighlight;
-    }
-    .btn-success.dropdown-toggle {
-      background-color: @btnSuccessBackgroundHighlight;
-    }
-    .btn-info.dropdown-toggle {
-      background-color: @btnInfoBackgroundHighlight;
-    }
-    .btn-inverse.dropdown-toggle {
-      background-color: @btnInverseBackgroundHighlight;
+      //下面的暂时无法用mixin来写
+      .btn-active(@backgroundColor) {
+        background-color: darken(@backgroundColor, 5%);
+        border-color: darken(@backgroundColor, 10%);
+      }
+      &.btn-primary {
+        .btn-active(@btnPrimaryBackground);
+      }
+      // Warning appears are orange
+      &.btn-warning {
+        .btn-active(@btnWarningBackground);
+      }
+      // Danger and error appear as red
+      &.btn-danger {
+        .btn-active(@btnDangerBackground);
+      }
+      // Success appears as green
+      &.btn-success {
+        .btn-active(@btnSuccessBackground);
+      }
+      // Info appears as a neutral blue
+      &.btn-info {
+        .btn-active(@btnInfoBackground);
+      }
+      // Inverse appears as dark gray
+      &.btn-inverse {
+        .btn-active(@btnInverseBackground);
+      }
     }
   }
 

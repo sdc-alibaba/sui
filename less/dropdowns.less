@@ -154,7 +154,9 @@
         outline: none;
       }
     }
-    &:hover > a {
+    &:hover > a,
+    .active > a
+    {
       color: #fff;
     }
   }
@@ -255,7 +257,9 @@
           .box-sizing(border-box);
           color: @dropdownLinkColor;
         }
-        li:hover > a {
+        li:hover > a,
+        li.active > a
+        {
           color: #fff;
         }
       }

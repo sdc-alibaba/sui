@@ -38,11 +38,11 @@ block content
             ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
-              li.active(role="presentation")
+              li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
               li(role="presentation" class="divider")
-              li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
         h3 带边框
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
@@ -55,8 +55,8 @@ block content
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
               li(role="presentation" class="divider")
-              li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
                 ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#") 北京
@@ -72,15 +72,15 @@ block content
           span.dropdown-inner
             a.dropdown-toggle#drop2(role="button" data-toggle="dropdown" href="#")
               i.caret
-              | 杭州
+              | 北京
             ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
-              li(role="presentation")
+              li.active(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
               li(role="presentation" class="divider")
               li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+                a(role="menuitem" tabindex="-1" href="#") 杭州
 
         span.sui-dropdown.dropdown-bordered.dropdown-xlarge
           span.dropdown-inner
@@ -101,6 +101,7 @@ block content
     div.tab-pane#doc1
       p 下拉菜单有两种样式：默认样式和带边框的样式，添加 <code>.dropdown-borderd</code> 是带边框的样式。
       p 带边框的下拉菜单有三种尺寸：默认，<code>.dropdown-large</code>，<code>.dropdown-xlarge</code> 
+      p 在li上添加 '.active' 则表示默认选中
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件
@@ -118,7 +119,7 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo3
-      div.bs-docs-example(style='min-height: 220px;')
+      div.bs-docs-example(style='min-height: 200px;')
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
             a.dropdown-toggle#drop5(role="button" data-toggle="dropdown" href="#") 
@@ -165,6 +166,47 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+
+
+  h2 按钮下拉菜单
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo5', data-toggle='tab') 示例
+    li
+      a(href='#code5', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo5
+      div.bs-docs-example(style='min-height: 120px;')
+        .sui-btn-toolbar
+          div.sui-btn-group
+            button.sui-btn.btn-primary.dropdown-toggle("data-toggle"="dropdown")
+              i.caret
+              |杭州
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#")
+                  | 杭州
+          div.sui-btn-group
+            button.sui-btn.btn-danger.dropdown-toggle("data-toggle"="dropdown")
+              i.caret
+              | 杭州
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#")
+                  | 杭州
+    div.tab-pane#code5
+      pre.prettyprint.linenums(data-target='#demo5>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo5>div') 复制代码
 
   h2 单独使用菜单
   ul.sui-nav.nav-tabs.nav-large
