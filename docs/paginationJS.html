@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>paginationJS </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../build/css/bootstrap.css" rel="stylesheet">
+    <link href="../../build/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../assets/css/docs.css" rel="stylesheet">
+    <link href="../assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <script src="../../js/lib/jquery.js"></script>
+    <script src="../../build/js/bootstrap.js"></script>
+    <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-container">
+            <div class="page-header">
+              <h1>pagination-JS组件 </h1>
+              <p>pagination-JS组件用于前端分页，无刷新等应用场景</p><a href="pagination.html">点击访问pagination-CSS组件</a>
+            </div>
+            <h3>示例</h3>
+            <div class="bs-docs-example">
+              <p class="test"></p>
+            </div>
+            <pre class="prettyprint linenums">$('.test').pagination({
+ pages: 50,
+ styleClass: ['pagination-large'],
+ showCtrl: true,
+ displayPage: 6,
+ onSelect: function (num) {
+            console.log(num)
+            }        
+})</pre>
+            <h3>最小配置项</h3>
+            <div class="bs-docs-example">
+              <p class="test1"></p>
+            </div>
+            <pre class="prettyprint linenums">$('.test1').pagination({
+ pages: 6
+})</pre>
+            <hr>
+            <h3>配置项</h3>
+            <h4>pagination组件一共有8个配置项，较于其他分页插件，配置更为灵活简单，提供2种分页计算方式，且可控页码显示的数量。</h4>
+            <dl>
+              <dt>styleClass</dt>
+              <dd>styleClass接收一个数组，包括结合SUI CSS部分的pagination-small，pagiantion-large和默认的pagination样式,以后提供皮肤样式和自定义样式的时候也可以在这里引入</dd>
+              <dd>eg: styleClass: ['pagination-large', 'custom-red', 'custom-size']</dd>
+            </dl>
+            <dl>
+              <dt>displayPage</dt>
+              <dd>displayPage指的是要显示多少个页码，如下图所示，展示了6个，默认显示5个</dd>
+              <dd><img src="imgs/pagination1.png"></dd>
+              <dd>指定了displayPage以后，pagination组件会根据该配置项自动分页，出于用户体验的考虑，displayPage最小为5个，低于5个会自动被改写为5个</dd>
+              <dd>需要指出一种情况是，如果displayPage为n,但是总的页码为n+1时，pagination组件会展示全部的页码（也就是n+1），不出现省略号</dd>
+            </dl>
+            <dl>
+              <dt>currentPage</dt>
+              <dd>当前页，默认为第1页，不解释</dd>
+            </dl>
+            <dl>
+              <dt><strong style="color: red">itemsCount,pageSize和pages</strong></dt>
+              <dd>pagination组件提供两种计算分页的方式，一种是直接给出pages,另一种是给出数据的总条数和每页显示的条数，pagination会自动计算出页数。</dd>
+              <dd>当给出pages时，会忽略itemsCount和pageSize参数</dd>
+              <dd>P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况。</dd>
+            </dl>
+            <dl>
+              <dt>showCtrl</dt>
+              <dd>是否展示总页数和跳转控制器，默认为false，设置为true时会在pagination节点上注册一些事件，对跳转页码做合法性校验，并支持键盘操作。</dd>
+            </dl>
+            <dl>
+              <dt>onSelect</dt>
+              <dd>点击页码时的回调函数，提供一个当前点击的页码的参数，可以在回调函数中使用自定义事件。</dd>
+            </dl>
+            <h3>函数 </h3>
+            <h4>pagination组件对外暴露2个函数</h4>
+            <dl>
+              <dt>$.pagination('updateItemsCount',itemsCount) </dt>
+              <dd>当数据条目总数发生变化时，调用此方法，参数为新的数据条目总数</dd>
+            </dl>
+            <dl>
+              <dt>$.pagination('updatePages',pages) </dt>
+              <dd>当分页直接采用pages配置项时，pageSize不存在，因此只能通过该方法直接更新分页数</dd>
+              <dd>P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况,不推荐使用此方法。</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="../assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+    <script>
+      $('.test').pagination({
+          pages: 50,
+          styleClass: ['pagination-large'],
+          showCtrl: true,
+          displayPage: 6,       
+          onSelect: function (num) {
+                      console.log(num)
+                      }        
+      })
+      
+          $('.test1').pagination({
+           pages: 6
+          })
+          
+    </script>
+  </body>
+</html>

@@ -30,20 +30,41 @@
 
 // MEDIA QUERIES
 // ------------------
+@media (min-width: 1440px) {
 
+  // Fixed grid
+  #grid > .core(@gridColumnWidthXLarge, @gridGutterWidthXLarge);
+
+  // Fluid grid
+  #grid > .fluid(@fluidGridColumnWidthXLarge, @fluidGridGutterWidthXLarge);
+
+  // Input grid
+  #grid > .input(@gridColumnWidthXLarge, @gridGutterWidthXLarge);
+
+  // Thumbnails
+  .thumbnails {
+    margin-left: -@gridGutterWidthXLarge;
+  }
+  .thumbnails > li {
+    margin-left: @gridGutterWidthXLarge;
+  }
+  .row-fluid .thumbnails {
+    margin-left: 0;
+  }
+
+}
 // Large desktops
-@import "responsive-xlarge.less";
-@import "responsive-large.less";
+@media (min-width: 1280px) and (max-width: 1439px) {
 
-// Tablets to regular desktops
-@import "responsive-small.less";
+  // Fixed grid
+  #grid > .core(@gridColumnWidthLarge, @gridGutterWidthLarge);
 
-// Phones to portrait tablets and narrow desktops
-@import "responsive-mini.less";
+  // Fluid grid
+  #grid > .fluid(@fluidGridColumnWidthLarge, @fluidGridGutterWidthLarge);
 
+  // Input grid
+  #grid > .input(@gridColumnWidthLarge, @gridGutterWidthLarge);
 
-// RESPONSIVE NAVBAR
-// ------------------
+  // No need to reset .thumbnails here since it's the same @gridGutterWidth
 
-// From 979px and below, show a button to toggle navbar contents
-@import "responsive-navbar.less";
+}

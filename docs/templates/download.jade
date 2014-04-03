@@ -1,0 +1,54 @@
+extends base
+
+block title
+  title 下载
+
+block head
+  style(type='text/css').
+    .btn-huge {
+      padding: 15px 40px;
+      font-size: 20px;
+    }
+block header
+  +header('download')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 下载 SUI
+
+    h2 直接引用CDN文件
+    p
+      | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
+    ul.unstyled
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js
+      li
+        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js
+
+    h2 下载zip文件
+
+    p.sui-lead
+      | 包括所有的源代码和文档。
+
+    p
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl/repository/archive.zip?ref=dev', target="_blank")
+        i.sui-icon.icon-download
+        | SUI-1.0.source.zip
+
+    h2 获取最新源码
+
+    p.sui-lead
+      |可以从 <strong>gitlab</strong> 上直接获取最新的代码，项目地址：
+    a.sui-btn.btn-success.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl', target="_blank")
+      i.sui-icon.icon-github-alt
+      | SUI on gitlab

@@ -5,7 +5,10 @@
 
 // Inline and block code styles
 code,
-pre {
+.sui-code,
+pre,
+.sui-pre
+{
   padding: 0 3px 2px;
   #font > #family > .monospace;
   font-size: @baseFontSize - 2;
@@ -14,16 +17,19 @@ pre {
 }
 
 // Inline code
-code {
+code,
+.sui-code
+{
   padding: 2px 4px;
   color: #d14;
   background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
   white-space: nowrap;
 }
 
 // Blocks of code
-pre {
+pre,
+sui-pre
+{
   display: block;
   padding: (@baseLineHeight - 1) / 2;
   margin: 0 0 @baseLineHeight / 2;
@@ -44,7 +50,7 @@ pre {
   }
 
   // Account for some code outputs that place code tags in pre tags
-  code {
+  code, .sui-code {
     padding: 0;
     color: inherit;
     white-space: pre;

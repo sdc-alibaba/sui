@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-exec = require("child_process").exec;
+var exec = require("child_process").exec;
 
 module.exports = function(grunt) {
   'use strict';
@@ -9,11 +9,6 @@ module.exports = function(grunt) {
     banner: '/*dpl started*/',
     distRoot: 'build',
     docsRoot: 'docs',
-    demosRoot: '<%= docsRoot %>/demos',
-
-    clean: {
-      dist: ['<%= distRoot %>']
-    },
 
     jshint: {
       options: {
@@ -29,51 +24,44 @@ module.exports = function(grunt) {
         src: ['js/tests/unit/*.js']
       }
     },
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: false
-      },
-      bootstrap: {
-        src: [
-          'js/bootstrap-transition.js',
-          'js/bootstrap-alert.js',
-          'js/bootstrap-button.js',
-          'js/bootstrap-carousel.js',
-          'js/bootstrap-collapse.js',
-          'js/bootstrap-dropdown.js',
-          'js/bootstrap-modal.js',
-          'js/bootstrap-tooltip.js',
-          'js/bootstrap-popover.js',
-          'js/bootstrap-scrollspy.js',
-          'js/bootstrap-tab.js',
-          'js/bootstrap-affix.js'
-        ],
-        dest: '<%= distRoot %>/js/<%= pkg.name %>.js'
-      },
-    },
-    uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
-      bootstrap: {
-        src: ['<%= concat.bootstrap.dest %>'],
-        dest: '<%= distRoot %>/js/<%= pkg.name %>.min.js'
+    browserify: {
+      build: {
+        files: {
+          '<%= distRoot %>/js/<%= pkg.name %>.js': ['js/<%= pkg.name %>.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-extends.js': ['js/<%= pkg.name %>-extends.js'],
+          '<%= distRoot %>/js/<%= pkg.name %>-all.js': ['js/<%= pkg.name %>-all.js']
+        }
       }
     },
-    recess: {
+
+    uglify: {
+      build: {
+        options: {
+          sourceMap: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= distRoot %>/js/',
+          src: ['**/*.js', '!*.min.js'],
+          dest: '<%= distRoot %>/js/',
+          ext: '.min.js'
+        }]
+      }
+    },
+
+    less: {
       options: {
         compile: true
       },
-      bootstrap: {
-        src: ['less/bootstrap.less'],
+      sui: {
+        src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.css'
       },
-      min: {
+      suiMin: {
         options: {
           compress: true
         },
-        src: ['less/bootstrap.less'],
+        src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.min.css'
       },
       reponsive: {
@@ -86,36 +74,65 @@ module.exports = function(grunt) {
         },
         src: ['less/responsive.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
+      },
+      "extends": {
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.css'
+      },
+      extendsMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-extends.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.min.css'
+      },
+      "all": {
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.css'
+      },
+      allMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/sui-all.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.min.css'
+      },
+      docs: {
+        files: [{
+          expand: true,
+          cwd: '<%= docsRoot %>/assets/less/',
+          src: ['**/*.less'],
+          dest: '<%= docsRoot %>/assets/css/',
+          ext: '.css'
+        }]
       }
     },
     jade: {
-      demos: {
+      docs: {
+        options: {
+          pretty: true
+        },
         files: [
           {
           expand: true,
-          cwd: '<%= demosRoot %>/templates',
-          src: ['**/*.jade', '!base.jade', '!com-*', '!*-com.jade'],
-          dest: '<%= demosRoot %>',
+          cwd: '<%= docsRoot %>/templates',
+          src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade'],
+          dest: '<%= docsRoot %>',
           ext: '.html'
         },
         ],
       }
     },
     copy: {
-      docs: { //doc 必须依赖于bootstap.min.js
+      fonts: {
         files: [
-          { expand: true, src: ['img/*'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, src: ['js/*.js'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, src: ['fonts/*'], dest: '<%= docsRoot %>/assets/' },
-          { expand: true, cwd: 'js/test/vendor/', src:['jquery.js'], dest: '<%= docsRoot %>/assets/js/' },
-          { expand: true, cwd: '<%= distRoot %>/js/', src: ['*.js'], dest: '<%= docsRoot %>/assets/js/' },
-          { expand: true, cwd: '<%= distRoot %>/css/', src: ['*.css'], dest: '<%= docsRoot %>/assets/css/' }
+          { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
       }
     },
     qunit: {
       options: {
-        inject: 'js/tests/unit/bootstrap-phantom.js'
+        inject: 'js/tests/unit/phantom.js'
       },
       files: ['js/tests/*.html']
     },
@@ -135,49 +152,51 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['recess', 'copy']
+        tasks: ['less:sui', 'less:extends', 'less:all', 'newer:copy']
       },
       js: {
         files: 'js/*.js',
-        tasks: ['dist-js', 'copy']
+        tasks: ['browserify', 'newer:copy']
       },
-      demos: {
-        files: 'docs/demos/templates/**/*.jade',
-        tasks: ['jade:demos']
+      docs: {
+        files: '<%= docsRoot %>/templates/**/*.jade',
+        tasks: ['newer:jade:docs']
+      },
+      docsCss: {
+        files: '<%= docsRoot %>/assets/less/**/*.less',
+        tasks: ['newer:less:docs']
       }
     }
   });
 
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-newer');
   // Test task.
   grunt.registerTask('test', ['jshint', 'qunit']);
 
-  grunt.registerTask('hogan', 'compile mustache template', function() {
-    var done = this.async();
-    var child = exec('node docs/build', function(e) { done(); })
-  });
-
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-js', ['browserify', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['recess']);
+  grunt.registerTask('dist-css', ['less']);
+
+  // CSS distribution task.
+  grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js']);
-  grunt.registerTask('docs', ['dist', 'hogan', 'copy', 'jade']);
+  grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
+  grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist']);
+  grunt.registerTask('default', ['test', 'dist', 'docs']);
 }

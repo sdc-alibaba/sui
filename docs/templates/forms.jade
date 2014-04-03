@@ -1,0 +1,820 @@
+extends base
+
+block title
+  title 表单
+
+block head
+    style(type="text/css").
+      code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        padding: 2px 4px;
+        border: 1px solid #e1e1e8;
+        font-size: 12px;
+      }
+      .bs-docs-extra input[type="text"] { display: block; margin-bottom: 9px; }
+
+block sidebar
+  +sidebar('form')
+block content
+  div.sui-page-header
+    h1 表单
+      small forms
+
+  h2 inputs
+  h3 按宽度分类
+  p
+    <code>select</code> 元素同样适用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example.bs-docs-extra
+        form.sui-form
+          input.input-mini(type="text" placeholder=".input-mini")
+          input.input-small(type="text" placeholder=".input-small")
+          input.input-medium(type="text" placeholder=".input-medium")
+          input.input-large(type="text" placeholder=".input-large")
+          input.input-xlarge(type="text" placeholder=".input-xlarge")
+          input.input-xxlarge(type="text" placeholder=".input-xxlarge")
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h3 按高度分类
+  p
+    <code>select</code> 元素同样适用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example.bs-docs-extra
+        form.sui-form
+          input.input-thin(type="text" placeholder=".input-thin")
+          input.input-default(type="text" placeholder=".input-default")
+          input.input-fat(type="text" placeholder=".input-fat")
+          input.input-xfat(type="text" placeholder=".input-xfat")
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      四种尺寸：.input-thin, .input-default, .input-fat, .input-xfat
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
+
+  h3 成块级
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        form.sui-form
+          input.input-block-level(type="text" placeholder=".input-block-level")
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+    div.tab-pane#doc3
+      引用class：.input-block-level
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+
+  h3 不可编辑
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+    li
+      a(href='#doc4', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example
+        form.sui-form
+          span.input-xlarge.uneditable-input Some value here
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+    div.tab-pane#doc4
+      引用class：.input-block-level
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
+
+  h3 Disabled inputs
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo5', data-toggle='tab') 示例
+    li
+      a(href='#code5', data-toggle='tab') 代码
+    li
+      a(href='#doc5', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo5
+      div.bs-docs-example
+        form.sui-form.form-inline
+          input.input-xlarge(id="disabledInput" type="text" placeholder="Disabled input here…" disabled)
+    div.tab-pane#code5
+      pre.prettyprint.linenums(data-target='#demo5>div')
+    div.tab-pane#doc5
+      引用class：.input-block-level
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo5>div') 复制代码
+
+
+  h3 文本字段四态
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo6', data-toggle='tab') 示例
+    li
+      a(href='#code6', data-toggle='tab') 代码
+    li
+      a(href='#doc6', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo6
+      div.bs-docs-example.bs-docs-extra
+        form.sui-form
+          input.input-warning(type="text" placeholder=".input-warning")
+          input.input-error(type="text" placeholder=".input-error")
+          input.input-success(type="text" placeholder=".input-success")
+          input.input-info(type="text" placeholder=".input-info")
+    div.tab-pane#code6
+      pre.prettyprint.linenums(data-target='#demo6>div')
+    div.tab-pane#doc6
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
+
+
+  h2 Checkboxes and radios
+  h3 默认状态
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo7', data-toggle='tab') 示例
+    li
+      a(href='#code7', data-toggle='tab') 代码
+    li
+      a(href='#doc7', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo7
+      div.bs-docs-example
+        form.sui-form
+          label.checkbox
+            <input name="multiple" type="checkbox" value="1" /> 多选1
+          label.checkbox
+            <input name="multiple" type="checkbox" value="2" /> 多选2
+          label.checkbox
+            <input name="multiple" type="checkbox" value="3" /> 多选3
+
+          <br /><br />
+
+          label.radio
+            <input name="single" type="radio" value="1" /> 单选1
+          label.radio
+            <input name="single" type="radio" value="2" /> 单选2
+          label.radio
+            <input name="single" type="radio" value="3" /> 单选3
+    div.tab-pane#code7
+      pre.prettyprint.linenums(data-target='#demo7>div')
+    div.tab-pane#doc7
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo7>div') 复制代码
+
+
+  h3 内联状态
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo8', data-toggle='tab') 示例
+    li
+      a(href='#code8', data-toggle='tab') 代码
+    li
+      a(href='#doc8', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo8
+      div.bs-docs-example
+        form.sui-form
+          label.checkbox.inline
+            <input name="multiple" type="checkbox" value="1" /> 多选1
+          label.checkbox.inline
+            <input name="multiple" type="checkbox" value="2" /> 多选2
+          label.checkbox.inline
+            <input name="multiple" type="checkbox" value="3" /> 多选3
+
+          <br /><br />
+
+          label.checkbox.inline
+            <input name="single" type="radio" value="1" /> 单选1
+          label.checkbox.inline
+            <input name="single" type="radio" value="2" /> 单选2
+          label.checkbox.inline
+            <input name="single" type="radio" value="3" /> 单选3
+    div.tab-pane#code8
+      pre.prettyprint.linenums(data-target='#demo8>div')
+    div.tab-pane#doc8
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo8>div') 复制代码
+
+
+  h2 Textarea
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo9', data-toggle='tab') 示例
+    li
+      a(href='#code9', data-toggle='tab') 代码
+    li
+      a(href='#doc9', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo9
+      div.bs-docs-example
+        form.form-inline
+          textarea(rows="3")
+    div.tab-pane#code9
+      pre.prettyprint.linenums(data-target='#demo9>div')
+    div.tab-pane#doc9
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo9>div') 复制代码
+
+
+  h2 关联校验
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo10', data-toggle='tab') 示例
+    li
+      a(href='#code10', data-toggle='tab') 代码
+    li
+      a(href='#doc10', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo10
+      div.bs-docs-example
+        form.sui-form.form-horizontal
+          div.control-group.warning
+            label.control-label(for="inputWarning") 警示输入框：
+            div.controls
+              <input type="text" id="inputWarning" />
+              <span class="help-inline">警示文案</span>
+          div.control-group.error
+            label.control-label(for="inputError") 错误输入框：
+            div.controls
+              <input type="text" id="inputError" />
+              <span class="help-inline">出错文案</span>
+          div.control-group.success
+            label.control-label(for="inputSuccess") 成功输入框：
+            div.controls
+              <input type="text" id="inputSuccess" />
+              <span class="help-inline">成功文案</span>
+          div.control-group.info
+            label.control-label(for="inputInfo") 帮助输入框：
+            div.controls
+              <input type="text" id="inputInfo" />
+              <span class="help-inline">帮助文案</span>
+    div.tab-pane#code10
+      pre.prettyprint.linenums(data-target='#demo10>div')
+    div.tab-pane#doc10
+      关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code>
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo10>div') 复制代码
+
+
+  h2 按功能分类
+  h3 搜索框
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo11', data-toggle='tab') 示例
+    li
+      a(href='#code11', data-toggle='tab') 代码
+    li
+      a(href='#doc11', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo11
+      div.bs-docs-example
+        form.sui-form.form-search
+          input.input-medium.search-query(type="text")
+          button.sui-btn.btn-primary(type="submit") Search
+    div.tab-pane#code11
+      pre.prettyprint.linenums(data-target='#demo11>div')
+    div.tab-pane#doc11
+      添加 <code>.form-search</code> 到 <code>&lt;form&gt;</code> 标签上并且添加 <code>.search-query</code> 到 <code>&lt;input&gt;</code> 标签上
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo11>div') 复制代码
+
+
+  h3 内联表单
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo12', data-toggle='tab') 示例
+    li
+      a(href='#code12', data-toggle='tab') 代码
+    li
+      a(href='#doc12', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo12
+      div.bs-docs-example
+        form.sui-form.form-inline
+          input.input-small(type="text" placeholder="Email")
+          input.input-small(type="password" placeholder="Password")
+          label.checkbox
+            <input type="checkbox" /> 记住我
+          button.sui-btn.btn-primary(type="submit") Sign in
+    div.tab-pane#code12
+      pre.prettyprint.linenums(data-target='#demo12>div')
+    div.tab-pane#doc12
+      添加 <code>.form-inline</code> 成为内联状态
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo12>div') 复制代码
+
+
+  h3 水平表单
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo13', data-toggle='tab') 示例
+    li
+      a(href='#code13', data-toggle='tab') 代码
+    li
+      a(href='#doc13', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo13
+      div.bs-docs-example
+        form.sui-form.form-horizontal
+          div.control-group
+            label.control-label(for="inputEmail") 邮箱：
+            div.controls
+              input(type="text" id="inputEmail" placeholder="Email")
+          div.control-group
+            label.control-label(for="inputPassword") 密码：
+            div.controls
+              <input type="password" id="inputPassword" placeholder="Password" />
+          div.control-group
+            div.controls
+              label.checkbox.inline
+                <input type="checkbox" /> 记住我
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary(type="submit") Sign in
+    div.tab-pane#code13
+      pre.prettyprint.linenums(data-target='#demo13>div')
+    div.tab-pane#doc13
+      添加 <code>.form-horizontal</code> 成为水平状态
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo13>div') 复制代码
+
+
+  h2 扩展表单控件
+  h3 默认选项
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo14', data-toggle='tab') 示例
+    li
+      a(href='#code14', data-toggle='tab') 代码
+    li
+      a(href='#doc14', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo14
+      div.bs-docs-example
+        form.sui-form
+          div.input-prepend
+            span.add-on @
+            input.span2.input-fat(id="prependedInput" type="text" placeholder="Username")
+          <br>
+          div.input-append
+            input.span2.input-fat(id="appendedInput" type="text")
+            span.add-on .00
+    div.tab-pane#code14
+      pre.prettyprint.linenums(data-target='#demo14>div')
+    div.tab-pane#doc14
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo14>div') 复制代码
+
+
+  h3 联合体
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo15', data-toggle='tab') 示例
+    li
+      a(href='#code15', data-toggle='tab') 代码
+    li
+      a(href='#doc15', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo15
+      div.bs-docs-example
+        form.sui-form.form-inline
+          div.input-prepend.input-append
+            span.add-on $
+            input.span2.input-fat(id="appendedPrependedInput" type="text")
+            span.add-on .00
+    div.tab-pane#code15
+      pre.prettyprint.linenums(data-target='#demo15>div')
+    div.tab-pane#doc15
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo15>div') 复制代码
+
+
+  h3 按钮替换文本
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo16', data-toggle='tab') 示例
+    li
+      a(href='#code16', data-toggle='tab') 代码
+    li
+      a(href='#doc16', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo16
+      div.bs-docs-example
+        form.sui-form.form-inline
+          div.input-append
+            input.span2(id="appendedInputButton" type="text")
+            button.sui-btn(type="button") Go!
+        <br />
+        form.sui-form.form-inline
+          div.input-append
+            input.span2(id="appendedInputButtons" type="text")
+            button.sui-btn(type="button") Search
+            button.sui-btn(type="button") Options
+    div.tab-pane#code16
+      pre.prettyprint.linenums(data-target='#demo16>div')
+    div.tab-pane#doc16
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo16>div') 复制代码
+
+
+  h3 搜索表单
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo17', data-toggle='tab') 示例
+    li
+      a(href='#code17', data-toggle='tab') 代码
+    li
+      a(href='#doc17', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo17
+      div.bs-docs-example
+        form.sui-form.form-search
+          div.input-append
+            input.span2.search-query(type="text")
+            button.sui-btn(type="button") Search
+          div.input-prepend
+            button.sui-btn(type="button") Search
+            input.span2.search-query(type="text")
+    div.tab-pane#code17
+      pre.prettyprint.linenums(data-target='#demo17>div')
+    div.tab-pane#doc17
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo17>div') 复制代码
+
+
+  h2 所有案例
+  h3 demo1
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo18', data-toggle='tab') 示例
+    li
+      a(href='#code18', data-toggle='tab') 代码
+    li
+      a(href='#doc18', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo18
+      div.bs-docs-example
+        form.sui-form.form-horizontal
+          div.control-group
+            label.control-label 单选框：
+            div.controls
+              label.radio.inline
+                input(name="single" type="radio" value="1")
+                | 
+                | 选项一
+              label.radio.inline
+                input(name="single" type="radio" value="2")
+                | 
+                | 选项二
+          div.control-group
+            label.control-label 复选框：
+            div.controls
+              label.checkbox.inline
+                input(name="multiple" type="checkbox" value="1")
+                | 
+                | 选项一
+              label.checkbox.inline
+                input(name="multiple" type="checkbox" value="2")
+                | 
+                | 选项二
+              label.checkbox.inline
+                input(name="multiple" type="checkbox" value="3")
+                | 
+                | 选项三
+          div.control-group
+            label.control-label 输入框（迷你）：
+            div.controls
+              input.input-mini(type="text")
+              div.sui-msg.msg-tips.msg-naked
+                div.msg-con 提示信息，比如：建议你设置安全密码
+                s.msg-icon
+          div.control-group
+            label.control-label 输入框（小号）：
+            div.controls
+              input.input-small(type="text")
+          div.control-group
+            label.control-label 输入框（中号）：
+            div.controls
+              input.input-medium(type="text")
+          div.control-group
+            label.control-label 输入框（大号）：
+            div.controls
+              input.input-large(type="text")
+          div.control-group
+            label.control-label 输入框（加大）：
+            div.controls
+              input.input-xlarge(type="text")
+          div.control-group
+            label.control-label 输入框（加加）：
+            div.controls
+              input.input-xxlarge(type="text")
+          div.control-group
+            label.control-label 时间选择：
+            div.controls
+              input.input-medium.input-date(type="text")
+              | 
+              |-
+              input.input-medium.input-date(type="text")
+          div.control-group
+            label.control-label 备注：
+            div.controls
+              textarea.input-block-level(rows="3")
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary(type="submit") 提交审核
+              button.sui-btn(type="reset") 重置
+    div.tab-pane#code18
+      pre.prettyprint.linenums(data-target='#demo18>div')
+    div.tab-pane#doc18
+      <code>.form-horizontal</code> 用于切换表单字段水平操放
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo18>div') 复制代码
+
+
+
+  h3 demo2
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo19', data-toggle='tab') 示例
+    li
+      a(href='#code19', data-toggle='tab') 代码
+    li
+      a(href='#doc19', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo19
+      div.bs-docs-example
+        form.sui-form.form-horizontal
+          div.control-group
+            label.control-label
+              b(style="color: #f00;") *
+              | 
+              | 对象场景：
+            div.controls
+              select
+                option(value="" selected) --------------请选择--------------
+              div.sui-msg.msg-error.msg-clear.help-block
+                div.msg-con 该项为必填项
+                s.msg-icon
+          div.control-group
+            label.control-label
+              b(style="color: #f00;") *
+              | 
+              span(style="padding:0 24px 0 0;") 主
+              | 题：
+            div.controls
+              select
+                option(value="" selected) ---请选择---
+              input.input-xlarge(type="text" value="")
+              div.sui-msg.msg-error.msg-clear.help-block
+                div.msg-con 该项为必填项
+                s.msg-icon
+          div.control-group
+            label.control-label
+              b(style="color: #f00;") *
+              | 
+              span(style="padding:0 24px 0 0;") 内
+              | 容：
+            div.controls
+              textarea.input-xxlarge(style="height: 190px;")
+              div.sui-msg.msg-tips.msg-default(style="vertical-align: top;")
+                div.msg-con
+                  p(style="margin-bottom: 8px; font-weight: bold;") 消息渠道发送字数提示：
+                  p 短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送
+                  p 旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字
+                  p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字
+                  p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字
+                  p 站内信：XXXX个汉字
+                s.msg-icon
+              div.sui-msg.msg-error.msg-clear.help-block
+                div.msg-con 该项为必填项
+                s.msg-icon
+          div.control-group
+            label.control-label
+              span(style="padding:0 24px 0 0;") 链
+              | 
+              | 接：
+            div.controls
+              input.input-xxlarge(type="text" value="")
+          div.control-group
+            label.control-label
+              b(style="color: #f00;") *
+              | 
+              | 发送渠道：
+            div.controls
+              div.row-fluid
+                label.checkbox.inline
+                  input(name="m0" type="checkbox" value="1")
+                  | 
+                  | 商家中心
+                label.checkbox.inline
+                  input(name="m0" type="checkbox" value="2")
+                  | 
+                  | 旺旺弹出
+                label.checkbox.inline
+                  input(name="m0" type="checkbox" value="3")
+                  | 
+                  | 站内信
+                label.checkbox.inline
+                  input(name="m0" type="checkbox" value="4")
+                  | 
+                  | 邮件
+                div.sui-msg.msg-tips.msg-default.msg-clear.help-block
+                  div.msg-con
+                    是否向子账号发送消息：
+                    label.radio.inline
+                      input(name="s0" type="radio" value="1")
+                      | 
+                      | 是
+                    label.radio.inline
+                      input(name="s0" type="radio" value="2")
+                      | 
+                      | 否
+                  s.msg-icon
+              div.row-fluid
+                label.checkbox.inline
+                  input(name="m1" type="checkbox" value="1" checked)
+                  | 
+                  | 短信发送给店长
+              div.row-fluid
+                label.checkbox.inline
+                  input(name="m1" type="checkbox" value="2" checked)
+                  | 
+                  | 短信发送给电商决策人
+          div.control-group
+            label.control-label
+              b(style="color: #f00;") *
+              | 
+              | 审
+              span(style="padding: 0 6px;") 核
+              | 人：
+            div.controls
+              select
+                option(value="" selected) --------------请选择--------------
+          div.control-group
+            div.controls
+              button.sui-btn.btn-primary(type="submit") 提交审核
+              button.sui-btn(type="reset") 重置
+    div.tab-pane#code19
+      pre.prettyprint.linenums(data-target='#demo19>div')
+    div.tab-pane#doc19
+      <code>.form-horizontal</code> 用于切换表单字段水平操放
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo19>div') 复制代码

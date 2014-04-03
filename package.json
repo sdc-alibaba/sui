@@ -1,33 +1,38 @@
 {
-    "name": "bootstrap"
-  , "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development."
-  , "version": "3.0.0"
-  , "keywords": ["bootstrap", "css"]
-  , "homepage": "http://twbs.github.com/bootstrap/"
-  , "author": "Twitter Inc."
-  , "scripts": { "test": "grunt test" }
-  , "repository": {
-      "type": "git"
-    , "url": "https://github.com/twbs/bootstrap.git"
-  }
-  , "licenses": [
+  "name": "sui",
+  "description": "sui.",
+  "version": "1.0.0",
+  "keywords": [
+    "sui",
+    "css"
+  ],
+  "homepage": "",
+  "author": "",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/sj/dpl"
+  },
+  "licenses": [
     {
-        "type": "Apache-2.0"
-      , "url": "http://www.apache.org/licenses/LICENSE-2.0"
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
-  ]
-  , "devDependencies": {
-      "grunt": "~0.4.1"
-    , "grunt-contrib-clean": "~0.5.0"
-    , "grunt-contrib-connect": "~0.3.0"
-    , "grunt-contrib-concat": "~0.3.0"
-    , "grunt-contrib-copy": "~0.4.0"
-    , "grunt-contrib-jshint": "~0.8.0"
-    , "grunt-contrib-uglify": "~0.2.2"
-    , "grunt-contrib-qunit": "~0.2.2"
-    , "grunt-contrib-watch": "~0.5.1"
-    , "grunt-recess": "~0.3.3"
-    , "browserstack-runner": "~0.0.11"
-    , "grunt-contrib-jade": "~0.9.1"
+  ],
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jade": "~0.11.0",
+    "grunt-contrib-jshint": "~0.9.2",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "browserify": "~3.38.0",
+    "grunt-browserify": "~2.0.1",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-newer": "~0.7.0"
   }
 }

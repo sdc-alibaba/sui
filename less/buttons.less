@@ -7,16 +7,17 @@
 // --------------------------------------------------
 
 // Core
-.btn {
+.sui-btn {
   display: inline-block;
   padding: @basePadding;
+  box-sizing: border-box;
   margin-bottom: 0; // For input.btn
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
   .border-radius(@borderRadiusMini);
   .user-select(none);
 
@@ -47,9 +48,12 @@
   &[disabled] {
     cursor: default;
     background-image: none;
-    .opacity(65);
     .box-shadow(none);
     .user-select(none);
+  }
+
+  .sui-icon {
+    margin-right: 8px;
   }
 
 }
@@ -60,39 +64,24 @@
 // --------------------------------------------------
 
 // Large
+.btn-xlarge {
+  padding: @paddingXLarge;
+  line-height: @lineHeightLarge;
+  font-size: @fontSizeLarge;
+}
+
+// Large
 .btn-large {
   padding: @paddingLarge;
-  font-size: @fontSizeLarge;
   line-height: @lineHeightLarge;
-  .border-radius(@baseBorderRadius);
-}
-.btn-large [class^="icon-"],
-.btn-large [class*=" icon-"] {
-  margin-top: 4px;
+  font-size: @fontSizeLarge;
 }
 
 // Small
 .btn-small {
   padding: @paddingSmall;
-  font-size: @fontSizeSmall;
   line-height: @lineHeightSmall;
-  .border-radius(@borderRadiusSmall);
-}
-.btn-small [class^="icon-"],
-.btn-small [class*=" icon-"] {
-  margin-top: 0;
-}
-.btn-mini [class^="icon-"],
-.btn-mini [class*=" icon-"] {
-  margin-top: -1px;
-}
-
-// Mini
-.btn-mini {
-  padding: @paddingMini;
-  font-size: @fontSizeMini;
-  line-height: @lineHeightMini;
-  .border-radius(@borderRadiusSmall);
+  font-size: @fontSizeSmall;
 }
 
 

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订购服务</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<!-- Le styles -->
+	<link href="../../build/css/sui.css" rel="stylesheet">
+	<link href="../../build/css/sui-responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="../assets/js/html5shiv.js"></script>
+	<![endif]-->
+	<style>
+#servingForm select.input-medium{width:115px;}
+#servingForm select.input-medium:first-child{width:113px;}
+#servingForm .img-round{margin-bottom: 10px;}
+#servingForm .sui-msg{box-shadow: 0 1px 3px rgba(0,0,0,.2);border:1px solid #ddd;border-radius: 2px;}
+#servingForm .sui-msg:before{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 6px;
+	border-right-color: #ddd;
+	left: -12px;
+	top: 7px;
+}
+#servingForm .sui-msg:after{
+	content: "";
+	display: inline-block;
+	position: absolute;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 6px;
+	border-right-color: #fffff1;
+	left: -10px;
+	top: 7px;
+}
+
+.sui-steps {margin-bottom: 30px;} /* 框架sui-steps中没有给出下边距 */
+.form-horizontal .controls{margin-left:106px;} /* 原来是96px，和左右宽度一下，应该给出间隙 */
+.form-horizontal .controls > a:first-child,
+.form-horizontal .controls > span:first-child{display: inline-block;padding-top: 3px;} /* 表单的内容区如果一开始就是文字，应该和左边水平对齐 */
+/* 原bs里面的缩略图样式 */
+.img-round{border-radius: 3px;display:block;padding:3px;border:1px solid #ccc;position: relative;}
+.img-round .upload-label{position: absolute;display:inline-block;padding:5px 0;width:70%;border:1px solid #ccc;left:15%;top:50%;margin-top:-15px;;background-color:#fff;text-align: center;}
+.controls .sub-controls-title{margin:15px 0;}
+	</style>
+</head>
+<body>
+	<div class="sui-container">
+		<ul class="sui-breadcrumb">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">服务详情</a></li>
+			<li class="active">订购服务</li>
+		</ul>
+
+		<div class="sui-steps">
+			<div class="wrap">
+				<div class="finished">
+					<label>
+						<span class="round">&#10004;</span>
+						<span>需求填写</span>
+					</label>
+					<i class="triangle-right-bg"></i>
+					<i class="triangle-right"></i>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="current">
+					<label>
+						<span class="round">2</span>
+						<span>酬金托管</span>
+					</label>
+					<i class="triangle-right-bg"></i>
+					<i class="triangle-right"></i>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="todo">
+					<label>
+						<span class="round">3</span>
+						<span>服务商确认</span>
+					</label>
+					<i class="triangle-right-bg"></i>
+					<i class="triangle-right"></i>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="todo">
+					<label>
+						<span class="round">4</span>
+						<span>验收中</span>
+					</label>
+					<i class="triangle-right-bg"></i>
+					<i class="triangle-right"></i>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="todo">
+					<label>
+						<span class="round">5</span>
+						<span>评价</span>
+					</label>
+				</div>
+			</div>
+		</div><!-- /.sui-steps END -->
+
+		<div class="sui-msg msg-block msg-tips" style="margin-bottom:10px;">
+			<div class="msg-con">请详细填写建模商品信息，由于信息不全导致模型完成不理想，平台视为需求方责任，依照规则给服务商结算酬金！</div>
+			<s class="msg-icon"></s>
+		</div>
+
+		<form class="sui-form form-horizontal" action="" method="post" id="servingForm">
+			<div class="control-group">
+				<label class="control-label">服务名称：</label>
+				<div class="controls">
+					<a href="">爱福窝产品建模580元</a>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form001">链接：</label>
+				<div class="controls">
+					<input class="input-xlarge input-fat" type="text" name="" id="form001">
+					<button class="sui-btn btn-default btn-large" type="button">获取商品信息</button>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">SKU：</label>
+				<div class="controls">
+					<span>16887894561449</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form002">材质：</label>
+				<div class="controls">
+					<input class="input-xlarge input-fat" type="text" name="" id="form002">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form003">风格：</label>
+				<div class="controls">
+					<select class="input-xlarge input-fat" name="" id="form003">
+						<option value="">风格1</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form004">类目：</label>
+				<div class="controls">
+					<select class="input-medium input-fat" name="" id="form004">
+						<option value="">一级类目</option>
+					</select>
+					<select class="input-medium input-fat" name="">
+						<option value="">二级类目</option>
+					</select>
+					<select class="input-medium input-fat" name="">
+						<option value="">三级类目</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">上传图片：</label>
+				<div class="controls">
+					<ul class="sui-row-fluid">
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品全景图
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+							<label class="radio sui-text-center"><input type="radio" name="radio1" > 作为渲染对比图</label>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品尺寸图：前
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+							<label class="radio sui-text-center"><input type="radio" name="radio1" > 作为渲染对比图</label>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品尺寸图：后
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+							<label class="radio sui-text-center"><input type="radio" name="radio1" > 作为渲染对比图</label>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品尺寸图：左
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+							<label class="radio sui-text-center"><input type="radio" name="radio1" > 作为渲染对比图</label>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品尺寸图：右
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+							<label class="radio sui-text-center"><input type="radio" name="radio1" > 作为渲染对比图</label>
+						</li>
+					</ul><!-- /.sui-row-fluid END -->
+					<!-- 产品尺寸图 -->
+					<div class="sub-controls-title">
+						产品尺寸图：项/底 &nbsp;&nbsp;
+						<div class="sui-msg msg-tips">
+							<div class="msg-con">
+								最多上传2张图片
+							</div>
+							<s class="msg-icon"></s>
+						</div>
+					</div>
+					<ul class="sui-row-fluid">
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+					</ul>
+					<!-- 产品尺寸图 END -->
+
+					<!-- 产品细节图 -->
+					<div class="sub-controls-title">
+						产品细节图 &nbsp;&nbsp;
+						<div class="sui-msg msg-tips">
+							<div class="msg-con">
+								最多上传10张图片
+							</div>
+							<s class="msg-icon"></s>
+						</div>
+						&nbsp;&nbsp;&nbsp; <a href=""> 查看各类图片细节要求</a>
+					</div>
+					<ul class="sui-row-fluid">
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="image1" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品细节图
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+						</li>
+					</ul>
+					<!-- 产品细节图 END -->
+
+					<!-- 产品纹理图 -->
+					<div class="sub-controls-title">
+						产品纹理图 &nbsp;&nbsp;
+						<div class="sui-msg msg-tips">
+							<div class="msg-con">
+								最多上传10张图片
+							</div>
+							<s class="msg-icon"></s>
+						</div>
+					</div>
+					<ul class="sui-row-fluid">
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round"><img src="http://img.f2e.taobao.net/img.png_200x200.jpg" alt=""/></div>
+						</li>
+						<li class="span2">
+							<div class="img-round">
+								<img src="http://placehold.it/200x200/f0f0f0/&text=no picture" alt=""/>
+								<label class="upload-label">
+									<input class="hide" type="file" name="" >
+									<i class="sui-icon-plus sui-text-info"></i> 产品纹理图
+								</label>
+								<input class="hide" type="file" name="" >
+							</div>
+						</li>
+					</ul>
+					<!-- 产品纹理图 END -->
+					<span class="help-block">(附件目前支持jpg、jpeg、png、pdf、doc等格式，每个附件图片最大限制5M，视频文件最大限制20M，最多10个附件)</span>
+				</div><!-- /.controls END -->
+			</div><!-- /.control-group END -->
+			<div class="control-group">
+				<label class="control-label" for="form005">建模要求：</label>
+				<div class="controls">
+					<textarea class="input-xxlarge" name="" id="form005" style="height: 110px;"></textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form006">完成日期：</label>
+				<div class="controls">
+					<input type="text" class="input-date input-fat" name="" id="form006">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="form007">我要付款：</label>
+				<div class="controls">
+					<div class="input-append">
+						<input type="text" class="input-fat" name="" id="form007" value="500.00" style="width:100px;">
+						<span class="add-on">元</span>
+					</div> &nbsp;&nbsp;&nbsp;
+					<a class="" href="">查看建模市场参考</a>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<label class="checkbox" style="margin-bottom:15px;">
+						<input type="checkbox" name="" > 我已阅读并同意<a href="" target="_blank">《淘宝网需求定制市场服务协议》</a>
+					</label>
+					<button class="sui-btn btn-primary btn-xlarge" type="submit"><i class="sui-icon-ok"></i> 确定，去支付宝付款</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+extends base
+
+block title
+  title 12 栏栅格
+
+block head
+  style(type="text/css").
+    .grid-demo .sui-row div,
+    .grid-demo .sui-row-fluid div {
+      background: #dfedfc;
+      min-height: 50px;
+    }
+    .grid-demo .sui-row + .sui-row,
+    .grid-demo .sui-row-fluid + .sui-row-fluid {
+      margin-top: 10px;
+    }
+block sidebar
+  +sidebar('grid')
+
+block content
+
+  h1.sui-page-header 响应式栅格系统
+  
+  p.sui-lead
+    | 响应式的12栏栅格系统，兼容三种主流屏幕尺寸 <strong>1024</strong>,<strong>1280/1366</strong>以及<strong>1440</strong>。实际上用户屏幕宽度在1024px以上的情况下会自动选择一个最佳的栅格宽度。<br />
+    | 如果想关闭响应式布局，只需要删除 <code>sui-responsive.less</code>文件即可。
+
+  h2 1. 默认栅格系统
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.grid-demo
+          div.sui-row
+            - for (var x = 1; x <= 8; x++)
+              div(class="span#{1}")=1
+          div.sui-row
+            - each x in [1, 2, 2, 3, ]
+              div(class="span#{x}")=x
+          div.sui-row
+            - each x in [4, 4]
+              div(class="span#{x}")=x
+          div.sui-row
+            - each x in [2, 6]
+              div(class="span#{x}")=x
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p
+        | 默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 2. 流式栅格系统
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        div.grid-demo
+          div.sui-row-fluid
+            - for (var x = 1; x <= 8; x++)
+              div(class="span#{1}")=1
+          div.sui-row-fluid
+            - each x in [1, 2, 2, 3, ]
+              div(class="span#{x}")=x
+          div.sui-row-fluid
+            - each x in [4, 4]
+              div(class="span#{x}")=x
+          div.sui-row-fluid
+            - each x in [2, 6]
+              div(class="span#{x}")=x
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      p
+        | 流式栅格系统每一栏的宽度都是其容器的百分比，因此会随着屏幕宽度的变化而不断变化，没有一个固定的宽度像素值。
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码

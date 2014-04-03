@@ -2,155 +2,53 @@
 // IT'S ALL JUST JUNK FOR OUR DOCS!
 // ++++++++++++++++++++++++++++++++++++++++++
 
-!function ($) {
+(function($) {
+  "use strict";
+  var parseCode = function(code) {
+    //格式化代码，删除多余缩进空格，删除多余空行
+    code = code.replace(/^ *\n/g, '').replace(/\s+$/g, '')
+    var indentNum = (/^\s+/.exec(code) || ["", ""])[0] .length
+    return code.replace(new RegExp(' {'+indentNum+'}', 'g'), '')
+  }
+  // 侧边栏
+  var $sidenav = $(".docs-sidenav").on("click", '> li', function(e) {
+    var $li = $(e.currentTarget)
+    if($li.hasClass(".active")) {
+      return
+    }
+    $sidenav.find(".active").removeClass("active")
+    $li.addClass("active")
+  })
 
-  $(function(){
-
-    var $window = $(window)
-
-    // Disable certain links in docs
-    $('section [href^=#]').click(function (e) {
-      e.preventDefault()
-    })
-
-    // side bar
-    setTimeout(function () {
-      $('.bs-docs-sidenav').affix({
-        offset: {
-          top: function () { return $window.width() <= 980 ? 290 : 210 }
-        , bottom: 270
-        }
-      })
-    }, 100)
-
+  //代码高亮
+  $('.prettyprint').each(function() {
+    var $this = $(this)
+    var $target = $($this.data("target"))
+    if(!$target[0]) return;
+    $this.text(parseCode($target.html()))
+  })
+  $(function() {
     // make code pretty
     window.prettyPrint && prettyPrint()
+  })
 
-    // add-ons
-    $('.add-on :checkbox').on('click', function () {
-      var $this = $(this)
-        , method = $this.attr('checked') ? 'addClass' : 'removeClass'
-      $(this).parents('.add-on')[method]('active')
-    })
-
-    // add tipsies to grid for scaffolding
-    if ($('#gridSystem').length) {
-      $('#gridSystem').tooltip({
-          selector: '.show-grid > [class*="span"]'
-        , title: function () { return $(this).width() + 'px' }
-      })
+  //复制代码
+  $(".copy-btn").each(function() {
+    var $btn = $(this)
+    var $target = $($btn.data("target"))
+    var $li = $btn.parents("li")
+    var $msg = $li.find(".sui-msg")
+    if (!$msg[0]) {
+      $msg = $('<div class="sui-msg msg-success"> <div class="msg-con">代码已复制</div> <s class="msg-icon"></s> </div>').appendTo($li)
     }
-
-    // tooltip demo
-    $('.tooltip-demo').tooltip({
-      selector: "a[data-toggle=tooltip]"
+    $btn.attr('data-clipboard-text', parseCode($target.html()))
+    var cp = new ZeroClipboard(this, {
+      moviePath: "assets/zeroclipboard/ZeroClipboard.swf"
     })
-
-    $('.tooltip-test').tooltip()
-    $('.popover-test').popover()
-
-    // popover demo
-    $("a[data-toggle=popover]")
-      .popover()
-      .click(function(e) {
-        e.preventDefault()
-      })
-
-    // button state demo
-    $('#fat-btn')
-      .click(function () {
-        var btn = $(this)
-        btn.button('loading')
-        setTimeout(function () {
-          btn.button('reset')
-        }, 3000)
-      })
-
-    // carousel demo
-    $('#myCarousel').carousel()
-
-    // javascript build logic
-    var inputsComponent = $("#components.download input")
-      , inputsPlugin = $("#plugins.download input")
-      , inputsVariables = $("#variables.download input")
-
-    // toggle all plugin checkboxes
-    $('#components.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsComponent.attr('checked', !inputsComponent.is(':checked'))
-    })
-
-    $('#plugins.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsPlugin.attr('checked', !inputsPlugin.is(':checked'))
-    })
-
-    $('#variables.download .toggle-all').on('click', function (e) {
-      e.preventDefault()
-      inputsVariables.val('')
-    })
-
-    // request built javascript
-    $('.download-btn .btn').on('click', function () {
-
-      var css = $("#components.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , js = $("#plugins.download input:checked")
-            .map(function () { return this.value })
-            .toArray()
-        , vars = {}
-        , img = ['glyphicons-halflings.png', 'glyphicons-halflings-white.png']
-
-    $("#variables.download input")
-      .each(function () {
-        $(this).val() && (vars[ $(this).prev().text() ] = $(this).val())
-      })
-
-      $.ajax({
-        type: 'POST'
-      , url: /\?dev/.test(window.location) ? 'http://localhost:3000' : 'http://bootstrap.herokuapp.com'
-      , dataType: 'jsonpi'
-      , params: {
-          js: js
-        , css: css
-        , vars: vars
-        , img: img
-      }
+    cp.on('load', function(cp) {
+      cp.on( "complete", function(cp, args) {
+        $msg.show().delay(2000).fadeOut()
       })
     })
   })
-
-// Modified from the original jsonpi https://github.com/benvinegar/jquery-jsonpi
-$.ajaxTransport('jsonpi', function(opts, originalOptions, jqXHR) {
-  var url = opts.url;
-
-  return {
-    send: function(_, completeCallback) {
-      var name = 'jQuery_iframe_' + jQuery.now()
-        , iframe, form
-
-      iframe = $('<iframe>')
-        .attr('name', name)
-        .appendTo('head')
-
-      form = $('<form>')
-        .attr('method', opts.type) // GET or POST
-        .attr('action', url)
-        .attr('target', name)
-
-      $.each(opts.params, function(k, v) {
-
-        $('<input>')
-          .attr('type', 'hidden')
-          .attr('name', k)
-          .attr('value', typeof v == 'string' ? v : JSON.stringify(v))
-          .appendTo(form)
-      })
-
-      form.appendTo('body').submit()
-    }
-  }
-})
-
-}(window.jQuery)
+})(window.jQuery)

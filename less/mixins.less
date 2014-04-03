@@ -158,8 +158,6 @@
   .box-sizing(border-box); // Makes inputs behave like true block-level elements
 }
 
-
-
 // Mixin for form field states
 .formFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
   // Set the text color
@@ -168,7 +166,9 @@
   .help-inline {
     color: @textColor;
   }
+
   // Style inputs accordingly
+  /* 去掉相关字段字体颜色属性，展示默认颜色 @by kai 2014-01-24
   .checkbox,
   .radio,
   input,
@@ -176,17 +176,21 @@
   textarea {
     color: @textColor;
   }
+  */
+
   input,
   select,
   textarea {
     border-color: @borderColor;
     .box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+
     &:focus {
       border-color: darken(@borderColor, 10%);
-      @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@borderColor, 20%);
-      .box-shadow(@shadow);
+      // @shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@borderColor, 20%);
+      // .box-shadow(@shadow); // 注释掉字段焦点外发光效果 @by kai 2014-01-23
     }
   }
+
   // Give a small background color for input-prepend/-append
   .input-prepend .add-on,
   .input-append .add-on {
@@ -196,7 +200,21 @@
   }
 }
 
+// 定义文本字段状态 @by kai 2014-01-23
+.inputFieldState(@textColor: #555, @borderColor: #ccc, @backgroundColor: #f5f5f5) {
+  border-color: @borderColor;
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  &:focus {
+    border-color: darken(@borderColor, 10%);
+  }
+}
 
+// 定义文本字段尺寸 @by kai 2014-01-28
+.inputFieldSize(@width: @inputMiniWidth, @paddingL: @inputDefaultPaddingLR, @paddingR: @inputDefaultPaddingLR) {
+  width: @width - @paddingL - @paddingR - 2;
+  padding-left: @paddingL;
+  padding-right: @paddingR;
+}
 
 // CSS3 PROPERTIES
 // --------------------------------------------------
@@ -516,10 +534,9 @@
 
 // Button backgrounds
 // ------------------
-.buttonBackground(@backgroundColor, @backgroundHighlightColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+.buttonBackground(@backgroundColor, @backgroundHighlightColor, @textColor: #fff) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   color: @textColor;
-  text-shadow: @textShadow;
   background-color: @backgroundColor;
   .reset-filter();
   border: 1px solid darken(@backgroundColor, 5%);
@@ -536,9 +553,9 @@
     &:focus,
     &:active,
     &.active, {
-      color: @textColor;
-      background-color: @backgroundColor;
-      border-color: @backgroundColor;
+      color: @btnDisabledColor;
+      background-color: @btnDisabledBackground;
+      border-color: darken(@btnDisabledBackground, 5%);
     }
   }
 
@@ -613,7 +630,7 @@
       width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
     }
 
-    .row {
+    .sui-row {
       margin-left: @gridGutterWidth * -1;
       .clearfix();
     }
@@ -625,10 +642,10 @@
     }
 
     // Set the container width, and override it for fixed navbars in media queries
-    .container,
-    .navbar-static-top .container,
-    .navbar-fixed-top .container,
-    .navbar-fixed-bottom .container { .span(@gridColumns); }
+    .sui-container,
+    .navbar-static-top .sui-container,
+    .navbar-fixed-top .sui-container,
+    .navbar-fixed-bottom .sui-container { .span(@gridColumns); }
 
     // generate .spanX and .offsetX
     .spanX (@gridColumns);
@@ -666,7 +683,7 @@
       *width: (@fluidGridColumnWidth * @columns) + (@fluidGridGutterWidth * (@columns - 1)) - (.5 / @gridRowWidth * 100 * 1%);
     }
 
-    .row-fluid {
+    .sui-row-fluid {
       width: 100%;
       .clearfix();
       [class*="span"] {
@@ -718,4 +735,11 @@
     .spanX (@gridColumns);
 
   }
+}
+
+//feature class
+.break-line {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
 }
