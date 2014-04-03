@@ -4429,7 +4429,9 @@ sui-pre .sui-code {
   font-size: 120%;
 }
 .sui-dropup.open .dropdown-inner > .sui-dropdown-menu,
-.sui-dropdown.open .dropdown-inner > .sui-dropdown-menu {
+.sui-dropdown.open .dropdown-inner > .sui-dropdown-menu,
+.sui-dropup.open > .sui-dropdown-menu,
+.sui-dropdown.open > .sui-dropdown-menu {
   display: block;
 }
 .sui-dropup.open .dropdown-toggle,
