@@ -2747,6 +2747,9 @@ sui-pre .sui-code {
 .sui-msg .msg-icon.icon-lightbulb:before {
   content: "\e6d1";
 }
+.sui-msg .msg-icon.icon-bulb:before {
+  content: "\e605";
+}
 .sui-msg .msg-icon.icon-cloud-download:before {
   content: "\e6d3";
 }
@@ -2853,6 +2856,7 @@ sui-pre .sui-code {
 }
 .sui-msg.msg-tips .msg-icon,
 .sui-msg.msg-info .msg-icon,
+.sui-msg.msg-warning .msg-icon,
 .sui-msg.msg-question .msg-icon {
   font-weight: bold;
 }
@@ -2944,7 +2948,7 @@ sui-pre .sui-code {
   background-color: #fffff1;
 }
 .sui-msg.msg-tips .msg-icon:before {
-  content: "\e610";
+  content: "\e605";
 }
 .sui-msg.msg-info {
   color: #3a9ed5;
@@ -4004,6 +4008,9 @@ sui-pre .sui-code {
 .sui-icon.icon-lightbulb:before {
   content: "\e6d1";
 }
+.sui-icon.icon-bulb:before {
+  content: "\e605";
+}
 .sui-icon.icon-cloud-download:before {
   content: "\e6d3";
 }
@@ -4542,6 +4549,10 @@ sui-pre .sui-code {
 .sui-dropup .caret.icon-lightbulb:before,
 .sui-dropdown .caret.icon-lightbulb:before {
   content: "\e6d1";
+}
+.sui-dropup .caret.icon-bulb:before,
+.sui-dropdown .caret.icon-bulb:before {
+  content: "\e605";
 }
 .sui-dropup .caret.icon-cloud-download:before,
 .sui-dropdown .caret.icon-cloud-download:before {
