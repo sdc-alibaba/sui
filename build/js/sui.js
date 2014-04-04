@@ -739,9 +739,15 @@
           $el.attr("data-toggle", 'dropdown')
         }
         $('html').on('click.dropdown.data-api', function () {
-          $el.parents('.sui-dropdown').removeClass('open')
+          getContainer($el).removeClass('open')
         })
       }
+
+    , getContainer = function($el) {
+      var $parent = $el.parent()
+      if ($parent.hasClass("dropdown-inner")) return $parent.parent()
+      return $parent;
+    }
 
   Dropdown.prototype = {
 
@@ -834,7 +840,7 @@
 
     $parent = selector && $(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parents('.sui-dropdown')
+    if (!$parent || !$parent.length) $parent = getContainer($this)
 
     return $parent
   }
@@ -1312,7 +1318,7 @@
         //generate the true pagination
         _drawInner: function () {
             var outer = this.hookNode.children('.sui-pagination');
-            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
+            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 <= 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
             if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
                 for (var i = 1; i < this.pages + 1; i++) {
                     i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
@@ -1409,16 +1415,18 @@
             return this;
         },
 
-        updateItemsCount: function (itemsCount) {
-            this.pages = Math.ceil(itemsCount / this.pageSize);
+        updateItemsCount: function (itemsCount, pageToGo) {
+            $.isNumeric(itemsCount) && (this.pages = Math.ceil(itemsCount / this.pageSize));
             //如果最后一页没有数据了，返回到剩余最大页数
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            $.isNumeric(pageToGo) && (this.currentPage = pageToGo);
             this._drawInner();
         },
 
-        updatePages: function (pages) {
-            this.pages = pages;
+        updatePages: function (pages, pageToGo) {
+            $.isNumeric(pages) && (this.pages = pages);
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            $.isNumeric(pageToGo) && (this.currentPage = pageToGo);
             this._drawInner();
         },
 
