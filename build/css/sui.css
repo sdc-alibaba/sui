@@ -5391,6 +5391,7 @@ input[type="submit"].btn.btn-mini {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 17px;
 }
 .sui-btn-group > .sui-btn > .caret.icon-search:before {
   content: "\e69f";
@@ -5798,6 +5799,15 @@ input[type="submit"].btn.btn-mini {
   content: "\e6be";
   float: right;
   margin-left: 8px;
+}
+.sui-btn-group > .sui-btn.btn-small > .caret {
+  line-height: 17px;
+}
+.sui-btn-group > .sui-btn.btn-large > .caret {
+  line-height: 21px;
+}
+.sui-btn-group > .sui-btn.btn-xlarge > .caret {
+  line-height: 26px;
 }
 .sui-btn-group .sui-btn + .sui-btn {
   margin-left: -1px;
