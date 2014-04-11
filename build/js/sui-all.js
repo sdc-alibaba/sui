@@ -1,420 +1,8 @@
-(function () {/**
- * almond 0.2.6 Copyright (c) 2011-2012, The Dojo Foundation All Rights Reserved.
- * Available via the MIT or new BSD license.
- * see: http://github.com/jrburke/almond for details
- */
-//Going sloppy to avoid 'use strict' string cost, but strict practices should
-//be followed.
-/*jslint sloppy: true */
-/*global setTimeout: false */
-
-var requirejs, require, define;
-(function (undef) {
-    var main, req, makeMap, handlers,
-        defined = {},
-        waiting = {},
-        config = {},
-        defining = {},
-        hasOwn = Object.prototype.hasOwnProperty,
-        aps = [].slice;
-
-    function hasProp(obj, prop) {
-        return hasOwn.call(obj, prop);
-    }
-
-    /**
-     * Given a relative module name, like ./something, normalize it to
-     * a real name that can be mapped to a path.
-     * @param {String} name the relative name
-     * @param {String} baseName a real name that the name arg is relative
-     * to.
-     * @returns {String} normalized name
-     */
-    function normalize(name, baseName) {
-        var nameParts, nameSegment, mapValue, foundMap,
-            foundI, foundStarMap, starI, i, j, part,
-            baseParts = baseName && baseName.split("/"),
-            map = config.map,
-            starMap = (map && map['*']) || {};
-
-        //Adjust any relative paths.
-        if (name && name.charAt(0) === ".") {
-            //If have a base name, try to normalize against it,
-            //otherwise, assume it is a top-level require that will
-            //be relative to baseUrl in the end.
-            if (baseName) {
-                //Convert baseName to array, and lop off the last part,
-                //so that . matches that "directory" and not name of the baseName's
-                //module. For instance, baseName of "one/two/three", maps to
-                //"one/two/three.js", but we want the directory, "one/two" for
-                //this normalization.
-                baseParts = baseParts.slice(0, baseParts.length - 1);
-
-                name = baseParts.concat(name.split("/"));
-
-                //start trimDots
-                for (i = 0; i < name.length; i += 1) {
-                    part = name[i];
-                    if (part === ".") {
-                        name.splice(i, 1);
-                        i -= 1;
-                    } else if (part === "..") {
-                        if (i === 1 && (name[2] === '..' || name[0] === '..')) {
-                            //End of the line. Keep at least one non-dot
-                            //path segment at the front so it can be mapped
-                            //correctly to disk. Otherwise, there is likely
-                            //no path mapping for a path starting with '..'.
-                            //This can still fail, but catches the most reasonable
-                            //uses of ..
-                            break;
-                        } else if (i > 0) {
-                            name.splice(i - 1, 2);
-                            i -= 2;
-                        }
-                    }
-                }
-                //end trimDots
-
-                name = name.join("/");
-            } else if (name.indexOf('./') === 0) {
-                // No baseName, so this is ID is resolved relative
-                // to baseUrl, pull off the leading dot.
-                name = name.substring(2);
-            }
-        }
-
-        //Apply map config if available.
-        if ((baseParts || starMap) && map) {
-            nameParts = name.split('/');
-
-            for (i = nameParts.length; i > 0; i -= 1) {
-                nameSegment = nameParts.slice(0, i).join("/");
-
-                if (baseParts) {
-                    //Find the longest baseName segment match in the config.
-                    //So, do joins on the biggest to smallest lengths of baseParts.
-                    for (j = baseParts.length; j > 0; j -= 1) {
-                        mapValue = map[baseParts.slice(0, j).join('/')];
-
-                        //baseName segment has  config, find if it has one for
-                        //this name.
-                        if (mapValue) {
-                            mapValue = mapValue[nameSegment];
-                            if (mapValue) {
-                                //Match, update name to the new value.
-                                foundMap = mapValue;
-                                foundI = i;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (foundMap) {
-                    break;
-                }
-
-                //Check for a star map match, but just hold on to it,
-                //if there is a shorter segment match later in a matching
-                //config, then favor over this star map.
-                if (!foundStarMap && starMap && starMap[nameSegment]) {
-                    foundStarMap = starMap[nameSegment];
-                    starI = i;
-                }
-            }
-
-            if (!foundMap && foundStarMap) {
-                foundMap = foundStarMap;
-                foundI = starI;
-            }
-
-            if (foundMap) {
-                nameParts.splice(0, foundI, foundMap);
-                name = nameParts.join('/');
-            }
-        }
-
-        return name;
-    }
-
-    function makeRequire(relName, forceSync) {
-        return function () {
-            //A version of a require function that passes a moduleName
-            //value for items that may need to
-            //look up paths relative to the moduleName
-            return req.apply(undef, aps.call(arguments, 0).concat([relName, forceSync]));
-        };
-    }
-
-    function makeNormalize(relName) {
-        return function (name) {
-            return normalize(name, relName);
-        };
-    }
-
-    function makeLoad(depName) {
-        return function (value) {
-            defined[depName] = value;
-        };
-    }
-
-    function callDep(name) {
-        if (hasProp(waiting, name)) {
-            var args = waiting[name];
-            delete waiting[name];
-            defining[name] = true;
-            main.apply(undef, args);
-        }
-
-        if (!hasProp(defined, name) && !hasProp(defining, name)) {
-            throw new Error('No ' + name);
-        }
-        return defined[name];
-    }
-
-    //Turns a plugin!resource to [plugin, resource]
-    //with the plugin being undefined if the name
-    //did not have a plugin prefix.
-    function splitPrefix(name) {
-        var prefix,
-            index = name ? name.indexOf('!') : -1;
-        if (index > -1) {
-            prefix = name.substring(0, index);
-            name = name.substring(index + 1, name.length);
-        }
-        return [prefix, name];
-    }
-
-    /**
-     * Makes a name map, normalizing the name, and using a plugin
-     * for normalization if necessary. Grabs a ref to plugin
-     * too, as an optimization.
-     */
-    makeMap = function (name, relName) {
-        var plugin,
-            parts = splitPrefix(name),
-            prefix = parts[0];
-
-        name = parts[1];
-
-        if (prefix) {
-            prefix = normalize(prefix, relName);
-            plugin = callDep(prefix);
-        }
-
-        //Normalize according
-        if (prefix) {
-            if (plugin && plugin.normalize) {
-                name = plugin.normalize(name, makeNormalize(relName));
-            } else {
-                name = normalize(name, relName);
-            }
-        } else {
-            name = normalize(name, relName);
-            parts = splitPrefix(name);
-            prefix = parts[0];
-            name = parts[1];
-            if (prefix) {
-                plugin = callDep(prefix);
-            }
-        }
-
-        //Using ridiculous property names for space reasons
-        return {
-            f: prefix ? prefix + '!' + name : name, //fullName
-            n: name,
-            pr: prefix,
-            p: plugin
-        };
-    };
-
-    function makeConfig(name) {
-        return function () {
-            return (config && config.config && config.config[name]) || {};
-        };
-    }
-
-    handlers = {
-        require: function (name) {
-            return makeRequire(name);
-        },
-        exports: function (name) {
-            var e = defined[name];
-            if (typeof e !== 'undefined') {
-                return e;
-            } else {
-                return (defined[name] = {});
-            }
-        },
-        module: function (name) {
-            return {
-                id: name,
-                uri: '',
-                exports: defined[name],
-                config: makeConfig(name)
-            };
-        }
-    };
-
-    main = function (name, deps, callback, relName) {
-        var cjsModule, depName, ret, map, i,
-            args = [],
-            usingExports;
-
-        //Use name if no relName
-        relName = relName || name;
-
-        //Call the callback to define the module, if necessary.
-        if (typeof callback === 'function') {
-
-            //Pull out the defined dependencies and pass the ordered
-            //values to the callback.
-            //Default to [require, exports, module] if no deps
-            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
-            for (i = 0; i < deps.length; i += 1) {
-                map = makeMap(deps[i], relName);
-                depName = map.f;
-
-                //Fast path CommonJS standard dependencies.
-                if (depName === "require") {
-                    args[i] = handlers.require(name);
-                } else if (depName === "exports") {
-                    //CommonJS module spec 1.1
-                    args[i] = handlers.exports(name);
-                    usingExports = true;
-                } else if (depName === "module") {
-                    //CommonJS module spec 1.1
-                    cjsModule = args[i] = handlers.module(name);
-                } else if (hasProp(defined, depName) ||
-                           hasProp(waiting, depName) ||
-                           hasProp(defining, depName)) {
-                    args[i] = callDep(depName);
-                } else if (map.p) {
-                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
-                    args[i] = defined[depName];
-                } else {
-                    throw new Error(name + ' missing ' + depName);
-                }
-            }
-
-            ret = callback.apply(defined[name], args);
-
-            if (name) {
-                //If setting exports via "module" is in play,
-                //favor that over return value and exports. After that,
-                //favor a non-undefined return value over exports use.
-                if (cjsModule && cjsModule.exports !== undef &&
-                        cjsModule.exports !== defined[name]) {
-                    defined[name] = cjsModule.exports;
-                } else if (ret !== undef || !usingExports) {
-                    //Use the return value from the function.
-                    defined[name] = ret;
-                }
-            }
-        } else if (name) {
-            //May just be an object definition for the module. Only
-            //worry about defining if have a module name.
-            defined[name] = callback;
-        }
-    };
-
-    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
-        if (typeof deps === "string") {
-            if (handlers[deps]) {
-                //callback in this case is really relName
-                return handlers[deps](callback);
-            }
-            //Just return the module wanted. In this scenario, the
-            //deps arg is the module name, and second arg (if passed)
-            //is just the relName.
-            //Normalize module name, if it contains . or ..
-            return callDep(makeMap(deps, callback).f);
-        } else if (!deps.splice) {
-            //deps is a config object, not an array.
-            config = deps;
-            if (callback.splice) {
-                //callback is an array, which means it is a dependency list.
-                //Adjust args if there are dependencies
-                deps = callback;
-                callback = relName;
-                relName = null;
-            } else {
-                deps = undef;
-            }
-        }
-
-        //Support require(['a'])
-        callback = callback || function () {};
-
-        //If relName is a function, it is an errback handler,
-        //so remove it.
-        if (typeof relName === 'function') {
-            relName = forceSync;
-            forceSync = alt;
-        }
-
-        //Simulate async callback;
-        if (forceSync) {
-            main(undef, deps, callback, relName);
-        } else {
-            //Using a non-zero value because of concern for what old browsers
-            //do, and latest browsers "upgrade" to 4 if lower value is used:
-            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-            //If want a value immediately, use require('id') instead -- something
-            //that works in almond on the global level, but not guaranteed and
-            //unlikely to work in other AMD implementations.
-            setTimeout(function () {
-                main(undef, deps, callback, relName);
-            }, 4);
-        }
-
-        return req;
-    };
-
-    /**
-     * Just drops the config on the floor, but returns req in case
-     * the config return value is used.
-     */
-    req.config = function (cfg) {
-        config = cfg;
-        if (config.deps) {
-            req(config.deps, config.callback);
-        }
-        return req;
-    };
-
-    /**
-     * Expose module registry for debugging and tooling
-     */
-    requirejs._defined = defined;
-
-    define = function (name, deps, callback) {
-
-        //This module may not have dependencies
-        if (!deps.splice) {
-            //deps is not an array, so probably means
-            //an object literal or factory function for
-            //the value. Adjust args.
-            callback = deps;
-            deps = [];
-        }
-
-        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
-            waiting[name] = [name, deps, callback];
-        }
-    };
-
-    define.amd = {
-        jQuery: true
-    };
-}());
-
-define("almond", function(){});
-
-/* ===================================================
- * bootstrap-transition.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#transitions
- * ===================================================
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/* ==========================================================
+ * bootstrap-affix.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#affix
+ * ==========================================================
  * Copyright 2013 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -433,47 +21,103 @@ define("almond", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
-  /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
-   * ======================================================= */
+ /* AFFIX CLASS DEFINITION
+  * ====================== */
 
-  $(function () {
+  var Affix = function (element, options) {
+    this.options = $.extend({}, $.fn.affix.defaults, options)
+    this.$window = $(window)
+      .on('scroll.affix.data-api', $.proxy(this.checkPosition, this))
+      .on('click.affix.data-api',  $.proxy(function () { setTimeout($.proxy(this.checkPosition, this), 1) }, this))
+    this.$element = $(element)
+    this.checkPosition()
+  }
 
-    $.support.transition = (function () {
+  Affix.prototype.checkPosition = function () {
+    if (!this.$element.is(':visible')) return
 
-      var transitionEnd = (function () {
+    var scrollHeight = $(document).height()
+      , scrollTop = this.$window.scrollTop()
+      , position = this.$element.offset()
+      , offset = this.options.offset
+      , offsetBottom = offset.bottom
+      , offsetTop = offset.top
+      , reset = 'affix affix-top affix-bottom'
+      , affix
 
-        var el = document.createElement('bootstrap')
-          , transEndEventNames = {
-               'WebkitTransition' : 'webkitTransitionEnd'
-            ,  'MozTransition'    : 'transitionend'
-            ,  'OTransition'      : 'oTransitionEnd otransitionend'
-            ,  'transition'       : 'transitionend'
-            }
-          , name
+    if (typeof offset != 'object') offsetBottom = offsetTop = offset
+    if (typeof offsetTop == 'function') offsetTop = offset.top()
+    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom()
 
-        for (name in transEndEventNames){
-          if (el.style[name] !== undefined) {
-            return transEndEventNames[name]
-          }
-        }
+    affix = this.unpin != null && (scrollTop + this.unpin <= position.top) ?
+      false    : offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ?
+      'bottom' : offsetTop != null && scrollTop <= offsetTop ?
+      'top'    : false
 
-      }())
+    if (this.affixed === affix) return
 
-      return transitionEnd && {
-        end: transitionEnd
-      }
+    this.affixed = affix
+    this.unpin = affix == 'bottom' ? position.top - scrollTop : null
 
-    })()
+    this.$element.removeClass(reset).addClass('affix' + (affix ? '-' + affix : ''))
+  }
 
+
+ /* AFFIX PLUGIN DEFINITION
+  * ======================= */
+
+  var old = $.fn.affix
+
+  $.fn.affix = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('affix')
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('affix', (data = new Affix(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.affix.Constructor = Affix
+
+  $.fn.affix.defaults = {
+    offset: 0
+  }
+
+
+ /* AFFIX NO CONFLICT
+  * ================= */
+
+  $.fn.affix.noConflict = function () {
+    $.fn.affix = old
+    return this
+  }
+
+
+ /* AFFIX DATA-API
+  * ============== */
+
+  $(window).on('load', function () {
+    $('[data-spy="affix"]').each(function () {
+      var $spy = $(this)
+        , data = $spy.data()
+
+      data.offset = data.offset || {}
+
+      data.offsetBottom && (data.offset.bottom = data.offsetBottom)
+      data.offsetTop && (data.offset.top = data.offsetTop)
+
+      $spy.affix(data)
+    })
   })
+
 
 }(window.jQuery);
 
-define("transition.js", function(){});
-
+},{}],2:[function(require,module,exports){
 /* ==========================================================
  * bootstrap-alert.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#alerts
@@ -496,7 +140,7 @@ define("transition.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* ALERT CLASS DEFINITION
@@ -574,8 +218,7 @@ define("transition.js", function(){});
 
 }(window.jQuery);
 
-define("alert.js", function(){});
-
+},{}],3:[function(require,module,exports){
 /* ============================================================
  * bootstrap-button.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#buttons
@@ -598,7 +241,7 @@ define("alert.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* BUTTON PUBLIC CLASS DEFINITION
@@ -682,8 +325,7 @@ define("alert.js", function(){});
 
 }(window.jQuery);
 
-define("button.js", function(){});
-
+},{}],4:[function(require,module,exports){
 /* ==========================================================
  * bootstrap-carousel.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#carousel
@@ -706,7 +348,7 @@ define("button.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* CAROUSEL CLASS DEFINITION
@@ -892,8 +534,7 @@ define("button.js", function(){});
 
 }(window.jQuery);
 
-define("carousel.js", function(){});
-
+},{}],5:[function(require,module,exports){
 /* =============================================================
  * bootstrap-collapse.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#collapse
@@ -916,7 +557,7 @@ define("carousel.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* COLLAPSE PUBLIC CLASS DEFINITION
@@ -1062,8 +703,7 @@ define("carousel.js", function(){});
 
 }(window.jQuery);
 
-define("collapse.js", function(){});
-
+},{}],6:[function(require,module,exports){
 /* ============================================================
  * bootstrap-dropdown.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#dropdowns
@@ -1086,7 +726,7 @@ define("collapse.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* DROPDOWN CLASS DEFINITION
@@ -1099,9 +739,15 @@ define("collapse.js", function(){});
           $el.attr("data-toggle", 'dropdown')
         }
         $('html').on('click.dropdown.data-api', function () {
-          $el.parents('.sui-dropdown').removeClass('open')
+          getContainer($el).removeClass('open')
         })
       }
+
+    , getContainer = function($el) {
+      var $parent = $el.parent()
+      if ($parent.hasClass("dropdown-inner")) return $parent.parent()
+      return $parent;
+    }
 
   Dropdown.prototype = {
 
@@ -1194,7 +840,7 @@ define("collapse.js", function(){});
 
     $parent = selector && $(selector)
 
-    if (!$parent || !$parent.length) $parent = $this.parents('.sui-dropdown')
+    if (!$parent || !$parent.length) $parent = getContainer($this)
 
     return $parent
   }
@@ -1237,8 +883,7 @@ define("collapse.js", function(){});
 
 }(window.jQuery);
 
-define("dropdown.js", function(){});
-
+},{}],7:[function(require,module,exports){
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -1250,7 +895,7 @@ define("dropdown.js", function(){});
  */
 
 !function ($) {
-  
+  "use strict";
  /* MODAL CLASS DEFINITION
   * ====================== */
   var Modal = function (element, options) {
@@ -1643,8 +1288,648 @@ define("dropdown.js", function(){});
 
 }(window.jQuery);
 
-define("modal.js", function(){});
+},{}],8:[function(require,module,exports){
+(function ($) {
+    function Pagination(opts) {
+        this.itemsCount = opts.itemsCount;
+        this.pageSize = opts.pageSize;
+        this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
+        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
+        $.isNumeric(opts.pages) && (this.pages = opts.pages);
+        this.currentPage = opts.currentPage;
+        this.styleClass = opts.styleClass;
+        this.onSelect = opts.onSelect;
+        this.showCtrl = opts.showCtrl;
+        this.remote = opts.remote;
+    }
 
+    /* jshint ignore:start */
+    Pagination.prototype = {
+        //generate the outer wrapper with the config of custom style
+        _draw: function () {
+            var tpl = '<div class="sui-pagination';
+            for (var i = 0; i < this.styleClass.length; i++) {
+                tpl += ' ' + this.styleClass[i];
+            }
+            tpl += '"></div>'
+            this.hookNode.html(tpl);
+            this._drawInner();
+        },
+        //generate the true pagination
+        _drawInner: function () {
+            var outer = this.hookNode.children('.sui-pagination');
+            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 <= 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
+            if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
+                for (var i = 1; i < this.pages + 1; i++) {
+                    i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                }
+
+            } else {
+                if (this.currentPage < this.displayPage - 1) {
+                    for (var i = 1; i < this.displayPage; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
+                } else if (this.currentPage > this.pages - this.displayPage + 2 && this.currentPage <= this.pages) {
+                    tpl += '<li><a href="#" data="1">1</a></li>';
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    for (var i = this.pages - this.displayPage + 2; i <= this.pages; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                } else {
+                    tpl += '<li><a href="#" data="1">1</a></li>';
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    var frontPage,
+                        backPage,
+                        middle = (this.displayPage - 3) / 2;
+                    if ( (this.displayPage - 3) % 2 == 0 ) {
+                        frontPage = backPage = middle; 
+                    } else {
+                        frontPage = Math.floor(middle);
+                        backPage = Math.ceil(middle);
+                    }
+                    for (var i = this.currentPage - frontPage; i <= this.currentPage + backPage; i++) {
+                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
+                    }
+                    tpl += '<li class="dotted"><span>...</span></li>';
+                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
+                }
+            }
+            tpl += '<li class="next' + (this.currentPage + 1 > this.pages ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage + 1) + '">下一页»</a></li>' + '</ul>';
+            this.showCtrl && (tpl += this._drawCtrl());
+            outer.html(tpl);
+        },
+        //值传递
+        _drawCtrl: function () {
+            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
+            return tpl;
+        },
+
+        _ctrl: function () {
+            var self = this,
+                pag = self.hookNode.children('.sui-pagination');
+
+            function doPagination() {
+                var tmpNum = parseInt(pag.find('.page-num').val());
+                if ($.isNumeric(tmpNum) && tmpNum <= self.pages && tmpNum > 0) {
+                    if (!self.remote) {
+                        self.currentPage = tmpNum;
+                        self._drawInner();
+                    }
+                    if ($.isFunction(self.onSelect)) {
+                        self.onSelect.call($(this), tmpNum);
+                    }
+                }
+            }
+            pag.on('click', '.page-confirm', function (e) {
+                doPagination.call(this)
+            })
+            pag.on('keypress', '.page-num', function (e) {
+                e.which == 13 && doPagination.call(this)
+            })
+        },
+
+        _select: function () {
+            var self = this;
+            self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
+                e.preventDefault();
+                var tmpNum = parseInt($(this).attr('data'));
+                if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
+                    if (!self.remote) {
+                        self.currentPage = tmpNum;
+                        self._drawInner();
+                    }
+                    if ($.isFunction(self.onSelect)) {
+                        self.onSelect.call($(this), tmpNum);
+                    }
+                }
+            })
+        },
+
+        init: function (opts, hookNode) {
+            this.hookNode = hookNode;
+            this._draw();
+            this._select();
+            this.showCtrl && this._ctrl();
+            return this;
+        },
+
+        updateItemsCount: function (itemsCount, pageToGo) {
+            $.isNumeric(itemsCount) && (this.pages = Math.ceil(itemsCount / this.pageSize));
+            //如果最后一页没有数据了，返回到剩余最大页数
+            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            $.isNumeric(pageToGo) && (this.currentPage = pageToGo);
+            this._drawInner();
+        },
+
+        updatePages: function (pages, pageToGo) {
+            $.isNumeric(pages) && (this.pages = pages);
+            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
+            $.isNumeric(pageToGo) && (this.currentPage = pageToGo);
+            this._drawInner();
+        },
+
+        goToPage: function (page) {
+            if ($.isNumeric(page) && page <= this.pages && page > 0) {
+                this.currentPage = page;
+                this._drawInner()
+            }
+        }
+    }
+    /* jshint ignore:end */
+
+    var old = $.fn.pagination;
+    
+    $.fn.pagination = function (options) {
+        var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);
+        if (typeof options == 'string') {
+            args = $.makeArray(arguments);
+            args.shift();
+        }
+        var $this = $(this),
+        pag = $this.data('sui-pagination');
+        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
+            else if (typeof options == 'string') {
+                pag[options].apply(pag, args)
+            }
+        return pag;
+    };
+
+    $.fn.pagination.Constructor = Pagination;
+
+    $.fn.pagination.noConflict = function () {
+        $.fn.pagination = old;
+        return this
+    }
+
+    $.fn.pagination.defaults = {
+        pageSize: 10,
+        displayPage: 5,
+        currentPage: 1,
+        itemsCount: 100,
+        styleClass: [],
+        pages: null,
+        showCtrl: false,
+        onSelect: null,
+        remote: false
+    }
+
+})(window.jQuery)
+
+},{}],9:[function(require,module,exports){
+/* ===========================================================
+ * bootstrap-popover.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#popovers
+ * ===========================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =========================================================== */
+
+
+!function ($) {
+
+  "use strict";
+
+
+ /* POPOVER PUBLIC CLASS DEFINITION
+  * =============================== */
+
+  var Popover = function (element, options) {
+    this.init('popover', element, options)
+  }
+
+
+  /* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
+     ========================================== */
+
+  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype, {
+
+    constructor: Popover
+
+  , setContent: function () {
+      var $tip = this.tip()
+        , title = this.getTitle()
+        , content = this.getContent()
+
+      $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
+      $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
+
+      $tip.removeClass('fade top bottom left right in')
+    }
+
+  , hasContent: function () {
+      return this.getTitle() || this.getContent()
+    }
+
+  , getContent: function () {
+      var content
+        , $e = this.$element
+        , o = this.options
+
+      content = (typeof o.content == 'function' ? o.content.call($e[0]) :  o.content)
+        || $e.attr('data-content')
+
+      return content
+    }
+
+  , tip: function () {
+      if (!this.$tip) {
+        this.$tip = $(this.options.template)
+      }
+      return this.$tip
+    }
+
+  , destroy: function () {
+      this.hide().$element.off('.' + this.type).removeData(this.type)
+    }
+
+  })
+
+
+ /* POPOVER PLUGIN DEFINITION
+  * ======================= */
+
+  var old = $.fn.popover
+
+  $.fn.popover = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('popover')
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('popover', (data = new Popover(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.popover.Constructor = Popover
+
+  $.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
+    placement: 'right'
+  , trigger: 'click'
+  , content: ''
+  , template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  })
+
+
+ /* POPOVER NO CONFLICT
+  * =================== */
+
+  $.fn.popover.noConflict = function () {
+    $.fn.popover = old
+    return this
+  }
+
+}(window.jQuery);
+
+},{}],10:[function(require,module,exports){
+/* =============================================================
+ * bootstrap-scrollspy.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
+ * =============================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ============================================================== */
+
+
+!function ($) {
+
+  "use strict";
+
+
+ /* SCROLLSPY CLASS DEFINITION
+  * ========================== */
+
+  function ScrollSpy(element, options) {
+    var process = $.proxy(this.process, this)
+      , $element = $(element).is('body') ? $(window) : $(element)
+      , href
+    this.options = $.extend({}, $.fn.scrollspy.defaults, options)
+    this.$scrollElement = $element.on('scroll.scroll-spy.data-api', process)
+    this.selector = (this.options.target
+      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      || '') + ' .nav li > a'
+    this.$body = $('body')
+    this.refresh()
+    this.process()
+  }
+
+  ScrollSpy.prototype = {
+
+      constructor: ScrollSpy
+
+    , refresh: function () {
+        var self = this
+          , $targets
+
+        this.offsets = $([])
+        this.targets = $([])
+
+        $targets = this.$body
+          .find(this.selector)
+          .map(function () {
+            var $el = $(this)
+              , href = $el.data('target') || $el.attr('href')
+              , $href = /^#\w/.test(href) && $(href)
+            return ( $href
+              && $href.length
+              && [[ $href.position().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]] ) || null
+          })
+          .sort(function (a, b) { return a[0] - b[0] })
+          .each(function () {
+            self.offsets.push(this[0])
+            self.targets.push(this[1])
+          })
+      }
+
+    , process: function () {
+        var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
+          , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
+          , maxScroll = scrollHeight - this.$scrollElement.height()
+          , offsets = this.offsets
+          , targets = this.targets
+          , activeTarget = this.activeTarget
+          , i
+
+        if (scrollTop >= maxScroll) {
+          return activeTarget != (i = targets.last()[0])
+            && this.activate ( i )
+        }
+
+        for (i = offsets.length; i--;) {
+          activeTarget != targets[i]
+            && scrollTop >= offsets[i]
+            && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+            && this.activate( targets[i] )
+        }
+      }
+
+    , activate: function (target) {
+        var active
+          , selector
+
+        this.activeTarget = target
+
+        $(this.selector)
+          .parent('.active')
+          .removeClass('active')
+
+        selector = this.selector
+          + '[data-target="' + target + '"],'
+          + this.selector + '[href="' + target + '"]'
+
+        active = $(selector)
+          .parent('li')
+          .addClass('active')
+
+        if (active.parent('.dropdown-menu').length)  {
+          active = active.closest('li.dropdown').addClass('active')
+        }
+
+        active.trigger('activate')
+      }
+
+  }
+
+
+ /* SCROLLSPY PLUGIN DEFINITION
+  * =========================== */
+
+  var old = $.fn.scrollspy
+
+  $.fn.scrollspy = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('scrollspy')
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.scrollspy.Constructor = ScrollSpy
+
+  $.fn.scrollspy.defaults = {
+    offset: 10
+  }
+
+
+ /* SCROLLSPY NO CONFLICT
+  * ===================== */
+
+  $.fn.scrollspy.noConflict = function () {
+    $.fn.scrollspy = old
+    return this
+  }
+
+
+ /* SCROLLSPY DATA-API
+  * ================== */
+
+  $(window).on('load', function () {
+    $('[data-spy="scroll"]').each(function () {
+      var $spy = $(this)
+      $spy.scrollspy($spy.data())
+    })
+  })
+
+}(window.jQuery);
+
+},{}],11:[function(require,module,exports){
+//全部打包
+require("./sui")
+require("./sui-extends")
+
+},{"./sui":13,"./sui-extends":12}],12:[function(require,module,exports){
+//拓展组件
+
+},{}],13:[function(require,module,exports){
+//核心组件
+require('./transition')
+require('./alert')
+require('./button')
+require('./carousel')
+require('./collapse')
+require('./dropdown')
+require('./modal')
+require('./tooltip')
+require('./popover')
+require('./scrollspy')
+require('./tab')
+require('./affix')
+require('./pagination')
+require('./validate')
+require('./validate-rules')
+
+},{"./affix":1,"./alert":2,"./button":3,"./carousel":4,"./collapse":5,"./dropdown":6,"./modal":7,"./pagination":8,"./popover":9,"./scrollspy":10,"./tab":14,"./tooltip":15,"./transition":16,"./validate":18,"./validate-rules":17}],14:[function(require,module,exports){
+/* ========================================================
+ * bootstrap-tab.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#tabs
+ * ========================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ======================================================== */
+
+
+!function ($) {
+
+  "use strict";
+
+
+ /* TAB CLASS DEFINITION
+  * ==================== */
+
+  var Tab = function (element) {
+    this.element = $(element)
+  }
+
+  Tab.prototype = {
+
+    constructor: Tab
+
+  , show: function () {
+      var $this = this.element
+        , $ul = $this.closest('ul:not(.dropdown-menu)')
+        , selector = $this.attr('data-target')
+        , previous
+        , $target
+        , e
+
+      if (!selector) {
+        selector = $this.attr('href')
+        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      }
+
+      if ( $this.parent('li').hasClass('active') ) return
+
+      previous = $ul.find('.active:last a')[0]
+
+      e = $.Event('show', {
+        relatedTarget: previous
+      })
+
+      $this.trigger(e)
+
+      if (e.isDefaultPrevented()) return
+
+      $target = $(selector)
+
+      this.activate($this.parent('li'), $ul)
+      this.activate($target, $target.parent(), function () {
+        $this.trigger({
+          type: 'shown'
+        , relatedTarget: previous
+        })
+      })
+    }
+
+  , activate: function ( element, container, callback) {
+      var $active = container.find('> .active')
+        , transition = callback
+            && $.support.transition
+            && $active.hasClass('fade')
+
+      function next() {
+        $active
+          .removeClass('active')
+          .find('> .dropdown-menu > .active')
+          .removeClass('active')
+
+        element.addClass('active')
+
+        if (transition) {
+          element[0].offsetWidth // reflow for transition
+          element.addClass('in')
+        } else {
+          element.removeClass('fade')
+        }
+
+        if ( element.parent('.dropdown-menu') ) {
+          element.closest('li.dropdown').addClass('active')
+        }
+
+        callback && callback()
+      }
+
+      transition ?
+        $active.one($.support.transition.end, next) :
+        next()
+
+      $active.removeClass('in')
+    }
+  }
+
+
+ /* TAB PLUGIN DEFINITION
+  * ===================== */
+
+  var old = $.fn.tab
+
+  $.fn.tab = function ( option ) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('tab')
+      if (!data) $this.data('tab', (data = new Tab(this)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.tab.Constructor = Tab
+
+
+ /* TAB NO CONFLICT
+  * =============== */
+
+  $.fn.tab.noConflict = function () {
+    $.fn.tab = old
+    return this
+  }
+
+
+ /* TAB DATA-API
+  * ============ */
+
+  $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+
+}(window.jQuery);
+
+},{}],15:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -1668,7 +1953,7 @@ define("modal.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
  /* TOOLTIP PUBLIC CLASS DEFINITION
@@ -2062,441 +2347,11 @@ define("modal.js", function(){});
 
 }(window.jQuery);
 
-define("tooltip.js", function(){});
-
-/* ===========================================================
- * bootstrap-popover.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#popovers
- * ===========================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =========================================================== */
-
-
-!function ($) {
-
-  
-
-
- /* POPOVER PUBLIC CLASS DEFINITION
-  * =============================== */
-
-  var Popover = function (element, options) {
-    this.init('popover', element, options)
-  }
-
-
-  /* NOTE: POPOVER EXTENDS BOOTSTRAP-TOOLTIP.js
-     ========================================== */
-
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype, {
-
-    constructor: Popover
-
-  , setContent: function () {
-      var $tip = this.tip()
-        , title = this.getTitle()
-        , content = this.getContent()
-
-      $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-      $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
-
-      $tip.removeClass('fade top bottom left right in')
-    }
-
-  , hasContent: function () {
-      return this.getTitle() || this.getContent()
-    }
-
-  , getContent: function () {
-      var content
-        , $e = this.$element
-        , o = this.options
-
-      content = (typeof o.content == 'function' ? o.content.call($e[0]) :  o.content)
-        || $e.attr('data-content')
-
-      return content
-    }
-
-  , tip: function () {
-      if (!this.$tip) {
-        this.$tip = $(this.options.template)
-      }
-      return this.$tip
-    }
-
-  , destroy: function () {
-      this.hide().$element.off('.' + this.type).removeData(this.type)
-    }
-
-  })
-
-
- /* POPOVER PLUGIN DEFINITION
-  * ======================= */
-
-  var old = $.fn.popover
-
-  $.fn.popover = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('popover')
-        , options = typeof option == 'object' && option
-      if (!data) $this.data('popover', (data = new Popover(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.popover.Constructor = Popover
-
-  $.fn.popover.defaults = $.extend({} , $.fn.tooltip.defaults, {
-    placement: 'right'
-  , trigger: 'click'
-  , content: ''
-  , template: '<div class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-  })
-
-
- /* POPOVER NO CONFLICT
-  * =================== */
-
-  $.fn.popover.noConflict = function () {
-    $.fn.popover = old
-    return this
-  }
-
-}(window.jQuery);
-
-define("popover.js", function(){});
-
-/* =============================================================
- * bootstrap-scrollspy.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
- * =============================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ============================================================== */
-
-
-!function ($) {
-
-  
-
-
- /* SCROLLSPY CLASS DEFINITION
-  * ========================== */
-
-  function ScrollSpy(element, options) {
-    var process = $.proxy(this.process, this)
-      , $element = $(element).is('body') ? $(window) : $(element)
-      , href
-    this.options = $.extend({}, $.fn.scrollspy.defaults, options)
-    this.$scrollElement = $element.on('scroll.scroll-spy.data-api', process)
-    this.selector = (this.options.target
-      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-      || '') + ' .nav li > a'
-    this.$body = $('body')
-    this.refresh()
-    this.process()
-  }
-
-  ScrollSpy.prototype = {
-
-      constructor: ScrollSpy
-
-    , refresh: function () {
-        var self = this
-          , $targets
-
-        this.offsets = $([])
-        this.targets = $([])
-
-        $targets = this.$body
-          .find(this.selector)
-          .map(function () {
-            var $el = $(this)
-              , href = $el.data('target') || $el.attr('href')
-              , $href = /^#\w/.test(href) && $(href)
-            return ( $href
-              && $href.length
-              && [[ $href.position().top + (!$.isWindow(self.$scrollElement.get(0)) && self.$scrollElement.scrollTop()), href ]] ) || null
-          })
-          .sort(function (a, b) { return a[0] - b[0] })
-          .each(function () {
-            self.offsets.push(this[0])
-            self.targets.push(this[1])
-          })
-      }
-
-    , process: function () {
-        var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
-          , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
-          , maxScroll = scrollHeight - this.$scrollElement.height()
-          , offsets = this.offsets
-          , targets = this.targets
-          , activeTarget = this.activeTarget
-          , i
-
-        if (scrollTop >= maxScroll) {
-          return activeTarget != (i = targets.last()[0])
-            && this.activate ( i )
-        }
-
-        for (i = offsets.length; i--;) {
-          activeTarget != targets[i]
-            && scrollTop >= offsets[i]
-            && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-            && this.activate( targets[i] )
-        }
-      }
-
-    , activate: function (target) {
-        var active
-          , selector
-
-        this.activeTarget = target
-
-        $(this.selector)
-          .parent('.active')
-          .removeClass('active')
-
-        selector = this.selector
-          + '[data-target="' + target + '"],'
-          + this.selector + '[href="' + target + '"]'
-
-        active = $(selector)
-          .parent('li')
-          .addClass('active')
-
-        if (active.parent('.dropdown-menu').length)  {
-          active = active.closest('li.dropdown').addClass('active')
-        }
-
-        active.trigger('activate')
-      }
-
-  }
-
-
- /* SCROLLSPY PLUGIN DEFINITION
-  * =========================== */
-
-  var old = $.fn.scrollspy
-
-  $.fn.scrollspy = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('scrollspy')
-        , options = typeof option == 'object' && option
-      if (!data) $this.data('scrollspy', (data = new ScrollSpy(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.scrollspy.Constructor = ScrollSpy
-
-  $.fn.scrollspy.defaults = {
-    offset: 10
-  }
-
-
- /* SCROLLSPY NO CONFLICT
-  * ===================== */
-
-  $.fn.scrollspy.noConflict = function () {
-    $.fn.scrollspy = old
-    return this
-  }
-
-
- /* SCROLLSPY DATA-API
-  * ================== */
-
-  $(window).on('load', function () {
-    $('[data-spy="scroll"]').each(function () {
-      var $spy = $(this)
-      $spy.scrollspy($spy.data())
-    })
-  })
-
-}(window.jQuery);
-
-define("scrollspy.js", function(){});
-
-/* ========================================================
- * bootstrap-tab.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#tabs
- * ========================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ======================================================== */
-
-
-!function ($) {
-
-  
-
-
- /* TAB CLASS DEFINITION
-  * ==================== */
-
-  var Tab = function (element) {
-    this.element = $(element)
-  }
-
-  Tab.prototype = {
-
-    constructor: Tab
-
-  , show: function () {
-      var $this = this.element
-        , $ul = $this.closest('ul:not(.dropdown-menu)')
-        , selector = $this.attr('data-target')
-        , previous
-        , $target
-        , e
-
-      if (!selector) {
-        selector = $this.attr('href')
-        selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
-      }
-
-      if ( $this.parent('li').hasClass('active') ) return
-
-      previous = $ul.find('.active:last a')[0]
-
-      e = $.Event('show', {
-        relatedTarget: previous
-      })
-
-      $this.trigger(e)
-
-      if (e.isDefaultPrevented()) return
-
-      $target = $(selector)
-
-      this.activate($this.parent('li'), $ul)
-      this.activate($target, $target.parent(), function () {
-        $this.trigger({
-          type: 'shown'
-        , relatedTarget: previous
-        })
-      })
-    }
-
-  , activate: function ( element, container, callback) {
-      var $active = container.find('> .active')
-        , transition = callback
-            && $.support.transition
-            && $active.hasClass('fade')
-
-      function next() {
-        $active
-          .removeClass('active')
-          .find('> .dropdown-menu > .active')
-          .removeClass('active')
-
-        element.addClass('active')
-
-        if (transition) {
-          element[0].offsetWidth // reflow for transition
-          element.addClass('in')
-        } else {
-          element.removeClass('fade')
-        }
-
-        if ( element.parent('.dropdown-menu') ) {
-          element.closest('li.dropdown').addClass('active')
-        }
-
-        callback && callback()
-      }
-
-      transition ?
-        $active.one($.support.transition.end, next) :
-        next()
-
-      $active.removeClass('in')
-    }
-  }
-
-
- /* TAB PLUGIN DEFINITION
-  * ===================== */
-
-  var old = $.fn.tab
-
-  $.fn.tab = function ( option ) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('tab')
-      if (!data) $this.data('tab', (data = new Tab(this)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.tab.Constructor = Tab
-
-
- /* TAB NO CONFLICT
-  * =============== */
-
-  $.fn.tab.noConflict = function () {
-    $.fn.tab = old
-    return this
-  }
-
-
- /* TAB DATA-API
-  * ============ */
-
-  $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
-    e.preventDefault()
-    $(this).tab('show')
-  })
-
-}(window.jQuery);
-
-define("tab.js", function(){});
-
-/* ==========================================================
- * bootstrap-affix.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#affix
- * ==========================================================
+},{}],16:[function(require,module,exports){
+/* ===================================================
+ * bootstrap-transition.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#transitions
+ * ===================================================
  * Copyright 2013 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2515,298 +2370,159 @@ define("tab.js", function(){});
 
 !function ($) {
 
-  
+  "use strict";
 
 
- /* AFFIX CLASS DEFINITION
-  * ====================== */
+  /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
+   * ======================================================= */
 
-  var Affix = function (element, options) {
-    this.options = $.extend({}, $.fn.affix.defaults, options)
-    this.$window = $(window)
-      .on('scroll.affix.data-api', $.proxy(this.checkPosition, this))
-      .on('click.affix.data-api',  $.proxy(function () { setTimeout($.proxy(this.checkPosition, this), 1) }, this))
-    this.$element = $(element)
-    this.checkPosition()
-  }
+  $(function () {
 
-  Affix.prototype.checkPosition = function () {
-    if (!this.$element.is(':visible')) return
+    $.support.transition = (function () {
 
-    var scrollHeight = $(document).height()
-      , scrollTop = this.$window.scrollTop()
-      , position = this.$element.offset()
-      , offset = this.options.offset
-      , offsetBottom = offset.bottom
-      , offsetTop = offset.top
-      , reset = 'affix affix-top affix-bottom'
-      , affix
+      var transitionEnd = (function () {
 
-    if (typeof offset != 'object') offsetBottom = offsetTop = offset
-    if (typeof offsetTop == 'function') offsetTop = offset.top()
-    if (typeof offsetBottom == 'function') offsetBottom = offset.bottom()
+        var el = document.createElement('bootstrap')
+          , transEndEventNames = {
+               'WebkitTransition' : 'webkitTransitionEnd'
+            ,  'MozTransition'    : 'transitionend'
+            ,  'OTransition'      : 'oTransitionEnd otransitionend'
+            ,  'transition'       : 'transitionend'
+            }
+          , name
 
-    affix = this.unpin != null && (scrollTop + this.unpin <= position.top) ?
-      false    : offsetBottom != null && (position.top + this.$element.height() >= scrollHeight - offsetBottom) ?
-      'bottom' : offsetTop != null && scrollTop <= offsetTop ?
-      'top'    : false
+        for (name in transEndEventNames){
+          if (el.style[name] !== undefined) {
+            return transEndEventNames[name]
+          }
+        }
 
-    if (this.affixed === affix) return
+      }())
 
-    this.affixed = affix
-    this.unpin = affix == 'bottom' ? position.top - scrollTop : null
+      return transitionEnd && {
+        end: transitionEnd
+      }
 
-    this.$element.removeClass(reset).addClass('affix' + (affix ? '-' + affix : ''))
-  }
+    })()
 
-
- /* AFFIX PLUGIN DEFINITION
-  * ======================= */
-
-  var old = $.fn.affix
-
-  $.fn.affix = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('affix')
-        , options = typeof option == 'object' && option
-      if (!data) $this.data('affix', (data = new Affix(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.affix.Constructor = Affix
-
-  $.fn.affix.defaults = {
-    offset: 0
-  }
-
-
- /* AFFIX NO CONFLICT
-  * ================= */
-
-  $.fn.affix.noConflict = function () {
-    $.fn.affix = old
-    return this
-  }
-
-
- /* AFFIX DATA-API
-  * ============== */
-
-  $(window).on('load', function () {
-    $('[data-spy="affix"]').each(function () {
-      var $spy = $(this)
-        , data = $spy.data()
-
-      data.offset = data.offset || {}
-
-      data.offsetBottom && (data.offset.bottom = data.offsetBottom)
-      data.offsetTop && (data.offset.top = data.offsetTop)
-
-      $spy.affix(data)
-    })
   })
-
 
 }(window.jQuery);
 
-define("affix.js", function(){});
-
-(function ($) {
-    function Pagination(opts) {
-        this.itemsCount = opts.itemsCount;
-        this.pageSize = opts.pageSize;
-        this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
-        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
-        $.isNumeric(opts.pages) && (this.pages = opts.pages);
-        this.currentPage = opts.currentPage;
-        this.styleClass = opts.styleClass;
-        this.onSelect = opts.onSelect;
-        this.showCtrl = opts.showCtrl;
-        this.remote = opts.remote;
+},{}],17:[function(require,module,exports){
+// add rules
+!function($) {
+  Validate = $.validate;
+  trim = function(v) {
+    if (!v) return v;
+    return v.replace(/^\s+/g, '').replace(/\s+$/g, '')
+  };
+  var required = function(value, element, param) {
+    var $input = $(element)
+    return !!trim(value);
+  };
+  var requiredMsg = function ($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
     }
+    return "请" + getWord($input)
+  }
+  Validate.setRule("required", required, requiredMsg);
 
-    /* jshint ignore:start */
-    Pagination.prototype = {
-        //generate the outer wrapper with the config of custom style
-        _draw: function () {
-            var tpl = '<div class="sui-pagination';
-            for (var i = 0; i < this.styleClass.length; i++) {
-                tpl += ' ' + this.styleClass[i];
-            }
-            tpl += '"></div>'
-            this.hookNode.html(tpl);
-            this._drawInner();
-        },
-        //generate the true pagination
-        _drawInner: function () {
-            var outer = this.hookNode.children('.sui-pagination');
-            var tpl = '<ul>' + '<li class="prev' + (this.currentPage - 1 === 0 ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage - 1) + '">«上一页</a></li>';
-            if (this.pages <= this.displayPage || this.pages == this.displayPage + 1) {
-                for (var i = 1; i < this.pages + 1; i++) {
-                    i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                }
-
-            } else {
-                if (this.currentPage < this.displayPage - 1) {
-                    for (var i = 1; i < this.displayPage; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
-                } else if (this.currentPage > this.pages - this.displayPage + 2 && this.currentPage <= this.pages) {
-                    tpl += '<li><a href="#" data="1">1</a></li>';
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    for (var i = this.pages - this.displayPage + 2; i <= this.pages; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                } else {
-                    tpl += '<li><a href="#" data="1">1</a></li>';
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    var frontPage,
-                        backPage,
-                        middle = (this.displayPage - 3) / 2;
-                    if ( (this.displayPage - 3) % 2 == 0 ) {
-                        frontPage = backPage = middle; 
-                    } else {
-                        frontPage = Math.floor(middle);
-                        backPage = Math.ceil(middle);
-                    }
-                    for (var i = this.currentPage - frontPage; i <= this.currentPage + backPage; i++) {
-                        i == this.currentPage ? (tpl += '<li class="active"><a href="#" data="' + i + '">' + i + '</a></li>') : (tpl += '<li><a href="#" data="' + i + '">' + i + '</a></li>');
-                    }
-                    tpl += '<li class="dotted"><span>...</span></li>';
-                    tpl += '<li><a href="#" data="' + this.pages + '">' + this.pages + '</a></li>';
-                }
-            }
-            tpl += '<li class="next' + (this.currentPage + 1 > this.pages ? ' disabled' : ' ') + '"><a href="#" data="' + (this.currentPage + 1) + '">下一页»</a></li>' + '</ul>';
-            this.showCtrl && (tpl += this._drawCtrl());
-            outer.html(tpl);
-        },
-        //值传递
-        _drawCtrl: function () {
-            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
-            return tpl;
-        },
-
-        _ctrl: function () {
-            var self = this,
-                pag = self.hookNode.children('.sui-pagination');
-
-            function doPagination() {
-                var tmpNum = parseInt(pag.find('.page-num').val());
-                if ($.isNumeric(tmpNum) && tmpNum <= self.pages && tmpNum > 0) {
-                    if (!self.remote) {
-                        self.currentPage = tmpNum;
-                        self._drawInner();
-                    }
-                    if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), tmpNum);
-                    }
-                }
-            }
-            pag.on('click', '.page-confirm', function (e) {
-                doPagination.call(this)
-            })
-            pag.on('keypress', '.page-num', function (e) {
-                e.which == 13 && doPagination.call(this)
-            })
-        },
-
-        _select: function () {
-            var self = this;
-            self.hookNode.children('.sui-pagination').on('click', 'a', function (e) {
-                e.preventDefault();
-                var tmpNum = parseInt($(this).attr('data'));
-                if (!$(this).parent().hasClass('disabled') && !$(this).parent().hasClass('active')) {
-                    if (!self.remote) {
-                        self.currentPage = tmpNum;
-                        self._drawInner();
-                    }
-                    if ($.isFunction(self.onSelect)) {
-                        self.onSelect.call($(this), tmpNum);
-                    }
-                }
-            })
-        },
-
-        init: function (opts, hookNode) {
-            this.hookNode = hookNode;
-            this._draw();
-            this._select();
-            this.showCtrl && this._ctrl();
-            return this;
-        },
-
-        updateItemsCount: function (itemsCount) {
-            this.pages = Math.ceil(itemsCount / this.pageSize);
-            //如果最后一页没有数据了，返回到剩余最大页数
-            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
-            this._drawInner();
-        },
-
-        updatePages: function (pages) {
-            this.pages = pages;
-            this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
-            this._drawInner();
-        },
-
-        goToPage: function (page) {
-            if ($.isNumeric(page) && page <= this.pages && page > 0) {
-                this.currentPage = page;
-                this._drawInner()
-            }
-        }
+  var prefill = function(value, element, param) {
+    var $input = $(element)
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      return !!$required.val()
     }
-    /* jshint ignore:end */
-
-    var old = $.fn.pagination;
-    
-    $.fn.pagination = function (options) {
-        var opts = $.extend({}, $.fn.pagination.defaults, typeof options == 'object' && options);
-        if (typeof options == 'string') {
-            args = $.makeArray(arguments);
-            args.shift();
-        }
-        var $this = $(this),
-        pag = $this.data('sui-pagination');
-        if (!pag) $this.data('sui-pagination', (pag = new Pagination(opts).init(opts, $(this))))
-            else if (typeof options == 'string') {
-                pag[options].apply(pag, args)
-            }
-        return pag;
-    };
-
-    $.fn.pagination.Constructor = Pagination;
-
-    $.fn.pagination.noConflict = function () {
-        $.fn.pagination = old;
-        return this
+    return true
+  }
+  Validate.setRule("prefill", prefill, function($input, param) {
+    var getWord = function($input) {
+      var tagName = $input[0].tagName.toUpperCase();
+      var type = $input[0].type.toUpperCase();
+      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+        return '选择'
+      }
+      return '填写'
     }
-
-    $.fn.pagination.defaults = {
-        pageSize: 10,
-        displayPage: 5,
-        currentPage: 1,
-        itemsCount: 100,
-        styleClass: [],
-        pages: null,
-        showCtrl: false,
-        onSelect: null,
-        remote: false
+    if (param && typeof param === typeof 'a') {
+      var $form = $input.parents("form")
+      var $required = $form.find("[name='"+param+"']")
+      if (!$required.val()) {
+        return "请先" + getWord($required) + ($required.attr("title") || $required.attr("name"))
+      }
     }
+    return '错误'
+  });
+  var match = function(value, element, param) {
+    value = trim(value);
+    return value == $(element).parents('form').find("[name='"+param+"']").val()
+  };
+  Validate.setRule("match", match, '必须与$0相同');
+  var number = function(value, element, param) {
+    value = trim(value);
+    return (/^\d+(.\d*)?$/).test(value)
+  };
+  Validate.setRule("number", number, '请输入数字');
+  var digits = function(value, element, param) {
+    value = trim(value);
+    return (/^\d+$/).test(value)
+  };
+  Validate.setRule("digits", digits, '请输入整数');
+  var mobile = function(value, element, param) {
+    return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
+  };
+  Validate.setRule("mobile", mobile, '请填写正确的手机号码');
+  var tel = function(value, element, param) {
+    return (/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,11})+$/).test(trim(value));
+  };
+  Validate.setRule("tel", tel, '请填写正确的电话号码');
+  var email = function(value, element, param) {
+    return (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(trim(value)); //"
+  };
+  Validate.setRule("email", email, '请填写正确的email地址');
+  var zip = function(value, element, param) {
+    return (/^[1-9][0-9]{5}$/).test(trim(value));
+  };
+  Validate.setRule("zip", zip, '请填写正确的邮编');
+  var date = function(value, element, param) {
+    return (/^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/).test(trim(value));
+  };
+  Validate.setRule("date", date, '请填写正确的日期');
+  var url = function(value, element, param) {
+    var urlPattern;
+    value = trim(value);
+    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)?[\w-]+\.(com|net|cn|org|me|io|info)/;
+    if (!/^http/.test(value)) {
+      value = 'http://' + value;
+    }
+    return urlPattern.test(value);
+  };
+  Validate.setRule("url", url, '请填写正确的网址');
+  var minlength = function(value, element, param) {
+    return trim(value).length >= param;
+  };
+  Validate.setRule("minlength", minlength, '长度不能少于$0');
+  var maxlength = function(value, element, param) {
+    return trim(value).length <= param;
+  };
+  Validate.setRule("maxlength", maxlength, '长度不能超过$0');
+}(window.jQuery)
 
-})(window.jQuery)
-;
-define("pagination.js", function(){});
-
+},{}],18:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */
 
 !function($) {
-  
+  'use strict';
   var Validate = function(form, options) {
     var self = this;
     this.options = $.extend($.fn.validate.defaults, options)
@@ -3005,153 +2721,4 @@ define("pagination.js", function(){});
   })
 }(window.jQuery);
 
-define("validate.js", function(){});
-
-// add rules
-!function($) {
-  Validate = $.validate;
-  trim = function(v) {
-    if (!v) return v;
-    return v.replace(/^\s+/g, '').replace(/\s+$/g, '')
-  };
-  var required = function(value, element, param) {
-    var $input = $(element)
-    return !!trim(value);
-  };
-  var requiredMsg = function ($input, param) {
-    var getWord = function($input) {
-      var tagName = $input[0].tagName.toUpperCase();
-      var type = $input[0].type.toUpperCase();
-      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
-        return '选择'
-      }
-      return '填写'
-    }
-    return "请" + getWord($input)
-  }
-  Validate.setRule("required", required, requiredMsg);
-
-  var prefill = function(value, element, param) {
-    var $input = $(element)
-    if (param && typeof param === typeof 'a') {
-      var $form = $input.parents("form")
-      var $required = $form.find("[name='"+param+"']")
-      return !!$required.val()
-    }
-    return true
-  }
-  Validate.setRule("prefill", prefill, function($input, param) {
-    var getWord = function($input) {
-      var tagName = $input[0].tagName.toUpperCase();
-      var type = $input[0].type.toUpperCase();
-      if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
-        return '选择'
-      }
-      return '填写'
-    }
-    if (param && typeof param === typeof 'a') {
-      var $form = $input.parents("form")
-      var $required = $form.find("[name='"+param+"']")
-      if (!$required.val()) {
-        return "请先" + getWord($required) + ($required.attr("title") || $required.attr("name"))
-      }
-    }
-    return '错误'
-  });
-  var match = function(value, element, param) {
-    value = trim(value);
-    return value == $(element).parents('form').find("[name='"+param+"']").val()
-  };
-  Validate.setRule("match", match, '必须与$0相同');
-  var number = function(value, element, param) {
-    value = trim(value);
-    return (/^\d+(.\d*)?$/).test(value)
-  };
-  Validate.setRule("number", number, '请输入数字');
-  var digits = function(value, element, param) {
-    value = trim(value);
-    return (/^\d+$/).test(value)
-  };
-  Validate.setRule("digits", digits, '请输入整数');
-  var mobile = function(value, element, param) {
-    return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
-  };
-  Validate.setRule("mobile", mobile, '请填写正确的手机号码');
-  var tel = function(value, element, param) {
-    return (/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,11})+$/).test(trim(value));
-  };
-  Validate.setRule("tel", tel, '请填写正确的电话号码');
-  var email = function(value, element, param) {
-    return (/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(trim(value)); //"
-  };
-  Validate.setRule("email", email, '请填写正确的email地址');
-  var zip = function(value, element, param) {
-    return (/^[1-9][0-9]{5}$/).test(trim(value));
-  };
-  Validate.setRule("zip", zip, '请填写正确的邮编');
-  var date = function(value, element, param) {
-    return (/^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/).test(trim(value));
-  };
-  Validate.setRule("date", date, '请填写正确的日期');
-  var url = function(value, element, param) {
-    var urlPattern;
-    value = trim(value);
-    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)?[\w-]+\.(com|net|cn|org|me|io|info)/;
-    if (!/^http/.test(value)) {
-      value = 'http://' + value;
-    }
-    return urlPattern.test(value);
-  };
-  Validate.setRule("url", url, '请填写正确的网址');
-  var minlength = function(value, element, param) {
-    return trim(value).length >= param;
-  };
-  Validate.setRule("minlength", minlength, '长度不能少于$0');
-  var maxlength = function(value, element, param) {
-    return trim(value).length <= param;
-  };
-  Validate.setRule("maxlength", maxlength, '长度不能超过$0');
-}(window.jQuery)
-;
-define("validate-rules.js", function(){});
-
-//核心组件
-require([
-  'transition.js',
-  'alert.js',
-  'button.js',
-  'carousel.js',
-  'collapse.js',
-  'dropdown.js',
-  'modal.js',
-  'tooltip.js',
-  'popover.js',
-  'scrollspy.js',
-  'tab.js',
-  'affix.js',
-  'pagination.js',
-  'validate.js',
-  'validate-rules.js'
-], function() {
-  
-});
-
-define("sui", function(){});
-
-//拓展组件
-require([
-]);
-
-define("sui-extends", function(){});
-
-//全部打包
-require([
-  "sui",
-  "sui-extends"
-])
-;
-define("sui-all", function(){});
-
-
-require(["sui-all"]);
-}());
+},{}]},{},[11]);

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>按钮</title>
+    <title>进度条</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -14,6 +14,12 @@
     <script src="../js/lib/jquery.js"></script>
     <script src="../build/js/sui.js"></script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .sui-progress {
+        max-width: 400px;
+      }
+      
+    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -39,15 +45,15 @@
                   <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
-                  <li class="active"><a href="buttons.html">按钮</a></li>
+                  <li><a href="buttons.html">按钮</a></li>
                   <li><a href="forms.html">表单</a></li>
                   <li><a href="tables.html">表格</a></li>
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -57,7 +63,7 @@
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
                   <li><a href="label.html">标签</a></li>
-                  <li><a href="progress.html">进度条</a></li>
+                  <li class="active"><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -78,11 +84,9 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <div class="sui-page-header">
-            <h1>按钮</h1>
-          </div>
-          <p class="sui-lead">不同功能和大小的按钮，可以满足大部分的使用场景。</p>
-          <h2>1. 不同大小和功能的按钮</h2>
+          <h1 class="sui-page-header">进度条</h1>
+          <p class="sui-lead">不同功能和样式的进度条</p>
+          <h2>不同功能</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -90,103 +94,147 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-xlarge btn-'>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-primary'>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-success'>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-info'>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-warning'>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-danger'>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-inverse'>相反</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn btn-large btn-'>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-primary'>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-success'>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-info'>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-warning'>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-danger'>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-large btn-inverse'>相反</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn btn-'>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-primary'>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-success'>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-info'>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-warning'>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-danger'>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-inverse'>相反</a>
-                 <br><br><a href='javascript:void(0);' class='sui-btn btn-small btn-'>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-primary'>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-success'>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-info'>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-warning'>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-small btn-inverse'>相反</a>
-                 <br><br>
+              <div class="bs-docs-example">
+                <div class="sui-progress">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-danger">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-success">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-warning">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-info">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">
-              按钮有四种尺寸：small, default, large 和 xlarge
-              按钮七种不同功能："default", "primary", "success", "info", "warning", "danger", "inverse"
-              还有一种是禁用的按钮，通过增加 <code>.disabled </code> class 或者添加 <code>disabled</code>属性
+            <div id="doc1" class="tab-pane">和button的高度和功能都是一一对应的。</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>不同大小</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-progress progress-small">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-large">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-xlarge">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>2.带图标的按钮 </h2>
+          <h2>带条纹</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-'><i class='sui-icon icon-pencil'></i>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-primary'><i class='sui-icon icon-pencil'></i>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-success'><i class='sui-icon icon-pencil'></i>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-info'><i class='sui-icon icon-pencil'></i>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-warning'><i class='sui-icon icon-pencil'></i>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-danger'><i class='sui-icon icon-pencil'></i>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-inverse'><i class='sui-icon icon-pencil'></i>相反</a>
-                 
+              <div class="bs-docs-example">
+                <div class="sui-progress progress-striped">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-danger progress-striped">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-success progress-striped">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-warning progress-striped">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-info progress-striped">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
               </div>
             </div>
             <div id="code2" class="tab-pane">
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc2" class="tab-pane">带图标的按钮</div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>3. 块级按钮</h2>
+          <h2>动态进度条</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
             <li><a href="#code3" data-toggle="tab">代码</a></li>
-            <li><a href="#doc3" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo3" class="tab-pane active">
-              <div class="bs-docs-example"><a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-'>默认</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-primary'>首要</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-success'>成功</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-info'>信息</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-warning'>警告</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-danger'>危险</a>
-                 <a href='javascript:void(0);' class='sui-btn btn-block btn-xlarge btn-inverse'>相反</a>
-                 
+              <div class="bs-docs-example">
+                <div class="sui-progress progress-striped active">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-danger progress-striped active">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-success progress-striped active">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-warning progress-striped active">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
+                <div class="sui-progress progress-info progress-striped active">
+                  <div style="width: 60%;" class="bar"></div>
+                </div>
               </div>
             </div>
             <div id="code3" class="tab-pane">
               <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc3" class="tab-pane">块级按钮会独占一行</div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>分段</h2>
+          <p class="sui-lead">分段之后border的颜色不是很好看，建议暂时不要用。</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-progress">
+                  <div style="width: 40%;" class="bar bar-success"></div>
+                  <div style="width: 20%;" class="bar bar-danger"></div>
+                  <div style="width: 10%;" class="bar bar-warning"></div>
+                </div>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>
