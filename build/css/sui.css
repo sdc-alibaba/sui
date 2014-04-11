@@ -10646,11 +10646,11 @@ a.sui-label:focus {
   cursor: pointer;
 }
 
-.sui-label.label-important {
+.sui-label.label-danger {
   background-color: #ea4a36;
 }
 
-.sui-label.label-important[href] {
+.sui-label.label-danger[href] {
   background-color: #d72c16;
 }
 

@@ -35,9 +35,9 @@ a {
 // Colors
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
 .sui-label {
-  // Important (red)
-  &.label-important         { background-color: @errorText; }
-  &.label-important[href]   { background-color: darken(@errorText, 10%); }
+  // danger (red)
+  &.label-danger         { background-color: @errorText; }
+  &.label-danger[href]   { background-color: darken(@errorText, 10%); }
   // Warnings (orange)
   &.label-warning           { background-color: @orange; }
   &.label-warning[href]     { background-color: darken(@orange, 10%); }

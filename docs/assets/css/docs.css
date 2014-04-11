@@ -139,10 +139,6 @@ body > .navbar .brand:hover {
      -moz-border-radius: 4px;
           border-radius: 4px;
 }
-.bs-docs-example li {
-    list-style: none;
-  }
-
 
 .bs-docs-example:after {
   position: absolute;
