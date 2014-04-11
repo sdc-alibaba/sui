@@ -1,0 +1,19 @@
+extends base
+
+block title
+  title 图标
+
+block content
+  div.container
+    - var ROLES = [{ roles: ["arrow-down", "arrow-left", "arrow-right", "arrow-up", "chevron-down", "chevron-left", "chevron-right", "chevron-up", "circle-arrow-down", "circle-arrow-left", "circle-arrow-right", "circle-arrow-up"], name: "方向图标" }]
+    - ROLES.push({ roles: ["ban-circle", "bell", "exclamation-sign", "ok", "ok-circle", "ok-sign", "remove", "remove-circle", "remove-sign", "warning-sign"], name: "提示反馈"})
+    - ROLES.push({ roles: ["calendar", "pencil", "search"], name: "表单"})
+    - ROLES.push({ roles: ["backward"," forward"," fast-backward","fast-forward","play","play-circle","step-backward","step-forward","stop"], name: "多媒体"})
+    - ROLES.push({ roles: ["book","bookmark","comment","download","file","flag","fullscreen","lock","move","plus","plus-sign","star","star-empty","user","zoom-in","zoom-out", "cog"], name: "其他"})
+    each v in ROLES
+      h2 #{v.name}
+      each r in v.roles
+        - var classname = 'glyphicon glyphicon-'
+        - classname += r
+        i(class='#{classname}')
+        | &nbsp;
