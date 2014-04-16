@@ -7875,6 +7875,8 @@ a.sui-label:focus {
   width: 0%;
   height: 100%;
   padding: 2px 14px;
+  padding-left: 0;
+  padding-right: 0;
   color: #ffffff;
   float: left;
   font-size: 12px;
@@ -7891,12 +7893,18 @@ a.sui-label:focus {
 }
 .sui-progress.progress-small {
   height: 18px;
+  line-height: 18px;
+  font-size: 12px;
 }
 .sui-progress.progress-large {
   height: 26px;
+  line-height: 22px;
+  font-size: 14px;
 }
 .sui-progress.progress-xlarge {
   height: 30px;
+  line-height: 27px;
+  font-size: 18px;
 }
 .progress-striped .bar {
   background-color: #3097dd;
