@@ -1,0 +1,30 @@
+extends base
+
+block title
+  title 图表
+
+block sidebar
+  +sidebar('chart')
+
+block content
+  div.sui-page-header
+    h1 扩展组件——图表
+
+  h2 折线图
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div#linechart1
+    div.tab-pane#code1
+    div.tab-pane#doc1
+
+
+
