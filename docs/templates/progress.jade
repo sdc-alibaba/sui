@@ -1,0 +1,155 @@
+extends base
+
+block title
+  title 进度条
+
+block head
+  style(type='text/css').
+    .sui-progress {
+      max-width: 400px;
+    }
+
+block sidebar
+  +sidebar('progress')
+
+block content
+  h1.sui-page-header 进度条
+
+  p.sui-lead
+    | 不同功能和样式的进度条
+
+  h2 不同功能
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.sui-progress
+          div.bar(style="width: 20%;") 20%
+        div.sui-progress.progress-danger
+          div.bar(style="width: 40%;") 40%
+        div.sui-progress.progress-success
+          div.bar(style="width: 60%;") 60%
+        div.sui-progress.progress-warning
+          div.bar(style="width: 80%;") 80%
+        div.sui-progress.progress-info
+          div.bar(style="width: 100%;") 100%
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      | 和button的高度和功能都是一一对应的。
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+  h2 不同大小
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        div.sui-progress.progress-small
+          div.bar(style="width: 60%;") 60%
+        div.sui-progress
+          div.bar(style="width: 60%;") 60%
+        div.sui-progress.progress-large
+          div.bar(style="width: 60%;") 60%
+        div.sui-progress.progress-xlarge
+          div.bar(style="width: 60%;") 60%
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 带条纹
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        div.sui-progress.progress-striped
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-danger.progress-striped
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-success.progress-striped
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-warning.progress-striped
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-info.progress-striped
+          div.bar(style="width: 60%;")
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
+  h2 动态进度条
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        div.sui-progress.progress-striped.active
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-danger.progress-striped.active
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-success.progress-striped.active
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-warning.progress-striped.active
+          div.bar(style="width: 60%;")
+        div.sui-progress.progress-info.progress-striped.active
+          div.bar(style="width: 60%;")
+
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+
+  h2 分段
+  p.sui-lead
+    | 分段之后border的颜色不是很好看，建议暂时不要用。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example
+        div.sui-progress
+          div.bar.bar-success(style="width: 40%;")
+          div.bar.bar-danger(style="width: 20%;")
+          div.bar.bar-warning(style="width: 10%;")
+
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
