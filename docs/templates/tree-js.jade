@@ -28,6 +28,8 @@ block content
             a(href='#code1', data-toggle='tab') 代码
         li
             a(href='#doc1', data-toggle='tab') 文档
+        li
+            a(href='#api1', data-toggle='tab') API
 
     div.tab-content
         .tab-pane.active#demo1
@@ -40,8 +42,9 @@ block content
             | <code>data-src="url"</code>  通过ajax或jsonp方式获取数据的url<br>
             | <code>data-jsonp="true"</code>  为true表示src的url为垮域请求，会以jsonp的形式发送<br>
             | <code>data-val="[x,y,z]"</code>  初始化的时候的初始值，注意xyz的值必须要能在srouce对象中找到<br>
+        .tab-pane#api1
             | <code>$(element).data('tree')</code>，element为<code>data-toggle='tree'</code>的元素，可以拿到当前的值对象，格式为{value : [], option : []}，value代表select的value值，option表示显示到页面的option的文字<br>
-
+            | <code>$(element).tree('setValue', [x,y,z])</code>  设置tree的值，参数同初始化的data-val相同
     h1 2. select，通过js调用初始化
 
     ul.sui-nav.nav-tabs.nav-large
@@ -121,3 +124,8 @@ block content
                         td string
                         td "请选择"
                         td 默认的第一个option，可以传null或空串，则不会出现默认的option
+                    tr
+                        td val
+                        td Array
+                        td []
+                        td 初始化的值，是一个数组，里面的值是option的value值 
