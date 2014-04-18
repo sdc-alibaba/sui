@@ -14,7 +14,8 @@ require([
   'affix.js',
   'pagination.js',
   'validate.js',
-  'validate-rules.js'
+  'validate-rules.js',
+  'datepicker.js'
 ], function() {
   'use strict';
 });

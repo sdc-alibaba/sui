@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>datepicker </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../build/css/sui.css" rel="stylesheet">
+    <link href="../build/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../build/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+            <ul class="sui-nav">
+              <li><a href="./index.html">首页</a></li>
+              <li class="active"><a href="./global.html">组件库</a></li>
+              <li><a href="./examples.html">案例</a></li>
+              <li><a href="./tutorial.html">教程</a></li>
+              <li><a href="./download.html">下载</a></li>
+              <li><a href="./about.html">关于</a></li>
+            </ul>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h1 class="sui-page-header">Datepicker<small>日期选择插件</small></h1>
+          <p class="sui-lead">增强input[type=text]的功能，可以快速输入指定格式的时间 </p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo" data-toggle="tab">示例</a></li>
+            <li><a href="#option" data-toggle="tab">配置项 </a></li>
+            <li><a href="#method" data-toggle="tab">方法</a></li>
+            <li><a href="#event" data-toggle="tab">事件</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo" class="tab-pane active">
+              <h3>input[type=text]模式</h3>
+              <div id="text-mod" class="bs-docs-example">
+                <form id="demo1" class="sui-form">
+                  <input type="text">
+                </form>
+              </div>
+              <pre data-target="#text-mod" class="prettyprint linenums"></pre>
+              <pre class="prettyprint linenums">$('#demo1 input').datepicker({});</pre>
+              <h3>div.input-prepend&gt;input+span.add-on模式</h3>
+              <div id="add-mod" class="bs-docs-example">
+                <form class="sui-form">
+                  <div id="demo2" class="input-prepend date"><span class="add-on">@</span>
+                    <input type="text" class="span2 input-fat">
+                  </div>
+                </form>
+              </div>
+              <pre data-target="#add-mod" class="prettyprint linenums"></pre>
+              <pre class="prettyprint linenums">$('#demo2.date').datepicker({});</pre>
+              <h3>内嵌页面模式</h3>
+              <div id="inline-mod" class="bs-docs-example">
+                <div id="demo3"></div>
+              </div>
+              <pre data-target="#inline-mod" class="prettyprint linenums"></pre>
+              <pre class="prettyprint linenums">$('#demo3').datepicker({});</pre>
+              <h3>date - date 模式</h3>
+              <div id="range-mod" class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div id="demo4" class="control-group input-daterange">
+                    <label class="control-label">时间选择：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium input-date"><span>-</span>
+                      <input type="text" class="input-medium input-date">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <pre data-target="#range-mod" class="prettyprint linenums"></pre>
+              <pre class="prettyprint linenums">$('#demo4.input-daterange').datepicker({
+    beforeShowDay: function (date){
+      if (date.getMonth() == (new Date()).getMonth())
+        switch (date.getDate()){
+          case 4:
+            return {
+              tooltip: 'Example tooltip',
+              classes: 'active'
+            };
+          case 8:
+            return false;
+          case 12:
+            return "green";
+        }
+    }
+});</pre>
+            </div>
+            <div id="option" class="tab-pane">
+              <h3>配置项</h3>
+              <p></p>调用datepicker可以加入控制参数，所有配置项如下：
+              <table class="sui-table">
+                <tr>
+                  <th>名称</th>
+                  <th>默认值</th>
+                  <th>说明</th>
+                </tr>
+                <tr>
+                  <td>autoclose</td>
+                  <td>false</td>
+                  <td>选择完日期是否自动关闭日期选择器,false/true</td>
+                </tr>
+                <tr>
+                  <td>calendarWeeks</td>
+                  <td>false</td>
+                  <td>是否显示第几周 ，false/true</td>
+                </tr>
+                <tr>
+                  <td>todayHighlight</td>
+                  <td>false</td>
+                  <td>是否高亮今天</td>
+                </tr>
+                <tr>
+                  <td>keyboardNavigation</td>
+                  <td>true</td>
+                  <td>是否允许键盘选择日期，fasle/true</td>
+                </tr>
+                <tr>
+                  <td>forceParse</td>
+                  <td>true</td>
+                  <td>是否强制input中的value为标准日期格式</td>
+                </tr>
+                <tr>
+                  <td>format</td>
+                  <td>"yyyy-mm-dd"</td>
+                  <td>日期格式，用y代表年（2014）四个数字中的一个数字，同理 m-月，d-天</td>
+                </tr>
+                <tr>
+                  <td>startView</td>
+                  <td>0</td>
+                  <td>插件启动时显示的范围，0-显示一个月，1-显示一年，2-显示10年</td>
+                </tr>
+                <tr>
+                  <td>minViewMode</td>
+                  <td>0</td>
+                  <td>显示的最小日期，0-显示到天，1-显示到月，2-显示到年</td>
+                </tr>
+                <tr>
+                  <td>todayBtn</td>
+                  <td>false</td>
+                  <td>回到今天按钮，false-不启用，true-启用，"linked"-点击按钮回到今天并且选中今天</td>
+                </tr>
+                <tr>
+                  <td>orientation</td>
+                  <td>"auto"</td>
+                  <td> 插件相对于输入框的位置，"auto/top/bottom auto/left/right",总共9这种组合，比如"top left"-左上角</td>
+                </tr>
+                <tr>
+                  <td>startDate</td>
+                  <td>-Infinity</td>
+                  <td>可选的最早时间，"2014-04-16" ,时间格式和format一致</td>
+                </tr>
+                <tr>
+                  <td>endDate</td>
+                  <td>Infinity</td>
+                  <td>可选的最远时间，"2014-04-16" ,时间格式和format一致</td>
+                </tr>
+                <tr>
+                  <td>Multidate</td>
+                  <td>false</td>
+                  <td>多选日期，可以填写数字，表示选择几个日期，比如 "2",可以输入2个日期</td>
+                </tr>
+                <tr>
+                  <td>beforeShowDay</td>
+                  <td>$.noop</td>
+                  <td>
+                    选择日的回调，function(date){return value}， 
+                    typeof value == undefined -- 不会产生任何影响，
+                    typeof value == Boolean，是否选中当前日期，
+                    typeof value === String 作为css class，会被添加到插件当前日期上去
+                    typeof value == object 可以有三个字段enabled，classes，tooltip。
+                    enabled 和单独返回Booleen一样，
+                    classes和单独返回string一样，
+                    tooltip 会在插件上的当前日期添加一个title属性
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="method" class="tab-pane">
+              <h3>方法</h3>
+              <h4>调用方法</h4>
+              <p>
+                <pre class="prettyprint linenums">$('.datepicker').datepicker('method', arg1, arg2);</pre>
+              </p>
+              <h4>remove</h4>
+              <p>参数：none</p>
+              <p>删除datepicker。会删除绑定的事件，内联对象，和添加的HTML</p>
+              <h4>show</h4>
+              <p>参数：none</p>
+              <P>显示datepicker</P>
+              <h4>hide</h4>
+              <P>参数：none</P>
+              <p>隐藏 datepicker</p>
+              <h4>update</h4>
+              <p>参数 date(String|Date,optional)</p>
+              <p>更新datepicker或者当前的input value</p>
+              <P>
+                <pre class="prettyprint linenums">$('.datepicker').datepicker('update');
+$('.datepicker').datepicker('update', '2011-03-05');
+$('.datepicker').datepicker('update', new Date(2011, 2, 5));</pre>
+              </P>
+              <h4>getDate / getDates</h4>
+              <p>参数：none</p>
+              <p>返回当前日期/getDates用于多选模式下</p>
+              <h4>setEndDate/setStartDate</h4>
+              <p>参数：Date</p>
+              <p>设置起始/截止日期</p>
+            </div>
+            <div id="event" class="tab-pane">
+              <h3>事件</h3>
+              <p4>绑定方式</p4>
+              <p>
+                <pre class="prettyprint linenums">$('.datepicker').datepicker()
+.on(picker_event, function(e){
+    // e 中包含有其他的字段
+});
+// date: Date object,在多选模式下回返回最新的选择的日期
+// dates: Array of Date objects
+// format([ix],[format]): 一个格式化时间的函数，ix 为在dates里的date的index，不填为最后一个。
+//                       format ,格式方式,如'yyyy-mm-dd'</pre>
+              </p>
+              <h4>show</h4>
+              <p>当datepicker显示时触发</p>
+              <h4>hide</h4>
+              <p>当datepicker影藏时触发</p>
+              <h4>changeDate</h4>
+              <p>当日期更改时触发</p>
+              <h4>changeYear/changeMonth</h4>
+              <p>当展现的year/moth 被改变的时候触发</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <ul class="unstyled">
+        <li>@time 2014.03.07</li>
+        <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+      </ul>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+    <script>
+      $('#demo1 input').datepicker({});
+      $('#demo2').datepicker({});
+      $('#demo3').datepicker({});
+      $('#demo4').datepicker({});
+    </script>
+  </body>
+</html>
