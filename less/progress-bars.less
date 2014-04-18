@@ -44,34 +44,50 @@
 // Outer container
 .sui-progress {
   overflow: hidden;
-  height: @baseLineHeight;
-  margin-bottom: @baseLineHeight;
-  #gradient > .vertical(#f5f5f5, #f9f9f9);
-  .box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
+  height: @baseLineHeight + 4px;
+  margin-bottom: @baseMargin;
+  background-color: #fff;
   .border-radius(@baseBorderRadius);
+  border: 1px solid @progressColor;
 
   // Bar of progress
   .bar {
     width: 0%;
     height: 100%;
+    padding: @basePadding;  //和button高度保持一致
+    padding-left: 0;
+    padding-right: 0;
     color: @white;
     float: left;
     font-size: 12px;
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-    #gradient > .vertical(#149bdf, #0480be);
-    .box-shadow(inset 0 -1px 0 rgba(0,0,0,.15));
+    background-color: @progressColor;
     .box-sizing(border-box);
     .transition(width .6s ease);
   }
-  .bar + .bar {
-    .box-shadow(~"inset 1px 0 0 rgba(0,0,0,.15), inset 0 -1px 0 rgba(0,0,0,.15)");
+
+  //不同大小
+  &.progress-small {
+    height: @baseLineHeight;
+    line-height: @baseLineHeight;
+    font-size: @fontSizeSmall;
+  }
+  &.progress-large {
+    height: @lineHeightLarge + 4px;
+    line-height: @lineHeightLarge;
+    font-size: @fontSizeLarge;
+  }
+  &.progress-xlarge {
+    height: @lineHeightXLarge + 3px;
+    line-height: @lineHeightXLarge;
+    font-size: @fontSizeXLarge;
   }
 }
 
 // Striped bars
 .progress-striped .bar {
-  #gradient > .striped(#149bdf);
+  #gradient > .striped(@progressColor);
   .background-size(40px 40px);
 }
 
@@ -91,32 +107,44 @@
 
 // Danger (red)
 .progress-danger .bar, .sui-progress .bar-danger {
-  #gradient > .vertical(#ee5f5b, #c43c35);
+  background-color: @progressDangerColor;
+}
+.progress-danger {
+  border: 1px solid @progressDangerColor;
 }
 .progress-danger.progress-striped .bar, .progress-striped .bar-danger {
-  #gradient > .striped(#ee5f5b);
+  #gradient > .striped(@progressDangerColor);
 }
 
 // Success (green)
 .progress-success .bar, .sui-progress .bar-success {
-  #gradient > .vertical(#62c462, #57a957);
+  background-color: @progressSuccessColor;
+}
+.progress-success {
+  border: 1px solid @progressSuccessColor;
 }
 .progress-success.progress-striped .bar, .progress-striped .bar-success {
-  #gradient > .striped(#62c462);
+  #gradient > .striped(@progressSuccessColor);
 }
 
 // Info (teal)
 .progress-info .bar, .sui-progress .bar-info {
-  #gradient > .vertical(#5bc0de, #339bb9);
+  background-color: @progressInfoColor;
+}
+.progress-info {
+  border: 1px solid @progressInfoColor;
 }
 .progress-info.progress-striped .bar, .progress-striped .bar-info {
-  #gradient > .striped(#5bc0de);
+  #gradient > .striped(@progressInfoColor);
 }
 
 // Warning (orange)
 .progress-warning .bar, .sui-progress .bar-warning {
-  #gradient > .vertical(lighten(@orange, 15%), @orange);
+  background-color: @progressWarningColor;
+}
+.progress-warning {
+  border: 1px solid @progressWarningColor;
 }
 .progress-warning.progress-striped .bar, .progress-striped .bar-warning {
-  #gradient > .striped(lighten(@orange, 15%));
+  #gradient > .striped(@progressWarningColor);
 }

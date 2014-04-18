@@ -38,11 +38,23 @@
 
     > .caret {
       .sui-icon;
+      line-height: @baseLineHeight - 1 ;
       &:before {
         content: "\e6be";
         float: right;
         margin-left: 8px;
       }
+    }
+
+    //现在用的字体在渲染时会把btn撑高一像素，暂时用lineheight来解决这个bug
+    &.btn-small > .caret {
+      line-height: @lineHeightSmall - 1;
+    }
+    &.btn-large > .caret {
+      line-height: @lineHeightLarge - 1;
+    }
+    &.btn-xlarge > .caret {
+      line-height: @lineHeightXLarge - 1;
     }
   }
   .sui-btn + .sui-btn {
