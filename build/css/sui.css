@@ -3712,6 +3712,7 @@ sui-pre .sui-code {
 .sui-dropup,
 .sui-dropdown {
   position: relative;
+  display: inline-block;
 }
 .sui-dropup .dropdown-toggle,
 .sui-dropdown .dropdown-toggle {
