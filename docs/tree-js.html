@@ -52,7 +52,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -61,6 +61,8 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">标签</a></li>
+                  <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
               <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -98,7 +100,7 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <div data-toggle="tree" data-jsonp="http://10.68.111.150/php/demo/server/city-jsonp.php" data-jsonp-callback="callbackSuiTree" class="sui-tree-group"></div>
+                <div data-toggle="tree" data-src="http://10.68.111.150/php/demo/server/city-jsonp.php" data-jsonp="true" class="sui-tree-group"></div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -106,11 +108,10 @@
             </div>
             <div id="doc1" class="tab-pane">
               <code>data-toggle='tree'</code>通过在元素上加此属性自动初始化，并生成第一个select，必须在初始化之前指定数据源<br>
-              <code>data-src="url"</code>  通过ajax方式获取数据<br>
-              <code>data-jsonp="url"</code>  如果数据源是垮域请求，则使用jsonp请求，默认的回调方法为callbackSuiTree<br>
-              <code>data-jsonp-callback="callbackMethod"</code>  修改jsonp的回调方法<br>
-              <code>$(element).data('value')</code>，element为<code>data-toggle='tree'</code>的元素，可以拿到当前的id，是一个数组<br>
-              <code>$(element).data('option')</code>，element为<code>data-toggle='tree'</code>的元素，可以拿到当前的value，是一个数组
+              <code>data-src="url"</code>  通过ajax或jsonp方式获取数据的url<br>
+              <code>data-jsonp="true"</code>  为true表示src的url为垮域请求，会以jsonp的形式发送<br>
+              <code>data-val="[x,y,z]"</code>  初始化的时候的初始值，注意xyz的值必须要能在srouce对象中找到<br>
+              <code>$(element).data('tree')</code>，element为<code>data-toggle='tree'</code>的元素，可以拿到当前的值对象，格式为{value : [], option : []}，value代表select的value值，option表示显示到页面的option的文字<br>
             </div>
           </div>
           <h1>2. select，通过js调用初始化</h1>
@@ -126,10 +127,11 @@
                 <div id="treeGroup2" class="sui-tree-group"></div>
                 <script>
                   $(function() {
-                      $('#treeGroup2').suitree({
-                          jsonp : 'http://10.68.111.150/php/demo/server/category-jsonp.php',
-                          jsonpCallback : 'callbackSuiTree',
-                          placeholder : '-- 请选择 --'
+                      $('#treeGroup2').tree({
+                          src : 'http://10.68.111.150/php/demo/server/category-jsonp.php',
+                          jsonp : true,
+                          placeholder : '-- 请选择 --',
+                          val : [2, 148, 152]
                       });
                   })
                 </script>
@@ -181,21 +183,15 @@
                   </tr>
                   <tr>
                     <td>jsonp</td>
-                    <td>string</td>
-                    <td>null</td>
-                    <td>通过jsonp获取数据的url，优先级第三</td>
-                  </tr>
-                  <tr>
-                    <td>jsonpCallback</td>
-                    <td>string</td>
-                    <td>"callbackSuiTree"</td>
-                    <td>默认的回调方法</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                    <td>表示src请求是一个jsonp请求</td>
                   </tr>
                   <tr>
                     <td>treeType</td>
                     <td>string</td>
                     <td>"select'</td>
-                    <td>tree的类型，默认为select TODO list</td>
+                    <td>tree的类型，默认为select //TODO list</td>
                   </tr>
                   <tr>
                     <td>placeholder</td>
