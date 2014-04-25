@@ -1,37 +1,34 @@
 .animated {
   -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-fill-mode: both;
 }
-
 @-webkit-keyframes myBounceInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(200px);
-            transform: translateY(200px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
-
 @keyframes myBounceInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(200px);
-            transform: translateY(200px);
+    transform: translateY(200px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
-
 .myBounceInUp {
   -webkit-animation-name: myBounceInUp;
-          animation-name: myBounceInUp;
+  animation-name: myBounceInUp;
 }

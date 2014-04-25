@@ -11,6 +11,11 @@ block content
   div.sui-page-header
     h1 对话框
 
+  p.sui-lead
+    | 对话框分为独占式和非独占式两种。<br />
+    | 宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
+    | 文档写的渣，有任何疑惑可以联系@半边。
+
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件
@@ -43,7 +48,7 @@ block content
     div.tab-pane.active#demo1
       div.bs-docs-example
 
-        button.btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") 对话框已写入html
+        button.sui-btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") 对话框已写入html
         // Modal
         div.sui-modal.hide.fade#myModal(tabindex='-1', role='dialog', data-hasfoot='false')
           div.modal-dialog
@@ -66,6 +71,7 @@ block content
       pre.prettyprint $ele.modal('shadeIn')  使该对话框自身被遮罩层遮住，方便层上层的调用操作。
       pre.prettyprint $ele.modal('shadeOut')  顾名思义，上一条的逆操作。
       pre.prettyprint $ele.modal('shadeToggle')  顾名思义，上两条的交替操作。
+      pre.prettyprint $ele.modal('resize') dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用该接口使dialog重新定位居中
 
       h3 简单使用方法
       p

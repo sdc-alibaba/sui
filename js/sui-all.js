@@ -1,5 +1,3 @@
 //全部打包
-require([
-  "sui",
-  "sui-extends"
-])
+require("./sui")
+require("./sui-extends")

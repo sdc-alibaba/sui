@@ -12,6 +12,11 @@ block content
   p.sui-lead
     | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
 
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+
+
   h2 默认标签页
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -53,8 +58,6 @@ block content
       | 默认标签页是静态的，如果需要动态的标签页可以参考这里 <a href='tab-js.html'>js 标签页</a>
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
 
@@ -101,6 +104,82 @@ block content
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
-    li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
+  h2 胶囊样式
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example
+        ul.sui-nav.nav-tabs.nav-pills
+          li.active
+            a 标签一
+          li
+            a(href='#') 标签二
+          li
+            a(href='#') 标签二
+
+        ul.sui-nav.nav-tabs.nav-large.nav-pills
+          li
+            a 语文
+          li.active
+            a(href='#') 数学
+          li
+            a(href='#') 英语
+
+        ul.sui-nav.nav-tabs.nav-xlarge.nav-pills
+          li
+            a 前端
+          li.active
+            a(href='#') 后端
+          li
+            a(href='#') 运维
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+  h2 导航条样式
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example
+        ul.sui-nav.nav-tabs.tab-navbar
+          li.active
+            a 标签一
+          li
+            a(href='#') 标签二
+          li
+            a(href='#') 标签二
+
+        ul.sui-nav.nav-tabs.nav-large.tab-navbar
+          li
+            a 语文
+          li.active
+            a(href='#') 数学
+          li
+            a(href='#') 英语
+
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar
+          li
+            a 前端
+          li
+            a(href='#') 后端
+          li.active
+            a(href='#') 运维
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码

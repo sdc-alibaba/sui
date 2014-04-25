@@ -13,7 +13,15 @@ block content
     h1 按钮
 
   p.sui-lead
-    | 不同功能和大小的按钮，可以满足大部分的使用场景。
+    ul.unstyled
+      li 按钮统一使用下面提供的高度和样式，最好不要自己添加新的尺寸和样式（但是可以把其中某些样式进行重载）。
+      li 一般情况下推荐使用灰白色按钮，根据具体的页面和使用环境来选择。
+      li 比较重要的操作或者需要用户明显注意到的地方使用蓝色按钮。
+      li 黄色按钮请谨慎使用，在非常重要和特殊的情况下需要用户迅速发现并立即处理的时候使用，一个页面不能超过一个黄色按钮。
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
 
   h2 1. 不同大小和功能的按钮
   ul.sui-nav.nav-tabs.nav-large
@@ -48,8 +56,6 @@ block content
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
-    li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
 
 
@@ -69,7 +75,7 @@ block content
           - var classname = 'sui-btn'
           if v
             - classname += ' btn-' + v[0]
-          |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-user'></i>#{v[1]}</a>
+          |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-pencil'></i>#{v[1]}</a>
           | 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
@@ -77,8 +83,6 @@ block content
       | 带图标的按钮
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
 
@@ -106,8 +110,6 @@ block content
       | 块级按钮会独占一行
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
   

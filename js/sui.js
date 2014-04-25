@@ -1,21 +1,16 @@
 //核心组件
-require([
-  'transition.js',
-  'alert.js',
-  'button.js',
-  'carousel.js',
-  'collapse.js',
-  'dropdown.js',
-  'modal.js',
-  'tooltip.js',
-  'popover.js',
-  'scrollspy.js',
-  'tab.js',
-  'affix.js',
-  'pagination.js',
-  'validate.js',
-  'validate-rules.js',
-  'datepicker.js'
-], function() {
-  'use strict';
-});
+require('./transition')
+require('./alert')
+require('./button')
+require('./carousel')
+require('./collapse')
+require('./dropdown')
+require('./modal')
+require('./tooltip')
+require('./popover')
+require('./scrollspy')
+require('./tab')
+require('./affix')
+require('./pagination')
+require('./validate')
+require('./validate-rules')
