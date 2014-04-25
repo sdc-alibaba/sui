@@ -1,0 +1,49 @@
+extends base
+
+block title
+  title 滚动条样式
+
+block head
+  style(type='text/css').
+    .scroll-wrap {
+      border: 1px solid #999;
+      width: 200px;
+      height: 120px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+block sidebar
+  +sidebar('scrollbar')
+
+block content
+  h1.sui-page-header 滚动条样式
+
+  p.sui-lead
+    | 目前仅在chrome下有效
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        h3 默认滚动条
+        div.scroll-wrap.sui-scrollbar
+          | With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, Bootstrap is mobile first. Mobile first styles can be found throughout the entire library instead of in separate files.
+        h3 小尺寸的滚动条
+        div.scroll-wrap.sui-scrollbar.scrollbar-min
+          | With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, Bootstrap is mobile first. Mobile first styles can be found throughout the entire library instead of in separate files.
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p
+        | 通过添加 <code>'.sui-scrollbar'</code> 使用。
+        | 目前仅支持chrome 浏览器，用在千牛中。
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
