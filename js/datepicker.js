@@ -1647,7 +1647,7 @@
 
 	$(document).on(
 		'focus.datepicker.data-api click.datepicker.data-api',
-		'[data-provide="datepicker"]',
+		'[data-toggle="datepicker"]',
 		function(e){
 			var $this = $(this);
 			if ($this.data('datepicker'))
@@ -1658,7 +1658,7 @@
 		}
 	);
 	$(function(){
-		$('[data-provide="datepicker-inline"]').datepicker();
+		$('[data-toggle="datepicker-inline"]').datepicker();
 	});
 
 }(window.jQuery));
