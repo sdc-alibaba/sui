@@ -26,15 +26,24 @@ block content
   div.tab-content
     div.tab-pane.active#demo
         h3 input[type=text]模式
+        p 使用javascript:
         div.bs-docs-example#text-mod
             form.sui-form#demo1
                 input(type="text")
+
         pre.prettyprint.linenums(data-target='#text-mod')
 
         pre.prettyprint.linenums
             $('#demo1 input').datepicker({});
+        p 使用data-api:
+        div.bs-docs-example
+            form.sui-form#demo11
+                input(type="text" data-provide="datepicker")
+        pre.prettyprint.linenums(data-target='#demo11')
+
 
         h3 div.input-prepend&gt;input+span.add-on模式
+        p 使用javascript:
         div.bs-docs-example#add-mod
             form.sui-form
                 div.input-prepend.date#demo2
@@ -46,14 +55,29 @@ block content
            
         pre.prettyprint.linenums.
             $('#demo2.date').datepicker({});
+        p 使用data-api:
+        div.bs-docs-example#add-mod1
+            form.sui-form
+                div.input-prepend.date(data-provide="datepicker")
+                    span.add-on @
+                    input.span2.input-fat(type="text")
+        pre.prettyprint.linenums(data-target='#add-mod1')
+
         h3 内嵌页面模式
+        p 使用javascript:
         div.bs-docs-example#inline-mod
             div#demo3
         pre.prettyprint.linenums(data-target="#inline-mod")
             
         pre.prettyprint.linenums.
             $('#demo3').datepicker({});
+        p 使用data-api:
+        div.bs-docs-example#inline-mod1
+            div(data-provide="datepicker-inline")
+        pre.prettyprint.linenums(data-target="#inline-mod1")
+            
         h3 date - date 模式
+        p 使用javascript:
         div.bs-docs-example#range-mod
             form.sui-form.form-horizontal
                 div.control-group.input-daterange#demo4
@@ -82,10 +106,29 @@ block content
                     }
                 }
             });
+        p 使用data-api:
+        div.bs-docs-example#range-mod1
+            form.sui-form.form-horizontal
+                div.control-group.input-daterange(data-provide="datepicker")
+                    label.control-label 时间选择：
+                    div.controls
+                      input.input-medium.input-date(type="text")
+                      span -
+                      input.input-medium.input-date(type="text")
+        pre.prettyprint.linenums(data-target="#range-mod1")
     div.tab-pane#option
+        h3 使用方法
         h3 配置项
         p
-        | 调用datepicker可以加入控制参数，所有配置项如下：
+        | js调用datepicker可以加入控制参数:
+        pre.prettyprint.linenums.
+            $('#demo4').datepicker({
+                startDate: "2014-04-16",
+                data-date-format: "yyyy-mm-dd"
+            });
+        p 这些参数也可以使用data api 来传递：
+        p 比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"
+        p 所有配置项如下：
 
         table.sui-table
             tr

@@ -47,7 +47,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -56,9 +56,11 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">标签</a></li>
+                  <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
@@ -66,6 +68,7 @@
                   <li><a href="pagination-js.html">分页器</a></li>
                   <li><a href="form-validate.html">表单校验</a></li>
                   <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li class="active"><a href="datepicker.html">datepicker</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -87,6 +90,7 @@
           <div class="tab-content">
             <div id="demo" class="tab-pane active">
               <h3>input[type=text]模式</h3>
+              <p>使用javascript:</p>
               <div id="text-mod" class="bs-docs-example">
                 <form id="demo1" class="sui-form">
                   <input type="text">
@@ -94,7 +98,15 @@
               </div>
               <pre data-target="#text-mod" class="prettyprint linenums"></pre>
               <pre class="prettyprint linenums">$('#demo1 input').datepicker({});</pre>
+              <p>使用data-api:</p>
+              <div class="bs-docs-example">
+                <form id="demo11" class="sui-form">
+                  <input type="text" data-provide="datepicker">
+                </form>
+              </div>
+              <pre data-target="#demo11" class="prettyprint linenums"></pre>
               <h3>div.input-prepend&gt;input+span.add-on模式</h3>
+              <p>使用javascript:</p>
               <div id="add-mod" class="bs-docs-example">
                 <form class="sui-form">
                   <div id="demo2" class="input-prepend date"><span class="add-on">@</span>
@@ -104,13 +116,29 @@
               </div>
               <pre data-target="#add-mod" class="prettyprint linenums"></pre>
               <pre class="prettyprint linenums">$('#demo2.date').datepicker({});</pre>
+              <p>使用data-api:</p>
+              <div id="add-mod1" class="bs-docs-example">
+                <form class="sui-form">
+                  <div data-provide="datepicker" class="input-prepend date"><span class="add-on">@</span>
+                    <input type="text" class="span2 input-fat">
+                  </div>
+                </form>
+              </div>
+              <pre data-target="#add-mod1" class="prettyprint linenums"></pre>
               <h3>内嵌页面模式</h3>
+              <p>使用javascript:</p>
               <div id="inline-mod" class="bs-docs-example">
                 <div id="demo3"></div>
               </div>
               <pre data-target="#inline-mod" class="prettyprint linenums"></pre>
               <pre class="prettyprint linenums">$('#demo3').datepicker({});</pre>
+              <p>使用data-api:</p>
+              <div id="inline-mod1" class="bs-docs-example">
+                <div data-provide="datepicker-inline"></div>
+              </div>
+              <pre data-target="#inline-mod1" class="prettyprint linenums"></pre>
               <h3>date - date 模式</h3>
+              <p>使用javascript:</p>
               <div id="range-mod" class="bs-docs-example">
                 <form class="sui-form form-horizontal">
                   <div id="demo4" class="control-group input-daterange">
@@ -139,10 +167,31 @@
         }
     }
 });</pre>
+              <p>使用data-api:</p>
+              <div id="range-mod1" class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div data-provide="datepicker" class="control-group input-daterange">
+                    <label class="control-label">时间选择：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium input-date"><span>-</span>
+                      <input type="text" class="input-medium input-date">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <pre data-target="#range-mod1" class="prettyprint linenums"></pre>
             </div>
             <div id="option" class="tab-pane">
+              <h3>使用方法</h3>
               <h3>配置项</h3>
-              <p></p>调用datepicker可以加入控制参数，所有配置项如下：
+              <p></p>js调用datepicker可以加入控制参数:
+              <pre class="prettyprint linenums">$('#demo4').datepicker({
+    startDate: "2014-04-16",
+    data-date-format: "yyyy-mm-dd"
+});</pre>
+              <p>这些参数也可以使用data api 来传递：</p>
+              <p>比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"</p>
+              <p>所有配置项如下：</p>
               <table class="sui-table">
                 <tr>
                   <th>名称</th>
