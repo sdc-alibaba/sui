@@ -47,7 +47,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -56,6 +56,8 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">标签</a></li>
+                  <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
               <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -136,16 +138,23 @@
                 <dl></dl>
                 <dt>onSelect</dt>
                 <dd>点击页码时的回调函数，提供一个当前点击的页码的参数，可以在回调函数中使用自定义事件。</dd>
+                <dt>remote</dt>
+                <dd>远程控制开关，如果设置为true的话,分页器不会自动跳转，需要人工调用goToPage方法，主要用于一些特殊条件下，比如点击了页码之后，需要等页面加载完之后再跳转</dd>
                 <h3>函数 </h3>
                 <h4>pagination组件对外暴露2个函数</h4>
               </dl>
               <dl>
-                <dt>$.pagination('updateItemsCount',itemsCount) </dt>
+                <dt>$('selector').pagination('updateItemsCount',itemsCount[, pageToGo]) </dt>
                 <dd>当数据条目总数发生变化时，调用此方法，参数为新的数据条目总数</dd>
+                <dd>pageToGo是要跳转到的某页</dd>
                 <dl></dl>
-                <dt>$.pagination('updatePages',pages) </dt>
+                <dt>$('selector').pagination('updatePages',pages[, pageToGo]) </dt>
                 <dd>当分页直接采用pages配置项时，pageSize不存在，因此只能通过该方法直接更新分页数</dd>
                 <dd>P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况,不推荐使用此方法。</dd>
+                <dd>pageToGo是要跳转到的某页</dd>
+                <dl></dl>
+                <dt>$('selector').pagination('goToPage', pageNum) </dt>
+                <dd>跳转到指定页面 </dd>
               </dl>
             </div>
           </div>

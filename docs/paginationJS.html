@@ -90,16 +90,26 @@
               <dt>onSelect</dt>
               <dd>点击页码时的回调函数，提供一个当前点击的页码的参数，可以在回调函数中使用自定义事件。</dd>
             </dl>
+            <dl>
+              <dt>remote</dt>
+              <dd>异步翻页开关，如果设置为true,则pagination自身不会翻页，需要手动调用goToPage方法</dd>
+            </dl>
             <h3>函数 </h3>
             <h4>pagination组件对外暴露2个函数</h4>
             <dl>
-              <dt>$.pagination('updateItemsCount',itemsCount) </dt>
+              <dt>$('selector').pagination('updateItemsCount',itemsCount[, pageToGo]) </dt>
               <dd>当数据条目总数发生变化时，调用此方法，参数为新的数据条目总数</dd>
+              <dd>pageToGo是可选参数，意思是要跳到第几页去</dd>
             </dl>
             <dl>
-              <dt>$.pagination('updatePages',pages) </dt>
+              <dt>$('selector').pagination('updatePages',pages[, pageToGo]) </dt>
               <dd>当分页直接采用pages配置项时，pageSize不存在，因此只能通过该方法直接更新分页数</dd>
               <dd>P.S:一般情况来讲，通过pages来配置分页，适用于分页数固定的情况,不推荐使用此方法。</dd>
+              <dd>pageToGo是可选参数，意思是要跳到第几页去</dd>
+            </dl>
+            <dl>
+                <dt>$('selector').pagination('goToPage', pagNum)</dt>
+                <dd>跳转到特定的页数</dd>
             </dl>
           </div>
         </div>

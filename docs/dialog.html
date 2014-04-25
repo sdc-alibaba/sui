@@ -47,7 +47,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-puzzle">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -56,6 +56,8 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">标签</a></li>
+                  <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
               <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -79,9 +81,7 @@
           <div class="sui-page-header">
             <h1>对话框</h1>
           </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
+          <p>文档写的渣，有任何疑惑可以联系@半边</p>
           <h2>概览</h2>
           <pre class="prettyprint linenums">原型方法 $ele需要事先写到html中
 $ele.modal(options | 'toggle' | 'show' | 'hide') // $ele是对话框元素，不是触发元素
@@ -101,7 +101,7 @@ $.confirm(options)</pre>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="btn btn-primary btn-lg">对话框已写入html</button>
+                <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="sui-btn btn-primary btn-lg">对话框已写入html</button>
                 <!-- Modal-->
                 <div id="myModal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
                   <div class="modal-dialog">
@@ -132,6 +132,7 @@ $.confirm(options)</pre>
               <pre class="prettyprint">$ele.modal('shadeIn')  使该对话框自身被遮罩层遮住，方便层上层的调用操作。</pre>
               <pre class="prettyprint">$ele.modal('shadeOut')  顾名思义，上一条的逆操作。</pre>
               <pre class="prettyprint">$ele.modal('shadeToggle')  顾名思义，上两条的交替操作。</pre>
+              <pre class="prettyprint">$ele.modal('resize') dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用该接口使dialog重新定位居中</pre>
               <h3>简单使用方法</h3>
               <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
               <p>
