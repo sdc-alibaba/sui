@@ -1,3 +1,9 @@
+/*jshint sub:true*/
+/*
+ * js come from :bootstrap-datepicker.js 
+ * Started by Stefan Petre; improvements by Andrew Rowls + contributors
+ * you con get the source from github: https://github.com/eternicode/bootstrap-datepicker
+*/
 (function($, undefined){
 
 	var $window = $(window);
