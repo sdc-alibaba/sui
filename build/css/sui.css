@@ -9024,36 +9024,36 @@ a.sui-label:focus {
   font-style: italic;
 }
 .sui-steps .finished {
-  background-color: #e4f6ff;
-  color: #4aa4d5;
+  background-color: #53b8c0;
+  color: #ffffff;
 }
 .sui-steps .finished .triangle-right {
-  border-color: transparent transparent transparent #e4f6ff;
+  border-color: transparent transparent transparent #53b8c0;
 }
 .sui-steps .finished .round {
-  background-color: #0995e0;
+  background-color: #339ba3;
   background-color: transparent\9;
   color: #ffffff;
 }
 .sui-steps .current {
-  background-color: #0995e0;
+  background-color: #339ba3;
   color: #ffffff;
 }
 .sui-steps .current .triangle-right {
-  border-color: transparent transparent transparent #0995e0;
+  border-color: transparent transparent transparent #339ba3;
 }
 .sui-steps .current .round {
   background-color: #ffffff;
-  color: #0995e0;
+  color: #339ba3;
   color: #FFF\9;
   background-color: transparent\9;
 }
 .sui-steps .todo {
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
   color: #999999;
 }
 .sui-steps .todo .triangle-right {
-  border-color: transparent transparent transparent #f5f5f5;
+  border-color: transparent transparent transparent #eeeeee;
 }
 .sui-steps .todo .round {
   background-color: #ffffff;
