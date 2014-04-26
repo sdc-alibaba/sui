@@ -199,4 +199,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist', 'docs']);
+  //local server and watch
+  grunt.registerTask('local',['connect','watch']);
 }
