@@ -1,9 +1,10 @@
 /**
- * Created by huazhi.chz on 14-4-6.
+ * Created by huazhi.chz on 14-4-27.
+ * tree 2.0.0
+ * 由原来的一次性读取数据改为事件性获取数据
  */
 
-!function($) {
-    "use strict";
+!(function($) {"use strict";
 
     var Tree = function(element, options) {
         this.$element = $(element);
@@ -11,85 +12,62 @@
     };
 
     // private methods
-    // 将私有方法抽出
     var methods = {
         init : function() {
-            methods.bindSelect.call(this);
+            this.destory();
+            methods.bindChange.call(this);
             methods.bindUpdate.call(this);
-            methods.getSource.call(this);
+            this.$element.trigger('tree:update'); // 触发第一次更新
         },
 
-        // 通过json解析dom
-        _parseDom : function(list, index) {
+        getData : function(id, index) {
+            var that = this;
+            if (!that.options.src) return;
+            $.ajax(that.options.src, {
+                data : that.options.key + '=' + id,
+                cache : true,
+                dataType : that.options.jsonp ? 'jsonp' : 'json'
+            }).success(function(json) {
+                if (json.code == 200 && json.data && json.data.length) {
+                    methods.createDom.apply(that, [json.data, index]);
+                }
+            })
+        },
+
+        createDom : function(list, index) {
             var dom = ['<select>'],
                 placeholder = this.options.placeholder,
                 val = this.options.val[index];
-            placeholder && dom.push('<option vlaue="">' + placeholder + '</option>')
-            list && $.each(list, function(i, n) {
-                dom.push('<option data-index="' + i + '" value="' + n.id + '" ' + (n.id == val ? 'selected' : '') + '>' + n.value + '</option>');
+            placeholder && dom.push('<option value="">' + placeholder + '</option>');
+            $.each(list, function(i, n) {
+                dom.push('<option data-isleaf="' + n.isleaf + '" value="' + n.id + '" ' + (n.id == val ? 'selected' : '') + '>' + n.value + '</option>')
             });
-            dom = $(dom.join('')).data('nodes', list);
-            return dom;
+            dom.push('</select>');
+            //return dom.join('');
+            dom = $(dom.join('')).appendTo(this.$element).trigger('change');
         },
 
-        // 绑定更新事初始化事件
+        bindChange : function() {
+            var that = this;
+            this.$element.on('change.sui.tree', 'select', function(e) {
+                var $this = $(this), v = $this.val();
+                $this.nextAll().remove();
+                methods.saveValue.call(that);
+                if (!v) return; // 选择了placeholder
+                if (!$this.find('option:selected').data('isleaf')) methods.getData.apply(that, [v, $this.index() + 1]);
+                else that.options.val = []; // 清空初始化的时候设置的值
+            })
+        },
+
         bindUpdate : function() {
             var that = this;
-            this.$element.on('tree:update', function() {
-                var $this = $(this), dom;
-                that.destroy(); // 初始化之前先移除事件并清空，防止重复出现
-                dom = methods._parseDom.apply(that, [that.options.source.nodes, 0]);
-                dom.appendTo($this);
-//                if (that.options.val[0]) {
-//                    dom.val();
-//                }
-                dom.trigger('change');
-            });
+            this.$element.on('tree:update', function(e) {
+                var $this = $(this);
+                $this.empty();
+                methods.getData.apply(that, [0, 0]); // 每次重新获取数据的id都为0
+            })
         },
 
-        // 绑定事件，并生成后续节点
-        bindSelect : function() {
-            var that = this;
-            this.$element.on('change', 'select', function() {
-                var $this = $(this),
-                    _index = $this.find('option:selected').data('index'),
-                    _curr = $this.data('nodes')[_index]; // 根据index从select上拿到相应的数据
-
-                $this.nextAll().remove(); // 移除后面的所有select，以便重新生成
-                methods.saveValue.call(that); // 保存数据
-                if (_index === undefined) return; // 选择了placeholder
-                // 如果isleaf = false 并且有叶结点children，拿到children数据生成后续节点
-                if (!_curr.lsleaf && _curr.children.length) {
-                    var dom = methods._parseDom.apply(that, [_curr.children, $this.index() + 1]);
-                    dom.insertAfter($this).trigger('change');
-                } else {
-                    that.options.val = [];
-                }
-            });
-        },
-
-        // 获取数据，然后回调
-        getSource : function() {
-            var that = this;
-            if (that.options.source) {
-                // 传入数据
-                callback.call(that, that.options.source);
-                that.$element.trigger('tree:update');
-            } else{
-                // json or jsonp
-                $.ajax(that.options.src, {
-                    cache : false,
-                    dataType : that.options.jsonp ? 'jsonp' : 'json',
-                    success : function(json) {
-                        that.options.source = json;
-                        that.$element.trigger('tree:update');
-                    }
-                });
-            }
-        },
-
-        // 将select的值序列化放到根结点上，以便取值 -- abrogated
-        // 将值放到对象上面，只提供一个对外接口 -- modify 04.14 !not done
         saveValue : function() {
             var _val = [], _opt = [];
             this.$element.find('select').each(function() {
@@ -97,69 +75,50 @@
                 _opt.push($(this).find('option:selected').text());
             });
             this.datas = {option : _opt, value : _val};
-        },
-
-        // --------------------------
-        // TODO 怎么把值放到一个封闭的地方，只暴露一个调用接口？
-
-        /**
-         * 取到当前的value或option
-         * @param key 返回的数据类型，'value' : value数组, 'option' : option数组
-         * @param isString true : 返回一个序列化后的字符串
-         * @returns {string}
-         */
-        getValue : function(key, isString) {
-            return key === 'value' ? (isString ? this.datas.value.join() : this.datas.value)
-                : key === 'option' ? (isString ? this.datas.option.join() : this.datas.option)
-                : this.datas;
         }
     };
 
     Tree.prototype = {
         constructor : Tree,
 
-        getValue : methods.getValue,
+        getValue : $.noop, // how ?
 
-        /**
-         * 设置tree的选中值，传入的参数是一个数组
-         * @param values
-         */
-        setValue : function(values) {
-            if (!(values instanceof Array)) return;
-            this.options.val = values;
+        setValue : function(ary) {
+            this.options.val = ary;
             this.$element.trigger('tree:update');
         },
 
-        destroy : function() {
+        destory : function() {
             this.$element.off('change.sui.tree').empty();
         }
-
     };
 
     var old = $.fn.tree;
 
-    $.fn.tree = function() {
-        // 抽出第一个参数，作为调用的方法或初始化参数，后面的参数作为调用方法的入参
-        var args = Array.prototype.slice.call(arguments),
-            arg0 = args.shift(0);
+    $.fn.extend({
+        tree : function() {
+            var args = Array.prototype.slice.call(arguments),
+                arg0 = args.shift();
 
-        return this.each(function() {
-            var $this = $(this),
-                data = $this.data('tree'),
-                options = $.extend({}, $.fn.tree.defaults, $this.data(), typeof arg0 === 'object' && arg0);
-            if (!data) $this.data('tree', (data = new Tree(this, options))); // 只会初始化一次
-            if (typeof arg0 === 'string' && typeof data[arg0] === 'function') data[arg0].apply(data, args);
-            else methods.init.call(data);
-        });
-    };
+            return this.each(function() {
+                var $this = $(this),
+                    data = $this.data('tree'),
+                    options = $.extend({}, $.fn.tree.defaults, $this.data(), typeof arg0 === 'object' && arg0);
+                if (!data) $this.data('tree', (data = new Tree(this, options))); // 在每个元素上只保存一个实例
+                if (typeof arg0 === 'string' && typeof data[arg0] === 'function') data[arg0].apply(data, args);
+                else methods.init.call(data);
+            });
+        }
+    });
 
     $.fn.tree.Constructor = Tree;
 
     $.fn.tree.defaults = {
-        source : null, // 数据
-        treeType : 'select', // 类型，下拉框或是列表
-        placeholder : '请选择', // 默认的第一个选项
-        val : []
+        src : '', // 数据源，json或jsonp
+        treeType : 'select', // TODO tree的类型，select或list
+        placeholder : '请选择',
+        val : [], // update时取的值
+        key : 'id' // 默认的参数名
     };
 
     // NO CONFLICT
@@ -168,9 +127,9 @@
         return this;
     };
 
-    // 调用
+    // auto handle
     $(function() {
         $('[data-toggle="tree"]').tree();
     });
 
-}(jQuery);
+})(jQuery);
