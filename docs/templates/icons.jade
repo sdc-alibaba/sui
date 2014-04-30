@@ -5,6 +5,15 @@ block title
 
 block head
   style(type='text/css').
+    .icon-pc-demo {
+      font-size: 20px;
+      word-break: break-all;
+    }
+    .icon-pc-demo i {
+      margin: 10px; 
+      display: inline-block;
+      width: 20px;
+    }
     .icon-touch-demo {
       font-size: 40px;
       word-break: break-all;
@@ -39,9 +48,43 @@ block content
     li
       a(href='#') 下载psd文件
 
-  h2 1. 移动版图标
+  h2 1.小尺寸图标
   p.sui-lead
-    | 用于移动版,图标大小在20px以上。
+    | 用于大小在22px以下的地方。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example.icon-pc-demo
+        i.sui-icon.icon-pc-ww
+        i.sui-icon.icon-pc-sound
+        i.sui-icon.icon-pc-settings
+        i.sui-icon.icon-pc-right
+        i.sui-icon.icon-pc-refresh
+        i.sui-icon.icon-pc-question-circle
+        i.sui-icon.icon-pc-prev
+        i.sui-icon.icon-pc-next
+        i.sui-icon.icon-pc-list
+        i.sui-icon.icon-pc-light
+        i.sui-icon.icon-pc-info-circle
+        i.sui-icon.icon-pc-forbidden
+        i.sui-icon.icon-pc-error
+        i.sui-icon.icon-pc-error-circle
+        i.sui-icon.icon-pc-chevron-top
+        i.sui-icon.icon-pc-chevron-right
+        i.sui-icon.icon-pc-chevron-left
+        i.sui-icon.icon-pc-chevron-bottom
+        i.sui-icon.icon-pc-bell
+
+  h2 2.大尺寸图标
+  p.sui-lead
+    | 用于移动版,图标大小在22px以上。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例

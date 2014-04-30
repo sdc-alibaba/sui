@@ -3289,6 +3289,83 @@ sui-pre .sui-code {
   background-color: #c4e3f3;
 }
 @font-face {
+  font-family: 'icon-pc';
+  src: url('../fonts//icon-pc.eot?59lb71');
+  src: url('../fonts//icon-pc.eot?#iefix59lb71') format('embedded-opentype'), url('../fonts//icon-pc.woff?59lb71') format('woff'), url('../fonts//icon-pc.ttf?59lb71') format('truetype'), url('../fonts//icon-pc.svg?59lb71#icon-pc') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.sui-icon[class^="icon-pc-"],
+.sui-icon[class*=" icon-pc-"] {
+  font-family: 'icon-pc';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-pc-ww:before {
+  content: "\c600";
+}
+.icon-pc-sound:before {
+  content: "\c601";
+}
+.icon-pc-settings:before {
+  content: "\c602";
+}
+.icon-pc-right:before {
+  content: "\c603";
+}
+.icon-pc-refresh:before {
+  content: "\c604";
+}
+.icon-pc-question-circle:before {
+  content: "\c605";
+}
+.icon-pc-prev:before {
+  content: "\c606";
+}
+.icon-pc-next:before {
+  content: "\c607";
+}
+.icon-pc-list:before {
+  content: "\c608";
+}
+.icon-pc-light:before {
+  content: "\c609";
+}
+.icon-pc-info-circle:before {
+  content: "\c60a";
+}
+.icon-pc-forbidden:before {
+  content: "\c60b";
+}
+.icon-pc-error:before {
+  content: "\c60c";
+}
+.icon-pc-error-circle:before {
+  content: "\c60d";
+}
+.icon-pc-chevron-top:before {
+  content: "\c60e";
+}
+.icon-pc-chevron-right:before {
+  content: "\c60f";
+}
+.icon-pc-chevron-left:before {
+  content: "\c610";
+}
+.icon-pc-chevron-bottom:before {
+  content: "\c611";
+}
+.icon-pc-bell:before {
+  content: "\c612";
+}
+@font-face {
   font-family: 'icon-touch';
   src: url('../fonts//icon-touch.eot?-t7qwrr');
   src: url('../fonts//icon-touch.eot?#iefix-t7qwrr') format('embedded-opentype'), url('../fonts//icon-touch.woff?-t7qwrr') format('woff'), url('../fonts//icon-touch.ttf?-t7qwrr') format('truetype'), url('../fonts//icon-touch.svg?-t7qwrr#icon-touch') format('svg');
@@ -4258,6 +4335,21 @@ sui-pre .sui-code {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 120%;
+}
+.sui-dropup .caret[class^="icon-pc-"],
+.sui-dropdown .caret[class^="icon-pc-"],
+.sui-dropup .caret[class*=" icon-pc-"],
+.sui-dropdown .caret[class*=" icon-pc-"] {
+  font-family: 'icon-pc';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .sui-dropup .caret[class^="icon-touch-"],
 .sui-dropdown .caret[class^="icon-touch-"],
@@ -5486,6 +5578,19 @@ input[type="submit"].btn.btn-mini {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 17px;
+}
+.sui-btn-group > .sui-btn > .caret[class^="icon-pc-"],
+.sui-btn-group > .sui-btn > .caret[class*=" icon-pc-"] {
+  font-family: 'icon-pc';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .sui-btn-group > .sui-btn > .caret[class^="icon-touch-"],
 .sui-btn-group > .sui-btn > .caret[class*=" icon-touch-"] {
