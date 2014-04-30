@@ -2603,6 +2603,7 @@
     ,init: function () {
       var ele = this.$element
         , w = this.options.width
+        , self = this
         , standardW = {
             small: 440  //默认宽度
             ,normal: 590
@@ -2615,7 +2616,9 @@
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
       this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
-   
+        //, function(res, status, xhr){
+        //异步加载数据的情况，对话框展示时用于决定定位的信息不是最终有效信息，需要回调时校正。
+        //self.resize();
     }
 
     , toggle: function () {
