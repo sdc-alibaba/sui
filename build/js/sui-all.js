@@ -4089,7 +4089,29 @@ require('./datepicker')
     var Tree = function(element, options) {
         this.$element = $(element);
         this.options = options;
+        this.redis = new Redis();
     };
+
+    // 数据缓存处理
+    var Redis = function() {
+        this.data = {};
+    }
+
+    Redis.prototype = {
+        constructor : Redis,
+
+        query : function(key) {
+            return this.data[key];
+        },
+
+        insert : function(key, value) {
+            this.data[key] = value;
+        },
+
+        clear : function() {
+            this.data = {};
+        }
+    }
 
     // private methods
     var methods = {
@@ -4101,17 +4123,24 @@ require('./datepicker')
         },
 
         getData : function(id, index) {
-            var that = this;
+            var that = this, data = that.redis.query(id); // 先获取缓存数据
             if (!that.options.src) return;
-            $.ajax(that.options.src, {
-                data : that.options.key + '=' + id,
-                cache : true,
-                dataType : that.options.jsonp ? 'jsonp' : 'json'
-            }).success(function(json) {
-                if (json.code == 200 && json.data && json.data.length) {
-                    methods.createDom.apply(that, [json.data, index]);
-                }
-            })
+            // 先取缓存数据
+            if (data) {
+                methods.createDom.apply(that, [data, index])
+            } else { // 如果没有就重新获取
+                $.ajax(that.options.src, {
+                    data : that.options.key + '=' + id,
+                    cache : true,
+                    dataType : that.options.jsonp ? 'jsonp' : 'json'
+                }).success(function(json) {
+                    if (json.code == 200 && json.data && json.data.length) {
+                        data = json.data;
+                        that.redis.insert(id, data); // 将值存放缓存中
+                        methods.createDom.apply(that, [data, index]);
+                    }
+                })
+            }
         },
 
         createDom : function(list, index) {
