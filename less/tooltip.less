@@ -9,23 +9,7 @@
 @tipBorderWidth: 1px;
 @arrowOffset: 6px;
 
-// Base class
-.sui-tooltip {
-  position: absolute;
-  z-index: @zindexTooltip;
-  display: block;
-  visibility: visible;
-  max-width: 300px;
-  border: @tipBorderWidth solid @tooltipBorderColor;
-  opacity: 0;
-  //.opacity(0);   bug in IE8 
-  .border-radius(2px);
-  &.in     { /*.opacity(100);*/ opacity:1;}
-  &.top    { margin-top:  -3px;}
-  &.right  { margin-left:  3px;}
-  &.bottom { margin-top:   3px;}
-  &.left   { margin-left: -3px;}
-  // Wrapper for the tooltip content
+.type-style {
   .tooltip-inner {
     padding: 10px;
     font-size: 12px;
@@ -33,10 +17,16 @@
     font-weight: normal;
     white-space: pre-wrap;  //fix bug in firefox: not break word when long line withou space
   }
-  &.normal {
+
+  &.normal, &.confirm {
     .tooltip-inner {
       background-color: @normalBg;
       color: @stepsCurrentColor;
+    }
+  }
+  &.confirm {
+    .tooltip-footer {
+      background-color: @normalBg;
     }
   }
   &.inverse {
@@ -54,7 +44,26 @@
       color: #888;
     }
   }
+}
 
+// Base class
+.sui-tooltip {
+  position: absolute;
+  z-index: @zindexTooltip;
+  display: block;
+  visibility: visible;
+  max-width: 300px;
+  border: @tipBorderWidth solid @tooltipBorderColor;
+  opacity: 0;
+  //.opacity(0);   bug in IE8 
+  .border-radius(2px);
+  &.in     { /*.opacity(100);*/ opacity:1;}
+  &.top    { margin-top:  -3px;}
+  &.right  { margin-left:  3px;}
+  &.bottom { margin-top:   3px;}
+  &.left   { margin-left: -3px;}
+  // Wrapper for the tooltip content
+  .type-style();
 }
 
 
@@ -72,10 +81,10 @@
 .tooltip-only-arrow{
   position: relative;
   border: 1px solid @tooltipBorderColor;
-  padding: 5px;
   &.inverse .cover {
     display: none
   }
+  .type-style();
 }
 
 .sui-tooltip ,.tooltip-only-arrow{

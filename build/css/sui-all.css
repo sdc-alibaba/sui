@@ -7498,6 +7498,38 @@ input[type="submit"].btn.btn-mini {
 .tooltip-footer .btn-block + .btn-block {
   margin-left: 0;
 }
+.type-style .tooltip-inner {
+  padding: 10px;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: normal;
+  white-space: pre-wrap;
+}
+.type-style.normal .tooltip-inner,
+.type-style.confirm .tooltip-inner {
+  background-color: #e5f4f6;
+  color: #339ba3;
+}
+.type-style.confirm .tooltip-footer {
+  background-color: #e5f4f6;
+}
+.type-style.inverse {
+  border: none;
+}
+.type-style.inverse .cover {
+  display: none;
+}
+.type-style.inverse .tooltip-inner {
+  background-color: #53b8c0;
+  color: #ffffff;
+}
+.type-style.attention {
+  border: 1px solid #e2ddb7;
+}
+.type-style.attention .tooltip-inner {
+  background-color: #fefbe3;
+  color: #888;
+}
 .sui-tooltip {
   position: absolute;
   z-index: 1030;
@@ -7533,9 +7565,13 @@ input[type="submit"].btn.btn-mini {
   font-weight: normal;
   white-space: pre-wrap;
 }
-.sui-tooltip.normal .tooltip-inner {
+.sui-tooltip.normal .tooltip-inner,
+.sui-tooltip.confirm .tooltip-inner {
   background-color: #e5f4f6;
   color: #339ba3;
+}
+.sui-tooltip.confirm .tooltip-footer {
+  background-color: #e5f4f6;
 }
 .sui-tooltip.inverse {
   border: none;
@@ -7564,10 +7600,41 @@ input[type="submit"].btn.btn-mini {
 .tooltip-only-arrow {
   position: relative;
   border: 1px solid #cce6e8;
-  padding: 5px;
 }
 .tooltip-only-arrow.inverse .cover {
   display: none;
+}
+.tooltip-only-arrow .tooltip-inner {
+  padding: 10px;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: normal;
+  white-space: pre-wrap;
+}
+.tooltip-only-arrow.normal .tooltip-inner,
+.tooltip-only-arrow.confirm .tooltip-inner {
+  background-color: #e5f4f6;
+  color: #339ba3;
+}
+.tooltip-only-arrow.confirm .tooltip-footer {
+  background-color: #e5f4f6;
+}
+.tooltip-only-arrow.inverse {
+  border: none;
+}
+.tooltip-only-arrow.inverse .cover {
+  display: none;
+}
+.tooltip-only-arrow.inverse .tooltip-inner {
+  background-color: #53b8c0;
+  color: #ffffff;
+}
+.tooltip-only-arrow.attention {
+  border: 1px solid #e2ddb7;
+}
+.tooltip-only-arrow.attention .tooltip-inner {
+  background-color: #fefbe3;
+  color: #888;
 }
 .sui-tooltip.top.inverse .tooltip-arrow,
 .tooltip-only-arrow.top.inverse .tooltip-arrow {
