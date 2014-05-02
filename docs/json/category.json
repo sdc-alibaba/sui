@@ -1,0 +1,4282 @@
+{
+    "success": true,
+    "message": "ok",
+    "nodes": [{
+        "id": "1",
+        "value": "男装",
+        "children": [{
+            "id": "101",
+            "value": "T恤",
+            "children": [{
+                "id": "102",
+                "value": "长袖T恤",
+                "children": [],
+                "parent": "101",
+                "isleaf": true
+            },
+                {
+                    "id": "103",
+                    "value": "短袖T恤",
+                    "children": [],
+                    "parent": "101",
+                    "isleaf": true
+                }],
+            "parent": "1",
+            "isleaf": false
+        },
+            {
+                "id": "104",
+                "value": "Polo衫",
+                "children": [{
+                    "id": "105",
+                    "value": "长袖Polo衫",
+                    "children": [],
+                    "parent": "104",
+                    "isleaf": true
+                },
+                    {
+                        "id": "106",
+                        "value": "短袖Polo衫",
+                        "children": [],
+                        "parent": "104",
+                        "isleaf": true
+                    }],
+                "parent": "1",
+                "isleaf": false
+            },
+            {
+                "id": "107",
+                "value": "卫衣",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "108",
+                "value": "衬衫",
+                "children": [{
+                    "id": "109",
+                    "value": "长袖衬衫",
+                    "children": [],
+                    "parent": "108",
+                    "isleaf": true
+                },
+                    {
+                        "id": "110",
+                        "value": "短袖衬衫",
+                        "children": [],
+                        "parent": "108",
+                        "isleaf": true
+                    }],
+                "parent": "1",
+                "isleaf": false
+            },
+            {
+                "id": "111",
+                "value": "牛仔裤",
+                "children": [{
+                    "id": "112",
+                    "value": "长裤",
+                    "children": [],
+                    "parent": "111",
+                    "isleaf": true
+                },
+                    {
+                        "id": "113",
+                        "value": "五分裤",
+                        "children": [],
+                        "parent": "111",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "114",
+                        "value": "七分裤",
+                        "children": [],
+                        "parent": "111",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "115",
+                        "value": "其他",
+                        "children": [],
+                        "parent": "111",
+                        "isleaf": true
+                    }],
+                "parent": "1",
+                "isleaf": false
+            },
+            {
+                "id": "116",
+                "value": "休闲裤",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "117",
+                "value": "夹克",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "118",
+                "value": "棉衣",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "119",
+                "value": "羽绒服",
+                "children": [{
+                    "id": "120",
+                    "value": "短款",
+                    "children": [],
+                    "parent": "119",
+                    "isleaf": true
+                },
+                    {
+                        "id": "121",
+                        "value": "长款",
+                        "children": [],
+                        "parent": "119",
+                        "isleaf": true
+                    }],
+                "parent": "1",
+                "isleaf": false
+            },
+            {
+                "id": "122",
+                "value": "毛衣",
+                "children": [{
+                    "id": "123",
+                    "value": "线衫",
+                    "children": [],
+                    "parent": "122",
+                    "isleaf": true
+                },
+                    {
+                        "id": "124",
+                        "value": "羊毛衫",
+                        "children": [],
+                        "parent": "122",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "125",
+                        "value": "羊绒衫",
+                        "children": [],
+                        "parent": "122",
+                        "isleaf": true
+                    }],
+                "parent": "1",
+                "isleaf": false
+            },
+            {
+                "id": "126",
+                "value": "皮衣",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "127",
+                "value": "风衣",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "128",
+                "value": "背心",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "129",
+                "value": "西服",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "130",
+                "value": "西裤",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            },
+            {
+                "id": "131",
+                "value": "西服套装",
+                "children": [],
+                "parent": "1",
+                "isleaf": true
+            }],
+        "parent": "0",
+        "isleaf": false
+    },
+        {
+            "id": "15",
+            "value": "运动服\/运动包\/颈环配件",
+            "children": [{
+                "id": "757",
+                "value": "运动套装",
+                "children": [],
+                "parent": "15",
+                "isleaf": true
+            }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "6",
+            "value": "女装",
+            "children": [{
+                "id": "291",
+                "value": "上衣",
+                "children": [{
+                    "id": "292",
+                    "value": "衬衫",
+                    "children": [{
+                        "id": "293",
+                        "value": "长袖衬衫",
+                        "children": [],
+                        "parent": "292",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "294",
+                            "value": "短袖衬衫",
+                            "children": [],
+                            "parent": "292",
+                            "isleaf": true
+                        }],
+                    "parent": "291",
+                    "isleaf": false
+                },
+                    {
+                        "id": "295",
+                        "value": "T恤",
+                        "children": [{
+                            "id": "296",
+                            "value": "长袖T恤",
+                            "children": [],
+                            "parent": "295",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "297",
+                                "value": "短袖T恤",
+                                "children": [],
+                                "parent": "295",
+                                "isleaf": true
+                            }],
+                        "parent": "291",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "298",
+                        "value": "卫衣",
+                        "children": [{
+                            "id": "299",
+                            "value": "卫衣套装",
+                            "children": [],
+                            "parent": "298",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "300",
+                                "value": "单件卫衣",
+                                "children": [],
+                                "parent": "298",
+                                "isleaf": true
+                            }],
+                        "parent": "291",
+                        "isleaf": false
+                    }],
+                "parent": "6",
+                "isleaf": false
+            },
+                {
+                    "id": "301",
+                    "value": "外套",
+                    "children": [{
+                        "id": "302",
+                        "value": "针织外套",
+                        "children": [],
+                        "parent": "301",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "303",
+                            "value": "毛衣外套",
+                            "children": [],
+                            "parent": "301",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "304",
+                            "value": "皮草",
+                            "children": [{
+                                "id": "305",
+                                "value": "真皮草",
+                                "children": [],
+                                "parent": "304",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "306",
+                                    "value": "仿皮草",
+                                    "children": [],
+                                    "parent": "304",
+                                    "isleaf": true
+                                }],
+                            "parent": "301",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "307",
+                            "value": "皮衣",
+                            "children": [{
+                                "id": "308",
+                                "value": "真皮皮衣",
+                                "children": [],
+                                "parent": "307",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "309",
+                                    "value": "仿皮皮衣",
+                                    "children": [],
+                                    "parent": "307",
+                                    "isleaf": true
+                                }],
+                            "parent": "301",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "310",
+                            "value": "风衣",
+                            "children": [],
+                            "parent": "301",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "311",
+                            "value": "大衣",
+                            "children": [],
+                            "parent": "301",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "312",
+                            "value": "羽绒服\/棉服",
+                            "children": [{
+                                "id": "313",
+                                "value": "羽绒背心",
+                                "children": [],
+                                "parent": "312",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "314",
+                                    "value": "羽绒夹克",
+                                    "children": [],
+                                    "parent": "312",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "315",
+                                    "value": "长羽绒服",
+                                    "children": [],
+                                    "parent": "312",
+                                    "isleaf": true
+                                }],
+                            "parent": "301",
+                            "isleaf": false
+                        }],
+                    "parent": "6",
+                    "isleaf": false
+                },
+                {
+                    "id": "316",
+                    "value": "裤子",
+                    "children": [{
+                        "id": "317",
+                        "value": "牛仔裤",
+                        "children": [{
+                            "id": "318",
+                            "value": "牛仔短裤",
+                            "children": [],
+                            "parent": "317",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "319",
+                                "value": "牛仔长裤",
+                                "children": [],
+                                "parent": "317",
+                                "isleaf": true
+                            }],
+                        "parent": "316",
+                        "isleaf": false
+                    },
+                        {
+                            "id": "320",
+                            "value": "休闲裤",
+                            "children": [],
+                            "parent": "316",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "321",
+                            "value": "打底裤",
+                            "children": [],
+                            "parent": "316",
+                            "isleaf": true
+                        }],
+                    "parent": "6",
+                    "isleaf": false
+                },
+                {
+                    "id": "322",
+                    "value": "裙子",
+                    "children": [],
+                    "parent": "6",
+                    "isleaf": true
+                },
+                {
+                    "id": "323",
+                    "value": "连身裙",
+                    "children": [{
+                        "id": "324",
+                        "value": "针织连身裙",
+                        "children": [],
+                        "parent": "323",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "325",
+                            "value": "梭织连身裙",
+                            "children": [],
+                            "parent": "323",
+                            "isleaf": true
+                        }],
+                    "parent": "6",
+                    "isleaf": false
+                },
+                {
+                    "id": "326",
+                    "value": "毛衣",
+                    "children": [{
+                        "id": "327",
+                        "value": "套头毛衣",
+                        "children": [],
+                        "parent": "326",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "328",
+                            "value": "毛衣开衫",
+                            "children": [],
+                            "parent": "326",
+                            "isleaf": true
+                        }],
+                    "parent": "6",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "2",
+            "value": "女士内衣\/男士内衣\/家居服",
+            "children": [{
+                "id": "132",
+                "value": "文胸",
+                "children": [{
+                    "id": "133",
+                    "value": "所有文胸",
+                    "children": [],
+                    "parent": "132",
+                    "isleaf": true
+                },
+                    {
+                        "id": "134",
+                        "value": "文胸套装",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "135",
+                        "value": "1\/2杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "136",
+                        "value": "3\/4杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "137",
+                        "value": "5\/8杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "138",
+                        "value": "全罩杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "139",
+                        "value": "大杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "140",
+                        "value": "小杯文胸",
+                        "children": [],
+                        "parent": "132",
+                        "isleaf": true
+                    }],
+                "parent": "2",
+                "isleaf": false
+            },
+                {
+                    "id": "141",
+                    "value": "内裤",
+                    "children": [{
+                        "id": "142",
+                        "value": "男士内裤",
+                        "children": [],
+                        "parent": "141",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "143",
+                            "value": "女士内裤",
+                            "children": [],
+                            "parent": "141",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "144",
+                            "value": "情侣内裤",
+                            "children": [],
+                            "parent": "141",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "145",
+                            "value": "平角裤",
+                            "children": [],
+                            "parent": "141",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "146",
+                            "value": "三角裤",
+                            "children": [],
+                            "parent": "141",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "147",
+                            "value": "丁字裤\/T裤",
+                            "children": [],
+                            "parent": "141",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "148",
+                    "value": "基础\/保暖内衣",
+                    "children": [{
+                        "id": "149",
+                        "value": "薄款女套装",
+                        "children": [],
+                        "parent": "148",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "150",
+                            "value": "薄款男套装",
+                            "children": [],
+                            "parent": "148",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "151",
+                            "value": "厚保暖套装",
+                            "children": [],
+                            "parent": "148",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "152",
+                            "value": "保暖裤",
+                            "children": [],
+                            "parent": "148",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "153",
+                            "value": "保暖上衣",
+                            "children": [],
+                            "parent": "148",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "154",
+                            "value": "男背心\/T恤",
+                            "children": [],
+                            "parent": "148",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "155",
+                    "value": "袜子\/打底裤",
+                    "children": [{
+                        "id": "156",
+                        "value": "美腿袜",
+                        "children": [],
+                        "parent": "155",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "157",
+                            "value": "连裤袜",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "158",
+                            "value": "九分裤",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "159",
+                            "value": "七\/五分裤",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "160",
+                            "value": "高筒袜",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "161",
+                            "value": "中筒袜",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "162",
+                            "value": "短筒袜",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "163",
+                            "value": "袜套",
+                            "children": [],
+                            "parent": "155",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "164",
+                    "value": "背心\/打底衫",
+                    "children": [{
+                        "id": "165",
+                        "value": "吊带",
+                        "children": [],
+                        "parent": "164",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "166",
+                            "value": "肚兜",
+                            "children": [],
+                            "parent": "164",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "167",
+                            "value": "男士背心",
+                            "children": [],
+                            "parent": "164",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "168",
+                            "value": "女士背心",
+                            "children": [],
+                            "parent": "164",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "169",
+                    "value": "美体塑身",
+                    "children": [{
+                        "id": "170",
+                        "value": "分体套装",
+                        "children": [],
+                        "parent": "169",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "171",
+                            "value": "塑身连体衣",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "172",
+                            "value": "塑身上衣",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "173",
+                            "value": "塑身衣",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "174",
+                            "value": "塑身裤",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "175",
+                            "value": "腰封",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "176",
+                            "value": "腰夹",
+                            "children": [],
+                            "parent": "169",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "177",
+                    "value": "睡袍\/睡衣\/浴袍\/睡裙",
+                    "children": [{
+                        "id": "178",
+                        "value": "女士睡衣",
+                        "children": [],
+                        "parent": "177",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "179",
+                            "value": "男士睡衣",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "180",
+                            "value": "情侣睡衣",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "181",
+                            "value": "睡衣套装",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "182",
+                            "value": "睡裙",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "183",
+                            "value": "睡袍\/浴袍",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "184",
+                            "value": "睡衣上装",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "185",
+                            "value": "睡裤",
+                            "children": [],
+                            "parent": "177",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                },
+                {
+                    "id": "186",
+                    "value": "内衣配件",
+                    "children": [{
+                        "id": "187",
+                        "value": "抹胸",
+                        "children": [],
+                        "parent": "186",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "188",
+                            "value": "肩带",
+                            "children": [],
+                            "parent": "186",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "189",
+                            "value": "胸贴\/乳贴",
+                            "children": [],
+                            "parent": "186",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "190",
+                            "value": "搭扣",
+                            "children": [],
+                            "parent": "186",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "191",
+                            "value": "吊袜带",
+                            "children": [],
+                            "parent": "186",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "192",
+                            "value": "插片",
+                            "children": [],
+                            "parent": "186",
+                            "isleaf": true
+                        }],
+                    "parent": "2",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "3",
+            "value": "服饰配件\/皮带\/帽子\/围巾",
+            "children": [{
+                "id": "193",
+                "value": "围巾\/丝巾\/披肩",
+                "children": [{
+                    "id": "194",
+                    "value": "棉麻围巾",
+                    "children": [],
+                    "parent": "193",
+                    "isleaf": true
+                },
+                    {
+                        "id": "195",
+                        "value": "毛线围巾",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "196",
+                        "value": "女士围巾",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "197",
+                        "value": "大披肩",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "198",
+                        "value": "豹纹围巾",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "199",
+                        "value": "真丝",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "200",
+                        "value": "防寒披肩",
+                        "children": [],
+                        "parent": "193",
+                        "isleaf": true
+                    }],
+                "parent": "3",
+                "isleaf": false
+            },
+                {
+                    "id": "201",
+                    "value": "围巾\/手套\/帽子套件",
+                    "children": [{
+                        "id": "202",
+                        "value": "手套",
+                        "children": [],
+                        "parent": "201",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "203",
+                            "value": "毛线帽",
+                            "children": [],
+                            "parent": "201",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "204",
+                            "value": "围脖",
+                            "children": [],
+                            "parent": "201",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "205",
+                            "value": "耳套",
+                            "children": [],
+                            "parent": "201",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "206",
+                            "value": "袜套",
+                            "children": [],
+                            "parent": "201",
+                            "isleaf": true
+                        }],
+                    "parent": "3",
+                    "isleaf": false
+                },
+                {
+                    "id": "207",
+                    "value": "帽子",
+                    "children": [{
+                        "id": "208",
+                        "value": "韩版帽子",
+                        "children": [],
+                        "parent": "207",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "209",
+                            "value": "秋冬帽子",
+                            "children": [],
+                            "parent": "207",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "210",
+                            "value": "鸭舌帽",
+                            "children": [],
+                            "parent": "207",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "211",
+                            "value": "毛线帽",
+                            "children": [],
+                            "parent": "207",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "212",
+                            "value": "贝雷帽",
+                            "children": [],
+                            "parent": "207",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "213",
+                            "value": "绒线帽",
+                            "children": [],
+                            "parent": "207",
+                            "isleaf": true
+                        }],
+                    "parent": "3",
+                    "isleaf": false
+                },
+                {
+                    "id": "214",
+                    "value": "腰带\/皮带\/腰链",
+                    "children": [{
+                        "id": "215",
+                        "value": "男士皮带",
+                        "children": [],
+                        "parent": "214",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "216",
+                            "value": "女士腰带",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "217",
+                            "value": "真皮皮带",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "218",
+                            "value": "正品皮带",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "219",
+                            "value": "女士腰封",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "220",
+                            "value": "宽腰带",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "221",
+                            "value": "腰链",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "222",
+                            "value": "吊裤带",
+                            "children": [],
+                            "parent": "214",
+                            "isleaf": true
+                        }],
+                    "parent": "3",
+                    "isleaf": false
+                },
+                {
+                    "id": "223",
+                    "value": "其他配件",
+                    "children": [{
+                        "id": "224",
+                        "value": "领带\/领结",
+                        "children": [],
+                        "parent": "223",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "225",
+                            "value": "袖扣",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "226",
+                            "value": "领带夹",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "227",
+                            "value": "头巾\/背带\/手帕",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "228",
+                            "value": "鞋包\/皮带配件",
+                            "children": [{
+                                "id": "229",
+                                "value": "鞋带",
+                                "children": [],
+                                "parent": "228",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "230",
+                                    "value": "增高垫",
+                                    "children": [],
+                                    "parent": "228",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "231",
+                                    "value": "鞋垫",
+                                    "children": [],
+                                    "parent": "228",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "232",
+                                    "value": "皮带扣",
+                                    "children": [],
+                                    "parent": "228",
+                                    "isleaf": true
+                                }],
+                            "parent": "223",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "233",
+                            "value": "婚纱礼服配件",
+                            "children": [{
+                                "id": "234",
+                                "value": "皇冠配饰",
+                                "children": [],
+                                "parent": "233",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "235",
+                                    "value": "婚纱手套",
+                                    "children": [],
+                                    "parent": "233",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "236",
+                                    "value": "新娘头饰",
+                                    "children": [],
+                                    "parent": "233",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "237",
+                                    "value": "头纱",
+                                    "children": [],
+                                    "parent": "233",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "238",
+                                    "value": "婚纱裙撑",
+                                    "children": [],
+                                    "parent": "233",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "239",
+                                    "value": "其他",
+                                    "children": [],
+                                    "parent": "233",
+                                    "isleaf": true
+                                }],
+                            "parent": "223",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "240",
+                            "value": "面料和辅料配件",
+                            "children": [{
+                                "id": "241",
+                                "value": "服装辅料配件",
+                                "children": [],
+                                "parent": "240",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "242",
+                                    "value": "毛线",
+                                    "children": [],
+                                    "parent": "240",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "243",
+                                    "value": "布面料",
+                                    "children": [],
+                                    "parent": "240",
+                                    "isleaf": true
+                                }],
+                            "parent": "223",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "244",
+                            "value": "制衣面料",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "245",
+                            "value": "运动护具",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "246",
+                            "value": "运动颈环\/手环\/指环",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "247",
+                            "value": "运动眼镜\/手表\/指环",
+                            "children": [],
+                            "parent": "223",
+                            "isleaf": true
+                        }],
+                    "parent": "3",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "12",
+            "value": "母婴用品",
+            "children": [{
+                "id": "564",
+                "value": "婴幼儿纸尿裤",
+                "children": [{
+                    "id": "565",
+                    "value": "纸尿裤",
+                    "children": [],
+                    "parent": "564",
+                    "isleaf": true
+                },
+                    {
+                        "id": "566",
+                        "value": "湿巾",
+                        "children": [],
+                        "parent": "564",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "567",
+                        "value": "尿垫巾",
+                        "children": [],
+                        "parent": "564",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "568",
+                        "value": "布尿裤",
+                        "children": [],
+                        "parent": "564",
+                        "isleaf": true
+                    }],
+                "parent": "12",
+                "isleaf": false
+            },
+                {
+                    "id": "569",
+                    "value": "清洁护理",
+                    "children": [{
+                        "id": "570",
+                        "value": "洗浴产品",
+                        "children": [],
+                        "parent": "569",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "571",
+                            "value": "护肤产品",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "572",
+                            "value": "防晒产品",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "573",
+                            "value": "驱蚊产品",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "574",
+                            "value": "头发护理",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "575",
+                            "value": "口腔清洁",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "576",
+                            "value": "指甲\/鼻子\/耳朵护理",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "577",
+                            "value": "如厕用品",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "578",
+                            "value": "用品清洁",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "579",
+                            "value": "衣物清洁",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "580",
+                            "value": "奶瓶清洁",
+                            "children": [],
+                            "parent": "569",
+                            "isleaf": true
+                        }],
+                    "parent": "12",
+                    "isleaf": false
+                },
+                {
+                    "id": "581",
+                    "value": "喂养用品",
+                    "children": [{
+                        "id": "582",
+                        "value": "奶瓶，奶嘴",
+                        "children": [],
+                        "parent": "581",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "583",
+                            "value": "保温袋\/包",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "584",
+                            "value": "哺乳乳垫",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "585",
+                            "value": "宝宝餐具\/杯\/壶",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "586",
+                            "value": "食物调理器",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "587",
+                            "value": "暖奶\/消毒锅",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "588",
+                            "value": "喂养罩衣",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "589",
+                            "value": "婴儿餐椅",
+                            "children": [],
+                            "parent": "581",
+                            "isleaf": true
+                        }],
+                    "parent": "12",
+                    "isleaf": false
+                },
+                {
+                    "id": "590",
+                    "value": "外出用品",
+                    "children": [{
+                        "id": "591",
+                        "value": "背婴带",
+                        "children": [],
+                        "parent": "590",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "592",
+                            "value": "妈咪包",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "593",
+                            "value": "汽车安全座椅",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "594",
+                            "value": "滑板车",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "595",
+                            "value": "婴儿推车",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "596",
+                            "value": "助步车",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "597",
+                            "value": "扭扭车",
+                            "children": [],
+                            "parent": "590",
+                            "isleaf": true
+                        }],
+                    "parent": "12",
+                    "isleaf": false
+                },
+                {
+                    "id": "598",
+                    "value": "寝具用品",
+                    "children": [{
+                        "id": "599",
+                        "value": "凉席\/蚊帐",
+                        "children": [],
+                        "parent": "598",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "600",
+                            "value": "床垫\/抱枕",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "601",
+                            "value": "床单\/被罩",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "602",
+                            "value": "枕头",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "603",
+                            "value": "睡袋\/抱被",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "604",
+                            "value": "被褥\/毛毯",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "605",
+                            "value": "床围",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "606",
+                            "value": "寝具礼盒",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "607",
+                            "value": "浴巾\/毛巾",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "608",
+                            "value": "婴儿床\/游戏床",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "609",
+                            "value": "婴儿摇椅",
+                            "children": [],
+                            "parent": "598",
+                            "isleaf": true
+                        }],
+                    "parent": "12",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "13",
+            "value": "母婴玩具",
+            "children": [{
+                "id": "610",
+                "value": "毛绒玩具",
+                "children": [{
+                    "id": "611",
+                    "value": "毛绒玩偶",
+                    "children": [],
+                    "parent": "610",
+                    "isleaf": true
+                },
+                    {
+                        "id": "612",
+                        "value": "动漫角色",
+                        "children": [],
+                        "parent": "610",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "613",
+                        "value": "毛绒玩偶",
+                        "children": [],
+                        "parent": "610",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "614",
+                        "value": "靠垫\/抱枕\/毯子",
+                        "children": [],
+                        "parent": "610",
+                        "isleaf": true
+                    }],
+                "parent": "13",
+                "isleaf": false
+            },
+                {
+                    "id": "615",
+                    "value": "早教益智",
+                    "children": [{
+                        "id": "616",
+                        "value": "健身玩具\/爬行垫",
+                        "children": [],
+                        "parent": "615",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "617",
+                            "value": "摇铃\/床铃",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "618",
+                            "value": "布书\/布玩",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "619",
+                            "value": "游戏垫\/学步玩具",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "620",
+                            "value": "秋千\/摇椅",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "621",
+                            "value": "音乐玩具",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "622",
+                            "value": "早教机\/故事机\/MP3\/点读笔",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "623",
+                            "value": "彩泥",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "624",
+                            "value": "绘画",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "625",
+                            "value": "桌面游戏",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "626",
+                            "value": "书包",
+                            "children": [],
+                            "parent": "615",
+                            "isleaf": true
+                        }],
+                    "parent": "13",
+                    "isleaf": false
+                },
+                {
+                    "id": "627",
+                    "value": "遥控\/电动玩具",
+                    "children": [{
+                        "id": "628",
+                        "value": "遥控车",
+                        "children": [],
+                        "parent": "627",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "629",
+                            "value": "遥控飞机",
+                            "children": [],
+                            "parent": "627",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "630",
+                            "value": "遥控船",
+                            "children": [],
+                            "parent": "627",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "631",
+                            "value": "轨道车",
+                            "children": [],
+                            "parent": "627",
+                            "isleaf": true
+                        }],
+                    "parent": "13",
+                    "isleaf": false
+                },
+                {
+                    "id": "632",
+                    "value": "积木\/拼插玩具",
+                    "children": [{
+                        "id": "633",
+                        "value": "拼插积木",
+                        "children": [],
+                        "parent": "632",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "634",
+                            "value": "堆叠积木",
+                            "children": [],
+                            "parent": "632",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "635",
+                            "value": "拼图",
+                            "children": [],
+                            "parent": "632",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "636",
+                            "value": "磁力棒",
+                            "children": [],
+                            "parent": "632",
+                            "isleaf": true
+                        }],
+                    "parent": "13",
+                    "isleaf": false
+                },
+                {
+                    "id": "637",
+                    "value": "运动户外",
+                    "children": [{
+                        "id": "638",
+                        "value": "体育玩具",
+                        "children": [],
+                        "parent": "637",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "639",
+                            "value": "球类",
+                            "children": [],
+                            "parent": "637",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "640",
+                            "value": "技能玩具及拍子",
+                            "children": [],
+                            "parent": "637",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "641",
+                            "value": "户外玩具",
+                            "children": [],
+                            "parent": "637",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "642",
+                            "value": "游泳及沙滩玩具",
+                            "children": [],
+                            "parent": "637",
+                            "isleaf": true
+                        }],
+                    "parent": "13",
+                    "isleaf": false
+                },
+                {
+                    "id": "643",
+                    "value": "卡通动漫角色",
+                    "children": [{
+                        "id": "644",
+                        "value": "海绵宝宝",
+                        "children": [],
+                        "parent": "643",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "645",
+                            "value": "花园宝宝",
+                            "children": [],
+                            "parent": "643",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "646",
+                            "value": "喜羊羊及灰太狼",
+                            "children": [],
+                            "parent": "643",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "647",
+                            "value": "多啦A梦",
+                            "children": [],
+                            "parent": "643",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "648",
+                            "value": "多拉",
+                            "children": [],
+                            "parent": "643",
+                            "isleaf": true
+                        }],
+                    "parent": "13",
+                    "isleaf": false
+                },
+                {
+                    "id": "712",
+                    "value": "玩具\/模型\/动漫\/早教\/益智",
+                    "children": [{
+                        "id": "713",
+                        "value": "宝宝纪念品\/个性产品",
+                        "children": [],
+                        "parent": "712",
+                        "isleaf": true
+                    }],
+                    "parent": "13",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "14",
+            "value": "童装\/童鞋\/亲子装",
+            "children": [{
+                "id": "649",
+                "value": "婴儿礼盒",
+                "children": [],
+                "parent": "14",
+                "isleaf": true
+            },
+                {
+                    "id": "650",
+                    "value": "童连身衣\/爬服\/哈衣",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "651",
+                    "value": "童装裙装",
+                    "children": [{
+                        "id": "652",
+                        "value": "连衣裙",
+                        "children": [],
+                        "parent": "651",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "653",
+                            "value": "半身裙\/打底裙",
+                            "children": [],
+                            "parent": "651",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "654",
+                    "value": "童装裤子",
+                    "children": [{
+                        "id": "655",
+                        "value": "长裤",
+                        "children": [],
+                        "parent": "654",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "656",
+                            "value": "中裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "657",
+                            "value": "短裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "658",
+                            "value": "牛仔裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "659",
+                            "value": "运动裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "660",
+                            "value": "沙滩裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "661",
+                            "value": "背带裤",
+                            "children": [],
+                            "parent": "654",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "662",
+                    "value": "童内衣裤\/睡衣",
+                    "children": [{
+                        "id": "663",
+                        "value": "内衣上衣",
+                        "children": [],
+                        "parent": "662",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "664",
+                            "value": "内衣套装",
+                            "children": [],
+                            "parent": "662",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "665",
+                            "value": "内裤",
+                            "children": [],
+                            "parent": "662",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "666",
+                            "value": "睡衣\/浴衣",
+                            "children": [],
+                            "parent": "662",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "667",
+                    "value": "童T恤\/吊带衫\/背心",
+                    "children": [{
+                        "id": "668",
+                        "value": "T恤",
+                        "children": [],
+                        "parent": "667",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "669",
+                            "value": "吊带衫",
+                            "children": [],
+                            "parent": "667",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "670",
+                            "value": "背心",
+                            "children": [],
+                            "parent": "667",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "671",
+                    "value": "童衬衫",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "672",
+                    "value": "童卫衣\/绒衫",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "673",
+                    "value": "童毛衣\/针织衫",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "674",
+                    "value": "童外套\/夹克\/大衣",
+                    "children": [{
+                        "id": "675",
+                        "value": "普通外套",
+                        "children": [],
+                        "parent": "674",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "676",
+                            "value": "西服\/小西装",
+                            "children": [],
+                            "parent": "674",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "677",
+                            "value": "夹克\/皮衣",
+                            "children": [],
+                            "parent": "674",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "678",
+                            "value": "大衣",
+                            "children": [],
+                            "parent": "674",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "679",
+                            "value": "风衣",
+                            "children": [],
+                            "parent": "674",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "680",
+                    "value": "童棉袄\/棉服\/棉背心",
+                    "children": [{
+                        "id": "681",
+                        "value": "棉袄",
+                        "children": [],
+                        "parent": "680",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "682",
+                            "value": "棉服",
+                            "children": [],
+                            "parent": "680",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "683",
+                            "value": "棉背心",
+                            "children": [],
+                            "parent": "680",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "684",
+                    "value": "童羽绒服\/羽绒内胆\/羽绒背心",
+                    "children": [{
+                        "id": "685",
+                        "value": "羽绒服",
+                        "children": [],
+                        "parent": "684",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "686",
+                            "value": "羽绒内胆",
+                            "children": [],
+                            "parent": "684",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "687",
+                            "value": "羽绒背心",
+                            "children": [],
+                            "parent": "684",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "688",
+                    "value": "童套装",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "689",
+                    "value": "亲子装",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "690",
+                    "value": "童鞋\/婴儿鞋",
+                    "children": [{
+                        "id": "691",
+                        "value": "运动鞋",
+                        "children": [],
+                        "parent": "690",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "692",
+                            "value": "皮鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "693",
+                            "value": "帆布鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "694",
+                            "value": "防滑学步鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "695",
+                            "value": "凉鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "696",
+                            "value": "沙滩鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "697",
+                            "value": "靴子\/雪地靴",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "698",
+                            "value": "棉鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "699",
+                            "value": "家居拖鞋\/保暖拖鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "700",
+                            "value": "凉拖鞋",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "701",
+                            "value": "雨靴",
+                            "children": [],
+                            "parent": "690",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                },
+                {
+                    "id": "702",
+                    "value": "童泳衣\/泳裤",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "703",
+                    "value": "童袜",
+                    "children": [],
+                    "parent": "14",
+                    "isleaf": true
+                },
+                {
+                    "id": "704",
+                    "value": "童帽\/围巾\/手套\/口罩\/耳套\/脚套",
+                    "children": [{
+                        "id": "705",
+                        "value": "帽子",
+                        "children": [],
+                        "parent": "704",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "706",
+                            "value": "围巾",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "707",
+                            "value": "手套",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "708",
+                            "value": "多件套",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "709",
+                            "value": "护手脚套",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "710",
+                            "value": "口罩",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "711",
+                            "value": "耳套\/耳暖",
+                            "children": [],
+                            "parent": "704",
+                            "isleaf": true
+                        }],
+                    "parent": "14",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "5",
+            "value": "鞋",
+            "children": [{
+                "id": "269",
+                "value": "女鞋",
+                "children": [{
+                    "id": "270",
+                    "value": "凉鞋",
+                    "children": [],
+                    "parent": "269",
+                    "isleaf": true
+                },
+                    {
+                        "id": "271",
+                        "value": "帆布鞋",
+                        "children": [],
+                        "parent": "269",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "272",
+                        "value": "靴子",
+                        "children": [],
+                        "parent": "269",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "273",
+                        "value": "低帮鞋",
+                        "children": [],
+                        "parent": "269",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "274",
+                        "value": "高帮鞋",
+                        "children": [],
+                        "parent": "269",
+                        "isleaf": true
+                    }],
+                "parent": "5",
+                "isleaf": false
+            },
+                {
+                    "id": "275",
+                    "value": "流行男鞋",
+                    "children": [{
+                        "id": "276",
+                        "value": "凉鞋",
+                        "children": [],
+                        "parent": "275",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "277",
+                            "value": "帆布鞋",
+                            "children": [],
+                            "parent": "275",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "278",
+                            "value": "拖鞋",
+                            "children": [],
+                            "parent": "275",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "279",
+                            "value": "靴子",
+                            "children": [],
+                            "parent": "275",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "280",
+                            "value": "低帮鞋",
+                            "children": [],
+                            "parent": "275",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "281",
+                            "value": "高帮鞋",
+                            "children": [],
+                            "parent": "275",
+                            "isleaf": true
+                        }],
+                    "parent": "5",
+                    "isleaf": false
+                },
+                {
+                    "id": "282",
+                    "value": "运动鞋",
+                    "children": [{
+                        "id": "283",
+                        "value": "羽乒鞋",
+                        "children": [],
+                        "parent": "282",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "284",
+                            "value": "帆布鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "285",
+                            "value": "板鞋\/休闲鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "286",
+                            "value": "登山鞋\/徒步鞋\/越野鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "287",
+                            "value": "篮球鞋\/足球鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "288",
+                            "value": "综合训练鞋\/室内健身鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "289",
+                            "value": "跑步鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "290",
+                            "value": "其它运动鞋",
+                            "children": [],
+                            "parent": "282",
+                            "isleaf": true
+                        }],
+                    "parent": "5",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "4",
+            "value": "箱包皮具",
+            "children": [{
+                "id": "248",
+                "value": "潮流女包",
+                "children": [{
+                    "id": "249",
+                    "value": "单肩包",
+                    "children": [],
+                    "parent": "248",
+                    "isleaf": true
+                },
+                    {
+                        "id": "250",
+                        "value": "手提包",
+                        "children": [],
+                        "parent": "248",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "251",
+                        "value": "斜跨包",
+                        "children": [],
+                        "parent": "248",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "252",
+                        "value": "背包\/双肩包",
+                        "children": [],
+                        "parent": "248",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "253",
+                        "value": "手拿包",
+                        "children": [],
+                        "parent": "248",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "254",
+                        "value": "钱包",
+                        "children": [],
+                        "parent": "248",
+                        "isleaf": true
+                    }],
+                "parent": "4",
+                "isleaf": false
+            },
+                {
+                    "id": "255",
+                    "value": "精品男包",
+                    "children": [{
+                        "id": "256",
+                        "value": "单肩包",
+                        "children": [],
+                        "parent": "255",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "257",
+                            "value": "手提包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "258",
+                            "value": "背包\/双肩包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "259",
+                            "value": "腰包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "260",
+                            "value": "胸包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "261",
+                            "value": "手包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "262",
+                            "value": "钱包",
+                            "children": [],
+                            "parent": "255",
+                            "isleaf": true
+                        }],
+                    "parent": "4",
+                    "isleaf": false
+                },
+                {
+                    "id": "263",
+                    "value": "功能箱包",
+                    "children": [{
+                        "id": "264",
+                        "value": "拉杆箱",
+                        "children": [],
+                        "parent": "263",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "265",
+                            "value": "旅行包",
+                            "children": [],
+                            "parent": "263",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "266",
+                            "value": "电脑包",
+                            "children": [],
+                            "parent": "263",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "267",
+                            "value": "相机包",
+                            "children": [],
+                            "parent": "263",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "268",
+                            "value": "卡包卡套",
+                            "children": [],
+                            "parent": "263",
+                            "isleaf": true
+                        }],
+                    "parent": "4",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "7",
+            "value": "厨房用品",
+            "children": [{
+                "id": "329",
+                "value": "烹饪用具",
+                "children": [{
+                    "id": "330",
+                    "value": "炒锅",
+                    "children": [],
+                    "parent": "329",
+                    "isleaf": true
+                },
+                    {
+                        "id": "331",
+                        "value": "蒸锅",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "332",
+                        "value": "奶锅",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "333",
+                        "value": "煎锅",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "334",
+                        "value": "压力锅",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "335",
+                        "value": "水壶",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "336",
+                        "value": "烹饪配件",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "337",
+                        "value": "锅具套装",
+                        "children": [],
+                        "parent": "329",
+                        "isleaf": true
+                    }],
+                "parent": "7",
+                "isleaf": false
+            },
+                {
+                    "id": "338",
+                    "value": "餐具",
+                    "children": [{
+                        "id": "339",
+                        "value": "餐具套装",
+                        "children": [],
+                        "parent": "338",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "340",
+                            "value": "茶具套装",
+                            "children": [],
+                            "parent": "338",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "341",
+                            "value": "咖啡具套装",
+                            "children": [],
+                            "parent": "338",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "342",
+                            "value": "煲类",
+                            "children": [],
+                            "parent": "338",
+                            "isleaf": true
+                        }],
+                    "parent": "7",
+                    "isleaf": false
+                },
+                {
+                    "id": "343",
+                    "value": "厨用小工具\/厨房储物",
+                    "children": [{
+                        "id": "344",
+                        "value": "竹木制品",
+                        "children": [],
+                        "parent": "343",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "345",
+                            "value": "不锈钢制品",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "346",
+                            "value": "塑料制品",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "347",
+                            "value": "刀具",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "348",
+                            "value": "厨具套件",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "349",
+                            "value": "其他杂件",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "350",
+                            "value": "果盘与烟缸",
+                            "children": [],
+                            "parent": "343",
+                            "isleaf": true
+                        }],
+                    "parent": "7",
+                    "isleaf": false
+                },
+                {
+                    "id": "351",
+                    "value": "杯具\/水杯\/水壶",
+                    "children": [{
+                        "id": "352",
+                        "value": "陶瓷杯",
+                        "children": [],
+                        "parent": "351",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "353",
+                            "value": "玻璃杯",
+                            "children": [],
+                            "parent": "351",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "354",
+                            "value": "水具套装",
+                            "children": [],
+                            "parent": "351",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "355",
+                            "value": "夏日水具",
+                            "children": [],
+                            "parent": "351",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "356",
+                            "value": "保温杯",
+                            "children": [],
+                            "parent": "351",
+                            "isleaf": true
+                        }],
+                    "parent": "7",
+                    "isleaf": false
+                },
+                {
+                    "id": "357",
+                    "value": "食物盒",
+                    "children": [{
+                        "id": "358",
+                        "value": "塑料保鲜盒",
+                        "children": [],
+                        "parent": "357",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "359",
+                            "value": "密封罐",
+                            "children": [],
+                            "parent": "357",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "360",
+                            "value": "微波炉炊具",
+                            "children": [],
+                            "parent": "357",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "361",
+                            "value": "不锈钢饭盒",
+                            "children": [],
+                            "parent": "357",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "362",
+                            "value": "保温饭瓶",
+                            "children": [],
+                            "parent": "357",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "363",
+                            "value": "食品盒杂品",
+                            "children": [],
+                            "parent": "357",
+                            "isleaf": true
+                        }],
+                    "parent": "7",
+                    "isleaf": false
+                },
+                {
+                    "id": "364",
+                    "value": "厨房布艺",
+                    "children": [{
+                        "id": "365",
+                        "value": "布艺杂件",
+                        "children": [],
+                        "parent": "364",
+                        "isleaf": true
+                    }],
+                    "parent": "7",
+                    "isleaf": false
+                },
+                {
+                    "id": "366",
+                    "value": "烧烤烘焙用具",
+                    "children": [{
+                        "id": "367",
+                        "value": "烧烤炉",
+                        "children": [],
+                        "parent": "366",
+                        "isleaf": true
+                    }],
+                    "parent": "7",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "8",
+            "value": "家具杂货",
+            "children": [{
+                "id": "368",
+                "value": "柜类",
+                "children": [{
+                    "id": "369",
+                    "value": "收纳柜",
+                    "children": [],
+                    "parent": "368",
+                    "isleaf": true
+                },
+                    {
+                        "id": "370",
+                        "value": "百变衣柜",
+                        "children": [],
+                        "parent": "368",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "371",
+                        "value": "鞋柜",
+                        "children": [],
+                        "parent": "368",
+                        "isleaf": true
+                    }],
+                "parent": "8",
+                "isleaf": false
+            },
+                {
+                    "id": "372",
+                    "value": "户外\/庭院家具",
+                    "children": [{
+                        "id": "373",
+                        "value": "折叠床",
+                        "children": [],
+                        "parent": "372",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "374",
+                            "value": "帐篷",
+                            "children": [],
+                            "parent": "372",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "375",
+                    "value": "架类",
+                    "children": [{
+                        "id": "376",
+                        "value": "衣帽架",
+                        "children": [],
+                        "parent": "375",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "377",
+                            "value": "组合衣架",
+                            "children": [],
+                            "parent": "375",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "378",
+                            "value": "晾衣架\/晾衣杆",
+                            "children": [],
+                            "parent": "375",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "379",
+                    "value": "桌类",
+                    "children": [{
+                        "id": "380",
+                        "value": "电脑桌",
+                        "children": [],
+                        "parent": "379",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "381",
+                            "value": "折叠桌",
+                            "children": [],
+                            "parent": "379",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "382",
+                    "value": "椅\/凳子类",
+                    "children": [{
+                        "id": "383",
+                        "value": "餐椅",
+                        "children": [],
+                        "parent": "382",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "384",
+                            "value": "沙发椅",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "385",
+                            "value": "转椅",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "386",
+                            "value": "折叠椅",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "387",
+                            "value": "梳妆凳",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "388",
+                            "value": "换鞋凳",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "389",
+                            "value": "折叠凳",
+                            "children": [],
+                            "parent": "382",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "390",
+                    "value": "沙发类",
+                    "children": [{
+                        "id": "391",
+                        "value": "懒人沙发",
+                        "children": [],
+                        "parent": "390",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "392",
+                            "value": "简易沙发",
+                            "children": [],
+                            "parent": "390",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "393",
+                    "value": "钟",
+                    "children": [{
+                        "id": "394",
+                        "value": "挂钟",
+                        "children": [],
+                        "parent": "393",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "395",
+                            "value": "闹钟\/投影钟",
+                            "children": [],
+                            "parent": "393",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "396",
+                    "value": "伞\/雨具\/防雨用品",
+                    "children": [{
+                        "id": "397",
+                        "value": "防紫外线太阳伞",
+                        "children": [],
+                        "parent": "396",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "398",
+                            "value": "雨伞",
+                            "children": [],
+                            "parent": "396",
+                            "isleaf": true
+                        }],
+                    "parent": "8",
+                    "isleaf": false
+                },
+                {
+                    "id": "399",
+                    "value": "人体秤\/体重秤",
+                    "children": [{
+                        "id": "400",
+                        "value": "体重秤",
+                        "children": [],
+                        "parent": "399",
+                        "isleaf": true
+                    }],
+                    "parent": "8",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "9",
+            "value": "家装建材",
+            "children": [{
+                "id": "401",
+                "value": "淋浴花洒",
+                "children": [{
+                    "id": "402",
+                    "value": "手持花洒",
+                    "children": [],
+                    "parent": "401",
+                    "isleaf": true
+                },
+                    {
+                        "id": "403",
+                        "value": "淋浴套装",
+                        "children": [],
+                        "parent": "401",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "404",
+                        "value": "浴缸龙头",
+                        "children": [],
+                        "parent": "401",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "405",
+                        "value": "淋浴配件",
+                        "children": [],
+                        "parent": "401",
+                        "isleaf": true
+                    }],
+                "parent": "9",
+                "isleaf": false
+            },
+                {
+                    "id": "406",
+                    "value": "厨卫龙头",
+                    "children": [{
+                        "id": "407",
+                        "value": "面盆龙头",
+                        "children": [],
+                        "parent": "406",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "408",
+                            "value": "水槽龙头",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "409",
+                            "value": "洗衣机龙头",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "410",
+                            "value": "厨卫喷枪",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "411",
+                            "value": "角阀",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "412",
+                            "value": "地漏",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "413",
+                            "value": "下水器",
+                            "children": [],
+                            "parent": "406",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                },
+                {
+                    "id": "414",
+                    "value": "五金挂件",
+                    "children": [{
+                        "id": "415",
+                        "value": "毛巾架\/杆\/环",
+                        "children": [],
+                        "parent": "414",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "416",
+                            "value": "置物篮\/架",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "417",
+                            "value": "挂钩\/排钩",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "418",
+                            "value": "厕纸架\/盒",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "419",
+                            "value": "皂栏\/皂碟",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "420",
+                            "value": "五金挂件套件",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "421",
+                            "value": "化妆镜",
+                            "children": [],
+                            "parent": "414",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                },
+                {
+                    "id": "422",
+                    "value": "锁具五金",
+                    "children": [{
+                        "id": "423",
+                        "value": "门锁",
+                        "children": [],
+                        "parent": "422",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "424",
+                            "value": "门吸",
+                            "children": [],
+                            "parent": "422",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "425",
+                            "value": "插销",
+                            "children": [],
+                            "parent": "422",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "426",
+                            "value": "合页",
+                            "children": [],
+                            "parent": "422",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "427",
+                            "value": "铰链",
+                            "children": [],
+                            "parent": "422",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "428",
+                            "value": "拉手",
+                            "children": [],
+                            "parent": "422",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                },
+                {
+                    "id": "429",
+                    "value": "照明光源",
+                    "children": [{
+                        "id": "430",
+                        "value": "灯带",
+                        "children": [],
+                        "parent": "429",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "431",
+                            "value": "彩色光源",
+                            "children": [],
+                            "parent": "429",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "432",
+                            "value": "节能光源",
+                            "children": [],
+                            "parent": "429",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "433",
+                            "value": "LED光源",
+                            "children": [],
+                            "parent": "429",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                },
+                {
+                    "id": "434",
+                    "value": "台灯",
+                    "children": [{
+                        "id": "435",
+                        "value": "学习\/护眼灯",
+                        "children": [],
+                        "parent": "434",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "436",
+                            "value": "工作台灯",
+                            "children": [],
+                            "parent": "434",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "437",
+                            "value": "工艺灯饰",
+                            "children": [],
+                            "parent": "434",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                },
+                {
+                    "id": "438",
+                    "value": "工艺灯",
+                    "children": [{
+                        "id": "439",
+                        "value": "吸顶灯",
+                        "children": [],
+                        "parent": "438",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "440",
+                            "value": "壁灯",
+                            "children": [],
+                            "parent": "438",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "441",
+                            "value": "落地灯",
+                            "children": [],
+                            "parent": "438",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "442",
+                            "value": "创意灯饰",
+                            "children": [],
+                            "parent": "438",
+                            "isleaf": true
+                        }],
+                    "parent": "9",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "10",
+            "value": "收纳清洁",
+            "children": [{
+                "id": "443",
+                "value": "衣被收纳",
+                "children": [{
+                    "id": "444",
+                    "value": "压缩套装",
+                    "children": [],
+                    "parent": "443",
+                    "isleaf": true
+                },
+                    {
+                        "id": "445",
+                        "value": "内衣收纳盒",
+                        "children": [],
+                        "parent": "443",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "446",
+                        "value": "棉被收纳袋",
+                        "children": [],
+                        "parent": "443",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "447",
+                        "value": "衣物防尘袋",
+                        "children": [],
+                        "parent": "443",
+                        "isleaf": true
+                    },
+                    {
+                        "id": "448",
+                        "value": "脏衣篮\/洗衣篮",
+                        "children": [],
+                        "parent": "443",
+                        "isleaf": true
+                    }],
+                "parent": "10",
+                "isleaf": false
+            },
+                {
+                    "id": "449",
+                    "value": "杂物收纳",
+                    "children": [{
+                        "id": "450",
+                        "value": "首饰收纳盒",
+                        "children": [],
+                        "parent": "449",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "451",
+                            "value": "化妆品收纳盒",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "452",
+                            "value": "手机架\/遥控架",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "453",
+                            "value": "车用收纳袋",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "454",
+                            "value": "鞋收纳盒",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "455",
+                            "value": "玩具收纳箱",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "456",
+                            "value": "包包挂袋",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "457",
+                            "value": "医药箱",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "458",
+                            "value": "CD收纳",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "459",
+                            "value": "浴室角架\/收纳",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "460",
+                            "value": "收纳套装",
+                            "children": [],
+                            "parent": "449",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "461",
+                    "value": "购物收纳",
+                    "children": [{
+                        "id": "462",
+                        "value": "购物车",
+                        "children": [],
+                        "parent": "461",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "463",
+                            "value": "购物篮",
+                            "children": [],
+                            "parent": "461",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "464",
+                            "value": "购物袋",
+                            "children": [],
+                            "parent": "461",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "465",
+                            "value": "饭盒袋\/保温包",
+                            "children": [],
+                            "parent": "461",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "466",
+                    "value": "衣物洗晒整理",
+                    "children": [{
+                        "id": "467",
+                        "value": "晒衣篮",
+                        "children": [],
+                        "parent": "466",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "468",
+                            "value": "熨衣板",
+                            "children": [],
+                            "parent": "466",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "469",
+                            "value": "晾衣架",
+                            "children": [],
+                            "parent": "466",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "470",
+                            "value": "毛球修剪器",
+                            "children": [],
+                            "parent": "466",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "471",
+                            "value": "衣物洗涤套装",
+                            "children": [],
+                            "parent": "466",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "472",
+                    "value": "地面清洁",
+                    "children": [{
+                        "id": "473",
+                        "value": "拖把",
+                        "children": [],
+                        "parent": "472",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "474",
+                            "value": "地板清洁日化",
+                            "children": [],
+                            "parent": "472",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "475",
+                            "value": "垃圾袋",
+                            "children": [],
+                            "parent": "472",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "476",
+                            "value": "扫地机",
+                            "children": [],
+                            "parent": "472",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "477",
+                            "value": "地面清洁套装",
+                            "children": [],
+                            "parent": "472",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "478",
+                    "value": "家具清洁",
+                    "children": [{
+                        "id": "479",
+                        "value": "家具皮具清洁套装",
+                        "children": [],
+                        "parent": "478",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "480",
+                            "value": "门窗清洁用品",
+                            "children": [],
+                            "parent": "478",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "481",
+                            "value": "马桶清洁套装",
+                            "children": [],
+                            "parent": "478",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "482",
+                            "value": "厨房清洁套装",
+                            "children": [],
+                            "parent": "478",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "483",
+                            "value": "卫浴清洁套装",
+                            "children": [],
+                            "parent": "478",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "484",
+                    "value": "空气清新",
+                    "children": [{
+                        "id": "485",
+                        "value": "香薰精油",
+                        "children": [],
+                        "parent": "484",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "486",
+                            "value": "甲醛清除剂",
+                            "children": [],
+                            "parent": "484",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "487",
+                            "value": "除味炭包",
+                            "children": [],
+                            "parent": "484",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "488",
+                    "value": "个人护理",
+                    "children": [{
+                        "id": "489",
+                        "value": "洗护套装",
+                        "children": [],
+                        "parent": "488",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "490",
+                            "value": "化妆镜",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "491",
+                            "value": "梳子",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "492",
+                            "value": "化妆刷",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "493",
+                            "value": "美甲套装",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "494",
+                            "value": "化妆包\/洗漱包",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "495",
+                            "value": "暖贴",
+                            "children": [],
+                            "parent": "488",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                },
+                {
+                    "id": "496",
+                    "value": "驱蚊杀虫",
+                    "children": [{
+                        "id": "497",
+                        "value": "驱蚊器",
+                        "children": [],
+                        "parent": "496",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "498",
+                            "value": "驱蚊片",
+                            "children": [],
+                            "parent": "496",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "499",
+                            "value": "电蚊拍",
+                            "children": [],
+                            "parent": "496",
+                            "isleaf": true
+                        }],
+                    "parent": "10",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        },
+        {
+            "id": "11",
+            "value": "大家居",
+            "children": [{
+                "id": "500",
+                "value": "床上用品",
+                "children": [{
+                    "id": "501",
+                    "value": "床上套件",
+                    "children": [{
+                        "id": "502",
+                        "value": "三件套",
+                        "children": [],
+                        "parent": "501",
+                        "isleaf": true
+                    },
+                        {
+                            "id": "503",
+                            "value": "四件套",
+                            "children": [],
+                            "parent": "501",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "504",
+                            "value": "儿童套件",
+                            "children": [],
+                            "parent": "501",
+                            "isleaf": true
+                        },
+                        {
+                            "id": "505",
+                            "value": "多套套件",
+                            "children": [],
+                            "parent": "501",
+                            "isleaf": true
+                        }],
+                    "parent": "500",
+                    "isleaf": false
+                },
+                    {
+                        "id": "506",
+                        "value": "床品单件",
+                        "children": [{
+                            "id": "507",
+                            "value": "被套",
+                            "children": [],
+                            "parent": "506",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "508",
+                                "value": "床单",
+                                "children": [],
+                                "parent": "506",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "509",
+                                "value": "枕套",
+                                "children": [],
+                                "parent": "506",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "510",
+                                "value": "床笠",
+                                "children": [],
+                                "parent": "506",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "511",
+                                "value": "枕巾",
+                                "children": [],
+                                "parent": "506",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "512",
+                        "value": "枕头\/保健枕",
+                        "children": [{
+                            "id": "513",
+                            "value": "单人枕",
+                            "children": [],
+                            "parent": "512",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "514",
+                                "value": "双人枕",
+                                "children": [],
+                                "parent": "512",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "515",
+                                "value": "学生枕",
+                                "children": [],
+                                "parent": "512",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "516",
+                                "value": "其他枕",
+                                "children": [],
+                                "parent": "512",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "517",
+                        "value": "被子",
+                        "children": [{
+                            "id": "518",
+                            "value": "春秋被",
+                            "children": [],
+                            "parent": "517",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "519",
+                                "value": "冬被",
+                                "children": [],
+                                "parent": "517",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "520",
+                                "value": "夏凉被\/空调被",
+                                "children": [],
+                                "parent": "517",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "521",
+                                "value": "儿童被",
+                                "children": [],
+                                "parent": "517",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "522",
+                        "value": "毯子毛巾被",
+                        "children": [{
+                            "id": "523",
+                            "value": "双人毯",
+                            "children": [],
+                            "parent": "522",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "524",
+                                "value": "单人毯",
+                                "children": [],
+                                "parent": "522",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "525",
+                                "value": "其他",
+                                "children": [],
+                                "parent": "522",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "526",
+                        "value": "床垫\/床褥\/床护垫",
+                        "children": [{
+                            "id": "527",
+                            "value": "床垫",
+                            "children": [],
+                            "parent": "526",
+                            "isleaf": true
+                        }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "528",
+                        "value": "蚊帐",
+                        "children": [{
+                            "id": "529",
+                            "value": "学生蚊帐",
+                            "children": [],
+                            "parent": "528",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "530",
+                                "value": "单人蚊帐",
+                                "children": [],
+                                "parent": "528",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "531",
+                                "value": "双人蚊帐",
+                                "children": [],
+                                "parent": "528",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "532",
+                        "value": "凉席",
+                        "children": [{
+                            "id": "533",
+                            "value": "单人凉席",
+                            "children": [],
+                            "parent": "532",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "534",
+                                "value": "双人凉席",
+                                "children": [],
+                                "parent": "532",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "535",
+                                "value": "凉席套装",
+                                "children": [],
+                                "parent": "532",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "536",
+                                "value": "其他",
+                                "children": [],
+                                "parent": "532",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    },
+                    {
+                        "id": "537",
+                        "value": "电热毯",
+                        "children": [{
+                            "id": "538",
+                            "value": "单人电热毯",
+                            "children": [],
+                            "parent": "537",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "539",
+                                "value": "双人电热毯",
+                                "children": [],
+                                "parent": "537",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "540",
+                                "value": "其他",
+                                "children": [],
+                                "parent": "537",
+                                "isleaf": true
+                            }],
+                        "parent": "500",
+                        "isleaf": false
+                    }],
+                "parent": "11",
+                "isleaf": false
+            },
+                {
+                    "id": "541",
+                    "value": "家居布艺",
+                    "children": [{
+                        "id": "542",
+                        "value": "抱枕\/抱枕套",
+                        "children": [{
+                            "id": "543",
+                            "value": "靠垫\/抱枕（含芯）",
+                            "children": [],
+                            "parent": "542",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "544",
+                                "value": "靠垫\/抱枕套",
+                                "children": [],
+                                "parent": "542",
+                                "isleaf": true
+                            }],
+                        "parent": "541",
+                        "isleaf": false
+                    },
+                        {
+                            "id": "545",
+                            "value": "坐垫",
+                            "children": [{
+                                "id": "546",
+                                "value": "单人坐垫",
+                                "children": [],
+                                "parent": "545",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "547",
+                                    "value": "三人坐垫",
+                                    "children": [],
+                                    "parent": "545",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "548",
+                                    "value": "其他",
+                                    "children": [],
+                                    "parent": "545",
+                                    "isleaf": true
+                                }],
+                            "parent": "541",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "549",
+                            "value": "布艺装饰",
+                            "children": [{
+                                "id": "550",
+                                "value": "沙发套\/沙发巾\/沙发垫",
+                                "children": [],
+                                "parent": "549",
+                                "isleaf": true
+                            },
+                                {
+                                    "id": "551",
+                                    "value": "桌布\/桌旗",
+                                    "children": [],
+                                    "parent": "549",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "552",
+                                    "value": "防尘罩",
+                                    "children": [],
+                                    "parent": "549",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "553",
+                                    "value": "窗帘",
+                                    "children": [],
+                                    "parent": "549",
+                                    "isleaf": true
+                                },
+                                {
+                                    "id": "554",
+                                    "value": "地毯\/地垫",
+                                    "children": [],
+                                    "parent": "549",
+                                    "isleaf": true
+                                }],
+                            "parent": "541",
+                            "isleaf": false
+                        },
+                        {
+                            "id": "555",
+                            "value": "其他",
+                            "children": [{
+                                "id": "556",
+                                "value": "十字绣",
+                                "children": [],
+                                "parent": "555",
+                                "isleaf": true
+                            }],
+                            "parent": "541",
+                            "isleaf": false
+                        }],
+                    "parent": "11",
+                    "isleaf": false
+                },
+                {
+                    "id": "557",
+                    "value": "卫浴纺织品",
+                    "children": [{
+                        "id": "558",
+                        "value": "毛巾\/浴巾\/浴袍",
+                        "children": [{
+                            "id": "559",
+                            "value": "方巾",
+                            "children": [],
+                            "parent": "558",
+                            "isleaf": true
+                        },
+                            {
+                                "id": "560",
+                                "value": "毛巾",
+                                "children": [],
+                                "parent": "558",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "561",
+                                "value": "浴巾",
+                                "children": [],
+                                "parent": "558",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "562",
+                                "value": "浴袍",
+                                "children": [],
+                                "parent": "558",
+                                "isleaf": true
+                            },
+                            {
+                                "id": "563",
+                                "value": "其他",
+                                "children": [],
+                                "parent": "558",
+                                "isleaf": true
+                            }],
+                        "parent": "557",
+                        "isleaf": false
+                    }],
+                    "parent": "11",
+                    "isleaf": false
+                }],
+            "parent": "0",
+            "isleaf": false
+        }]
+}

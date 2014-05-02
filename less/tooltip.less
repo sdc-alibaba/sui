@@ -62,7 +62,24 @@
   &.right  { margin-left:  3px;}
   &.bottom { margin-top:   3px;}
   &.left   { margin-left: -3px;}
-  // Wrapper for the tooltip content
+  .type-style();
+}
+// Base class
+.sui-tooltip {
+  position: absolute;
+  z-index: @zindexTooltip;
+  display: block;
+  visibility: visible;
+  max-width: 300px;
+  border: @tipBorderWidth solid @tooltipBorderColor;
+  opacity: 0;
+  //.opacity(0);   bug in IE8 
+  .border-radius(2px);
+  &.in     { /*.opacity(100);*/ opacity:1;}
+  &.top    { margin-top:  -3px;}
+  &.right  { margin-left:  3px;}
+  &.bottom { margin-top:   3px;}
+  &.left   { margin-left: -3px;}
   .type-style();
 }
 

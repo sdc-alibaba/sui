@@ -185,7 +185,7 @@ block content
         button.sui-btn.btn-primary.btn-lg#J_confirm1 $.confirm('xxx')
         script.
           $('#J_alert1').on('click', function(e){
-            $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | ')
+            $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
           })
           $('#J_confirm1').on('click', function(e){
             $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
@@ -263,7 +263,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo3
       div.bs-docs-example
-        button.sui-btn.btn-primary.btn-lg#J_lizi1 栗子
+        button.sui-btn.btn-primary.btn-lg#J_lizi1 各种状态检测（打开F12）
         script.
           $('#J_lizi1').on('click', function(e){
             $.confirm({
@@ -279,6 +279,15 @@ block content
               ,okHidden: function(){console.log('okHidden')}
             })
           })
+        button.sui-btn.btn-primary#J_remote(data-toggle="modal", data-remote="./about.html" data-target="#J_remotemodal") 加载远端内容
+        div.sui-modal.hide.fade#J_remotemodal(tabindex='-1', role='dialog', data-hasfoot='false')
+          div.modal-dialog
+            div.modal-content
+              div.modal-header
+                button.sui-close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                h4.modal-title remote Modal title
+              div.modal-body 我是内容body
+
 
     div.tab-pane#code3
       pre.prettyprint.linenums(data-target='#demo3>div')
