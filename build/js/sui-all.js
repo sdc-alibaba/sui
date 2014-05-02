@@ -3681,7 +3681,7 @@ require('./datepicker')
 
       var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="sui-btn btn-primary" data-ok="tooltip">确定</button><button class="sui-btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="sui-tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + options.type + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {

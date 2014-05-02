@@ -25,7 +25,7 @@ block content
 
   h2 1.快速上手 
   pre.prettyprint
-    &lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;
+    &lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;   一行js都不用写，参数直接写成data-xxx的自定义属性即可
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -44,19 +44,27 @@ block content
     div.tab-pane.active#demo1
       div.bs-docs-example
         ul.example
-          - var placement = ['top', 'right', 'bottom', 'left']
-          each dir in placement
-            li
-              a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+          - var placement = ['top', 'right', 'bottom', 'left', 'left type=inverse']
+          each dir, index in placement
+            if index == 4
+              li
+                a(href='#', data-placement='left', data-type='inverse' data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+            else 
+              li
+                a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
         ul.example
           - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           - var widthtype = ['true', 'false']
-          each type in widthtype
-            li
-              a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+          each type, index in widthtype
+            if index == 0
+              li
+                a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}<pre>widthlimit:#{type}</pre>') widthlimit:'#{type}'
+            else
+              li
+                a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-type='inverse', data-placement='bottom', data-widthlimit='#{type}', title='#{bigdata}widthlimit:#{type}') widthlimit:'#{type}' 且 opt.type:'inverse'
 
           li
-            a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
+            a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-type='attention', data-placement='top', data-widthlimit='500px', title='#{bigdata}widthlimit:"500px" 且触发元素上data-type="attention"') widthlimit:'500px'且opt.type:'attention'
         ul.example
           - var placement = ['top', 'right', 'bottom', 'left']
           each dir in placement
@@ -87,7 +95,7 @@ block content
       pre.prettyprint.linenums.
         {
             animation: true  //是否以动画效果淡入淡出tooltip
-          , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+          , type: 'normal'   //tip 类型 {string} 'normal'|'inverse'|'attention'|'confirm' ,区别见demo
           , placement: 'top'
           , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
           , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
