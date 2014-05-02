@@ -8108,6 +8108,21 @@ input[type="submit"].btn.btn-mini {
 .tooltip-footer .btn-block + .btn-block {
   margin-left: 0;
 }
+.type-style.normal .tooltip-inner,
+.type-style.confirm .tooltip-inner {
+  background-color: #ffffff;
+  color: #222222;
+}
+.type-style.attention .tooltip-inner {
+  background-color: #fef1e3;
+  color: #d7842b;
+}
+.type-style .tooltip-inner {
+  padding: 9px 11px;
+  text-decoration: none;
+  font-weight: normal;
+  white-space: pre-wrap;
+}
 .sui-tooltip {
   position: absolute;
   z-index: 1030;
@@ -8136,7 +8151,8 @@ input[type="submit"].btn.btn-mini {
 .sui-tooltip.left {
   margin-left: -3px;
 }
-.sui-tooltip.normal .tooltip-inner {
+.sui-tooltip.normal .tooltip-inner,
+.sui-tooltip.confirm .tooltip-inner {
   background-color: #ffffff;
   color: #222222;
 }
@@ -8160,7 +8176,21 @@ input[type="submit"].btn.btn-mini {
 .tooltip-only-arrow {
   position: relative;
   border: 2px solid #b2b2b2;
-  padding: 5px;
+}
+.tooltip-only-arrow.normal .tooltip-inner,
+.tooltip-only-arrow.confirm .tooltip-inner {
+  background-color: #ffffff;
+  color: #222222;
+}
+.tooltip-only-arrow.attention .tooltip-inner {
+  background-color: #fef1e3;
+  color: #d7842b;
+}
+.tooltip-only-arrow .tooltip-inner {
+  padding: 9px 11px;
+  text-decoration: none;
+  font-weight: normal;
+  white-space: pre-wrap;
 }
 .sui-tooltip.attention,
 .tooltip-only-arrow.attention {
