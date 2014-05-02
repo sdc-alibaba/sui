@@ -7317,13 +7317,9 @@ input[type="submit"].btn.btn-mini {
   padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right;
-  background-color: #f1f4f5;
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: inset 0 1px 0 #ffffff;
-  -moz-box-shadow: inset 0 1px 0 #ffffff;
-  box-shadow: inset 0 1px 0 #ffffff;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
   *zoom: 1;
 }
 .popdiv-footer:before,
@@ -7386,11 +7382,12 @@ input[type="submit"].btn.btn-mini {
   z-index: 1050;
   width: 440px;
   background-color: #ffffff;
-  border: 5px solid #b2b2b2;
-  border: 5px solid rgba(178, 178, 178, 0.3);
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 8px 2px #999999;
+  -moz-box-shadow: 0 0 8px 2px #999999;
+  box-shadow: 0 0 8px 2px #999999;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -7407,16 +7404,29 @@ input[type="submit"].btn.btn-mini {
   top: 50%;
 }
 .sui-modal .modal-header {
-  padding: 6px 0;
-  margin: 0 10px;
-  border-bottom: 1px solid #b7b7b7;
+  padding: 0 10px;
+  background: #4a4a4a;
+  color: #fff;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
 }
-.sui-modal .modal-header h3 {
+.sui-modal .modal-header h4 {
   margin: 0;
   line-height: 30px;
+  font-weight: normal;
 }
 .sui-modal .modal-header .modal-title {
   margin: 0;
+}
+.sui-modal .modal-header .sui-close {
+  color: #bebebe;
+  text-shadow: none;
+  font-size: 20px;
+  line-height: 30px;
+}
+.sui-modal .modal-header .sui-close:hover {
+  color: #ff5050;
 }
 .sui-modal .modal-body {
   position: relative;
@@ -7424,7 +7434,7 @@ input[type="submit"].btn.btn-mini {
   min-height: 150px;
   max-height: 400px;
   margin: 0;
-  padding: 13px 15px;
+  padding: 10px 20px;
 }
 .sui-modal .modal-body.no-foot {
   min-height: 190px;
@@ -7436,13 +7446,9 @@ input[type="submit"].btn.btn-mini {
   padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right;
-  background-color: #f1f4f5;
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: inset 0 1px 0 #ffffff;
-  -moz-box-shadow: inset 0 1px 0 #ffffff;
-  box-shadow: inset 0 1px 0 #ffffff;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
   *zoom: 1;
 }
 .sui-modal .modal-footer:before,
@@ -7468,13 +7474,9 @@ input[type="submit"].btn.btn-mini {
   padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right;
-  background-color: #f1f4f5;
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  -webkit-box-shadow: inset 0 1px 0 #ffffff;
-  -moz-box-shadow: inset 0 1px 0 #ffffff;
-  box-shadow: inset 0 1px 0 #ffffff;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
   *zoom: 1;
 }
 .tooltip-footer:before,
