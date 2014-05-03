@@ -55,6 +55,8 @@
     width: 0%;
     height: 100%;
     padding: @basePadding;  //和button高度保持一致
+    padding-left: 0;
+    padding-right: 0;
     color: @white;
     float: left;
     font-size: 12px;
@@ -68,12 +70,18 @@
   //不同大小
   &.progress-small {
     height: @baseLineHeight;
+    line-height: @baseLineHeight;
+    font-size: @fontSizeSmall;
   }
   &.progress-large {
     height: @lineHeightLarge + 4px;
+    line-height: @lineHeightLarge;
+    font-size: @fontSizeLarge;
   }
   &.progress-xlarge {
     height: @lineHeightXLarge + 3px;
+    line-height: @lineHeightXLarge;
+    font-size: @fontSizeXLarge;
   }
 }
 

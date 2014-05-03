@@ -69,6 +69,8 @@
                   <li><a href="pagination-js.html">分页器</a></li>
                   <li><a href="form-validate.html">表单校验</a></li>
                   <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="datepicker.html">datepicker</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -82,7 +84,14 @@
           <div class="sui-page-header">
             <h1>对话框</h1>
           </div>
-          <p>文档写的渣，有任何疑惑可以联系@半边</p>
+          <p class="sui-lead">
+            对话框分为独占式和非独占式两种。<br />
+            宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
+            文档写的渣，有任何疑惑可以联系@半边。
+          </p>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
           <h2>概览</h2>
           <pre class="prettyprint linenums">原型方法 $ele需要事先写到html中
 $ele.modal(options | 'toggle' | 'show' | 'hide') // $ele是对话框元素，不是触发元素
@@ -252,7 +261,7 @@ $.confirm(options)</pre>
                 <button id="J_confirm1" class="sui-btn btn-primary btn-lg">$.confirm('xxx')</button>
                 <script>
                   $('#J_alert1').on('click', function(e){
-                    $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | ')
+                    $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
                   })
                   $('#J_confirm1').on('click', function(e){
                     $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
@@ -342,7 +351,7 @@ $.confirm(options)</pre>
           <div class="tab-content">
             <div id="demo3" class="tab-pane active">
               <div class="bs-docs-example">
-                <button id="J_lizi1" class="sui-btn btn-primary btn-lg">栗子</button>
+                <button id="J_lizi1" class="sui-btn btn-primary btn-lg">各种状态检测（打开F12）</button>
                 <script>
                   $('#J_lizi1').on('click', function(e){
                     $.confirm({
@@ -358,8 +367,19 @@ $.confirm(options)</pre>
                       ,okHidden: function(){console.log('okHidden')}
                     })
                   })
-                  
                 </script>
+                <button id="J_remote" data-toggle="modal" data-remote="./about.html" data-target="#J_remotemodal" class="sui-btn btn-primary">加载远端内容</button>
+                <div id="J_remotemodal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">&times;</button>
+                        <h4 class="modal-title">remote Modal title</h4>
+                      </div>
+                      <div class="modal-body">我是内容body</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div id="code3" class="tab-pane">
