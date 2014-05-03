@@ -9361,45 +9361,25 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
+  cursor: default;
 }
 .sui-label:empty {
   display: none;
 }
-a.sui-label:hover,
-a.sui-label:focus {
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-}
 .sui-label.label-danger {
   background-color: #ea4a36;
-}
-.sui-label.label-danger[href] {
-  background-color: #d72c16;
 }
 .sui-label.label-warning {
   background-color: #f89406;
 }
-.sui-label.label-warning[href] {
-  background-color: #c67605;
-}
 .sui-label.label-success {
   background-color: #22cd6e;
-}
-.sui-label.label-success[href] {
-  background-color: #1ba157;
 }
 .sui-label.label-info {
   background-color: #2597dd;
 }
-.sui-label.label-info[href] {
-  background-color: #1c7ab3;
-}
 .sui-label.label-inverse {
   background-color: #333333;
-}
-.sui-label.label-inverse[href] {
-  background-color: #1a1a1a;
 }
 .sui-btn .sui-label {
   position: relative;
@@ -9407,6 +9387,73 @@ a.sui-label:focus {
 }
 .btn-mini .sui-label {
   top: 0;
+}
+.sui-tag {
+  list-style: none;
+  font-size: 0;
+}
+.sui-tag > li,
+.sui-tag > span {
+  font-size: 14px;
+  margin-right: 5px;
+  display: inline-block;
+  overflow: hidden;
+  color: #000000;
+  background: #f7f7f7;
+  padding: 0 7px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #d1d1d1;
+  white-space: nowrap;
+  cursor: default;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+.sui-tag > li:hover,
+.sui-tag > span:hover {
+  color: #0995e0;
+}
+.sui-tag > li:hover .del-tag,
+.sui-tag > span:hover .del-tag {
+  visibility: visible;
+}
+.sui-tag > li:active,
+.sui-tag > span:active {
+  color: #ffffff;
+  background: #0995e0;
+}
+.sui-tag > li .del-tag,
+.sui-tag > span .del-tag {
+  margin-left: 10px;
+  visibility: hidden;
+  cursor: pointer;
+  color: #ccc;
+  font: normal 16px tahoma;
+  vertical-align: text-bottom;
+}
+.sui-tag.tag-hole > li,
+.sui-tag.tag-hole > span {
+  padding: 0 10px 0 15px;
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+}
+.sui-tag.tag-hole > li:before,
+.sui-tag.tag-hole > span:before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: -7px;
+  top: 50%;
+  margin-top: -7px;
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
