@@ -607,6 +607,21 @@ a.sui-text-success:hover,
 a.sui-text-success:focus {
   color: #3c9ca4;
 }
+.sui-text-nav {
+  color: #000;
+}
+.sui-text-description {
+  color: #666;
+}
+.sui-text-less-important {
+  color: #999;
+}
+.sui-text-disabled {
+  color: #bbb;
+}
+.sui-text-help {
+  color: #bbb;
+}
 .sui-text-left {
   text-align: left;
 }
