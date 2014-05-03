@@ -3932,11 +3932,11 @@ sui-pre .sui-code {
   background-color: #fff2f2;
 }
 .sui-msg.msg-success {
-  color: #4ab933;
+  color: #53b8c0;
 }
 .sui-msg.msg-success > .msg-con {
-  border: 1px solid #dcf9d6;
-  background-color: #edffe9;
+  border: 1px solid #c3e6e9;
+  background-color: #e8f6f7;
 }
 .sui-msg.msg-warning {
   color: #cf700b;
