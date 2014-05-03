@@ -39,7 +39,9 @@
 // Links
 // -------------------------
 @linkColor:             #53b8c0;
-@linkColorHover:        #ff7300;
+@linkColorHover:        #51a9af;
+@linkColorActive:       #339ba3;
+@linkColorDisabled:     #e6e6e6;
 
 
 // Typography
@@ -83,9 +85,9 @@
 
 // padding
 // used by btn and pagination
-@basePadding:           2px 14px;
+@basePadding:           7px 12px;
 @paddingXLarge:          4px 20px;
-@paddingLarge:          2px 14px;
+@paddingLarge:          9px 14px;
 @paddingSmall:           0px 6px;
 
 //块级组件margin规范,具体值可以再讨论
@@ -107,15 +109,17 @@
 
 // Buttons
 // -------------------------
-@btnDisabledBackground: #f3f3f3;
-@btnDisabledBorder: darken(@btnDisabledBackground, 10%);
-@btnDisabledColor: #c6c6c6;
+@btnDisabledBackground: @linkColorDisabled;
+@btnDisabledBorder: @btnDisabledColor;
+@btnDisabledColor: #bbb;
 
 @btnBackground:                     @grayLighter;
-@btnBackgroundHighlight:            #f7f7f7; //lighten(@btnBackground, 10%);
+@btnBackgroundHighlight:            #f7f7f7;
+@btnBackgroundPress:                #f4f4f4;
 
 @btnPrimaryBackground:              #53b8c0;
-@btnPrimaryBackgroundHighlight:     #51a9af; //spin(@btnPrimaryBackground, 20%)
+@btnPrimaryBackgroundHighlight:     #51a9af;
+@btnPrimaryBackgroundHighlight:     #339ba3;
 
 @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        lighten(@btnInfoBackground, 10%);
@@ -135,11 +139,11 @@
 
 // Forms
 // -------------------------
-@inputBackground:               @white;
+@inputBackground:               #f9f9f9;
 @inputBorder:                   #ccc;
-@inputBorderRadius:             @borderRadiusMini;
+@inputBorderRadius:             0;
 // @inputDisabledBackground:       @grayLighter;
-@inputDisabledBackground:       @white; // 更新disabled状态背景色为白色 @by kai 2014-01-23
+@inputDisabledBackground:       #f9f9f9;
 @formActionsBackground:         #f5f5f5;
 // @inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
 @inputHeight:                   @baseLineHeight + 6px; // base line-height + 4px vertical padding + 2px top/bottom border // 更新默认高度为24px @by kai 2014-01-16
@@ -151,18 +155,20 @@
 @inputXLargeWidth:             350px;
 @inputXXLargeWidth:            500px;
 
-@inputThinHeight:              20px;
-@inputDefaultHeight:           24px;
-@inputFatHeight:               28px;
-@inputXFatHeight:              32px;
+@inputThinHeight:              24px;
+@inputDefaultHeight:           32px;
+@inputFatHeight:               40px;
+@inputXFatHeight:              48px;
 
 @inputThinPaddingTB:           0;
-@inputDefaultPaddingTB:        2px;
-@inputFatPaddingTB:            4px;
-@inputXFatPaddingTB:           6px;
+@inputDefaultPaddingTB:        6px;
+@inputFatPaddingTB:            8px;
+@inputXFatPaddingTB:           10px;
 
-@inputDefaultPaddingLR:        4px;
-@inputLargePaddingLR:          8px;
+@inputDefaultPaddingLR:        12px;
+@inputLargePaddingLR:          14px;
+@inputFatPaddingLR:          14px;
+@inputXFatPaddingLR:          14px;
 
 @inputHasIconPaddingLR:        26px;
 
@@ -178,13 +184,14 @@
 @dropdownBorder:                #ccc;
 @dropdownDividerTop:            #e5e5e5;
 @dropdownDividerBottom:         @white;
-@dropdownOpenColor:             #69bbef;
+@dropdownOpenColor:             @linkColor;
 
-@dropdownLinkColor:             #666;
-@dropdownLinkColorHover:        @white;
-@dropdownLinkColorActive:       @white;
+@dropdownLinkColor:             #333;
+@dropdownLinkColorHover:        #333;
+@dropdownLinkColorActive:       #333;
 
-@dropdownLinkBackgroundActive:  #3096dc;
+@dropdownLinkBackgroundHover:  #dceeef;
+@dropdownLinkBackgroundActive:  #cce6e8;
 
 
 // COMPONENT VARIABLES
@@ -266,7 +273,7 @@
 
 //nav tabs
 @navTabsColor:  #999;
-@navTabsHilightColor:  #3096dc;
+@navTabsHilightColor:  @linkColor;
 @navTabsBackgroundColor:  #f9f9f9;
 @navTabsBorderColor:  #ddd;
 @navTabsBorderHighlightColor:  #2597dd;
@@ -308,37 +315,21 @@
 
 
 // Form states and alerts
-// -------------------------
-// @warningText:             #c09853;
-// @warningBackground:       #fcf8e3;
-// @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
 @warningText:             #ff7300; // 更新警示文本颜色 @by kai 2014-01-16
-@warningBackground:       #fcf8e3;
+@warningBackground:       @inputBackground;
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-// @errorText:               #b94a48;
-// @errorBackground:         #f2dede;
-// @errorBorder:             darken(spin(@errorBackground, -10), 3%);
+@errorText:               #f00; // 更新出错文本颜色 @by kai 2014-01-16
+@errorBackground:         @inputBackground;
+@errorBorder:             #f00;
 
-@errorText:               #ea4a36; // 更新出错文本颜色 @by kai 2014-01-16
-@errorBackground:         #f2dede;
-@errorBorder:             darken(spin(@errorBackground, -10), 3%);
-
-// @successText:             #468847;
-// @successBackground:       #dff0d8;
-// @successBorder:           darken(spin(@successBackground, -10), 5%);
-
-@successText:             #22cd6e; // 更新成功文本颜色 @by kai 2014-01-16
-@successBackground:       #dff0d8;
-@successBorder:           darken(spin(@successBackground, -10), 5%);
-
-// @infoText:                #3a87ad;
-// @infoBackground:          #d9edf7;
-// @infoBorder:              darken(spin(@infoBackground, -10), 7%);
+@successText:             @linkColor; // 更新成功文本颜色 @by kai 2014-01-16
+@successBackground:       @inputBackground;
+@successBorder:           @linkColor;
 
 @infoText:                #2597dd; // 更新帮助文本颜色 @by kai 2014-01-16
-@infoBackground:          #d9edf7;
+@infoBackground:          @inputBackground;
 @infoBorder:              #ccc;
 
 
