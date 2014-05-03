@@ -8211,16 +8211,17 @@ input[type="submit"].btn.btn-mini {
   height: 22px;
   line-height: 22px;
   border: 1px solid #d1d1d1;
+  white-space: nowrap;
   cursor: default;
 }
 .sui-tag > li:hover,
 .sui-tag > span:hover {
-  color: #339ba3;
+  color: #0995e0;
 }
 .sui-tag > li:active,
 .sui-tag > span:active {
   color: #ffffff;
-  background: #339ba3;
+  background: #0995e0;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
