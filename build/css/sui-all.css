@@ -1850,32 +1850,6 @@ sui-pre .sui-code {
   font-size: 12px;
   line-height: 18px;
   /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-  .radio input[type="radio"],
-  .checkbox input[type="checkbox"] {
-    float: left;
-    margin-left: -20px;
-  }
-  */
-  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-  .controls > .radio:first-child,
-  .controls > .checkbox:first-child {
-    padding-top: 5px; // has to be padding because margin collaspes
-  }
-  */
-  /* ע�͵���һ�����룬ֱ��ɾ�� @by kai 2014-01-30
-  .radio.inline + .radio.inline,
-  .checkbox.inline + .checkbox.inline {
-    margin-left: 10px; // space out consecutive inline controls
-  }
-  */
-  /* ע�͵���һ������ ���¶������� @by kai 2014-01-30
-  .input-mini       { width: 60px; }
-  .input-small      { width: 90px; }
-  .input-medium     { width: 150px; }
-  .input-large      { width: 210px; }
-  .input-xlarge     { width: 270px; }
-  .input-xxlarge    { width: 530px; }*/
-  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
   .controls-row .checkbox[class*="span"],
   .controls-row .radio[class*="span"] {
     padding-top: 5px;
@@ -1916,13 +1890,6 @@ sui-pre .sui-code {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
 }
 .sui-form .input-default:focus {
   border-color: #53b8c0;
@@ -1959,13 +1926,6 @@ sui-pre .sui-code {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -2036,9 +1996,6 @@ sui-pre .sui-code {
   color: #999999;
   background-color: #fcfcfc;
   border-color: #cccccc;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
-  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.025);
   cursor: not-allowed;
 }
 .sui-form .uneditable-input {
@@ -2079,12 +2036,6 @@ sui-pre .sui-code {
 }
 .sui-form .radio.inline,
 .sui-form .checkbox.inline {
-  /* ע�͵���������ʽ ����������ʽ @by kai 2014-01-30
-    display: inline-block;
-    padding-top: 5px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    */
   display: inline-block;
   margin-top: 0;
 }
@@ -2093,6 +2044,10 @@ sui-pre .sui-code {
 .sui-form .radio.inline + .checkbox.inline,
 .sui-form .checkbox.inline + .checkbox.inline {
   margin-left: 6px;
+}
+.sui-form.form-dark input {
+  background-color: #f9f9f9;
+  border-color: #ececec;
 }
 .sui-form .input-mini {
   width: 40px;
@@ -2307,13 +2262,6 @@ sui-pre .sui-code {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -5527,6 +5475,16 @@ sui-pre .sui-code {
 .sui-dropdown.dropdown-bordered.dropdown-small .dropdown-inner > .sui-dropdown-menu li.active > a {
   color: #333333;
 }
+.sui-dropdown.dropdown-bordered.dropdown-dark.dropdown-bordered .dropdown-inner {
+  background: #f9f9f9;
+  border-color: #ececec;
+}
+.sui-dropdown.dropdown-bordered.dropdown-dark .sui-dropdown-menu {
+  border-color: #ececec;
+  -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
 .pull-right > .sui-dropdown-menu {
   right: 0;
   left: auto;
@@ -7797,13 +7755,6 @@ input[type="submit"].btn.btn-mini {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
   padding-top: 6px;
   padding-bottom: 6px;
   margin: 0px;
