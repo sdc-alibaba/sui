@@ -7272,7 +7272,7 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .next > span,
 .sui-pagination ul > .prev > a,
 .sui-pagination ul > .next > a {
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 .sui-pagination ul > .disabled.prev > span:hover,
 .sui-pagination ul .disabled.next > span:hover,
@@ -9810,6 +9810,9 @@ a.sui-label:focus {
   text-align: center;
   line-height: 12px;
   font-style: italic;
+}
+.sui-steps .round + span:before {
+  content: '\00a0';
 }
 .sui-steps .finished {
   background-color: #53b8c0;
