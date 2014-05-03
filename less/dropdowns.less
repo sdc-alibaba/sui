@@ -31,7 +31,7 @@
   .dropdown-submenu {
     position: relative;
     > .sui-dropdown-menu {
-      top: 0;
+      top: -1px;
       left: 100%;
     }
     &:hover {
@@ -69,7 +69,12 @@
     .sui-icon;
     font-size: 120%;
     &:before {
-      content: "\e6eb";
+      content: "\e6be";
+    }
+  }
+  &.open {
+    .caret:before {
+      content: "\e6bf";
     }
   }
 
@@ -82,9 +87,8 @@
     .dropdown-inner {
       border: 1px solid @dropdownBorder;
       display: inline-block;
-      .border-radius(2px);
       a {
-        color: #666;
+        color: #999;
         min-width: 82px;  //总宽度100px
         display: inline-block;
         padding: @basePadding;
@@ -118,12 +122,11 @@
 // ----------------------
 .sui-dropdown-menu {
   display: inline-block; 
-  padding: 1px 0;
+  padding: 0;
   min-width: 100px;
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
-  .border-radius(2px);
   .box-shadow(2px 2px 0px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
@@ -143,7 +146,7 @@
 
   // Links within the dropdown menu
   > li {
-    padding: 0 1px; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
+    padding: 0; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
     a {
       display: block;
       padding: 3px 10px;
@@ -160,7 +163,10 @@
     &:hover > a,
     .active > a
     {
-      color: #fff;
+      color: @dropdownLinkColorHover;
+    }
+    + li {
+      border-top: 1px dotted #ccc;
     }
   }
 }
@@ -173,7 +179,10 @@
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: @dropdownLinkColorHover;
-  background-color: lighten(@dropdownLinkBackgroundActive, 5%);
+  background-color: lighten(@dropdownLinkBackgroundHover, 5%);
+}
+.sui-dropdown-menu > li > a:active {
+  background-color: @dropdownLinkBackgroundActive;
 }
 
 // Active state
@@ -184,7 +193,7 @@
       color: @dropdownLinkColorActive;
       text-decoration: none;
       outline: 0;
-      background-color: @dropdownLinkBackgroundActive;
+      background-color: @dropdownLinkBackgroundHover;
     }
   }
 
@@ -263,7 +272,7 @@
         li:hover > a,
         li.active > a
         {
-          color: #fff;
+          color: @dropdownLinkColorHover;
         }
       }
     }
@@ -311,5 +320,4 @@
 .sui-typeahead {
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
-  .border-radius(@baseBorderRadius);
 }

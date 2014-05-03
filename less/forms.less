@@ -171,6 +171,9 @@
   input,
   textarea {
     .placeholder();
+    &:focus, &:active {
+      outline: 0;
+    }
   }
 
 
@@ -267,12 +270,16 @@
     padding-bottom: @inputDefaultPaddingTB;
   }
   .input-fat {
-    padding-top: @inputFatPaddingTB;
-    padding-bottom: @inputFatPaddingTB;
+    padding: @inputFatPaddingTB @inputFatPaddingLR;
+    font-size: @fontSizeLarge;
+    line-height: @lineHeightLarge;
+    height: @lineHeightLarge;
   }
   .input-xfat {
-    padding-top: @inputXFatPaddingTB;
-    padding-bottom: @inputXFatPaddingTB;
+    padding: @inputXFatPaddingTB @inputXFatPaddingLR;
+    font-size: @fontSizeLarge;
+    line-height: @lineHeightLarge;
+    height: @lineHeightLarge;
   }
 
   // 重置大号和加大号表单控件左右padding
@@ -429,19 +436,19 @@
 
   // Warning
   .warning {
-    .formFieldState(@warningText, @warningText, @warningBackground);
+    .formFieldState(@warningText, @warningText, @warningBackground, @warningBorder);
   }
   // Error
   .error {
-    .formFieldState(@errorText, @errorText, @errorBackground);
+    .formFieldState(@errorText, @errorBorder, @errorBackground, @errorBorder);
   }
   // Success
   .success {
-    .formFieldState(@successText, @successText, @successBackground);
+    .formFieldState(@successText, @successBorder, @successBackground, @successBorder);
   }
   // Info
   .info {
-    .formFieldState(@infoText, @infoText, @infoBackground);
+    .formFieldState(@infoText, @infoBorder, @infoBackground, @infoBorder);
     // .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
   }
 
@@ -470,17 +477,17 @@
 
   // Error
   .input-error {
-    .inputFieldState(@errorText, @errorText, @errorBackground);
+    .inputFieldState(@errorText, @errorBorder, @errorBackground);
   }
 
   // Success
   .input-success {
-    .inputFieldState(@successText, @successText, @successBackground);
+    .inputFieldState(@successText, @successBorder, @successBackground);
   }
 
   // Info
   .input-info {
-    .inputFieldState(@infoText, @infoText, @infoBackground);
+    .inputFieldState(@infoText, @infoBorder, @infoBackground);
   }
 
   // 继承文本字段四态
