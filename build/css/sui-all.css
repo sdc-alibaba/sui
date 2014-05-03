@@ -8172,45 +8172,25 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
+  cursor: default;
 }
 .sui-label:empty {
   display: none;
 }
-a.sui-label:hover,
-a.sui-label:focus {
-  color: #ffffff;
-  text-decoration: none;
-  cursor: pointer;
-}
 .sui-label.label-danger {
   background-color: #ea4a36;
-}
-.sui-label.label-danger[href] {
-  background-color: #d72c16;
 }
 .sui-label.label-warning {
   background-color: #f89406;
 }
-.sui-label.label-warning[href] {
-  background-color: #c67605;
-}
 .sui-label.label-success {
   background-color: #22cd6e;
-}
-.sui-label.label-success[href] {
-  background-color: #1ba157;
 }
 .sui-label.label-info {
   background-color: #2597dd;
 }
-.sui-label.label-info[href] {
-  background-color: #1c7ab3;
-}
 .sui-label.label-inverse {
   background-color: #333333;
-}
-.sui-label.label-inverse[href] {
-  background-color: #1a1a1a;
 }
 .sui-btn .sui-label {
   position: relative;
