@@ -9655,6 +9655,21 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-hero-unit li {
   line-height: 27px;
 }
+.sui-loading {
+  text-align: center;
+}
+.sui-loading .icon-pc-loading {
+  -webkit-animation: rotation 2s infinite linear;
+  display: inline-block;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
 .sui-steps {
   font-size: 0px;
   overflow: hidden;
