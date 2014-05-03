@@ -9397,10 +9397,33 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-tag {
   list-style: none;
   font-size: 0;
+  /*
+  &.tag-hole {
+    &>li, &>span {
+      padding: 0 10px 0 15px;
+      height: 28px;
+      line-height: 28px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: -7px;
+        top: 50%;
+        margin-top: -7px;
+        background: @white;
+        border: 1px solid #d1d1d1;
+        //border-width: 1px 1px 0 0;
+        .border-radius(6px);
+      }
+    }
+  }
+  */
 }
 .sui-tag > li,
-.sui-tag > span {
-  font-size: 14px;
+.sui-tag > a {
+  font-size: 12px;
   margin-right: 5px;
   display: inline-block;
   overflow: hidden;
@@ -9418,48 +9441,20 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   transition: color 0.2s ease-out;
 }
 .sui-tag > li:hover,
-.sui-tag > span:hover {
+.sui-tag > a:hover {
   color: #339ba3;
 }
-.sui-tag > li:hover .del-tag,
-.sui-tag > span:hover .del-tag {
-  visibility: visible;
-}
-.sui-tag > li:active,
-.sui-tag > span:active {
+.sui-tag > li.tag-selected,
+.sui-tag > a.tag-selected {
   color: #ffffff;
   background: #339ba3;
 }
 .sui-tag > li .del-tag,
-.sui-tag > span .del-tag {
+.sui-tag > a .del-tag {
   margin-left: 10px;
-  visibility: hidden;
   cursor: pointer;
   color: #ccc;
-  font: normal 16px tahoma;
-  vertical-align: text-bottom;
-}
-.sui-tag.tag-hole > li,
-.sui-tag.tag-hole > span {
-  padding: 0 10px 0 15px;
-  height: 28px;
-  line-height: 28px;
-  position: relative;
-}
-.sui-tag.tag-hole > li:before,
-.sui-tag.tag-hole > span:before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  left: -7px;
-  top: 50%;
-  margin-top: -7px;
-  background: #ffffff;
-  border: 1px solid #d1d1d1;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  font: normal 14px tahoma;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
