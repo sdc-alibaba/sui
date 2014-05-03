@@ -83,9 +83,9 @@
         <div class="content-inner">
           <div class="sui-page-header">
             <h1>tags 标签群  </h1>
-            <p>近亲label在<a href="./label.html">这里</a></p>
+            <p>入口class:<code>.sui-tag</code>。近亲label在<a href="./label.html">这里</a></p>
           </div>
-          <h2>普通与带缺孔的tag</h2>
+          <h2>普通与选中的tag</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -94,23 +94,23 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <h3>默认  .sui-tag</h3>
+                <h3>默认  </h3>
                 <ul class="sui-tag">
                   <li>Normal</li>
                   <li>logo设计</li>
-                  <li>店铺装修达人级别</li>
+                  <li>店铺装修达人</li>
                   <li>艺术</li>
                   <li>公sdf告</li>
                   <li>注意afs</li>
                 </ul>
-                <h3>带孔  .sui-tag.tag-hole</h3>
-                <ul class="sui-tag tag-hole">
+                <h3>选中的tag的状态：li.tag-selected</h3>
+                <ul class="sui-tag tag-selected">
                   <li>Normal</li>
-                  <li>logo设计</li>
-                  <li>店铺装修达人级别</li>
-                  <li>艺术</li>
+                  <li class="tag-selected">logo设计</li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术</li>
                   <li>公sdf告</li>
-                  <li>注意afs</li>
+                  <li class="tag-selected">注意afs</li>
                 </ul>
               </div>
             </div>
@@ -118,7 +118,7 @@
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>使用方法很简单了，最好是用ul>li的结构，不过div>span的结构也可以。</p>
+              <p>使用方法很简单了，最好是用ul>li的结构，或者内部是a标签也可以。</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
@@ -135,22 +135,16 @@
             <div id="demo2" class="tab-pane active">
               <div class="bs-docs-example">
                 <h3>默认  .sui-tag</h3>
-                <ul class="sui-tag">
-                  <li>Normal<i class="del-tag">&times;</i></li>
-                  <li>logo设计<i class="del-tag">&times;</i></li>
-                  <li>店铺装修达人级别<i class="del-tag">&times;</i></li>
-                  <li>艺术<i class="del-tag">&times;</i></li>
-                  <li>公sdf告<i class="del-tag">&times;</i></li>
-                  <li>注意afs<i class="del-tag">&times;</i></li>
-                </ul>
-                <h3>带孔  .sui-tag.tag-hole</h3>
-                <ul class="sui-tag tag-hole">
-                  <li>Normal<i class="del-tag">&times;</i></li>
-                  <li>logo设计<i class="del-tag">&times;</i></li>
-                  <li>店铺装修达人级别<i class="del-tag">&times;</i></li>
-                  <li>艺术<i class="del-tag">&times;</i></li>
-                  <li>公sdf告<i class="del-tag">&times;</i></li>
-                  <li>注意afs<i class="del-tag">&times;</i></li>
+                <ul style="width:300px;border: 1px solid #999; padding: 5px" class="sui-tag">
+                  <li>Normal</li>
+                  <li class="tag-selected">logo设计<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告</li>
+                  <li class="tag-selected">注意afs<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告</li>
                 </ul>
               </div>
             </div>
