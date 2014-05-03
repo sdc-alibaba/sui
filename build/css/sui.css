@@ -8199,6 +8199,29 @@ input[type="submit"].btn.btn-mini {
 .btn-mini .sui-label {
   top: 0;
 }
+.sui-tag {
+  list-style: none;
+}
+.sui-tag > li,
+.sui-tag > span {
+  display: inline-block;
+  color: #000000;
+  background: #f7f7f7;
+  padding: 0 5px;
+  height: 22px;
+  line-height: 22px;
+  border: 1px solid #d1d1d1;
+  cursor: default;
+}
+.sui-tag > li:hover,
+.sui-tag > span:hover {
+  color: #339ba3;
+}
+.sui-tag > li:active,
+.sui-tag > span:active {
+  color: #ffffff;
+  background: #339ba3;
+}
 @-webkit-keyframes progress-bar-stripes {
   from {
     background-position: 40px 0;

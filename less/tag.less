@@ -1,0 +1,23 @@
+.sui-tag {
+  list-style: none;
+  &>li, &>span {
+    display: inline-block;
+    color: @black;
+    background: @btnBackgroundHighlight;
+    padding: 0 5px;
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #d1d1d1;
+    cursor: default;
+    &:hover {
+      color: #339ba3;
+    }
+    &:active {
+      color: @white;
+      background: #339ba3;
+    }
+  }
+  &.hole {
+    
+  }
+}

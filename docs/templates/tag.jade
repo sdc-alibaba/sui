@@ -24,11 +24,10 @@ block content
   div.tab-content
     div.tab-pane.active#demo1
       div.bs-docs-example
-        - var cls = ['', 'success', 'warning', 'danger', 'info', 'inverse']
         - var txt = ['默认', '成功', '警示恩', '危险危险', '公告', '反色!']
         ul.sui-tag
-          each clsi, i in cls
-            li(class='label-#{clsi}') #{txt[i]}
+          each text, i in txt
+            li #{text}
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
