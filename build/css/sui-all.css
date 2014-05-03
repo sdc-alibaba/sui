@@ -9660,7 +9660,20 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-loading .icon-pc-loading {
   -webkit-animation: rotation 2s infinite linear;
+  -moz-animation: rotation 2s infinite linear;
+  animation: rotation 2s infinite linear;
   display: inline-block;
+  font-size: 40px;
+  color: #3097dd;
+}
+.sui-loading.loading-large .icon-pc-loading {
+  font-size: 80px;
+}
+.sui-loading.loading-small {
+  display: inline-block;
+}
+.sui-loading.loading-small .icon-pc-loading {
+  font-size: 20px;
 }
 @-webkit-keyframes rotation {
   from {
@@ -9668,6 +9681,22 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   }
   to {
     -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }
 .sui-steps {

@@ -2,11 +2,35 @@
   text-align: center;
   .icon-pc-loading {
     -webkit-animation: rotation 2s infinite linear;
+    -moz-animation: rotation 2s infinite linear;
+    animation: rotation 2s infinite linear;
     display: inline-block;
+    font-size: 40px;
+    color: @btnPrimaryBackground;
   }
+  &.loading-large {
+    .icon-pc-loading {
+      font-size: 80px;
+    } 
+  }
+  &.loading-small {
+    display: inline-block;
+    .icon-pc-loading {
+      font-size: 20px;
+    } 
+  }
+
   @-webkit-keyframes rotation {
       from {-webkit-transform: rotate(0deg);}
         to {-webkit-transform: rotate(359deg);}
+  }
+  @-moz-keyframes rotation {
+      from {-moz-transform: rotate(0deg);}
+        to {-moz-transform: rotate(359deg);}
+  }
+  @keyframes rotation {
+      from {transform: rotate(0deg);}
+        to {transform: rotate(359deg);}
   }
 }
 
