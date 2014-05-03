@@ -45,21 +45,19 @@
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
   color: @white;
-  background-color: @btnPrimaryBackgroundHighlight;
-  border-color: @btnPrimaryBackgroundHighlight;
-    
+  background-color: @paginationActiveBackground;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
-  background-color: @paginationActiveBackground;
   color: @white; 
-  border-color: @paginationActiveBackground;
+  background-color: @btnPrimaryBackgroundHighlight;
+  border-color: @btnPrimaryBackgroundHighlight;
   cursor: default;
   &:hover, &:focus {
       //reset a:hover, do not change if active
-      background-color: @paginationActiveBackground;
       color: @white; 
-      border-color: @paginationActiveBackground;
+      background-color: @btnPrimaryBackgroundHighlight;
+      border-color: @btnPrimaryBackgroundHighlight;
   }
 }
 
@@ -72,9 +70,10 @@
 .sui-pagination ul > .disabled > a,
 .sui-pagination ul > .disabled > a:hover,
 .sui-pagination ul > .disabled > a:focus {
-  color: @grayLight;
-  background-color: transparent;
+  color: @paginationDisabledText;
+  background-color: @paginationDisabledBackground;
   cursor: default;
+  border: 1px solid @paginationBorder;
 }
 //next&prev btn, depends on the disabled attribute
 .sui-pagination ul {
@@ -84,9 +83,11 @@
         }
     }
     & > .disabled.prev, .disabled.next {
-        > span:hover, > span:focus, > a:hover, > a:focus {
-            background-color: @paginationBtnColor; //do not change backgroundColor if is disabled
-            border-color: @paginationBorder;
+        > span:hover, > span:focus, > a:hover, > a:focus, > a, > span {
+            color: @paginationDisabledText;
+            background-color: @paginationDisabledBackground;
+            cursor: default;
+            border: 1px solid @paginationBorder;
         }
     }
 }
