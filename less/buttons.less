@@ -18,7 +18,7 @@
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
-  .border-radius(@borderRadiusMini);
+  .border-radius(0);
   .user-select(none);
 
   // Hover/focus state
@@ -53,7 +53,9 @@
   }
 
   .sui-icon {
-    margin-right: 8px;
+    margin-right: 5px;
+    font-size: 16px;
+    vertical-align: -2px;
   }
 
 }
@@ -75,6 +77,10 @@
   padding: @paddingLarge;
   line-height: @lineHeightLarge;
   font-size: @fontSizeLarge;
+  .sui-icon {
+    font-size: 18px;
+    vertical-align: -3px;
+  }
 }
 
 // Small

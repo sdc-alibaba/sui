@@ -15,25 +15,51 @@
 	position: relative;
 	color: @msgDefaultColor;
 
-  &.msg-error .msg-icon { background-position: 0 0; }
-  &.msg-stop .msg-icon { background-position: 0 -16px; }
-  &.msg-success .msg-icon { background-position: 0 -32px; }
-  &.msg-warning .msg-icon { background-position: 0 -48px; }
-  &.msg-notice .msg-icon { background-position: 0 -64px; }
-  &.msg-tips .msg-icon { background-position: 0 -80px; }
-  &.msg-info .msg-icon { background-position: 0 -96px; }
-  &.msg-question .msg-icon { background-position: 0 -112px; }
-
-  &.msg-large {
-    > .msg-icon { background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png); }
-    &.msg-error > .msg-icon { background-position: 0 0; }
-    &.msg-stop > .msg-icon { background-position: 0 -24px; }
-    &.msg-success > .msg-icon { background-position: 0 -48px; }
-    &.msg-warning > .msg-icon { background-position: 0 -72px; }
-    &.msg-notice > .msg-icon { background-position: 0 -96px; }
-    &.msg-tips > .msg-icon { background-position: 0 -120px; }
-    &.msg-info > .msg-icon { background-position: 0 -144px; }
-    &.msg-question > .msg-icon { background-position: 0 -168px; }
+  > .msg-icon {
+    .sui-icon;
+    font-size: 14px;
+    font-family: 'icon-pc';
+    text-decoration: none;
+  }
+  &.msg-error > .msg-icon {
+    &:before {
+      content: "\c60d";
+    }
+  }
+  &.msg-stop > .msg-icon {
+    &:before {
+      content: "\c60b";
+    }
+  }
+  &.msg-success > .msg-icon {
+    &:before {
+      content: "\c603";
+    }
+  }
+  &.msg-warning > .msg-icon {
+    &:before {
+      content: "\c612";
+    }
+  }
+  &.msg-notice > .msg-icon {
+    &:before {
+      content: "\c601";
+    }
+  }
+  &.msg-tips > .msg-icon {
+    &:before {
+      content: "\c609";
+    }
+  }
+  &.msg-info > .msg-icon {
+    &:before {
+      content: "\c60a";
+    }
+  }
+  &.msg-question > .msg-icon {
+    &:before {
+      content: "\c605";
+    }
   }
 
 
@@ -46,10 +72,6 @@
 		*display: inline;
 		*zoom: 1;
 		position: absolute;
-		overflow: hidden;
-		width: 16px;
-		height: 16px;
-    background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
 	}
 }
 
@@ -60,8 +82,8 @@
 	vertical-align: middle;
 	> .msg-con { padding: 2px 10px 2px 23px; }
 	> .msg-icon {
-		top: 4px;
-		left: 4px;
+		top: 3px;
+		left: 6px;
 	}
 
   // ´ó³ß´ç
@@ -73,8 +95,7 @@
     > .msg-icon {
       top: 12px;
       left: 11px;
-      width: 24px;
-      height: 24px;
+      font-size: 24px;
     }
   }
 
@@ -94,10 +115,10 @@
     }
   }
   &.msg-success {
-    color: #4ab933;
+    color: @linkColor;
     > .msg-con {
-      border: 1px solid #dcf9d6;
-      background-color: #edffe9;
+      border: 1px solid lighten(@linkColor, 30%);
+      background-color: lighten(@linkColor, 40%);
     }
   }
   &.msg-warning {

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>按钮组</title>
+    <title>tags </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -14,12 +14,6 @@
     <script src="../js/lib/jquery.js"></script>
     <script src="../build/js/sui.js"></script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <style type="text/css">
-      .btn-group-vertical .sui-btn {
-        min-width: 100px;
-      }
-      
-    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -60,10 +54,10 @@
                   <li><a href="tab.html">标签页</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
-                  <li class="active"><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
                   <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
+                  <li class="active"><a href="tag.html">tag</a></li>
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
@@ -88,11 +82,11 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1 class="sui-page-header">按钮组</h1>
-          <p class="sui-lead">垂直和水平方向按钮组</p>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
+          <div class="sui-page-header">
+            <h1>tags 标签群  </h1>
+            <p>入口class:<code>.sui-tag</code>。近亲label在<a href="./label.html">这里</a></p>
+          </div>
+          <h2>普通与选中的tag</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -101,45 +95,71 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <div class="sui-btn-group">
-                  <button class="sui-btn">左边</button>
-                  <button class="sui-btn">中间</button>
-                  <button class="sui-btn">右边</button>
-                </div>
-                <div class="sui-btn-group">
-                  <button class="sui-btn">按钮</button>
-                  <button class="sui-btn btn-primray">按钮</button>
-                  <button class="sui-btn btn-warning">按钮</button>
-                  <button class="sui-btn btn-success">按钮</button>
-                  <button class="sui-btn btn-danger">按钮</button>
-                </div>
-                <h2>垂直方向</h2>
-                <div class="sui-btn-group btn-group-vertical">
-                  <button class="sui-btn">左边</button>
-                  <button class="sui-btn">中间</button>
-                  <button class="sui-btn">右边</button>
-                </div>
-                <h2>工具栏</h2>
-                <div style="margin: 0;" class="sui-btn-toolbar">
-                  <div class="sui-btn-group">
-                    <button class="sui-btn">复制</button>
-                    <button class="sui-btn">粘贴</button>
-                    <button class="sui-btn">缩进</button>
-                  </div>
-                  <div class="sui-btn-group">
-                    <button class="sui-btn btn-danger">删除</button>
-                    <button class="sui-btn btn-primary">插入</button>
-                  </div>
-                </div>
+                <h3>默认  </h3>
+                <ul class="sui-tag">
+                  <li>Normal</li>
+                  <li>logo设计</li>
+                  <li>店铺装修达人</li>
+                  <li>艺术</li>
+                  <li>公sdf告</li>
+                  <li>注意afs</li>
+                </ul>
+                <h3>选中的tag的状态：li.tag-selected</h3>
+                <ul class="sui-tag tag-selected">
+                  <li>Normal</li>
+                  <li class="tag-selected">logo设计</li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术</li>
+                  <li>公sdf告</li>
+                  <li class="tag-selected">注意afs</li>
+                </ul>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">按钮组，默认是水平排列，通过class <code>btn-group-vertical</code> 控制按钮组垂直排列。</div>
+            <div id="doc1" class="tab-pane">
+              <p>使用方法很简单了，最好是用ul>li的结构，或者内部是a标签也可以。</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>右侧带叉（用以删除）</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <h3>默认  .sui-tag</h3>
+                <ul style="width:300px;border: 1px solid #999; padding: 5px" class="sui-tag">
+                  <li>Normal</li>
+                  <li class="tag-selected">logo设计<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告</li>
+                  <li class="tag-selected">注意afs<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人</li>
+                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告</li>
+                </ul>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <p>带叉的tag则在每个tag元素里添加html：<code>&lt;i class="del-tag"&gt;&amp;times;&lt;/i&gt;</code></p>
+              <p>因为是CSS组件，相关事件需要根据业务逻辑自己添加</p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>

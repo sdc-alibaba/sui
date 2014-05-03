@@ -43,7 +43,7 @@
     height: @baseLineHeight;
     // padding: 4px 6px;
     // margin-bottom: @baseLineHeight / 2;
-    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;  // 注释掉padding值和margin值同时修改padding值为默认值 @by kai 2014-01-30
+    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;
     font-size: @baseFontSize;
     line-height: @baseLineHeight;
     color: @gray;
@@ -51,8 +51,6 @@
     vertical-align: middle;
     background-color: @inputBackground;
     border: 1px solid @inputBorder;
-    .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-    .transition(~"border linear .2s, box-shadow linear .2s");
 
     // Focus state
     &:focus {
@@ -147,7 +145,6 @@
     color: @grayLight;
     background-color: darken(@inputBackground, 1%);
     border-color: @inputBorder;
-    .box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
     cursor: not-allowed;
   }
 
@@ -171,6 +168,9 @@
   input,
   textarea {
     .placeholder();
+    &:focus, &:active {
+      outline: 0;
+    }
   }
 
 
@@ -193,32 +193,11 @@
     }
   }
 
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .radio input[type="radio"],
-  .checkbox input[type="checkbox"] {
-    float: left;
-    margin-left: -20px;
-  }
-  */
-
-  // Move the options list down to align with labels
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .controls > .radio:first-child,
-  .controls > .checkbox:first-child {
-    padding-top: 5px; // has to be padding because margin collaspes
-  }
-  */
 
   // Radios and checkboxes on same line
   // TODO v3: Convert .inline to .control-inline
   .radio.inline,
   .checkbox.inline {
-    /* 注释掉上面的样式 添加下面样式 @by kai 2014-01-30
-    display: inline-block;
-    padding-top: 5px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    */
     display: inline-block;
     margin-top: 0;
 
@@ -229,25 +208,12 @@
     }
   }
 
-  /* 注释掉这一块代码，直接删掉 @by kai 2014-01-30
-  .radio.inline + .radio.inline,
-  .checkbox.inline + .checkbox.inline {
-    margin-left: 10px; // space out consecutive inline controls
+  &.form-dark {
+    input {
+      background-color: #f9f9f9;
+      border-color: #ececec;
+    }
   }
-  */
-
-
-  // INPUT SIZES
-  // -----------
-
-  // General classes for quick sizes
-  /* 注释掉这一块代码 重新定义如下 @by kai 2014-01-30
-  .input-mini       { width: 60px; }
-  .input-small      { width: 90px; }
-  .input-medium     { width: 150px; }
-  .input-large      { width: 210px; }
-  .input-xlarge     { width: 270px; }
-  .input-xxlarge    { width: 530px; }*/
 
   // 定义表单控件常用宽度尺寸
   .input-mini       { width: @inputMiniWidth; }
@@ -267,12 +233,16 @@
     padding-bottom: @inputDefaultPaddingTB;
   }
   .input-fat {
-    padding-top: @inputFatPaddingTB;
-    padding-bottom: @inputFatPaddingTB;
+    padding: @inputFatPaddingTB @inputFatPaddingLR;
+    font-size: @fontSizeLarge;
+    line-height: @lineHeightLarge;
+    height: @lineHeightLarge;
   }
   .input-xfat {
-    padding-top: @inputXFatPaddingTB;
-    padding-bottom: @inputXFatPaddingTB;
+    padding: @inputXFatPaddingTB @inputXFatPaddingLR;
+    font-size: @fontSizeLarge;
+    line-height: @lineHeightLarge;
+    height: @lineHeightLarge;
   }
 
   // 重置大号和加大号表单控件左右padding
@@ -429,19 +399,19 @@
 
   // Warning
   .warning {
-    .formFieldState(@warningText, @warningText, @warningBackground);
+    .formFieldState(@warningText, @warningText, @warningBackground, @warningBorder);
   }
   // Error
   .error {
-    .formFieldState(@errorText, @errorText, @errorBackground);
+    .formFieldState(@errorText, @errorBorder, @errorBackground, @errorBorder);
   }
   // Success
   .success {
-    .formFieldState(@successText, @successText, @successBackground);
+    .formFieldState(@successText, @successBorder, @successBackground, @successBorder);
   }
   // Info
   .info {
-    .formFieldState(@infoText, @infoText, @infoBackground);
+    .formFieldState(@infoText, @infoBorder, @infoBackground, @infoBorder);
     // .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
   }
 
@@ -455,7 +425,6 @@
     &:focus {
       border-color: darken(#ee5f5b, 10%);
       // @shadow: 0 0 6px lighten(#ee5f5b, 20%);
-      // .box-shadow(@shadow); // 注释掉字段焦点外发光效果 @by kai 2014-01-23
     }
   }
 
@@ -470,17 +439,17 @@
 
   // Error
   .input-error {
-    .inputFieldState(@errorText, @errorText, @errorBackground);
+    .inputFieldState(@errorText, @errorBorder, @errorBackground);
   }
 
   // Success
   .input-success {
-    .inputFieldState(@successText, @successText, @successBackground);
+    .inputFieldState(@successText, @successBorder, @successBackground);
   }
 
   // Info
   .input-info {
-    .inputFieldState(@infoText, @infoText, @infoBackground);
+    .inputFieldState(@infoText, @infoBorder, @infoBackground);
   }
 
   // 继承文本字段四态
@@ -840,4 +809,6 @@
       padding-left: @horizontalComponentOffset;
     }
   }
+
+  
 }
