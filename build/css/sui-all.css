@@ -7237,13 +7237,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
   color: #ffffff;
-  background-color: #e5f4f6;
+  background-color: #e5f3f6;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
   color: #ffffff;
-  background-color: #51a9af;
-  border-color: #51a9af;
+  background-color: #53b8c0;
+  border-color: #53b8c0;
   cursor: default;
 }
 .sui-pagination ul > .active > a:hover,
@@ -7251,8 +7251,8 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .active > a:focus,
 .sui-pagination ul > .active > span:focus {
   color: #ffffff;
-  background-color: #51a9af;
-  border-color: #51a9af;
+  background-color: #53b8c0;
+  border-color: #53b8c0;
 }
 .sui-pagination ul > .dotted > span,
 .sui-pagination ul > .dotted > a {
@@ -9885,6 +9885,84 @@ a.sui-label:focus {
 }
 .steps-auto .wrap > div {
   width: 100%;
+}
+.sui-steps-round {
+  font-size: 0px;
+  overflow: hidden;
+  line-height: 0px;
+  margin: 18px 0px;
+  padding: 0px 6px;
+}
+.sui-steps-round > div {
+  display: inline-block;
+  vertical-align: top;
+}
+.sui-steps-round > div > label {
+  display: block;
+  font-size: 12px;
+  line-height: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: 6px;
+  color: #53b8c0;
+}
+.sui-steps-round > div .round {
+  width: 22px;
+  height: 22px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #FFF;
+  line-height: 22px;
+  text-align: center;
+}
+.sui-steps-round > div .bar {
+  margin: 0px 10px;
+  display: inline-block;
+  width: 200px;
+  height: 6px;
+  vertical-align: middle;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.sui-steps-round > .finished .round {
+  border: 4px #53b8c0 solid;
+  background-color: #53b8c0;
+}
+.sui-steps-round > .finished .bar {
+  background-color: #53b8c0;
+}
+.sui-steps-round > .current .round {
+  border: 4px #339ba3 solid;
+  background-color: #339ba3;
+}
+.sui-steps-round > .current .bar {
+  background-color: #339ba3;
+}
+.sui-steps-round > .todo > label {
+  color: #666666;
+}
+.sui-steps-round > .todo .round {
+  border: 4px #eeeeee solid;
+  background-color: #FFF;
+  color: #999999;
+}
+.sui-steps-round > .todo .bar {
+  background-color: #eeeeee;
+}
+.steps-round-auto {
+  display: table;
+  width: 100%;
+}
+.steps-round-auto > div {
+  display: table-cell;
+}
+.steps-round-auto > div .bar {
+  width: 83%;
 }
 .pull-right {
   float: right;
