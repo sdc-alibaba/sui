@@ -1,24 +1,58 @@
 .sui-tag {
   list-style: none;
+  font-size: 0;
   &>li, &>span {
+    font-size: @fontSizeLarge;
+    margin-right: 5px;
     display: inline-block;
+    overflow: hidden;
     color: @black;
     background: @btnBackgroundHighlight;
-    padding: 0 5px;
-    height: 22px;
-    line-height: 22px;
+    padding: 0 7px;
+    height: 20px;
+    line-height: 20px;
     border: 1px solid #d1d1d1;
     white-space: nowrap;
     cursor: default;
     &:hover {
       color: @stepsCurrentColor;
+      .del-tag {
+        visibility: visible;
+      }
     }
     &:active {
       color: @white;
       background: @stepsCurrentColor;
     }
+    .transition(color 0.2s ease-out);
+    .del-tag {
+      margin-left: 10px;
+      visibility: hidden;
+      cursor: pointer;
+      color: #ccc;
+      font: normal 16px tahoma;
+      vertical-align: text-bottom;
+    }
   }
-  &.hole {
-    
+  &.tag-hole {
+    &>li, &>span {
+      padding: 0 10px 0 15px;
+      height: 28px;
+      line-height: 28px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: -7px;
+        top: 50%;
+        margin-top: -7px;
+        background: @white;
+        border: 1px solid #d1d1d1;
+        //border-width: 1px 1px 0 0;
+        .border-radius(6px);
+      }
+    }
   }
 }
