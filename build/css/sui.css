@@ -5355,7 +5355,7 @@ sui-pre .sui-code {
   color: #999;
   min-width: 82px;
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -5476,7 +5476,7 @@ sui-pre .sui-code {
   font-size: 14px;
 }
 .sui-dropdown.dropdown-bordered.dropdown-large .dropdown-inner a {
-  padding: 9px 14px;
+  padding: 8px 14px;
   line-height: 22px;
   font-size: 14px;
 }
@@ -5613,7 +5613,7 @@ button.sui-close {
 }
 .sui-btn {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -5698,7 +5698,7 @@ button.sui-close {
   font-size: 14px;
 }
 .btn-large {
-  padding: 9px 14px;
+  padding: 8px 14px;
   line-height: 22px;
   font-size: 14px;
 }
@@ -7809,7 +7809,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination div .page-num + .page-confirm {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -7979,7 +7979,7 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-large div .page-num + .page-confirm {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -7995,7 +7995,7 @@ input[type="submit"].btn.btn-mini {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  padding: 9px 14px;
+  padding: 8px 14px;
   line-height: 22px;
   font-size: 14px;
   color: #ffffff;
@@ -8117,7 +8117,7 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-xlarge div .page-num + .page-confirm {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -8247,7 +8247,7 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-small div .page-num + .page-confirm {
   display: inline-block;
-  padding: 7px 12px;
+  padding: 6px 12px;
   box-sizing: border-box;
   margin-bottom: 0;
   text-align: center;
@@ -9947,7 +9947,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-progress .bar {
   width: 0%;
   height: 100%;
-  padding: 7px 12px;
+  padding: 6px 12px;
   padding-left: 0;
   padding-right: 0;
   color: #ffffff;
