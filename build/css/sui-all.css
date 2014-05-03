@@ -3858,7 +3858,7 @@ sui-pre .sui-code {
   content: "\c60d";
 }
 .sui-msg.msg-stop > .msg-icon:before {
-  content: "\c60a";
+  content: "\c60b";
 }
 .sui-msg.msg-success > .msg-icon:before {
   content: "\c603";
