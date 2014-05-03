@@ -2421,56 +2421,472 @@ sui-pre .sui-code {
   position: relative;
   color: #555555;
 }
-.sui-msg.msg-error .msg-icon {
-  background-position: 0 0;
+.sui-msg > .msg-icon {
+  font-family: 'sui-icon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: inherit;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-family: 'icon-pc';
+  text-decoration: none;
 }
-.sui-msg.msg-stop .msg-icon {
-  background-position: 0 -16px;
+.sui-msg > .msg-icon[class^="icon-pc-"],
+.sui-msg > .msg-icon[class*=" icon-pc-"] {
+  font-family: 'icon-pc';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.sui-msg.msg-success .msg-icon {
-  background-position: 0 -32px;
+.sui-msg > .msg-icon[class^="icon-touch-"],
+.sui-msg > .msg-icon[class*=" icon-touch-"] {
+  font-family: 'icon-touch';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.sui-msg.msg-warning .msg-icon {
-  background-position: 0 -48px;
+.sui-msg > .msg-icon.icon-search:before {
+  content: "\e69f";
 }
-.sui-msg.msg-notice .msg-icon {
-  background-position: 0 -64px;
+.sui-msg > .msg-icon.icon-th-large:before {
+  content: "\e698";
 }
-.sui-msg.msg-tips .msg-icon {
-  background-position: 0 -80px;
+.sui-msg > .msg-icon.icon-th:before {
+  content: "\e697";
 }
-.sui-msg.msg-info .msg-icon {
-  background-position: 0 -96px;
+.sui-msg > .msg-icon.icon-th-list:before {
+  content: "\e696";
 }
-.sui-msg.msg-question .msg-icon {
-  background-position: 0 -112px;
+.sui-msg > .msg-icon.icon-zoom-in:before {
+  content: "\e693";
 }
-.sui-msg.msg-large > .msg-icon {
-  background-image: url(http://gtms03.alicdn.com/tps/i3/T10jXLFs0QXXbaGSHp-24-192.png);
+.sui-msg > .msg-icon.icon-zoom-out:before {
+  content: "\e692";
 }
-.sui-msg.msg-large.msg-error > .msg-icon {
-  background-position: 0 0;
+.sui-msg > .msg-icon.icon-signal:before {
+  content: "\e690";
 }
-.sui-msg.msg-large.msg-stop > .msg-icon {
-  background-position: 0 -24px;
+.sui-msg > .msg-icon.icon-cog:before {
+  content: "\e68f";
 }
-.sui-msg.msg-large.msg-success > .msg-icon {
-  background-position: 0 -48px;
+.sui-msg > .msg-icon.icon-trash:before {
+  content: "\e68e";
 }
-.sui-msg.msg-large.msg-warning > .msg-icon {
-  background-position: 0 -72px;
+.sui-msg > .msg-icon.icon-home:before {
+  content: "\e68d";
 }
-.sui-msg.msg-large.msg-notice > .msg-icon {
-  background-position: 0 -96px;
+.sui-msg > .msg-icon.icon-time:before {
+  content: "\e68b";
 }
-.sui-msg.msg-large.msg-tips > .msg-icon {
-  background-position: 0 -120px;
+.sui-msg > .msg-icon.icon-download-alt:before {
+  content: "\e689";
 }
-.sui-msg.msg-large.msg-info > .msg-icon {
-  background-position: 0 -144px;
+.sui-msg > .msg-icon.icon-download:before {
+  content: "\e688";
 }
-.sui-msg.msg-large.msg-question > .msg-icon {
-  background-position: 0 -168px;
+.sui-msg > .msg-icon.icon-upload:before {
+  content: "\e687";
+}
+.sui-msg > .msg-icon.icon-play-circle:before {
+  content: "\e685";
+}
+.sui-msg > .msg-icon.icon-repeat:before {
+  content: "\e684";
+}
+.sui-msg > .msg-icon.icon-refresh:before {
+  content: "\e683";
+}
+.sui-msg > .msg-icon.icon-list-alt:before {
+  content: "\e682";
+}
+.sui-msg > .msg-icon.icon-lock:before {
+  content: "\e681";
+}
+.sui-msg > .msg-icon.icon-flag:before {
+  content: "\e680";
+}
+.sui-msg > .msg-icon.icon-volume-off:before {
+  content: "\e67e";
+}
+.sui-msg > .msg-icon.icon-volume-down:before {
+  content: "\e67d";
+}
+.sui-msg > .msg-icon.icon-volume-up:before {
+  content: "\e67c";
+}
+.sui-msg > .msg-icon.icon-qrcode:before {
+  content: "\e67b";
+}
+.sui-msg > .msg-icon.icon-barcode:before {
+  content: "\e67a";
+}
+.sui-msg > .msg-icon.icon-bookmark:before {
+  content: "\e676";
+}
+.sui-msg > .msg-icon.icon-align-justify:before {
+  content: "\e66b";
+}
+.sui-msg > .msg-icon.icon-list:before {
+  content: "\e66a";
+}
+.sui-msg > .msg-icon.icon-picture:before {
+  content: "\e666";
+}
+.sui-msg > .msg-icon.icon-pencil:before {
+  content: "\e665";
+}
+.sui-msg > .msg-icon.icon-map-marker:before {
+  content: "\e664";
+}
+.sui-msg > .msg-icon.icon-adjust:before {
+  content: "\e663";
+}
+.sui-msg > .msg-icon.icon-edit:before {
+  content: "\e661";
+}
+.sui-msg > .msg-icon.icon-check:before {
+  content: "\e65f";
+}
+.sui-msg > .msg-icon.icon-step-backward:before {
+  content: "\e65d";
+}
+.sui-msg > .msg-icon.icon-fast-backward:before {
+  content: "\e65c";
+}
+.sui-msg > .msg-icon.icon-backward:before {
+  content: "\e65b";
+}
+.sui-msg > .msg-icon.icon-play:before {
+  content: "\e65a";
+}
+.sui-msg > .msg-icon.icon-pause:before {
+  content: "\e659";
+}
+.sui-msg > .msg-icon.icon-stop:before {
+  content: "\e658";
+}
+.sui-msg > .msg-icon.icon-forward:before {
+  content: "\e657";
+}
+.sui-msg > .msg-icon.icon-fast-forward:before {
+  content: "\e656";
+}
+.sui-msg > .msg-icon.icon-step-forward:before {
+  content: "\e655";
+}
+.sui-msg > .msg-icon.icon-chevron-left:before {
+  content: "\e653";
+}
+.sui-msg > .msg-icon.icon-chevron-right:before {
+  content: "\e652";
+}
+.sui-msg > .msg-icon.icon-plus-sign:before {
+  content: "\e651";
+}
+.sui-msg > .msg-icon.icon-minus-sign:before {
+  content: "\e650";
+}
+.sui-msg > .msg-icon.icon-remove-sign:before {
+  content: "\e64f";
+}
+.sui-msg > .msg-icon.icon-ok-sign:before {
+  content: "\e64e";
+}
+.sui-msg > .msg-icon.icon-question-sign:before {
+  content: "\e64d";
+}
+.sui-msg > .msg-icon.icon-info-sign:before {
+  content: "\e64c";
+}
+.sui-msg > .msg-icon.icon-remove-circle:before {
+  content: "\e64a";
+}
+.sui-msg > .msg-icon.icon-ok-circle:before {
+  content: "\e649";
+}
+.sui-msg > .msg-icon.icon-ban-circle:before {
+  content: "\e648";
+}
+.sui-msg > .msg-icon.icon-notification:before {
+  content: "\e610";
+}
+.sui-msg > .msg-icon.icon-question:before {
+  content: "\e611";
+}
+.sui-msg > .msg-icon.icon-arrow-left:before {
+  content: "\e647";
+}
+.sui-msg > .msg-icon.icon-arrow-right:before {
+  content: "\e646";
+}
+.sui-msg > .msg-icon.icon-arrow-up:before {
+  content: "\e645";
+}
+.sui-msg > .msg-icon.icon-arrow-down:before {
+  content: "\e644";
+}
+.sui-msg > .msg-icon.icon-long-arrow-down:before {
+  content: "\e752";
+}
+.sui-msg > .msg-icon.icon-long-arrow-up:before {
+  content: "\e753";
+}
+.sui-msg > .msg-icon.icon-long-arrow-left:before {
+  content: "\e754";
+}
+.sui-msg > .msg-icon.icon-long-arrow-right:before {
+  content: "\e755";
+}
+.sui-msg > .msg-icon.icon-resize-full:before {
+  content: "\e642";
+}
+.sui-msg > .msg-icon.icon-resize-small:before {
+  content: "\e641";
+}
+.sui-msg > .msg-icon.icon-exclamation-sign:before {
+  content: "\e63d";
+}
+.sui-msg > .msg-icon.icon-comment:before {
+  content: "\e633";
+}
+.sui-msg > .msg-icon.icon-chevron-up:before {
+  content: "\e631";
+}
+.sui-msg > .msg-icon.icon-chevron-down:before {
+  content: "\e630";
+}
+.sui-msg > .msg-icon.icon-shopping-cart:before {
+  content: "\e62e";
+}
+.sui-msg > .msg-icon.icon-folder-close:before {
+  content: "\e62d";
+}
+.sui-msg > .msg-icon.icon-folder-open:before {
+  content: "\e62c";
+}
+.sui-msg > .msg-icon.icon-resize-vertical:before {
+  content: "\e62b";
+}
+.sui-msg > .msg-icon.icon-resize-horizontal:before {
+  content: "\e62a";
+}
+.sui-msg > .msg-icon.icon-bar-chart:before {
+  content: "\e629";
+}
+.sui-msg > .msg-icon.icon-upload-alt:before {
+  content: "\e617";
+}
+.sui-msg > .msg-icon.icon-bookmark-empty:before {
+  content: "\e613";
+}
+.sui-msg > .msg-icon.icon-credit:before {
+  content: "\e60d";
+}
+.sui-msg > .msg-icon.icon-rss:before {
+  content: "\e60c";
+}
+.sui-msg > .msg-icon.icon-circle-arrow-left:before {
+  content: "\e603";
+}
+.sui-msg > .msg-icon.icon-circle-arrow-right:before {
+  content: "\e602";
+}
+.sui-msg > .msg-icon.icon-circle-arrow-up:before {
+  content: "\e601";
+}
+.sui-msg > .msg-icon.icon-circle-arrow-down:before {
+  content: "\e600";
+}
+.sui-msg > .msg-icon.icon-globe:before {
+  content: "\e6a2";
+}
+.sui-msg > .msg-icon.icon-wrench:before {
+  content: "\e6a3";
+}
+.sui-msg > .msg-icon.icon-tasks:before {
+  content: "\e6a4";
+}
+.sui-msg > .msg-icon.icon-fullscreen:before {
+  content: "\e6a7";
+}
+.sui-msg > .msg-icon.icon-reorder:before {
+  content: "\e6b1";
+}
+.sui-msg > .msg-icon.icon-list-ul:before {
+  content: "\e6b2";
+}
+.sui-msg > .msg-icon.icon-list-ol:before {
+  content: "\e6b3";
+}
+.sui-msg > .msg-icon.icon-magic:before {
+  content: "\e6b7";
+}
+.sui-msg > .msg-icon.icon-caret-down:before {
+  content: "\e6be";
+}
+.sui-msg > .msg-icon.icon-caret-up:before {
+  content: "\e6bf";
+}
+.sui-msg > .msg-icon.icon-caret-left:before {
+  content: "\e6c0";
+}
+.sui-msg > .msg-icon.icon-caret-right:before {
+  content: "\e6c1";
+}
+.sui-msg > .msg-icon.icon-sort:before {
+  content: "\e6c3";
+}
+.sui-msg > .msg-icon.icon-sort-down:before {
+  content: "\e6c4";
+}
+.sui-msg > .msg-icon.icon-sort-up:before {
+  content: "\e6c5";
+}
+.sui-msg > .msg-icon.icon-envelope-alt:before {
+  content: "\e6c6";
+}
+.sui-msg > .msg-icon.icon-lightbulb:before {
+  content: "\e6d1";
+}
+.sui-msg > .msg-icon.icon-bulb:before {
+  content: "\e605";
+}
+.sui-msg > .msg-icon.icon-cloud-download:before {
+  content: "\e6d3";
+}
+.sui-msg > .msg-icon.icon-cloud-upload:before {
+  content: "\e6d4";
+}
+.sui-msg > .msg-icon.icon-bell-alt:before {
+  content: "\e6d8";
+}
+.sui-msg > .msg-icon.icon-double-angle-left:before {
+  content: "\e6e4";
+}
+.sui-msg > .msg-icon.icon-double-angle-right:before {
+  content: "\e6e5";
+}
+.sui-msg > .msg-icon.icon-double-angle-up:before {
+  content: "\e6e6";
+}
+.sui-msg > .msg-icon.icon-double-angle-down:before {
+  content: "\e6e7";
+}
+.sui-msg > .msg-icon.icon-angle-left:before {
+  content: "\e6e8";
+}
+.sui-msg > .msg-icon.icon-angle-right:before {
+  content: "\e6e9";
+}
+.sui-msg > .msg-icon.icon-angle-up:before {
+  content: "\e6ea";
+}
+.sui-msg > .msg-icon.icon-angle-down:before {
+  content: "\e6eb";
+}
+.sui-msg > .msg-icon.icon-desktop:before {
+  content: "\e6ec";
+}
+.sui-msg > .msg-icon.icon-laptop:before {
+  content: "\e6ed";
+}
+.sui-msg > .msg-icon.icon-tablet:before {
+  content: "\e6ee";
+}
+.sui-msg > .msg-icon.icon-mobile:before {
+  content: "\e6ef";
+}
+.sui-msg > .msg-icon.icon-chevron-sign-left:before {
+  content: "\e718";
+}
+.sui-msg > .msg-icon.icon-chevron-sign-right:before {
+  content: "\e719";
+}
+.sui-msg > .msg-icon.icon-chevron-sign-up:before {
+  content: "\e71a";
+}
+.sui-msg > .msg-icon.icon-chevron-sign-down:before {
+  content: "\e71b";
+}
+.sui-msg > .msg-icon.icon-html5:before {
+  content: "\e71c";
+}
+.sui-msg > .msg-icon.icon-rss-sign:before {
+  content: "\e723";
+}
+.sui-msg > .msg-icon.icon-bell:before {
+  content: "\e609";
+}
+.sui-msg > .msg-icon.icon-play-sign:before {
+  content: "\e724";
+}
+.sui-msg > .msg-icon.icon-apple:before {
+  content: "\e756";
+}
+.sui-msg > .msg-icon.icon-windows:before {
+  content: "\e757";
+}
+.sui-msg > .msg-icon.icon-android:before {
+  content: "\e758";
+}
+.sui-msg > .msg-icon.icon-weibo:before {
+  content: "\e766";
+}
+.sui-msg > .msg-icon.icon-renren:before {
+  content: "\e767";
+}
+.sui-msg > .msg-icon.icon-arrow-fat-up:before {
+  content: "\e62f";
+}
+.sui-msg > .msg-icon.icon-arrow-fat-right:before {
+  content: "\e632";
+}
+.sui-msg > .msg-icon.icon-arrow-fat-down:before {
+  content: "\e634";
+}
+.sui-msg > .msg-icon.icon-arrow-fat-left:before {
+  content: "\e635";
+}
+.sui-msg.msg-error > .msg-icon:before {
+  content: "\c60d";
+}
+.sui-msg.msg-stop > .msg-icon:before {
+  content: "\c60b";
+}
+.sui-msg.msg-success > .msg-icon:before {
+  content: "\c603";
+}
+.sui-msg.msg-warning > .msg-icon:before {
+  content: "\c612";
+}
+.sui-msg.msg-notice > .msg-icon:before {
+  content: "\c601";
+}
+.sui-msg.msg-tips > .msg-icon:before {
+  content: "\c609";
+}
+.sui-msg.msg-info > .msg-icon:before {
+  content: "\c60a";
+}
+.sui-msg.msg-question > .msg-icon:before {
+  content: "\c605";
 }
 .sui-msg > .msg-con {
   -webkit-border-radius: 2px;
@@ -2485,10 +2901,6 @@ sui-pre .sui-code {
   *display: inline;
   *zoom: 1;
   position: absolute;
-  overflow: hidden;
-  width: 16px;
-  height: 16px;
-  background-image: url(http://gtms02.alicdn.com/tps/i2/T1Pr4MFxtbXXXqV8zd-16-128.png);
 }
 .sui-msg {
   font-size: 12px;
@@ -2499,8 +2911,8 @@ sui-pre .sui-code {
   padding: 2px 10px 2px 23px;
 }
 .sui-msg > .msg-icon {
-  top: 4px;
-  left: 4px;
+  top: 3px;
+  left: 6px;
 }
 .sui-msg.msg-large {
   font-size: 14px;
@@ -2513,8 +2925,7 @@ sui-pre .sui-code {
 .sui-msg.msg-large > .msg-icon {
   top: 12px;
   left: 11px;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
 }
 .sui-msg.msg-error {
   color: #ea4a36;
