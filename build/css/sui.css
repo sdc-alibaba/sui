@@ -9645,6 +9645,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 12px;
   font-style: italic;
 }
+.sui-steps .round + span:before {
+  content: '\00a0';
+}
 .sui-steps .finished {
   background-color: #e4f6ff;
   color: #4aa4d5;

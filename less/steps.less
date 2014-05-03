@@ -46,6 +46,9 @@
         line-height: @baseFontSize;
         font-style: italic;
     }
+    .round + span:before {
+        content: '\00a0';
+    }
     .finished {
         background-color: @stepsFinishedColor;
         color: @stepsFinishedTextColor;
