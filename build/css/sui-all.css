@@ -7231,29 +7231,28 @@ input[type="submit"].btn.btn-mini {
   text-decoration: none;
   color: #53b8c0;
   background-color: #ffffff;
-  border: 1px solid #e0e9ee;
+  border: 1px solid #e1e1e1;
   margin-left: -1px;
 }
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
   color: #ffffff;
-  background-color: #51a9af;
-  border-color: #51a9af;
+  background-color: #e5f4f6;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
-  background-color: #2597dd;
   color: #ffffff;
-  border-color: #2597dd;
+  background-color: #51a9af;
+  border-color: #51a9af;
   cursor: default;
 }
 .sui-pagination ul > .active > a:hover,
 .sui-pagination ul > .active > span:hover,
 .sui-pagination ul > .active > a:focus,
 .sui-pagination ul > .active > span:focus {
-  background-color: #2597dd;
   color: #ffffff;
-  border-color: #2597dd;
+  background-color: #51a9af;
+  border-color: #51a9af;
 }
 .sui-pagination ul > .dotted > span,
 .sui-pagination ul > .dotted > a {
@@ -7264,15 +7263,16 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .disabled > a,
 .sui-pagination ul > .disabled > a:hover,
 .sui-pagination ul > .disabled > a:focus {
-  color: #999999;
-  background-color: transparent;
+  color: #bbbbbb;
+  background-color: #e6e6e6;
   cursor: default;
+  border: 1px solid #e1e1e1;
 }
 .sui-pagination ul > .prev > span,
 .sui-pagination ul > .next > span,
 .sui-pagination ul > .prev > a,
 .sui-pagination ul > .next > a {
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 .sui-pagination ul > .disabled.prev > span:hover,
 .sui-pagination ul .disabled.next > span:hover,
@@ -7281,9 +7281,15 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .disabled.prev > a:hover,
 .sui-pagination ul .disabled.next > a:hover,
 .sui-pagination ul > .disabled.prev > a:focus,
-.sui-pagination ul .disabled.next > a:focus {
-  background-color: #fafafa;
-  border-color: #e0e9ee;
+.sui-pagination ul .disabled.next > a:focus,
+.sui-pagination ul > .disabled.prev > a,
+.sui-pagination ul .disabled.next > a,
+.sui-pagination ul > .disabled.prev > span,
+.sui-pagination ul .disabled.next > span {
+  color: #bbbbbb;
+  background-color: #e6e6e6;
+  cursor: default;
+  border: 1px solid #e1e1e1;
 }
 /*
 .sui-pagination ul > .disabled.prev > a:hover {
@@ -9851,6 +9857,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   text-align: center;
   line-height: 12px;
   font-style: italic;
+}
+.sui-steps .round + span:before {
+  content: '\00a0';
 }
 .sui-steps .finished {
   background-color: #53b8c0;
