@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Breadcrumb 面包屑</title>
+    <title>tags </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -52,12 +52,12 @@
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
                   <li><a href="tab.html">标签页</a></li>
-                  <li class="active"><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
                   <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
+                  <li class="active"><a href="tag.html">tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
@@ -82,8 +82,10 @@
       <div class="content">
         <div class="content-inner">
           <div class="sui-page-header">
-            <h1>面包屑<small>&nbsp;&nbsp;breadcrumb</small></h1>
+            <h1>tags 标签群  </h1>
+            <p>近亲label在<a href="./label.html">这里</a></p>
           </div>
+          <h2>普通与带缺孔的tag</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -92,28 +94,77 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <ul class="sui-breadcrumb">
-                  <li class="active">首页</li>
+                <h3>默认  .sui-tag</h3>
+                <ul class="sui-tag">
+                  <li>Normal</li>
+                  <li>logo设计</li>
+                  <li>店铺装修达人级别</li>
+                  <li>艺术</li>
+                  <li>公sdf告</li>
+                  <li>注意afs</li>
                 </ul>
-                <ul class="sui-breadcrumb">
-                  <li><a href="#">首页</a></li>
-                  <li class="active">手机数码、电脑办公</li>
-                </ul>
-                <ul class="sui-breadcrumb">
-                  <li><a href="#">首页</a></li>
-                  <li><a href="#">手机数码、电脑办公</a></li>
-                  <li class="active">智能手机</li>
+                <h3>带孔  .sui-tag.tag-hole</h3>
+                <ul class="sui-tag tag-hole">
+                  <li>Normal</li>
+                  <li>logo设计</li>
+                  <li>店铺装修达人级别</li>
+                  <li>艺术</li>
+                  <li>公sdf告</li>
+                  <li>注意afs</li>
                 </ul>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。</div>
+            <div id="doc1" class="tab-pane">
+              <p>使用方法很简单了，最好是用ul>li的结构，不过div>span的结构也可以。</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>右侧带叉（用以删除）</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <h3>默认  .sui-tag</h3>
+                <ul class="sui-tag">
+                  <li>Normal<i class="del-tag">&times;</i></li>
+                  <li>logo设计<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人级别<i class="del-tag">&times;</i></li>
+                  <li>艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告<i class="del-tag">&times;</i></li>
+                  <li>注意afs<i class="del-tag">&times;</i></li>
+                </ul>
+                <h3>带孔  .sui-tag.tag-hole</h3>
+                <ul class="sui-tag tag-hole">
+                  <li>Normal<i class="del-tag">&times;</i></li>
+                  <li>logo设计<i class="del-tag">&times;</i></li>
+                  <li>店铺装修达人级别<i class="del-tag">&times;</i></li>
+                  <li>艺术<i class="del-tag">&times;</i></li>
+                  <li>公sdf告<i class="del-tag">&times;</i></li>
+                  <li>注意afs<i class="del-tag">&times;</i></li>
+                </ul>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <p>带叉的tag则在每个tag元素里添加html：<code>&lt;i class="del-tag"&gt;&amp;times;&lt;/i&gt;</code></p>
+              <p>因为是CSS组件，相关事件需要根据业务逻辑自己添加</p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>

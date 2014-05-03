@@ -5,9 +5,7 @@
   padding: 7px 10px 5px;
   margin-bottom: 0;
   text-align: right; // right align buttons
-  background-color: #f1f4f5;
-  .border-radius(0 0 6px 6px);
-  .box-shadow(inset 0 1px 0 @white);
+  .border-radius(0 0 3px 3px);
   .clearfix(); // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
@@ -60,9 +58,8 @@
   z-index: @zindexModal;
   width: 440px;
   background-color: @white;
-  border: 5px solid #b2b2b2;
-  border: 5px solid rgba(178,178,178,.3);
-  .box-shadow(0 3px 7px rgba(0,0,0,0.3));
+  .border-radius(3px);
+  .box-shadow(0 0 8px 2px #999);
   .background-clip(padding-box);
   // Remove focus outline from opened modal
   outline: none;
@@ -76,16 +73,27 @@
   }
 
   .modal-header {
-    padding: 6px 0;
-    margin: 0 10px;
-    border-bottom: 1px solid #b7b7b7;
+    padding: 0 10px;
+    background: #4a4a4a;
+    color: #fff;
+    .border-radius(3px 3px 0 0);
     // Heading
-    h3 {
+    h4 {
       margin: 0;
       line-height: 30px;
+      font-weight: normal;
     }
     .modal-title{
       margin: 0;
+    }
+    .sui-close {
+      color: #bebebe;
+      text-shadow: none;
+      font-size: 20px;
+      line-height: 30px;
+      &:hover {
+        color: #ff5050;
+      }
     }
   }
 
@@ -96,7 +104,7 @@
     min-height: 100px;
     max-height: 500px;
     margin: 0;
-    padding: 13px 15px;
+    padding: 10px 20px;
     &.no-foot{
       min-height: 190px;
     }

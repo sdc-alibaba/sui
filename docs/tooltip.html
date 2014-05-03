@@ -56,7 +56,8 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">标识</a></li>
+                  <li><a href="label.html">label</a></li>
+                  <li><a href="tag.html">tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
@@ -110,11 +111,12 @@
                   <li><a href="#" data-placement="right" data-toggle="tooltip" title="浮出在&lt;b&gt;right&lt;/b&gt;的tooltip">看right</a></li>
                   <li><a href="#" data-placement="bottom" data-toggle="tooltip" title="浮出在&lt;b&gt;bottom&lt;/b&gt;的tooltip">看bottom</a></li>
                   <li><a href="#" data-placement="left" data-toggle="tooltip" title="浮出在&lt;b&gt;left&lt;/b&gt;的tooltip">看left</a></li>
+                  <li><a href="#" data-placement="left" data-type="inverse" data-toggle="tooltip" title="浮出在&lt;b&gt;left type=inverse&lt;/b&gt;的tooltip">看left type=inverse</a></li>
                 </ul>
                 <ul class="example">
                   <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="true" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:true&lt;/pre&gt;">widthlimit:'true'</a></li>
-                  <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="bottom" data-widthlimit="false" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:false&lt;/pre&gt;">widthlimit:'false'</a></li>
-                  <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-placement="top" data-widthlimit="500px" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;pre&gt;widthlimit:&quot;500px&quot;&lt;/pre&gt;">widthlimit:'500px'</a></li>
+                  <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-type="inverse" data-placement="bottom" data-widthlimit="false" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawidthlimit:false">widthlimit:'false' 且 opt.type:'inverse'</a></li>
+                  <li><a href="javascript:void(0)" data-trigger="click" data-toggle="tooltip" data-type="attention" data-placement="top" data-widthlimit="500px" title="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaawidthlimit:&quot;500px&quot; 且触发元素上data-type=&quot;attention&quot;">widthlimit:'500px'且opt.type:'attention'</a></li>
                 </ul>
                 <ul class="example">
                   <li><a href="javascript:void(0)" data-placement="top" data-toggle="tooltip" data-type="attention" title="强调tooltip">top opt.type = 'attention'</a></li>
@@ -146,7 +148,7 @@
             <div id="api1" class="tab-pane">下方参数值为默认值,每个参数用作data-**的html属性也可。
               <pre class="prettyprint linenums">{
     animation: true  //是否以动画效果淡入淡出tooltip
-, type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+, type: 'normal'   //tip 类型 {string} 'normal'|'inverse'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
