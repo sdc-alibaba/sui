@@ -9413,7 +9413,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-tag > li:hover,
 .sui-tag > span:hover {
-  color: #0995e0;
+  color: #339ba3;
 }
 .sui-tag > li:hover .del-tag,
 .sui-tag > span:hover .del-tag {
@@ -9422,7 +9422,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-tag > li:active,
 .sui-tag > span:active {
   color: #ffffff;
-  background: #0995e0;
+  background: #339ba3;
 }
 .sui-tag > li .del-tag,
 .sui-tag > span .del-tag {
