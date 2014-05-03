@@ -1,16 +1,16 @@
 extends base
 
 block title
-  title label 
+  title tags 
 
 block sidebar
-  +sidebar('label')
+  +sidebar('tag')
 
 block content
   div.sui-page-header
-    h1 label标识  
-    p 近亲tag在
-      a(href='./tag.html') 这里
+    h1 tags 标签群  
+    p 近亲label在
+      a(href='./label.html') 这里
 
   h2 不同类型
   ul.sui-nav.nav-tabs.nav-large
@@ -21,23 +21,14 @@ block content
     li
       a(href='#doc1', data-toggle='tab') 文档
 
-  style.
-    .bs-docs-example ul {
-      margin-bottom: 20px;
-    }
-    .bs-docs-example li {
-      display: inline-block;
-      margin: 0 10px 10px 0;
-    }
   div.tab-content
     div.tab-pane.active#demo1
       div.bs-docs-example
         - var cls = ['', 'success', 'warning', 'danger', 'info', 'inverse']
         - var txt = ['默认', '成功', '警示恩', '危险危险', '公告', '反色!']
-        ul
+        ul.sui-tag
           each clsi, i in cls
-            li
-              span.sui-label(class='label-#{clsi}') #{txt[i]}
+            li(class='label-#{clsi}') #{txt[i]}
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
