@@ -34,9 +34,9 @@
 }
 .datepicker {
 	padding: 4px;
-	.border-radius(4px);
+	.border-radius(0px);
 	&-inline {
-		width: 220px;
+		width: 280px;
 	}
 	direction: ltr;
 	&&-rtl {
@@ -48,7 +48,7 @@
 	&-dropdown {
 		top: 0;
 		left: 0;
-		&:before {
+		/*&:before {
 			content: '';
 			display: inline-block;
 			border-left:   7px solid transparent;
@@ -82,7 +82,7 @@
 			bottom: -6px;
 			border-bottom: 0;
 			border-top:    6px solid @white;
-		}
+		}*/
 	}
 	>div {
 		display: none;
@@ -98,6 +98,7 @@
 	}
 	table{
 		margin: 0;
+		border-spacing: 0;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
 		-khtml-user-select: none;
@@ -108,16 +109,16 @@
 	td,
 	th{
 		text-align: center;
-		width: 20px;
-		height: 24px;
-		line-height: 24px;
+		width: 38px;
+		height: 28px;
+		line-height: 28px;
 	}
-	td{
+	/*td{
 		.border-radius(50%);
 	}
 	th{
 		.border-radius(4px);
-	}
+	}*/
 	// Inline display inside a table presents some problems with
 	// border and background colors.
 	.table-striped & table tr {
@@ -144,16 +145,16 @@
 		&.today:hover,
 		&.today.disabled,
 		&.today.disabled:hover {
-			@todayBackground: lighten(@orange, 30%);
-			.button-variant(#000,@todayBackground, spin(@todayBackground, 20));
-			color: #000;
+			/*@todayBackground: lighten(@orange, 30%);
+			.button-variant(#000,@todayBackground, spin(@todayBackground, 20));*/
+			color: @orange;
 		}
 		&.today:hover:hover { // Thank bootstrap 2.0 for this selector...
 			// TODO: Bump min BS to 2.1, use @textColor in buttonBackground above
-			color: #000;
+			color: @orange;
 		}
 		&.today.active:hover {
-			color: #fff;
+			color: @orange;
 		}
 		&.range,
 		&.range:hover,
@@ -166,9 +167,10 @@
 		&.range.today:hover,
 		&.range.today.disabled,
 		&.range.today.disabled:hover {
-			@todayBackground: mix(@orange, @grayLighter, 50%);
+			/*@todayBackground: mix(@orange, @grayLighter, 50%);
 			.button-variant(#000,@todayBackground, spin(@todayBackground, 20));
-			.border-radius(0);
+			.border-radius(0);*/
+			color: @orange;
 		}
 		&.selected,
 		&.selected:hover,
@@ -194,7 +196,7 @@
 			float: left;
 			margin: 1%;
 			cursor: pointer;
-			.border-radius(4px);
+			.border-radius(0px);
 			&:hover {
 				background: @grayLighter;
 			}
@@ -221,8 +223,54 @@
 
 	th.datepicker-switch {
 		width: 145px;
+		//add for wangqi
+		font-size: 18px;
+		height: 38px;
+		font-weight: 600;
+		height: 38px;
 	}
+	//add for wangqi
+	.prev,.next{
+		b{
+			display: block;
+			width: 0;
+			height: 0;
+			line-height: 0;
+			border-top: 8px solid transparent;
+			border-bottom: 8px solid transparent;
+			border-left: 8px solid #bcbcbc;
+			border-right: 8px solid #bcbcbc;
+		}
+	}
+	.date-header .prev:hover,.date-header .next:hover{
+		background: transparent;
+	}
+	.prev{
+		b{
+			margin-left: 2px;
+			border-left-color: transparent;
+		}
 
+	}
+	.next{
+		b{	
+			margin-left: 22px;
+			border-right-color: transparent;
+
+		}
+	}
+	.week-content{
+		//add for wangqi
+		.dow{
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			border-left: none;
+			border-right: none;
+			margin: 0;
+			color: @grayLight;
+			font-weight: 600;
+		}
+	}
 	thead tr:first-child th,
 	tfoot tr th {
 		cursor: pointer;
@@ -250,10 +298,11 @@
 	    display: none; // none by default, but block on "open" of the menu
 	    min-width: 160px;
 	    list-style: none;
+	    padding: 0;
 	    background-color: @dropdownBackground;
 	    border: 1px solid #ccc;
 	    border: 1px solid rgba(0,0,0,.2);
-	    .border-radius(5px);
+	    .border-radius(0px);
 	    .box-shadow(0 5px 10px rgba(0,0,0,.2));
 	    -webkit-background-clip: padding-box;
 	       -moz-background-clip: padding;
