@@ -44,7 +44,6 @@
         .border-radius(@baseFontSize / 2);
         text-align: center;
         line-height: @baseFontSize;
-        font-style: italic;
     }
     .round + span:before {
         content: '\00a0';
@@ -133,14 +132,20 @@
     > div {
         display: inline-block;
         vertical-align: top;
+        .wrap {
+            .clearfix; 
+        } 
         > label {
-            display: block;
+            display: inline-block;
+            width: 80%;
+            .text-overflow(); 
             font-size: @baseFontSize;
             line-height: @baseFontSize;
             height: @baseFontSize; 
             margin-left: -@baseFontSize / 2;
             margin-top: @baseFontSize / 2;
             color: @stepsRoundFinishedTextColor;
+            cursor: default;
         }
         .round {
             width: 22px;
@@ -152,14 +157,20 @@
             color: #FFF;
             line-height: 22px;
             text-align: center;
+            float: left;
         }
         .bar {
-            margin: 0px 10px;
-            display: inline-block;
+            margin: 10px 10px 0px 40px;
             width: 200px;
             height: 6px;
             vertical-align: middle;
             .border-radius(4px);
+        }
+        &:last-child {
+            width: 5%;
+            > label {
+                width: auto;
+            }
         }
     }
     > .finished {
@@ -202,7 +213,32 @@
     > div {
         display: table-cell;
         .bar {
-            width: 83%;
+            width: auto;
         }
+    }
+}
+.steps-3 {
+    > div {
+        width: 50%;
+    }
+}
+.steps-4 {
+    > div {
+        width: 33%;
+    }
+}
+.steps-5 {
+    > div {
+        width: 25%;
+    }
+}
+.steps-6 {
+    > div {
+        width: 20%;
+    }
+}
+.steps-7777777 {
+    > div {
+        width: 16%;
     }
 }
