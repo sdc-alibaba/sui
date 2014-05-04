@@ -6913,9 +6913,9 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.tab-navbar > li.active > a {
   background: #53b8c0;
   color: #fff;
-  border-top: 1px solid #3096dc;
+  border-top: 1px solid #53b8c0;
   margin-top: -1px;
-  border-bottom: 1px solid #3096dc;
+  border-bottom: 1px solid #53b8c0;
   margin-bottom: -1px;
 }
 .sui-nav.nav-tabs.tab-navbar > li:first-child > a {
