@@ -1,0 +1,84 @@
+extends base
+
+block title
+  title tags 
+
+block sidebar
+  +sidebar('tag')
+
+block content
+  div.sui-page-header
+    h1 tags 标签群  
+    p 入口class:<code>.sui-tag</code>。近亲label在
+      a(href='./label.html') 这里
+
+  h2 普通与选中的tag
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs']
+        h3 默认  
+        ul.sui-tag
+          each text, i in txt
+            li #{text}
+        h3 选中的tag的状态：li.tag-selected
+        ul.sui-tag.tag-selected
+          each text, i in txt
+            if i % 2 == 0
+              li #{text}
+            else
+              li.tag-selected #{text}
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      p 使用方法很简单了，最好是用ul>li的结构，或者内部是a标签也可以。
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+  h2 右侧带叉（用以删除）
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example
+        - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs', '店铺装修达人', '艺术', '公sdf告']
+        h3 默认  .sui-tag
+        ul.sui-tag(style="width:300px;border: 1px solid #999; padding: 5px")
+          each text, i in txt
+            if i % 2 == 0
+              li #{text}
+            else
+              li.tag-selected #{text}
+                i.del-tag &times;
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+      p 带叉的tag则在每个tag元素里添加html：
+        code &lt;i class="del-tag"&gt;&amp;times;&lt;/i&gt;
+      p 因为是CSS组件，相关事件需要根据业务逻辑自己添加
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
