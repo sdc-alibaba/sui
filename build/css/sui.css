@@ -5660,15 +5660,10 @@ button.sui-close {
   -o-user-select: none;
   user-select: none;
 }
-<<<<<<< HEAD
 .sui-btn .sui-icon {
-  margin-right: 5px;
   font-size: 16px;
   vertical-align: -2px;
-=======
-.sui-btn .sui-icon:after {
   content: " ";
->>>>>>> dev
 }
 .btn-xlarge {
   padding: 4px 20px;
@@ -7860,15 +7855,10 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-<<<<<<< HEAD
 .sui-pagination div .page-num + .page-confirm .sui-icon {
-  margin-right: 5px;
   font-size: 16px;
   vertical-align: -2px;
-=======
-.sui-pagination div .page-num + .page-confirm .sui-icon:after {
   content: " ";
->>>>>>> dev
 }
 .sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8038,15 +8028,10 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-<<<<<<< HEAD
 .pagination-large div .page-num + .page-confirm .sui-icon {
-  margin-right: 5px;
   font-size: 16px;
   vertical-align: -2px;
-=======
-.pagination-large div .page-num + .page-confirm .sui-icon:after {
   content: " ";
->>>>>>> dev
 }
 .pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8181,15 +8166,10 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-<<<<<<< HEAD
 .pagination-xlarge div .page-num + .page-confirm .sui-icon {
-  margin-right: 5px;
   font-size: 16px;
   vertical-align: -2px;
-=======
-.pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
   content: " ";
->>>>>>> dev
 }
 .pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8314,15 +8294,10 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-<<<<<<< HEAD
 .pagination-small div .page-num + .page-confirm .sui-icon {
-  margin-right: 5px;
   font-size: 16px;
   vertical-align: -2px;
-=======
-.pagination-small div .page-num + .page-confirm .sui-icon:after {
   content: " ";
->>>>>>> dev
 }
 .pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -10235,7 +10210,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   animation: rotation 2s infinite linear;
   display: inline-block;
   font-size: 40px;
-  color: #3097dd;
+  color: #53b8c0;
 }
 .sui-loading.loading-large .icon-pc-loading {
   font-size: 80px;
@@ -10399,7 +10374,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .steps-auto .wrap > div {
   width: 100%;
 }
-<<<<<<< HEAD
 .sui-steps-round {
   font-size: 0px;
   overflow: hidden;
@@ -10477,7 +10451,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .steps-round-auto > div .bar {
   width: 83%;
-=======
+}
 .chart-tooltip {
   position: absolute;
   z-index: 10000000;
@@ -10492,7 +10466,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .chart-tooltip p {
   margin: 0;
->>>>>>> dev
 }
 .pull-right {
   float: right;
