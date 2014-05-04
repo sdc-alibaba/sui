@@ -7,56 +7,56 @@ block sidebar
     +sidebar('breadcrumb')
 
 block content
-    .sui-page-header
-        h1 面包屑
-            small &nbsp;&nbsp;breadcrumb
-    ul.sui-nav.nav-tabs.nav-large
-        li.active
-            a(href='#demo1', data-toggle='tab') 示例
-        li
-            a(href='#code1', data-toggle='tab') 代码
-        li
-            a(href='#doc1', data-toggle='tab') 文档
-    div.tab-content
-        div.tab-pane.active#demo1
-            div.bs-docs-example
-              h1 默认尺寸
-                ul.sui-breadcrumb
-                    li.active 首页
+  div.docs-description
+    img(src='pictures/docs/breadcrumb.png')
 
-                ul.sui-breadcrumb
-                    li
-                        a(href='#') 首页
-                    li.active 手机数码、电脑办公
+  ul.sui-nav.nav-tabs.nav-large
+      li.active
+          a(href='#demo1', data-toggle='tab') 示例
+      li
+          a(href='#code1', data-toggle='tab') 代码
+      li
+          a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+      div.tab-pane.active#demo1
+          div.bs-docs-example
+            h1 默认尺寸
+              ul.sui-breadcrumb
+                  li.active 首页
 
-                ul.sui-breadcrumb
-                    li
-                        a(href='#') 首页
-                    li
-                        a(href='#') 手机数码、电脑办公
-                    li.active 智能手机
+              ul.sui-breadcrumb
+                  li
+                      a(href='#') 首页
+                  li.active 手机数码、电脑办公
 
-              h1 大尺寸
-                ul.sui-breadcrumb.breadcrumb-large
-                    li.active 首页
+              ul.sui-breadcrumb
+                  li
+                      a(href='#') 首页
+                  li
+                      a(href='#') 手机数码、电脑办公
+                  li.active 智能手机
 
-                ul.sui-breadcrumb.breadcrumb-large
-                    li
-                        a(href='#') 首页
-                    li.active 手机数码、电脑办公
+            h1 大尺寸
+              ul.sui-breadcrumb.breadcrumb-large
+                  li.active 首页
 
-                ul.sui-breadcrumb.breadcrumb-large
-                    li
-                        a(href='#') 首页
-                    li
-                        a(href='#') 手机数码、电脑办公
-                    li.active 智能手机
-        div.tab-pane#code1
-            pre.prettyprint.linenums(data-target='#demo1>div')
-        div.tab-pane#doc1
-            | 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。
-    ul.demo-operations.clearfix
-        li
-            a(href='#') 下载psd文件
-        li
-            a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+              ul.sui-breadcrumb.breadcrumb-large
+                  li
+                      a(href='#') 首页
+                  li.active 手机数码、电脑办公
+
+              ul.sui-breadcrumb.breadcrumb-large
+                  li
+                      a(href='#') 首页
+                  li
+                      a(href='#') 手机数码、电脑办公
+                  li.active 智能手机
+      div.tab-pane#code1
+          pre.prettyprint.linenums(data-target='#demo1>div')
+      div.tab-pane#doc1
+          | 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。
+  ul.demo-operations.clearfix
+      li
+          a(href='#') 下载psd文件
+      li
+          a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
