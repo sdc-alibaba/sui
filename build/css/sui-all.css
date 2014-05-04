@@ -5673,8 +5673,8 @@ button.sui-close {
   -o-user-select: none;
   user-select: none;
 }
-.sui-btn .sui-icon {
-  margin-right: 8px;
+.sui-btn .sui-icon:after {
+  content: " ";
 }
 .btn-xlarge {
   padding: 4px 20px;
@@ -5922,6 +5922,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
+  border-color: transparent;
   background-color: transparent;
   background-image: none;
   -webkit-box-shadow: none;
@@ -5941,6 +5942,7 @@ input[type="submit"].btn.btn-mini {
   color: #ff7300;
   text-decoration: underline;
   background-color: transparent;
+  border-color: transparent;
 }
 .btn-link[disabled]:hover,
 .btn-link[disabled]:focus {
@@ -7867,8 +7869,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.sui-pagination div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.sui-pagination div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8038,8 +8040,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-large div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-large div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8171,8 +8173,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-xlarge div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8300,8 +8302,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-small div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-small div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
