@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>步骤条</title>
+    <title>文本</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -50,7 +50,7 @@
               <li class="active"><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
-                  <li class="active"><a href="steps.html">步骤条</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
                   <li><a href="tab.html">标签页</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
@@ -58,7 +58,7 @@
                   <li><a href="dropdown.html">下拉菜单</a></li>
                   <li><a href="label.html">label</a></li>
                   <li><a href="tag.html">tag</a></li>
-                  <li><a href="text.html">文本</a></li>
+                  <li class="active"><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
                   <li><a href="loading.html">loading</a></li>
                 </ul>
@@ -83,108 +83,43 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1 class="sui-page-header">步骤条<small>steps</small></h1>
-          <p class="sui-lead">
-            适用于需要步骤条的业务场景 
-            <h4>修复日志</h4>
-            <ul>
-            <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
-            <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
-            </ul>
-          </p>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
+          <div class="sui-page-header">
+            <h1>文本</h1>
+            <p class="sui-lead">不同功能和颜色的文本</p>
+          </div>
+          <h2>不同类型</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
+          <style>
+            .bs-docs-example ul {
+              margin-bottom: 20px;
+            }
+            .bs-docs-example li {
+              display: inline-block;
+              margin: 0 10px 10px 0;
+            }
+          </style>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <h2>定宽步骤条</h2>
-                <div class="sui-steps">
-                  <div class="wrap">
-                    <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="current">
-                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="todo">
-                      <label><span class="round">3</span><span>第三步 #999999</span></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="sui-steps steps-large">
-                  <div class="wrap">
-                    <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="current">
-                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="todo">
-                      <label><span class="round">3</span><span>第三步 #999999</span></label>
-                    </div>
-                  </div>
-                </div>
-                <h2>自适应步骤条</h2><span>根据页面大小自适应的steps,需要浏览器支持display:table,display:table-cell属性</span>
-                <div class="sui-steps steps-auto">
-                  <div class="wrap">
-                    <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="current">
-                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="todo">
-                      <label><span class="round">3</span><span>第三步 #999999</span></label>
-                    </div>
-                  </div>
-                </div>
-                <div class="sui-steps steps-large steps-auto">
-                  <div class="wrap">
-                    <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="current">
-                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="todo">
-                      <label><span class="round">3</span><span>第三步 #999999</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="todo">
-                      <label><span class="round">3</span><span>第四步 #999999</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
-                    </div>
-                  </div>
-                </div>
+                <ul>
+                  <li><span>默认文本</span></li>
+                  <li><span class="sui-text-success">成功</span></li>
+                  <li><span class="sui-text-warning">警告</span></li>
+                  <li><span class="sui-text-error">错误</span></li>
+                  <li><span class="sui-text-info">公告</span></li>
+                </ul>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane"><code>steps-auto</code>适用于步骤条内容不能过长的情景，极端情况下请自行修改每个step的宽度</div>
           </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
         </div>
       </div>
     </div>
