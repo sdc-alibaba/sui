@@ -1,14 +1,14 @@
 extends base
 
 block title
-  title loading 
+  title Label 
 
 block sidebar
-  +sidebar('loading')
+  +sidebar('Label')
 
 block content
   div.sui-page-header
-    h1 loading  
+    h1 Label  
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -25,8 +25,8 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      p 删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由loading扩展去。
-      p <code>sui-loading</code>类名确定一个元素以loading样式显示，再加之loading-***可以区分不同状态的标识loading
+      p 删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。
+      p <code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标识label
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
