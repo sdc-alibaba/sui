@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>标签页</title>
+    <title>Loading </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -56,23 +56,18 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-<<<<<<< HEAD
-                  <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
-=======
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
->>>>>>> dev
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
-                  <li><a href="loading.html">Loading</a></li>
+                  <li class="active"><a href="loading.html">Loading</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
-                  <li class="active"><a href="tab-js.html">标签页</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
                   <li><a href="pagination-js.html">分页器</a></li>
                   <li><a href="form-validate.html">表单校验</a></li>
                   <li><a href="dropdown-js.html">下拉菜单</a></li>
@@ -89,13 +84,9 @@
       <div class="content">
         <div class="content-inner">
           <div class="sui-page-header">
-            <h1>标签页 <small>tab</small></h1>
+            <h1>Loading  </h1>
+            <p>使用iconfont+keyframe,IE10以下降级显示为静态的，IE10、11正常</p>
           </div>
-          <p class="sui-lead">通过此组件轻松添加动态的标签页切换功能。此文档的标签页切换效果正是通过这个组件实现的。</p>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
-          <h2>1. 通过标记使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -104,92 +95,24 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <ul class="sui-nav nav-tabs">
-                  <li class="active"><a href="#index" data-toggle="tab">首页</a></li>
-                  <li><a href="#profile" data-toggle="tab">教程</a></li>
-                  <li><a href="#about" data-toggle="tab">关于</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div id="index" class="tab-pane active">
-                    <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                  </div>
-                  <div id="profile" class="tab-pane">
-                    <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
-                  </div>
-                  <div id="about" class="tab-pane">
-                    <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                  </div>
-                </div>
+                <p>.sui-loading</p>
+                <div class="sui-loading"><i class="sui-icon icon-pc-loading"></i></div>
+                <hr>
+                <p>.sui-loading.loading-large</p>
+                <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
+                <hr>
+                <p>.sui-loading.loading-small.loading-inline</p>
+                <input style="vertical-align:top">
+                <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              通过在tab元素上添加 <code>data-toggle="tab"</code> 或者 <code>data-toggle="pill"</code> 来开启标签切换功能.
-              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
-            </div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h2>2. 通过js调用</h2>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
-            <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">文档</a></li>
-            <li><a href="#event2" data-toggle="tab">事件</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example">
-                <ul id="tab-demo2" class="sui-nav nav-tabs">
-                  <li class="active"><a href="#index2">首页</a></li>
-                  <li><a href="#profile2">教程</a></li>
-                  <li><a href="#about2">关于</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div id="index2" class="tab-pane active">
-                    <p>qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-                  </div>
-                  <div id="profile2" class="tab-pane">
-                    <p>Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park</p>
-                  </div>
-                  <div id="about2" class="tab-pane">
-                    <p>Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
-                  </div>
-                </div>
-                <script>
-                  $('#tab-demo2 a').click(function (e) {
-                    e.preventDefault();
-                    $(this).tab('show');
-                  })
-                  
-                </script>
-              </div>
-            </div>
-            <div id="code2" class="tab-pane">
-              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc2" class="tab-pane">
-              通过在tab中的a标签上调用 <code>tab("show")</code> 方法来显示此tab对应的内容区域。
-              每一个tab对应的内容区域由tab的 <code>href</code> 或者 <code>data-target</code> 属性来指定。
-            </div>
-            <div id="event2" class="tab-pane">
-              <table class="sui-table table-bordered">
-                <tr>
-                  <th>事件</th>
-                  <th>说明</th>
-                </tr>
-                <tr>
-                  <td>show</td>
-                  <td>在标签页显示之前触发，在shown事件之前。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
-                </tr>
-                <tr>
-                  <td>shown</td>
-                  <td>在标签页显示之后触发，在show事件之后。<code>event.target</code> 和 <code>event.relatedTarget</code> 分别是当前标签和上一个标签。</td>
-                </tr>
-              </table>
+              <p>很简单，可以自己定制尺寸</p>
+              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large</p>
+              <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
