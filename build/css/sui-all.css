@@ -5379,9 +5379,9 @@ sui-pre .sui-code {
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -5510,9 +5510,9 @@ sui-pre .sui-code {
 }
 .sui-dropdown.dropdown-bordered.dropdown-dark .sui-dropdown-menu {
   border-color: #ececec;
-  -webkit-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
 }
 .pull-right > .sui-dropdown-menu {
   right: 0;
