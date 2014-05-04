@@ -9657,6 +9657,10 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-loading {
   text-align: center;
+  display: block;
+}
+.sui-loading.loading-inline {
+  display: inline-block;
 }
 .sui-loading .icon-pc-loading {
   -webkit-animation: rotation 2s infinite linear;
@@ -9668,9 +9672,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-loading.loading-large .icon-pc-loading {
   font-size: 80px;
-}
-.sui-loading.loading-small {
-  display: inline-block;
 }
 .sui-loading.loading-small .icon-pc-loading {
   font-size: 20px;

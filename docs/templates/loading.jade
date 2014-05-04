@@ -30,9 +30,9 @@ block content
         div.sui-loading.loading-large
           i.sui-icon.icon-pc-loading
         hr
-        p .sui-loading.loading-small(.loading-small默认是内联盒子)
+        p .sui-loading.loading-small.loading-inline
         input(type=text style="vertical-align:top")
-        div.sui-loading.loading-small
+        div.sui-loading.loading-small.loading-inline
           i.sui-icon.icon-pc-loading
 
 
@@ -41,6 +41,7 @@ block content
     div.tab-pane#doc1
       p 很简单，可以自己定制尺寸
       p 为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large
+      p 默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

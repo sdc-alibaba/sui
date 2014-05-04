@@ -100,9 +100,9 @@
                 <p>.sui-loading.loading-large</p>
                 <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
                 <hr>
-                <p>.sui-loading.loading-small(.loading-small默认是内联盒子)</p>
+                <p>.sui-loading.loading-small.loading-inline</p>
                 <input style="vertical-align:top">
-                <div class="sui-loading loading-small"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -111,6 +111,7 @@
             <div id="doc1" class="tab-pane">
               <p>很简单，可以自己定制尺寸</p>
               <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large</p>
+              <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
