@@ -789,7 +789,8 @@
 				clsName = $.unique(clsName);
 				var currentDate;
 				var today = new Date();
-				if (prevMonth.getUTCFullYear() === today.getFullYear() &&
+				if (this.o.todayHighlight &&
+					prevMonth.getUTCFullYear() === today.getFullYear() &&
 					prevMonth.getUTCMonth() === today.getMonth() &&
 					prevMonth.getUTCDate() === today.getDate()) {
 						currentDate = '今日';
