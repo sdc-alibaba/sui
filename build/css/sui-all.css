@@ -2076,7 +2076,7 @@ sui-pre .sui-code {
   padding-bottom: 4px;
 }
 .sui-form .input-fat {
-  padding: 6px 10px;
+  padding: 4px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
@@ -2302,7 +2302,7 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat,
 .sui-form input[type="color"].input-fat,
 .sui-form .uneditable-input.input-fat {
-  padding: 6px 10px;
+  padding: 4px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
@@ -3373,21 +3373,21 @@ sui-pre .sui-code {
 }
 .sui-form .input-control .sui-icon {
   position: absolute;
-  color: #aaa;
-  font-size: 14px;
-  left: 6px;
-  top: 5px;
+  color: #ccc;
+  font-size: 16px;
+  left: 10px;
+  top: 6px;
 }
 .sui-form .input-control .input-thin + .sui-icon {
   top: 4px;
   font-size: 12px;
 }
 .sui-form .input-control .input-fat + .sui-icon {
-  top: 7px;
+  top: 8px;
 }
 .sui-form .input-control .input-xfat + .sui-icon {
   top: 8px;
-  font-size: 16px;
+  font-size: 20px;
 }
 .sui-form .input-control input:focus ~ .sui-icon {
   display: none;
@@ -8033,7 +8033,7 @@ input[type="submit"].btn.btn-mini {
   font-size: 14px;
 }
 .pagination-large div .page-num {
-  padding: 6px 10px;
+  padding: 4px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
