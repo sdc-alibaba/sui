@@ -7680,10 +7680,11 @@ input[type="submit"].btn.btn-mini {
   border: 1px solid #080808;
 }
 .sui-breadcrumb {
-  padding: 9px 15px;
+  padding: 0;
   margin: 0 0 18px;
   list-style: none;
   font-weight: bold;
+  font-size: 12px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -7701,6 +7702,9 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-breadcrumb > .active {
   color: #999999;
+}
+.sui-breadcrumb.breadcrumb-large {
+  font-size: 14px;
 }
 .sui-pagination {
   margin: 18px 0;
@@ -10006,7 +10010,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-progress {
   overflow: hidden;
-  height: 32px;
+  height: 30px;
   margin-bottom: 18px;
   background-color: #fff;
   -webkit-border-radius: 4px;
@@ -10017,7 +10021,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-progress .bar {
   width: 0%;
   height: 100%;
-  padding: 4px 20px;
+  padding: 6px 0;
   padding-left: 0;
   padding-right: 0;
   color: #ffffff;
@@ -10039,15 +10043,24 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 18px;
   font-size: 12px;
 }
+.sui-progress.progress-small .bar {
+  padding: 0 0;
+}
 .sui-progress.progress-large {
   height: 36px;
   line-height: 22px;
   font-size: 14px;
 }
+.sui-progress.progress-large .bar {
+  padding: 8px 0;
+}
 .sui-progress.progress-xlarge {
   height: 41px;
   line-height: 27px;
   font-size: 18px;
+}
+.sui-progress.progress-xlarge .bar {
+  padding: 8px 0;
 }
 .progress-striped .bar {
   background-color: #53b8c0;
