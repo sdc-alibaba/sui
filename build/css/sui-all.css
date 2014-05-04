@@ -2414,6 +2414,31 @@ sui-pre .sui-code {
 .sui-form.form-horizontal.form-actions {
   padding-left: 96px;
 }
+.sui-form .input-control {
+  display: inline-block;
+  position: relative;
+}
+.sui-form .input-control .sui-icon {
+  position: absolute;
+  color: #aaa;
+  font-size: 14px;
+  left: 6px;
+  top: 5px;
+}
+.sui-form .input-control .input-thin + .sui-icon {
+  top: 4px;
+  font-size: 12px;
+}
+.sui-form .input-control .input-fat + .sui-icon {
+  top: 7px;
+}
+.sui-form .input-control .input-xfat + .sui-icon {
+  top: 8px;
+  font-size: 16px;
+}
+.sui-form .input-control input:focus ~ .sui-icon {
+  display: none;
+}
 .sui-msg {
   display: inline-block;
   *display: inline;

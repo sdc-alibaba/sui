@@ -840,4 +840,34 @@
       padding-left: @horizontalComponentOffset;
     }
   }
+  
+    
+    //´øÍ¼±êµÄinput
+    .input-control {
+      display: inline-block;
+      position: relative;
+      .sui-icon {
+        position: absolute;
+        color: #aaa;
+        font-size: 14px;
+        left: 6px;
+        top: 5px;
+      }
+      .input-thin + .sui-icon {
+        top: 4px;
+        font-size: 12px;
+      }
+      .input-fat + .sui-icon {
+        top: 7px;
+      }
+      .input-xfat + .sui-icon {
+        top: 8px;
+        font-size: 16px;
+      }
+      input:focus {
+        ~ .sui-icon {
+          display: none;
+        }
+      }
+    }
 }
