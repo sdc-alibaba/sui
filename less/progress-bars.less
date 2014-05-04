@@ -44,7 +44,7 @@
 // Outer container
 .sui-progress {
   overflow: hidden;
-  height: @baseLineHeight + 14px;
+  height: @baseLineHeight + 12px;
   margin-bottom: @baseMargin;
   background-color: #fff;
   .border-radius(@baseBorderRadius);
@@ -54,7 +54,7 @@
   .bar {
     width: 0%;
     height: 100%;
-    padding: @basePadding;  //和button高度保持一致
+    padding: 6px 0;
     padding-left: 0;
     padding-right: 0;
     color: @white;
@@ -72,16 +72,25 @@
     height: @baseLineHeight;
     line-height: @baseLineHeight;
     font-size: @fontSizeSmall;
+    .bar {
+      padding: 0 0;
+    }
   }
   &.progress-large {
     height: @lineHeightLarge + 14px;
     line-height: @lineHeightLarge;
     font-size: @fontSizeLarge;
+    .bar {
+      padding: 8px 0;
+    }
   }
   &.progress-xlarge {
     height: @lineHeightXLarge + 14px;
     line-height: @lineHeightXLarge;
     font-size: @fontSizeXLarge;
+    .bar {
+      padding: 8px 0;
+    }
   }
 }
 

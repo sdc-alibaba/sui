@@ -194,6 +194,54 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo5>div') 复制代码
 
+  h3 带图标
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo23', data-toggle='tab') 示例
+    li
+      a(href='#code23', data-toggle='tab') 代码
+    li
+      a(href='#doc23', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo23
+      div.bs-docs-example.bs-docs-extra
+        form.sui-form.form-dark
+          div.input-control
+            input.input-thin(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control
+            input(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control
+            input.input-fat(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control
+            input.input-xfat(type='text')
+            i.sui-icon.icon-touch-magnifier
+          br
+          div.input-control.control-right
+            input.input-thin(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control.control-right
+            input(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control.control-right
+            input.input-fat(type='text')
+            i.sui-icon.icon-touch-magnifier
+          div.input-control.control-right
+            input.input-xfat(type='text')
+            i.sui-icon.icon-touch-magnifier
+    div.tab-pane#code23
+      pre.prettyprint.linenums(data-target='#demo23>div')
+    div.tab-pane#doc23
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo22>div') 复制代码
+
+
 
   h3 文本字段四态
 
@@ -363,6 +411,35 @@ block content
             div.controls
               <input type="text" id="inputInfo" />
               <span class="help-inline">帮助文案</span>
+
+          div.control-group.warning
+            label.control-label(for="inputWarning") 警示输入框：
+            div.controls
+              <input type="text" id="inputWarning" />
+              div.sui-msg.msg-naked.msg-tips
+                i.msg-icon
+                .msg-con 警告
+          div.control-group.error
+            label.control-label(for="inputError") 错误输入框：
+            div.controls
+              <input type="text" id="inputError" />
+              div.sui-msg.msg-naked.msg-error
+                i.msg-icon
+                .msg-con 错误
+          div.control-group.success
+            label.control-label(for="inputSuccess") 成功输入框：
+            div.controls
+              <input type="text" id="inputSuccess" />
+              div.sui-msg.msg-naked.msg-success
+                i.msg-icon
+                .msg-con 成功
+          div.control-group.info
+            label.control-label(for="inputInfo") 帮助输入框：
+            div.controls
+              <input type="text" id="inputInfo" />
+              div.sui-msg.msg-naked.msg-info
+                i.msg-icon
+                .msg-con 帮助
     div.tab-pane#code10
       pre.prettyprint.linenums(data-target='#demo10>div')
     div.tab-pane#doc10
