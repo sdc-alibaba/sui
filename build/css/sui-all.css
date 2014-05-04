@@ -10192,7 +10192,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border-radius: 6px;
   text-align: center;
   line-height: 12px;
-  font-style: italic;
+}
+.sui-steps .round + span:before {
+  content: '\00a0';
 }
 .sui-steps .finished {
   background-color: #e4f6ff;
@@ -10265,6 +10267,123 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .steps-auto .wrap > div {
   width: 100%;
+}
+.sui-steps-round {
+  font-size: 0px;
+  overflow: hidden;
+  line-height: 0px;
+  margin: 18px 0px;
+  padding: 0px 6px;
+}
+.sui-steps-round > div {
+  display: inline-block;
+  vertical-align: top;
+}
+.sui-steps-round > div .wrap {
+  *zoom: 1;
+}
+.sui-steps-round > div .wrap:before,
+.sui-steps-round > div .wrap:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.sui-steps-round > div .wrap:after {
+  clear: both;
+}
+.sui-steps-round > div > label {
+  display: inline-block;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: 6px;
+  color: #4aa4d5;
+  cursor: default;
+}
+.sui-steps-round > div .round {
+  width: 22px;
+  height: 22px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #FFF;
+  line-height: 22px;
+  text-align: center;
+  float: left;
+}
+.sui-steps-round > div .bar {
+  margin: 10px 10px 0px 40px;
+  width: 200px;
+  height: 6px;
+  vertical-align: middle;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.sui-steps-round > div:last-child {
+  width: 5%;
+}
+.sui-steps-round > div:last-child > label {
+  width: auto;
+}
+.sui-steps-round > .finished .round {
+  border: 4px #e4f6ff solid;
+  background-color: #e4f6ff;
+  color: #4aa4d5;
+}
+.sui-steps-round > .finished .bar {
+  background-color: #e4f6ff;
+}
+.sui-steps-round > .current .round {
+  border: 4px #0995e0 solid;
+  background-color: #0995e0;
+}
+.sui-steps-round > .current .bar {
+  background-color: #0995e0;
+}
+.sui-steps-round > .todo > label {
+  color: #999999;
+}
+.sui-steps-round > .todo .round {
+  border: 4px #f5f5f5 solid;
+  background-color: #FFF;
+  color: #999999;
+}
+.sui-steps-round > .todo .bar {
+  background-color: #f5f5f5;
+}
+.steps-round-auto {
+  display: table;
+  width: 100%;
+}
+.steps-round-auto > div {
+  display: table-cell;
+}
+.steps-round-auto > div .bar {
+  width: auto;
+}
+.steps-3 > div {
+  width: 50%;
+}
+.steps-4 > div {
+  width: 33%;
+}
+.steps-5 > div {
+  width: 25%;
+}
+.steps-6 > div {
+  width: 20%;
+}
+.steps-7 > div {
+  width: 16%;
 }
 .chart-tooltip {
   position: absolute;
