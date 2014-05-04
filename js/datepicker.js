@@ -796,7 +796,7 @@
 				}else{
 					currentDate = prevMonth.getUTCDate();
 				}
-				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') +/* 'data-day="'+prevMonth.getUTCDate()+'"'+*/'>'+ currentDate + '</td>');
+				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + 'data-day="'+prevMonth.getUTCDate()+'"'+'>'+ currentDate + '</td>');
 				if (prevMonth.getUTCDay() === this.o.weekEnd){
 					html.push('</tr>');
 				}
@@ -973,10 +973,7 @@
 						break;
 					case 'td':
 						if (target.is('.day') && !target.is('.disabled')){
-							day = target.text();
-							if (day === '今日') {
-								day = (new Date()).getUTCDate();
-							}
+							day = target.data('day');
 							day = parseInt(day, 10)||1;
 							year = this.viewDate.getUTCFullYear();
 							month = this.viewDate.getUTCMonth();
@@ -1386,7 +1383,7 @@
 	};
 
 	var defaults = $.fn.datepicker.defaults = {
-		autoclose: false,
+		autoclose: true,
 		beforeShowDay: $.noop,
 		calendarWeeks: false,
 		clearBtn: false,
