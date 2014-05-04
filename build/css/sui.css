@@ -5508,6 +5508,9 @@ sui-pre .sui-code {
   background: #f9f9f9;
   border-color: #ececec;
 }
+.sui-dropdown.dropdown-bordered.dropdown-dark.open.dropdown-bordered .dropdown-inner {
+  border-color: #53b8c0;
+}
 .sui-dropdown.dropdown-bordered.dropdown-dark .sui-dropdown-menu {
   border-color: #ececec;
   -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05);
