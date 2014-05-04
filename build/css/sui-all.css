@@ -2414,6 +2414,35 @@ sui-pre .sui-code {
 .sui-form.form-horizontal.form-actions {
   padding-left: 96px;
 }
+.sui-form .input-control {
+  display: inline-block;
+  position: relative;
+}
+.sui-form .input-control .sui-icon {
+  position: absolute;
+  color: #aaa;
+  font-size: 14px;
+  left: 6px;
+  top: 5px;
+}
+.sui-form .input-control .input-thin + .sui-icon {
+  top: 4px;
+  font-size: 12px;
+}
+.sui-form .input-control .input-fat + .sui-icon {
+  top: 7px;
+}
+.sui-form .input-control .input-xfat + .sui-icon {
+  top: 8px;
+  font-size: 16px;
+}
+.sui-form .input-control input:focus ~ .sui-icon {
+  display: none;
+}
+.sui-form .input-control.control-right .sui-icon {
+  left: auto;
+  right: 6px;
+}
 .sui-msg {
   display: inline-block;
   *display: inline;
@@ -5673,8 +5702,8 @@ button.sui-close {
   -o-user-select: none;
   user-select: none;
 }
-.sui-btn .sui-icon {
-  margin-right: 8px;
+.sui-btn .sui-icon:after {
+  content: " ";
 }
 .btn-xlarge {
   padding: 4px 20px;
@@ -5922,6 +5951,7 @@ input[type="submit"].btn.btn-mini {
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
+  border-color: transparent;
   background-color: transparent;
   background-image: none;
   -webkit-box-shadow: none;
@@ -5941,6 +5971,7 @@ input[type="submit"].btn.btn-mini {
   color: #ff7300;
   text-decoration: underline;
   background-color: transparent;
+  border-color: transparent;
 }
 .btn-link[disabled]:hover,
 .btn-link[disabled]:focus {
@@ -7867,8 +7898,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.sui-pagination div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.sui-pagination div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8038,8 +8069,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-large div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-large div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8171,8 +8202,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-xlarge div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8300,8 +8331,8 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
-.pagination-small div .page-num + .page-confirm .sui-icon {
-  margin-right: 8px;
+.pagination-small div .page-num + .page-confirm .sui-icon:after {
+  content: " ";
 }
 .pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -10061,6 +10092,32 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-hero-unit li {
   line-height: 27px;
 }
+.sui-loading.loading-l .icon-pc-loading {
+  font-size: 60px;
+}
+.sui-loading.loading-ll .icon-pc-loading {
+  font-size: 80px;
+}
+.sui-loading.loading-lll .icon-pc-loading {
+  font-size: 100px;
+}
+.sui-loading.loading-s .icon-pc-loading {
+  font-size: 40px;
+}
+.sui-loading.loading-ss .icon-pc-loading {
+  font-size: 30px;
+}
+.sui-loading.loading-sss .icon-pc-loading {
+  font-size: 20px;
+}
+.sui-loading.loading-black .icon-pc-loading {
+  color: #000000;
+  opacity: 0.9;
+}
+.sui-loading.loading-gray .icon-pc-loading {
+  color: #555555;
+  opacity: 0.2;
+}
 .sui-loading {
   text-align: center;
   display: block;
@@ -10073,14 +10130,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   -moz-animation: rotation 2s infinite linear;
   animation: rotation 2s infinite linear;
   display: inline-block;
-  font-size: 40px;
+  font-size: 50px;
   color: #3097dd;
-}
-.sui-loading.loading-large .icon-pc-loading {
-  font-size: 80px;
-}
-.sui-loading.loading-small .icon-pc-loading {
-  font-size: 20px;
 }
 @-webkit-keyframes rotation {
   from {
@@ -10234,6 +10285,21 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .steps-auto .wrap > div {
   width: 100%;
+}
+.chart-tooltip {
+  position: absolute;
+  z-index: 10000000;
+  color: #fff;
+  padding: 6px;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.chart-tooltip h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+}
+.chart-tooltip p {
+  margin: 0;
 }
 .pull-right {
   float: right;

@@ -1,14 +1,14 @@
 extends base
 
 block title
-  title loading 
+  title Loading 
 
 block sidebar
-  +sidebar('loading')
+  +sidebar('Loading')
 
 block content
   div.sui-page-header
-    h1 loading  
+    h1 Loading  
     p 使用iconfont+keyframe,IE10以下降级显示为静态的，IE10、11正常
 
   ul.sui-nav.nav-tabs.nav-large
@@ -23,16 +23,38 @@ block content
     div.tab-pane.active#demo1
       div.bs-docs-example
         p .sui-loading
-        div.sui-loading
+        div.sui-loading.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-black.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-gray.loading-inline
+          i.sui-icon.icon-pc-loading
+
+        hr
+        p loading-l, loading-ll, loading-lll
+        div.sui-loading.loading-l
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-ll
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-lll
           i.sui-icon.icon-pc-loading
         hr
-        p .sui-loading.loading-large
-        div.sui-loading.loading-large
+        p loading-s, loading-ss, loading-sss
+        div.sui-loading.loading-s.loading-inline
           i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-ss.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-sss.loading-inline
+          i.sui-icon.icon-pc-loading
+
+
         hr
-        p .sui-loading.loading-small.loading-inline
+        p loading-black, .loading-gray
+
+        hr
+
         input(type=text style="vertical-align:top")
-        div.sui-loading.loading-small.loading-inline
+        div.sui-loading.loading-sss.loading-inline.loading-gray
           i.sui-icon.icon-pc-loading
 
 
@@ -40,8 +62,9 @@ block content
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
       p 很简单，可以自己定制尺寸
-      p 为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large
+      p 为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-s,loading-ss,loading-sss, loading-l, loading-ll, loading-lll
       p 默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）
+      p 颜色方面有默认色、黑色、灰色三种, .sui-loading.loading-black .loading-gray 
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>loading </title>
+    <title>Label </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -56,11 +56,11 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
+                  <li class="active"><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
-                  <li class="active"><a href="loading.html">loading</a></li>
+                  <li><a href="loading.html">Loading</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -84,7 +84,7 @@
       <div class="content">
         <div class="content-inner">
           <div class="sui-page-header">
-            <h1>loading  </h1>
+            <h1>Label  </h1>
           </div>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -94,13 +94,36 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example"></div>
+              <style>
+                .bs-docs-example ul {
+                  margin-bottom: 20px;
+                }
+                .bs-docs-example li {
+                  display: inline-block;
+                  margin: 0 10px 10px 0;
+                }
+              </style>
+              <div class="tab-content">
+                <div id="demo1" class="tab-pane active">
+                  <div class="bs-docs-example">
+                    <ul>
+                      <li><span class="sui-label label-">默认</span></li>
+                      <li><span class="sui-label label-success">成功</span></li>
+                      <li><span class="sui-label label-warning">警示恩</span></li>
+                      <li><span class="sui-label label-danger">危险危险</span></li>
+                      <li><span class="sui-label label-info">公告</span></li>
+                      <li><span class="sui-label label-inverse">反色!</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由loading扩展去。</p>
-              <p><code>sui-loading</code>类名确定一个元素以loading样式显示，再加之loading-***可以区分不同状态的标识loading</p>
+              <p>删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。</p>
+              <p><code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标识label</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
