@@ -10063,6 +10063,51 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-hero-unit li {
   line-height: 27px;
 }
+.sui-loading {
+  text-align: center;
+  display: block;
+}
+.sui-loading.loading-inline {
+  display: inline-block;
+}
+.sui-loading .icon-pc-loading {
+  -webkit-animation: rotation 2s infinite linear;
+  -moz-animation: rotation 2s infinite linear;
+  animation: rotation 2s infinite linear;
+  display: inline-block;
+  font-size: 40px;
+  color: #3097dd;
+}
+.sui-loading.loading-large .icon-pc-loading {
+  font-size: 80px;
+}
+.sui-loading.loading-small .icon-pc-loading {
+  font-size: 20px;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-moz-keyframes rotation {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 .sui-steps {
   font-size: 0px;
   overflow: hidden;
@@ -10191,6 +10236,21 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .steps-auto .wrap > div {
   width: 100%;
+}
+.chart-tooltip {
+  position: absolute;
+  z-index: 10000000;
+  color: #fff;
+  padding: 6px;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.chart-tooltip h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+}
+.chart-tooltip p {
+  margin: 0;
 }
 .pull-right {
   float: right;

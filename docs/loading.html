@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>下拉菜单</title>
+    <title>Loading </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
@@ -60,17 +60,17 @@
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
-                  <li><a href="loading.html">Loading</a></li>
+                  <li class="active"><a href="loading.html">Loading</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
                   <li><a href="tab-js.html">标签页</a></li>
                   <li><a href="pagination-js.html">分页器</a></li>
                   <li><a href="form-validate.html">表单校验</a></li>
-                  <li class="active"><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
                   <li><a href="tree-js.html">级联选择</a></li>
                   <li><a href="datepicker.html">datepicker</a></li>
                 </ul>
@@ -84,13 +84,9 @@
       <div class="content">
         <div class="content-inner">
           <div class="sui-page-header">
-            <h1>下拉菜单</h1>
+            <h1>Loading  </h1>
+            <p>使用iconfont+keyframe,IE10以下降级显示为静态的，IE10、11正常</p>
           </div>
-          <p class="sui-lead">JS 下拉菜单，比原生的select有更精美的样式并且有更好的可拓展性。</p>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
-          <h2>通过标记使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -98,52 +94,29 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div style="height: 140px;" class="bs-docs-example"><span class="sui-dropdown"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
-                  <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                  </ul></span></div>
+              <div class="bs-docs-example">
+                <p>.sui-loading</p>
+                <div class="sui-loading"><i class="sui-icon icon-pc-loading"></i></div>
+                <hr>
+                <p>.sui-loading.loading-large</p>
+                <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
+                <hr>
+                <p>.sui-loading.loading-small.loading-inline</p>
+                <input style="vertical-align:top">
+                <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+              </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">通过添加 <code>data-toggle="dropdown"</code> 可以启用下拉功能。</div>
+            <div id="doc1" class="tab-pane">
+              <p>很简单，可以自己定制尺寸</p>
+              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large</p>
+              <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h2>通过JS调用</h2>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
-            <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo2" class="tab-pane active">
-              <div style="height: 140px;" class="bs-docs-example"><span id="dropdown-demo2" class="sui-dropdown"><a id="drop2" role="button" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
-                  <ul id="menu2" role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">上海</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">深圳       </a></li>
-                  </ul></span>
-                <script>$('#dropdown-demo2 .dropdown-toggle').dropdown()</script>
-              </div>
-            </div>
-            <div id="code2" class="tab-pane">
-              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc2" class="tab-pane">
-              <p>
-                <js>直接调用 <code>$().dropdown()</code></js>
-              </p>
-              <p>还提供一个 <code>$().dropdown('toggle')</code> 方法可以控制菜单的显示。</p>
-            </div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
         </div>
       </div>
