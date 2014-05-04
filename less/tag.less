@@ -1,8 +1,8 @@
 .sui-tag {
   list-style: none;
   font-size: 0;
-  &>li, &>span {
-    font-size: @fontSizeLarge;
+  &>li, &>a {
+    font-size: @baseFontSize;
     margin-right: 5px;
     display: inline-block;
     overflow: hidden;
@@ -16,24 +16,20 @@
     cursor: default;
     &:hover {
       color: @stepsCurrentColor;
-      .del-tag {
-        visibility: visible;
-      }
     }
-    &:active {
+    &.tag-selected {
       color: @white;
       background: @stepsCurrentColor;
     }
     .transition(color 0.2s ease-out);
     .del-tag {
       margin-left: 10px;
-      visibility: hidden;
       cursor: pointer;
       color: #ccc;
-      font: normal 16px tahoma;
-      vertical-align: text-bottom;
+      font: normal 14px tahoma;
     }
   }
+  /*
   &.tag-hole {
     &>li, &>span {
       padding: 0 10px 0 15px;
@@ -55,4 +51,5 @@
       }
     }
   }
+  */
 }
