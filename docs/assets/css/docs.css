@@ -140,3 +140,8 @@ body > .navbar .brand:hover {
 .footer li {
   padding: 4px 0;
 }
+
+.docs-description {
+  min-width: 1000px;
+  margin-top: 20px;
+}
