@@ -125,40 +125,70 @@ block content
                     span 第四步 #999999
                 i.triangle-right-bg
                 i.triangle-right
-      h2 前台步骤条 
-      span 根据页面大小自适应的steps,需要浏览器支持display:table,display:table-cell属性
+      h2 前台定宽步骤条 
       div.sui-steps-round
             div.finished
+              div.wrap
                 div.round 1
                 div.bar
-                label 文字描述
+              label 文字描述
             div.current
-                div.round 2
+              div.wrap
+                div.round 1
                 div.bar
-                label 文字描述
+              label 文字描述
             div.todo
-                div.round 3
+              div.wrap
+                div.round 1
                 div.bar
-                label 文字描述
-            div.todo
+              label 文字描述
+            div.todo(style="width:5%")
+              div.wrap
                 div.round 3
-                label 文字描述
+              label 文字描述
+      h2 前台自适应步骤条 
+      span 根据页面大小自适应的steps,如果仅指定steps-round-auto,步骤条会自动适应，如果希望步骤条整体自适应，同时单个step保持一定比例的宽度，参考下面的例子
       div.sui-steps-round.steps-round-auto
             div.finished
+              div.wrap
                 div.round 1
                 div.bar
-                label 文字描述
+              label 文文字描述文字描述文字描述文字描述字描述文字
             div.current
-                div.round 2
+              div.wrap
+                div.round 1
                 div.bar
-                label 文字描述
+              label 文字描述
             div.todo
-                div.round 3
+              div.wrap
+                div.round 1
                 div.bar
-                label 文字描述
+              label 文字描述
             div.todo(style="width:5%")
+              div.wrap
                 div.round 3
-                label 文字描述
+              label 文字描述
+      span 同时指定了steps-round-auto和steps步骤数,步骤条会整体自适应，同时单个step保持一定比例的宽度，目前提供steps-3到steps-7，使用方法类似bootstrap的删隔布局
+      div.sui-steps-round.steps-round-auto.steps-4
+            div.finished
+              div.wrap
+                div.round 1
+                div.bar
+              label 文文字描述文字描述文字描述文字描述字描述文字
+            div.current
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo(style="width:5%")
+              div.wrap
+                div.round 3
+              label 文字描述
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
