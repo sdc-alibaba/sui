@@ -532,7 +532,7 @@
 
 // Button backgrounds
 // ------------------
-.buttonBackground(@backgroundColor, @backgroundHighlightColor, @textColor: #fff) {
+.buttonBackground(@backgroundColor, @backgroundHighlightColor, @backgroundActiveColor: darken(@backgroundColor, 5%), @textColor: #fff) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   color: @textColor;
   background-color: @backgroundColor;
@@ -559,8 +559,8 @@
 
   &:active,
   &.active {
-    background-color: darken(@backgroundColor, 5%);
-    border: 1px solid darken(@backgroundColor, 5%);
+    background-color: @backgroundActiveColor;
+    border: 1px solid @backgroundActiveColor;
   }
 }
 

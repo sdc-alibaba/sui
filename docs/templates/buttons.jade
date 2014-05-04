@@ -8,7 +8,7 @@ block sidebar
 
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
-  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["link", "链接"]]
+  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["link", "链接"], ["text", "文字按钮"]]
   div.sui-page-header
     h1 按钮
 
@@ -37,14 +37,19 @@ block content
       div.bs-docs-example
         
         each s in SIZES
+          - var classname = 'sui-btn'
+          - var size = ''
+          if s
+            - size = 'btn-' + s
           each r in ROLES
-            - var classname = 'sui-btn'
-            if s
-              - classname += ' btn-' + s
-            if r  
-              - classname += ' btn-' + r[0]
-            | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
+            - var role = ''
+            if r[0]  
+              - role = 'btn-' + r[0]
+            | <a href='javascript:void(0);' class='sui-btn #{size} #{role}'>#{r[1]}</a>
             | 
+          a(disabled class='sui-btn #{size}' href='javascript:void(0);') 禁用
+          a(disabled class='sui-btn btn-text #{size}' href='javascript:void(0);') 禁用
+          a(disabled class='sui-btn btn-link #{size}' href='javascript:void(0);') 禁用
           br
           br
     div.tab-pane#code1
@@ -73,10 +78,17 @@ block content
       div.bs-docs-example
         each v in ROLES
           - var classname = 'sui-btn'
-          if v
+          if v[0]
             - classname += ' btn-' + v[0]
-          |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-pencil'></i>#{v[1]}</a>
-          | 
+          if v[0] != 'link'
+            |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-pencil'></i>#{v[1]}</a>
+            | 
+
+        a.sui-btn.btn-text(href='javascript:void(0);')
+          i.sui-icon.icon-pc-refresh
+        a.sui-btn.btn-text.btn-default(href='javascript:void(0);')
+          i.sui-icon.icon-pc-refresh
+          | 刷新
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2

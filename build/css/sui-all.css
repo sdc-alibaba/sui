@@ -29,7 +29,7 @@
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 30px;
+  min-height: 24px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -336,7 +336,7 @@ a:active {
 .sui-row-fluid [class*="span"] {
   display: block;
   width: 100%;
-  min-height: 30px;
+  min-height: 24px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1880,7 +1880,7 @@ sui-pre .sui-code {
 .sui-form .input-default {
   display: inline-block;
   height: 18px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
@@ -1916,7 +1916,7 @@ sui-pre .sui-code {
 .sui-form .uneditable-input {
   display: inline-block;
   height: 18px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
@@ -1926,8 +1926,8 @@ sui-pre .sui-code {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .sui-form select:focus,
 .sui-form textarea:focus,
@@ -1969,11 +1969,11 @@ sui-pre .sui-code {
 }
 .sui-form select,
 .sui-form input[type="file"] {
-  height: 30px;
+  height: 24px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
-  line-height: 30px;
+  line-height: 24px;
 }
 .sui-form select {
   border: 1px solid #cccccc;
@@ -2072,28 +2072,28 @@ sui-pre .sui-code {
   padding-bottom: 0;
 }
 .sui-form .input-default {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .sui-form .input-fat {
-  padding: 8px 14px;
+  padding: 6px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
 }
 .sui-form .input-xfat {
-  padding: 10px 14px;
+  padding: 8px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
 }
 .sui-form .input-fat {
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .sui-form .input-xfat {
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .sui-form textarea.input-mini,
 .sui-form input[type="text"].input-mini,
@@ -2111,9 +2111,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-mini,
 .sui-form input[type="color"].input-mini,
 .sui-form .uneditable-input.input-mini {
-  width: 14px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-small,
 .sui-form input[type="text"].input-small,
@@ -2131,9 +2131,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-small,
 .sui-form input[type="color"].input-small,
 .sui-form .uneditable-input.input-small {
-  width: 34px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 38px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-medium,
 .sui-form input[type="text"].input-medium,
@@ -2151,9 +2151,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-medium,
 .sui-form input[type="color"].input-medium,
 .sui-form .uneditable-input.input-medium {
-  width: 94px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 98px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-large,
 .sui-form input[type="text"].input-large,
@@ -2171,9 +2171,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-large,
 .sui-form input[type="color"].input-large,
 .sui-form .uneditable-input.input-large {
-  width: 174px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 178px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xlarge,
 .sui-form input[type="text"].input-xlarge,
@@ -2191,9 +2191,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xlarge,
 .sui-form input[type="color"].input-xlarge,
 .sui-form .uneditable-input.input-xlarge {
-  width: 324px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 328px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xxlarge,
 .sui-form input[type="text"].input-xxlarge,
@@ -2211,9 +2211,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xxlarge,
 .sui-form input[type="color"].input-xxlarge,
 .sui-form .uneditable-input.input-xxlarge {
-  width: 474px;
-  padding-left: 12px;
-  padding-right: 12px;
+  width: 478px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-thin,
 .sui-form input[type="text"].input-thin,
@@ -2252,7 +2252,7 @@ sui-pre .sui-code {
 .sui-form .uneditable-input.input-default {
   display: inline-block;
   height: 18px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
@@ -2262,8 +2262,8 @@ sui-pre .sui-code {
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 .sui-form textarea.input-default:focus,
 .sui-form input[type="text"].input-default:focus,
@@ -2302,12 +2302,12 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat,
 .sui-form input[type="color"].input-fat,
 .sui-form .uneditable-input.input-fat {
-  padding: 8px 14px;
+  padding: 6px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .sui-form textarea.input-fat.input-mini,
 .sui-form input[type="text"].input-fat.input-mini,
@@ -2325,9 +2325,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-mini,
 .sui-form input[type="color"].input-fat.input-mini,
 .sui-form .uneditable-input.input-fat.input-mini {
-  width: 10px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-fat.input-small,
 .sui-form input[type="text"].input-fat.input-small,
@@ -2345,9 +2345,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-small,
 .sui-form input[type="color"].input-fat.input-small,
 .sui-form .uneditable-input.input-fat.input-small {
-  width: 30px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 38px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-fat.input-medium,
 .sui-form input[type="text"].input-fat.input-medium,
@@ -2365,9 +2365,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-medium,
 .sui-form input[type="color"].input-fat.input-medium,
 .sui-form .uneditable-input.input-fat.input-medium {
-  width: 90px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 98px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-fat.input-large,
 .sui-form input[type="text"].input-fat.input-large,
@@ -2385,9 +2385,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-large,
 .sui-form input[type="color"].input-fat.input-large,
 .sui-form .uneditable-input.input-fat.input-large {
-  width: 170px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 178px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-fat.input-xlarge,
 .sui-form input[type="text"].input-fat.input-xlarge,
@@ -2405,9 +2405,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-xlarge,
 .sui-form input[type="color"].input-fat.input-xlarge,
 .sui-form .uneditable-input.input-fat.input-xlarge {
-  width: 320px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 328px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-fat.input-xxlarge,
 .sui-form input[type="text"].input-fat.input-xxlarge,
@@ -2425,9 +2425,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-fat.input-xxlarge,
 .sui-form input[type="color"].input-fat.input-xxlarge,
 .sui-form .uneditable-input.input-fat.input-xxlarge {
-  width: 470px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 478px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat,
 .sui-form input[type="text"].input-xfat,
@@ -2445,12 +2445,12 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat,
 .sui-form input[type="color"].input-xfat,
 .sui-form .uneditable-input.input-xfat {
-  padding: 10px 14px;
+  padding: 8px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .sui-form textarea.input-xfat.input-mini,
 .sui-form input[type="text"].input-xfat.input-mini,
@@ -2468,9 +2468,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-mini,
 .sui-form input[type="color"].input-xfat.input-mini,
 .sui-form .uneditable-input.input-xfat.input-mini {
-  width: 10px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat.input-small,
 .sui-form input[type="text"].input-xfat.input-small,
@@ -2488,9 +2488,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-small,
 .sui-form input[type="color"].input-xfat.input-small,
 .sui-form .uneditable-input.input-xfat.input-small {
-  width: 30px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 38px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat.input-medium,
 .sui-form input[type="text"].input-xfat.input-medium,
@@ -2508,9 +2508,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-medium,
 .sui-form input[type="color"].input-xfat.input-medium,
 .sui-form .uneditable-input.input-xfat.input-medium {
-  width: 90px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 98px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat.input-large,
 .sui-form input[type="text"].input-xfat.input-large,
@@ -2528,9 +2528,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-large,
 .sui-form input[type="color"].input-xfat.input-large,
 .sui-form .uneditable-input.input-xfat.input-large {
-  width: 170px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 178px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat.input-xlarge,
 .sui-form input[type="text"].input-xfat.input-xlarge,
@@ -2548,9 +2548,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-xlarge,
 .sui-form input[type="color"].input-xfat.input-xlarge,
 .sui-form .uneditable-input.input-xfat.input-xlarge {
-  width: 320px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 328px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form textarea.input-xfat.input-xxlarge,
 .sui-form input[type="text"].input-xfat.input-xxlarge,
@@ -2568,9 +2568,9 @@ sui-pre .sui-code {
 .sui-form input[type="tel"].input-xfat.input-xxlarge,
 .sui-form input[type="color"].input-xfat.input-xxlarge,
 .sui-form .uneditable-input.input-xfat.input-xxlarge {
-  width: 470px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 478px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .sui-form select.input-thin {
   height: 24px;
@@ -5318,7 +5318,7 @@ sui-pre .sui-code {
   color: #999;
   min-width: 82px;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -5434,17 +5434,17 @@ sui-pre .sui-code {
   z-index: 990;
 }
 .sui-dropdown.dropdown-bordered.dropdown-xlarge .dropdown-inner a {
-  padding: 4px 20px;
+  padding: 8px 20px;
   line-height: 22px;
   font-size: 14px;
 }
 .sui-dropdown.dropdown-bordered.dropdown-large .dropdown-inner a {
-  padding: 8px 14px;
+  padding: 6px 20px;
   line-height: 22px;
   font-size: 14px;
 }
 .sui-dropdown.dropdown-bordered.dropdown-small .dropdown-inner a {
-  padding: 0px 6px;
+  padding: 2px 10px;
   line-height: 18px;
   font-size: 12px;
 }
@@ -5586,7 +5586,7 @@ button.sui-close {
 }
 .sui-btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -5629,8 +5629,8 @@ button.sui-close {
 }
 .sui-btn:active,
 .sui-btn.active {
-  background-color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
 }
 .sui-btn:hover,
 .sui-btn:focus {
@@ -5663,15 +5663,18 @@ button.sui-close {
 .sui-btn .sui-icon {
   font-size: 16px;
   vertical-align: -2px;
+}
+.sui-btn .sui-icon:after {
   content: " ";
+  font-size: 12px;
 }
 .btn-xlarge {
-  padding: 4px 20px;
+  padding: 8px 20px;
   line-height: 22px;
   font-size: 14px;
 }
 .btn-large {
-  padding: 8px 14px;
+  padding: 6px 20px;
   line-height: 22px;
   font-size: 14px;
 }
@@ -5680,7 +5683,7 @@ button.sui-close {
   vertical-align: -3px;
 }
 .btn-small {
-  padding: 0px 6px;
+  padding: 2px 10px;
   line-height: 18px;
   font-size: 12px;
 }
@@ -5710,8 +5713,8 @@ input[type="button"].btn-block {
 .btn-primary:hover,
 .btn-primary:focus {
   color: #ffffff;
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
+  background-color: #51a9af;
+  border: 1px solid #51a9af;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -5729,8 +5732,8 @@ input[type="button"].btn-block {
 }
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #43aeb7;
-  border: 1px solid #43aeb7;
+  background-color: #339ba3;
+  border: 1px solid #339ba3;
 }
 .btn-warning {
   color: #ffffff;
@@ -5912,6 +5915,14 @@ input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
 }
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: #53b8c0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
@@ -5921,14 +5932,7 @@ input[type="submit"].btn.btn-mini {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-}
-.btn-link {
-  border-color: transparent;
-  cursor: pointer;
-  color: #53b8c0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+  text-decoration: underline;
 }
 .btn-link:hover,
 .btn-link:focus {
@@ -5937,10 +5941,69 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
   border-color: transparent;
 }
+.btn-link[disabled],
+.btn-link.disabled,
 .btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: #333333;
+.btn-link.disabled:hover,
+.btn-link[disabled]:focus,
+.btn-link.disabled:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+  border-color: transparent;
   text-decoration: none;
+}
+.btn-link:active {
+  color: #339ba3;
+}
+.btn-text {
+  border-color: transparent;
+  cursor: pointer;
+  color: #53b8c0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-decoration: none!important;
+}
+.btn-text,
+.btn-text:active,
+.btn-text[disabled] {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
+.btn-text:hover,
+.btn-text:focus {
+  color: #51a9af;
+  text-decoration: underline;
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-text[disabled],
+.btn-text.disabled,
+.btn-text[disabled]:hover,
+.btn-text.disabled:hover,
+.btn-text[disabled]:focus,
+.btn-text.disabled:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+  border-color: transparent;
+  text-decoration: none;
+}
+.btn-text:active {
+  color: #339ba3;
+}
+.btn-text.btn-default {
+  color: #e6e6e6;
+}
+.btn-text.btn-default:hover {
+  color: #ccc;
+}
+.btn-text.btn-default:active {
+  color: #acacac;
 }
 .sui-btn-group {
   position: relative;
@@ -7750,15 +7813,15 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num {
   display: inline-block;
   height: 18px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin: 0px;
   width: 15px;
   -webkit-border-radius: 0;
@@ -7777,7 +7840,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination div .page-num + .page-confirm {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -7824,8 +7887,8 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination div .page-num + .page-confirm:active,
 .sui-pagination div .page-num + .page-confirm.active {
-  background-color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
 }
 .sui-pagination div .page-num + .page-confirm:hover,
 .sui-pagination div .page-num + .page-confirm:focus {
@@ -7858,7 +7921,10 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm .sui-icon {
   font-size: 16px;
   vertical-align: -2px;
+}
+.sui-pagination div .page-num + .page-confirm .sui-icon:after {
   content: " ";
+  font-size: 12px;
 }
 .sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -7867,8 +7933,8 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm:hover,
 .sui-pagination div .page-num + .page-confirm:focus {
   color: #ffffff;
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
+  background-color: #51a9af;
+  border: 1px solid #51a9af;
 }
 .sui-pagination div .page-num + .page-confirm.disabled,
 .sui-pagination div .page-num + .page-confirm[disabled],
@@ -7886,8 +7952,8 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination div .page-num + .page-confirm:active,
 .sui-pagination div .page-num + .page-confirm.active {
-  background-color: #43aeb7;
-  border: 1px solid #43aeb7;
+  background-color: #339ba3;
+  border: 1px solid #339ba3;
 }
 .sui-pagination div .page-num + .page-confirm .caret {
   border-top-color: #ffffff;
@@ -7938,16 +8004,16 @@ input[type="submit"].btn.btn-mini {
   font-size: 14px;
 }
 .pagination-large div .page-num {
-  padding: 8px 14px;
+  padding: 6px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .pagination-large div .page-num + .page-confirm {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -7963,7 +8029,7 @@ input[type="submit"].btn.btn-mini {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  padding: 8px 14px;
+  padding: 6px 20px;
   line-height: 22px;
   font-size: 14px;
   color: #ffffff;
@@ -7997,8 +8063,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-large div .page-num + .page-confirm:active,
 .pagination-large div .page-num + .page-confirm.active {
-  background-color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
 }
 .pagination-large div .page-num + .page-confirm:hover,
 .pagination-large div .page-num + .page-confirm:focus {
@@ -8031,7 +8097,10 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm .sui-icon {
   font-size: 16px;
   vertical-align: -2px;
+}
+.pagination-large div .page-num + .page-confirm .sui-icon:after {
   content: " ";
+  font-size: 12px;
 }
 .pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8044,8 +8113,8 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm:hover,
 .pagination-large div .page-num + .page-confirm:focus {
   color: #ffffff;
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
+  background-color: #51a9af;
+  border: 1px solid #51a9af;
 }
 .pagination-large div .page-num + .page-confirm.disabled,
 .pagination-large div .page-num + .page-confirm[disabled],
@@ -8063,8 +8132,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-large div .page-num + .page-confirm:active,
 .pagination-large div .page-num + .page-confirm.active {
-  background-color: #43aeb7;
-  border: 1px solid #43aeb7;
+  background-color: #339ba3;
+  border: 1px solid #339ba3;
 }
 .pagination-large div .page-num + .page-confirm .caret {
   border-top-color: #ffffff;
@@ -8076,16 +8145,16 @@ input[type="submit"].btn.btn-mini {
   font-size: 14px;
 }
 .pagination-xlarge div .page-num {
-  padding: 10px 14px;
+  padding: 8px 10px;
   font-size: 14px;
   line-height: 22px;
   height: 22px;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .pagination-xlarge div .page-num + .page-confirm {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -8101,7 +8170,7 @@ input[type="submit"].btn.btn-mini {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  padding: 4px 20px;
+  padding: 8px 20px;
   line-height: 22px;
   font-size: 14px;
   color: #ffffff;
@@ -8135,8 +8204,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-xlarge div .page-num + .page-confirm:active,
 .pagination-xlarge div .page-num + .page-confirm.active {
-  background-color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
 }
 .pagination-xlarge div .page-num + .page-confirm:hover,
 .pagination-xlarge div .page-num + .page-confirm:focus {
@@ -8169,7 +8238,10 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm .sui-icon {
   font-size: 16px;
   vertical-align: -2px;
+}
+.pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
   content: " ";
+  font-size: 12px;
 }
 .pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8178,8 +8250,8 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm:hover,
 .pagination-xlarge div .page-num + .page-confirm:focus {
   color: #ffffff;
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
+  background-color: #51a9af;
+  border: 1px solid #51a9af;
 }
 .pagination-xlarge div .page-num + .page-confirm.disabled,
 .pagination-xlarge div .page-num + .page-confirm[disabled],
@@ -8197,8 +8269,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-xlarge div .page-num + .page-confirm:active,
 .pagination-xlarge div .page-num + .page-confirm.active {
-  background-color: #43aeb7;
-  border: 1px solid #43aeb7;
+  background-color: #339ba3;
+  border: 1px solid #339ba3;
 }
 .pagination-xlarge div .page-num + .page-confirm .caret {
   border-top-color: #ffffff;
@@ -8215,7 +8287,7 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-small div .page-num + .page-confirm {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   text-align: center;
@@ -8229,7 +8301,7 @@ input[type="submit"].btn.btn-mini {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  padding: 0px 6px;
+  padding: 2px 10px;
   line-height: 18px;
   font-size: 12px;
   color: #ffffff;
@@ -8263,8 +8335,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-small div .page-num + .page-confirm:active,
 .pagination-small div .page-num + .page-confirm.active {
-  background-color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
 }
 .pagination-small div .page-num + .page-confirm:hover,
 .pagination-small div .page-num + .page-confirm:focus {
@@ -8297,7 +8369,10 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm .sui-icon {
   font-size: 16px;
   vertical-align: -2px;
+}
+.pagination-small div .page-num + .page-confirm .sui-icon:after {
   content: " ";
+  font-size: 12px;
 }
 .pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -8306,8 +8381,8 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm:hover,
 .pagination-small div .page-num + .page-confirm:focus {
   color: #ffffff;
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
+  background-color: #51a9af;
+  border: 1px solid #51a9af;
 }
 .pagination-small div .page-num + .page-confirm.disabled,
 .pagination-small div .page-num + .page-confirm[disabled],
@@ -8325,8 +8400,8 @@ input[type="submit"].btn.btn-mini {
 }
 .pagination-small div .page-num + .page-confirm:active,
 .pagination-small div .page-num + .page-confirm.active {
-  background-color: #43aeb7;
-  border: 1px solid #43aeb7;
+  background-color: #339ba3;
+  border: 1px solid #339ba3;
 }
 .pagination-small div .page-num + .page-confirm .caret {
   border-top-color: #ffffff;
@@ -9910,7 +9985,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-progress .bar {
   width: 0%;
   height: 100%;
-  padding: 6px 12px;
+  padding: 4px 20px;
   padding-left: 0;
   padding-right: 0;
   color: #ffffff;
@@ -10665,7 +10740,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 30px;
+    min-height: 24px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -11014,7 +11089,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 30px;
+    min-height: 24px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

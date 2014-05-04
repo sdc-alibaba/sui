@@ -17,7 +17,7 @@
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @btnBackgroundActive, @grayDark);
   .border-radius(0);
   .user-select(none);
 
@@ -55,7 +55,10 @@
   .sui-icon {
     font-size: 16px;
     vertical-align: -2px;
-    content: " ";
+    &:after {
+      content: " ";
+      font-size: 12px;
+    }
   }
 
 }
@@ -120,7 +123,7 @@ input[type="button"] {
 // Set the backgrounds
 // -------------------------
 .btn-primary {
-  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+  .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight, @btnPrimaryBackgroundActive);
 }
 // Warning appears are orange
 .btn-warning {
@@ -179,29 +182,53 @@ input[type="submit"].btn {
 // --------------------------------------------------
 
 // Make a button look and behave like a link
-.btn-link,
-.btn-link:active,
-.btn-link[disabled] {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  .box-shadow(none);
-}
 .btn-link {
-  border-color: transparent;
-  cursor: pointer;
-  color: @linkColor;
-  .border-radius(0);
+  &,
+  &:active,
+  &[disabled] {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    .box-shadow(none);
+    text-decoration: underline;
+  }
+  & {
+    border-color: transparent;
+    cursor: pointer;
+    color: @linkColor;
+    .border-radius(0);
+  }
+  &:hover,
+  &:focus {
+    color: @linkColorHover;
+    text-decoration: underline;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &[disabled], &.disabled {
+    &, &:hover, &:focus {
+      color: #e6e6e6;
+      background-color: transparent;
+      border-color: transparent;
+      text-decoration: none;
+    }
+  }
+  &:active {
+    color: @btnPrimaryBackgroundActive;
+  }
 }
-.btn-link:hover,
-.btn-link:focus {
-  color: @linkColorHover;
-  text-decoration: underline;
-  background-color: transparent;
-  border-color: transparent;
-}
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: @grayDark;
-  text-decoration: none;
+
+.btn-text {
+  .btn-link;
+  text-decoration: none!important;
+
+  &.btn-default {
+    color: #e6e6e6;
+    &:hover {
+      color: #ccc;
+    }
+    &:active {
+      color: #acacac;
+    }
+  }
 }
