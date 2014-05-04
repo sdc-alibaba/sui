@@ -10417,7 +10417,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border-radius: 6px;
   text-align: center;
   line-height: 12px;
-  font-style: italic;
 }
 .sui-steps .round + span:before {
   content: '\00a0';
