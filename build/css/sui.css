@@ -9816,16 +9816,16 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   display: inline-block;
 }
 .sui-steps .wrap > div {
-  width: 195px;
-  height: 24px;
+  width: 330px;
+  height: 30px;
   display: inline-block;
-  line-height: 24px;
+  line-height: 30px;
   vertical-align: top;
   font-size: 12px;
   position: relative;
 }
 .sui-steps .wrap > div > label {
-  margin-left: 22px;
+  margin-left: 25px;
   cursor: default;
 }
 .sui-steps .triangle-right {
@@ -9833,9 +9833,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 12px;
+  border-width: 15px;
   position: absolute;
-  right: -23px;
+  right: -29px;
   z-index: 1;
 }
 .sui-steps .triangle-right-bg {
@@ -9843,24 +9843,24 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 12px;
+  border-width: 15px;
   position: absolute;
-  right: -23px;
+  right: -29px;
   z-index: 1;
-  border-width: 16px;
-  right: -32px;
+  border-width: 19px;
+  right: -38px;
   border-color: transparent transparent transparent #FFF;
   top: -4px;
 }
 .sui-steps .round {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  width: 16px;
+  height: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   text-align: center;
-  line-height: 12px;
+  line-height: 16px;
 }
 .sui-steps .round + span:before {
   content: '\00a0';
@@ -9901,32 +9901,34 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   background-color: #ffffff;
   background-color: transparent\9;
 }
-.steps-large .wrap > div {
-  font-size: 14px;
-  width: 292.5px;
-  height: 36px;
-  line-height: 36px;
+/*
+.steps-large {
+    .wrap > div {
+        font-size: @fontSizeLarge;
+        width: @stepsBaseWidth * 1.5;
+        height: @stepsBaseHeight * 1.5;
+        line-height: @stepsBaseHeight * 1.5;
+        > label {
+            font-size: @fontSizeLarge;
+            margin-left: @stepsBaseHeight * 1.5 / 2 + 10px;
+        }
+    }
+    .triangle-right {
+        border-width: @stepsBaseHeight * 1.5 / 2;
+        right: -@stepsBaseHeight * 1.5 + 1;
+    }
+    .triangle-right-bg {
+        border-width: @stepsBaseHeight * 1.5 / 2 + 4;
+        right: -@stepsBaseHeight * 1.5 -  4 * 2;
+    }
+    .round {
+        width: @fontSizeLarge;  
+        height: @fontSizeLarge;
+        line-height: @fontSizeLarge;
+        .border-radius(@fontSizeLarge / 2);
+    }
 }
-.steps-large .wrap > div > label {
-  font-size: 14px;
-  margin-left: 28px;
-}
-.steps-large .triangle-right {
-  border-width: 18px;
-  right: -35px;
-}
-.steps-large .triangle-right-bg {
-  border-width: 22px;
-  right: -44px;
-}
-.steps-large .round {
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-}
+*/
 .steps-auto {
   display: table;
   width: 100%;

@@ -39,11 +39,11 @@
 
     .round {
         display: inline-block;
-        width: @baseFontSize;  
-        height: @baseFontSize;
-        .border-radius(@baseFontSize / 2);
+        width: @baseFontSize + 4;  
+        height: @baseFontSize + 4;
+        .border-radius((@baseFontSize + 4) / 2);
         text-align: center;
-        line-height: @baseFontSize;
+        line-height: @baseFontSize + 4;
     }
     .round + span:before {
         content: '\00a0';
@@ -85,7 +85,7 @@
         }
     }
 }
-
+/*
 .steps-large {
     .wrap > div {
         font-size: @fontSizeLarge;
@@ -112,6 +112,7 @@
         .border-radius(@fontSizeLarge / 2);
     }
 }
+*/
 .steps-auto {
     display: table;
     width: 100%;
