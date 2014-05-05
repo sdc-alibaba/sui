@@ -855,6 +855,9 @@ address {
 .icon-pc-right:before {
   content: "\c603";
 }
+.icon-pc-right-circle:before {
+  content: "\e601";
+}
 .icon-pc-refresh:before {
   content: "\c604";
 }
@@ -3864,7 +3867,7 @@ sui-pre .sui-code {
   content: "\c60b";
 }
 .sui-msg.msg-success > .msg-icon:before {
-  content: "\c603";
+  content: "\e601";
 }
 .sui-msg.msg-warning > .msg-icon:before {
   content: "\c612";
