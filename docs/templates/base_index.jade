@@ -1,4 +1,3 @@
-doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
@@ -25,18 +24,11 @@ html(lang="en")
     mixin sidebar(highlight)
       include sidenav
     block content_wrap
-      .sui-layout
-        .sidebar
-          block sidebar
-        .content
-          .content-inner
-            block content
-
-            block footer
-              .footer
-                ul.unstyled
-                  li @time 2014.03.07
-                  li @author 商家业务事业部-电商服务支撑平台-UED团队
+    block footer
+      .footer
+        ul.unstyled
+          li @time 2014.03.07
+          li @author 商家业务事业部-电商服务支撑平台-UED团队
 
     script(src="assets/js/google-code-prettify/prettify.js")
     script(src='assets/zeroclipboard/ZeroClipboard.js')
