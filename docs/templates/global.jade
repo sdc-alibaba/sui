@@ -50,33 +50,7 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      h4 全局样式的修改主要包含以下几点
-      ul.unstyled
-        li 
-          strong 字体：
-          code
-            | font-family: Arial, "微软雅黑", "宋体", sans-serif; font-size: 12px; line-height: 18px; color: #333333;
-        li
-          strong 链接颜色：
-          | 修改了默认的链接颜色，默认颜色改为 <code>#06c</code>, hover 状态颜色改为 <code>#004080</code>
-        li
-          strong 移除了body元素的margin
-        li
-          strong 标题：
-          | 从 <code>h1</code> 至 <code>h5</code> 的 <code>font-size</code>分别是：24px,22px,20px,14px,12px，行高是文字大小的1.5倍，上下margin都是9px
-        li
-          strong 段落：
-          | 默认段落之间的间距是默认的行高 18px
-        li
-          strong 列表：
-          | 移除了 <code>ul</code> 和 <code>ol</code> 的默认margin和padding
-
-      p
-        | 除此之外，还对 <code>small</code>, <code>strong</code>, <code>blockquote</code>等样式进行了调整。<br />
-        | 对于 form，table 等的样式设置大部分都被封装在了对应的class之下，不会影响全局样式。
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
