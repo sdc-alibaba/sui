@@ -4527,7 +4527,7 @@ require('./datepicker')
   $.fn.validate.Constructor = Validate
 
   $.fn.validate.defaults = {
-    errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n </div>    <s class="msg-icon"></s>\n  </div>',
+    errorTpl: '<div class="sui-msg msg-error msg-naked">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n </div>    <s class="msg-icon"></s>\n  </div>',
     inputErrorClass: 'input-error',
     placeError: function($input, $error) {
       $input = $($input);

@@ -53,9 +53,6 @@
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">Label</a></li>
-                  <li><a href="tag.html">Tag</a></li>
-                  <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
                   <li><a href="loading.html">Loading</a></li>
                 </ul>
@@ -93,7 +90,9 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <div data-toggle="tree" data-src="http://10.68.111.150/php/demo/server/getCity.json" data-jsonp="true" class="sui-tree-group"></div>
+                <form class="sui-form">
+                  <div data-toggle="tree" data-src="http://10.68.111.150/php/demo/server/getCity.json" data-jsonp="true" class="sui-tree-group"></div>
+                </form>
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -120,7 +119,7 @@
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
               <div class="bs-docs-example">
-                <div id="treeGroup2" class="sui-tree-group"></div>
+                <div id="treeGroup2" class="sui-tree-group sui-form"></div>
                 <script>
                   $(function() {
                       $('#treeGroup2').tree({

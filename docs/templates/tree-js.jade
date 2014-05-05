@@ -35,6 +35,7 @@ block content
     div.tab-content
         .tab-pane.active#demo1
             .bs-docs-example
+              form.sui-form
                 .sui-tree-group(data-toggle='tree', data-src='http://10.68.111.150/php/demo/server/getCity.json', data-jsonp='true')
         .tab-pane#code1
             pre.prettyprint.linenums(data-target='#demo1>div')
@@ -61,7 +62,7 @@ block content
     .tab-content
         .tab-pane.active#demo2
             .bs-docs-example
-                .sui-tree-group#treeGroup2
+                .sui-tree-group.sui-form#treeGroup2
                 script.
                     $(function() {
                         $('#treeGroup2').tree({

@@ -46,6 +46,7 @@
 .sui-pagination ul > li > a:focus {
   color: @white;
   background-color: @paginationHover;
+  border-color: @paginationHover;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
@@ -53,6 +54,7 @@
   background-color: @btnPrimaryBackground;
   border-color: @btnPrimaryBackground;
   cursor: default;
+  z-index: 2;
   &:hover, &:focus {
       //reset a:hover, do not change if active
       color: @white; 
@@ -148,23 +150,27 @@
         display: inline-block;
         .page-num {
             .sui-form > .input-default;
+            .sui-form > .input-fat;
             margin: 0px;
-            width: 15px;
+            width: 18px;
             .border-radius(0);
             .singleTransition(width, 0.1s, linear, 0.1s);
             + .page-confirm {
                 .sui-btn;
                 .btn-primary;
+                .btn-large;
                 .border-radius(0);
                 vertical-align: top;
             }
         }
+        /*
         .page-num:focus {
             width: 50px;
             + .page-confirm {
                 display: inline-block;
             }
         }
+        */
        
 
     }
@@ -210,6 +216,7 @@
 // --------------------------------------------------
 
 // Large
+/*
 .pagination-large {
   ul > li > a,
   ul > li > span {
@@ -272,3 +279,4 @@
       }
   }
 }
+*/
