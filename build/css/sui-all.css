@@ -654,6 +654,14 @@ h6 small {
   line-height: 1;
   color: #999999;
 }
+h1.sui-normal,
+h2.sui-normal,
+h3.sui-normal,
+h4.sui-normal,
+h5.sui-normal,
+h6.sui-normal {
+  font-weight: normal;
+}
 h1 {
   font-size: 24px;
   line-height: 36px;
@@ -4460,8 +4468,8 @@ sui-pre .sui-code {
   border-top-right-radius: 4px;
 }
 .sui-table.table-primary th {
-  background-color: #2597dd;
-  border-left: 1px solid #1886c9;
+  background-color: #53b8c0;
+  border-left: 1px solid #43aeb7;
 }
 .sui-table.table-zebra tbody > tr:nth-child(odd) > td,
 .sui-table.table-zebra tbody > tr:nth-child(odd) > th {
