@@ -7855,11 +7855,18 @@ input[type="submit"].btn.btn-mini {
 */
 .sui-pagination div {
   display: inline-block;
+  /*
+        .page-num:focus {
+            width: 50px;
+            + .page-confirm {
+                display: inline-block;
+            }
+        }
+        */
 }
 .sui-pagination div .page-num {
   display: inline-block;
   height: 18px;
-  padding: 4px 10px;
   font-size: 12px;
   line-height: 18px;
   color: #555555;
@@ -7868,8 +7875,14 @@ input[type="submit"].btn.btn-mini {
   border: 1px solid #cccccc;
   padding-top: 4px;
   padding-bottom: 4px;
+  padding: 4px 10px;
+  font-size: 14px;
+  line-height: 22px;
+  height: 22px;
+  padding-right: 10px;
+  padding-left: 10px;
   margin: 0px;
-  width: 15px;
+  width: 18px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -7886,7 +7899,6 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination div .page-num + .page-confirm {
   display: inline-block;
-  padding: 4px 20px;
   box-sizing: border-box;
   margin-bottom: 0;
   font-size: 12px;
@@ -7906,6 +7918,9 @@ input[type="submit"].btn.btn-mini {
   background-color: #53b8c0;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   border: 1px solid #53b8c0;
+  padding: 4px 20px;
+  line-height: 22px;
+  font-size: 14px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -8005,11 +8020,9 @@ input[type="submit"].btn.btn-mini {
   border-top-color: #ffffff;
   border-bottom-color: #ffffff;
 }
-.sui-pagination div .page-num:focus {
-  width: 50px;
-}
-.sui-pagination div .page-num:focus + .page-confirm {
-  display: inline-block;
+.sui-pagination div .page-num + .page-confirm .sui-icon {
+  font-size: 18px;
+  vertical-align: -3px;
 }
 /*
 .sui-pagination {
