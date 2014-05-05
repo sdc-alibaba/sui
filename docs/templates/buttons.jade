@@ -7,8 +7,8 @@ block sidebar
   +sidebar('btn')
 
 block content
-  - var SIZES = ['xlarge', 'large', '', 'small']
-  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["link", "链接"], ["text", "文字按钮"]]
+  - var SIZES = ['large', '']
+  - var ROLES = [["", "默认"], ["primary", "主要"], ["link", "链接"], ["text", "文字按钮"]]
   div.docs-description
     img(src='pictures/docs/btn.png')
 
@@ -90,31 +90,3 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
-
-  h2 3. 块级按钮
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo3', data-toggle='tab') 示例
-    li
-      a(href='#code3', data-toggle='tab') 代码
-    li
-      a(href='#doc3', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo3
-      div.bs-docs-example
-        each v in ROLES
-          - var classname = 'sui-btn btn-block btn-xlarge'
-          if v
-            - classname += ' btn-' + v[0]
-          |<a href='javascript:void(0);' class='#{classname}'>#{v[1]}</a>
-          | 
-    div.tab-pane#code3
-      pre.prettyprint.linenums(data-target='#demo3>div')
-    div.tab-pane#doc3
-      | 块级按钮会独占一行
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
-  

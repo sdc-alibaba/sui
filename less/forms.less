@@ -519,7 +519,7 @@
 
     // 更新样式如下 @by kai 2014-02-30
     // margin-bottom: @baseLineHeight / 2;
-    margin-top: @baseLineHeight / 2;
+    margin-top: 0;
   }
 
   .help-inline {
@@ -801,7 +801,7 @@
     .checkbox {
       // + .help-block {  // 修改选择器关系为后面所有的help-block @by kai 2014-01-30
       ~ .help-block {
-        margin-top: @baseLineHeight / 2;
+        margin-top: 0;
       }
     }
     // Move over buttons in .form-actions to align with .controls
@@ -819,6 +819,9 @@
       font-size: 16px;
       left: 10px;
       top: 6px;
+    }
+    input {
+      margin-bottom: 0;
     }
     .input-thin + .sui-icon {
       top: 4px;

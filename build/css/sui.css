@@ -3076,7 +3076,7 @@ sui-pre .sui-code {
 }
 .sui-form .help-block {
   display: block;
-  margin-top: 9px;
+  margin-top: 0;
 }
 .sui-form .help-inline {
   display: inline-block;
@@ -3370,7 +3370,7 @@ sui-pre .sui-code {
 .sui-form.form-horizontal .input-append ~ .help-block,
 .sui-form.form-horizontal .radio ~ .help-block,
 .sui-form.form-horizontal .checkbox ~ .help-block {
-  margin-top: 9px;
+  margin-top: 0;
 }
 .sui-form.form-horizontal.form-actions {
   padding-left: 96px;
@@ -3385,6 +3385,9 @@ sui-pre .sui-code {
   font-size: 16px;
   left: 10px;
   top: 6px;
+}
+.sui-form .input-control input {
+  margin-bottom: 0;
 }
 .sui-form .input-control .input-thin + .sui-icon {
   top: 4px;
