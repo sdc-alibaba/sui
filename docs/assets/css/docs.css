@@ -140,7 +140,6 @@ body > .navbar .brand:hover {
 .footer li {
   padding: 4px 0;
 }
-
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
     width: auto;
