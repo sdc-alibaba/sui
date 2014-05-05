@@ -10092,29 +10092,29 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-hero-unit li {
   line-height: 27px;
 }
-.sui-loading.loading-l .icon-pc-loading {
+.sui-loading.loading-large .icon-pc-loading {
   font-size: 60px;
 }
-.sui-loading.loading-ll .icon-pc-loading {
+.sui-loading.loading-xlarge .icon-pc-loading {
   font-size: 80px;
 }
-.sui-loading.loading-lll .icon-pc-loading {
+.sui-loading.loading-xxlarge .icon-pc-loading {
   font-size: 100px;
 }
-.sui-loading.loading-s .icon-pc-loading {
+.sui-loading.loading-small .icon-pc-loading {
   font-size: 40px;
 }
-.sui-loading.loading-ss .icon-pc-loading {
+.sui-loading.loading-xsmall .icon-pc-loading {
   font-size: 30px;
 }
-.sui-loading.loading-sss .icon-pc-loading {
+.sui-loading.loading-xsmall .icon-pc-loading {
   font-size: 20px;
 }
-.sui-loading.loading-black .icon-pc-loading {
+.sui-loading.loading-dark .icon-pc-loading {
   color: #000000;
   opacity: 0.9;
 }
-.sui-loading.loading-gray .icon-pc-loading {
+.sui-loading.loading-light .icon-pc-loading {
   color: #555555;
   opacity: 0.2;
 }
