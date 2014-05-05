@@ -575,9 +575,9 @@
 			}
 			this.picker.addClass('datepicker-orient-' + yorient);
 			if (yorient === 'top')
-				top += height;
+				top += height + 6;
 			else
-				top -= calendarHeight + parseInt(this.picker.css('padding-top'));
+				top -= calendarHeight + parseInt(this.picker.css('padding-top')) + 6;
 
 			this.picker.css({
 				top: top,
@@ -649,7 +649,7 @@
 
 		fillDow: function(){
 			var dowCnt = this.o.weekStart,
-				html = '<tr>';
+				html = '<tr class="week-content">';
 			if (this.o.calendarWeeks){
 				var cell = '<th class="cw">&nbsp;</th>';
 				html += cell;
@@ -730,7 +730,7 @@
 				cleartxt = dates[this.o.language].clear || dates['en'].clear || '',
 				tooltip;
 			this.picker.find('.datepicker-days thead th.datepicker-switch')
-						.text(dates[this.o.language].months[month]+' '+year);
+						.text(year+'年 '+dates[this.o.language].months[month]);
 			this.picker.find('tfoot th.today')
 						.text(todaytxt)
 						.toggle(this.o.todayBtn !== false);
@@ -787,7 +787,17 @@
 				}
 
 				clsName = $.unique(clsName);
-				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + '>'+prevMonth.getUTCDate() + '</td>');
+				var currentDate;
+				var today = new Date();
+				if (this.o.todayHighlight &&
+					prevMonth.getUTCFullYear() === today.getFullYear() &&
+					prevMonth.getUTCMonth() === today.getMonth() &&
+					prevMonth.getUTCDate() === today.getDate()) {
+						currentDate = '今日';
+				}else{
+					currentDate = prevMonth.getUTCDate();
+				}
+				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + 'data-day="'+prevMonth.getUTCDate()+'"'+'>'+ currentDate + '</td>');
 				if (prevMonth.getUTCDay() === this.o.weekEnd){
 					html.push('</tr>');
 				}
@@ -964,7 +974,8 @@
 						break;
 					case 'td':
 						if (target.is('.day') && !target.is('.disabled')){
-							day = parseInt(target.text(), 10)||1;
+							day = target.data('day');
+							day = parseInt(day, 10)||1;
 							year = this.viewDate.getUTCFullYear();
 							month = this.viewDate.getUTCMonth();
 							if (target.is('.old')){
@@ -1373,7 +1384,7 @@
 	};
 
 	var defaults = $.fn.datepicker.defaults = {
-		autoclose: false,
+		autoclose: true,
 		beforeShowDay: $.noop,
 		calendarWeeks: false,
 		clearBtn: false,
@@ -1391,7 +1402,7 @@
 		startDate: -Infinity,
 		startView: 0,
 		todayBtn: false,
-		todayHighlight: false,
+		todayHighlight: true,
 		weekStart: 0
 	};
 	var locale_opts = $.fn.datepicker.locale_opts = [
@@ -1414,10 +1425,10 @@
 			days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
 			daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
 			daysMin:  ["日", "一", "二", "三", "四", "五", "六", "日"],
-			months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-			monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+			months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+			monthsShort: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
 			today: "今日",
-			weekStart: 1
+			weekStart: 0
 		}
 	};
 
@@ -1590,10 +1601,10 @@
 			return date.join('');
 		},
 		headTemplate: '<thead>'+
-							'<tr>'+
-								'<th class="prev">&laquo;</th>'+
+							'<tr class="date-header">'+
+							'<th class="prev"><b></b></th>'+
 								'<th colspan="5" class="datepicker-switch"></th>'+
-								'<th class="next">&raquo;</th>'+
+								'<th class="next"><b></b></th>'+
 							'</tr>'+
 						'</thead>',
 		contTemplate: '<tbody><tr><td colspan="7"></td></tr></tbody>',
