@@ -6797,31 +6797,31 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-nav.nav-tabs > .active > a,
 .sui-nav.nav-tabs > li > a:hover {
-  color: #3096dc;
+  color: #0088cc;
 }
 .sui-nav.nav-tabs.nav-primary {
-  border-bottom: 2px solid #3096dc;
+  border-bottom: 2px solid #0088cc;
 }
 .sui-nav.nav-tabs.nav-primary > li {
   margin-bottom: -2px;
 }
 .sui-nav.nav-tabs.nav-primary > .active > a {
-  border-color: #3096dc;
+  border-color: #0088cc;
   color: #ffffff;
-  background: #3096dc;
+  background: #0088cc;
   border-radius: 2px 2px 0 0;
 }
 .sui-nav.nav-tabs.nav-pills {
-  border-bottom: 2px solid #3096dc;
+  border-bottom: 2px solid #0088cc;
   border-bottom: 0;
 }
 .sui-nav.nav-tabs.nav-pills > li {
   margin-bottom: -2px;
 }
 .sui-nav.nav-tabs.nav-pills > .active > a {
-  border-color: #3096dc;
+  border-color: #0088cc;
   color: #ffffff;
-  background: #3096dc;
+  background: #0088cc;
   border-radius: 2px 2px 0 0;
 }
 .sui-nav.nav-tabs.nav-pills > li > a,
@@ -6834,7 +6834,7 @@ input[type="submit"].btn.btn-mini {
   color: #0088cc;
 }
 .sui-nav.nav-tabs.nav-pills > li.active > a:hover {
-  background: #3096dc;
+  background: #0088cc;
   color: #fff;
 }
 .sui-nav.nav-tabs.tab-navbar {
@@ -6852,7 +6852,7 @@ input[type="submit"].btn.btn-mini {
   border: none;
 }
 .sui-nav.nav-tabs.tab-navbar > li.active > a {
-  background: #3096dc;
+  background: #0088cc;
   color: #fff;
   border-top: 1px solid #3096dc;
   margin-top: -1px;
@@ -6893,7 +6893,7 @@ input[type="submit"].btn.btn-mini {
   background: #ffffff;
 }
 .sui-nav.nav-tabs.nav-stacked > li.active {
-  border-right: 2px solid #2597dd;
+  border-right: 2px solid #0088cc;
 }
 .sui-nav.nav-tabs.nav-stacked > li > a:hover,
 .sui-nav.nav-tabs.nav-stacked > li > a:focus {
@@ -6924,7 +6924,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-nav.nav-tabs.nav-stacked .nav-tabs.nav-stacked > li.active a,
 .sui-nav.nav-tabs.nav-stacked .nav-tabs.nav-stacked > li:hover a {
-  color: #3096dc;
+  color: #0088cc;
 }
 .sui-nav.nav-tabs.nav-stacked .nav-tabs.nav-stacked > li:first-child {
   border-top: 1px solid #ddd;
