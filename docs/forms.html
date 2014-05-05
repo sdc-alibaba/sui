@@ -68,10 +68,11 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -155,6 +156,30 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
+          <h3>深色背景</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo22" data-toggle="tab">示例</a></li>
+            <li><a href="#code22" data-toggle="tab">代码</a></li>
+            <li><a href="#doc22" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo22" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form form-dark">
+                  <input type="text">
+                  <input type="text" placeholder=".input-success" class="input-success">
+                  <input type="text" placeholder=".input-error" class="input-error">
+                </form>
+              </div>
+            </div>
+            <div id="code22" class="tab-pane">
+              <pre data-target="#demo22&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc22" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo22&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
           <h3>成块级</h3>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
@@ -221,6 +246,51 @@
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>带图标</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo23" data-toggle="tab">示例</a></li>
+            <li><a href="#code23" data-toggle="tab">代码</a></li>
+            <li><a href="#doc23" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo23" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form form-dark">
+                  <div class="input-control">
+                    <input type="text" class="input-thin"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text" class="input-xfat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div><br>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-thin"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-xfat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code23" class="tab-pane">
+              <pre data-target="#demo23&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc23" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo22&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <h3>文本字段四态</h3>
           <ul class="sui-nav nav-tabs nav-large">
@@ -312,7 +382,7 @@
           <div class="tab-content">
             <div id="demo9" class="tab-pane active">
               <div class="bs-docs-example">
-                <form class="form-inline">
+                <form class="form-inline sui-form">
                   <textarea rows="3"></textarea>
                 </form>
               </div>
@@ -361,6 +431,38 @@
                     <div class="controls">
                       <input type="text" id="inputInfo" />
                       <span class="help-inline">帮助文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group warning">
+                    <label for="inputWarning" class="control-label">警示输入框：</label>
+                    <div class="controls"><input type="text" id="inputWarning" />
+                      <div class="sui-msg msg-naked msg-tips"><i class="msg-icon"></i>
+                        <div class="msg-con">警告</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group error">
+                    <label for="inputError" class="control-label">错误输入框：</label>
+                    <div class="controls"><input type="text" id="inputError" />
+                      <div class="sui-msg msg-naked msg-error"><i class="msg-icon"></i>
+                        <div class="msg-con">错误</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group success">
+                    <label for="inputSuccess" class="control-label">成功输入框：</label>
+                    <div class="controls"><input type="text" id="inputSuccess" />
+                      <div class="sui-msg msg-naked msg-success"><i class="msg-icon"></i>
+                        <div class="msg-con">成功</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group info">
+                    <label for="inputInfo" class="control-label">帮助输入框：</label>
+                    <div class="controls"><input type="text" id="inputInfo" />
+                      <div class="sui-msg msg-naked msg-info"><i class="msg-icon"></i>
+                        <div class="msg-con">帮助</div>
+                      </div>
                     </div>
                   </div>
                 </form>

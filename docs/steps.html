@@ -56,10 +56,11 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="label.html">label</a></li>
-                  <li><a href="tag.html">tag</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
                   <li><a href="text.html">文本</a></li>
                   <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
                 </ul>
               </li>
               <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
@@ -106,12 +107,12 @@
                 <div class="sui-steps">
                   <div class="wrap">
                     <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                      <label><span class="round"><i class="sui-icon icon-pc-right"></i></span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
                   </div>
                   <div class="wrap">
                     <div class="current">
-                      <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                      <label><span class="round">2 </span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
                   </div>
                   <div class="wrap">
@@ -123,7 +124,7 @@
                 <div class="sui-steps steps-large">
                   <div class="wrap">
                     <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                      <label><span class="round"><i class="sui-icon icon-pc-right"></i></span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
                   </div>
                   <div class="wrap">
@@ -141,7 +142,7 @@
                 <div class="sui-steps steps-auto">
                   <div class="wrap">
                     <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                      <label><span class="round"><i class="sui-icon icon-pc-right"></i></span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
                   </div>
                   <div class="wrap">
@@ -158,7 +159,7 @@
                 <div class="sui-steps steps-large steps-auto">
                   <div class="wrap">
                     <div class="finished">
-                      <label><span class="round">&#10004;</span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+                      <label><span class="round"><i class="sui-icon icon-pc-right"></i></span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
                   </div>
                   <div class="wrap">
@@ -175,6 +176,95 @@
                     <div class="todo">
                       <label><span class="round">3</span><span>第四步 #999999</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
                     </div>
+                  </div>
+                </div>
+                <h2>前台定宽步骤条 </h2>
+                <div class="sui-steps-round">
+                  <div class="finished">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div class="current">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div class="todo">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div style="width:5%" class="todo">
+                    <div class="wrap">
+                      <div class="round">3</div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                </div>
+                <h2>前台自适应步骤条 </h2><span>根据页面大小自适应的steps,如果仅指定steps-round-auto,步骤条会自动适应，如果希望步骤条整体自适应，同时单个step保持一定比例的宽度，参考下面的例子</span>
+                <div class="sui-steps-round steps-round-auto">
+                  <div class="finished">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文文字描述文字描述文字描述文字描述字描述文字</label>
+                  </div>
+                  <div class="current">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div class="todo">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div style="width:5%" class="todo">
+                    <div class="wrap">
+                      <div class="round">3</div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                </div><span>同时指定了steps-round-auto和steps步骤数,步骤条会整体自适应，同时单个step保持一定比例的宽度，目前提供steps-3到steps-7，使用方法类似bootstrap的删隔布局</span>
+                <div class="sui-steps-round steps-round-auto steps-4">
+                  <div class="finished">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文文字描述文字描述文字描述文字描述字描述文字</label>
+                  </div>
+                  <div class="current">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div class="todo">
+                    <div class="wrap">
+                      <div class="round">1</div>
+                      <div class="bar"></div>
+                    </div>
+                    <label>文字描述</label>
+                  </div>
+                  <div style="width:5%" class="todo">
+                    <div class="wrap">
+                      <div class="round">3</div>
+                    </div>
+                    <label>文字描述</label>
                   </div>
                 </div>
               </div>
