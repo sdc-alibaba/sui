@@ -46,6 +46,7 @@
 .sui-pagination ul > li > a:focus {
   color: @white;
   background-color: @paginationHover;
+  border-color: @paginationHover;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
@@ -53,6 +54,7 @@
   background-color: @btnPrimaryBackground;
   border-color: @btnPrimaryBackground;
   cursor: default;
+  z-index: 2;
   &:hover, &:focus {
       //reset a:hover, do not change if active
       color: @white; 
@@ -210,6 +212,7 @@
 // --------------------------------------------------
 
 // Large
+/*
 .pagination-large {
   ul > li > a,
   ul > li > span {
@@ -272,3 +275,4 @@
       }
   }
 }
+*/

@@ -7731,7 +7731,7 @@ input[type="submit"].btn.btn-mini {
 */
   position: relative;
   float: left;
-  padding: 2px 8px;
+  padding: 6px 11px;
   line-height: 18px;
   text-decoration: none;
   color: #53b8c0;
@@ -7742,7 +7742,8 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
   color: #ffffff;
-  background-color: #e5f3f6;
+  background-color: #53b8c0;
+  border-color: #53b8c0;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
@@ -7750,6 +7751,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #53b8c0;
   border-color: #53b8c0;
   cursor: default;
+  z-index: 2;
 }
 .sui-pagination ul > .active > a:hover,
 .sui-pagination ul > .active > span:hover,
@@ -8031,417 +8033,70 @@ input[type="submit"].btn.btn-mini {
 .pagination-right {
   text-align: right;
 }
-.pagination-large ul > li > a,
-.pagination-large ul > li > span {
-  padding: 4px 10px;
-  font-size: 14px;
+/*
+.pagination-large {
+  ul > li > a,
+  ul > li > span {
+    padding: @paginationPaddingLarge;
+    font-size: @fontSizeLarge;
+  }
+  div {
+    font-size: @fontSizeLarge;
+      .page-num {
+          .sui-form > .input-fat;
+          + .page-confirm {
+              .sui-btn;
+              .btn-large;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
+  }
 }
-.pagination-large div {
-  font-size: 14px;
+// xlarge
+
+.pagination-xlarge {
+  ul > li > a,
+  ul > li > span {
+    padding: @paginationPaddingXLarge;
+    font-size: @fontSizeLarge;
+  }
+  div {
+      .page-num {
+          .sui-form > .input-xfat;
+          + .page-confirm {
+              .sui-btn;
+              .btn-xlarge;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
+  }
 }
-.pagination-large div .page-num {
-  padding: 4px 10px;
-  font-size: 14px;
-  line-height: 22px;
-  height: 22px;
-  padding-right: 10px;
-  padding-left: 10px;
+
+// Small
+.pagination-small {
+  ul > li > a,
+  ul > li > span {
+    padding: @paginationPaddingSmall;
+    font-size: @fontSizeSmall;
+  }
+  div {
+      .page-num {
+          .sui-form > .input-thin;
+          + .page-confirm {
+              .sui-btn;
+              .btn-small;
+              .btn-primary;
+              .border-radius(0);
+              vertical-align: top;
+          }
+      }
+  }
 }
-.pagination-large div .page-num + .page-confirm {
-  display: inline-block;
-  box-sizing: border-box;
-  margin-bottom: 0;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  color: #333333;
-  background-color: #eeeeee;
-  border: 1px solid #eeeeee;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  padding: 4px 20px;
-  line-height: 22px;
-  font-size: 14px;
-  color: #ffffff;
-  background-color: #53b8c0;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #53b8c0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  vertical-align: top;
-}
-.pagination-large div .page-num + .page-confirm:hover,
-.pagination-large div .page-num + .page-confirm:focus {
-  color: #333333;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-}
-.pagination-large div .page-num + .page-confirm.disabled,
-.pagination-large div .page-num + .page-confirm[disabled],
-.pagination-large div .page-num + .page-confirm.disabled:hover,
-.pagination-large div .page-num + .page-confirm[disabled]:hover,
-.pagination-large div .page-num + .page-confirm.disabled:focus,
-.pagination-large div .page-num + .page-confirm[disabled]:focus,
-.pagination-large div .page-num + .page-confirm.disabled:active,
-.pagination-large div .page-num + .page-confirm[disabled]:active,
-.pagination-large div .page-num + .page-confirm.disabled.active,
-.pagination-large div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-large div .page-num + .page-confirm:active,
-.pagination-large div .page-num + .page-confirm.active {
-  background-color: #f4f4f4;
-  border: 1px solid #f4f4f4;
-}
-.pagination-large div .page-num + .page-confirm:hover,
-.pagination-large div .page-num + .page-confirm:focus {
-  color: #333333;
-  text-decoration: none;
-}
-.pagination-large div .page-num + .page-confirm:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  outline: none;
-}
-.pagination-large div .page-num + .page-confirm.active,
-.pagination-large div .page-num + .page-confirm:active {
-  background-image: none;
-}
-.pagination-large div .page-num + .page-confirm.disabled,
-.pagination-large div .page-num + .page-confirm[disabled] {
-  cursor: default;
-  background-image: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.pagination-large div .page-num + .page-confirm .sui-icon {
-  font-size: 16px;
-  vertical-align: -2px;
-}
-.pagination-large div .page-num + .page-confirm .sui-icon:after {
-  content: " ";
-  font-size: 12px;
-}
-.pagination-large div .page-num + .page-confirm .sui-label {
-  position: relative;
-  top: -1px;
-}
-.pagination-large div .page-num + .page-confirm .sui-icon {
-  font-size: 18px;
-  vertical-align: -3px;
-}
-.pagination-large div .page-num + .page-confirm:hover,
-.pagination-large div .page-num + .page-confirm:focus {
-  color: #ffffff;
-  background-color: #51a9af;
-  border: 1px solid #51a9af;
-}
-.pagination-large div .page-num + .page-confirm.disabled,
-.pagination-large div .page-num + .page-confirm[disabled],
-.pagination-large div .page-num + .page-confirm.disabled:hover,
-.pagination-large div .page-num + .page-confirm[disabled]:hover,
-.pagination-large div .page-num + .page-confirm.disabled:focus,
-.pagination-large div .page-num + .page-confirm[disabled]:focus,
-.pagination-large div .page-num + .page-confirm.disabled:active,
-.pagination-large div .page-num + .page-confirm[disabled]:active,
-.pagination-large div .page-num + .page-confirm.disabled.active,
-.pagination-large div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-large div .page-num + .page-confirm:active,
-.pagination-large div .page-num + .page-confirm.active {
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
-}
-.pagination-large div .page-num + .page-confirm .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
-}
-.pagination-xlarge ul > li > a,
-.pagination-xlarge ul > li > span {
-  padding: 6px 12px;
-  font-size: 14px;
-}
-.pagination-xlarge div .page-num {
-  padding: 8px 10px;
-  font-size: 14px;
-  line-height: 22px;
-  height: 22px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-.pagination-xlarge div .page-num + .page-confirm {
-  display: inline-block;
-  padding: 4px 20px;
-  box-sizing: border-box;
-  margin-bottom: 0;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  color: #333333;
-  background-color: #eeeeee;
-  border: 1px solid #eeeeee;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  padding: 8px 20px;
-  line-height: 22px;
-  font-size: 14px;
-  color: #ffffff;
-  background-color: #53b8c0;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #53b8c0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  vertical-align: top;
-}
-.pagination-xlarge div .page-num + .page-confirm:hover,
-.pagination-xlarge div .page-num + .page-confirm:focus {
-  color: #333333;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-}
-.pagination-xlarge div .page-num + .page-confirm.disabled,
-.pagination-xlarge div .page-num + .page-confirm[disabled],
-.pagination-xlarge div .page-num + .page-confirm.disabled:hover,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:hover,
-.pagination-xlarge div .page-num + .page-confirm.disabled:focus,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:focus,
-.pagination-xlarge div .page-num + .page-confirm.disabled:active,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:active,
-.pagination-xlarge div .page-num + .page-confirm.disabled.active,
-.pagination-xlarge div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-xlarge div .page-num + .page-confirm:active,
-.pagination-xlarge div .page-num + .page-confirm.active {
-  background-color: #f4f4f4;
-  border: 1px solid #f4f4f4;
-}
-.pagination-xlarge div .page-num + .page-confirm:hover,
-.pagination-xlarge div .page-num + .page-confirm:focus {
-  color: #333333;
-  text-decoration: none;
-}
-.pagination-xlarge div .page-num + .page-confirm:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  outline: none;
-}
-.pagination-xlarge div .page-num + .page-confirm.active,
-.pagination-xlarge div .page-num + .page-confirm:active {
-  background-image: none;
-}
-.pagination-xlarge div .page-num + .page-confirm.disabled,
-.pagination-xlarge div .page-num + .page-confirm[disabled] {
-  cursor: default;
-  background-image: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.pagination-xlarge div .page-num + .page-confirm .sui-icon {
-  font-size: 16px;
-  vertical-align: -2px;
-}
-.pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
-  content: " ";
-  font-size: 12px;
-}
-.pagination-xlarge div .page-num + .page-confirm .sui-label {
-  position: relative;
-  top: -1px;
-}
-.pagination-xlarge div .page-num + .page-confirm:hover,
-.pagination-xlarge div .page-num + .page-confirm:focus {
-  color: #ffffff;
-  background-color: #51a9af;
-  border: 1px solid #51a9af;
-}
-.pagination-xlarge div .page-num + .page-confirm.disabled,
-.pagination-xlarge div .page-num + .page-confirm[disabled],
-.pagination-xlarge div .page-num + .page-confirm.disabled:hover,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:hover,
-.pagination-xlarge div .page-num + .page-confirm.disabled:focus,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:focus,
-.pagination-xlarge div .page-num + .page-confirm.disabled:active,
-.pagination-xlarge div .page-num + .page-confirm[disabled]:active,
-.pagination-xlarge div .page-num + .page-confirm.disabled.active,
-.pagination-xlarge div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-xlarge div .page-num + .page-confirm:active,
-.pagination-xlarge div .page-num + .page-confirm.active {
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
-}
-.pagination-xlarge div .page-num + .page-confirm .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
-}
-.pagination-small ul > li > a,
-.pagination-small ul > li > span {
-  padding: 0px 6px;
-  font-size: 12px;
-}
-.pagination-small div .page-num {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.pagination-small div .page-num + .page-confirm {
-  display: inline-block;
-  padding: 4px 20px;
-  box-sizing: border-box;
-  margin-bottom: 0;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  color: #333333;
-  background-color: #eeeeee;
-  border: 1px solid #eeeeee;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  padding: 2px 10px;
-  line-height: 18px;
-  font-size: 12px;
-  color: #ffffff;
-  background-color: #53b8c0;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  border: 1px solid #53b8c0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  vertical-align: top;
-}
-.pagination-small div .page-num + .page-confirm:hover,
-.pagination-small div .page-num + .page-confirm:focus {
-  color: #333333;
-  background-color: #f7f7f7;
-  border: 1px solid #f7f7f7;
-}
-.pagination-small div .page-num + .page-confirm.disabled,
-.pagination-small div .page-num + .page-confirm[disabled],
-.pagination-small div .page-num + .page-confirm.disabled:hover,
-.pagination-small div .page-num + .page-confirm[disabled]:hover,
-.pagination-small div .page-num + .page-confirm.disabled:focus,
-.pagination-small div .page-num + .page-confirm[disabled]:focus,
-.pagination-small div .page-num + .page-confirm.disabled:active,
-.pagination-small div .page-num + .page-confirm[disabled]:active,
-.pagination-small div .page-num + .page-confirm.disabled.active,
-.pagination-small div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-small div .page-num + .page-confirm:active,
-.pagination-small div .page-num + .page-confirm.active {
-  background-color: #f4f4f4;
-  border: 1px solid #f4f4f4;
-}
-.pagination-small div .page-num + .page-confirm:hover,
-.pagination-small div .page-num + .page-confirm:focus {
-  color: #333333;
-  text-decoration: none;
-}
-.pagination-small div .page-num + .page-confirm:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-  outline: none;
-}
-.pagination-small div .page-num + .page-confirm.active,
-.pagination-small div .page-num + .page-confirm:active {
-  background-image: none;
-}
-.pagination-small div .page-num + .page-confirm.disabled,
-.pagination-small div .page-num + .page-confirm[disabled] {
-  cursor: default;
-  background-image: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.pagination-small div .page-num + .page-confirm .sui-icon {
-  font-size: 16px;
-  vertical-align: -2px;
-}
-.pagination-small div .page-num + .page-confirm .sui-icon:after {
-  content: " ";
-  font-size: 12px;
-}
-.pagination-small div .page-num + .page-confirm .sui-label {
-  position: relative;
-  top: -1px;
-}
-.pagination-small div .page-num + .page-confirm:hover,
-.pagination-small div .page-num + .page-confirm:focus {
-  color: #ffffff;
-  background-color: #51a9af;
-  border: 1px solid #51a9af;
-}
-.pagination-small div .page-num + .page-confirm.disabled,
-.pagination-small div .page-num + .page-confirm[disabled],
-.pagination-small div .page-num + .page-confirm.disabled:hover,
-.pagination-small div .page-num + .page-confirm[disabled]:hover,
-.pagination-small div .page-num + .page-confirm.disabled:focus,
-.pagination-small div .page-num + .page-confirm[disabled]:focus,
-.pagination-small div .page-num + .page-confirm.disabled:active,
-.pagination-small div .page-num + .page-confirm[disabled]:active,
-.pagination-small div .page-num + .page-confirm.disabled.active,
-.pagination-small div .page-num + .page-confirm[disabled].active {
-  color: #bbbbbb;
-  background-color: #e6e6e6;
-  border-color: #e6e6e6;
-}
-.pagination-small div .page-num + .page-confirm:active,
-.pagination-small div .page-num + .page-confirm.active {
-  background-color: #339ba3;
-  border: 1px solid #339ba3;
-}
-.pagination-small div .page-num + .page-confirm .caret {
-  border-top-color: #ffffff;
-  border-bottom-color: #ffffff;
-}
+*/
 .popdiv-footer {
   padding: 7px 10px 5px;
   margin-bottom: 0;
