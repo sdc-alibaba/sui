@@ -25,16 +25,38 @@ block content
     div.tab-pane.active#demo1
       div.bs-docs-example
         p .sui-loading
-        div.sui-loading
+        div.sui-loading.loading-inline
           i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-dark.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-light.loading-inline
+          i.sui-icon.icon-pc-loading
+
         hr
-        p .sui-loading.loading-large
+        p loading-large, loading-xlarge, loading-xxlarge
         div.sui-loading.loading-large
           i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-xlarge
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-xxlarge
+          i.sui-icon.icon-pc-loading
         hr
-        p .sui-loading.loading-small.loading-inline
-        input(type=text style="vertical-align:top")
+        p loading-small, loading-xsmall, loading-xxsmall
         div.sui-loading.loading-small.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-xsmall.loading-inline
+          i.sui-icon.icon-pc-loading
+        div.sui-loading.loading-xxsmall.loading-inline
+          i.sui-icon.icon-pc-loading
+
+
+        hr
+        p loading-dark, .loading-light
+
+        hr
+
+        input(type=text style="vertical-align:top")
+        div.sui-loading.loading-xxsmall.loading-inline.loading-light
           i.sui-icon.icon-pc-loading
 
 
@@ -42,8 +64,9 @@ block content
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
       p 很简单，可以自己定制尺寸
-      p 为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large
+      p 为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small,loading-xsmall,loading-xxsmall, loading-l, loading-ll, loading-lll
       p 默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）
+      p 颜色方面有默认色、黑色、灰色三种, .sui-loading.loading-dark .loading-light 
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

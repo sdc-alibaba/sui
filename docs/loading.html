@@ -37,7 +37,6 @@
                 <ul class="sui-nav nav-tabs nav-stacked">
                   <li><a href="buttons.html">按钮</a></li>
                   <li><a href="forms.html">表单</a></li>
-                  <li><a href="tables.html">表格</a></li>
                   <li><a href="icons.html">图标</a></li>
                 </ul>
               </li>
@@ -48,7 +47,6 @@
                   <li><a href="tab.html">标签页</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
-                  <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
@@ -85,14 +83,24 @@
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
                 <p>.sui-loading</p>
-                <div class="sui-loading"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-dark loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-light loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
                 <hr>
-                <p>.sui-loading.loading-large</p>
+                <p>loading-large, loading-xlarge, loading-xxlarge</p>
                 <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-xlarge"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-xxlarge"><i class="sui-icon icon-pc-loading"></i></div>
                 <hr>
-                <p>.sui-loading.loading-small.loading-inline</p>
-                <input style="vertical-align:top">
+                <p>loading-small, loading-xsmall, loading-xxsmall</p>
                 <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-xsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+                <div class="sui-loading loading-xxsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
+                <hr>
+                <p>loading-dark, .loading-light</p>
+                <hr>
+                <input style="vertical-align:top">
+                <div class="sui-loading loading-xxsmall loading-inline loading-light"><i class="sui-icon icon-pc-loading"></i></div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -100,8 +108,9 @@
             </div>
             <div id="doc1" class="tab-pane">
               <p>很简单，可以自己定制尺寸</p>
-              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small , loading-large</p>
+              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small,loading-xsmall,loading-xxsmall, loading-l, loading-ll, loading-lll</p>
               <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
+              <p>颜色方面有默认色、黑色、灰色三种, .sui-loading.loading-dark .loading-light </p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
