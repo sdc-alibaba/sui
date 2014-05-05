@@ -119,7 +119,6 @@ block content
         pre.prettyprint.linenums(data-target="#range-mod1")
     div.tab-pane#option
         h3 使用方法
-        h3 配置项
         p
         | js调用datepicker可以加入控制参数:
         pre.prettyprint.linenums.
@@ -129,7 +128,8 @@ block content
             });
         p 这些参数也可以使用data api 来传递：
         p 比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"
-        p 所有配置项如下：
+        h3 可配置项
+        
 
         table.sui-table
             tr
@@ -139,7 +139,7 @@ block content
 
             tr
                 td autoclose
-                td false
+                td true
                 td
                     |选择完日期是否自动关闭日期选择器,false/true
             tr
@@ -149,7 +149,7 @@ block content
                     | 是否显示第几周 ，false/true
             tr
                 td todayHighlight
-                td false
+                td true
                 td
                     | 是否高亮今天
             tr
