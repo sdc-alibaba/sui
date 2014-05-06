@@ -9477,6 +9477,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-tag {
   list-style: none;
   font-size: 0;
+  padding: 5px;
   /*
   &.tag-hole {
     &>li, &>span {
@@ -9514,7 +9515,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 20px;
   border: 1px solid #d1d1d1;
   white-space: nowrap;
-  cursor: default;
+  cursor: pointer;
   -webkit-transition: color 0.2s ease-out;
   -moz-transition: color 0.2s ease-out;
   -o-transition: color 0.2s ease-out;
@@ -9529,12 +9530,18 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   color: #ffffff;
   background: #0995e0;
 }
-.sui-tag > li .del-tag,
-.sui-tag > a .del-tag {
+.sui-tag > li.with-x,
+.sui-tag > a.with-x {
+  cursor: default;
+}
+.sui-tag > li.with-x i,
+.sui-tag > a.with-x i {
   margin-left: 10px;
   cursor: pointer;
-  color: #ccc;
   font: normal 14px tahoma;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {
