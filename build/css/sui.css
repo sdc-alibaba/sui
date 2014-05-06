@@ -6806,6 +6806,7 @@ input[type="submit"].btn.btn-mini {
   border-bottom: none;
   border-right: 1px solid #dddddd;
   width: 100px;
+  display: inline-block;
 }
 .sui-nav.nav-tabs.tab-vertical li {
   float: none;
