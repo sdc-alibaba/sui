@@ -18,9 +18,11 @@
     }
   
     > .sui-dropdown-menu {
-      top: 100%;
+      top: 0;
       left: 0;
-      margin: 2px 0 0; // override default ul
+      margin: 0; // override default ul
+      padding-top: 27px;
+      z-index: 9;
     }
   }
   .sui-dropdown-menu {
@@ -55,6 +57,7 @@
     .dropdown-toggle {
       outline: 0;
     }
+
   }
     
   a {
@@ -110,8 +113,13 @@
   &.open {
     .dropdown-inner {
       border-color: @dropdownOpenColor;
-      a > .caret {
+      > a > .caret {
         color: @dropdownOpenColor;
+      }
+      > a {
+        position: relative;
+        z-index: 10;
+        border-bottom: 1px solid @dropdownBorder;
       }
     }
   }
@@ -127,7 +135,7 @@
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
-  .box-shadow(0 0 2px 2px rgba(0,0,0,.1));
+  .box-shadow(0 0px 2px 2px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -235,30 +243,46 @@
 // different size
 .sui-dropdown.dropdown-bordered {
   // xLarge
-  &.dropdown-xlarge .dropdown-inner a {
-    padding: @paddingXLarge;
-    line-height: @lineHeightLarge;
-    font-size: @fontSizeLarge;
+  &.dropdown-xlarge {
+    &.open > .dropdown-inner > .sui-dropdown-menu {
+      padding-top: 31px;
+    }
+    > .dropdown-inner  a {
+      padding: @paddingXLarge;
+      line-height: @lineHeightLarge;
+      font-size: @fontSizeLarge;
+    }
   }
 
   // Large
-  &.dropdown-large .dropdown-inner a {
-    padding: 4px 20px;
-    line-height: @lineHeightLarge;
-    font-size: @fontSizeLarge;
+  &.dropdown-large {
+    &.open > .dropdown-inner > .sui-dropdown-menu {
+      padding-top: 31px;
+    }
+    > .dropdown-inner a {
+      padding: 4px 20px;
+      padding: @paddingLarge;
+      line-height: @lineHeightLarge;
+      font-size: @fontSizeLarge;
+    }
   }
 
   // Small
-  &.dropdown-small .dropdown-inner  a {
-    padding: @paddingSmall;
-    line-height: @lineHeightSmall;
-    font-size: @fontSizeSmall;
+  &.dropdown-small {
+    &.open > .dropdown-inner > .sui-dropdown-menu {
+      padding-top: 19px;
+    }
+    > .dropdown-inner a {
+      padding: @paddingSmall;
+      line-height: @lineHeightSmall;
+      font-size: @fontSizeSmall;
+    }
   }
   &,
   &.dropdown-xlarge,
   &.dropdown-large,
   &.dropdown-small {
-    .dropdown-inner {
+    > .dropdown-inner {
       a {
         padding-left: 8px;
         padding-right: 8px;
