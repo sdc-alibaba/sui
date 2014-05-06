@@ -29,7 +29,7 @@
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 24px;
+  min-height: 28px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -336,7 +336,7 @@ a:active {
 .sui-row-fluid [class*="span"] {
   display: block;
   width: 100%;
-  min-height: 24px;
+  min-height: 28px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1860,12 +1860,6 @@ sui-pre .sui-code {
   margin: 0 0 18px;
   font-size: 12px;
   line-height: 18px;
-  /* ע�͵���һ������ ����checkbox��radio��ǩ��ԭ������ ֱ��ȥ�� @by kai 2014-01-16
-  .controls-row .checkbox[class*="span"],
-  .controls-row .radio[class*="span"] {
-    padding-top: 5px;
-  }
-  */
   /* Allow for input prepend/append in search forms */
 }
 .sui-form fieldset {
@@ -1975,16 +1969,17 @@ sui-pre .sui-code {
 .sui-form input[type="image"],
 .sui-form input[type="submit"],
 .sui-form input[type="reset"],
-.sui-form input[type="button"] {
+.sui-form input[type="button"],
+.sui-form input[type="checkbox"] {
   width: auto;
 }
 .sui-form select,
 .sui-form input[type="file"] {
-  height: 24px;
+  height: 28px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
-  line-height: 24px;
+  line-height: 28px;
 }
 .sui-form select {
   border: 1px solid #cccccc;
@@ -3077,6 +3072,11 @@ sui-pre .sui-code {
 .sui-form .help-inline {
   color: #595959;
 }
+.sui-form .help-block .sui-icon,
+.sui-form .help-inline .sui-icon {
+  font-size: 130%;
+  vertical-align: -3px;
+}
 .sui-form .help-block {
   display: block;
   margin-top: 0;
@@ -3087,6 +3087,7 @@ sui-pre .sui-code {
   /* IE7 inline-block hack */
   *zoom: 1;
   vertical-align: middle;
+  padding-left: 5px;
 }
 .sui-form .input-append,
 .sui-form .input-prepend {
@@ -5809,8 +5810,8 @@ input[type="button"].btn-block {
 }
 .btn-warning:active,
 .btn-warning.active {
-  background-color: #e1b203;
-  border: 1px solid #e1b203;
+  background-color: #fac603;
+  border: 1px solid #fac603;
 }
 .btn-danger {
   color: #ffffff;
@@ -5840,8 +5841,8 @@ input[type="button"].btn-block {
 }
 .btn-danger:active,
 .btn-danger.active {
-  background-color: #e8351f;
-  border: 1px solid #e8351f;
+  background-color: #ea4a36;
+  border: 1px solid #ea4a36;
 }
 .btn-success {
   color: #ffffff;
@@ -5871,8 +5872,8 @@ input[type="button"].btn-block {
 }
 .btn-success:active,
 .btn-success.active {
-  background-color: #34c360;
-  border: 1px solid #34c360;
+  background-color: #43cd6e;
+  border: 1px solid #43cd6e;
 }
 .btn-info {
   color: #ffffff;
@@ -5902,8 +5903,8 @@ input[type="button"].btn-block {
 }
 .btn-info:active,
 .btn-info.active {
-  background-color: #46b8da;
-  border: 1px solid #46b8da;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
 }
 .btn-inverse {
   color: #ffffff;
@@ -5933,8 +5934,8 @@ input[type="button"].btn-block {
 }
 .btn-inverse:active,
 .btn-inverse.active {
-  background-color: #373737;
-  border: 1px solid #373737;
+  background-color: #444444;
+  border: 1px solid #444444;
 }
 button.btn,
 input[type="submit"].btn {
@@ -7460,8 +7461,8 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-navbar .btn-navbar:active,
 .sui-navbar .btn-navbar.active {
-  background-color: #e5e5e5;
-  border: 1px solid #e5e5e5;
+  background-color: #f2f2f2;
+  border: 1px solid #f2f2f2;
 }
 .sui-navbar .btn-navbar .icon-bar {
   display: block;
@@ -7690,8 +7691,8 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-inverse .btn-navbar:active,
 .navbar-inverse .btn-navbar.active {
-  background-color: #080808;
-  border: 1px solid #080808;
+  background-color: #151515;
+  border: 1px solid #151515;
 }
 .sui-breadcrumb {
   padding: 0;
@@ -10294,7 +10295,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 24px;
+    min-height: 28px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -10643,7 +10644,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 24px;
+    min-height: 28px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

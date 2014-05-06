@@ -4,16 +4,6 @@ block title
   title 表单
 
 block head
-    style(type="text/css").
-      code {
-        display: inline-block;
-        *display: inline;
-        *zoom: 1;
-        padding: 2px 4px;
-        border: 1px solid #e1e1e8;
-        font-size: 12px;
-      }
-      .bs-docs-extra input[type="text"] { display: block; margin-bottom: 9px; }
 
 block sidebar
   +sidebar('form')
@@ -27,40 +17,7 @@ block content
     li
       a(href='#') 下载psd文件
 
-  h2 inputs
-  h3 按宽度分类
-  p
-    <code>select</code> 元素同样适用
-
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo1', data-toggle='tab') 示例
-    li
-      a(href='#code1', data-toggle='tab') 代码
-    li
-      a(href='#doc1', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo1
-      div.bs-docs-example.bs-docs-extra
-        form.sui-form
-          input.input-mini(type="text" placeholder=".input-mini")
-          input.input-small(type="text" placeholder=".input-small")
-          input.input-medium(type="text" placeholder=".input-medium")
-          input.input-large(type="text" placeholder=".input-large")
-          input.input-xlarge(type="text" placeholder=".input-xlarge")
-          input.input-xxlarge(type="text" placeholder=".input-xxlarge")
-    div.tab-pane#code1
-      pre.prettyprint.linenums(data-target='#demo1>div')
-    div.tab-pane#doc1
-      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
-
-
-  h3 按高度分类
+  h3 不同高度
   p
     <code>select</code> 元素同样适用
 
@@ -94,8 +51,6 @@ block content
       a(href='#demo22', data-toggle='tab') 示例
     li
       a(href='#code22', data-toggle='tab') 代码
-    li
-      a(href='#doc22', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo22
@@ -105,7 +60,6 @@ block content
           input.input-error(type="text" placeholder=".input-error")
     div.tab-pane#code22
       pre.prettyprint.linenums(data-target='#demo22>div')
-    div.tab-pane#doc22
 
   ul.demo-operations.clearfix
     li
@@ -119,8 +73,6 @@ block content
       a(href='#demo3', data-toggle='tab') 示例
     li
       a(href='#code3', data-toggle='tab') 代码
-    li
-      a(href='#doc3', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo3
@@ -129,12 +81,8 @@ block content
           input.input-block-level(type="text" placeholder=".input-block-level")
     div.tab-pane#code3
       pre.prettyprint.linenums(data-target='#demo3>div')
-    div.tab-pane#doc3
-      引用class：.input-block-level
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
 
@@ -146,8 +94,6 @@ block content
       a(href='#demo5', data-toggle='tab') 示例
     li
       a(href='#code5', data-toggle='tab') 代码
-    li
-      a(href='#doc5', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo5
@@ -156,16 +102,12 @@ block content
           input.input-xlarge(id="disabledInput" type="text" placeholder="Disabled input here…" disabled)
     div.tab-pane#code5
       pre.prettyprint.linenums(data-target='#demo5>div')
-    div.tab-pane#doc5
-      引用class：.input-block-level
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
-    li
       a.copy-btn(href='javascript:void(0)', data-target='#demo5>div') 复制代码
 
-  h3 带图标
+  h3 搜索框
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -178,20 +120,17 @@ block content
   div.tab-content
     div.tab-pane.active#demo23
       div.bs-docs-example.bs-docs-extra
-        form.sui-form.form-dark
+        form.sui-form
           div.input-control
             input(type='text')
             i.sui-icon.icon-touch-magnifier
           div.input-control
             input.input-fat(type='text')
             i.sui-icon.icon-touch-magnifier
-          br
-          div.input-control.control-right
+
+          p
             input(type='text')
-            i.sui-icon.icon-touch-magnifier
-          div.input-control.control-right
-            input.input-fat(type='text')
-            i.sui-icon.icon-touch-magnifier
+            button.sui-btn.btn-primary 搜索
     div.tab-pane#code23
       pre.prettyprint.linenums(data-target='#demo23>div')
     div.tab-pane#doc23
@@ -224,85 +163,6 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
-
-
-  h2 Checkboxes and radios
-  h3 默认状态
-
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo7', data-toggle='tab') 示例
-    li
-      a(href='#code7', data-toggle='tab') 代码
-    li
-      a(href='#doc7', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo7
-      div.bs-docs-example
-        form.sui-form
-          label.checkbox
-            <input name="multiple" type="checkbox" value="1" /> 多选1
-          label.checkbox
-            <input name="multiple" type="checkbox" value="2" /> 多选2
-          label.checkbox
-            <input name="multiple" type="checkbox" value="3" /> 多选3
-
-          <br /><br />
-
-          label.radio
-            <input name="single" type="radio" value="1" /> 单选1
-          label.radio
-            <input name="single" type="radio" value="2" /> 单选2
-          label.radio
-            <input name="single" type="radio" value="3" /> 单选3
-    div.tab-pane#code7
-      pre.prettyprint.linenums(data-target='#demo7>div')
-    div.tab-pane#doc7
-      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo7>div') 复制代码
-
-
-  h3 内联状态
-
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo8', data-toggle='tab') 示例
-    li
-      a(href='#code8', data-toggle='tab') 代码
-    li
-      a(href='#doc8', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo8
-      div.bs-docs-example
-        form.sui-form
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="1" /> 多选1
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="2" /> 多选2
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="3" /> 多选3
-
-          <br /><br />
-
-          label.checkbox.inline
-            <input name="single" type="radio" value="1" /> 单选1
-          label.checkbox.inline
-            <input name="single" type="radio" value="2" /> 单选2
-          label.checkbox.inline
-            <input name="single" type="radio" value="3" /> 单选3
-    div.tab-pane#code8
-      pre.prettyprint.linenums(data-target='#demo8>div')
-    div.tab-pane#doc8
-      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo8>div') 复制代码
 
 
   h2 Textarea
