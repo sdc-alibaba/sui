@@ -6847,6 +6847,9 @@ input[type="submit"].btn.btn-mini {
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
+.sui-nav.nav-tabs.nav-primary.tab-vertical li {
+  margin-bottom: 0;
+}
 .sui-nav.nav-tabs.nav-pills {
   border-bottom: 2px solid #0088cc;
   border-bottom: 0;
@@ -6871,6 +6874,9 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical li {
+  margin-bottom: 0;
 }
 .sui-nav.nav-tabs.nav-pills > li > a,
 .sui-nav.nav-tabs.nav-pills > li.active > a {
