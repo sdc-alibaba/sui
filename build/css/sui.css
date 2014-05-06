@@ -7029,13 +7029,28 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.tab-light {
   border: 0;
 }
-.sui-nav.nav-tabs.tab-light li {
+.sui-nav.nav-tabs.tab-light > li {
   margin-bottom: 0;
   margin-left: 0;
+  padding: 6px 0;
 }
-.sui-nav.nav-tabs.tab-light > .active > a {
+.sui-nav.nav-tabs.tab-light > li > a {
+  padding: 0 20px;
+  border-left: 1px solid #ccc;
+  margin: 0;
+  line-height: 14px;
+}
+.sui-nav.nav-tabs.tab-light > li:first-child > a {
+  border-left: 0;
+}
+.sui-nav.nav-tabs.tab-light > li.active {
   border: 0;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid #53b8c0;
+}
+.sui-nav.nav-tabs.tab-light > li.active > a {
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
 }
 .sui-nav.nav-tabs.tab-light .split {
   height: 14px;
@@ -7045,13 +7060,14 @@ input[type="submit"].btn.btn-mini {
   margin-top: 6px;
 }
 .sui-nav.nav-tabs.tab-light.tab-vertical > li {
-  padding: 4px 0;
+  padding: 11px 0;
   margin-bottom: -1px;
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }
 .sui-nav.nav-tabs.tab-light.tab-vertical > li > a {
   border: 0;
+  line-height: 18px;
 }
 .sui-nav.nav-tabs.tab-light.tab-vertical > li.active > a {
   border-left: 0;
@@ -7088,7 +7104,7 @@ input[type="submit"].btn.btn-mini {
   border-right: 1px solid #ccc;
 }
 .sui-nav.nav-tabs.tab-dark.tab-vertical > li {
-  margin-bottom: 0;
+  margin: 0;
 }
 .sui-nav.nav-tabs.tab-dark.tab-vertical > li > a {
   background: transparent;

@@ -298,13 +298,30 @@
     &.tab-light {
       border: 0;
       @splitHeight: 12px;
-      li {
+      > li {
         margin-bottom: 0;
         margin-left: 0;
-      }
-      > .active > a {
-        border: 0;
-        border-bottom: 2px solid;
+        padding: 6px 0;
+
+        > a {
+          padding: 0 20px;
+          border-left: 1px solid #ccc;
+          margin: 0;
+          line-height: 14px;
+        }
+        &:first-child > a {
+          border-left: 0;
+        }
+        &.active {
+          border: 0;
+          border-bottom: 2px solid @navTabsBorderHighlightColor;
+
+          > a {
+            border-top: 0;
+            border-bottom: 0;
+            border-right: 0;
+          }
+        }
       }
       .split {
         height: 14px;
@@ -317,12 +334,13 @@
       &.tab-vertical {
         > li {
           //用li的border实现
-          padding: 4px 0;
+          padding: 11px 0;
           margin-bottom: -1px;
           border-bottom: 1px solid #ccc;
           border-top: 1px solid #ccc;
           > a {
             border: 0;
+            line-height: 18px;
           }
           &.active > a {
             border-left: 0;
@@ -364,7 +382,7 @@
         border: 0;
         border-right: 1px solid #ccc;
         > li {
-          margin-bottom: 0;
+          margin: 0;
           > a {
             background: transparent;
             padding: 11px 12px;
