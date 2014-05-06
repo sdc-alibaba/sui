@@ -8,7 +8,7 @@
 
 // Make all forms have space below them
 .sui-form {
-  margin: 0 0 @baseMargin; // 注释掉这一行 保持form标签原生属性，不对它进行全局定义 @by kai 2014-01-16
+  margin: 0 0 @baseMargin;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
 
@@ -101,8 +101,7 @@
   input[type="submit"],
   input[type="reset"],
   input[type="button"],
-  /* input[type="radio"], // 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
-  input[type="checkbox"] */ {
+  input[type="checkbox"] {
     width: auto; // Override of generic input selector
   }
 
@@ -116,7 +115,6 @@
 
   // Make select elements obey height by applying a border
   select {
-    // width: 220px; // default input width + 10px of padding that doesn't get applied // 注释掉这一行，保持select标签原生宽度自动属性 @by kai 2014-01-16
     border: 1px solid @inputBorder;
     background-color: @inputBackground; // Chrome on Linux and Mobile Safari need background-color
   }
@@ -183,7 +181,6 @@
     // min-height: @baseLineHeight; // clear the floating input if there is no label text
     // padding-left: 20px;
 
-    // 注释掉上面的样式 添加下面样式 @by kai 2014-01-30
     display: block;
     
     // 关联样式
@@ -361,14 +358,7 @@
   }
 
   // Explicity set top padding on all checkboxes/radios, not just first-child
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .controls-row .checkbox[class*="span"],
-  .controls-row .radio[class*="span"] {
-    padding-top: 5px;
-  }
-  */
 
-  // 新增row-fluid扩展 @by kai 2014-01-30
   .row-fluid {
     + .row-fluid {
       margin-top: @baseLineHeight / 2;
@@ -412,7 +402,6 @@
   // Info
   .info {
     .formFieldState(@infoText, @infoBorder, @infoBackground, @infoBorder);
-    // .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
   }
 
   // HTML5 invalid states
@@ -429,7 +418,6 @@
   }
 
 
-  // 定义文本字段四态 @by kai 2014-01-16
   // -------------------------
 
   // Warning
@@ -483,7 +471,6 @@
   }
 
 
-  // 定义日期状态 @by kai 2014-02-13
   // -------------------------
 
   .input-date {
@@ -512,13 +499,15 @@
   .help-block,
   .help-inline {
     color: lighten(@textColor, 15%); // lighten the text some for contrast
+    .sui-icon {
+      font-size: 130%;
+      vertical-align: -3px;
+    }
   }
 
   .help-block {
     display: block; // account for any element using help-block
 
-    // 更新样式如下 @by kai 2014-02-30
-    // margin-bottom: @baseLineHeight / 2;
     margin-top: 0;
   }
 
@@ -526,7 +515,7 @@
     display: inline-block;
     .ie7-inline-block();
     vertical-align: middle;
-    // padding-left: 5px; // 去掉padding-left值 @by kai 2014-02-13
+    padding-left: 5px;
   }
 
 
@@ -734,7 +723,6 @@
     margin-bottom: @baseLineHeight / 2;
   }
 
-  // 新增control-label @by kai 2014-01-30
   .control-label {
     display: block;
     margin-bottom: 5px;
@@ -786,7 +774,6 @@
     // Remove bottom margin on block level help text since that's accounted for on .control-group
     .help-block {
       // margin-bottom: 0;
-      // 更新样式如下 @by kai 2014-02-30
       margin-top: 0;
     }
     // And apply it only to .help-block instances that follow a form control
@@ -799,7 +786,6 @@
     // 添加radio和checkbox
     .radio,
     .checkbox {
-      // + .help-block {  // 修改选择器关系为后面所有的help-block @by kai 2014-01-30
       ~ .help-block {
         margin-top: 0;
       }

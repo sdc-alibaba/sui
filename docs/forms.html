@@ -14,18 +14,6 @@
     <script src="../js/lib/jquery.js"></script>
     <script src="../build/js/sui.js"></script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <style type="text/css">
-      code {
-        display: inline-block;
-        *display: inline;
-        *zoom: 1;
-        padding: 2px 4px;
-        border: 1px solid #e1e1e8;
-        font-size: 12px;
-      }
-      .bs-docs-extra input[type="text"] { display: block; margin-bottom: 9px; }
-      
-    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -86,36 +74,7 @@
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
           </ul>
-          <h2>inputs</h2>
-          <h3>按宽度分类</h3>
-          <p><code>select</code> 元素同样适用</p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
-            <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example bs-docs-extra">
-                <form class="sui-form">
-                  <input type="text" placeholder=".input-mini" class="input-mini">
-                  <input type="text" placeholder=".input-small" class="input-small">
-                  <input type="text" placeholder=".input-medium" class="input-medium">
-                  <input type="text" placeholder=".input-large" class="input-large">
-                  <input type="text" placeholder=".input-xlarge" class="input-xlarge">
-                  <input type="text" placeholder=".input-xxlarge" class="input-xxlarge">
-                </form>
-              </div>
-            </div>
-            <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc1" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h3>按高度分类</h3>
+          <h3>不同高度</h3>
           <p><code>select</code> 元素同样适用</p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
@@ -143,7 +102,6 @@
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo22" data-toggle="tab">示例</a></li>
             <li><a href="#code22" data-toggle="tab">代码</a></li>
-            <li><a href="#doc22" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo22" class="tab-pane active">
@@ -157,7 +115,6 @@
             <div id="code22" class="tab-pane">
               <pre data-target="#demo22&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc22" class="tab-pane"></div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo22&gt;div" class="copy-btn">复制代码</a></li>
@@ -166,7 +123,6 @@
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
             <li><a href="#code3" data-toggle="tab">代码</a></li>
-            <li><a href="#doc3" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo3" class="tab-pane active">
@@ -179,17 +135,14 @@
             <div id="code3" class="tab-pane">
               <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc3" class="tab-pane">引用class：.input-block-level</div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <h3>Disabled inputs</h3>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
             <li><a href="#code5" data-toggle="tab">代码</a></li>
-            <li><a href="#doc5" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo5" class="tab-pane active">
@@ -202,13 +155,11 @@
             <div id="code5" class="tab-pane">
               <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc5" class="tab-pane">引用class：.input-block-level</div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
             <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h3>带图标</h3>
+          <h3>搜索框</h3>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo23" data-toggle="tab">示例</a></li>
             <li><a href="#code23" data-toggle="tab">代码</a></li>
@@ -217,19 +168,17 @@
           <div class="tab-content">
             <div id="demo23" class="tab-pane active">
               <div class="bs-docs-example bs-docs-extra">
-                <form class="sui-form form-dark">
+                <form class="sui-form">
                   <div class="input-control">
                     <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
                   </div>
                   <div class="input-control">
                     <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
-                  </div><br>
-                  <div class="input-control control-right">
-                    <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
                   </div>
-                  <div class="input-control control-right">
-                    <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
-                  </div>
+                  <p>
+                    <input type="text">
+                    <button class="sui-btn btn-primary">搜索</button>
+                  </p>
                 </form>
               </div>
             </div>
@@ -262,61 +211,6 @@
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h2>Checkboxes and radios</h2>
-          <h3>默认状态</h3>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
-            <li><a href="#code7" data-toggle="tab">代码</a></li>
-            <li><a href="#doc7" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo7" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form class="sui-form">
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
-                  <label class="radio"><input name="single" type="radio" value="1" /> 单选1</label>
-                  <label class="radio"><input name="single" type="radio" value="2" /> 单选2</label>
-                  <label class="radio"><input name="single" type="radio" value="3" /> 单选3</label>
-                </form>
-              </div>
-            </div>
-            <div id="code7" class="tab-pane">
-              <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc7" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h3>内联状态</h3>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo8" data-toggle="tab">示例</a></li>
-            <li><a href="#code8" data-toggle="tab">代码</a></li>
-            <li><a href="#doc8" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo8" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form class="sui-form">
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
-                  <label class="checkbox inline"><input name="single" type="radio" value="1" /> 单选1</label>
-                  <label class="checkbox inline"><input name="single" type="radio" value="2" /> 单选2</label>
-                  <label class="checkbox inline"><input name="single" type="radio" value="3" /> 单选3</label>
-                </form>
-              </div>
-            </div>
-            <div id="code8" class="tab-pane">
-              <pre data-target="#demo8&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc8" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo8&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <h2>Textarea</h2>
           <ul class="sui-nav nav-tabs nav-large">
