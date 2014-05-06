@@ -7891,6 +7891,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination {
   margin: 18px 0;
+  font-size: 14px;
 }
 .sui-pagination ul {
   display: inline-block;
@@ -7924,9 +7925,8 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
-  color: #ffffff;
-  background-color: #53b8c0;
-  border-color: #53b8c0;
+  color: #53b8c0;
+  background-color: #e5f4f6;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
@@ -7948,13 +7948,14 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .dotted > a {
   border-top: none;
   border-bottom: none;
+  padding: 6px 2px;
 }
 .sui-pagination ul > .disabled > span,
 .sui-pagination ul > .disabled > a,
 .sui-pagination ul > .disabled > a:hover,
 .sui-pagination ul > .disabled > a:focus {
   color: #bbbbbb;
-  background-color: #e6e6e6;
+  background-color: #e5e5e5;
   cursor: default;
   border: 1px solid #e1e1e1;
 }
@@ -7977,7 +7978,7 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination ul > .disabled.prev > span,
 .sui-pagination ul .disabled.next > span {
   color: #bbbbbb;
-  background-color: #e6e6e6;
+  background-color: #e5e5e5;
   cursor: default;
   border: 1px solid #e1e1e1;
 }
@@ -10019,25 +10020,29 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-steps .wrap > div {
   width: 330px;
-  height: 30px;
+  height: 28px;
   display: inline-block;
-  line-height: 30px;
+  line-height: 28px;
   vertical-align: top;
   font-size: 12px;
   position: relative;
 }
 .sui-steps .wrap > div > label {
-  margin-left: 25px;
+  margin-left: 24px;
   cursor: default;
+  min-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .sui-steps .triangle-right {
   display: inline-block;
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 15px;
+  border-width: 14px;
   position: absolute;
-  right: -29px;
+  right: -27px;
   z-index: 1;
 }
 .sui-steps .triangle-right-bg {
@@ -10045,12 +10050,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   width: 0px;
   height: 0px;
   border-style: solid;
-  border-width: 15px;
+  border-width: 14px;
   position: absolute;
-  right: -29px;
+  right: -27px;
   z-index: 1;
-  border-width: 19px;
-  right: -38px;
+  border-width: 18px;
+  right: -36px;
   border-color: transparent transparent transparent #FFF;
   top: -4px;
 }
@@ -10075,9 +10080,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border-color: transparent transparent transparent #53b8c0;
 }
 .sui-steps .finished .round {
-  background-color: #339ba3;
+  background-color: #ffffff;
   background-color: transparent\9;
-  color: #ffffff;
+  color: #339ba3;
 }
 .sui-steps .current {
   background-color: #339ba3;
@@ -10103,34 +10108,32 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   background-color: #ffffff;
   background-color: transparent\9;
 }
-/*
-.steps-large {
-    .wrap > div {
-        font-size: @fontSizeLarge;
-        width: @stepsBaseWidth * 1.5;
-        height: @stepsBaseHeight * 1.5;
-        line-height: @stepsBaseHeight * 1.5;
-        > label {
-            font-size: @fontSizeLarge;
-            margin-left: @stepsBaseHeight * 1.5 / 2 + 10px;
-        }
-    }
-    .triangle-right {
-        border-width: @stepsBaseHeight * 1.5 / 2;
-        right: -@stepsBaseHeight * 1.5 + 1;
-    }
-    .triangle-right-bg {
-        border-width: @stepsBaseHeight * 1.5 / 2 + 4;
-        right: -@stepsBaseHeight * 1.5 -  4 * 2;
-    }
-    .round {
-        width: @fontSizeLarge;  
-        height: @fontSizeLarge;
-        line-height: @fontSizeLarge;
-        .border-radius(@fontSizeLarge / 2);
-    }
+.steps-large .wrap > div {
+  font-size: 14px;
+  width: 330px;
+  height: 32px;
+  line-height: 32px;
 }
-*/
+.steps-large .wrap > div > label {
+  font-size: 14px;
+  margin-left: 26px;
+}
+.steps-large .triangle-right {
+  border-width: 16px;
+  right: -31px;
+}
+.steps-large .triangle-right-bg {
+  border-width: 20px;
+  right: -40px;
+}
+.steps-large .round {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
 .steps-auto {
   display: table;
   width: 100%;
@@ -10179,8 +10182,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   cursor: default;
 }
 .sui-steps-round > div .round {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -10188,7 +10191,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   vertical-align: middle;
   font-size: 12px;
   color: #FFF;
-  line-height: 22px;
+  line-height: 24px;
   text-align: center;
   float: left;
 }
@@ -10208,14 +10211,14 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   width: auto;
 }
 .sui-steps-round > .finished .round {
-  border: 4px #53b8c0 solid;
+  border: 3px #53b8c0 solid;
   background-color: #53b8c0;
 }
 .sui-steps-round > .finished .bar {
   background-color: #53b8c0;
 }
 .sui-steps-round > .current .round {
-  border: 4px #339ba3 solid;
+  border: 3px #339ba3 solid;
   background-color: #339ba3;
 }
 .sui-steps-round > .current .bar {
@@ -10225,12 +10228,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   color: #666666;
 }
 .sui-steps-round > .todo .round {
-  border: 4px #eeeeee solid;
+  border: 3px #bcbcbc solid;
   background-color: #FFF;
   color: #999999;
 }
 .sui-steps-round > .todo .bar {
-  background-color: #eeeeee;
+  background-color: #d3d3d3;
 }
 .steps-round-auto {
   display: table;
