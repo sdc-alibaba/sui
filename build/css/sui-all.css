@@ -6843,15 +6843,15 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs > li > a {
   color: #999999;
   line-height: 18px;
-  -webkit-border-radius: 2px 2px 0 0;
-  -moz-border-radius: 2px 2px 0 0;
-  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  -moz-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
 }
 .sui-nav.nav-tabs > li > a:hover {
-  background-color: #ffffff;
+  background-color: transparent;
 }
 .sui-nav.nav-tabs > li + li {
-  margin-left: 10px;
+  margin-left: 9px;
 }
 .sui-nav.nav-tabs > li + li > a {
   margin-left: -1px;
@@ -6873,6 +6873,27 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs > li > a:hover {
   color: #53b8c0;
 }
+.sui-nav.nav-tabs.tab-vertical {
+  border-bottom: none;
+  border-right: 1px solid #dddddd;
+  width: 100px;
+  display: inline-block;
+}
+.sui-nav.nav-tabs.tab-vertical li {
+  float: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: -1px;
+}
+.sui-nav.nav-tabs.tab-vertical li.active a {
+  border: 1px solid #dddddd;
+  border-right: 1px solid transparent;
+}
+.sui-nav.nav-tabs.tab-vertical li a {
+  -webkit-border-radius: 0px 0 0 0px;
+  -moz-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
 .sui-nav.nav-tabs.nav-primary {
   border-bottom: 2px solid #53b8c0;
 }
@@ -6883,7 +6904,22 @@ input[type="submit"].btn.btn-mini {
   border-color: #53b8c0;
   color: #ffffff;
   background: #53b8c0;
-  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  -moz-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
+}
+.sui-nav.nav-tabs.nav-primary.tab-vertical {
+  border-right: 2px solid #53b8c0;
+  border-bottom: 0;
+}
+.sui-nav.nav-tabs.nav-primary.tab-vertical > .active > a {
+  border: 0;
+  -webkit-border-radius: 0px 0 0 0px;
+  -moz-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.sui-nav.nav-tabs.nav-primary.tab-vertical li {
+  margin-bottom: 0;
 }
 .sui-nav.nav-tabs.nav-pills {
   border-bottom: 2px solid #53b8c0;
@@ -6896,7 +6932,22 @@ input[type="submit"].btn.btn-mini {
   border-color: #53b8c0;
   color: #ffffff;
   background: #53b8c0;
-  border-radius: 2px 2px 0 0;
+  -webkit-border-radius: 0px 0px 0 0;
+  -moz-border-radius: 0px 0px 0 0;
+  border-radius: 0px 0px 0 0;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical {
+  border-right: 2px solid #53b8c0;
+  border-bottom: 0;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical > .active > a {
+  border: 0;
+  -webkit-border-radius: 0px 0 0 0px;
+  -moz-border-radius: 0px 0 0 0px;
+  border-radius: 0px 0 0 0px;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical li {
+  margin-bottom: 0;
 }
 .sui-nav.nav-tabs.nav-pills > li > a,
 .sui-nav.nav-tabs.nav-pills > li.active > a {
@@ -6910,6 +6961,15 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.nav-pills > li.active > a:hover {
   background: #53b8c0;
   color: #fff;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical {
+  border: 0;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical > .active > a {
+  border-radius: 0px;
+}
+.sui-nav.nav-tabs.nav-pills.tab-vertical li + li {
+  margin-top: 9px;
 }
 .sui-nav.nav-tabs.tab-navbar {
   display: inline-block;
@@ -6938,6 +6998,23 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-nav.nav-tabs.tab-navbar > li:last-child > a {
   border-radius: 0 0px 0px 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li {
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li a {
+  border: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:first-child > a {
+  border-radius: 0px 0px 0 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:last-child > a {
+  border-radius: 0 0 0px 0px;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li.active a {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .sui-nav.nav-stacked > li {
   float: none;
@@ -9372,6 +9449,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-tag {
   list-style: none;
   font-size: 0;
+  padding: 5px;
   /*
   &.tag-hole {
     &>li, &>span {
@@ -9409,7 +9487,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   line-height: 20px;
   border: 1px solid #d1d1d1;
   white-space: nowrap;
-  cursor: default;
+  cursor: pointer;
   -webkit-transition: color 0.2s ease-out;
   -moz-transition: color 0.2s ease-out;
   -o-transition: color 0.2s ease-out;
@@ -9424,12 +9502,18 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   color: #ffffff;
   background: #339ba3;
 }
-.sui-tag > li .del-tag,
-.sui-tag > a .del-tag {
+.sui-tag > li.with-x,
+.sui-tag > a.with-x {
+  cursor: default;
+}
+.sui-tag > li.with-x i,
+.sui-tag > a.with-x i {
   margin-left: 10px;
   cursor: pointer;
-  color: #ccc;
   font: normal 14px tahoma;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 @-webkit-keyframes progress-bar-stripes {
   from {

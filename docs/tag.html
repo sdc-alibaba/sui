@@ -124,15 +124,15 @@
             <div id="demo2" class="tab-pane active">
               <div class="bs-docs-example">
                 <h3>默认  .sui-tag</h3>
-                <ul style="width:300px;border: 1px solid #999; padding: 5px" class="sui-tag">
+                <ul style="width:300px;border: 1px solid #999" class="sui-tag">
                   <li>Normal</li>
-                  <li class="tag-selected">logo设计<i class="del-tag">&times;</i></li>
+                  <li class="tag-selected with-x">logo设计<i>&times;</i></li>
                   <li>店铺装修达人</li>
-                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li class="tag-selected with-x">艺术<i>&times;</i></li>
                   <li>公sdf告</li>
-                  <li class="tag-selected">注意afs<i class="del-tag">&times;</i></li>
+                  <li class="tag-selected with-x">注意afs<i>&times;</i></li>
                   <li>店铺装修达人</li>
-                  <li class="tag-selected">艺术<i class="del-tag">&times;</i></li>
+                  <li class="tag-selected with-x">艺术<i>&times;</i></li>
                   <li>公sdf告</li>
                 </ul>
               </div>
@@ -141,7 +141,7 @@
               <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc2" class="tab-pane">
-              <p>带叉的tag则在每个tag元素里添加html：<code>&lt;i class="del-tag"&gt;&amp;times;&lt;/i&gt;</code></p>
+              <p>带叉的tag则在每个tag元素附加class="with-x"，同时内部添加html：<code>&lt;i&gt;&amp;times;&lt;/i&gt;</code></p>
               <p>因为是CSS组件，相关事件需要根据业务逻辑自己添加</p>
             </div>
           </div>

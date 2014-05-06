@@ -62,19 +62,19 @@ block content
       div.bs-docs-example
         - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs', '店铺装修达人', '艺术', '公sdf告']
         h3 默认  .sui-tag
-        ul.sui-tag(style="width:300px;border: 1px solid #999; padding: 5px")
+        ul.sui-tag(style="width:300px;border: 1px solid #999")
           each text, i in txt
             if i % 2 == 0
               li #{text}
             else
-              li.tag-selected #{text}
-                i.del-tag &times;
+              li.tag-selected.with-x #{text}
+                i &times;
 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
-      p 带叉的tag则在每个tag元素里添加html：
-        code &lt;i class="del-tag"&gt;&amp;times;&lt;/i&gt;
+      p 带叉的tag则在每个tag元素附加class="with-x"，同时内部添加html：
+        code &lt;i&gt;&amp;times;&lt;/i&gt;
       p 因为是CSS组件，相关事件需要根据业务逻辑自己添加
   ul.demo-operations.clearfix
     li

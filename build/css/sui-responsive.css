@@ -29,7 +29,7 @@
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 24px;
+  min-height: 28px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -210,7 +210,7 @@
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 24px;
+    min-height: 28px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -559,7 +559,7 @@
   .sui-row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 24px;
+    min-height: 28px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
