@@ -5,6 +5,7 @@
 // Space out sui-pagination from surrounding content
 .sui-pagination {
   margin: @baseLineHeight 0;
+  font-size: @fontSizeLarge;
 }
 
 .sui-pagination ul {
@@ -44,9 +45,8 @@
 }
 .sui-pagination ul > li > a:hover,
 .sui-pagination ul > li > a:focus {
-  color: @white;
+  color: @linkColor;
   background-color: @paginationHover;
-  border-color: @paginationHover;
 }
 .sui-pagination ul > .active > a,
 .sui-pagination ul > .active > span {
@@ -67,6 +67,7 @@
 .sui-pagination ul > .dotted > a {
   border-top: none;
   border-bottom: none;  
+  padding: 6px 2px;
 }
 .sui-pagination ul > .disabled > span,
 .sui-pagination ul > .disabled > a,
