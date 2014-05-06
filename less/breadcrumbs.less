@@ -6,8 +6,8 @@
   padding: 0;
   margin: 0 0 @baseMargin;
   list-style: none;
-  font-weight: bold;
   font-size: @baseFontSize;
+  font-weight: normal;
   .border-radius(@borderRadiusSmall);
   > li {
     display: inline-block;
@@ -24,5 +24,9 @@
   }
   &.breadcrumb-large {
     font-size: @fontSizeLarge;
+  }
+
+  &.breadcrumb-bold {
+    font-weight: bold;
   }
 }

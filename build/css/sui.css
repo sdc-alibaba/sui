@@ -7882,8 +7882,8 @@ input[type="submit"].btn.btn-mini {
   padding: 0;
   margin: 0 0 18px;
   list-style: none;
-  font-weight: bold;
   font-size: 12px;
+  font-weight: normal;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -7904,6 +7904,9 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-breadcrumb.breadcrumb-large {
   font-size: 14px;
+}
+.sui-breadcrumb.breadcrumb-bold {
+  font-weight: bold;
 }
 .sui-pagination {
   margin: 18px 0;
