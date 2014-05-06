@@ -1,6 +1,7 @@
 .sui-tag {
   list-style: none;
   font-size: 0;
+  padding: 5px;
   &>li, &>a {
     font-size: @baseFontSize;
     margin-right: 5px;
@@ -13,7 +14,7 @@
     line-height: 20px;
     border: 1px solid #d1d1d1;
     white-space: nowrap;
-    cursor: default;
+    cursor: pointer;
     &:hover {
       color: @stepsCurrentColor;
     }
@@ -22,12 +23,18 @@
       background: @stepsCurrentColor;
     }
     .transition(color 0.2s ease-out);
-    .del-tag {
-      margin-left: 10px;
-      cursor: pointer;
-      color: #ccc;
-      font: normal 14px tahoma;
-    }
+    &.with-x {
+      cursor: default;
+      i {
+        margin-left: 10px;
+        cursor: pointer;
+        font: normal 14px tahoma;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+    } 
+
   }
   /*
   &.tag-hole {
