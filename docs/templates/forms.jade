@@ -88,32 +88,6 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
 
-  h3 深色背景
-
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo22', data-toggle='tab') 示例
-    li
-      a(href='#code22', data-toggle='tab') 代码
-    li
-      a(href='#doc22', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo22
-      div.bs-docs-example.bs-docs-extra
-        form.sui-form.form-dark
-          input(type="text")
-          input.input-success(type="text" placeholder=".input-success")
-          input.input-error(type="text" placeholder=".input-error")
-    div.tab-pane#code22
-      pre.prettyprint.linenums(data-target='#demo22>div')
-    div.tab-pane#doc22
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo22>div') 复制代码
-
-
   h3 成块级
 
   ul.sui-nav.nav-tabs.nav-large
@@ -777,7 +751,7 @@ block content
       div.bs-docs-example
         form.sui-form.form-horizontal
           div.control-group
-            label.control-label
+            label.control-label.v-top
               b(style="color: #f00;") *
               | 
               | 对象场景：
@@ -788,7 +762,7 @@ block content
                 div.msg-con 该项为必填项
                 s.msg-icon
           div.control-group
-            label.control-label
+            label.control-label.v-top
               b(style="color: #f00;") *
               | 
               span(style="padding:0 24px 0 0;") 主
@@ -828,7 +802,7 @@ block content
             div.controls
               input.input-xxlarge(type="text" value="")
           div.control-group
-            label.control-label
+            label.control-label.v-top
               b(style="color: #f00;") *
               | 
               | 发送渠道：
