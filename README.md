@@ -12,6 +12,8 @@
 * default:默认任务，等价于 test + dist
 * watch:监控文件改动实时编译
 
+** 因为我们的代码构建放在了服务器端，而服务器端使用的npm源是 [http://registry.npm.taobao.net](http://registry.npm.taobao.net)，所以建议把在自己的电脑上也设置这个源。**
+
 ### Gulp
 
 Gulp 和 Grunt 一样也是用来构建代码。Gulp 基于nodejs的stream来做的，区别于Grunt完全基于配置，所以更加灵活方便，能用更少更优雅的代码实现复杂的功能。Gulp应该会在不久之后取代Grunt成为前端最好的构建工具(**Task Runner**)。Gulp 官网地址：[Gulp](https://github.com/gulpjs/gulp)。
