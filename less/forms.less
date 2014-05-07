@@ -402,6 +402,10 @@
   // Info
   .info {
     .formFieldState(@infoText, @infoBorder, @infoBackground, @infoBorder);
+
+    input:focus {
+      border-color: @successBorder;
+    }
   }
 
   // HTML5 invalid states
@@ -412,7 +416,7 @@
     color: #b94a48;
     border-color: #ee5f5b;
     &:focus {
-      border-color: #53b8c0;
+      border-color: darken(#ee5f5b, 10%);
       // @shadow: 0 0 6px lighten(#ee5f5b, 20%);
     }
   }
