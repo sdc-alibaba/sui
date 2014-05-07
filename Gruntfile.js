@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*dpl started*/',
-    distRoot: 'build',
+    distRoot: grunt.option('target') || '.package',
     docsRoot: 'docs',
 
     jshint: {

@@ -42,3 +42,4 @@ pid.txt
 #build files
 build/
 docs/*.html
+.package/
