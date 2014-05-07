@@ -9572,6 +9572,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-tag {
   list-style: none;
   font-size: 0;
+  line-height: 12px;
   padding: 5px;
   /*
   &.tag-hole {
