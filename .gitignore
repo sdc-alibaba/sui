@@ -38,3 +38,5 @@ node_modules
 docs/assets/fonts
 
 pid.txt
+
+build/

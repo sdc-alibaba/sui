@@ -130,12 +130,14 @@ module.exports = function(grunt) {
         ]
       }
     },
+    /*
     qunit: {
       options: {
         inject: 'js/tests/unit/phantom.js'
       },
       files: ['js/tests/*.html']
     },
+    */
 
     connect: {
       server: {
@@ -175,14 +177,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-newer');
   // Test task.
-  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint']);
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['browserify', 'uglify']);
