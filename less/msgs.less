@@ -21,6 +21,12 @@
     font-family: 'icon-pc';
     text-decoration: none;
   }
+  strong {
+    color: #333;
+    &:after {
+      content: " ";
+    }
+  }
   &.msg-error > .msg-icon {
     &:before {
       content: "\c60d";
@@ -73,6 +79,17 @@
 		*zoom: 1;
 		position: absolute;
 	}
+  a.remove {
+    color: #999;
+    font-size: 110%;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px;
+    &:hover {
+      color: #ff5050;
+      text-decoration: none;
+    }
+  }
 }
 
 // 小尺寸（默认尺寸）
@@ -100,57 +117,45 @@
   }
 
   // Msgs类型
-  &.msg-error {
-    color: #ea4a36;
+  &.msg-error,
+  &.msg-stop
+  {
+    > .msg-icon {
+      color: @msgErrorColor;
+    }
     > .msg-con {
-      border: 1px solid #ffe3e0;
-      background-color: #fff2f2;
+      border: 1px solid @msgErrorBorder;
+      background-color: @msgErrorBackground;
     }
   }
-  &.msg-stop {
-    color: #ea4a36;
-    > .msg-con {
-      border: 1px solid #ffe3e0;
-      background-color: #fff2f2;
-    }
-  }
+  
   &.msg-success {
-    color: @linkColor;
+    > .msg-icon {
+      color: @msgSuccessColor;
+    }
     > .msg-con {
-      border: 1px solid lighten(@linkColor, 30%);
-      background-color: lighten(@linkColor, 40%);
+      border: 1px solid @msgSuccessBorder;
+      background-color: @msgSuccessBackground;
     }
   }
-  &.msg-warning {
-    color: #cf700b;
+  &.msg-warning,
+  &.msg-notice,
+  &.msg-tips,
+  &.msg-info
+  {
+    > .msg-icon {
+      color: @msgWarningColor;
+    }
     > .msg-con {
-      border: 1px solid #fee8d7;
-      background-color: #fef1e3;
+      border: 1px solid @msgWarningBorder;
+      background-color: @msgWarningBackground;
     }
   }
-  &.msg-notice {
-    color: #ee9f28;
-    > .msg-con {
-      border: 1px solid #faf1d7;
-      background-color: #fffff1;
-    }
-  }
-  &.msg-tips {
-    color: #ee9f28;
-    > .msg-con {
-      border: 1px solid #faf1d7;
-      background-color: #fffff1;
-    }
-  }
-  &.msg-info {
-    color: #3a9ed5;
-    > .msg-con {
-      border: 1px solid #e4f3fd;
-      background-color: #f2faff;
-    }
-  }
+
   &.msg-question {
-    color: #333;
+    > .msg-icon {
+      color: #666;
+    }
     > .msg-con {
       border: 1px solid #eaeaea;
       background-color: #f7f7f7;

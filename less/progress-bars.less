@@ -49,6 +49,7 @@
   background-color: #eee;
   .border-radius(@baseBorderRadius);
   border: none;
+  position: relative;
 
   // Bar of progress
   .bar {
@@ -65,6 +66,20 @@
     background-color: @progressColor;
     .box-sizing(border-box);
     .transition(width .6s ease);
+  }
+
+  .text {
+    color: @textColor;
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    // center
+    left: 50%;
+    margin-left: -50px;
+    height: @baseLineHeight;
+    line-height: @baseLineHeight;
+    top: 50%;
+    margin-top: -1 * @baseLineHeight / 2;
   }
 
   //不同大小

@@ -27,8 +27,6 @@ block content
       a(href='#demo1', data-toggle='tab') 示例
     li
       a(href='#code1', data-toggle='tab') 代码
-    li
-      a(href='#doc1', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo1
@@ -104,10 +102,6 @@ block content
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
-    div.tab-pane#doc1
-      p 下拉菜单有两种样式：默认样式和带边框的样式，添加 <code>.dropdown-borderd</code> 是带边框的样式。
-      p 带边框的下拉菜单有三种尺寸：默认，<code>.dropdown-large</code>，<code>.dropdown-xlarge</code> 
-      p 在li上添加 '.active' 则表示默认选中
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
