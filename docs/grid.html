@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>12 栏栅格</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../.package/css/sui.css" rel="stylesheet">
+    <link href="../.package/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../.package/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .grid-demo .sui-row div,
+      .grid-demo .sui-row-fluid div {
+        background: #dfedfc;
+        min-height: 50px;
+      }
+      .grid-demo .sui-row + .sui-row,
+      .grid-demo .sui-row-fluid + .sui-row-fluid {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li class="active"><a href="./global.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./tutorial.html">教程</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li class="active"><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
+                  <li><a href="text.html">文本</a></li>
+                  <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="datepicker.html">datepicker</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h1 class="sui-page-header">响应式栅格系统</h1>
+          <p class="sui-lead">
+            响应式的12栏栅格系统，兼容三种主流屏幕尺寸 <strong>1024</strong>,<strong>1280/1366</strong>以及<strong>1440</strong>。实际上用户屏幕宽度在1024px以上的情况下会自动选择一个最佳的栅格宽度。<br />
+            如果想关闭响应式布局，只需要删除 <code>sui-responsive.less</code>文件即可。
+          </p>
+          <h2>1. 默认栅格系统</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="grid-demo">
+                  <div class="sui-row">
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span1">1</div>
+                    <div class="span2">2</div>
+                    <div class="span2">2</div>
+                    <div class="span3">3</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span4">4</div>
+                    <div class="span4">4</div>
+                  </div>
+                  <div class="sui-row">
+                    <div class="span2">2</div>
+                    <div class="span6">6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">
+              <p>默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。</p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>2. 流式栅格系统</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="grid-demo">
+                  <div class="sui-row-fluid">
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                    <div class="span1">1</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span1">1</div>
+                    <div class="span2">2</div>
+                    <div class="span2">2</div>
+                    <div class="span3">3</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span4">4</div>
+                    <div class="span4">4</div>
+                  </div>
+                  <div class="sui-row-fluid">
+                    <div class="span2">2</div>
+                    <div class="span6">6</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <p>流式栅格系统每一栏的宽度都是其容器的百分比，因此会随着屏幕宽度的变化而不断变化，没有一个固定的宽度像素值。</p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <div class="footer">
+            <ul class="unstyled">
+              <li>@time 2014.03.07</li>
+              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

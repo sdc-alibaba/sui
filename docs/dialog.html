@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>对话框 </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../.package/css/sui.css" rel="stylesheet">
+    <link href="../.package/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../.package/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li class="active"><a href="./global.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./tutorial.html">教程</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
+                  <li><a href="text.html">文本</a></li>
+                  <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li class="active"><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="datepicker.html">datepicker</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-page-header">
+            <h1>对话框</h1>
+          </div>
+          <p class="sui-lead">
+            对话框分为独占式和非独占式两种。<br />
+            宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
+            文档写的渣，有任何疑惑可以联系@半边。
+          </p>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
+          <h2>概览</h2>
+          <pre class="prettyprint linenums">原型方法 $ele需要事先写到html中
+$ele.modal(options | 'toggle' | 'show' | 'hide') // $ele是对话框元素，不是触发元素
+静态方法
+$.alert('this is typical alert')
+$.alert(options)
+$.confirm('this is typical confirm')
+$.confirm(options)</pre>
+          <h2>1. 不写js初始化对话框,原型方法控制。用于复杂结构对话框。  </h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+            <li><a href="#api1" data-toggle="tab">API</a></li>
+            <li><a href="#event1" data-toggle="tab">事件</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="sui-btn btn-primary btn-lg">对话框已写入html</button>
+                <!-- Modal-->
+                <div id="myModal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">&times;</button>
+                        <h4 id="myModalLabel" class="modal-title">Modal title</h4>
+                      </div>
+                      <div class="modal-body">我是内容body</div>
+                      <div class="modal-footer">
+                        <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large">可自定ok</button>
+                        <button type="button" data-dismiss="modal" class="sui-btn btn-default btn-large">可自定dismiss</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">
+              <pre class="prettyprint">$ele.modal(opstions)  让指定的内容变成一个模态对话框。接受一个可选的参数</pre>
+              <pre class="prettyprint">$ele.modal('show')  手动打开一个模态对话框。</pre>
+              <pre class="prettyprint">$ele.modal('hide')  手动关闭一个模态对话框。</pre>
+              <pre class="prettyprint">$ele.modal('okHide')  手动关闭一个模态对话框，此时不会再触发okHide事件回调，而是在对话框关闭后会触发okHidden事件。</pre>
+              <pre class="prettyprint">$ele.modal('toggle')  手动打开或关闭一个模态对话框。</pre>
+              <pre class="prettyprint">$ele.modal('shadeIn')  使该对话框自身被遮罩层遮住，方便层上层的调用操作。</pre>
+              <pre class="prettyprint">$ele.modal('shadeOut')  顾名思义，上一条的逆操作。</pre>
+              <pre class="prettyprint">$ele.modal('shadeToggle')  顾名思义，上两条的交替操作。</pre>
+              <pre class="prettyprint">$ele.modal('resize') dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用该接口使dialog重新定位居中</pre>
+              <h3>简单使用方法</h3>
+              <p>无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。</p>
+              <p>
+                <data->属性都是必须的。也可通过<code>$ele.modal(opt)</code></data->触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
+              </p>
+              <h3>对异步操作的增强支持</h3>
+              <p>对确定按钮<code>[data-ok="modal"]</code>动态添加<code>class="disabled"</code> 可以阻止按钮被点击，同时阻止okHide事件的执行</p>
+              <h3>此HTML模板方法对话框针对<code>层上层</code>的处理</h3>
+              <p>
+                层上层通常是对 对话框操作的确认提示以及反馈，不会再有复杂业务逻辑,所以合理搭配是：<br>
+                下层为复杂业务的原型方法对话框，上层为简单静态方法对话框。其他组合可能会有问题。<br>
+                调用<code>$ele.modal('shade')</code>可以使自身被遮罩（不是全屏遮罩），然后可安心处理上层对话框弹出并让用户操作。
+              </p>
+              <h3>2种对话框的取舍。</h3>
+              <p>涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可</p>
+            </div>
+            <div id="api1" class="tab-pane">属性参数<code>不止下方这些</code>。除了不能使用回调函数型的参数，其余均和<code>js调用的对话框参数相同</code>，注入data-**属性即可,部分data-属性参数举例：
+              <table class="sui-table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width:100px">名称</th>
+                    <th style="width:50px">类型</th>
+                    <th style="width:50px">默认值</th>
+                    <th>描述</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>backdrop</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。</td>
+                  </tr>
+                  <tr>
+                    <td>keyboard</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>按下esc键时关闭模态对话框</td>
+                  </tr>
+                  <tr>
+                    <td>show</td>
+                    <td>boolean</td>
+                    <td>true</td>
+                    <td>初始化时即显示模态对话框</td>
+                  </tr>
+                  <tr>
+                    <td>remote</td>
+                    <td>path</td>
+                    <td>false</td>
+                    <td>如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。如果你使用的是data属性api，你还可以使用<code>href</code>标签指定远程数据源。案例如下
+                      <pre class="prettyprint">&lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;</pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="event1" class="tab-pane">
+              <p>原型方法的事件接口,与bootstrap提供的一致,与静态方法不互用
+                <table class="sui-table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width:150px">名称</th>
+                      <th>类型</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>show</td>
+                      <td>当<code>show</code>方法被调用时，此事件将被立即触发。</td>
+                    </tr>
+                    <tr>
+                      <td>shown</td>
+                      <td>当模态对话框呈现到用户面前时（会等待过渡效果执行结束）此事件被触发。</td>
+                    </tr>
+                    <tr>
+                      <td>hide</td>
+                      <td>当<code>hide</code>方法被调用时，此事件被立即触发。</td>
+                    </tr>
+                    <tr>
+                      <td>hidden</td>
+                      <td>当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
+                    </tr>
+                    <tr>
+                      <td>okHide</td>
+                      <td>当模态对话框因为被点击了确认按钮而被隐藏之前，此事件被立即触发。回调函数可以通过返回<code>true|false</code>控制对话框是否会被继续关闭。如果多次绑定okHide事件，只取最后一次绑定的事件回调执行，并取返回值。</td>
+                    </tr>
+                    <tr>
+                      <td>okHidden</td>
+                      <td>当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <pre class="prettyprint linenums">$('#myModal').on('hidden', function () {
+  // do something…
+})
+</pre>
+              </p>
+            </div>
+          </div>
+          <hr>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>2. $.alert/$.confirm静态方法快速生成，返回对话框元素的jQuery对象。用于简单对话框。 </h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+            <li><a href="#api2" data-toggle="tab">API</a></li>
+            <li><a href="#event2" data-toggle="tab">事件</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <button id="J_alert1" class="sui-btn btn-primary btn-lg">$.alert('xxx')</button>
+                <button id="J_confirm1" class="sui-btn btn-primary btn-lg">$.confirm('xxx')</button>
+                <script>
+                  $('#J_alert1').on('click', function(e){
+                    $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
+                  })
+                  $('#J_confirm1').on('click', function(e){
+                    $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
+                  })
+                  
+                  
+                </script>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <p>静态方法有alert和confirm</p>
+              <h3>静态方法的构造原则</h3>
+              <p>最大限度的还原系统自带alert，confirm的使用体验，快捷同时可通过扩展参数加强功能。</p>
+              <h3>静态方法和原型方法使用的基本原则</h3>
+              <p>静态方法适宜于较少重复/多处出现/勿需记忆状态的弹层，可方便的直接调用，最简单形式就是$.alert('亚哈了他了该')。</p>
+              <p>若弹层Dom结构复杂，本身可作为复杂业务组件，建议将弹层html结构写到html里，用$ele.modal(options) 调用。</p>
+              <p>静态方法不调用后不返回实例对象。</p>
+            </div>
+            <div id="api2" class="tab-pane">
+              <alert>和confirm2个方法的参数一致，参见下面：</alert>
+              <pre class="prettyprint linenums">$.alert({
+ backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
+ bgColor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
+ keyboard: true   是否可由esc按键关闭
+ title: '自定义标题'
+ body: 'html' //必填
+ okBtn : '好的'
+ cancelBtn : '雅达'
+ hasfoot: {Boolean}  是否显示脚部  默认true
+ width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+ timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
+ show:     fn --------------function(e){}
+ shown:    fn
+ hide:     fn
+ hidden:   fn
+ okHide:   function(e){alert('点击确认后、对话框消失前的逻辑,
+           函数返回true（默认）则对话框关闭，反之不关闭;若不传入则默认是直接返回true的函数
+           注意不要人肉返回undefined！！')}
+ okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
+})</pre>
+            </div>
+            <div id="event2" class="tab-pane">静态方法事件不用人肉再去写绑定代码，直接将事件回调写进参数。
+              <table class="sui-table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width:150px">名称</th>
+                    <th>类型</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>show</td>
+                    <td>方法被调用时对话框尚未展现前，此事件将被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>shown</td>
+                    <td>对话框展现后此事件被触发。</td>
+                  </tr>
+                  <tr>
+                    <td>hide</td>
+                    <td>当对话框因为任何原因（点击确定或取消，等等）要关闭，但尚未关闭前，此事件被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>hidden</td>
+                    <td>当对话框因为任何原因（点击确定或取消，等等）要关闭，并确实关闭后，此事件被触发。</td>
+                  </tr>
+                  <tr>
+                    <td>okHide</td>
+                    <td>当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，但尚未关闭前，此事件被立即触发。</td>
+                  </tr>
+                  <tr>
+                    <td>okHidden</td>
+                    <td>当对话框因为触发正向原因（点击确定、保存或之类的逻辑按钮）要关闭，并确实关闭后，此事件被触发。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                <button id="J_lizi1" class="sui-btn btn-primary btn-lg">各种状态检测（打开F12）</button>
+                <script>
+                  $('#J_lizi1').on('click', function(e){
+                    $.confirm({
+                      body: 'confirm again'
+                      ,width: 'normal'
+                      ,backdrop: true
+                      ,bgColor: 'none'
+                      ,show: function(){console.log('show')}
+                      ,shown: function(){console.log('shown')}
+                      ,hide: function(){console.log('hide')}
+                      ,hidden: function(){console.log('hiden')}
+                      ,okHide: function(){var a=confirm('true or false');if(!a) return false}
+                      ,okHidden: function(){console.log('okHidden')}
+                    })
+                  })
+                </script>
+                <button id="J_remote" data-toggle="modal" data-remote="./about.html" data-target="#J_remotemodal" class="sui-btn btn-primary">加载远端内容</button>
+                <div id="J_remotemodal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">&times;</button>
+                        <h4 class="modal-title">remote Modal title</h4>
+                      </div>
+                      <div class="modal-body">我是内容body</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <hr>
+          <h3>对话框叠加，层上层</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                <button id="J_addsuppliers" data-toggle="modal" data-target="#J_addsuppliersDialog" data-width="large" data-backdrop="static" class="sui-btn btn-primary">添加供应商</button><div id="J_addsuppliersDialog" tabindex="-1" role="dialog" class="sui-modal hide fade" data-addSupplierUrl="http://" data-getSuppliersUrl="http://xxx">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button>
+                              <h4 id="myModalLabel" class="modal-title">供应商收编</h4>
+                          </div>
+                          <div class="modal-body sui-form form-horizontal">
+                              <div class="sui-msg msg-block msg-default msg-tips">
+                                  <div class="msg-con">以下为供销平台上已经获得小二授权经营您的品牌但还未被您进行收编的供应商</div>
+                                  <s class="msg-icon"></s>
+                              </div>
+                              <table class="sui-table table-bordered-simple">
+                                  <thead>
+                                      <tr>
+                                          <th>供应商昵称</th>
+                                          <th>公司名称</th>
+                                          <th>供应商类型</th>
+                                          <th>分销商数量</th>
+                                          <th>授权品牌</th>
+                                          <th>操作</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td><span>only淘宝商城官方旗舰店</span></td>
+                                          <td><span>九牧官方旗舰店</span></td>
+                                          <td><span>企业</span></td>
+                                          <td><span class="distributor-num">432</span></td>
+                                          <td>
+                                              <ul class="authorize-brand">
+                                                  <li>海尔</li>
+                                                  <li>统帅</li>
+                                              </ul>
+                                          </td>
+                                          <td data-supplierid="111">
+                                              <button class="sui-btn btn-small J_addOneSupplier" >添加</button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <script>
+                  $supDialog = $('#J_addsuppliersDialog')
+                  $supDialog.on('click', '.J_addOneSupplier', function(e) {
+                    $supDialog.modal('shadeIn');
+                    return $.confirm({
+                      title: '确认',
+                      body: '您确认添加该供应商吗？',
+                      backdrop: false,
+                      okHide: function() {
+                        $.alert({
+                          hasfoot: false,
+                          backdrop: false,
+                          title: '不管发生了什么，总之成功了',
+                          body: 'msg-large msg-block msg-',
+                          timeout: 1000
+                        });
+                      },
+                      hide: function() {
+                        return $supDialog.modal('shadeOut');
+                      }
+                    });
+                  });
+                  
+                  
+                </script>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">
+              <p>有几点注意，使用层上层时</p>
+              <p>底层：一定是复杂对话框，一定是使用的原型方法，即HTML写在模板中的对话框。要设置<code>backdrop:static</code>,已防止上层显示时不小心点击背景使底层消失了。。。</p>
+              <p>上层：只要不是底层，都设置<code>backdrop:false</code>,避免多背景。同时上层show时可以调用底层方法 <code>$supDialog.modal('shadeIn')</code>使底层被遮罩，防止又对底层做了其他操作。上层关闭后调用<code>$supDialog.modal('shadeOut')</code>复原。</p>
+            </div>
+          </div>
+          <div class="footer">
+            <ul class="unstyled">
+              <li>@time 2014.03.07</li>
+              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

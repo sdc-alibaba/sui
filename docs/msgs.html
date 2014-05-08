@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>提示消息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../.package/css/sui.css" rel="stylesheet">
+    <link href="../.package/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../.package/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        padding: 2px 4px;
+        border: 1px solid #e1e1e8;
+        font-size: 12px;
+      }
+      
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li class="active"><a href="./global.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./tutorial.html">教程</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li class="active"><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
+                  <li><a href="text.html">文本</a></li>
+                  <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="datepicker.html">datepicker</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-page-header">
+            <h1>提示消息<small>msgs</small></h1>
+          </div>
+          <p class="sui-lead">用来显示错误、提示、警告、公告等信息。</p>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
+          <h2>小尺寸（默认尺寸）</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-stop">
+                  <div class="msg-con">禁止信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-success">
+                  <div class="msg-con">成功信息提示#4ab933</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-warning">
+                  <div class="msg-con">警示信息提示#cf700b</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-notice">
+                  <div class="msg-con">公告信息提示#ee9f28</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-tips">
+                  <div class="msg-con">提示信息提示#ee9f28</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-info">
+                  <div class="msg-con">提醒信息提示#ca9ed5</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-question">
+                  <div class="msg-con">疑问信息提示#333333</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>大尺寸</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-large msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-stop">
+                  <div class="msg-con">禁止信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-success">
+                  <div class="msg-con">成功信息提示#4ab933</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-warning">
+                  <div class="msg-con">警示信息提示#cf700b</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-notice">
+                  <div class="msg-con">公告信息提示#ee9f28</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-tips">
+                  <div class="msg-con">提示信息提示#ee9f28</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-info">
+                  <div class="msg-con">提醒信息提示#ca9ed5</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-question">
+                  <div class="msg-con">疑问信息提示#333333</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>成块级</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-block msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br />
+                <div class="sui-msg msg-large msg-block msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>清除模式</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-clear msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br />
+                <div class="sui-msg msg-large msg-clear msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">清除模式区别于成块级模式，Msg内联状态独占一行，常用于表单校验</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>默认字体颜色</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+            <li><a href="#code5" data-toggle="tab">代码</a></li>
+            <li><a href="#doc5" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo5" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-default msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-default msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code5" class="tab-pane">
+              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc5" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>去边框和底色</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo6" data-toggle="tab">示例</a></li>
+            <li><a href="#code6" data-toggle="tab">代码</a></li>
+            <li><a href="#doc6" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo6" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-naked msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-naked msg-error">
+                  <div class="msg-con">错误信息提示#ea4a36</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code6" class="tab-pane">
+              <pre data-target="#demo6&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc6" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>多行模式</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
+            <li><a href="#code7" data-toggle="tab">代码</a></li>
+            <li><a href="#doc7" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo7" class="tab-pane active">
+              <div class="bs-docs-example">
+                <div class="sui-msg msg-question">
+                  <div class="msg-con">多行提示展示
+                    <p>
+                      1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+                      2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+                    </p>
+                  </div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-question">
+                  <div class="msg-con">多行提示展示
+                    <p>
+                      1、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示<br />
+                      2、多行提多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示多行提示展示
+                    </p>
+                  </div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="code7" class="tab-pane">
+              <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc7" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <div class="footer">
+            <ul class="unstyled">
+              <li>@time 2014.03.07</li>
+              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

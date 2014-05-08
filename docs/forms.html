@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>表单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="../.package/css/sui.css" rel="stylesheet">
+    <link href="../.package/css/sui-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../.package/js/sui.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      code {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        padding: 2px 4px;
+        border: 1px solid #e1e1e8;
+        font-size: 12px;
+      }
+      .bs-docs-extra input[type="text"] { display: block; margin-bottom: 9px; }
+      
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li class="active"><a href="./global.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./tutorial.html">教程</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
+              <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
+              </li>
+              <li><a><i class="sui-icon icon-th">&nbsp;</i>布局<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li class="active"><a><i class="sui-icon icon-magic">&nbsp;</i>基础css<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li class="active"><a href="forms.html">表单</a></li>
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-picture">&nbsp;</i>css组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="tab.html">标签页</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="pagination.html">分页器</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
+                  <li><a href="text.html">文本</a></li>
+                  <li><a href="progress.html">进度条</a></li>
+                  <li><a href="loading.html">Loading</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>js组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                  <li><a href="tab-js.html">标签页</a></li>
+                  <li><a href="pagination-js.html">分页器</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="datepicker.html">datepicker</a></li>
+                </ul>
+              </li>
+              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>拓展组件<i class="sui-icon icon-angle-down pull-right"></i></a>
+                <ul class="sui-nav nav-tabs nav-stacked">
+                </ul>
+              </li>
+            </ul>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <div class="sui-page-header">
+            <h1>表单<small>forms</small></h1>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
+          <h2>inputs</h2>
+          <h3>按宽度分类</h3>
+          <p><code>select</code> 元素同样适用</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-mini" class="input-mini">
+                  <input type="text" placeholder=".input-small" class="input-small">
+                  <input type="text" placeholder=".input-medium" class="input-medium">
+                  <input type="text" placeholder=".input-large" class="input-large">
+                  <input type="text" placeholder=".input-xlarge" class="input-xlarge">
+                  <input type="text" placeholder=".input-xxlarge" class="input-xxlarge">
+                </form>
+              </div>
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>按高度分类</h3>
+          <p><code>select</code> 元素同样适用</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-thin" class="input-thin">
+                  <input type="text" placeholder=".input-default" class="input-default">
+                  <input type="text" placeholder=".input-fat" class="input-fat">
+                  <input type="text" placeholder=".input-xfat" class="input-xfat">
+                </form>
+              </div>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">四种尺寸：.input-thin, .input-default, .input-fat, .input-xfat</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>成块级</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-block-level" class="input-block-level">
+                </form>
+              </div>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>不可编辑</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form"><span class="input-xlarge uneditable-input">Some value here</span></form>
+              </div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>Disabled inputs</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+            <li><a href="#code5" data-toggle="tab">代码</a></li>
+            <li><a href="#doc5" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo5" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <input id="disabledInput" type="text" placeholder="Disabled input here…" disabled class="input-xlarge">
+                </form>
+              </div>
+            </div>
+            <div id="code5" class="tab-pane">
+              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc5" class="tab-pane">引用class：.input-block-level</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo5&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>带图标</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo23" data-toggle="tab">示例</a></li>
+            <li><a href="#code23" data-toggle="tab">代码</a></li>
+            <li><a href="#doc23" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo23" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form form-dark">
+                  <div class="input-control">
+                    <input type="text" class="input-thin"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control">
+                    <input type="text" class="input-xfat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div><br>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-thin"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-fat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                  <div class="input-control control-right">
+                    <input type="text" class="input-xfat"><i class="sui-icon icon-touch-magnifier"></i>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code23" class="tab-pane">
+              <pre data-target="#demo23&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc23" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo22&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>文本字段四态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo6" data-toggle="tab">示例</a></li>
+            <li><a href="#code6" data-toggle="tab">代码</a></li>
+            <li><a href="#doc6" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo6" class="tab-pane active">
+              <div class="bs-docs-example bs-docs-extra">
+                <form class="sui-form">
+                  <input type="text" placeholder=".input-warning" class="input-warning">
+                  <input type="text" placeholder=".input-error" class="input-error">
+                  <input type="text" placeholder=".input-success" class="input-success">
+                  <input type="text" placeholder=".input-info" class="input-info">
+                </form>
+              </div>
+            </div>
+            <div id="code6" class="tab-pane">
+              <pre data-target="#demo6&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc6" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>Checkboxes and radios</h2>
+          <h3>默认状态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
+            <li><a href="#code7" data-toggle="tab">代码</a></li>
+            <li><a href="#doc7" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo7" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
+                  <label class="checkbox"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
+                  <label class="radio"><input name="single" type="radio" value="1" /> 单选1</label>
+                  <label class="radio"><input name="single" type="radio" value="2" /> 单选2</label>
+                  <label class="radio"><input name="single" type="radio" value="3" /> 单选3</label>
+                </form>
+              </div>
+            </div>
+            <div id="code7" class="tab-pane">
+              <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc7" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>内联状态</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo8" data-toggle="tab">示例</a></li>
+            <li><a href="#code8" data-toggle="tab">代码</a></li>
+            <li><a href="#doc8" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo8" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
+                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
+                  <label class="checkbox inline"><input name="single" type="radio" value="1" /> 单选1</label>
+                  <label class="checkbox inline"><input name="single" type="radio" value="2" /> 单选2</label>
+                  <label class="checkbox inline"><input name="single" type="radio" value="3" /> 单选3</label>
+                </form>
+              </div>
+            </div>
+            <div id="code8" class="tab-pane">
+              <pre data-target="#demo8&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc8" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo8&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>Textarea</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo9" data-toggle="tab">示例</a></li>
+            <li><a href="#code9" data-toggle="tab">代码</a></li>
+            <li><a href="#doc9" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo9" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="form-inline sui-form">
+                  <textarea rows="3"></textarea>
+                </form>
+              </div>
+            </div>
+            <div id="code9" class="tab-pane">
+              <pre data-target="#demo9&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc9" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo9&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>关联校验</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo10" data-toggle="tab">示例</a></li>
+            <li><a href="#code10" data-toggle="tab">代码</a></li>
+            <li><a href="#doc10" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo10" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group warning">
+                    <label for="inputWarning" class="control-label">警示输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputWarning" />
+                      <span class="help-inline">警示文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group error">
+                    <label for="inputError" class="control-label">错误输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputError" />
+                      <span class="help-inline">出错文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group success">
+                    <label for="inputSuccess" class="control-label">成功输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputSuccess" />
+                      <span class="help-inline">成功文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group info">
+                    <label for="inputInfo" class="control-label">帮助输入框：</label>
+                    <div class="controls">
+                      <input type="text" id="inputInfo" />
+                      <span class="help-inline">帮助文案</span>
+                    </div>
+                  </div>
+                  <div class="control-group warning">
+                    <label for="inputWarning" class="control-label">警示输入框：</label>
+                    <div class="controls"><input type="text" id="inputWarning" />
+                      <div class="sui-msg msg-naked msg-tips"><i class="msg-icon"></i>
+                        <div class="msg-con">警告</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group error">
+                    <label for="inputError" class="control-label">错误输入框：</label>
+                    <div class="controls"><input type="text" id="inputError" />
+                      <div class="sui-msg msg-naked msg-error"><i class="msg-icon"></i>
+                        <div class="msg-con">错误</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group success">
+                    <label for="inputSuccess" class="control-label">成功输入框：</label>
+                    <div class="controls"><input type="text" id="inputSuccess" />
+                      <div class="sui-msg msg-naked msg-success"><i class="msg-icon"></i>
+                        <div class="msg-con">成功</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group info">
+                    <label for="inputInfo" class="control-label">帮助输入框：</label>
+                    <div class="controls"><input type="text" id="inputInfo" />
+                      <div class="sui-msg msg-naked msg-info"><i class="msg-icon"></i>
+                        <div class="msg-con">帮助</div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code10" class="tab-pane">
+              <pre data-target="#demo10&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc10" class="tab-pane">关联校验接口 <code>warning</code>、<code>error</code>、<code>success</code>、<code>info</code></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo10&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>按功能分类</h2>
+          <h3>搜索框</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo11" data-toggle="tab">示例</a></li>
+            <li><a href="#code11" data-toggle="tab">代码</a></li>
+            <li><a href="#doc11" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo11" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-search">
+                  <input type="text" class="input-medium search-query">
+                  <button type="submit" class="sui-btn btn-primary">Search</button>
+                </form>
+              </div>
+            </div>
+            <div id="code11" class="tab-pane">
+              <pre data-target="#demo11&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc11" class="tab-pane">添加 <code>.form-search</code> 到 <code>&lt;form&gt;</code> 标签上并且添加 <code>.search-query</code> 到 <code>&lt;input&gt;</code> 标签上</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo11&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>内联表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo12" data-toggle="tab">示例</a></li>
+            <li><a href="#code12" data-toggle="tab">代码</a></li>
+            <li><a href="#doc12" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo12" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <input type="text" placeholder="Email" class="input-small">
+                  <input type="password" placeholder="Password" class="input-small">
+                  <label class="checkbox"><input type="checkbox" /> 记住我</label>
+                  <button type="submit" class="sui-btn btn-primary">Sign in</button>
+                </form>
+              </div>
+            </div>
+            <div id="code12" class="tab-pane">
+              <pre data-target="#demo12&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc12" class="tab-pane">添加 <code>.form-inline</code> 成为内联状态</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo12&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>水平表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo13" data-toggle="tab">示例</a></li>
+            <li><a href="#code13" data-toggle="tab">代码</a></li>
+            <li><a href="#doc13" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo13" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label for="inputEmail" class="control-label">邮箱：</label>
+                    <div class="controls">
+                      <input type="text" id="inputEmail" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="inputPassword" class="control-label">密码：</label>
+                    <div class="controls"><input type="password" id="inputPassword" placeholder="Password" /></div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <label class="checkbox inline"><input type="checkbox" /> 记住我</label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">Sign in</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code13" class="tab-pane">
+              <pre data-target="#demo13&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc13" class="tab-pane">添加 <code>.form-horizontal</code> 成为水平状态</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo13&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>扩展表单控件</h2>
+          <h3>默认选项</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo14" data-toggle="tab">示例</a></li>
+            <li><a href="#code14" data-toggle="tab">代码</a></li>
+            <li><a href="#doc14" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo14" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form">
+                  <div class="input-prepend"><span class="add-on">@</span>
+                    <input id="prependedInput" type="text" placeholder="Username" class="span2 input-fat">
+                  </div><br>
+                  <div class="input-append">
+                    <input id="appendedInput" type="text" class="span2 input-fat"><span class="add-on">.00</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code14" class="tab-pane">
+              <pre data-target="#demo14&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc14" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo14&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>联合体</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo15" data-toggle="tab">示例</a></li>
+            <li><a href="#code15" data-toggle="tab">代码</a></li>
+            <li><a href="#doc15" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo15" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <div class="input-prepend input-append"><span class="add-on">$</span>
+                    <input id="appendedPrependedInput" type="text" class="span2 input-fat"><span class="add-on">.00</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code15" class="tab-pane">
+              <pre data-target="#demo15&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc15" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo15&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>按钮替换文本</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo16" data-toggle="tab">示例</a></li>
+            <li><a href="#code16" data-toggle="tab">代码</a></li>
+            <li><a href="#doc16" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo16" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-inline">
+                  <div class="input-append">
+                    <input id="appendedInputButton" type="text" class="span2">
+                    <button type="button" class="sui-btn">Go!</button>
+                  </div>
+                </form><br />
+                <form class="sui-form form-inline">
+                  <div class="input-append">
+                    <input id="appendedInputButtons" type="text" class="span2">
+                    <button type="button" class="sui-btn">Search</button>
+                    <button type="button" class="sui-btn">Options</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code16" class="tab-pane">
+              <pre data-target="#demo16&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc16" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo16&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>搜索表单</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo17" data-toggle="tab">示例</a></li>
+            <li><a href="#code17" data-toggle="tab">代码</a></li>
+            <li><a href="#doc17" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo17" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-search">
+                  <div class="input-append">
+                    <input type="text" class="span2 search-query">
+                    <button type="button" class="sui-btn">Search</button>
+                  </div>
+                  <div class="input-prepend">
+                    <button type="button" class="sui-btn">Search</button>
+                    <input type="text" class="span2 search-query">
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code17" class="tab-pane">
+              <pre data-target="#demo17&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc17" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo17&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>所有案例</h2>
+          <h3>demo1</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo18" data-toggle="tab">示例</a></li>
+            <li><a href="#code18" data-toggle="tab">代码</a></li>
+            <li><a href="#doc18" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo18" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label">单选框：</label>
+                    <div class="controls">
+                      <label class="radio inline">
+                        <input name="single" type="radio" value="1"> 
+                        选项一
+                      </label>
+                      <label class="radio inline">
+                        <input name="single" type="radio" value="2"> 
+                        选项二
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">复选框：</label>
+                    <div class="controls">
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="1"> 
+                        选项一
+                      </label>
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="2"> 
+                        选项二
+                      </label>
+                      <label class="checkbox inline">
+                        <input name="multiple" type="checkbox" value="3"> 
+                        选项三
+                      </label>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（迷你）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-mini">
+                      <div class="sui-msg msg-tips msg-naked">
+                        <div class="msg-con">提示信息，比如：建议你设置安全密码</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（小号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-small">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（中号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（大号）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-large">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（加大）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-xlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">输入框（加加）：</label>
+                    <div class="controls">
+                      <input type="text" class="input-xxlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">时间选择：</label>
+                    <div class="controls">
+                      <input type="text" class="input-medium input-date"> 
+                      -
+                      <input type="text" class="input-medium input-date">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">备注：</label>
+                    <div class="controls">
+                      <textarea rows="3" class="input-block-level"></textarea>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">提交审核</button>
+                      <button type="reset" class="sui-btn">重置</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code18" class="tab-pane">
+              <pre data-target="#demo18&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc18" class="tab-pane"><code>.form-horizontal</code> 用于切换表单字段水平操放</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo18&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h3>demo2</h3>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo19" data-toggle="tab">示例</a></li>
+            <li><a href="#code19" data-toggle="tab">代码</a></li>
+            <li><a href="#doc19" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo19" class="tab-pane active">
+              <div class="bs-docs-example">
+                <form class="sui-form form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label v-top"><b style="color: #f00;">*</b> 
+                      对象场景：
+                    </label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>--------------请选择--------------</option>
+                      </select>
+                      <div class="sui-msg msg-error msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label v-top"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>---请选择---</option>
+                      </select>
+                      <input type="text" value="" class="input-xlarge">
+                      <div class="sui-msg msg-error msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
+                    <div class="controls">
+                      <textarea style="height: 190px;" class="input-xxlarge"></textarea>
+                      <div style="vertical-align: top;" class="sui-msg msg-tips msg-default">
+                        <div class="msg-con">
+                          <p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
+                          <p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
+                          <p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
+                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
+                          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
+                          <p>站内信：XXXX个汉字</p>
+                        </div>
+                        <s class="msg-icon"></s>
+                      </div>
+                      <div class="sui-msg msg-error msg-clear help-block">
+                        <div class="msg-con">该项为必填项</div>
+                        <s class="msg-icon"></s>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><span style="padding:0 24px 0 0;">链</span> 
+                      接：
+                    </label>
+                    <div class="controls">
+                      <input type="text" value="" class="input-xxlarge">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label v-top"><b style="color: #f00;">*</b> 
+                      发送渠道：
+                    </label>
+                    <div class="controls">
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="1"> 
+                          商家中心
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="2"> 
+                          旺旺弹出
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="3"> 
+                          站内信
+                        </label>
+                        <label class="checkbox inline">
+                          <input name="m0" type="checkbox" value="4"> 
+                          邮件
+                        </label>
+                        <div class="sui-msg msg-tips msg-default msg-clear help-block">
+                          <div class="msg-con">是否向子账号发送消息：
+                            <label class="radio inline">
+                              <input name="s0" type="radio" value="1"> 
+                              是
+                            </label>
+                            <label class="radio inline">
+                              <input name="s0" type="radio" value="2"> 
+                              否
+                            </label>
+                          </div>
+                          <s class="msg-icon"></s>
+                        </div>
+                      </div>
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m1" type="checkbox" value="1" checked> 
+                          短信发送给店长
+                        </label>
+                      </div>
+                      <div class="row-fluid">
+                        <label class="checkbox inline">
+                          <input name="m1" type="checkbox" value="2" checked> 
+                          短信发送给电商决策人
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b style="color: #f00;">*</b> 
+                      审<span style="padding: 0 6px;">核</span>人：
+                    </label>
+                    <div class="controls">
+                      <select>
+                        <option value="" selected>--------------请选择--------------</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="sui-btn btn-primary">提交审核</button>
+                      <button type="reset" class="sui-btn">重置</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="code19" class="tab-pane">
+              <pre data-target="#demo19&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc19" class="tab-pane"><code>.form-horizontal</code> 用于切换表单字段水平操放</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo19&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <div class="footer">
+            <ul class="unstyled">
+              <li>@time 2014.03.07</li>
+              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>
