@@ -34,7 +34,7 @@
 
 
 ## 二，文件结构：
-- bootstrap: 编译后的js和css文件，这个被gitignore，执行grunt会自动生成。
+- .package: 编译后的js和css文件，这个被gitignore，执行grunt会自动生成。
 - docs：文档，文档是用mustache模板写的，mustache是一个无逻辑模板语言（官网：http://mustache.github.io/），用twitter自己写的一个编译器hogan来编译（http://twitter.github.io/hogan.js/）。 每个组件都有自己的demo，开发一个组件就在这里新建一个demo，这里用的是jade模板生成的，执行grunt docs会自动把docs/template下的jade模板编译到docs目录下的同名文件。其中base.jade是公用模板，其他模板都应该继承base。如果模板名字以com-开头或者以-com.jade结尾，则不会被编译为html，适合中间组件.
 docs中注意如下几个文件：
   - assets：只在docs中使用的静态文件放这里，和bootstrap代码相关的比如bootstrap.css和fonts是从外面cp进来的。
