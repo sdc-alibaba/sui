@@ -7,7 +7,6 @@ html(lang="en")
     meta(name="viewport",content="width=device-width, initial-scale=1")
     link(href="assets/css/animate.css",rel="stylesheet")
     link(href="../.package/css/sui.css",rel="stylesheet")
-    link(href="../.package/css/sui-responsive.css",rel="stylesheet")
     link(href="assets/css/docs.css" rel="stylesheet")
     link(href="assets/js/google-code-prettify/prettify.css" rel="stylesheet")
     link(rel="shortcut icon" href="assets/ico/favicon.png")
@@ -19,6 +18,7 @@ html(lang="en")
     block head
 
   body
+    include ga
     include header
     block header
       +header('demos')
