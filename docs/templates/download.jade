@@ -1,4 +1,4 @@
-extends base
+extends base_index
 
 block title
   title 下载
@@ -23,17 +23,10 @@ block content_wrap
       li
         a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
       li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css
-      li
         a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js
+
+    p
+      | 注意在引用sui.min.js之前必须先引用 jquery。
 
     h2 下载zip文件
 
@@ -41,14 +34,14 @@ block content_wrap
       | 包括所有的源代码和文档。
 
     p
-      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl/repository/archive.zip?ref=dev', target="_blank")
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='https://github.com/sdc-alibaba/sui/archive/master.zip', target="_blank")
         i.sui-icon.icon-download
-        | SUI-1.0.source.zip
+        | download SUI-1.0.source.zip
 
     h2 获取最新源码
 
     p.sui-lead
-      |可以从 <strong>gitlab</strong> 上直接获取最新的代码，项目地址：
-    a.sui-btn.btn-success.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl', target="_blank")
+      |可以从 <strong>github</strong> 上直接获取最新的代码，项目地址：
+    a.sui-btn.btn-success.btn-huge(href='https://github.com/sdc-alibaba/sui', target="_blank")
       i.sui-icon.icon-github-alt
-      | SUI on gitlab
+      | view SUI on github

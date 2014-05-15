@@ -127,13 +127,13 @@
       & > a {
         color: @navTabsColor;
         line-height: @baseLineHeight;
-        .border-radius(2px 2px 0 0);
+        .border-radius(@borderRadiusSmall @borderRadiusSmall 0 0);
       }
       & > a:hover {
-        background-color: @bodyBackground;  // reset hover
+        background-color: transparent;  // reset hover
       }
       + li {
-        margin-left: 10px;
+        margin-left: @baseMargin / 2;
       }
       + li > a {
         margin-left: -1px;
@@ -162,6 +162,28 @@
       color: @navTabsHilightColor;
     }
 
+    &.tab-vertical {
+      border-bottom: none;
+      border-right: 1px solid @navTabsBorderColor;
+      width: 100px;
+      display: inline-block;
+      li {
+        float: none;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-right: -1px;
+        &.active {
+          a {
+            border: 1px solid @navTabsBorderColor;
+            border-right: 1px solid transparent;
+          }
+        }
+        a {
+          .border-radius(@borderRadiusSmall 0 0 @borderRadiusSmall);
+        }
+      }
+    }
+
     &.nav-primary {
       border-bottom: 2px solid @navTabsHilightColor;
       > li {
@@ -172,7 +194,19 @@
         border-color: @navTabsHilightColor;
         color: @white;
         background: @navTabsHilightColor;
-        border-radius: 2px 2px 0 0;
+        .border-radius(@borderRadiusSmall @borderRadiusSmall 0 0);
+      }
+
+      &.tab-vertical {
+        border-right: 2px solid @navTabsHilightColor;
+        border-bottom: 0;
+        >.active > a {
+          border: 0;
+          .border-radius(@borderRadiusSmall 0 0 @borderRadiusSmall);
+        }
+        li {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -192,6 +226,15 @@
         &.active > a:hover {
           background: @navTabsHilightColor;
           color: #fff;
+        }
+      }
+      &.tab-vertical {
+        border: 0;
+        > .active > a {
+          border-radius: @borderRadiusSmall;
+        }
+        li + li {
+          margin-top: @baseMargin / 2;
         }
       }
     }
@@ -221,6 +264,26 @@
         }
         &:last-child > a {
           border-radius: 0 @borderRadiusSmall @borderRadiusSmall 0;
+        }
+      }
+
+      &.tab-vertical {
+        > li {
+          a {
+            border: 0;
+          }
+          &:first-child > a {
+            border-radius: @borderRadiusSmall @borderRadiusSmall 0 0;
+          }
+          &:last-child > a {
+            border-radius: 0 0 @borderRadiusSmall @borderRadiusSmall;
+          }
+          &.active a {
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+          margin-left: -1px;
+          margin-right: -1px;
         }
       }
     }
