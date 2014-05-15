@@ -39,11 +39,12 @@
 
     .round {
         display: inline-block;
-        width: @baseFontSize;  
-        height: @baseFontSize;
-        .border-radius(@baseFontSize / 2);
+        width: @baseFontSize + 4;  
+        height: @baseFontSize + 4;
+        .border-radius((@baseFontSize + 4) / 2);
         text-align: center;
-        line-height: @baseFontSize;
+        line-height: @baseFontSize + 4;
+
     }
     .round + span:before {
         content: '\00a0';
@@ -55,9 +56,13 @@
             border-color: transparent transparent transparent @stepsFinishedColor;
         }
         .round {
-            background-color: @stepsCurrentColor;
+            background-color: @white;
             background-color: transparent\9;
             color: @white;
+            > i {
+                color: @stepsFinishedColor;
+                font-size: @baseFontSize;
+            }
         }
     }
     .current {
@@ -106,10 +111,11 @@
         right: -@stepsBaseHeight * 1.5 -  4 * 2;
     }
     .round {
-        width: @fontSizeLarge;  
-        height: @fontSizeLarge;
-        line-height: @fontSizeLarge;
-        .border-radius(@fontSizeLarge / 2);
+        width: @fontSizeLarge + 4;  
+        height: @fontSizeLarge + 4;
+        line-height: @fontSizeLarge + 4;
+        .border-radius((@fontSizeLarge + 4) / 2);
+                                        
     }
 }
 .steps-auto {
@@ -144,7 +150,7 @@
             height: @baseFontSize; 
             margin-left: -@baseFontSize / 2;
             margin-top: @baseFontSize / 2;
-            color: @stepsFinishedTextColor;
+            color: @stepsRoundFinishedTextColor;
             cursor: default;
         }
         .round {
@@ -197,7 +203,7 @@
             color: @stepsTodoTextColor;
         }
         .round {
-            border: 4px @stepsTodoColor solid;
+            border: 4px @stepsRoundTodoBorderColor solid;
             background-color: #FFF;
             color: @stepsTodoTextColor;
         }

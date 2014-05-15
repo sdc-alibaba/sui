@@ -9619,12 +9619,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-tag > li:hover,
 .sui-tag > a:hover {
-  color: #0995e0;
+  color: #37a7ec;
 }
 .sui-tag > li.tag-selected,
 .sui-tag > a.tag-selected {
   color: #ffffff;
-  background: #0995e0;
+  background: #37a7ec;
 }
 .sui-tag > li.with-x,
 .sui-tag > a.with-x {
@@ -10092,48 +10092,52 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .sui-steps .round {
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  width: 16px;
+  height: 16px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   text-align: center;
-  line-height: 12px;
+  line-height: 16px;
 }
 .sui-steps .round + span:before {
   content: '\00a0';
 }
 .sui-steps .finished {
-  background-color: #e4f6ff;
-  color: #4aa4d5;
+  background-color: #76b8ea;
+  color: #ffffff;
 }
 .sui-steps .finished .triangle-right {
-  border-color: transparent transparent transparent #e4f6ff;
+  border-color: transparent transparent transparent #76b8ea;
 }
 .sui-steps .finished .round {
-  background-color: #0995e0;
+  background-color: #ffffff;
   background-color: transparent\9;
   color: #ffffff;
 }
+.sui-steps .finished .round > i {
+  color: #76b8ea;
+  font-size: 12px;
+}
 .sui-steps .current {
-  background-color: #0995e0;
+  background-color: #37a7ec;
   color: #ffffff;
 }
 .sui-steps .current .triangle-right {
-  border-color: transparent transparent transparent #0995e0;
+  border-color: transparent transparent transparent #37a7ec;
 }
 .sui-steps .current .round {
   background-color: #ffffff;
-  color: #0995e0;
+  color: #37a7ec;
   color: #FFF\9;
   background-color: transparent\9;
 }
 .sui-steps .todo {
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
   color: #999999;
 }
 .sui-steps .todo .triangle-right {
-  border-color: transparent transparent transparent #f5f5f5;
+  border-color: transparent transparent transparent #eeeeee;
 }
 .sui-steps .todo .round {
   background-color: #ffffff;
@@ -10158,12 +10162,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   right: -44px;
 }
 .steps-large .round {
-  width: 14px;
-  height: 14px;
-  line-height: 14px;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
 }
 .steps-auto {
   display: table;
@@ -10209,7 +10213,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   height: 12px;
   margin-left: -6px;
   margin-top: 6px;
-  color: #4aa4d5;
+  color: #76b8ea;
   cursor: default;
 }
 .sui-steps-round > div .round {
@@ -10242,30 +10246,30 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   width: auto;
 }
 .sui-steps-round > .finished .round {
-  border: 4px #e4f6ff solid;
-  background-color: #e4f6ff;
-  color: #4aa4d5;
+  border: 4px #76b8ea solid;
+  background-color: #76b8ea;
+  color: #ffffff;
 }
 .sui-steps-round > .finished .bar {
-  background-color: #e4f6ff;
+  background-color: #76b8ea;
 }
 .sui-steps-round > .current .round {
-  border: 4px #0995e0 solid;
-  background-color: #0995e0;
+  border: 4px #37a7ec solid;
+  background-color: #37a7ec;
 }
 .sui-steps-round > .current .bar {
-  background-color: #0995e0;
+  background-color: #37a7ec;
 }
 .sui-steps-round > .todo > label {
   color: #999999;
 }
 .sui-steps-round > .todo .round {
-  border: 4px #f5f5f5 solid;
+  border: 4px #d3d3d3 solid;
   background-color: #FFF;
   color: #999999;
 }
 .sui-steps-round > .todo .bar {
-  background-color: #f5f5f5;
+  background-color: #eeeeee;
 }
 .steps-round-auto {
   display: table;
