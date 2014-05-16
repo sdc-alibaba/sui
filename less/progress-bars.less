@@ -46,9 +46,9 @@
   overflow: hidden;
   height: @baseLineHeight + 4px;
   margin-bottom: @baseMargin;
-  background-color: #fff;
+  background-color: #eee;
   .border-radius(@baseBorderRadius);
-  border: 1px solid @progressColor;
+  border: none;
 
   // Bar of progress
   .bar {
@@ -67,11 +67,21 @@
     .transition(width .6s ease);
   }
 
+  .bar-text {
+    position: relative;
+    color: @textColor;
+    text-align: center;
+  }
+
   //不同大小
   &.progress-small {
     height: @baseLineHeight;
     line-height: @baseLineHeight;
     font-size: @fontSizeSmall;
+
+    .bar {
+      padding: 0;
+    }
   }
   &.progress-large {
     height: @lineHeightLarge + 4px;
@@ -109,9 +119,6 @@
 .progress-danger .bar, .sui-progress .bar-danger {
   background-color: @progressDangerColor;
 }
-.progress-danger {
-  border: 1px solid @progressDangerColor;
-}
 .progress-danger.progress-striped .bar, .progress-striped .bar-danger {
   #gradient > .striped(@progressDangerColor);
 }
@@ -119,9 +126,6 @@
 // Success (green)
 .progress-success .bar, .sui-progress .bar-success {
   background-color: @progressSuccessColor;
-}
-.progress-success {
-  border: 1px solid @progressSuccessColor;
 }
 .progress-success.progress-striped .bar, .progress-striped .bar-success {
   #gradient > .striped(@progressSuccessColor);
@@ -131,9 +135,6 @@
 .progress-info .bar, .sui-progress .bar-info {
   background-color: @progressInfoColor;
 }
-.progress-info {
-  border: 1px solid @progressInfoColor;
-}
 .progress-info.progress-striped .bar, .progress-striped .bar-info {
   #gradient > .striped(@progressInfoColor);
 }
@@ -141,9 +142,6 @@
 // Warning (orange)
 .progress-warning .bar, .sui-progress .bar-warning {
   background-color: @progressWarningColor;
-}
-.progress-warning {
-  border: 1px solid @progressWarningColor;
 }
 .progress-warning.progress-striped .bar, .progress-striped .bar-warning {
   #gradient > .striped(@progressWarningColor);
