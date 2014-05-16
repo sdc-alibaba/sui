@@ -41,7 +41,7 @@ block content
             - var classname = 'sui-btn'
             if s
               - classname += ' btn-' + s
-            if r  
+            if r[0] 
               - classname += ' btn-' + r[0]
             | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
             | 
@@ -73,7 +73,7 @@ block content
       div.bs-docs-example
         each v in ROLES
           - var classname = 'sui-btn'
-          if v
+          if v[0]
             - classname += ' btn-' + v[0]
           |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-pencil'></i>#{v[1]}</a>
           | 
@@ -100,7 +100,7 @@ block content
       div.bs-docs-example
         each v in ROLES
           - var classname = 'sui-btn btn-block btn-xlarge'
-          if v
+          if v[0]
             - classname += ' btn-' + v[0]
           |<a href='javascript:void(0);' class='#{classname}'>#{v[1]}</a>
           | 
