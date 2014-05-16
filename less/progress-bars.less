@@ -49,6 +49,7 @@
   background-color: #eee;
   .border-radius(@baseBorderRadius);
   border: none;
+  position: relative;
 
   // Bar of progress
   .bar {
@@ -68,9 +69,11 @@
   }
 
   .bar-text {
-    position: relative;
+    position: absolute;
     color: @textColor;
     text-align: center;
+    width: 100%;
+    padding: 2px 0;
   }
 
   //不同大小
@@ -79,7 +82,9 @@
     line-height: @baseLineHeight;
     font-size: @fontSizeSmall;
 
-    .bar {
+    .bar,
+    .bar-text
+    {
       padding: 0;
     }
   }
