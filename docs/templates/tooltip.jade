@@ -87,7 +87,7 @@ block content
       pre.prettyprint.linenums.
         {
             animation: true  //是否以动画效果淡入淡出tooltip
-          , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+          , type: 'default'   //tip 类型 {string} 'default'|'attention'|'confirm' ,区别见demo
           , placement: 'top'
           , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
           , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
@@ -136,7 +136,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo3
       div.bs-docs-example
-        div.tooltip-only-arrow.normal.bottom(style="width:300px")
+        div.tooltip-only-arrow.default.bottom(style="width:300px")
           div.tooltip-arrow
             div.tooltip-arrow.cover
           div.tooltip-inner 使用SUI可以轻松搭建一个漂亮的页面，她有丰富的组件库可以像搭积木一样轻松搭建一个页面。
