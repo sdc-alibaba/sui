@@ -1127,6 +1127,8 @@ sui-pre .sui-code {
 .sui-form .input-xfat {
   padding-top: 6px;
   padding-bottom: 6px;
+  font-size: 14px;
+  line-height: 22px;
 }
 .sui-form .input-fat {
   padding-right: 8px;
@@ -1493,6 +1495,8 @@ sui-pre .sui-code {
 .sui-form .uneditable-input.input-xfat {
   padding-top: 6px;
   padding-bottom: 6px;
+  font-size: 14px;
+  line-height: 22px;
   padding-right: 8px;
   padding-left: 8px;
 }
@@ -6938,9 +6942,9 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.tab-navbar > li.active > a {
   background: #0088cc;
   color: #fff;
-  border-top: 1px solid #3096dc;
+  border-top: 1px solid #0088cc;
   margin-top: -1px;
-  border-bottom: 1px solid #3096dc;
+  border-bottom: 1px solid #0088cc;
   margin-bottom: -1px;
 }
 .sui-nav.nav-tabs.tab-navbar > li:first-child > a {
@@ -8214,6 +8218,8 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num {
   padding-top: 6px;
   padding-bottom: 6px;
+  font-size: 14px;
+  line-height: 22px;
   padding-right: 8px;
   padding-left: 8px;
 }
@@ -8651,6 +8657,7 @@ input[type="submit"].btn.btn-mini {
 .tooltip-footer .btn-block + .btn-block {
   margin-left: 0;
 }
+.type-style.default .tooltip-inner,
 .type-style.normal .tooltip-inner,
 .type-style.confirm .tooltip-inner {
   background-color: #ffffff;
@@ -8694,6 +8701,7 @@ input[type="submit"].btn.btn-mini {
 .sui-tooltip.left {
   margin-left: -3px;
 }
+.sui-tooltip.default .tooltip-inner,
 .sui-tooltip.normal .tooltip-inner,
 .sui-tooltip.confirm .tooltip-inner {
   background-color: #ffffff;
@@ -8720,6 +8728,7 @@ input[type="submit"].btn.btn-mini {
   position: relative;
   border: 2px solid #b2b2b2;
 }
+.tooltip-only-arrow.default .tooltip-inner,
 .tooltip-only-arrow.normal .tooltip-inner,
 .tooltip-only-arrow.confirm .tooltip-inner {
   background-color: #ffffff;
@@ -9686,11 +9695,12 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   overflow: hidden;
   height: 22px;
   margin-bottom: 18px;
-  background-color: #fff;
+  background-color: #eee;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  border: 1px solid #3097dd;
+  border: none;
+  position: relative;
 }
 .sui-progress .bar {
   width: 0%;
@@ -9712,10 +9722,21 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
+.sui-progress .bar-text {
+  position: absolute;
+  color: #333333;
+  text-align: center;
+  width: 100%;
+  padding: 2px 0;
+}
 .sui-progress.progress-small {
   height: 18px;
   line-height: 18px;
   font-size: 12px;
+}
+.sui-progress.progress-small .bar,
+.sui-progress.progress-small .bar-text {
+  padding: 0;
 }
 .sui-progress.progress-large {
   height: 26px;
@@ -9750,9 +9771,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-progress .bar-danger {
   background-color: #ea4a36;
 }
-.progress-danger {
-  border: 1px solid #ea4a36;
-}
 .progress-danger.progress-striped .bar,
 .progress-striped .bar-danger {
   background-color: #ea4a36;
@@ -9765,9 +9783,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .progress-success .bar,
 .sui-progress .bar-success {
   background-color: #43cd6e;
-}
-.progress-success {
-  border: 1px solid #43cd6e;
 }
 .progress-success.progress-striped .bar,
 .progress-striped .bar-success {
@@ -9782,9 +9797,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-progress .bar-info {
   background-color: #5bc0de;
 }
-.progress-info {
-  border: 1px solid #5bc0de;
-}
 .progress-info.progress-striped .bar,
 .progress-striped .bar-info {
   background-color: #5bc0de;
@@ -9797,9 +9809,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .progress-warning .bar,
 .sui-progress .bar-warning {
   background-color: #fac603;
-}
-.progress-warning {
-  border: 1px solid #fac603;
 }
 .progress-warning.progress-striped .bar,
 .progress-striped .bar-warning {

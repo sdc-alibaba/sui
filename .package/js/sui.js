@@ -3982,7 +3982,7 @@ require('./datepicker')
 
   $.fn.tooltip.defaults = {
     animation: true
-  , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+  , type: 'default'   //tip 类型 {string} 'default'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
