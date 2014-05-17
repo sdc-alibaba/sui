@@ -10,8 +10,6 @@ $(function() {
       console.log(offsetBottom)
       if(offsetBottom > Math.min(windowHeight / 2, 300)) {
         $this.addClass('inview')
-      } else if (offsetBottom < windowHeight / 4) {
-        $this.removeClass("inview")
       }
     })
   }

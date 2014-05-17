@@ -82,7 +82,7 @@ module.exports = function(grunt) {
           {
           expand: true,
           cwd: '<%= docsRoot %>/templates',
-          src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade'],
+          src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade', '!discuss.jade'],
           dest: '<%= docsRoot %>',
           ext: '.html'
         },
