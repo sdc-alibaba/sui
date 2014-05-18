@@ -7,7 +7,6 @@ $(function() {
       var scrollTop = $(document).scrollTop()
       var $this = $(this)
       var offsetBottom = windowHeight - ($this.offset()['top'] - scrollTop)
-      console.log(offsetBottom)
       if(offsetBottom > Math.min(windowHeight / 2, 300)) {
         $this.addClass('inview')
       }

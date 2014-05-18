@@ -17,18 +17,21 @@ block head
 block sidebar
   +sidebar('msg')
 block content
-  div.sui-page-header
-    h1 提示消息
-      small msgs
+  h1 提示消息
 
-  p.sui-lead
-    | 用来显示错误、提示、警告、公告等信息。
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/msgs.png')
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
+        a(href='#') 下载psd文件
 
+  h2.sui-page-header 开发者文档
 
+  p.sui-lead
+    | 用来显示错误、提示、警告、公告等信息。
 
   h2 小尺寸（默认尺寸）
 

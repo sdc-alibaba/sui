@@ -8,17 +8,23 @@ block sidebar
   +sidebar('dialog')
 
 block content
-  div.sui-page-header
-    h1 对话框
+  h1 对话框
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/popover.png')
+
+  ul.demo-operations.clearfix
+    li
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     | 对话框分为独占式和非独占式两种。<br />
     | 宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
     | 文档写的渣，有任何疑惑可以联系@半边。
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   h2 概览
   pre.prettyprint.linenums
