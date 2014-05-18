@@ -8,7 +8,7 @@
 -------------------------------------------------- */
 body {
   position: relative;
-  padding-top: 59px;
+  padding-top: 40px;
   font-size: 14px;
 }
 html,
@@ -17,11 +17,11 @@ body,
 body > .sui-layout > .sidebar {
   height: 100%;
 }
+/* Code in headings */
 h1 {
   font-size: 32px;
   line-height: 48px;
 }
-/* Code in headings */
 h3 code {
   font-size: 14px;
   font-weight: normal;
@@ -59,26 +59,14 @@ body > .sui-navbar {
   font-size: 14px;
 }
 body > .sui-navbar .sui-brand {
-  padding: 0;
-  margin: 16px 0;
-  background: url(../../pictures/logo.png) no-repeat;
-  display: inline-block;
-  width: 61px;
-  height: 25px;
-  opacity: .8;
-}
-body > .sui-navbar .sui-brand:hover {
-  opacity: 1;
-}
-body > .sui-navbar .sui-nav > li > a {
-  padding: 20px;
+  line-height: 22px;
+  padding: 8px 20px;
 }
 body > .sui-navbar > .navbar-inner {
   padding-left: 25px;
-  background-image: none;
 }
 body > .sui-navbar .sui-nav {
-  margin-left: 70px;
+  margin-left: 50px;
 }
 /* Change the docs' brand */
 body > .navbar .brand {
@@ -97,7 +85,6 @@ body > .navbar .brand:hover {
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
 }
-
 .sui-page-header {
   margin-left: 50px;
   position: relative;
@@ -115,7 +102,6 @@ body > .navbar .brand:hover {
   top: 4px;
   left: -50px;
 }
-
 h1.sui-page-header:before {
   top: 10px;
 }
