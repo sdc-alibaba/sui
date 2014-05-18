@@ -1,4 +1,4 @@
-extends base
+extends base_index
 
 block title
   title 教程
@@ -21,59 +21,34 @@ block content_wrap
     h1.sui-page-header 第一步，下载文件
     div
       p
-        | SUI 文件主要有三个，分别是：
+        | SUI 文件主要有两个，分别是：
         ul.unstyled
           li
-            strong sui.css
-            | 核心组件的样式文件，必须。
+            strong sui.min.css
+            | 样式文件，必须。
           li
-            strong sui-responsive.css
-            | 响应式布局，可选。
-          li
-            strong sui-extends.css
-            | 拓展组件样式，可选。
-          li
-            strong sui-all.css
-            | 全部样式，包括三部分：sui.less, sui-responsive.less, sui-extends.less。
-          li
-            strong sui.js
-            | 核心组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。
-          li
-            strong sui-extends.js
-            | 拓展组件，可选。
-          li
-            strong sui-all.js
-            | 包含了全部的核心组件和拓展组件。
-        | 其中除了sui.css是必须的，其他两个文件可以根据自己的需求选择。
-        br 
-        | 上述的所有文件都有对应的压缩版，分别是 sui.min.css,sui-responsive.min.css,sui.min.js,sui-extends.min.js,sui-all.min.js。
+            strong sui.min.js
+            | JS组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。
       h3 引用CDN文件
       p
-        | 最简单使用方式是直接引用我们的CDN文件:
+        | 建议不要直接下载，而是直接引用我们的CDN文件:
       ul.unstyled
         li
           a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
-        li
-          a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css
         li
           a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
 
       h3 下载文件
 
       p
-        | 如果不想引用CDN文件，可以直接去gitlab上下载<a href='http://gitlab.alibaba-inc.com/sj/dpl/' target="_blank">源代码</a>，也可以下载打包后的ZIP文件。
-
-      ul.unstyled
-        li
-          a(href='#', target="_blank") sui-source.zip
-        li
-          a(href='#', target="_blank") sui-min.zip
-
+        | 如果不想引用CDN文件，可以直接去github上clone<a href='https://github.com/sdc-alibaba/sui' target="_blank">源代码</a>，也可以下载打包后的<a href='https://github.com/sdc-alibaba/sui/archive/master.zip' target='_blank'>ZIP文件</a>。
+      p
+        | 访问 <a href='download.html'>下载页面</a>
 
     h1.sui-page-header 第二部，引用文件
 
     p
-      | 在head中依次引入sui.css, sui-responsive.css和sui.js文件，代码如下：
+      | 在head中依次引入sui.css和sui.js文件，代码如下：
     pre.prettyprint.linenums.
       &lt;!DOCTYPE html&gt;
       &lt;html&gt;
@@ -83,7 +58,6 @@ block content_wrap
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
         &lt;meta name="description" content=""&gt;
         &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
-        &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
         &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
@@ -246,7 +220,6 @@ block content_wrap
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
         &lt;meta name="description" content=""&gt;
         &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
-        &lt;link href="sui/css/sui-responsive.css" rel="stylesheet"&gt;
         &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
         &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
