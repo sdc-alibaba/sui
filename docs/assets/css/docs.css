@@ -59,14 +59,19 @@ body > .sui-navbar {
   font-size: 14px;
 }
 body > .sui-navbar .sui-brand {
-  line-height: 22px;
-  padding: 8px 20px;
+  padding: 3px;
+  font-size: 32px;
+  line-height: 48px;
 }
 body > .sui-navbar > .navbar-inner {
   padding-left: 25px;
+  background-image: none;
 }
 body > .sui-navbar .sui-nav {
   margin-left: 50px;
+}
+body > .sui-navbar .sui-nav > li > a {
+  padding: 20px;
 }
 /* Change the docs' brand */
 body > .navbar .brand {
