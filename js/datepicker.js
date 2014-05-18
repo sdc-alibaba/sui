@@ -83,6 +83,14 @@
 			this.component = false;
 
 		this.picker = $(DPGlobal.template);
+
+		if (this.o.timepicker){
+			this.timepickerContainer = this.picker.find('.timepicker-container');
+			this.timepickerContainer.timepicker();
+			this.timepicker = this.timepickerContainer.data('timepicker');
+			this.getTimeValue();
+		}
+
 		this._buildEvents();
 		this._attachEvents();
 
@@ -316,6 +324,15 @@
 					}]
 				];
 			}
+			//timepicker change
+			if (this.o.timepicker) {
+				this._events.push(
+					[this.timepickerContainer,{
+						'time:change': $.proxy(this.timeChange,this)
+					}]
+				)
+			}
+
 			this._events.push(
 				// Component: listen for blur on element descendants
 				[this.element, '*', {
@@ -363,9 +380,15 @@
 		_attachSecondaryEvents: function(){
 			this._detachSecondaryEvents();
 			this._applyEvents(this._secondaryEvents);
+			if (this.o.timepicker) {
+				this.timepicker._attachSecondaryEvents();
+			}
 		},
 		_detachSecondaryEvents: function(){
 			this._unapplyEvents(this._secondaryEvents);
+			if (this.o.timepicker) {
+				this.timepicker._detachSecondaryEvents();
+			}
 		},
 		_trigger: function(event, altdate){
 			var date = altdate || this.dates.get(-1),
@@ -390,13 +413,19 @@
 				}, this)
 			});
 		},
-
-		show: function(){
+		timeChange: function(e){
+			this.setValue();
+		},
+		show: function(e){
+			if( e&&e.type === "focus" && this.picker.is( ":visible" )) return;
 			if (!this.isInline)
 				this.picker.appendTo('body');
 			this.picker.show();
 			this.place();
 			this._attachSecondaryEvents();
+			if(this.o.timepicker){
+				this.timepicker._show();
+			}
 			this._trigger('show');
 		},
 
@@ -419,6 +448,9 @@
 				)
 			)
 				this.setValue();
+			if(this.o.timepicker){
+				this.timepicker._hide();
+			}
 			this._trigger('hide');
 		},
 
@@ -493,14 +525,54 @@
 			}
 		},
 
+		getTimeValue: function(){
+			var val ,minute,hour,time;
+			time  = {
+				hour: (new Date()).getHours(),
+				minute: (new Date()).getMinutes()
+			};
+			if (this.isInput){
+				element = this.element;
+			}
+			else if (this.component){
+				element = this.element.find('input');
+			}
+			if (element){
+
+				val = $.trim(element.val())
+				val = val.split(':');
+				for (var i = val.length - 1; i >= 0; i--) {
+					val[i] = $.trim(val[i]);
+				}
+				if (val.length === 2) {
+					minute = parseInt(val[1],10);
+					if (minute >= 0 && minute < 60) {
+						time.minute = minute;
+					}
+					hour = parseInt(val[0].splice(-2),10);
+					if (hour >= 0 && hour < 24) {
+						time.minute = hour;
+					}
+				}
+			}
+			this.timepickerContainer.data("time",time.hour+":"+time.minute);
+		},
+
 		getFormattedDate: function(format){
 			if (format === undefined)
 				format = this.o.format;
 
 			var lang = this.o.language;
-			return $.map(this.dates, function(d){
+			var text = $.map(this.dates, function(d){
 				return DPGlobal.formatDate(d, format, lang);
 			}).join(this.o.multidateSeparator);
+			if (this.o.timepicker) {
+				if (!text) {
+					text = DPGlobal.formatDate(new Date(),format, lang);
+				}
+				text = text + " " + this.timepickerContainer.data('time');
+			}
+			return  text;
 		},
 
 		setStartDate: function(startDate){
@@ -946,7 +1018,7 @@
 						}
 						break;
 					case 'span':
-						if (!target.is('.disabled')){
+						if (!target.is('.disabled')&&!target.is('[data-num]')){
 							this.viewDate.setUTCDate(1);
 							if (target.is('.month')){
 								day = 1;
@@ -1403,7 +1475,8 @@
 		startView: 0,
 		todayBtn: false,
 		todayHighlight: true,
-		weekStart: 0
+		weekStart: 0,
+		timepicker: false,
 	};
 	var locale_opts = $.fn.datepicker.locale_opts = [
 		'format',
@@ -1615,15 +1688,17 @@
 							'<tr>'+
 								'<th colspan="7" class="clear"></th>'+
 							'</tr>'+
-						'</tfoot>'
+						'</tfoot>',
+		timepicerTemplate: '<div class="timepicker-container"></div>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
-							'<div class="datepicker-days">'+
+							'<div class="datepicker-days clearfix">'+
 								'<table class=" table-condensed">'+
 									DPGlobal.headTemplate+
 									'<tbody></tbody>'+
 									DPGlobal.footTemplate+
 								'</table>'+
+								DPGlobal.timepicerTemplate+
 							'</div>'+
 							'<div class="datepicker-months">'+
 								'<table class="table-condensed">'+

@@ -98,6 +98,7 @@
 	}
 	table{
 		margin: 0;
+		float: left; 
 		border-spacing: 0;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -262,8 +263,8 @@
 	.week-content{
 		//add for wangqi
 		.dow{
-			border-top: 1px solid #ccc;
-			border-bottom: 1px solid #ccc;
+			border-top: 1px solid lighten(@grayLight, 30);
+			border-bottom: 1px solid lighten(@grayLight, 30);
 			border-left: none;
 			border-right: none;
 			margin: 0;
@@ -315,5 +316,10 @@
 	    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	    font-size:13px;
 	    line-height: @baseLineHeight;
-  }
+  	}
+	.timepicker-container{
+		float: left;
+		border-left: 1px solid lighten(@grayLight, 30);
+	}
+
 }
