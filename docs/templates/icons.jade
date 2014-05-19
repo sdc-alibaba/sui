@@ -38,15 +38,12 @@ block sidebar
   +sidebar('icons')
 
 block content
-  h1.sui-page-header 图标
+  h1 图标
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     | 图标使用 <strong>icon font</strong> 字体实现，目前图标来自 <a href='http://icomoon.io/' target="_blank">icon moon</a>。<br />
     | 相比于图片，图标字体是矢量图，和普通文案一样可以非常方便的进行大小和颜色的调整。
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   h2 1.小尺寸图标
   p.sui-lead
@@ -54,15 +51,12 @@ block content
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo3', data-toggle='tab') 示例
-    li
-      a(href='#code3', data-toggle='tab') 代码
-    li
-      a(href='#doc3', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo3
       div.bs-docs-example.icon-pc-demo
         i.sui-icon.icon-pc-loading
+        i.sui-icon.icon-pc-enter
         i.sui-icon.icon-pc-ww
         i.sui-icon.icon-pc-sound
         i.sui-icon.icon-pc-settings

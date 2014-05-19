@@ -7,16 +7,22 @@ block sidebar
   +sidebar('pagination')
 
 block content
-  h1.sui-page-header 分页器 
-     small pagination
+  h1 分页器
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/pagination.png')
+
+  ul.demo-operations.clearfix
+    li
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     div
         a(href='pagination-js.html') 点击访问：pagination-JS组件
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   ul.sui-nav.nav-tabs.nav-large
     li.active

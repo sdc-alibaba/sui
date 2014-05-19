@@ -9,8 +9,19 @@ block sidebar
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
   - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["link", "链接"]]
-  div.sui-page-header
-    h1 按钮
+
+  h1 按钮
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/btn.png')
+
+  ul.demo-operations.clearfix
+    li
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     ul.unstyled
@@ -41,7 +52,7 @@ block content
             - var classname = 'sui-btn'
             if s
               - classname += ' btn-' + s
-            if r  
+            if r[0] 
               - classname += ' btn-' + r[0]
             | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
             | 
@@ -73,7 +84,7 @@ block content
       div.bs-docs-example
         each v in ROLES
           - var classname = 'sui-btn'
-          if v
+          if v[0]
             - classname += ' btn-' + v[0]
           |<a href='javascript:void(0);' class='#{classname}'><i class='sui-icon icon-pencil'></i>#{v[1]}</a>
           | 
@@ -100,7 +111,7 @@ block content
       div.bs-docs-example
         each v in ROLES
           - var classname = 'sui-btn btn-block btn-xlarge'
-          if v
+          if v[0]
             - classname += ' btn-' + v[0]
           |<a href='javascript:void(0);' class='#{classname}'>#{v[1]}</a>
           | 

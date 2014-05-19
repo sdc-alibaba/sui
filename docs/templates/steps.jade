@@ -7,8 +7,18 @@ block sidebar
   +sidebar('step')
 
 block content
-  h1.sui-page-header 步骤条
-      small steps
+  h1 步骤条
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/steps.png')
+
+  ul.demo-operations.clearfix
+    li
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     | 适用于需要步骤条的业务场景 
@@ -17,10 +27,6 @@ block content
     <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
     <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
     </ul>
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
