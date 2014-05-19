@@ -8,7 +8,7 @@
 -------------------------------------------------- */
 body {
   position: relative;
-  padding-top: 40px;
+  padding-top: 59px;
   font-size: 14px;
 }
 html,
@@ -18,6 +18,10 @@ body > .sui-layout > .sidebar {
   height: 100%;
 }
 /* Code in headings */
+h1 {
+  font-size: 32px;
+  line-height: 48px;
+}
 h3 code {
   font-size: 14px;
   font-weight: normal;
@@ -55,14 +59,19 @@ body > .sui-navbar {
   font-size: 14px;
 }
 body > .sui-navbar .sui-brand {
-  line-height: 22px;
-  padding: 8px 20px;
+  padding: 3px;
+  font-size: 32px;
+  line-height: 48px;
 }
 body > .sui-navbar > .navbar-inner {
   padding-left: 25px;
+  background-image: none;
 }
 body > .sui-navbar .sui-nav {
   margin-left: 50px;
+}
+body > .sui-navbar .sui-nav > li > a {
+  padding: 20px;
 }
 /* Change the docs' brand */
 body > .navbar .brand {
@@ -80,6 +89,26 @@ body > .navbar .brand {
 body > .navbar .brand:hover {
   text-decoration: none;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.4);
+}
+.sui-page-header {
+  margin-left: 50px;
+  position: relative;
+  border-bottom: 1px solid #666;
+  padding: 0;
+  margin-top: 30px;
+}
+.sui-page-header:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url(../../pictures/title-arrow.png) no-repeat;
+  top: 4px;
+  left: -50px;
+}
+h1.sui-page-header:before {
+  top: 10px;
 }
 .demo-operations {
   margin: 10px 0 40px 0;

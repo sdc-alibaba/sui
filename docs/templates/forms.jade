@@ -18,15 +18,19 @@ block head
 block sidebar
   +sidebar('form')
 block content
-  div.sui-page-header
-    h1 表单
-      small forms
+  h1 表单
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/forms.png')
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
+        a(href='#') 下载psd文件
 
-  h2 inputs
+  h2.sui-page-header 开发者文档
+
   h3 按宽度分类
   p
     <code>select</code> 元素同样适用

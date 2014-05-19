@@ -1,0 +1,348 @@
+extends base
+
+block title
+  title datepicker
+
+block sidebar
+  +sidebar('datetimepicker')
+
+block content
+    h1 日期时间选择插件
+
+    h2.sui-page-header 开发者文档
+
+    ul.sui-nav.nav-tabs.nav-large
+        li
+          a(href='#datepicker', data-toggle='tab') 
+            h3 datepicker
+        li.active
+          a(href='#timepicker', data-toggle='tab') 
+            h3 timepicker 
+        li
+          a(href="#combin", data-toggle='tab') 
+            h3 合体
+    div.tab-content
+        div.tab-pane#datepicker
+            h3 datepicker
+            ul.sui-nav.nav-tabs.nav-large
+                li.active
+                  a(href='#demo', data-toggle='tab') 示例
+                li
+                  a(href='#option', data-toggle='tab') 配置项 
+                li
+                  a(href="#method", data-toggle='tab') 方法
+                li
+                  a(href="#event",data-toggle='tab') 事件         
+
+            div.tab-content
+                div.tab-pane.active#demo
+                    h4 input[type=text]模式
+                    p 使用javascript:
+                    div.bs-docs-example#text-mod
+                        form.sui-form#demo1
+                            input(type="text")          
+
+                    pre.prettyprint.linenums(data-target='#text-mod')           
+
+                    pre.prettyprint.linenums
+                        $('#demo1 input').datepicker({});
+                    p 使用data-api:
+                    div.bs-docs-example
+                        form.sui-form#demo11
+                            input(type="text" data-toggle="datepicker")
+                    pre.prettyprint.linenums(data-target='#demo11')         
+            
+
+                    h4 div.input-prepend&gt;input+span.add-on模式
+                    p 注意: dom得加上class date
+                    p 使用javascript:
+                    div.bs-docs-example#add-mod
+                        form.sui-form
+                            div.input-prepend.date#demo2
+                                span.add-on @
+                                input.span2.input-fat(type="text")
+                                            
+
+                    pre.prettyprint.linenums(data-target='#add-mod')
+                       
+                    pre.prettyprint.linenums.
+                        $('#demo2.date').datepicker({});
+                    p 使用data-api:
+                    div.bs-docs-example#add-mod1
+                        form.sui-form
+                            div.input-prepend.date(data-toggle="datepicker")
+                                span.add-on @
+                                input.span2.input-fat(type="text")
+                    pre.prettyprint.linenums(data-target='#add-mod1')           
+
+                    h4 内嵌模式
+                    p 使用javascript:
+                    div.bs-docs-example#inline-mod
+                        div#demo3
+                    pre.prettyprint.linenums(data-target="#inline-mod")
+                        
+                    pre.prettyprint.linenums.
+                        $('#demo3').datepicker({});
+                    p 使用data-api:
+                    div.bs-docs-example#inline-mod1
+                        div(data-toggle="datepicker-inline")
+                    pre.prettyprint.linenums(data-target="#inline-mod1")
+                        
+                    h4 date - date 模式
+                    p 注意: dom 加上class input-daterange
+                    p 使用javascript:
+                    div.bs-docs-example#range-mod
+                        form.sui-form.form-horizontal
+                            div.control-group.input-daterange#demo4
+                                label.control-label 时间选择：
+                                div.controls
+                                  input.input-medium.input-date(type="text")
+                                  span -
+                                  input.input-medium.input-date(type="text")
+                    pre.prettyprint.linenums(data-target="#range-mod")
+                                    
+
+                    pre.prettyprint.linenums.
+                        $('#demo4.input-daterange').datepicker({
+                            beforeShowDay: function (date){
+                              if (date.getMonth() == (new Date()).getMonth())
+                                switch (date.getDate()){
+                                  case 4:
+                                    return {
+                                      tooltip: 'Example tooltip',
+                                      classes: 'active'
+                                    };
+                                  case 8:
+                                    return false;
+                                  case 12:
+                                    return "green";
+                                }
+                            }
+                        });
+                    p 使用data-api:
+                    div.bs-docs-example#range-mod1
+                        form.sui-form.form-horizontal
+                            div.control-group.input-daterange(data-toggle="datepicker")
+                                label.control-label 时间选择：
+                                div.controls
+                                  input.input-medium.input-date(type="text")
+                                  span -
+                                  input.input-medium.input-date(type="text")
+                    pre.prettyprint.linenums(data-target="#range-mod1")
+                div.tab-pane#option
+                    h4 使用方法
+                    p
+                    | js调用datepicker可以加入控制参数:
+                    pre.prettyprint.linenums.
+                        $('#demo4').datepicker({
+                            startDate: "2014-04-16",
+                            data-date-format: "yyyy-mm-dd"
+                        });
+                    p 这些参数也可以使用data api 来传递：
+                    p 比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"
+                    h4 可配置项
+                                
+
+                    table.sui-table
+                        tr
+                            th 名称
+                            th 默认值
+                            th 说明           
+
+                        tr
+                            td autoclose
+                            td true
+                            td
+                                |选择完日期是否自动关闭日期选择器,false/true
+                        tr
+                            td calendarWeeks
+                            td false
+                            td
+                                | 是否显示第几周 ，false/true
+                        tr
+                            td todayHighlight
+                            td true
+                            td
+                                | 是否高亮今天
+                        tr
+                            td keyboardNavigation
+                            td true
+                            td
+                                | 是否允许键盘选择日期，fasle/true
+                        tr 
+                            td forceParse
+                            td true
+                            td
+                                | 是否强制input中的value为标准日期格式
+                        tr 
+                            td format
+                            td "yyyy-mm-dd"
+                            td
+                                | 日期格式，用y代表年（2014）四个数字中的一个数字，同理 m-月，d-天
+                        tr
+                            td startView
+                            td 0
+                            td
+                                | 插件启动时显示的范围，0-显示一个月，1-显示一年，2-显示10年
+                        tr
+                            td minViewMode
+                            td 0
+                            td
+                                | 显示的最小日期，0-显示到天，1-显示到月，2-显示到年
+                        tr 
+                            td todayBtn
+                            td false
+                            td
+                                | 回到今天按钮，false-不启用，true-启用，"linked"-点击按钮回到今天并且选中今天
+                        tr 
+                            td orientation
+                            td "auto"
+                            td
+                                |  插件相对于输入框的位置，"auto/top/bottom auto/left/right",总共9这种组合，比如"top left"-左上角
+                        tr
+                            td startDate
+                            td -Infinity
+                            td
+                                | 可选的最早时间，"2014-04-16" ,时间格式和format一致
+                        tr 
+                            td endDate
+                            td Infinity
+                            td
+                                | 可选的最远时间，"2014-04-16" ,时间格式和format一致
+                        tr
+                            td Multidate
+                            td false
+                            td
+                                | 多选日期，可以填写数字，表示选择几个日期，比如 "2",可以输入2个日期
+                        tr
+                            td beforeShowDay
+                            td $.noop
+                            td
+                                | 选择日的回调，function(date){return value}， 
+                                | typeof value == undefined -- 不会产生任何影响，
+                                | typeof value == Boolean，是否选中当前日期，
+                                | typeof value === String 作为css class，会被添加到插件当前日期上去
+                                | typeof value == object 可以有三个字段enabled，classes，tooltip。
+                                | enabled 和单独返回Booleen一样，
+                                | classes和单独返回string一样，
+                                | tooltip 会在插件上的当前日期添加一个title属性
+                div.tab-pane#method
+                    p 调用方法
+                    p
+                        pre.prettyprint.linenums.
+                            $('.datepicker').datepicker('method', arg1, arg2);
+                    h4 remove
+                    p 参数：none
+                    p 删除datepicker。会删除绑定的事件，内联对象，和添加的HTML
+                    h4 show
+                    p 参数：none
+                    P 显示datepicker
+                    h4 hide
+                    P 参数：none
+                    p 隐藏 datepicker
+                    h4 update
+                    p 参数 date(String|Date,optional)
+                    p 更新datepicker或者当前的input value
+                    P
+                        pre.prettyprint.linenums.
+                            $('.datepicker').datepicker('update');
+                            $('.datepicker').datepicker('update', '2011-03-05');
+                            $('.datepicker').datepicker('update', new Date(2011, 2, 5));
+                    h4 getDate / getDates
+                    p 参数：none
+                    p 返回当前日期/getDates用于多选模式下
+                    h4 setEndDate/setStartDate
+                    p 参数：Date
+                    p 设置起始/截止日期
+                div.tab-pane#event
+                    p 绑定方式
+                    p
+                        pre.prettyprint.linenums.
+                            $('.datepicker').datepicker()
+                            .on(picker_event, function(e){
+                                // e 中包含有其他的字段
+                            });
+                            // date: Date object,在多选模式下回返回最新的选择的日期
+                            // dates: Array of Date objects
+                            // format([ix],[format]): 一个格式化时间的函数，ix 为在dates里的date的index，不填为最后一个。
+                            //                       format ,格式方式,如'yyyy-mm-dd'
+                    h4 show
+                    p 当datepicker显示时触发
+                    h4 hide
+                    p 当datepicker影藏时触发
+                    h4 changeDate
+                    p 当日期更改时触发
+                    h4 changeYear/changeMonth
+                    p 当展现的year/moth 被改变的时候触发
+        div.tab-pane#timepicker.active
+            h3 timepicker
+            h4 input[type=text]模式
+            p 使用javascript:
+            div.bs-docs-example#text-mod-t1
+                form.sui-form#demo5
+                    input(type="text")
+            pre.prettyprint.linenums(data-target='#text-mod-t1')
+            pre.prettyprint.linenums
+                $('#demo5 input').timepicker();
+            p 使用data-api:
+            div.bs-docs-example#text-mod-t2
+                form.sui-form#demo5
+                    input(type="text" data-toggle="timepicker")
+            pre.prettyprint.linenums(data-target='#text-mod-t2')
+            h4 div.input-prepend>input+span.add-on模式
+            p 注意: dom得加上class date
+            p 使用javascript:
+            div.bs-docs-example#add-mod-t1
+                form.sui-form
+                    div.input-prepend.date#demo6
+                        span.add-on @
+                        input.span2.input-fat(type="text")
+            pre.prettyprint.linenums(data-target='#add-mod-t1')
+            pre.prettyprint.linenums.
+                $('#demo2.date').timepicker();
+            p 使用data-api
+            div.bs-docs-example#add-mod-t2
+                form.sui-form
+                    div.input-prepend.date(data-toggle="timepicker")
+                        span.add-on @
+                        input.span2.input-fat(type="text")
+            pre.prettyprint.linenums(data-target='#add-mod-t2')
+            p 使用javascript:
+            div.bs-docs-example#inline-mod-t1
+                div#demo7
+            pre.prettyprint.linenums(data-target="#inline-mod-t1")
+                
+            pre.prettyprint.linenums.
+                $('#demo7').timepicker();
+            p 使用data-api:
+            div.bs-docs-example#inline-mod-t2
+                div(data-toggle="timepicker-inline")
+            pre.prettyprint.linenums(data-target="#inline-mod-t2")
+        div.tab-pane#combin
+            p 减少接口数量, timepicker视作datepicker的可配置项, 这样datepicker的所有功能都会受到timepicker的影响.
+            p 默认值为false,
+
+            div.bs-docs-example#text-mod3
+                form.sui-form#demo8
+                    input(type="text")          
+
+            pre.prettyprint.linenums(data-target='#text-mod3')           
+
+            pre.prettyprint.linenums
+                |//这里和正常的datepicker保持一致
+                $('#demo8 input').datepicker({
+                |   timepicker:true,
+                |   autoclose: false, //这里最好设置为false
+                });
+
+block js_block
+  script
+    $('#demo1 input').datepicker({});
+    $('#demo2').datepicker({});
+    $('#demo3').datepicker({});
+    $('#demo4').datepicker({});
+    $('#demo5 input ').timepicker();
+    $('#demo6').timepicker();
+    $('#demo7').timepicker();
+    $('#demo8 input').datepicker({timepicker:true,autoclose: false});
+

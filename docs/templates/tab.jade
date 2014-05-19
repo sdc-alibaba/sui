@@ -7,15 +7,21 @@ block sidebar
   +sidebar('tab')
 
 block content
-  h1.sui-page-header 标签页 
-      small tabs
-  p.sui-lead
-    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
+  h1 标签页
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/tab.png')
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
+        a(href='#') 下载psd文件
 
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
 
   h2 默认标签页
   ul.sui-nav.nav-tabs.nav-large

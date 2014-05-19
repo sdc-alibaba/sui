@@ -5,7 +5,6 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items.push({name: 'base-css', title: '基础css', children:[], icon: 'sui-icon icon-magic' })
   - items.push({name: 'css-components', title: 'css组件', children:[], icon: 'sui-icon icon-picture'})
   - items.push({name: 'js-components', title: 'js组件', children:[], icon: 'sui-icon icon-shopping-cart'})
-  - items.push({name: 'extends', title: '拓展组件', children:[], icon: 'sui-icon icon-shopping-cart'})
 
   - items[1].children.push({name: 'grid', title:'栅格', url:'grid.html'})
   - items[1].children.push({name: 'layout', title:'布局', url:'layout.html'})
@@ -35,7 +34,7 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items[4].children.push({name: 'form-validate', title:'表单校验', url:'form-validate.html'})
   - items[4].children.push({name: 'dropdown-js', title:'下拉菜单', url:'dropdown-js.html'})
   - items[4].children.push({name: 'tree-js', title:'级联选择', url:'tree-js.html'})
-  - items[4].children.push({name: 'datepicker', title:'datepicker&timepicker', url:'datepicker&timepicker.html'})
+  - items[4].children.push({name: 'datetimepicker', title:'datetimepicker', url:'datetimepicker.html'})
 
   for cat, i in items
     - var classname = ''
@@ -63,3 +62,6 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
               - classname = "active"
             li(class=classname)
               a(href=item.url) #{item.title}
+
+script(type="text/javascript").
+  var disqus_identifier = 'disqus-id-!{highlight}';

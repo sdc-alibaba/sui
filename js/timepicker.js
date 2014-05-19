@@ -1,3 +1,4 @@
+ /*jshint sub:true*/
 !function ($) {
 function TimePicker(element, cfg){
 	if(!(this instanceof TimePicker)){
@@ -534,8 +535,8 @@ TimePicker.prototype = {
 			currentPosition,
 			tpl = '';
 
-		for(var i = maxSize - fixNum; i <= maxSize; i++){
-			tpl += '<span>' + self._beautifyNum(i) + '</span>';
+		for(var j = maxSize - fixNum; j <= maxSize; j++){
+			tpl += '<span>' + self._beautifyNum(j) + '</span>';
 		}
 
 		innerPickerCon.prepend($(tpl));
@@ -573,8 +574,7 @@ TimePicker.prototype = {
 
 	_setValue: function(){
 		if (this.isInline) return;
-		var element,text,
-			 minute,hour;
+		var element, text, minute, hour;
 		hour = this.hourAttr.current;
 		minute =  this.minuteAttr.current;
 		text = this._beautifyNum(hour)+' : '+ this._beautifyNum(minute);
