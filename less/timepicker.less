@@ -1,0 +1,155 @@
+.timepicker {
+    width: 100px;
+    height: 228px;
+    //border: 1px solid #ddd;
+    position: relative;
+    padding: 12px 20px;
+    background: #fff;
+    .clearfix();
+    .picker-wrap { 
+        width: 40px;
+        overflow: hidden;
+        float: left;
+        position: relative;
+        z-index: 1
+    }
+    .picker-wrap:first-child {
+        margin-right: 20px
+    }
+    .picker-btn {
+        display: block;
+        width: 50%;
+        height: 27px;
+        line-height: 25px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        @top: 0px;     
+        .arrow,.arrow-bg{
+            width: 0;
+            height: 0;
+            display: inline-block;
+            position: absolute;
+            left: 3px;
+        }
+        .arrow{
+            border: 7px solid #bbb;
+        }
+        .arrow-bg{
+            border: 7px solid #fff;
+        }
+        &.up{
+            @top:0px;
+            .arrow,.arrow-bg{
+                border-left-color: transparent;
+                border-top-color: transparent;
+                border-right-color: transparent;
+            }
+            .arrow{
+                top: @top;
+            }
+            .arrow-bg{
+                top: @top + 1;
+            }
+        }
+        &.down{
+            @bottom: 0px;
+            .arrow,.arrow-bg{
+                border-left-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+            }
+            .arrow{
+                bottom: @bottom;
+            }
+            .arrow-bg{
+                bottom: @bottom + 1;
+            }
+        }
+    }
+    .picker-con {
+        width: 100%;
+        height: 174px;
+        overflow: hidden;
+        position: relative;
+        // border: 1px solid red;
+        .picker-innercon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            -webkit-transition: .5s;
+            transition: .5s;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        span {
+            display: block;
+            height: 35px;
+            width: 100%;
+            text-align: center;
+            line-height: 35px;
+            cursor: pointer;
+            color: #bbb;
+            &.current {
+                color: #000;
+                font-size: 16px
+            }
+        }
+    }
+    .timePicker-split {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -15px;
+        height: 30px;
+        width: 100px;
+        z-index: 0;
+        .hour-input,
+        .minute-input{
+            width: 38px;
+            height: 28px;
+            border: 1px solid #ececec;
+            float: left;
+            background: #f9f9f9; 
+        }
+        .split-icon {
+            width: 20px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            text-align: center;
+            color: #000;
+        }
+    }
+    &.dropdown-menu{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: @zindexDropdown;
+        float: left;
+        display: none; // none by default, but block on "open" of the menu
+        list-style: none;
+       /* padding: 0;*/
+        background-color: @dropdownBackground;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,.2);
+        .border-radius(0px);
+        .box-shadow(0 5px 10px rgba(0,0,0,.2));
+        -webkit-background-clip: padding-box;
+           -moz-background-clip: padding;
+                background-clip: padding-box;
+        *border-right-width: 2px;
+        *border-bottom-width: 2px;  
+
+        // Normally inherited from bootstrap's `body`
+        color: #333333;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size:13px;
+        line-height: @baseLineHeight;
+    }
+}

@@ -37,9 +37,14 @@ a.sui-muted:focus        { color: darken(@grayLight, 10%); }
 a.sui-text-warning:hover,
 a.sui-text-warning:focus { color: darken(@warningText, 10%); }
 
+//兼容danger和error
 .sui-text-error          { color: @errorText; }
 a.sui-text-error:hover,
 a.sui-text-error:focus   { color: darken(@errorText, 10%); }
+
+.sui-text-danger          { color: @errorText; }
+a.sui-text-danger:hover,
+a.sui-text-danger:focus   { color: darken(@errorText, 10%); }
 
 .sui-text-info           { color: @infoText; }
 a.sui-text-info:hover,
