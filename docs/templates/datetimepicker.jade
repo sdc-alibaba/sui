@@ -12,17 +12,17 @@ block content
     h2.sui-page-header 开发者文档
 
     ul.sui-nav.nav-tabs.nav-large
-        li
+        li.active
           a(href='#datepicker', data-toggle='tab') 
             h3 datepicker
-        li.active
+        li
           a(href='#timepicker', data-toggle='tab') 
             h3 timepicker 
         li
           a(href="#combin", data-toggle='tab') 
             h3 合体
     div.tab-content
-        div.tab-pane#datepicker
+        div.tab-pane#datepicker.active
             h3 datepicker
             ul.sui-nav.nav-tabs.nav-large
                 li.active
@@ -274,7 +274,7 @@ block content
                     p 当日期更改时触发
                     h4 changeYear/changeMonth
                     p 当展现的year/moth 被改变的时候触发
-        div.tab-pane#timepicker.active
+        div.tab-pane#timepicker
             h3 timepicker
             h4 input[type=text]模式
             p 使用javascript:
