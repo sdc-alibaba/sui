@@ -623,6 +623,19 @@
     }
   }
 
+  .input-inner {
+    .input-append;
+    input {
+      .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    }
+    .add-on {
+      margin-right: -1px;
+    }
+    .add-on + input {
+      .border-radius( 0 @inputBorderRadius @inputBorderRadius 0);
+    }
+  }
+
   .input-prepend {
     .add-on,
     .btn {
