@@ -1,0 +1,100 @@
+extends base
+
+block title
+  title 选框
+
+block sidebar
+  +sidebar('checkbox')
+
+block content
+
+  h1 单选框和复选框
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 这是js重写的选框组件，兼容ie8+。但是使用此组件必须引入sui.js。
+
+  h2 通过data-api使用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      form.sui-form
+        h3 复选框
+        label.checkbox-pretty.inline.checked(data-toggle='checkbox')
+          input(type='checkbox' checked='checked')
+          span 鸣人
+
+        label.checkbox-pretty.inline(data-toggle='checkbox')
+          input(type='checkbox')
+          span 佐助
+
+        h3 单选框
+        label.radio-pretty.inline.checked(data-toggle='radio')
+          input(type='radio' checked='checked' name='radio')
+          span 服装
+
+        label.radio-pretty.inline(data-toggle='radio')
+          input(type='radio' name='radio')
+          span 电器
+        label.radio-pretty.inline(data-toggle='radio')
+          input(type='radio' name='radio')
+          span 美食
+
+        h3 半选
+        label.checkbox-pretty.inline.halfchecked(data-toggle='radio')
+          input(type='checkbox')
+          span 半选
+
+        h3 禁用
+        label.checkbox-pretty.inline.checked.disabled(data-toggle='radio')
+          input(type='checkbox' checked='checked' disabled)
+          span 不可选
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>form') 复制代码
+
+  h2 通过JS调用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      form.sui-form
+        h3 复选框
+        label.checkbox-pretty.inline.checked#checkbox2(data-toggle='checkbox')
+          input(type='checkbox' checked='checked')
+          span 选项一
+      script.
+        $("#checkbox2").checkbox()
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
+    div.tab-pane#doc2
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>form') 复制代码
+

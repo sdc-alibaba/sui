@@ -1,0 +1,52 @@
+.checkbox-pretty,
+.radio-pretty
+{
+  input {
+    display: none;
+  }
+  span {
+    .sui-icon;
+    font-family: 'icon-pc';
+  }
+  span:before {
+    content: "\e605";
+    margin-right: 2px;
+    vertical-align: middle;
+    font-size: 150%;
+    color: #666;
+  }
+
+  &:hover {
+    span:before {
+      color: @linkColor;
+    }
+  }
+  &.checked > span:before {
+    content: "\e607";
+    color: @linkColor;
+  }
+  &.halfchecked > span:before {
+    content: "\e606";
+    color: @linkColor;
+  }
+
+  &.inline + &.inline {
+    margin-left: 6px;
+  }
+
+  &.disabled {
+    color: #999;
+    span:before {
+      color: #aaa;
+    }
+  }
+}
+
+.radio-pretty {
+  span:before {
+    content: "\e603";
+  }
+  &.checked > span:before {
+    content: "\e604";
+  }
+}
