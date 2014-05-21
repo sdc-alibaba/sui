@@ -46,14 +46,17 @@
   }
 
   Checkbox.prototype.check = function () {
+    if(this.$checkbox.prop("disabled")) return
     this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
     this.$checkbox.prop('checked', 'checked')
   }
   Checkbox.prototype.uncheck = function () {
+    if(this.$checkbox.prop("disabled")) return
     this.$element.removeClass(HALF_CHECKED_CLASS).removeClass(CHECKED_CLASS)
     this.$checkbox.removeAttr('checked')
   }
   Checkbox.prototype.halfcheck = function () {
+    if(this.$checkbox.prop("disabled")) return
     this.$element.removeClass(CHECKED_CLASS).addClass(HALF_CHECKED_CLASS)
     this.$checkbox.removeAttr('checked')
   }
