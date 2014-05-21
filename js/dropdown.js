@@ -80,7 +80,7 @@
     var $target = $(e.currentTarget)
     var $container = $target.parents(".sui-dropdown")
     var $menu = $container.find("[role='menu']")
-    $container.find("input").val($target.attr("value"))
+    $container.find("input").val($target.attr("value")).trigger("change")
     $container.find(toggle + ' span').html($target.html())
     $menu.find(".active").removeClass("active")
     $target.parent().addClass("active")
