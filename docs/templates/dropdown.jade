@@ -242,4 +242,40 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
 
+  h2 在表单中使用
+  p.sui-lead
+    | 在表单中使用下拉菜单来模拟select。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+    li
+      a(href='#doc4', data-toggle='tab') 文档
 
+  div.tab-content
+    div.tab-pane.active#demo4
+      div.bs-docs-example(style='min-height: 250px;')
+
+        h3 带边框
+        span.sui-dropdown.dropdown-bordered
+          span.dropdown-inner
+            a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+              input(value='hz' name='city' type='hidden')
+              i.caret
+              span 杭州
+            ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+              li(role="presentation" class="divider")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+    div.tab-pane#doc4
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
