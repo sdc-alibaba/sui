@@ -2,7 +2,10 @@
 .radio-pretty
 {
   input {
-    display: none;
+    //这里不能用display:none，或者visibility:hidden;否则在ie下input会直接被忽略
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
   }
   span {
     .sui-icon;
