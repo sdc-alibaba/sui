@@ -14,7 +14,6 @@ body {
   position: relative;
   padding-top: 59px;
   font-size: 14px;
-  min-width: 1000px;
 }
 
 
@@ -220,8 +219,31 @@ h1.sui-page-header:before {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
+  body {
+    padding: 0;
+  }
+  body > .sui-layout {
+    > .sidebar {
+      position: static;
+      float: none;
+      height: auto;
+    }
+    > .content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  }
+
   body > .sui-layout > .sidebar {
-    position: absolute;
+    width: auto;
+    height: auto;
+  }
+
+  .docs-sidenav {
+    width: auto;
+  }
+  body > .sui-navbar {
+    position: static;
   }
 }
