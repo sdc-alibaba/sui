@@ -6,6 +6,7 @@
   "use strict";
   var parseCode = function(code) {
     //格式化代码，删除多余缩进空格，删除多余空行
+    if(!code) return;
     code = code.replace(/^ *\n/g, '').replace(/\s+$/g, '')
     var indentNum = (/^\s+/.exec(code) || ["", ""])[0] .length
     return code.replace(new RegExp(' {'+indentNum+'}', 'g'), '')

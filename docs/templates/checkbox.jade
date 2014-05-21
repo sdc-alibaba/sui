@@ -1,0 +1,146 @@
+extends base
+
+block title
+  title 选框
+
+block sidebar
+  +sidebar('checkbox')
+
+block content
+
+  h1 单选框和复选框
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 这是js重写的选框组件，兼容ie8+。但是使用此组件必须引入sui.js。此组件内部依然通过原生的checkbox和radio来实现，所以不会影响原生的表单操作。
+    br
+    | 注意，在使用此组件的时候不要通过直接修改input的方式来操作，而是通过checkbox api来调用。
+
+  h2 通过data-api使用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      form.sui-form
+        h3 复选框
+        label.checkbox-pretty.inline.checked(data-toggle='checkbox')
+          input(type='checkbox' checked='checked')
+          span 鸣人
+
+        label.checkbox-pretty.inline(data-toggle='checkbox')
+          input(type='checkbox')
+          span 佐助
+
+        h3 单选框
+        label.radio-pretty.inline.checked(data-toggle='radio')
+          input(type='radio' checked='checked' name='radio')
+          span 服装
+
+        label.radio-pretty.inline(data-toggle='radio')
+          input(type='radio' name='radio')
+          span 电器
+        label.radio-pretty.inline(data-toggle='radio')
+          input(type='radio' name='radio')
+          span 美食
+
+        h3 半选
+        label.checkbox-pretty.inline.halfchecked(data-toggle='radio')
+          input(type='checkbox')
+          span 半选
+
+        h3 禁用
+        label.checkbox-pretty.inline.checked.disabled(data-toggle='radio')
+          input(type='checkbox' checked='checked' disabled)
+          span 不可选
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      p
+        | 通过添加 <code>data-toggle='checobox'</code> 或者 <code>data-toggle='radio'</code> 来启用。
+      p
+        | 在初始化的时候同时设置好input的属性和label的class，否则在js加载之后可能会闪一下或者会出现状态不一致。
+
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>form') 复制代码
+
+  h2 通过JS调用
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+    li
+      a(href='#api2', data-toggle='tab') API
+
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      form.sui-form
+        h3 复选框
+        label.checkbox-pretty.inline.checked#checkbox2(data-toggle='checkbox')
+          input(type='checkbox' checked='checked')
+          span 选项一
+        div.op.sui-btn-group(style='display:block;margin-top: 15px;')
+          a.sui-btn.btn-primary(name='check' href='javascript:void(0);') 选中
+          a.sui-btn.btn-primary(name='uncheck' href='javascript:void(0);') 取消
+          a.sui-btn.btn-primary(name='halfcheck' href='javascript:void(0);') 半选
+          a.sui-btn.btn-primary(name='toggle' href='javascript:void(0);') toggle
+          a.sui-btn.btn-primary(name='disable' href='javascript:void(0);') disable
+          a.sui-btn.btn-primary(name='enable' href='javascript:void(0);') enable
+      script.
+        var $checkbox = $("#checkbox2").checkbox()
+        $(".op").on("click", "a", function(e){
+          var $a = $(e.currentTarget);
+          $checkbox.checkbox($a.attr("name"))
+        })
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2')
+    div.tab-pane#doc2
+      ul.unstyled
+        li 要把checkbox当做一个组件来用，不要通过js直接修改input的属性，要通过checkbox api来调用。
+        li 禁用状态会禁止用户的操作，但是不会禁止通过api来修改状态。
+        li 半选状态其实就是未选中，所以不会向后台提交。
+    div.tab-pane#api2
+      table.sui-table
+        thead
+          tr
+            th 方法
+            th 说明
+        tbody
+          tr
+            td check
+            td 选中
+          tr
+            td uncheck
+            td 取消选中
+          tr
+            td halfcheck
+            td 半选
+          tr
+            td disable
+            td 禁用
+          tr
+            td enable
+            td 启用
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>form') 复制代码
+
