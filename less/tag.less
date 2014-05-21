@@ -1,11 +1,11 @@
 .sui-tag {
   list-style: none;
   font-size: 0;
-  line-height: @baseFontSize;
-  padding: 5px;
+  line-height: 0;
+  padding: 5px 5px 0 5px;
   &>li, &>a {
     font-size: @baseFontSize;
-    margin-right: 5px;
+    margin: 0 5px 5px 0;
     display: inline-block;
     overflow: hidden;
     color: @black;
@@ -22,6 +22,7 @@
     &.tag-selected {
       color: @white;
       background: @stepsCurrentColor;
+      border-color: #1c91d3;
     }
     .transition(color 0.2s ease-out);
     &.with-x {
