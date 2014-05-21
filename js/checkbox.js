@@ -4,6 +4,7 @@
 
   var CHECKED_CLASS = 'checked';
   var HALF_CHECKED_CLASS = 'halfchecked';
+  var DISABLED_CLASS= 'disabled';
 
   var Checkbox = function (element, options) {
     this.$element = $(element)
@@ -13,7 +14,8 @@
     this.update()
     var name = this.$checkbox.prop("name")
     var self = this;
-    if (name) {
+    if (name && this.$checkbox.attr("type").toUpperCase() == 'RADIO') {
+      //radio 会因为其他相同name 的radio的改变而受到影响
       $("input[name='"+name+"']").each(function(){
         $(this).change($.proxy(self.update, self))
       })
@@ -35,19 +37,34 @@
   Checkbox.prototype.update = function () {
     if(this.$checkbox.prop("checked")) this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
     else this.$element.removeClass(CHECKED_CLASS)
+    if(this.$checkbox.attr('disabled')) this.$element.addClass(DISABLED_CLASS)
+    else this.$element.removeClass(DISABLED_CLASS)
   }
   Checkbox.prototype.toggle = function () {
-    this.$element.removeClass(HALF_CHECKED_CLASS).toggleClass(CHECKED_CLASS)
+    if(this.$checkbox.attr("checked")) this.uncheck()
+    else this.check()
   }
 
   Checkbox.prototype.check = function () {
     this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
+    this.$checkbox.attr('checked', 'checked')
   }
   Checkbox.prototype.uncheck = function () {
     this.$element.removeClass(HALF_CHECKED_CLASS).removeClass(CHECKED_CLASS)
+    this.$checkbox.removeAttr('checked')
   }
   Checkbox.prototype.halfcheck = function () {
     this.$element.removeClass(CHECKED_CLASS).addClass(HALF_CHECKED_CLASS)
+    this.$checkbox.removeAttr('checked')
+  }
+
+  Checkbox.prototype.disable = function () {
+    this.$element.addClass(DISABLED_CLASS)
+    this.$checkbox.attr('disabled', 'disabled')
+  }
+  Checkbox.prototype.enable = function () {
+    this.$element.removeClass(DISABLED_CLASS)
+    this.$checkbox.removeAttr('disabled')
   }
 
   $.fn.checkbox.defaults = {
