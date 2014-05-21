@@ -14,7 +14,9 @@ body {
   position: relative;
   padding-top: 59px;
   font-size: 14px;
+  min-width: 1000px;
 }
+
 
 html, body, .sui-layout,
 body > .sui-layout > .sidebar {
@@ -39,9 +41,6 @@ h3 code {
   margin-left: 150px;
   background: #fff;
   overflow: hidden;
-}
-.sui-layout .content-inner {
-  max-width: 1200px;
 }
 
 body > .sui-layout > .sidebar {
@@ -196,5 +195,33 @@ h1.sui-page-header:before {
   .sui-navbar .sui-container {
     width: 1400px;
     margin: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .sui-layout .content {
+    margin-left: 180px;
+  }
+
+  body > .sui-layout > .sidebar {
+    width: 180px;
+  }
+
+  .docs-sidenav {
+    width: 181px;
+  }
+}
+@media (max-height: 600px) {
+  .sui-nav.nav-tabs.nav-xlarge > li > a {
+    padding: 8px 18px;
+  }
+  .sui-nav.nav-tabs.nav-stacked.nav-xlarge .nav-tabs.nav-stacked > li > a {
+    padding: 4px 16px;
+    border: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  body > .sui-layout > .sidebar {
+    position: absolute;
   }
 }
