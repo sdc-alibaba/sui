@@ -355,7 +355,36 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo8>div') 复制代码
 
+  h2 select
+  p.sui-lead
+    | 详细文档点击这里 <a href='dropdown.html'>dropdown</a>
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo12', data-toggle='tab') 示例
+    li
+      a(href='#code12', data-toggle='tab') 代码
 
+  div.tab-content
+    div.tab-pane.active#demo12
+      div.bs-docs-example(style='min-height: 250px;')
+
+        span.sui-dropdown.dropdown-bordered.select
+          span.dropdown-inner
+            a.dropdown-toggle#drop12(role="button" data-toggle="dropdown" href="#") 
+              input(value='hz' name='city' type='hidden')
+              i.caret
+              span 杭州
+            ul#menu12.sui-dropdown-menu(role="menu" aria-labelledby="drop12")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+              li(role="presentation" class="divider")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+
+    div.tab-pane#code12
+      pre.prettyprint.linenums(data-target='#demo12>div')
   h2 Textarea
 
   ul.sui-nav.nav-tabs.nav-large

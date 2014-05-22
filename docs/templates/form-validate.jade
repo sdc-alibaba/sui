@@ -54,13 +54,29 @@ block content
             label.control-label(for="inputGender") 性别：
             div.controls
               label.radio-pretty.inline(data-toggle='radio')
-                input(type='radio' name='gender' value='1')
+                input(type='radio' name='gender' value='1' data-rules='required')
                 span 男
               label.radio-pretty.inline(data-toggle='radio')
-                input(type='radio' name='gender' value='2')
+                input(type='radio' name='gender' value='2' data-rules='required')
                 span 女
 
           div.control-group
+            label.control-label(for="inputGender") 地址：
+            div.controls
+              span.sui-dropdown.dropdown-bordered.select
+                span.dropdown-inner
+                  a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
+                    input(name='city' type='hidden' data-rules='required')
+                    i.caret
+                    span 请选择
+                  ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+
+          div.control-group
+            label.control-label()
             div.controls
               button.sui-btn.btn-primary(type="submit") 立即注册
     div.tab-pane#code1
@@ -263,6 +279,7 @@ block content
                 s.msg-icon
 
           div.control-group
+            label.control-label(for="sanwei")
             div.controls
               button.sui-btn.btn-primary(type="submit") 立即注册
         script.

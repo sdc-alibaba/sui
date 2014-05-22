@@ -6,7 +6,7 @@
   'use strict';
   var Validate = function(form, options) {
     var self = this;
-    this.options = $.extend($.fn.validate.defaults, options)
+    this.options = $.extend({}, $.fn.validate.defaults, options)
     this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
       return onsubmit.call(self);
@@ -70,6 +70,7 @@
     rules = $.extend(rules, configRules)
     var error = false;
     var msg = null;
+    console.log(rules, input)
     for (var name in rules) {
       var value = rules[name];
 
