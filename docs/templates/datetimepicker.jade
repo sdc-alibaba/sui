@@ -15,7 +15,7 @@ block content
         li.active
           a(href='#datepicker', data-toggle='tab') 
             h3 datepicker
-        li
+        li#timepickerCont
           a(href='#timepicker', data-toggle='tab') 
             h3 timepicker 
         li
@@ -307,6 +307,11 @@ block content
                         span.add-on @
                         input.span2.input-fat(type="text")
             pre.prettyprint.linenums(data-target='#add-mod-t2')
+            h4 内联模式
+            P 注意: 这种模式下, 当前时间的位置是在调用timepicker()时就进行计算的.
+            P       因此如果在计算时, 如果timepicker的容器的是 display:none 的话,会导
+            p       致错误. 可以在当前容器为 visible 时, 调用 $('#dom').timepicker('show')
+            P       重新计算.
             p 使用javascript:
             div.bs-docs-example#inline-mod-t1
                 div#demo7
@@ -314,6 +319,9 @@ block content
                 
             pre.prettyprint.linenums.
                 $('#demo7').timepicker();
+                $('#timepickerCont a').on('shown',function(){
+                |    $('#demo7').timepicker('show')
+                });
             p 使用data-api:
             div.bs-docs-example#inline-mod-t2
                 div(data-toggle="timepicker-inline")
@@ -344,5 +352,6 @@ block js_block
     $('#demo5 input ').timepicker();
     $('#demo6').timepicker();
     $('#demo7').timepicker();
+    $('#timepickerCont a').on('shown',function(){$('#demo7,#inline-mod-t2>div').timepicker('show')});
     $('#demo8 input').datepicker({timepicker:true,autoclose: false});
 
