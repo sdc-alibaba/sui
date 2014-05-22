@@ -244,7 +244,7 @@ block content
 
   h2 在表单中使用
   p.sui-lead
-    | 在表单中使用下拉菜单来模拟select。
+    | 在表单中使用下拉菜单来模拟select。注意，这里的html结构和上面仅仅当做下拉菜单是不同的。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo4', data-toggle='tab') 示例
@@ -276,6 +276,8 @@ block content
     div.tab-pane#code4
       pre.prettyprint.linenums(data-target='#demo4>div')
     div.tab-pane#doc4
+      p
+        | 用户选择的值会写入隐藏的input中。改变值时会在隐藏input上触发change事件。
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
