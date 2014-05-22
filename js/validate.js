@@ -70,7 +70,6 @@
     rules = $.extend(rules, configRules)
     var error = false;
     var msg = null;
-    console.log(rules, input)
     for (var name in rules) {
       var value = rules[name];
 
