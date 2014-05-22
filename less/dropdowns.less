@@ -25,6 +25,10 @@
       z-index: 9;
     }
   }
+  &.select .sui-dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+  }
   .sui-dropdown-menu {
     display: none;
     position: absolute;
@@ -116,6 +120,7 @@
         position: relative;
         z-index: 10;
         border-bottom: 1px solid @dropdownBorder;
+        margin-bottom: -1px;  //避免增加一像素border改变了高度
       }
     }
   }

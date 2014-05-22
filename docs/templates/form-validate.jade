@@ -53,12 +53,13 @@ block content
           div.control-group
             label.control-label(for="inputGender") 性别：
             div.controls
-              label.radio.inline
-                input(type="radio" name='gender' data-rules='required' value='1')
-                | 男
-              label.radio.inline
-                input(type="radio" name='gender' data-rules='required' value='2')
-                | 女
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='1')
+                span 男
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='2')
+                span 女
+
           div.control-group
             div.controls
               button.sui-btn.btn-primary(type="submit") 立即注册
@@ -246,12 +247,13 @@ block content
           div.control-group
             label.control-label(for="inputGender") 性别：
             div.controls
-              label.radio.inline
-                input(type="radio" name='gender' value='1')
-                | 男
-              label.radio.inline
-                input(type="radio" name='gender' value='2')
-                | 女
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='1')
+                span 男
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='2')
+                span 女
+
           div.control-group
             label.control-label(for="sanwei") 三维：
             div.controls
