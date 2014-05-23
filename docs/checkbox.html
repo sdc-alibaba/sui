@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Label </title>
+    <title>选框</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -66,8 +66,8 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="checkbox.html">选框</a></li>
-                  <li class="active"><a href="label.html">Label</a></li>
+                  <li class="active"><a href="checkbox.html">选框</a></li>
+                  <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
                   <li><a href="loading.html">Loading</a></li>
@@ -86,12 +86,14 @@
                 </ul>
               </li>
             </ul>
-            <script type="text/javascript">var disqus_identifier = 'disqus-id-Label';</script>
+            <script type="text/javascript">var disqus_identifier = 'disqus-id-checkbox';</script>
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1>Label</h1>
+          <h1>单选框和复选框</h1>
           <h2 class="sui-page-header">开发者文档</h2>
+          <p class="sui-lead">这是js重写的选框组件，兼容ie8+。但是使用此组件必须引入sui.js。此组件内部依然通过原生的checkbox和radio来实现，所以不会影响原生的表单操作。<br>注意，在使用此组件的时候不要通过直接修改input的方式来操作，而是通过checkbox api来调用。</p>
+          <h2>通过data-api使用</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -99,43 +101,115 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <style>
-                .bs-docs-example ul {
-                  margin-bottom: 20px;
-                }
-                .bs-docs-example li {
-                  display: inline-block;
-                  margin: 0 10px 10px 0;
-                }
-              </style>
-              <div class="bs-docs-example">
-                <ul>
-                  <li><span class="sui-label label-">默认</span></li>
-                  <li><span class="sui-label label-success">上升</span></li>
-                  <li><span class="sui-label label-warning">持平</span></li>
-                  <li><span class="sui-label label-danger">下降</span></li>
-                  <li><span class="sui-label label-info">公告</span></li>
-                </ul>
-                <ul>
-                  <li><span>默认文本</span></li>
-                  <li><span class="sui-text-">默认</span></li>
-                  <li><span class="sui-text-success">上升</span></li>
-                  <li><span class="sui-text-warning">持平</span></li>
-                  <li><span class="sui-text-danger">下降</span></li>
-                  <li><span class="sui-text-info">公告</span></li>
-                </ul>
-              </div>
+              <form class="sui-form">
+                <h3>复选框</h3>
+                <label data-toggle="checkbox" class="checkbox-pretty inline checked">
+                  <input type="checkbox" checked="checked"><span>鸣人</span>
+                </label>
+                <label data-toggle="checkbox" class="checkbox-pretty inline">
+                  <input type="checkbox"><span>佐助</span>
+                </label>
+                <h3>单选框</h3>
+                <label data-toggle="radio" class="radio-pretty inline checked">
+                  <input type="radio" checked="checked" name="radio"><span>服装</span>
+                </label>
+                <label data-toggle="radio" class="radio-pretty inline">
+                  <input type="radio" name="radio"><span>电器</span>
+                </label>
+                <label data-toggle="radio" class="radio-pretty inline">
+                  <input type="radio" name="radio"><span>美食</span>
+                </label>
+                <h3>半选</h3>
+                <label data-toggle="radio" class="checkbox-pretty inline halfchecked">
+                  <input type="checkbox"><span>半选</span>
+                </label>
+                <h3>禁用</h3>
+                <label data-toggle="radio" class="checkbox-pretty inline checked disabled">
+                  <input type="checkbox" checked="checked" disabled><span>不可选</span>
+                </label>
+              </form>
             </div>
             <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
+              <pre data-target="#demo1" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。</p>
-              <p><code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标识label</p>
+              <p>通过添加 <code>data-toggle='checobox'</code> 或者 <code>data-toggle='radio'</code> 来启用。</p>
+              <p>在初始化的时候同时设置好input的属性和label的class，否则在js加载之后可能会闪一下或者会出现状态不一致。</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1&gt;form" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>通过JS调用</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+            <li><a href="#api2" data-toggle="tab">API</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <form class="sui-form">
+                <h3>复选框</h3>
+                <label id="checkbox2" data-toggle="checkbox" class="checkbox-pretty inline checked">
+                  <input type="checkbox" checked="checked"><span>选项一</span>
+                </label>
+                <div style="display:block;margin-top: 15px;" class="op sui-btn-group"><a name="check" href="javascript:void(0);" class="sui-btn btn-primary">选中</a><a name="uncheck" href="javascript:void(0);" class="sui-btn btn-primary">取消</a><a name="halfcheck" href="javascript:void(0);" class="sui-btn btn-primary">半选</a><a name="toggle" href="javascript:void(0);" class="sui-btn btn-primary">toggle</a><a name="disable" href="javascript:void(0);" class="sui-btn btn-primary">disable</a><a name="enable" href="javascript:void(0);" class="sui-btn btn-primary">enable</a></div>
+              </form>
+              <script>
+                var $checkbox = $("#checkbox2").checkbox()
+                $(".op").on("click", "a", function(e){
+                  var $a = $(e.currentTarget);
+                  $checkbox.checkbox($a.attr("name"))
+                })
+                
+              </script>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <ul class="unstyled">
+                <li>要把checkbox当做一个组件来用，不要通过js直接修改input的属性，要通过checkbox api来调用。</li>
+                <li>禁用状态会禁止用户的操作，但是不会禁止通过api来修改状态。</li>
+                <li>半选状态其实就是未选中，所以不会向后台提交。</li>
+              </ul>
+            </div>
+            <div id="api2" class="tab-pane">
+              <table class="sui-table">
+                <thead>
+                  <tr>
+                    <th>方法</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>check</td>
+                    <td>选中</td>
+                  </tr>
+                  <tr>
+                    <td>uncheck</td>
+                    <td>取消选中</td>
+                  </tr>
+                  <tr>
+                    <td>halfcheck</td>
+                    <td>半选</td>
+                  </tr>
+                  <tr>
+                    <td>disable</td>
+                    <td>禁用</td>
+                  </tr>
+                  <tr>
+                    <td>enable</td>
+                    <td>启用</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo2&gt;form" class="copy-btn">复制代码</a></li>
           </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">

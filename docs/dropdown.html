@@ -72,6 +72,7 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li class="active"><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
@@ -260,6 +261,34 @@
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>在表单中使用</h2>
+          <p class="sui-lead">在表单中使用下拉菜单来模拟select。注意，这里的html结构和上面仅仅当做下拉菜单是不同的。</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
+            <li><a href="#code4" data-toggle="tab">代码</a></li>
+            <li><a href="#doc4" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo4" class="tab-pane active">
+              <div style="min-height: 250px;" class="bs-docs-example"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                      <input value="hz" name="city" type="hidden"><i class="caret"></i><span>杭州</span></a>
+                    <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="hz">杭州</a></li>
+                    </ul></span></span></div>
+            </div>
+            <div id="code4" class="tab-pane">
+              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc4" class="tab-pane">
+              <p>用户选择的值会写入隐藏的input中。改变值时会在隐藏input上触发change事件。</p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">

@@ -78,6 +78,7 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
@@ -301,29 +302,46 @@
             <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <h2>Checkboxes and radios</h2>
+          <p class="sui-lead">checkbox和radio的详细文档请点 <a href='checkbox.html'>checkbox</a></p>
           <h3>默认状态</h3>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo7" data-toggle="tab">示例</a></li>
             <li><a href="#code7" data-toggle="tab">代码</a></li>
-            <li><a href="#doc7" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo7" class="tab-pane active">
               <div class="bs-docs-example">
                 <form class="sui-form">
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
-                  <label class="checkbox"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
-                  <label class="radio"><input name="single" type="radio" value="1" /> 单选1</label>
-                  <label class="radio"><input name="single" type="radio" value="2" /> 单选2</label>
-                  <label class="radio"><input name="single" type="radio" value="3" /> 单选3</label>
+                  <label data-toggle="checkbox" class="checkbox-pretty checked">
+                    <input type="checkbox" checked="checked"><span>鸣人</span>
+                  </label>
+                  <label data-toggle="checkbox" class="checkbox-pretty">
+                    <input type="checkbox"><span>佐助</span>
+                  </label>
+                  <h3>单选框</h3>
+                  <label data-toggle="radio" class="radio-pretty checked">
+                    <input type="radio" checked="checked" name="radio1"><span>服装</span>
+                  </label>
+                  <label data-toggle="radio" class="radio-pretty">
+                    <input type="radio" name="radio1"><span>电器</span>
+                  </label>
+                  <label data-toggle="radio" class="radio-pretty">
+                    <input type="radio" name="radio1"><span>美食</span>
+                  </label>
+                  <h3>半选</h3>
+                  <label data-toggle="radio" class="checkbox-pretty halfchecked">
+                    <input type="checkbox"><span>半选</span>
+                  </label>
+                  <h3>禁用</h3>
+                  <label data-toggle="radio" class="checkbox-pretty checked disabled">
+                    <input type="checkbox" checked="checked" disabled><span>不可选</span>
+                  </label>
                 </form>
               </div>
             </div>
             <div id="code7" class="tab-pane">
               <pre data-target="#demo7&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc7" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo7&gt;div" class="copy-btn">复制代码</a></li>
@@ -332,18 +350,35 @@
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo8" data-toggle="tab">示例</a></li>
             <li><a href="#code8" data-toggle="tab">代码</a></li>
-            <li><a href="#doc8" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo8" class="tab-pane active">
               <div class="bs-docs-example">
                 <form class="sui-form">
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="1" /> 多选1</label>
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="2" /> 多选2</label>
-                  <label class="checkbox inline"><input name="multiple" type="checkbox" value="3" /> 多选3</label><br /><br />
-                  <label class="checkbox inline"><input name="single" type="radio" value="1" /> 单选1</label>
-                  <label class="checkbox inline"><input name="single" type="radio" value="2" /> 单选2</label>
-                  <label class="checkbox inline"><input name="single" type="radio" value="3" /> 单选3</label>
+                  <label data-toggle="checkbox" class="checkbox-pretty inline checked">
+                    <input type="checkbox" checked="checked"><span>鸣人</span>
+                  </label>
+                  <label data-toggle="checkbox" class="checkbox-pretty inline">
+                    <input type="checkbox"><span>佐助</span>
+                  </label>
+                  <h3>单选框</h3>
+                  <label data-toggle="radio" class="radio-pretty inline checked">
+                    <input type="radio" checked="checked" name="radio1"><span>服装</span>
+                  </label>
+                  <label data-toggle="radio" class="radio-pretty inline">
+                    <input type="radio" name="radio1"><span>电器</span>
+                  </label>
+                  <label data-toggle="radio" class="radio-pretty inline">
+                    <input type="radio" name="radio1"><span>美食</span>
+                  </label>
+                  <h3>半选</h3>
+                  <label data-toggle="radio" class="checkbox-pretty inline halfchecked">
+                    <input type="checkbox"><span>半选</span>
+                  </label>
+                  <h3>禁用</h3>
+                  <label data-toggle="radio" class="checkbox-pretty inline checked disabled">
+                    <input type="checkbox" checked="checked" disabled><span>不可选</span>
+                  </label>
                 </form>
               </div>
             </div>
@@ -355,6 +390,27 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo8&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>select</h2>
+          <p class="sui-lead">详细文档点击这里 <a href='dropdown.html'>dropdown</a></p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo12" data-toggle="tab">示例</a></li>
+            <li><a href="#code12" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo12" class="tab-pane active">
+              <div style="min-height: 250px;" class="bs-docs-example"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop12" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                      <input value="hz" name="city" type="hidden"><i class="caret"></i><span>杭州</span></a>
+                    <ul id="menu12" role="menu" aria-labelledby="drop12" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                      <li role="presentation" class="divider"></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="hz">杭州</a></li>
+                    </ul></span></span></div>
+            </div>
+            <div id="code12" class="tab-pane">
+              <pre data-target="#demo12&gt;div" class="prettyprint linenums"></pre>
+            </div>
+          </div>
           <h2>Textarea</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo9" data-toggle="tab">示例</a></li>
@@ -494,7 +550,9 @@
                 <form class="sui-form form-inline">
                   <input type="text" placeholder="Email" class="input-small">
                   <input type="password" placeholder="Password" class="input-small">
-                  <label class="checkbox"><input type="checkbox" /> 记住我</label>
+                  <label data-toggle="checkbox" class="checkbox-pretty inline">
+                    <input type="checkbox" name="remember-me"><span>记住我</span>
+                  </label>
                   <button type="submit" class="sui-btn btn-primary">Sign in</button>
                 </form>
               </div>
@@ -528,11 +586,14 @@
                     <div class="controls"><input type="password" id="inputPassword" placeholder="Password" /></div>
                   </div>
                   <div class="control-group">
-                    <div class="controls">
-                      <label class="checkbox inline"><input type="checkbox" /> 记住我</label>
-                    </div>
+                    <label class="control-label"></label>
+                    <div class="controls"></div>
+                    <label data-toggle="checkbox" class="checkbox-pretty inline">
+                      <input type="checkbox" name="remember-me"><span>记住我</span>
+                    </label>
                   </div>
                   <div class="control-group">
+                    <label class="control-label"></label>
                     <div class="controls">
                       <button type="submit" class="sui-btn btn-primary">Sign in</button>
                     </div>
@@ -564,6 +625,10 @@
                   </div><br>
                   <div class="input-append">
                     <input id="appendedInput" type="text" class="span2 input-fat"><span class="add-on">.00</span>
+                  </div><br>
+                  <div class="input-inner">
+                    <input type="text" class="span2 input-fat"><span class="add-on">@</span>
+                    <input type="text" class="span2 input-fat">
                   </div>
                 </form>
               </div>
@@ -675,30 +740,25 @@
                   <div class="control-group">
                     <label class="control-label">单选框：</label>
                     <div class="controls">
-                      <label class="radio inline">
-                        <input name="single" type="radio" value="1"> 
-                        选项一
+                      <label data-toggle="radio" class="radio-pretty inline checked">
+                        <input type="radio" checked="checked" name="radio"><span>服装</span>
                       </label>
-                      <label class="radio inline">
-                        <input name="single" type="radio" value="2"> 
-                        选项二
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="radio"><span>电器</span>
+                      </label>
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="radio"><span>美食</span>
                       </label>
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label">复选框：</label>
                     <div class="controls">
-                      <label class="checkbox inline">
-                        <input name="multiple" type="checkbox" value="1"> 
-                        选项一
+                      <label data-toggle="checkbox" class="checkbox-pretty inline checked">
+                        <input type="checkbox" checked="checked"><span>鸣人</span>
                       </label>
-                      <label class="checkbox inline">
-                        <input name="multiple" type="checkbox" value="2"> 
-                        选项二
-                      </label>
-                      <label class="checkbox inline">
-                        <input name="multiple" type="checkbox" value="3"> 
-                        选项三
+                      <label data-toggle="checkbox" class="checkbox-pretty inline">
+                        <input type="checkbox"><span>佐助</span>
                       </label>
                     </div>
                   </div>
@@ -785,12 +845,16 @@
                 <form class="sui-form form-horizontal">
                   <div class="control-group">
                     <label class="control-label v-top"><b style="color: #f00;">*</b> 
-                      对象场景：
+                      地点：
                     </label>
-                    <div class="controls">
-                      <select>
-                        <option value="" selected>--------------请选择--------------</option>
-                      </select>
+                    <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <input value="hz" name="city" type="hidden"><i class="caret"></i><span>杭州</span></a>
+                          <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="hz">杭州</a></li>
+                          </ul></span></span>
                       <div class="sui-msg msg-error msg-clear help-block">
                         <div class="msg-con">该项为必填项</div>
                         <s class="msg-icon"></s>
@@ -799,10 +863,11 @@
                   </div>
                   <div class="control-group">
                     <label class="control-label v-top"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
-                    <div class="controls">
-                      <select>
-                        <option value="" selected>---请选择---</option>
-                      </select>
+                    <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <input value="1" name="zt" type="hidden"><i class="caret"></i><span>吃喝玩乐</span></a>
+                          <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">吃喝玩乐</a></li>
+                          </ul></span></span>
                       <input type="text" value="" class="input-xlarge">
                       <div class="sui-msg msg-error msg-clear help-block">
                         <div class="msg-con">该项为必填项</div>
@@ -811,7 +876,7 @@
                     </div>
                   </div>
                   <div class="control-group">
-                    <label class="control-label"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
+                    <label class="control-label v-top"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
                     <div class="controls">
                       <textarea style="height: 190px;" class="input-xxlarge"></textarea>
                       <div style="vertical-align: top;" class="sui-msg msg-tips msg-default">
@@ -845,31 +910,22 @@
                     </label>
                     <div class="controls">
                       <div class="row-fluid">
-                        <label class="checkbox inline">
-                          <input name="m0" type="checkbox" value="1"> 
-                          商家中心
+                        <label data-toggle="radio" class="radio-pretty inline checked">
+                          <input type="radio" checked="checked" name="qudao"><span>商家中心</span>
                         </label>
-                        <label class="checkbox inline">
-                          <input name="m0" type="checkbox" value="2"> 
-                          旺旺弹出
+                        <label data-toggle="radio" class="radio-pretty inline checked">
+                          <input type="radio" checked="checked" name="qudao"><span>旺旺弹窗</span>
                         </label>
-                        <label class="checkbox inline">
-                          <input name="m0" type="checkbox" value="3"> 
-                          站内信
-                        </label>
-                        <label class="checkbox inline">
-                          <input name="m0" type="checkbox" value="4"> 
-                          邮件
+                        <label data-toggle="radio" class="radio-pretty inline checked">
+                          <input type="radio" checked="checked" name="qudao"><span>站内信</span>
                         </label>
                         <div class="sui-msg msg-tips msg-default msg-clear help-block">
                           <div class="msg-con">是否向子账号发送消息：
-                            <label class="radio inline">
-                              <input name="s0" type="radio" value="1"> 
-                              是
+                            <label data-toggle="radio" class="radio-pretty inline checked">
+                              <input type="radio" checked="checked" name="zzh" value="1"><span>是</span>
                             </label>
-                            <label class="radio inline">
-                              <input name="s0" type="radio" value="2"> 
-                              否
+                            <label data-toggle="radio" class="radio-pretty inline checked">
+                              <input type="radio" checked="checked" name="zzh" value="0"><span>否</span>
                             </label>
                           </div>
                           <s class="msg-icon"></s>
@@ -893,11 +949,11 @@
                     <label class="control-label"><b style="color: #f00;">*</b> 
                       审<span style="padding: 0 6px;">核</span>人：
                     </label>
-                    <div class="controls">
-                      <select>
-                        <option value="" selected>--------------请选择--------------</option>
-                      </select>
-                    </div>
+                    <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <input value="1" name="zt" type="hidden"><i class="caret"></i><span>管理员</span></a>
+                          <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">管理员</a></li>
+                          </ul></span></span></div>
                   </div>
                   <div class="control-group">
                     <div class="controls">

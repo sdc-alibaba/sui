@@ -66,6 +66,7 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
@@ -129,15 +130,25 @@
                   <div class="control-group">
                     <label for="inputGender" class="control-label">性别：</label>
                     <div class="controls">
-                      <label class="radio inline">
-                        <input type="radio" name="gender" data-rules="required" value="1">男
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="gender" value="1" data-rules="required"><span>男</span>
                       </label>
-                      <label class="radio inline">
-                        <input type="radio" name="gender" data-rules="required" value="2">女
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="gender" value="2" data-rules="required"><span>女</span>
                       </label>
                     </div>
                   </div>
                   <div class="control-group">
+                    <label for="inputGender" class="control-label">地址：</label>
+                    <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <input name="city" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
+                          <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                          </ul></span></span></div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"></label>
                     <div class="controls">
                       <button type="submit" class="sui-btn btn-primary">立即注册</button>
                     </div>
@@ -324,11 +335,11 @@
                   <div class="control-group">
                     <label for="inputGender" class="control-label">性别：</label>
                     <div class="controls">
-                      <label class="radio inline">
-                        <input type="radio" name="gender" value="1">男
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="gender" value="1"><span>男</span>
                       </label>
-                      <label class="radio inline">
-                        <input type="radio" name="gender" value="2">女
+                      <label data-toggle="radio" class="radio-pretty inline">
+                        <input type="radio" name="gender" value="2"><span>女</span>
                       </label>
                     </div>
                   </div>
@@ -343,6 +354,7 @@
                     </div>
                   </div>
                   <div class="control-group">
+                    <label for="sanwei" class="control-label"></label>
                     <div class="controls">
                       <button type="submit" class="sui-btn btn-primary">立即注册</button>
                     </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Label </title>
+    <title>下拉框</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -22,6 +22,12 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .sui-dropdown {
+        margin-right: 8px;
+      }
+      
+    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -65,9 +71,8 @@
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
-                  <li><a href="dropdown.html">下拉菜单</a></li>
-                  <li><a href="checkbox.html">选框</a></li>
-                  <li class="active"><a href="label.html">Label</a></li>
+                  <li class="active"><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
                   <li><a href="loading.html">Loading</a></li>
@@ -86,12 +91,18 @@
                 </ul>
               </li>
             </ul>
-            <script type="text/javascript">var disqus_identifier = 'disqus-id-Label';</script>
+            <script type="text/javascript">var disqus_identifier = 'disqus-id-dropdown';</script>
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1>Label</h1>
+          <h1>下拉框</h1>
+          <h2 class="sui-page-header">设计规范</h2>
+          <div class="docs-description"><img src="pictures/docs/dropdown.png"></div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
           <h2 class="sui-page-header">开发者文档</h2>
+          <p class="sui-lead">注意下拉框是select，而下拉菜单是dropdown，前者是表单中使用的，后者是一个菜单不能用在表单中。<br>下拉框是基于下拉菜单的，添加了对表单数据的支持。</p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -99,40 +110,18 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <style>
-                .bs-docs-example ul {
-                  margin-bottom: 20px;
-                }
-                .bs-docs-example li {
-                  display: inline-block;
-                  margin: 0 10px 10px 0;
-                }
-              </style>
-              <div class="bs-docs-example">
-                <ul>
-                  <li><span class="sui-label label-">默认</span></li>
-                  <li><span class="sui-label label-success">上升</span></li>
-                  <li><span class="sui-label label-warning">持平</span></li>
-                  <li><span class="sui-label label-danger">下降</span></li>
-                  <li><span class="sui-label label-info">公告</span></li>
-                </ul>
-                <ul>
-                  <li><span>默认文本</span></li>
-                  <li><span class="sui-text-">默认</span></li>
-                  <li><span class="sui-text-success">上升</span></li>
-                  <li><span class="sui-text-warning">持平</span></li>
-                  <li><span class="sui-text-danger">下降</span></li>
-                  <li><span class="sui-text-info">公告</span></li>
-                </ul>
-              </div>
+              <div style="min-height: 250px;" class="bs-docs-example"><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>
+                      <input value="杭州" readonly></a>
+                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                    </ul></span></span></div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">
-              <p>删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。</p>
-              <p><code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标识label</p>
-            </div>
+            <div id="doc1" class="tab-pane"></div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>

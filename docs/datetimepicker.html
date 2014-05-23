@@ -66,6 +66,7 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
@@ -94,7 +95,7 @@
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#datepicker" data-toggle="tab">
                 <h3>datepicker</h3></a></li>
-            <li><a href="#timepicker" data-toggle="tab">
+            <li id="timepickerCont"><a href="#timepicker" data-toggle="tab">
                 <h3>timepicker </h3></a></li>
             <li><a href="#combin" data-toggle="tab">
                 <h3>合体</h3></a></li>
@@ -392,12 +393,20 @@ $('.datepicker').datepicker('update', new Date(2011, 2, 5));</pre>
                 </form>
               </div>
               <pre data-target="#add-mod-t2" class="prettyprint linenums"></pre>
+              <h4>内联模式</h4>
+              <P>注意: 这种模式下, 当前时间的位置是在调用timepicker()时就进行计算的.</P>
+              <P>      因此如果在计算时, 如果timepicker的容器的是 display:none 的话,会导</P>
+              <p>      致错误. 可以在当前容器为 visible 时, 调用 $('#dom').timepicker('show')</p>
+              <P>      重新计算.</P>
               <p>使用javascript:</p>
               <div id="inline-mod-t1" class="bs-docs-example">
                 <div id="demo7"></div>
               </div>
               <pre data-target="#inline-mod-t1" class="prettyprint linenums"></pre>
-              <pre class="prettyprint linenums">$('#demo7').timepicker();</pre>
+              <pre class="prettyprint linenums">$('#demo7').timepicker();
+$('#timepickerCont a').on('shown',function(){
+|    $('#demo7').timepicker('show')
+});</pre>
               <p>使用data-api:</p>
               <div id="inline-mod-t2" class="bs-docs-example">
                 <div data-toggle="timepicker-inline"></div>
@@ -453,6 +462,7 @@ $('#demo8 input').datepicker({
       $('#demo5 input ').timepicker();
       $('#demo6').timepicker();
       $('#demo7').timepicker();
+      $('#timepickerCont a').on('shown',function(){$('#demo7,#inline-mod-t2>div').timepicker('show')});
       $('#demo8 input').datepicker({timepicker:true,autoclose: false});
     </script>
   </body>

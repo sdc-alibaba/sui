@@ -535,6 +535,109 @@
 }(window.jQuery);
 
 },{}],5:[function(require,module,exports){
+!function ($) {
+
+  "use strict";
+
+  var CHECKED_CLASS = 'checked';
+  var HALF_CHECKED_CLASS = 'halfchecked';
+  var DISABLED_CLASS= 'disabled';
+
+  var Checkbox = function (element, options) {
+    this.$element = $(element)
+    //this.options = $.extend({}, $.fn.checkbox.defaults, options)
+    this.$checkbox = this.$element.find("input").change($.proxy(this.update, this))
+    //同步状态
+    this.update()
+    var name = this.$checkbox.prop("name")
+    var self = this;
+    if (name && this.$checkbox.attr("type").toUpperCase() == 'RADIO') {
+      //radio 会因为其他相同name 的radio的改变而受到影响
+      $("input[name='"+name+"']").each(function(){
+        $(this).change($.proxy(self.update, self))
+      })
+    }
+  }
+
+  var old = $.fn.checkbox
+
+  $.fn.checkbox = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('checkbox')
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('checkbox', (data = new Checkbox(this, options)))
+      else if (option) data[option]()
+    })
+  }
+  //同步状态
+  Checkbox.prototype.update = function () {
+    if(this.$checkbox.prop("checked")) this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
+    else this.$element.removeClass(CHECKED_CLASS)
+    if(this.$checkbox.prop('disabled')) this.$element.addClass(DISABLED_CLASS)
+    else this.$element.removeClass(DISABLED_CLASS)
+  }
+  Checkbox.prototype.toggle = function () {
+    if(this.$checkbox.prop("checked")) this.uncheck()
+    else this.check()
+  }
+
+  Checkbox.prototype.check = function () {
+    if(this.$checkbox.prop("disabled")) return
+    this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
+    this.$checkbox.prop('checked', 'checked')
+  }
+  Checkbox.prototype.uncheck = function () {
+    if(this.$checkbox.prop("disabled")) return
+    this.$element.removeClass(HALF_CHECKED_CLASS).removeClass(CHECKED_CLASS)
+    this.$checkbox.removeAttr('checked')
+  }
+  Checkbox.prototype.halfcheck = function () {
+    if(this.$checkbox.prop("disabled")) return
+    this.$element.removeClass(CHECKED_CLASS).addClass(HALF_CHECKED_CLASS)
+    this.$checkbox.removeAttr('checked')
+  }
+
+  Checkbox.prototype.disable = function () {
+    this.$element.addClass(DISABLED_CLASS)
+    this.$checkbox.prop('disabled', 'disabled')
+  }
+  Checkbox.prototype.enable = function () {
+    this.$element.removeClass(DISABLED_CLASS)
+    this.$checkbox.removeAttr('disabled')
+  }
+
+  $.fn.checkbox.defaults = {
+    loadingText: 'loading...'
+  }
+
+  $.fn.checkbox.Constructor = Checkbox
+
+
+ /* NO CONFLICT
+  * ================== */
+
+  $.fn.checkbox.noConflict = function () {
+    $.fn.checkbox = old
+    return this
+  }
+
+  $.fn.radio = $.fn.checkbox;
+
+
+ /* DATA-API
+  * =============== */
+
+ //必须一开始就初始化，不然对于radio，由于其他相同name的radio改动的时候由于没有初始化就无法更新状态
+  $(function() {
+    $('[data-toggle^=checkbox],[data-toggle^=radio] ').each(function () {
+      $(this).checkbox()
+    })
+  })
+
+}(window.jQuery);
+
+},{}],6:[function(require,module,exports){
 /* =============================================================
  * bootstrap-collapse.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#collapse
@@ -703,7 +806,7 @@
 
 }(window.jQuery);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*jshint sub:true*/
 /*
  * js come from :bootstrap-datepicker.js 
@@ -2455,7 +2558,7 @@
 
 }(window.jQuery));
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /* ============================================================
  * bootstrap-dropdown.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#dropdowns
@@ -2493,6 +2596,9 @@
         $('html').on('click.dropdown.data-api', function () {
           getContainer($el).removeClass('open')
         })
+
+        var $container = getContainer($el);
+        $container.find(".sui-dropdown-menu").on("click", 'a[value]', this.setValue)
       }
 
     , getContainer = function($el) {
@@ -2530,6 +2636,16 @@
 
       return false
     }
+
+  , setValue: function(e) {
+    var $target = $(e.currentTarget),
+        $container = $target.parents(".sui-dropdown"),
+        $menu = $container.find("[role='menu']")
+    $container.find("input").val($target.attr("value")).trigger("change")
+    $container.find(toggle + ' span').html($target.html())
+    $menu.find(".active").removeClass("active")
+    $target.parent().addClass("active")
+  }
 
   , keydown: function (e) {
       var $this
@@ -2631,11 +2747,12 @@
     .on('click.dropdown.data-api', clearMenus)
     .on('click.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.dropdown.data-api'  , toggle, Dropdown.prototype.toggle)
+    .on('click.dropdown.data-api'  , '[role=menu] a[value]', Dropdown.prototype.setValue)
     .on('keydown.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
 
 }(window.jQuery);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -3043,7 +3160,7 @@
 
 }(window.jQuery);
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function ($) {
     function Pagination(opts) {
         this.itemsCount = opts.itemsCount;
@@ -3232,7 +3349,7 @@
 
 })(window.jQuery)
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-popover.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#popovers
@@ -3348,7 +3465,7 @@
 
 }(window.jQuery);
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /* =============================================================
  * bootstrap-scrollspy.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
@@ -3512,7 +3629,7 @@
 
 }(window.jQuery);
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 //核心组件
 require('./transition')
 require('./alert')
@@ -3532,7 +3649,9 @@ require('./validate-rules')
 require('./tree')
 require('./datepicker')
 require('./timepicker')
-},{"./affix":1,"./alert":2,"./button":3,"./carousel":4,"./collapse":5,"./datepicker":6,"./dropdown":7,"./modal":8,"./pagination":9,"./popover":10,"./scrollspy":11,"./tab":13,"./timepicker":14,"./tooltip":15,"./transition":16,"./tree":17,"./validate":19,"./validate-rules":18}],13:[function(require,module,exports){
+require('./checkbox')
+
+},{"./affix":1,"./alert":2,"./button":3,"./carousel":4,"./checkbox":5,"./collapse":6,"./datepicker":7,"./dropdown":8,"./modal":9,"./pagination":10,"./popover":11,"./scrollspy":12,"./tab":14,"./timepicker":15,"./tooltip":16,"./transition":17,"./tree":18,"./validate":20,"./validate-rules":19}],14:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -3678,7 +3797,7 @@ require('./timepicker')
 
 }(window.jQuery);
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
  /*jshint sub:true*/
 !function ($) {
 function TimePicker(element, cfg){
@@ -3743,7 +3862,9 @@ TimePicker.prototype = {
 		this._render();
 		this._attachSecondaryEvents();
 	},
-
+	show: function () {
+		return this._show();
+	},
 	_hide: function(){
 		if (this.isInline || this.isInDatepicker)
 			return;
@@ -4351,7 +4472,7 @@ $(function(){
 });
 }(window.jQuery)
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -4769,7 +4890,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
@@ -4831,7 +4952,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Created by huazhi.chz on 14-4-27.
  * tree 2.0.0
@@ -4997,7 +5118,7 @@ $(function(){
 
 })(jQuery);
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 // add rules
 !function($) {
   Validate = $.validate;
@@ -5104,7 +5225,7 @@ $(function(){
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 }(window.jQuery)
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */
@@ -5113,7 +5234,7 @@ $(function(){
   'use strict';
   var Validate = function(form, options) {
     var self = this;
-    this.options = $.extend($.fn.validate.defaults, options)
+    this.options = $.extend({}, $.fn.validate.defaults, options)
     this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
       return onsubmit.call(self);
@@ -5309,4 +5430,4 @@ $(function(){
   })
 }(window.jQuery);
 
-},{}]},{},[12])
+},{}]},{},[13])
