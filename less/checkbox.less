@@ -1,6 +1,7 @@
 .checkbox-pretty,
 .radio-pretty
 {
+  display: block;
   input {
     //这里不能用display:none，或者visibility:hidden;否则在ie下input会直接被忽略
     opacity: 0;
@@ -17,6 +18,7 @@
     vertical-align: middle;
     font-size: 150%;
     color: #666;
+    margin-left: -3px;
   }
 
   &:hover {
@@ -33,6 +35,9 @@
     color: @linkColor;
   }
 
+  &.inline {
+    display: inline;
+  }
   &.inline + &.inline {
     margin-left: 6px;
   }

@@ -550,7 +550,6 @@
   .help-block {
     display: block; // account for any element using help-block
 
-    // 更新样式如下 @by kai 2014-02-30
     // margin-bottom: @baseLineHeight / 2;
     margin-top: @baseLineHeight / 2;
   }
@@ -560,7 +559,6 @@
     margin-left: 6px;
     .ie7-inline-block();
     vertical-align: middle;
-    // padding-left: 5px; // 去掉padding-left值 @by kai 2014-02-13
   }
 
 
@@ -814,6 +812,7 @@
     }
     .v-top {
         vertical-align: top;
+        margin-top: 2px;
     }
     .v-bottom {
         vertical-align: bottom;    
@@ -832,8 +831,6 @@
 
     // Remove bottom margin on block level help text since that's accounted for on .control-group
     .help-block {
-      // margin-bottom: 0;
-      // 更新样式如下 @by kai 2014-02-30
       margin-top: 0;
     }
     // And apply it only to .help-block instances that follow a form control
@@ -845,6 +842,9 @@
     .input-append,
     // 添加radio和checkbox
     .radio,
+    .radio-pretty,
+    .checkbox-pretty,
+    .sui-dropdown,
     .checkbox {
       // + .help-block {  // 修改选择器关系为后面所有的help-block @by kai 2014-01-30
       ~ .help-block {
