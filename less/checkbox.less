@@ -17,24 +17,24 @@
     margin-right: 2px;
     vertical-align: middle;
     font-size: 150%;
-    color: #666;
+    color: @checkboxColor;
     margin-left: -3px;
   }
 
-  &:hover {
-    span:before {
-      color: @linkColor;
-    }
-  }
+
   &.checked > span:before {
     content: "\e607";
-    color: @linkColor;
+    color: @checkboxCheckedColor;
   }
   &.halfchecked > span:before {
     content: "\e606";
-    color: @linkColor;
+    color: @checkboxCheckedColor;
   }
-
+  &:hover {
+    span:before {
+      color: @checkboxHighlightColor;
+    }
+  }
   &.inline {
     display: inline;
   }
@@ -43,9 +43,9 @@
   }
 
   &.disabled {
-    color: #999;
+    color: lighten(@checkboxDisableColor, 10%);
     span:before {
-      color: #aaa;
+      color: @checkboxDisableColor;
     }
   }
 }
