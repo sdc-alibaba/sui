@@ -16,7 +16,9 @@
     > a {
       text-decoration: none;
     }
-  
+  }
+
+  &.dropdown-bordered > .dropdown-inner {
     > .sui-dropdown-menu {
       top: 0;
       left: 0;
@@ -119,9 +121,13 @@
       > a {
         position: relative;
         z-index: 10;
-        border-bottom: 1px solid @dropdownBorder;
         margin-bottom: -1px;  //避免增加一像素border改变了高度
       }
+    }
+  }
+  &.dropdown-bordered.open > .dropdown-inner {
+    > a {
+      border-bottom: 1px solid @dropdownBorder;
     }
   }
   input {
