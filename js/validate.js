@@ -6,7 +6,7 @@
   'use strict';
   var Validate = function(form, options) {
     var self = this;
-    this.options = $.extend($.fn.validate.defaults, options)
+    this.options = $.extend({}, $.fn.validate.defaults, options)
     this.$form = $(form).attr("novalidate", 'novalidate');
     this.$form.submit(function() {
       return onsubmit.call(self);
