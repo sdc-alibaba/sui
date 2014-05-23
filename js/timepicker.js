@@ -62,7 +62,9 @@ TimePicker.prototype = {
 		this._render();
 		this._attachSecondaryEvents();
 	},
-
+	show: function () {
+		return this._show();
+	},
 	_hide: function(){
 		if (this.isInline || this.isInDatepicker)
 			return;

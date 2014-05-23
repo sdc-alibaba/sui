@@ -252,6 +252,9 @@ block content
 
 
   h2 Checkboxes and radios
+
+  p.sui-lead
+    | checkbox和radio的详细文档请点 <a href='checkbox.html'>checkbox</a>
   h3 默认状态
 
   ul.sui-nav.nav-tabs.nav-large
@@ -259,33 +262,43 @@ block content
       a(href='#demo7', data-toggle='tab') 示例
     li
       a(href='#code7', data-toggle='tab') 代码
-    li
-      a(href='#doc7', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo7
       div.bs-docs-example
         form.sui-form
-          label.checkbox
-            <input name="multiple" type="checkbox" value="1" /> 多选1
-          label.checkbox
-            <input name="multiple" type="checkbox" value="2" /> 多选2
-          label.checkbox
-            <input name="multiple" type="checkbox" value="3" /> 多选3
+          label.checkbox-pretty.checked(data-toggle='checkbox')
+            input(type='checkbox' checked='checked')
+            span 鸣人
 
-          <br /><br />
+          label.checkbox-pretty(data-toggle='checkbox')
+            input(type='checkbox')
+            span 佐助
 
-          label.radio
-            <input name="single" type="radio" value="1" /> 单选1
-          label.radio
-            <input name="single" type="radio" value="2" /> 单选2
-          label.radio
-            <input name="single" type="radio" value="3" /> 单选3
+          h3 单选框
+          label.radio-pretty.checked(data-toggle='radio')
+            input(type='radio' checked='checked' name='radio1')
+            span 服装
+
+          label.radio-pretty(data-toggle='radio')
+            input(type='radio' name='radio1')
+            span 电器
+          label.radio-pretty(data-toggle='radio')
+            input(type='radio' name='radio1')
+            span 美食
+
+          h3 半选
+          label.checkbox-pretty.halfchecked(data-toggle='radio')
+            input(type='checkbox')
+            span 半选
+
+          h3 禁用
+          label.checkbox-pretty.checked.disabled(data-toggle='radio')
+            input(type='checkbox' checked='checked' disabled)
+            span 不可选
+          
     div.tab-pane#code7
       pre.prettyprint.linenums(data-target='#demo7>div')
-    div.tab-pane#doc7
-      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
-
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo7>div') 复制代码
@@ -298,28 +311,41 @@ block content
       a(href='#demo8', data-toggle='tab') 示例
     li
       a(href='#code8', data-toggle='tab') 代码
-    li
-      a(href='#doc8', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo8
       div.bs-docs-example
         form.sui-form
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="1" /> 多选1
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="2" /> 多选2
-          label.checkbox.inline
-            <input name="multiple" type="checkbox" value="3" /> 多选3
+          label.checkbox-pretty.inline.checked(data-toggle='checkbox')
+            input(type='checkbox' checked='checked')
+            span 鸣人
 
-          <br /><br />
+          label.checkbox-pretty.inline(data-toggle='checkbox')
+            input(type='checkbox')
+            span 佐助
 
-          label.checkbox.inline
-            <input name="single" type="radio" value="1" /> 单选1
-          label.checkbox.inline
-            <input name="single" type="radio" value="2" /> 单选2
-          label.checkbox.inline
-            <input name="single" type="radio" value="3" /> 单选3
+          h3 单选框
+          label.radio-pretty.inline.checked(data-toggle='radio')
+            input(type='radio' checked='checked' name='radio1')
+            span 服装
+
+          label.radio-pretty.inline(data-toggle='radio')
+            input(type='radio' name='radio1')
+            span 电器
+          label.radio-pretty.inline(data-toggle='radio')
+            input(type='radio' name='radio1')
+            span 美食
+
+          h3 半选
+          label.checkbox-pretty.inline.halfchecked(data-toggle='radio')
+            input(type='checkbox')
+            span 半选
+
+          h3 禁用
+          label.checkbox-pretty.inline.checked.disabled(data-toggle='radio')
+            input(type='checkbox' checked='checked' disabled)
+            span 不可选
+
     div.tab-pane#code8
       pre.prettyprint.linenums(data-target='#demo8>div')
     div.tab-pane#doc8
@@ -329,7 +355,36 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo8>div') 复制代码
 
+  h2 select
+  p.sui-lead
+    | 详细文档点击这里 <a href='dropdown.html'>dropdown</a>
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo12', data-toggle='tab') 示例
+    li
+      a(href='#code12', data-toggle='tab') 代码
 
+  div.tab-content
+    div.tab-pane.active#demo12
+      div.bs-docs-example(style='min-height: 250px;')
+
+        span.sui-dropdown.dropdown-bordered.select
+          span.dropdown-inner
+            a.dropdown-toggle#drop12(role="button" data-toggle="dropdown" href="#") 
+              input(value='hz' name='city' type='hidden')
+              i.caret
+              span 杭州
+            ul#menu12.sui-dropdown-menu(role="menu" aria-labelledby="drop12")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+              li(role="presentation" class="divider")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+
+    div.tab-pane#code12
+      pre.prettyprint.linenums(data-target='#demo12>div')
   h2 Textarea
 
   ul.sui-nav.nav-tabs.nav-large
@@ -471,8 +526,9 @@ block content
         form.sui-form.form-inline
           input.input-small(type="text" placeholder="Email")
           input.input-small(type="password" placeholder="Password")
-          label.checkbox
-            <input type="checkbox" /> 记住我
+          label.checkbox-pretty.inline(data-toggle='checkbox')
+            input(type='checkbox' name='remember-me')
+            span 记住我
           button.sui-btn.btn-primary(type="submit") Sign in
     div.tab-pane#code12
       pre.prettyprint.linenums(data-target='#demo12>div')
@@ -507,10 +563,14 @@ block content
             div.controls
               <input type="password" id="inputPassword" placeholder="Password" />
           div.control-group
+            label.control-label()
             div.controls
-              label.checkbox.inline
-                <input type="checkbox" /> 记住我
+            label.checkbox-pretty.inline(data-toggle='checkbox')
+              input(type='checkbox' name='remember-me')
+              span 记住我
+
           div.control-group
+            label.control-label()
             div.controls
               button.sui-btn.btn-primary(type="submit") Sign in
     div.tab-pane#code13
@@ -541,10 +601,15 @@ block content
           div.input-prepend
             span.add-on @
             input.span2.input-fat(id="prependedInput" type="text" placeholder="Username")
-          <br>
+          br
           div.input-append
             input.span2.input-fat(id="appendedInput" type="text")
             span.add-on .00
+          br
+          div.input-inner
+            input.span2.input-fat(type="text")
+            span.add-on @
+            input.span2.input-fat(type="text")
     div.tab-pane#code14
       pre.prettyprint.linenums(data-target='#demo14>div')
     div.tab-pane#doc14
@@ -664,29 +729,26 @@ block content
           div.control-group
             label.control-label 单选框：
             div.controls
-              label.radio.inline
-                input(name="single" type="radio" value="1")
-                | 
-                | 选项一
-              label.radio.inline
-                input(name="single" type="radio" value="2")
-                | 
-                | 选项二
+              label.radio-pretty.inline.checked(data-toggle='radio')
+                input(type='radio' checked='checked' name='radio')
+                span 服装
+
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='radio')
+                span 电器
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='radio')
+                span 美食
           div.control-group
             label.control-label 复选框：
             div.controls
-              label.checkbox.inline
-                input(name="multiple" type="checkbox" value="1")
-                | 
-                | 选项一
-              label.checkbox.inline
-                input(name="multiple" type="checkbox" value="2")
-                | 
-                | 选项二
-              label.checkbox.inline
-                input(name="multiple" type="checkbox" value="3")
-                | 
-                | 选项三
+              label.checkbox-pretty.inline.checked(data-toggle='checkbox')
+                input(type='checkbox' checked='checked')
+                span 鸣人
+
+              label.checkbox-pretty.inline(data-toggle='checkbox')
+                input(type='checkbox')
+                span 佐助
           div.control-group
             label.control-label 输入框（迷你）：
             div.controls
@@ -758,10 +820,22 @@ block content
             label.control-label.v-top
               b(style="color: #f00;") *
               | 
-              | 对象场景：
+              | 地点：
             div.controls
-              select
-                option(value="" selected) --------------请选择--------------
+              span.sui-dropdown.dropdown-bordered.select
+                span.dropdown-inner
+                  a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                    input(value='hz' name='city' type='hidden')
+                    i.caret
+                    span 杭州
+                  ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+                    li(role="presentation" class="divider")
+                    li.active(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
               div.sui-msg.msg-error.msg-clear.help-block
                 div.msg-con 该项为必填项
                 s.msg-icon
@@ -772,14 +846,21 @@ block content
               span(style="padding:0 24px 0 0;") 主
               | 题：
             div.controls
-              select
-                option(value="" selected) ---请选择---
+              span.sui-dropdown.dropdown-bordered.select
+                span.dropdown-inner
+                  a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                    input(value='1' name='zt' type='hidden')
+                    i.caret
+                    span 吃喝玩乐
+                  ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                    li.active(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='1') 吃喝玩乐
               input.input-xlarge(type="text" value="")
               div.sui-msg.msg-error.msg-clear.help-block
                 div.msg-con 该项为必填项
                 s.msg-icon
           div.control-group
-            label.control-label
+            label.control-label.v-top
               b(style="color: #f00;") *
               | 
               span(style="padding:0 24px 0 0;") 内
@@ -812,33 +893,25 @@ block content
               | 发送渠道：
             div.controls
               div.row-fluid
-                label.checkbox.inline
-                  input(name="m0" type="checkbox" value="1")
-                  | 
-                  | 商家中心
-                label.checkbox.inline
-                  input(name="m0" type="checkbox" value="2")
-                  | 
-                  | 旺旺弹出
-                label.checkbox.inline
-                  input(name="m0" type="checkbox" value="3")
-                  | 
-                  | 站内信
-                label.checkbox.inline
-                  input(name="m0" type="checkbox" value="4")
-                  | 
-                  | 邮件
+                label.radio-pretty.inline.checked(data-toggle='radio')
+                  input(type='radio' checked='checked' name='qudao')
+                  span 商家中心
+                label.radio-pretty.inline.checked(data-toggle='radio')
+                  input(type='radio' checked='checked' name='qudao')
+                  span 旺旺弹窗
+                label.radio-pretty.inline.checked(data-toggle='radio')
+                  input(type='radio' checked='checked' name='qudao')
+                  span 站内信
+
                 div.sui-msg.msg-tips.msg-default.msg-clear.help-block
                   div.msg-con
                     是否向子账号发送消息：
-                    label.radio.inline
-                      input(name="s0" type="radio" value="1")
-                      | 
-                      | 是
-                    label.radio.inline
-                      input(name="s0" type="radio" value="2")
-                      | 
-                      | 否
+                    label.radio-pretty.inline.checked(data-toggle='radio')
+                      input(type='radio' checked='checked' name='zzh' value='1')
+                      span 是
+                    label.radio-pretty.inline.checked(data-toggle='radio')
+                      input(type='radio' checked='checked' name='zzh' value='0')
+                      span 否
                   s.msg-icon
               div.row-fluid
                 label.checkbox.inline
@@ -858,8 +931,15 @@ block content
               span(style="padding: 0 6px;") 核
               | 人：
             div.controls
-              select
-                option(value="" selected) --------------请选择--------------
+              span.sui-dropdown.dropdown-bordered.select
+                span.dropdown-inner
+                  a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                    input(value='1' name='zt' type='hidden')
+                    i.caret
+                    span 管理员
+                  ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                    li.active(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='1') 管理员
           div.control-group
             div.controls
               button.sui-btn.btn-primary(type="submit") 提交审核

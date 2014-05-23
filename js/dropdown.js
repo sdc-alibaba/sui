@@ -35,6 +35,9 @@
         $('html').on('click.dropdown.data-api', function () {
           getContainer($el).removeClass('open')
         })
+
+        var $container = getContainer($el);
+        $container.find(".sui-dropdown-menu").on("click", 'a[value]', this.setValue)
       }
 
     , getContainer = function($el) {
@@ -72,6 +75,16 @@
 
       return false
     }
+
+  , setValue: function(e) {
+    var $target = $(e.currentTarget),
+        $container = $target.parents(".sui-dropdown"),
+        $menu = $container.find("[role='menu']")
+    $container.find("input").val($target.attr("value")).trigger("change")
+    $container.find(toggle + ' span').html($target.html())
+    $menu.find(".active").removeClass("active")
+    $target.parent().addClass("active")
+  }
 
   , keydown: function (e) {
       var $this
@@ -173,6 +186,7 @@
     .on('click.dropdown.data-api', clearMenus)
     .on('click.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.dropdown.data-api'  , toggle, Dropdown.prototype.toggle)
+    .on('click.dropdown.data-api'  , '[role=menu] a[value]', Dropdown.prototype.setValue)
     .on('keydown.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
 
 }(window.jQuery);

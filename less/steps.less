@@ -44,7 +44,9 @@
         .border-radius((@baseFontSize + 4) / 2);
         text-align: center;
         line-height: @baseFontSize + 4;
-
+        .sui-icon {
+          vertical-align: -1px;
+        }
     }
     .round + span:before {
         content: '\00a0';
@@ -94,21 +96,21 @@
 .steps-large {
     .wrap > div {
         font-size: @fontSizeLarge;
-        width: @stepsBaseWidth * 1.5;
-        height: @stepsBaseHeight * 1.5;
-        line-height: @stepsBaseHeight * 1.5;
+        width: @stepsBaseWidth * 1.25;
+        height: @stepsBaseHeight * 1.25;
+        line-height: @stepsBaseHeight * 1.25;
         > label {
             font-size: @fontSizeLarge;
-            margin-left: @stepsBaseHeight * 1.5 / 2 + 10px;
+            margin-left: @stepsBaseHeight * 1.25 / 2 + 10px;
         }
     }
     .triangle-right {
-        border-width: @stepsBaseHeight * 1.5 / 2;
-        right: -@stepsBaseHeight * 1.5 + 1;
+        border-width: @stepsBaseHeight * 1.25 / 2;
+        right: -@stepsBaseHeight * 1.25 + 1;
     }
     .triangle-right-bg {
-        border-width: @stepsBaseHeight * 1.5 / 2 + 4;
-        right: -@stepsBaseHeight * 1.5 -  4 * 2;
+        border-width: @stepsBaseHeight * 1.25 / 2 + 4;
+        right: -@stepsBaseHeight * 1.25 -  4 * 2;
     }
     .round {
         width: @fontSizeLarge + 4;  
