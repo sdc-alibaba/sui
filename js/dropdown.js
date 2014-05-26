@@ -182,7 +182,7 @@
         , data = $this.data('dropdown')
         , options = typeof option == 'object' && option
       if (!data) $this.data('dropdown', (data = new Dropdown(this, options)))
-      if (typeof option == 'string') data[option].call($this)
+      if (typeof option == 'string') data[option].call(data)
     })
   }
 
