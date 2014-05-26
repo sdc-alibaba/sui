@@ -25,22 +25,54 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo1
-      div.bs-docs-example(style='height: 140px;')
+      div.bs-docs-example(style='height: 220px;')
+        h3 点击触发
         span.sui-dropdown
-          a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
-          ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
-            li(role="presentation")
-              a(role="menuitem" tabindex="-1" href="#") 北京
-            li(role="presentation")
-              a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
-            li(role="presentation" class="divider")
-            li(role="presentation")
-              a(role="menuitem" tabindex="-1" href="#") 莫斯科
-        
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
+        span.sui-dropdown.dropdown-bordered
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#")
+              i.caret
+              |杭州
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
+
+        h3 hover触发
+        span.sui-dropdown
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
+        span.sui-dropdown.dropdown-bordered
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
+       
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      | 通过添加 <code>data-toggle="dropdown"</code> 可以启用下拉功能。
+      p
+        | 通过添加 <code>data-toggle="dropdown"</code> 可以启用下拉功能。
+      p
+        | 通过添加 <code>data-trigger="hover"</code> 设定鼠标hover状态触发下拉。
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
@@ -74,9 +106,13 @@ block content
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
       p
-        js直接调用 <code>$().dropdown()</code>
+        js直接调用 <code>$().dropdown()</code>,可以传入一个对象来配置触发类型： <code>$().dropdown({trigger:"hover"})</code>，默认的trigger是click。
       p
-        | 还提供一个 <code>$().dropdown('toggle')</code> 方法可以控制菜单的显示。
+        | 还提供三个方法可以控制菜单的显示。
+        ul.unstyled
+          li $('xxx').dropdown("toggle")
+          li $('xxx').dropdown("show")
+          li $('xxx').dropdown("hide")
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
