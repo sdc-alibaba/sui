@@ -47,6 +47,7 @@
       this.$element = $(element)
       this.options = this.getOptions(options)
       this.enabled = true
+      this.hoverState = 'out'
 
       triggers = this.options.trigger.split(' ')
 
@@ -106,13 +107,15 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
-      self.hoverState = 'in'
-      if (!self.options.delay || !self.options.delay.show) return self.show()
-
       clearTimeout(this.timeout)
-      this.timeout = setTimeout(function() {
-        if (self.hoverState == 'in') self.show()
-      }, self.options.delay.show)
+      if (this.hoverState == 'out') {
+        this.hoverState = 'in'
+        this.tip().off($.support.transition.end)
+        if (!this.options.delay || !this.options.delay.show) return this.show()
+        this.timeout = setTimeout(function() {
+          if (self.hoverState == 'in') self.show()
+        }, self.options.delay.show)
+      }
     }
 
   , leave: function (e) {
@@ -160,7 +163,6 @@
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
-
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
             self.isTipHover = 1;
@@ -262,6 +264,7 @@
   , hide: function () {
       var $tip = this.tip()
         , e = $.Event('hide')
+        , self = this
 
       this.$element.trigger(e)
       if (e.isDefaultPrevented()) return
@@ -269,19 +272,19 @@
       $tip.removeClass('in')
 
       function removeWithAnimation() {
-        var timeout = setTimeout(function () {
+        self.timeout = setTimeout(function () {
           $tip.off($.support.transition.end).detach()
         }, 500)
 
         $tip.one($.support.transition.end, function () {
-          clearTimeout(timeout)
+          clearTimeout(self.timeout)
           $tip.detach()
         })
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
         removeWithAnimation() :
-        $tip.detach()
+        ($tip.detach())
       this.$element.trigger('hidden')
 
       return this
