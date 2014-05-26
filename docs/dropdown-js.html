@@ -66,6 +66,7 @@
                   <li><a href="pagination.html">分页器</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
                   <li><a href="dropdown.html">下拉菜单</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                   <li><a href="progress.html">进度条</a></li>
@@ -100,18 +101,36 @@
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div style="height: 140px;" class="bs-docs-example"><span class="sui-dropdown"><a id="drop1" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
-                  <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
-                  </ul></span></div>
+              <div style="height: 220px;" class="bs-docs-example">
+                <h3>点击触发</h3><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+                    <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation"></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                    </ul></span></span><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
+                    <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                    </ul></span></span>
+                <h3>hover触发</h3><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+                    <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation"></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                    </ul></span></span><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+                    <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                      <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                    </ul></span></span>
+              </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
-            <div id="doc1" class="tab-pane">通过添加 <code>data-toggle="dropdown"</code> 可以启用下拉功能。</div>
+            <div id="doc1" class="tab-pane">
+              <p>通过添加 <code>data-toggle="dropdown"</code> 可以启用下拉功能。</p>
+              <p>通过添加 <code>data-trigger="hover"</code> 设定鼠标hover状态触发下拉。</p>
+            </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
@@ -139,9 +158,15 @@
             </div>
             <div id="doc2" class="tab-pane">
               <p>
-                <js>直接调用 <code>$().dropdown()</code></js>
+                <js>直接调用 <code>$().dropdown()</code>,可以传入一个对象来配置触发类型： <code>$().dropdown({trigger:"hover"})</code>，默认的trigger是click。</js>
               </p>
-              <p>还提供一个 <code>$().dropdown('toggle')</code> 方法可以控制菜单的显示。</p>
+              <p>还提供三个方法可以控制菜单的显示。
+                <ul class="unstyled">
+                  <li>$('xxx').dropdown("toggle")</li>
+                  <li>$('xxx').dropdown("show")</li>
+                  <li>$('xxx').dropdown("hide")</li>
+                </ul>
+              </p>
             </div>
           </div>
           <ul class="demo-operations clearfix">

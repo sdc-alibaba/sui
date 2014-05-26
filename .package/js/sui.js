@@ -2588,17 +2588,25 @@
   * ========================= */
 
   var toggle = '[data-toggle=dropdown]'
-    , Dropdown = function (element) {
-        var $el = $(element).on('click.dropdown.data-api', this.toggle)
+    , Dropdown = function (element, options) {
+        var $el = this.$el = $(element)
+        this.options = getOptions($el, options)
         if (!$el.data("toggle")) {
           $el.attr("data-toggle", 'dropdown')
         }
-        $('html').on('click.dropdown.data-api', function () {
-          getContainer($el).removeClass('open')
-        })
+        var trigger = this.options.trigger
+            , $container = getContainer($el)
+        if(trigger == 'click') {
+          $el.on('click.dropdown.data-api', $.proxy(this.toggle, this))
+          $('html').on(trigger + '.dropdown.data-api', function () {
+            $container.removeClass('open')
+          })
+        } else if (trigger == 'hover') {
+          $container.on('mouseover.dropdown.data-api', $.proxy(this.show, this))
+          $container.on('mouseleave.dropdown.data-api', $.proxy(this.hide, this))
+        }
 
-        var $container = getContainer($el);
-        $container.find(".sui-dropdown-menu").on("click", 'a[value]', this.setValue)
+        $container.find(".sui-dropdown-menu").on("click", 'a', $.proxy(this.setValue, this))
       }
 
     , getContainer = function($el) {
@@ -2606,19 +2614,22 @@
       if ($parent.hasClass("dropdown-inner")) return $parent.parent()
       return $parent;
     }
+    , getOptions = function ($el, options) {
+      return $.extend({}, $.fn.dropdown.defaults, $el.data(), options)
+    }
 
   Dropdown.prototype = {
 
     constructor: Dropdown
 
   , toggle: function (e) {
-      var $this = $(this)
-        , $parent
-        , isActive
+      var $el = this.$el
+          , $parent
+          , isActive
 
-      if ($this.is('.disabled, :disabled')) return
+      if ($el.is('.disabled, :disabled')) return
 
-      $parent = getParent($this)
+      $parent = getParent($el)
 
       isActive = $parent.hasClass('open')
 
@@ -2627,21 +2638,28 @@
       if (!isActive) {
         if ('ontouchstart' in document.documentElement) {
           // if mobile we we use a backdrop because click events don't delegate
-          $('<div class="dropdown-backdrop"/>').insertBefore($(this)).on('click', clearMenus)
+          $('<div class="dropdown-backdrop"/>').insertBefore($el).on('click', clearMenus)
         }
         $parent.toggleClass('open')
       }
 
-      $this.focus()
+      $el.focus()
 
       return false
     }
+
+  , show: function() {
+    getParent(this.$el).addClass("open")
+  }
+  , hide: function() {
+    getParent(this.$el).removeClass("open")
+  }
 
   , setValue: function(e) {
     var $target = $(e.currentTarget),
         $container = $target.parents(".sui-dropdown"),
         $menu = $container.find("[role='menu']")
-    $container.find("input").val($target.attr("value")).trigger("change")
+    $container.find("input").val($target.attr("value") || "").trigger("change")
     $container.find(toggle + ' span').html($target.html())
     $menu.find(".active").removeClass("active")
     $target.parent().addClass("active")
@@ -2723,12 +2741,17 @@
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('dropdown')
-      if (!data) $this.data('dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
+        , options = typeof option == 'object' && option
+      if (!data) $this.data('dropdown', (data = new Dropdown(this, options)))
+      if (typeof option == 'string') data[option].call(data)
     })
   }
 
   $.fn.dropdown.Constructor = Dropdown
+
+  $.fn.dropdown.defaults = $.extend({}, {
+    trigger: 'click'  //click or hover
+  })
 
 
  /* DROPDOWN NO CONFLICT
@@ -2743,12 +2766,12 @@
   /* APPLY TO STANDARD DROPDOWN ELEMENTS
    * =================================== */
 
-  $(document)
-    .on('click.dropdown.data-api', clearMenus)
-    .on('click.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.dropdown.data-api'  , toggle, Dropdown.prototype.toggle)
-    .on('click.dropdown.data-api'  , '[role=menu] a[value]', Dropdown.prototype.setValue)
-    .on('keydown.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
+  $(function() {
+    $(toggle).each(function() {
+      $(this).dropdown()
+    })
+  })
+
 
 }(window.jQuery);
 
