@@ -44,8 +44,8 @@ block content
         h3 默认样式
         span.sui-dropdown
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -56,10 +56,10 @@ block content
         h3 带边框
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
               i.caret
               |杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -67,7 +67,7 @@ block content
               li(role="presentation" class="divider")
               li.active(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 杭州
-                ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
+                ul.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#") 北京
                   li(role="presentation")
@@ -80,7 +80,7 @@ block content
 
         span.sui-dropdown.dropdown-bordered.dropdown-large
           span.dropdown-inner
-            a.dropdown-toggle#drop2(role="button" data-toggle="dropdown" href="#")
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#")
               i.caret
               | 北京
             ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
@@ -94,10 +94,10 @@ block content
 
         span.sui-dropdown.dropdown-bordered.dropdown-xlarge
           span.dropdown-inner
-            a.dropdown-toggle#drop3(role="button" data-toggle="dropdown" href="#")
+            a.dropdown-togglerole="button" data-toggle="dropdown" href="#")
               i.caret
               |更大一点的
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop3")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop3")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -132,8 +132,8 @@ block content
         h3 点击触发
         span.sui-dropdown
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -141,10 +141,10 @@ block content
                 a(role="menuitem" tabindex="-1" href="#") 杭州
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#") 
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
               i.caret
               |杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.active(role="presentation")
@@ -153,8 +153,8 @@ block content
         h3 hover触发
         span.sui-dropdown
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li(role="presentation")
@@ -162,8 +162,8 @@ block content
                 a(role="menuitem" tabindex="-1" href="#") 杭州
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
-            a.dropdown-toggle#drop1(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.active(role="presentation")
@@ -192,10 +192,10 @@ block content
       div.bs-docs-example(style='min-height: 200px;')
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
-            a.dropdown-toggle#drop5(role="button" data-toggle="dropdown" href="#") 
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
               i.caret
               |杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.dropdown-submenu(role="presentation")
@@ -255,7 +255,7 @@ block content
             button.sui-btn.btn-primary.dropdown-toggle("data-toggle"="dropdown")
               i.caret
               |杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.active(role="presentation")
@@ -265,7 +265,7 @@ block content
             button.sui-btn.btn-danger.dropdown-toggle("data-toggle"="dropdown")
               i.caret
               | 杭州
-            ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.active(role="presentation")
@@ -325,7 +325,7 @@ block content
               input(value='hz' name='city' type='hidden')
               i.caret
               span 杭州
-            ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
               li(role="presentation")
