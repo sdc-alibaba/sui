@@ -10,19 +10,14 @@
 .sui-navbar {
   overflow: visible;
   margin-bottom: @baseLineHeight;
-
-  // Fix for IE7's bad z-indexing so dropdowns don't appear below content that follows the navbar
-  *position: relative;
-  *z-index: 2;
 }
 
 // Inner for background effects
-// Gradient is applied to its own element because overflow visible is not honored by IE when filter is present
 .navbar-inner {
   min-height: @navbarHeight;
   padding-left:  20px;
   padding-right: 20px;
-  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+  background: @navbarBackground;
   border: 1px solid @navbarBorder;
   .border-radius(@baseBorderRadius);
   .box-shadow(0 1px 4px rgba(0,0,0,.065));
@@ -53,9 +48,8 @@
   padding: ((@navbarHeight - @baseLineHeight) / 2) 20px ((@navbarHeight - @baseLineHeight) / 2);
   margin-left: -20px; // negative indent to left-align the text down the page
   font-size: 20px;
-  font-weight: 200;
+  font-weight: normal;
   color: @navbarBrandColor;
-  text-shadow: 0 1px 0 @navbarBackgroundHighlight;
   &:hover,
   &:focus {
     text-decoration: none;
@@ -86,7 +80,7 @@
   height: @navbarHeight;
   margin: 0 9px;
   border-left: 1px solid @navbarBackground;
-  border-right: 1px solid @navbarBackgroundHighlight;
+  border-right: 1px solid @navbarBackground;
 }
 
 // Buttons in navbar
@@ -108,6 +102,12 @@
   .navbar-form {
     margin-bottom: 0; // remove default bottom margin
     .clearfix();
+    input {
+      .sui-form > .input-fat;
+    }
+    .sui-btn {
+      .btn-large;
+    }
     input,
     select,
     .radio,
@@ -245,29 +245,31 @@
     padding: ((@navbarHeight - @baseLineHeight) / 2) 15px ((@navbarHeight - @baseLineHeight) / 2);
     color: @navbarLinkColor;
     text-decoration: none;
-    text-shadow: 0 1px 0 @navbarBackgroundHighlight;
+    text-shadow: none;
+    &:focus,
+    &:hover {
+      background-color: @navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover/:focus from .active
+      color: @navbarLinkColorHover;
+      text-decoration: none;
+    }
   }
   .dropdown-toggle .caret {
     margin-top: 8px;
   }
 
   // Hover/focus
-  > li > a:focus,
-  > li > a:hover {
-    background-color: @navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover/:focus from .active
-    color: @navbarLinkColorHover;
-    text-decoration: none;
-  }
+
 
   // Active nav items
-  > .active > a,
-  > .active > a:hover,
-  > .active > a:focus {
-    color: @navbarLinkColorActive;
-    text-decoration: none;
-    background-color: @navbarLinkBackgroundActive;
-    .box-shadow(inset 0 3px 8px rgba(0,0,0,.125));
+  > .active > a {
+    &, &:hover, &:focus {
+      color: @navbarLinkColorActive;
+      text-decoration: none;
+      background-color: @navbarLinkBackgroundActive;
+    }
   }
+
+
 }
 
 // Navbar button for toggling navbar items in responsive layouts
@@ -278,7 +280,7 @@
   padding: 7px 10px;
   margin-left: 5px;
   margin-right: 5px;
-  .buttonBackground(darken(@navbarBackgroundHighlight, 5%), darken(@navbarBackground, 5%));
+  .buttonBackground(darken(@navbarBackground, 5%), darken(@navbarBackground, 5%));
   .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)");
 
   .icon-bar {
@@ -300,71 +302,6 @@
 // --------------
 
 // Menu position and menu carets
-.sui-navbar .sui-nav > li > .sui-dropdown-menu {
-  &:before {
-    content: '';
-    display: inline-block;
-    border-left:   7px solid transparent;
-    border-right:  7px solid transparent;
-    border-bottom: 7px solid #ccc;
-    border-bottom-color: @dropdownBorder;
-    position: absolute;
-    top: -7px;
-    left: 9px;
-  }
-  &:after {
-    content: '';
-    display: inline-block;
-    border-left:   6px solid transparent;
-    border-right:  6px solid transparent;
-    border-bottom: 6px solid @dropdownBackground;
-    position: absolute;
-    top: -6px;
-    left: 10px;
-  }
-}
-// Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .sui-nav > li > .sui-dropdown-menu {
-  &:before {
-    border-top: 7px solid #ccc;
-    border-top-color: @dropdownBorder;
-    border-bottom: 0;
-    bottom: -7px;
-    top: auto;
-  }
-  &:after {
-    border-top: 6px solid @dropdownBackground;
-    border-bottom: 0;
-    bottom: -6px;
-    top: auto;
-  }
-}
-
-// Caret should match text color on hover/focus
-.sui-navbar .sui-nav li.sui-dropdown > a:hover .caret,
-.sui-navbar .sui-nav li.sui-dropdown > a:focus .caret {
-  border-top-color: @navbarLinkColorHover;
-  border-bottom-color: @navbarLinkColorHover;
-}
-
-// Remove background color from open dropdown
-.sui-navbar .sui-nav li.sui-dropdown.open > .dropdown-toggle,
-.sui-navbar .sui-nav li.sui-dropdown.active > .dropdown-toggle,
-.sui-navbar .sui-nav li.sui-dropdown.open.active > .dropdown-toggle {
-  background-color: @navbarLinkBackgroundActive;
-  color: @navbarLinkColorActive;
-}
-.sui-navbar .sui-nav li.sui-dropdown> .dropdown-toggle .caret {
-  border-top-color: @navbarLinkColor;
-  border-bottom-color: @navbarLinkColor;
-}
-.sui-navbar .sui-nav li.sui-dropdown.open > .dropdown-toggle .caret,
-.sui-navbar .sui-nav li.sui-dropdown.active > .dropdown-toggle .caret,
-.sui-navbar .sui-nav li.sui-dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: @navbarLinkColorActive;
-  border-bottom-color: @navbarLinkColorActive;
-}
-
 // Right aligned menus need alt position
 .sui-navbar .pull-right > li > .dropdown-menu,
 .sui-navbar .sui-nav > li > .dropdown-menu.pull-right {
@@ -394,7 +331,7 @@
 .navbar-inverse {
 
   .navbar-inner {
-    #gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
+    #gradient > .vertical(@navbarInverseBackground, @navbarInverseBackground);
     border-color: @navbarInverseBorder;
   }
 
@@ -441,7 +378,7 @@
   // Dividers in navbar
   .divider-vertical {
     border-left-color: @navbarInverseBackground;
-    border-right-color: @navbarInverseBackgroundHighlight;
+    border-right-color: @navbarInverseBackground;
   }
 
   // Dropdowns
@@ -493,7 +430,7 @@
 
   // Navbar collapse button
   .btn-navbar {
-    .buttonBackground(darken(@navbarInverseBackgroundHighlight, 5%), darken(@navbarInverseBackground, 5%));
+    .buttonBackground(darken(@navbarInverseBackground, 5%), darken(@navbarInverseBackground, 5%));
   }
 
 }
