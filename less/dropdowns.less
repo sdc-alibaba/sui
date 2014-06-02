@@ -76,7 +76,7 @@
 // Place the caret
   .caret {
     .sui-icon;
-    font-size: 120%;
+    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
     &:before {
       content: "\e6eb";
     }
@@ -111,17 +111,14 @@
         .box-sizing(border-box);
       }
     }
-  }
-  &.open {
-    .dropdown-inner {
-      border-color: @dropdownOpenColor;
-      > a > .caret {
-        color: @dropdownOpenColor;
-      }
-      > a {
-        position: relative;
-        z-index: 10;
-        margin-bottom: -1px;  //避免增加一像素border改变了高度
+    &.open {
+      .dropdown-inner {
+        border-color: @dropdownOpenColor;
+        > a {
+          position: relative;
+          z-index: 10;
+          margin-bottom: -1px;  //避免增加一像素border改变了高度
+        }
       }
     }
   }
@@ -323,17 +320,14 @@
 // TODO: abstract this so that the navbar fixed styles are not placed here?
 .sui-dropup,
 .navbar-fixed-bottom .sui-dropdown {
-  // Reverse the caret
-  .caret {
-    border-top: 0;
-    border-bottom: 4px solid @black;
-    content: "";
-  }
   // Different positioning for bottom up menu
   .sui-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
+  }
+  .dropdown-toggle > .caret:before {
+    content: "\e6ea";
   }
 }
 

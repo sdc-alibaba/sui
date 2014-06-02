@@ -10,26 +10,26 @@
 .sui-navbar {
   overflow: visible;
   margin-bottom: @baseLineHeight;
-}
 
-// Inner for background effects
-.navbar-inner {
-  min-height: @navbarHeight;
-  padding-left:  20px;
-  padding-right: 20px;
-  background: @navbarBackground;
-  border: 1px solid @navbarBorder;
-  .border-radius(@baseBorderRadius);
-  .box-shadow(0 1px 4px rgba(0,0,0,.065));
+  // Inner for background effects
+  .navbar-inner {
+    min-height: @navbarHeight;
+    padding-left:  20px;
+    padding-right: 20px;
+    background: @navbarBackground;
+    border: 1px solid @navbarBorder;
+    .border-radius(@baseBorderRadius);
+    .box-shadow(0 1px 4px rgba(0,0,0,.065));
 
-  // Prevent floats from breaking the navbar
-  .clearfix();
-}
+    // Prevent floats from breaking the navbar
+    .clearfix();
+  }
 
-// Set width to auto for default container
-// We then reset it for fixed navbars in the #gridSystem mixin
-.sui-navbar .sui-container {
-  width: auto;
+  // Set width to auto for default container
+  // We then reset it for fixed navbars in the #gridSystem mixin
+  .sui-navbar .sui-container {
+    width: auto;
+  }
 }
 
 // Override the default collapsed state
@@ -187,8 +187,6 @@
 }
 .navbar-fixed-top .navbar-inner,
 .navbar-fixed-bottom .navbar-inner {
-  padding-left:  0;
-  padding-right: 0;
   .border-radius(0);
 }
 
@@ -261,6 +259,7 @@
 
 
   // Active nav items
+  .sui-dropdown.open .dropdown-toggle,
   > .active > a {
     &, &:hover, &:focus {
       color: @navbarLinkColorActive;
@@ -359,11 +358,12 @@
     color: @navbarInverseLinkColorHover;
   }
 
-  .sui-nav .active > a,
-  .sui-nav .active > a:hover,
-  .sui-nav .active > a:focus {
-    color: @navbarInverseLinkColorActive;
-    background-color: @navbarInverseLinkBackgroundActive;
+  .sui-nav .sui-dropdown.open .dropdown-toggle,
+  .sui-nav .active > a {
+    &, &:hover, &:focus {
+      color: @navbarInverseLinkColorActive;
+      background-color: @navbarInverseLinkBackgroundActive;
+    }
   }
 
   // Inline text links
@@ -387,21 +387,6 @@
   .sui-nav li.sui-dropdown.open.active > .dropdown-toggle {
     background-color: @navbarInverseLinkBackgroundActive;
     color: @navbarInverseLinkColorActive;
-  }
-  .sui-nav li.sui-dropdown> a:hover .caret,
-  .sui-nav li.sui-dropdown> a:focus .caret {
-    border-top-color: @navbarInverseLinkColorActive;
-    border-bottom-color: @navbarInverseLinkColorActive;
-  }
-  .sui-nav li.sui-dropdown> .dropdown-toggle .caret {
-    border-top-color: @navbarInverseLinkColor;
-    border-bottom-color: @navbarInverseLinkColor;
-  }
-  .sui-nav li.sui-dropdown.open > .dropdown-toggle .caret,
-  .sui-nav li.sui-dropdown.active > .dropdown-toggle .caret,
-  .sui-nav li.sui-dropdown.open.active > .dropdown-toggle .caret {
-    border-top-color: @navbarInverseLinkColorActive;
-    border-bottom-color: @navbarInverseLinkColorActive;
   }
 
   // Navbar search
