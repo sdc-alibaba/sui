@@ -146,7 +146,7 @@
         }
         break;
       case 'TEXTAREA':
-        return $input.html()
+        return $input.val()
         break;
       default:
         return $input.val()
