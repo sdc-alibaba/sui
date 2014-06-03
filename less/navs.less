@@ -407,31 +407,10 @@
 
 // Default dropdown links
 // -------------------------
-// Make carets use linkColor to start
-.sui-nav .dropdown-toggle .caret {
-  border-top-color: @linkColor;
-  border-bottom-color: @linkColor;
-  margin-top: 6px;
-}
-.sui-nav .dropdown-toggle:hover .caret,
-.sui-nav .dropdown-toggle:focus .caret {
-  border-top-color: @linkColorHover;
-  border-bottom-color: @linkColorHover;
-}
+
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
   margin-top: 8px;
-}
-
-// Active dropdown links
-// -------------------------
-.sui-nav .active .dropdown-toggle .caret {
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-}
-.nav-tabs .active .dropdown-toggle .caret {
-  border-top-color: @gray;
-  border-bottom-color: @gray;
 }
 
 // Active:hover/:focus dropdown links
@@ -451,14 +430,7 @@
   background-color: @grayLight;
   border-color: @grayLight;
 }
-.sui-nav li.sui-dropdown.open .caret,
-.sui-nav li.sui-dropdown.open.active .caret,
-.sui-nav li.sui-dropdown.open a:hover .caret,
-.sui-nav li.sui-dropdown.open a:focus .caret {
-  border-top-color: @white;
-  border-bottom-color: @white;
-  .opacity(100);
-}
+
 
 // Dropdowns in stacked tabs
 .tabs-stacked .open > a:hover,
