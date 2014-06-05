@@ -169,6 +169,25 @@ block content
             td
               | 取消高亮显示错误。
 
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td fail
+            td
+              | fail: function(){$errorInputs, $form} {}
+            td
+              | 当用户提交表单且有错误发生时调用此方法。
+
       h4 三，配置规则
       p
         | 有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。
