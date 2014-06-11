@@ -21,7 +21,7 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。
+    | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。js用法参考 <a href='tab-js.html'>tab-js</a>。
 
   h2 默认标签页
   ul.sui-nav.nav-tabs.nav-large
@@ -227,3 +227,85 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
+  h2 包裹内容
+
+  ul.unstyled.sui-lead
+    li 注意，需要在sui-nav和tab-content上都加上 <code>.tab-wraped</code>
+    li 默认是四列，可以通过在sui-nav加上 <code>.column3</code> / <code>.column5</code> 变成3列/5列。
+    li 内部的label和ul的宽度可以根据需求自己调整。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo6', data-toggle='tab') 示例
+    li
+      a(href='#code6', data-toggle='tab') 代码
+  div.tab-content
+    div.tab-pane.active#demo6
+      div.bs-docs-example
+        style.
+          /*自己调整宽度*/
+          .tab-wraped > li ul {
+            width: 140px;
+          }
+          .tab-wraped > li ul label {
+            width: 50px!important;
+          }
+        ul.sui-nav.nav-tabs.tab-wraped
+          li.active
+            a(href='#index', data-toggle='tab')
+              h3 海贼王
+              ul.unstyled
+                li
+                  label 总赏金
+                  strong.sui-text-warning 999,999
+                li
+                  label 占比
+                  span.sui-text-info 33%
+          li
+            a(href='#profile', data-toggle='tab')
+              h3 海贼王
+              ul.unstyled
+                li
+                  label 总赏金
+                  strong.sui-text-warning 999,999
+                li
+                  label 占比
+                  span.sui-text-info 33%
+          li
+            a(href='#about', data-toggle='tab')
+              h3 海贼王
+              ul.unstyled
+                li
+                  label 总赏金
+                  strong.sui-text-warning 999,999
+                li
+                  label 占比
+                  span.sui-text-info 33%
+          li
+            a(href='#help', data-toggle='tab')
+              h3 海贼王
+              ul.unstyled
+                li
+                  label 总赏金
+                  strong.sui-text-warning 999,999
+                li
+                  label 占比
+                  span.sui-text-info 33%
+
+        div.tab-content.tab-wraped
+          div.tab-pane.active#index
+            p qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+          div.tab-pane#profile
+            p Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
+          div.tab-pane#about
+            p Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+          div.tab-pane#help
+            p help!!!help!!!help!!!help!!!help!!!help!!!help!!!help!!!help!!!help!!!help!!!
+        
+    div.tab-pane#code6
+      pre.prettyprint.linenums(data-target='#demo6>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码

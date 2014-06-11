@@ -115,10 +115,10 @@
     font-size: @fontSizeLarge * 1.15;
   }
 
-// TABS
-// ----
+  // TABS
+  // ----
 
-// Give the tabs something to sit on
+  // Give the tabs something to sit on
   &.nav-tabs {
     border-bottom: 1px solid @navTabsBorderColor;
     padding-left: 5px;
@@ -270,7 +270,6 @@
           border-radius: 0 @borderRadiusSmall @borderRadiusSmall 0;
         }
       }
-
       &.tab-vertical {
         > li {
           a {
@@ -288,6 +287,76 @@
           }
           margin-left: -1px;
           margin-right: -1px;
+        }
+      }
+    }
+
+    &.tab-wraped {
+      padding-left: 0;
+      margin-bottom: 0;
+      border: 1px solid @navTabsBorderColor;
+      border-top: 0;
+      > li {
+        margin-left: 0;
+        width: 25%;
+        > a {
+          color: @navTabsColor;
+          padding: 20px;
+          border-radius: 0;
+          background: #fcfcfc;
+          margin-left: 0;
+          border: 0;
+          border-top: 1px solid @navTabsBorderColor;
+          border-bottom: 1px solid @navTabsBorderColor;
+          &:hover {
+            background: @white;
+          }
+        }
+        + li {
+          > a {
+            border-left: 1px solid @navTabsBorderColor;
+          }
+        }
+        &.active > a {
+          background: @white;
+          font-weight: normal;
+          border-bottom: 1px solid @white;
+          border-top: 3px solid @linkColor;
+          padding-top: 18px; //和其他标签对齐
+        }
+
+        h3 {
+          text-align: center;
+          color: @textColor;
+        }
+
+        ul {
+          margin: auto;
+        }
+        li {
+          margin: 5px 0;
+        }
+        strong {
+          font-size: 120%;
+          vertical-align: middle;
+        }
+        label {
+          color: @grayLight;
+          display: inline-block;
+          width: 70px;
+          text-align: right;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      &.colum3 {
+        > li {
+          width: 33.333%;
+        }
+      }
+      &.colum5 {
+        > li {
+          width: 20%;
         }
       }
     }
@@ -472,6 +541,11 @@
   display: block;
 }
 
+.tab-content.tab-wraped {
+  border: 1px solid @navTabsBorderColor;
+  border-top: 0;
+  padding: @baseMargin;
+}
 
 // BOTTOM
 // ------
@@ -570,3 +644,4 @@
   background-color: transparent;
   cursor: default;
 }
+
