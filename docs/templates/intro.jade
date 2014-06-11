@@ -1,0 +1,56 @@
+extends base
+
+block title
+  title 新手指引 
+
+block sidebar
+  +sidebar('intro')
+
+block content
+
+  h1 新手指引
+
+  h2.sui-page-header 开发者文档
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      h1(data-step="1" data-intro="Hello all! :) 第一步：This project's called Intro.js." style="text-align:center") 1.Intro.js
+
+      p.lead(data-step="4" data-intro="第四步:Let's try it. It's free and open-source.") 4.Better introductions for websites and features with a step-by-step guide for your projects.
+      
+      div.introjs-content
+        div.divcont(data-step="2" data-intro="第二步:Ok, wasn't that fun?" data-position="right")
+          h4 2.Easy to Use
+          p Just include the js and css files and add "data-step" and "data-intro" to your code.
+
+        div.divcont(data-step="3" data-intro="第三步：More features, more fun." data-position="left")
+          h4 3.Keyboard + Mouse navigation
+          p Ability to navigate with the mouse, or the keyboard - "←", "→", "ENTER" and "ESC" to exit.
+          p Better compatibility is on the roadmap, but currently it should work in recent versions of Firefox, Chrome and IE8 also.
+
+        div.divcont(data-step="5" data-intro="第五步:Get it, use it.") 
+          h4 5.Fast &amp; Small
+          p 4 KB JavaScript and 2.5 KB CSS (gzip). That's all.
+        div.divcont(data-step="6" data-intro="第六步:Last step.") 
+          h4 6.Browser Compatibllity
+          p Better compatibility is on the roadmap, but currently it should work in recent versions of Firefox, Chrome and IE8 also.  
+        a.sui-btn.btn-xlarge.btn-primary(href="javascript:void(0);" onclick="javascript:$.introJs().start();" ) Show me how
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      p 1.在标签里加属性"data-step"标示是第几步；加"data-intro"添加提示语句；"data-position"控制提示框出现位置，可选left和right,不写默认为下方。
+      p 2.可用鼠标控制，也可以用键盘控制："←", "→"控制前进后退；"ENTER" 和 "ESC"控制退出。 
+      p 3.在按钮标签中中添加事件：onclick="javascript:$.introJs().start();"可触发新手指引。
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
