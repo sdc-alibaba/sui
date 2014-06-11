@@ -33,9 +33,17 @@
   animation-name: myBounceInUp;
 }
 .intro {
-  background-color: #6f5499;
+  background-color: #a811b5;
   color: #fff;
   padding: 80px 0;
+  background-image: url(../imgs/grid.png);
+  background-image: url(../imgs/grid.png), -webkit-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -webkit-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -moz-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -o-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .jumbotron {
   padding: 60px 0;
