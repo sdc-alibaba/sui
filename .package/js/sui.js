@@ -4608,7 +4608,7 @@ $(function(){
       clearTimeout(this.timeout)
       if (this.hoverState == 'out') {
         this.hoverState = 'in'
-        this.tip().off($.support.transition.end)
+        this.tip().off($.support.transition && $.support.transition.end)
         if (!this.options.delay || !this.options.delay.show) return this.show()
         this.timeout = setTimeout(function() {
           if (self.hoverState == 'in') self.show()
@@ -5297,6 +5297,7 @@ $(function(){
     var hasError, self;
     self = this;
     hasError = false;
+    var errorInputs = [];
     this.$form.find("input, select, textarea").each(function() {
       var $input, error;
       $input = $(this);
@@ -5305,9 +5306,15 @@ $(function(){
         $input.focus();
       }
       if (error) {
+        errorInputs.push($input);
         return hasError = true;
       }
     });
+    if (hasError) {
+      this.options.fail.call(this, errorInputs, this.$form);
+    } else {
+      this.options.success.call(this, this.$form);
+    }
     return !hasError;
   };
   var update = function(input) {
@@ -5422,7 +5429,7 @@ $(function(){
   $.fn.validate.Constructor = Validate
 
   $.fn.validate.defaults = {
-    errorTpl: '<div class="sui-msg msg-error">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n </div>   <i class="msg-icon"></i>\n  \n</div>',
+    errorTpl: '<div class="sui-msg msg-error help-inline">\n  <div class="msg-con">\n    <span>$errorMsg</span>\n </div>   <i class="msg-icon"></i>\n  \n</div>',
     inputErrorClass: 'input-error',
     placeError: function($input, $error) {
       $input = $($input);
@@ -5440,7 +5447,9 @@ $(function(){
       $input.removeClass(inputErrorClass)
       $error.hide()
     },
-    rules: undefined
+    rules: undefined,
+    success: $.noop,
+    fail: $.noop
   };
 
   $.fn.validate.noConflict = function () {
