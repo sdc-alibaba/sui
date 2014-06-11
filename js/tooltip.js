@@ -110,7 +110,7 @@
       clearTimeout(this.timeout)
       if (this.hoverState == 'out') {
         this.hoverState = 'in'
-        this.tip().off($.support.transition.end)
+        this.tip().off($.support.transition && $.support.transition.end)
         if (!this.options.delay || !this.options.delay.show) return this.show()
         this.timeout = setTimeout(function() {
           if (self.hoverState == 'in') self.show()
