@@ -5492,10 +5492,8 @@ sui-pre .sui-code {
 }
 .sui-dropup.dropdown-bordered > .dropdown-inner > .sui-dropdown-menu,
 .sui-dropdown.dropdown-bordered > .dropdown-inner > .sui-dropdown-menu {
-  top: 0;
   left: 0;
   margin: 0;
-  padding-top: 24px;
   z-index: 9;
 }
 .sui-dropup.select .sui-dropdown-menu,
@@ -6161,20 +6159,14 @@ sui-pre .sui-code {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-.sui-dropup.dropdown-bordered.open .dropdown-inner,
-.sui-dropdown.dropdown-bordered.open .dropdown-inner {
-  border-color: #69bbef;
+  -webkit-border-radius: 0 0 2px 2px;
+  -moz-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
 }
 .sui-dropup.dropdown-bordered.open .dropdown-inner > a,
 .sui-dropdown.dropdown-bordered.open .dropdown-inner > a {
   position: relative;
   z-index: 10;
-  margin-bottom: -1px;
-}
-.sui-dropup.dropdown-bordered.open > .dropdown-inner > a,
-.sui-dropdown.dropdown-bordered.open > .dropdown-inner > a {
-  border-bottom: 1px solid #cccccc;
 }
 .sui-dropup input,
 .sui-dropdown input {
@@ -6192,9 +6184,9 @@ sui-pre .sui-code {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  -webkit-box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0px 2px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.1);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -6269,24 +6261,15 @@ sui-pre .sui-code {
   top: 0;
   z-index: 990;
 }
-.sui-dropdown.dropdown-bordered.dropdown-xlarge.open > .dropdown-inner > .sui-dropdown-menu {
-  padding-top: 32px;
-}
 .sui-dropdown.dropdown-bordered.dropdown-xlarge > .dropdown-inner a {
   padding: 4px 20px;
   line-height: 22px;
   font-size: 14px;
 }
-.sui-dropdown.dropdown-bordered.dropdown-large.open > .dropdown-inner > .sui-dropdown-menu {
-  padding-top: 28px;
-}
 .sui-dropdown.dropdown-bordered.dropdown-large > .dropdown-inner a {
   padding: 2px 14px;
   line-height: 22px;
   font-size: 14px;
-}
-.sui-dropdown.dropdown-bordered.dropdown-small.open > .dropdown-inner > .sui-dropdown-menu {
-  padding-top: 20px;
 }
 .sui-dropdown.dropdown-bordered.dropdown-small > .dropdown-inner a {
   padding: 0px 6px;
