@@ -1,0 +1,43 @@
+extends base
+
+block title
+  title Label 
+
+block sidebar
+  +sidebar('ac')
+
+block content
+
+  h1 自动补全
+
+  h2.sui-page-header 开发者文档
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      form.sui-form
+        input#input1.input-xlarge(type='text' placeholder='输入...')
+        .help-inline#help1
+
+      script(src='assets/js/countries.js')
+      script.
+        $('#input1').autocomplete({
+          lookup: countries,
+          onSelect: function (suggestion) {
+            $("#help1").html('您选择了'+suggestion.value);
+          }
+        });
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
