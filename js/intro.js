@@ -506,7 +506,7 @@
 
     var self = this,
         oldHelperLayer = document.querySelector('.sui-introjs-helperLayer'),
-        elementPosition = _getOffset(targetElement.element);
+        elementPosition = _getOffset(targetElement.element);  
 
     if (oldHelperLayer !== null) {
       var oldHelperNumberLayer = oldHelperLayer.querySelector('.introjs-helperNumberLayer'),
