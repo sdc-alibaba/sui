@@ -192,21 +192,20 @@
         //确定tooltip布局对齐方式
         switch (align) {
           case 'left':
-            left = pos.left
+            _left = pos.left
             break
           case 'right':
-            left = pos.left - actualWidth + pos.width
+            _left = pos.left - actualWidth + pos.width
             break
           case 'top':
-            left = pos.top
+            _top = pos.top
             break
           case 'bottom':
-            left = pos.top - actualHeight + pos.height
+            _top = pos.top - actualHeight + pos.height
             break
         }
         switch (placement) {
           case 'bottom':
-
             tp = {top: pos.top + pos.height + d, left: _left}
             break
           case 'top':
