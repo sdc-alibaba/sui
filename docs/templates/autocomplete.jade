@@ -48,7 +48,6 @@ block content
               div( style="float:left;width:220px; height:50px")
                 form.sui-form
                   input#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder='输入...')
-                  input#autocomplete-ajax-x(type="text" name="country"  disabled="disabled" style="color: #CCC; position: absolute; background: transparent; z-index: 1;")
               div#selction-ajax
             script(src="assets/js/jquery.mockjax.js")
             script.
@@ -82,9 +81,9 @@ block content
                   onSelect: function (suggestion) {
                     $("#selction-ajax").html('您选择了'+suggestion.value);
                   },
-                  onHint: function (hint) {
-                    $('#autocomplete-ajax-x').val(hint);
-                  },
+                  //- onHint: function (hint) {
+                  //-   $('#autocomplete-ajax-x').val(hint);
+                  //- },
                   onInvalidateSelection: function() {
                     $('#selction-ajax').html('You selected: none');
                   }
