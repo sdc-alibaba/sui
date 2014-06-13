@@ -142,6 +142,7 @@
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
+        , align = opt.align
         , self = this
 
       if (this.hasContent() && this.enabled) {
@@ -186,18 +187,36 @@
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-        switch (placement) {
-          case 'bottom':
-            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'top':
-            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
+          , _left = pos.left + pos.width / 2 - actualWidth / 2
+          , _top = pos.top + pos.height / 2 - actualHeight / 2
+        //确定tooltip布局对齐方式
+        switch (align) {
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
+            left = pos.left
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
+            left = pos.left - actualWidth + pos.width
+            break
+          case 'top':
+            left = pos.top
+            break
+          case 'bottom':
+            left = pos.top - actualHeight + pos.height
+            break
+        }
+        switch (placement) {
+          case 'bottom':
+
+            tp = {top: pos.top + pos.height + d, left: _left}
+            break
+          case 'top':
+            tp = {top: pos.top - actualHeight - d, left: _left }
+            break
+          case 'left':
+            tp = {top: _top, left: pos.left - actualWidth - d}
+            break
+          case 'right':
+            tp = {top: _top, left: pos.left + pos.width + d}
             break
         }
 
