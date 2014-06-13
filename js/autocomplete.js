@@ -13,7 +13,6 @@
 // Expose plugin as an AMD module if AMD loader is present:
 (function ($) {
     'use strict';
-
     var
         utils = (function () {
             return {
@@ -24,8 +23,6 @@
                     var ul = document.createElement('ul');
                     ul.className = containerClass;
                     ul.style.position = 'absolute';
-                    ul.style['overflow-y'] = 'auto';
-                    ul.style['overflow-x'] = 'hidden';
                     ul.style.display = 'none';
                     return ul;
                 }

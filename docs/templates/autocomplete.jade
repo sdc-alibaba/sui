@@ -23,13 +23,14 @@ block content
   div.tab-content
     div.tab-pane.active#demo1
         div.container
+
             //- h2 1.Ajax Lookup
             h4 1.使用本地数据
             div.clearfix
               p Type country name in english:
               div( style="float:left;width:220px")
                 form.sui-form
-                  input#autocomplete(type="text" name="country" placeholder='输入...')
+                  input.input-xlarge#autocomplete(type="text" name="country" placeholder='输入...')
               div#selection
             script(src='assets/js/countries.js')
             script.
@@ -47,7 +48,7 @@ block content
               p Type country name in english:
               div( style="float:left;width:220px; height:50px")
                 form.sui-form
-                  input#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder='输入...')
+                  input.input-xlarge#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder='输入...')
               div#selction-ajax
             script(src="assets/js/jquery.mockjax.js")
             script.
@@ -94,7 +95,7 @@ block content
                 p Type country name in english:
                 div
                   form.sui-form
-                    input#autocomplete-dynamic(type="text" name="country"  style="width: 100%; ")
+                    input.input-xlarge#autocomplete-dynamic(type="text" name="country"  style="width: 100%; ")
                 script.
                   $('#autocomplete-dynamic').autocomplete({
                       lookup: countriesArray
