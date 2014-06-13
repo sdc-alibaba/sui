@@ -1,0 +1,204 @@
+extends base
+
+block title
+  title autocomplete
+
+block sidebar
+  +sidebar('Autocomplete')
+
+block content
+
+  h1 自动补全
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    ul.unstyled
+      li 简单易用的自动补全插件。移植自 <a href='https://github.com/devbridge/jQuery-Autocomplete' target='_blank'>https://github.com/devbridge/jQuery-Autocomplete</a>
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+        div.container
+
+            //- h2 1.Ajax Lookup
+            h4 1.使用本地数据
+            div.clearfix
+              p Type country name in english:
+              div( style="float:left;width:220px")
+                form.sui-form
+                  input.input-xlarge#autocomplete(type="text" name="country" placeholder='输入...')
+              div#selection
+            script(src='assets/js/countries.js')
+            script.
+              $('#autocomplete').autocomplete({
+                lookup: countries,
+                minChars: 0,
+                onSelect: function (suggestion) {
+                    $('#selection').html('You selected: ' + suggestion.value);
+                }
+              });
+
+           
+            h4 2.使用Ajax数据
+            div.clearfix
+              p Type country name in english:
+              div( style="float:left;width:220px; height:50px")
+                form.sui-form
+                  input.input-xlarge#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder='输入...')
+              div#selction-ajax
+            script(src="assets/js/jquery.mockjax.js")
+            script.
+              var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
+              // Setup jQuery ajax mock:
+              $.mockjax({
+                  url: '*',
+                  responseTime: 0,
+                  response: function (settings) {
+                      var query = settings.data.query,
+                          queryLowerCase = query.toLowerCase(),
+                          re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi'),
+                          suggestions = $.grep(countriesArray, function (country) {
+                               // return country.value.toLowerCase().indexOf(queryLowerCase) === 0;
+                              return re.test(country.value);
+                          }),
+                          response = {
+                              query: query,
+                              suggestions: suggestions
+                          };
+
+                      this.responseText = JSON.stringify(response);
+                  }
+              });
+              $('#autocomplete-ajax').autocomplete({
+                  serviceUrl: 'dada',
+                  lookupFilter: function(suggestion, originalQuery, queryLowerCase) {
+                      var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
+                      return re.test(suggestion.value);
+                  },
+                  onSelect: function (suggestion) {
+                    $("#selction-ajax").html('您选择了'+suggestion.value);
+                  },
+                  //- onHint: function (hint) {
+                  //-   $('#autocomplete-ajax-x').val(hint);
+                  //- },
+                  onInvalidateSelection: function() {
+                    $('#selction-ajax').html('You selected: none');
+                  }
+              });
+           
+            div.clearfix(style="width: 50%;")
+                h4 3.宽度自适应
+                p Type country name in english:
+                div
+                  form.sui-form
+                    input.input-xlarge#autocomplete-dynamic(type="text" name="country"  style="width: 100%; ")
+                script.
+                  $('#autocomplete-dynamic').autocomplete({
+                      lookup: countriesArray
+                  });
+            //- //- script(src="assets/js/autocomplete.js")
+            //- script(src="assets/js/jquery.mockjax.js")
+            //- script(src="assets/js/countries.js")
+            
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      p.sui-lead
+        | 调用 <code>autocomplete</code> 可以传入一个参数对象，所有配置项如下表所示。其中JSON格式的配置项同时也支持以data-api的形式来配置。
+      table.sui-table
+        tr
+          th 参数
+          th 默认值
+          th 说明
+        tr
+          td autoSelectFirst
+          td false
+          td 是否自动选中第一个
+        tr
+          td appendTo
+          td "body"
+          td 自动补全的菜单的容器
+        tr
+          td serviceUrl
+          td null
+          td 获取数据的接口(服务器端的URL地址或者生成URL字符串的回调方法)，如果定义了lookup 则此配置无效
+        tr
+          td lookup
+          td null
+          td 读取本地数据，建议查找数组。比如 ['a', 'b', 'c']，如果配置了lookup，则忽略serviceUrl
+        tr
+          td onSelect
+          td null
+          td 选中结果时的回调,参数 (element, suggestion)
+        tr
+          td width
+          td auto
+          td 下拉框宽度，默认与输入框一样
+        tr
+          td minChars
+          td 1
+          td 出发自动补全的字符最小数量
+        tr 
+          td maxHeight
+          td 300
+          td 下拉菜单的最大高度
+
+        tr
+          td params
+          td {}
+          td 附加参数
+        tr
+          td formatResult
+          td Autocomplete.formatResult
+          td 自定义格式化补全结果，参数(suggestion, currentValue) 
+        tr
+          td noCache
+          td false
+          td 是否要缓存
+        tr
+          td lookupFilter
+          td function (suggestion, originalQuery, queryLowerCase) { return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1; }
+          td 过滤自动补全的结果，默认是匹配查询词。如果不需要过滤结果可以置为 $.noop。
+        tr
+          td paramName
+          td query
+          td 查询请求参数
+        tr
+          td transformResult
+          td function (response) { return typeof response === 'string' ? $.parseJSON(response) : response; }
+          td 处理ajax的返回结果，参数 (response)。
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+  h2 通过HTML标记自动初始化
+  p.sui-lead
+    | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      form.sui-form
+        h4 通过ajax读取数据
+        input.input-large(type="text" id='auto-init-1' value='' data-toggle='autocomplete' data-serviceUrl='/ac.json')
+        h4 使用本地数据
+        input.input-large(type="text" id='auto-init-2' value='' data-toggle='autocomplete' data-lookup='["aaa", "bbb", "ccc", "ddd", "edfa", "wdasda", "tueiyhgk", "vjflcjx"]')
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo2')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+  
