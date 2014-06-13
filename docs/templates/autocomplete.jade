@@ -1,0 +1,67 @@
+extends base
+
+block title
+  title autocomplete
+
+block sidebar
+  +sidebar('Autocomplete')
+
+block content
+
+  h1 Autocomplete
+
+  h2.sui-page-header 开发者文档
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+        div.container
+            h1 Ajax Autocomplete Demo
+
+            h2 1.Ajax Lookup
+            div.clearfix
+              label(style="float:left; margin-right:10px;") Type country name in english:
+              div( style="position: relative; height: 50px;float:left;width:220px")
+                form.sui-form
+                  input#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;")
+                  input#autocomplete-ajax-x(type="text" name="country"  disabled="disabled" style="color: #CCC; position: absolute; background: transparent; z-index: 1;")
+              div#selction-ajax
+            
+            h2 2.Local Lookup
+            div.clearfix
+              label(style="float:left;margin-right:10px;") Type country name in english:
+              div( style="float:left;width:220px")
+                form.sui-form
+                  input#autocomplete(type="text" name="country")
+              div#selection
+
+           
+          
+            div.clearfix(style="width: 50%; margin: 0 auto;")
+                h2 3.Dynamic Width
+                p Type country name in english:
+                div
+                  form.sui-form
+                    input#autocomplete-dynamic(type="text" name="country"  style="width: 100%; ")
+                
+            script(src="assets/js/autocomplete.js")
+            script(src="assets/js/jquery.mockjax.js")
+            script(src="assets/js/countries.js")
+            
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      p 12312     
+
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
