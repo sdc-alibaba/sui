@@ -293,7 +293,7 @@
                         that.selectHint();
                         return;
                     }
-                    // Fall through to RETURN
+                    /* fall through*/
                 case keys.RETURN:
                     if (that.selectedIndex === -1) {
                         that.hide();
@@ -531,7 +531,7 @@
 
             // Build suggestions inner HTML:
             $.each(that.suggestions, function (i, suggestion) {
-                html += '<li class="' + className + '" data-index="' + i + '"><a>' + formatResult(suggestion, value) + '</a></div>';
+                html += '<li class="' + className + '" data-index="' + i + '"><a>' + formatResult(suggestion, value) + '</a></li>';
             });
 
             // If width is auto, adjust width before displaying suggestions,

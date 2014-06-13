@@ -32,11 +32,13 @@ block content
 
       script(src='assets/js/countries.js')
       script.
-        $('#input1').autocomplete({
-          lookup: countries,
-          onSelect: function (suggestion) {
-            $("#help1").html('您选择了'+suggestion.value);
-          }
+        $(function() {
+          $('#input1').autocomplete({
+            lookup: countries,
+            onSelect: function (suggestion) {
+              $("#help1").html('您选择了'+suggestion.value);
+            }
+          });
         });
       h4 使用ajax获取数据
       form.sui-form
@@ -66,61 +68,65 @@ block content
                 this.responseText = JSON.stringify(response);
             }
         });
-        $('#input2').autocomplete({
-          serviceUrl: 'dada',
-          onSelect: function (suggestion) {
-            $("#help2").html('您选择了'+suggestion.value);
-          }
+        $(function() {
+          $('#input2').autocomplete({
+            serviceUrl: 'dada',
+            onSelect: function (suggestion) {
+              $("#help2").html('您选择了'+suggestion.value);
+            }
+          });
         });
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1')
     div.tab-pane#doc1
       p.sui-lead
-        | 调用 <code>autocomplete</code> 可以传入一个参数对象，所有配置项如下表所示。这些配置项同时也支持以data-api的形式来配置。
+        | 调用 <code>autocomplete</code> 可以传入一个参数对象，所有配置项如下表所示。所有json类型的配置项同时也支持以data-api的形式来配置。
       table.sui-table
-        tr
-          th 参数
-          th 默认值
-          th 说明
-        tr
-          td autoSelectFirst
-          td false
-          td 是否自动选中第一个
-        tr
-          td appendTo
-          td "body"
-          td 自动补全的菜单的容器
-        tr
-          td serviceUrl
-          td null
-          td 获取数据的接口，如果定义了lookup 则此配置无效
-        tr
-          td lookup
-          td null
-          td 读取本地数据，比如 ['a', 'b', 'c']，如果配置了lookup，则忽略serviceUrl
+        thead
+          tr
+            th 参数
+            th 默认值
+            th 说明
+        tbody
+          tr
+            td autoSelectFirst
+            td false
+            td 是否自动选中第一个
+          tr
+            td appendTo
+            td "body"
+            td 自动补全的菜单的容器
+          tr
+            td serviceUrl
+            td null
+            td 获取数据的接口，如果定义了lookup 则此配置无效
+          tr
+            td lookup
+            td null
+            td 读取本地数据，比如 ['a', 'b', 'c']，如果配置了lookup，则忽略serviceUrl
 
-        tr
-          td onSelect
-          td null
-          td 选中结果时的回调,参数 (element, suggestion)
+          tr
+            td onSelect
+            td null
+            td 选中结果时的回调,参数 (element, suggestion)
 
-        tr
-          td params
-          td {}
-          td 附加参数
+          tr
+            td params
+            td {}
+            td 附加参数
 
-        tr
-          td formatResult
-          td Autocomplete.formatResult
-          td 格式化补全结果，参数(suggestion, currentValue)
+          tr
+            td formatResult
+            td Autocomplete.formatResult
+            td 格式化补全结果，参数(suggestion, currentValue)
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
   
   h2 通过HTML标记自动初始化
   p.sui-lead
-    | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的参数都可以通过 data-api 在html中直接配置
+    | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中json类型的配置的参数都可以通过 data-api 在html中直接配置
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo3', data-toggle='tab') 示例
@@ -157,8 +163,10 @@ block content
           input.input-large(type="text" id='dropdown-input' value='')
 
       script.
-        $('#dropdown-input').autocomplete({
-          lookup: countries
+        $(function() {
+          $('#dropdown-input').autocomplete({
+            lookup: countries
+          });
         });
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
