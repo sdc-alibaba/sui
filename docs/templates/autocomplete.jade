@@ -12,6 +12,10 @@ block content
 
   h2.sui-page-header 开发者文档
 
+  p.sui-lead
+    ul.unstyled
+      li 简单易用的自动补全插件。移植自 <a href='https://github.com/devbridge/jQuery-Autocomplete' target='_blank'>https://github.com/devbridge/jQuery-Autocomplete</a>
+
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -108,7 +112,7 @@ block content
       pre.prettyprint.linenums(data-target='#demo1')
     div.tab-pane#doc1
       p.sui-lead
-        | 调用 <code>autocomplete</code> 可以传入一个参数对象，所有配置项如下表所示。这些配置项同时也支持以data-api的形式来配置。
+        | 调用 <code>autocomplete</code> 可以传入一个参数对象，所有配置项如下表所示。其中JSON格式的配置项同时也支持以data-api的形式来配置。
       table.sui-table
         tr
           th 参数
@@ -146,10 +150,7 @@ block content
           td maxHeight
           td 300
           td 下拉菜单的最大高度
-        tr
-          td deferRequestBy
-          td 0
-          td 推迟ajax请求的数量
+
         tr
           td params
           td {}
@@ -159,25 +160,21 @@ block content
           td Autocomplete.formatResult
           td 自定义格式化补全结果，参数(suggestion, currentValue) 
         tr
-          td delimiter
-          td null
-          td 字符串或正则表达式,将输入值,最后一部分为查询的建议。例如当你需要填补分隔符。
-        tr
           td noCache
           td false
           td 是否要缓存
         tr
           td lookupFilter
-          td
-          td 为本地的查找功能。默认情况下它为部分字符串匹配(不分大小写)。
+          td function (suggestion, originalQuery, queryLowerCase) { return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1; }
+          td 过滤自动补全的结果，默认是匹配查询词。如果不需要过滤结果可以置为 $.noop。
         tr
           td paramName
           td query
           td 查询请求参数
         tr
           td transformResult
-          td
-          td 查询的结果是已经准备好了。将结果转换成建议格式。
+          td function (response) { return typeof response === 'string' ? $.parseJSON(response) : response; }
+          td 处理ajax的返回结果，参数 (response)。
 
   ul.demo-operations.clearfix
     li
@@ -185,7 +182,7 @@ block content
 
   h2 通过HTML标记自动初始化
   p.sui-lead
-    | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的参数都可以通过 data-api 在html中直接配置
+    | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
