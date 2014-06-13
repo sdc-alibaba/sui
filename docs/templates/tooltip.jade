@@ -72,7 +72,7 @@ block content
           - var align = ['left', 'bottom', 'right', 'top', 'center']
           each dir,i in placement
             li
-              a(style='display:inline-block;width:120px;height:100px;background: #ccc' href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-align='#{align[i]}' title='#{bigdata}') opt.align='#{align[i]}'
+              a(style='display:inline-block;width:120px;height:100px;background: #ccc' href='javascript:void(0)', data-placement='#{dir}', data-trigger='click', data-toggle='tooltip', data-align='#{align[i]}' title='#{bigdata}') opt.align='#{align[i]}'
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')

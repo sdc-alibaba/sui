@@ -220,6 +220,7 @@
         }
 
         this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
         this.$element.trigger('shown')
       }
     }
@@ -264,6 +265,32 @@
 
       if (replace) $tip.offset(offset)
     }
+  , applyAlign: function(align, tipPos){
+      var $tip = this.tip()
+      , actualWidth = $tip[0].offsetWidth
+      , actualHeight = $tip[0].offsetHeight
+      , css = {}
+      switch (align) {
+        case 'left':
+          if (tipPos.width < actualWidth)
+            css = {left: tipPos.width / 2}
+          break
+        case 'right':
+          if (tipPos.width < actualWidth)
+            css = {left: actualWidth - tipPos.width / 2}
+          break
+        case 'top':
+          if (tipPos.height < actualHeight)
+            css = {top: tipPos.height / 2}
+          break
+        case 'bottom':
+          if (tipPos.height < actualHeight)
+            css = {top: actualHeight - tipPos.height / 2}
+          break
+      }
+      align != 'center' && $tip.find('.tooltip-arrow').first().css(css)
+ 
+  }
 
   , replaceArrow: function(delta, dimension, position){
       this
