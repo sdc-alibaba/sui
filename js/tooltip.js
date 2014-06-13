@@ -107,7 +107,7 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
-      clearTimeout(this.timeout)
+      clearTimeout(self.timeout)
       if (this.hoverState == 'out') {
         this.hoverState = 'in'
         this.tip().off($.support.transition && $.support.transition.end)
@@ -166,10 +166,11 @@
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            self.isTipHover = 1;
+            self.isTipHover = 1
           }, function(){
-            self.isTipHover = 0;
-            self.hide()
+            self.isTipHover = 0
+            self.hoverState = 'out'
+            $tip.detach()
           })
         }
 
