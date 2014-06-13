@@ -50,7 +50,7 @@ block content
     div.tab-pane.active#demo1
       div.bs-docs-example(style="padding-bottom: 100px;")
         ul.example
-          - var placement = ['top', 'right', 'bottom', 'left']
+          - var placement = ['top', 'right', 'bottom', 'left', 'bottom']
           each dir in placement
             li
               a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
@@ -67,11 +67,12 @@ block content
           each dir in placement
             li
               a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', title='强调tooltip') #{dir} opt.type = 'attention'
+        h3 对齐方式：
         ul.example
-          - var align = ['left', 'bottom', 'right', 'top']
+          - var align = ['left', 'bottom', 'right', 'top', 'center']
           each dir,i in placement
             li
-              a(style='display:inline-block;width:100px;height:100px;background: #ccc' href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-align='#{align[i]}' title='#{bigdata}') #{align[i]} opt.align = '#{align[i]}'
+              a(style='display:inline-block;width:120px;height:100px;background: #ccc' href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-align='#{align[i]}' title='#{bigdata}') opt.align='#{align[i]}'
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
