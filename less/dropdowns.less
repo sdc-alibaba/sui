@@ -66,17 +66,24 @@
     
   a {
     outline: 0;
-  }
-
-// Place the caret
-  .caret {
-    .sui-icon;
-    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
-    &:before {
-      content: "\e6eb";
+    > input[type='text'] {
+      .box-shadow(none);
+      width: 100%;
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      height: 22px;
+      background: transparent;
+      padding-right: 21px;
+      &, &:focus {
+        border: 0;
+      }
     }
   }
 
+// Place the caret
   &.dropdown-bordered {
     font-size: @baseFontSize;
     line-height: @baseLineHeight;
@@ -122,6 +129,31 @@
     color: #666;
   }
 }
+.sui-dropup,
+.sui-dropdown,
+.sui-dropdown-like {
+  .caret {
+    .sui-icon;
+    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+    &:before {
+      content: "\e6eb";
+    }
+  }
+}
+
+.sui-dropdown-like {
+  position: relative;
+  .caret {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -8px;
+  }
+  input[type='text'] {
+    padding-right: 20px;
+  }
+}
+
 
 // The dropdown menu (ul) 
 // 这个是可以独立使用的

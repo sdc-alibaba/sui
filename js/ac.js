@@ -41,41 +41,7 @@
         };
 
     function Autocomplete(el, options) {
-        var noop = function () { },
-            that = this,
-            defaults = {
-                autoSelectFirst: false,
-                appendTo: 'body',
-                serviceUrl: null,
-                lookup: null,
-                onSelect: null,
-                width: 'auto',
-                minChars: 1,
-                maxHeight: 300,
-                deferRequestBy: 0,
-                params: {},
-                formatResult: Autocomplete.formatResult,
-                delimiter: null,
-                zIndex: 9999,
-                type: 'GET',
-                noCache: false,
-                onSearchStart: noop,
-                onSearchComplete: noop,
-                onSearchError: noop,
-                containerClass: 'sui-dropdown-menu sui-suggestion-container',
-                tabDisabled: false,
-                dataType: 'text',
-                currentRequest: null,
-                triggerSelectOnValidInput: true,
-                preventBadQueries: true,
-                lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
-                    return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
-                },
-                paramName: 'query',
-                transformResult: function (response) {
-                    return typeof response === 'string' ? $.parseJSON(response) : response;
-                }
-            };
+        var that = this;
 
         // Shared variables:
         that.element = el;
@@ -90,10 +56,10 @@
         that.onChange = null;
         that.isLocal = false;
         that.suggestionsContainer = null;
-        that.options = $.extend({}, defaults, options);
+        that.options = that.getOptions(options);
         that.classes = {
-            selected: 'active',
-            suggestion: 'suggest-item'
+          selected: 'active',
+          suggestion: 'suggest-item'
         };
         that.hint = null;
         that.hintValue = '';
@@ -524,7 +490,11 @@
 
             return false;
         },
-
+        show: function () {
+            var that = this;
+            that.visible = false;
+            $(that.suggestionsContainer).show();
+        },
         hide: function () {
             var that = this;
             that.visible = false;
@@ -791,34 +761,61 @@
             that.disableKillerFn();
             $(window).off('resize.autocomplete', that.fixPositionCapture);
             $(that.suggestionsContainer).remove();
+        },
+        getOptions: function (options) {
+          return options = $.extend({}, $.fn.autocomplete.defaults, this.el.data(), options)
         }
     };
+
+
 
     // Create chainable jQuery plugin:
-    $.fn.autocomplete = function (options, args) {
+    $.fn.autocomplete = function (option, args) {
         var dataKey = 'autocomplete';
-        // If function invoked without argument return
-        // instance of the first matched element:
-        if (arguments.length === 0) {
-            return this.first().data(dataKey);
-        }
-
         return this.each(function () {
-            var inputElement = $(this),
-                instance = inputElement.data(dataKey);
-
-            if (typeof options === 'string') {
-                if (instance && typeof instance[options] === 'function') {
-                    instance[options](args);
-                }
-            } else {
-                // If instance already exists, destroy it:
-                if (instance && instance.dispose) {
-                    instance.dispose();
-                }
-                instance = new Autocomplete(this, options);
-                inputElement.data(dataKey, instance);
-            }
+          var $this = $(this)
+            , data = $this.data(dataKey)
+            , options = typeof option == 'object' && option
+          if (!data) $this.data(dataKey, (data = new Autocomplete(this, options)))
+            if (typeof option == 'string') data[option]()
         });
     };
+
+    $.fn.autocomplete.defaults = {
+      autoSelectFirst: false,
+      appendTo: 'body',
+      serviceUrl: null,
+      lookup: null,
+      onSelect: null,
+      width: 'auto',
+      minChars: 1,
+      maxHeight: 300,
+      deferRequestBy: 0,
+      params: {},
+      formatResult: Autocomplete.formatResult,
+      delimiter: null,
+      zIndex: 9999,
+      type: 'GET',
+      noCache: false,
+      onSearchStart: $.noop,
+      onSearchComplete: $.noop,
+      onSearchError: $.noop,
+      containerClass: 'sui-dropdown-menu sui-suggestion-container',
+      tabDisabled: false,
+      dataType: 'text',
+      currentRequest: null,
+      triggerSelectOnValidInput: true,
+      preventBadQueries: true,
+      lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+        return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
+      },
+      paramName: 'query',
+      transformResult: function (response) {
+        return typeof response === 'string' ? $.parseJSON(response) : response;
+      }
+    };
+
+    $(function() {
+      $("[data-toggle='autocomplete']").autocomplete();
+    });
 })(jQuery);
