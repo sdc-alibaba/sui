@@ -11,16 +11,7 @@
 /*global define, window, document, jQuery */
 
 // Expose plugin as an AMD module if AMD loader is present:
-(function (factory) {
-    'use strict';
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
+(function ($) {
     'use strict';
 
     var
@@ -52,41 +43,7 @@
         };
 
     function Autocomplete(el, options) {
-        var noop = function () { },
-            that = this,
-            defaults = {
-                autoSelectFirst: true,//默认选中第一个匹配项
-                appendTo: 'body',//下拉菜单ul结构所插入得位置
-                serviceUrl: null,//以URL方式传参时，定义URL地址，本地传参默认null
-                lookup: null,//本地数据传参，传入数组，若是其他格式先处理成数组
-                onSelect: null,
-                width: 'auto',
-                minChars: 1,
-                maxHeight: 300,
-                deferRequestBy: 0,
-                params: {},
-                formatResult: Autocomplete.formatResult,
-                delimiter: null,
-                zIndex: 9999,
-                type: 'GET',
-                noCache: false,
-                onSearchStart: noop,
-                onSearchComplete: noop,
-                onSearchError: noop,
-                containerClass: 'sui-dropdown-menu',
-                tabDisabled: false,
-                dataType: 'text',
-                currentRequest: null,
-                triggerSelectOnValidInput: true,
-                preventBadQueries: true,
-                lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
-                    return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
-                },
-                paramName: 'query',
-                transformResult: function (response) {
-                    return typeof response === 'string' ? $.parseJSON(response) : response;
-                }
-            };
+        var that = this;   
 
         // Shared variables:
         that.element = el;
@@ -101,7 +58,7 @@
         that.onChange = null;
         that.isLocal = false;
         that.suggestionsContainer = null;
-        that.options = $.extend({}, defaults, options);
+        that.options = that.getOptions(options);
         that.classes = {
             selected: 'active',
             suggestion: 'autocomplete-suggestion'
@@ -803,34 +760,61 @@
             that.disableKillerFn();
             $(window).off('resize.autocomplete', that.fixPositionCapture);
             $(that.suggestionsContainer).remove();
+        },
+        getOptions: function (options) {
+          return options = $.extend({}, $.fn.autocomplete.defaults, this.el.data(), options);
         }
     };
+
+
 
     // Create chainable jQuery plugin:
-    $.fn.autocomplete = function (options, args) {
+    $.fn.autocomplete = function (option, args) {
         var dataKey = 'autocomplete';
-        // If function invoked without argument return
-        // instance of the first matched element:
-        if (arguments.length === 0) {
-            return this.first().data(dataKey);
-        }
-
         return this.each(function () {
-            var inputElement = $(this),
-                instance = inputElement.data(dataKey);
-
-            if (typeof options === 'string') {
-                if (instance && typeof instance[options] === 'function') {
-                    instance[options](args);
-                }
-            } else {
-                // If instance already exists, destroy it:
-                if (instance && instance.dispose) {
-                    instance.dispose();
-                }
-                instance = new Autocomplete(this, options);
-                inputElement.data(dataKey, instance);
-            }
+          var $this = $(this)
+            , data = $this.data(dataKey)
+            , options = typeof option == 'object' && option
+          if (!data) $this.data(dataKey, (data = new Autocomplete(this, options)))
+            if (typeof option == 'string') data[option]()
         });
     };
-}));
+
+    $.fn.autocomplete.defaults = {
+      autoSelectFirst: false,
+      appendTo: 'body',
+      serviceUrl: null,
+      lookup: null,
+      onSelect: null,
+      width: 'auto',
+      minChars: 1,
+      maxHeight: 300,
+      deferRequestBy: 0,
+      params: {},
+      formatResult: Autocomplete.formatResult,
+      delimiter: null,
+      zIndex: 9999,
+      type: 'GET',
+      noCache: false,
+      onSearchStart: $.noop,
+      onSearchComplete: $.noop,
+      onSearchError: $.noop,
+      containerClass: 'sui-dropdown-menu sui-suggestion-container',
+      tabDisabled: false,
+      dataType: 'text',
+      currentRequest: null,
+      triggerSelectOnValidInput: true,
+      preventBadQueries: true,
+      lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+        return suggestion.value.toLowerCase().indexOf(queryLowerCase) !== -1;
+      },
+      paramName: 'query',
+      transformResult: function (response) {
+        return typeof response === 'string' ? $.parseJSON(response) : response;
+      }
+    };
+
+    $(function() {
+      $("[data-toggle='autocomplete']").autocomplete();
+    });
+})(jQuery);
