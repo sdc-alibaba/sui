@@ -105,6 +105,11 @@
       .caret {
         float: right;
         margin-left: 4px;
+        .sui-icon;
+        vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+        &:before {
+          content: "\e6eb";
+        }
       }
 
       > .sui-dropdown-menu {
@@ -129,21 +134,11 @@
     color: #666;
   }
 }
-.sui-dropup,
-.sui-dropdown,
-.sui-dropdown-like {
-  .caret {
-    .sui-icon;
-    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
-    &:before {
-      content: "\e6eb";
-    }
-  }
-}
 
 .sui-dropdown-like {
   position: relative;
-  .caret {
+  .sui-icon {
+    vertical-align: -1px;
     position: absolute;
     right: 6px;
     top: 50%;
@@ -165,6 +160,7 @@
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
+  overflow: auto;
   .border-radius(2px);
   .box-shadow(1px 1px 0px 1px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
