@@ -32,10 +32,13 @@ block content
             h4 1.使用本地数据
             div.clearfix
               p Type country name in english:
-              div( style="float:left;width:220px")
+              div( style="float:left;")
                 form.sui-form
                   input.input-xlarge#autocomplete(type="text" name="country" placeholder='输入...')
-              div#selection
+                  div.help-inline
+                    div.sui-msg.msg-tips
+                      div#selection.msg-con 请选择
+                      div.msg-icon
             script(src='assets/js/countries.js')
             script.
               $('#autocomplete').autocomplete({
@@ -50,10 +53,13 @@ block content
             h4 2.使用Ajax数据
             div.clearfix
               p Type country name in english:
-              div( style="float:left;width:220px; height:50px")
+              div( style="float:left;")
                 form.sui-form
-                  input.input-xlarge#autocomplete-ajax(type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder='输入...')
-              div#selction-ajax
+                  input.input-xlarge#autocomplete-ajax(type="text" name="country" placeholder='输入...')
+                  div.help-inline
+                    div.sui-msg.msg-tips
+                      div#selection-ajax.msg-con 请选择
+                      div.msg-icon
             script(src="assets/js/jquery.mockjax.js")
             script.
               var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
@@ -84,13 +90,13 @@ block content
                       return re.test(suggestion.value);
                   },
                   onSelect: function (suggestion) {
-                    $("#selction-ajax").html('您选择了'+suggestion.value);
+                    $("#selection-ajax").html('您选择了'+suggestion.value);
                   },
                   //- onHint: function (hint) {
                   //-   $('#autocomplete-ajax-x').val(hint);
                   //- },
                   onInvalidateSelection: function() {
-                    $('#selction-ajax').html('You selected: none');
+                    $('#selection-ajax').html('You selected: none');
                   }
               });
            
