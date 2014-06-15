@@ -109,12 +109,17 @@
                 <h4>1.使用本地数据</h4>
                 <div class="clearfix">
                   <p>Type country name in english:</p>
-                  <div style="float:left;width:220px">
+                  <div style="float:left;">
                     <form class="sui-form">
                       <input id="autocomplete" type="text" name="country" placeholder="输入..." class="input-xlarge">
+                      <div class="help-inline">
+                        <div class="sui-msg msg-tips">
+                          <div id="selection" class="msg-con">请选择</div>
+                          <div class="msg-icon"></div>
+                        </div>
+                      </div>
                     </form>
                   </div>
-                  <div id="selection"></div>
                 </div>
                 <script src="assets/js/countries.js"></script>
                 <script>
@@ -131,12 +136,17 @@
                 <h4>2.使用Ajax数据</h4>
                 <div class="clearfix">
                   <p>Type country name in english:</p>
-                  <div style="float:left;width:220px; height:50px">
+                  <div style="float:left;">
                     <form class="sui-form">
-                      <input id="autocomplete-ajax" type="text" name="country" style="position: absolute; z-index: 2; background: transparent;" placeholder="输入..." class="input-xlarge">
+                      <input id="autocomplete-ajax" type="text" name="country" placeholder="输入..." class="input-xlarge">
+                      <div class="help-inline">
+                        <div class="sui-msg msg-tips">
+                          <div id="selection-ajax" class="msg-con">请选择</div>
+                          <div class="msg-icon"></div>
+                        </div>
+                      </div>
                     </form>
                   </div>
-                  <div id="selction-ajax"></div>
                 </div>
                 <script src="assets/js/jquery.mockjax.js"></script>
                 <script>
@@ -168,13 +178,13 @@
                           return re.test(suggestion.value);
                       },
                       onSelect: function (suggestion) {
-                        $("#selction-ajax").html('您选择了'+suggestion.value);
+                        $("#selection-ajax").html('您选择了'+suggestion.value);
                       },
                       //- onHint: function (hint) {
                       //-   $('#autocomplete-ajax-x').val(hint);
                       //- },
                       onInvalidateSelection: function() {
-                        $('#selction-ajax').html('You selected: none');
+                        $('#selection-ajax').html('You selected: none');
                       }
                   });
                   
