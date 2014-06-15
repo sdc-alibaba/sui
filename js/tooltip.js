@@ -107,7 +107,7 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
-      clearTimeout(this.timeout)
+      clearTimeout(self.timeout)
       if (this.hoverState == 'out') {
         this.hoverState = 'in'
         this.tip().off($.support.transition && $.support.transition.end)
@@ -142,6 +142,7 @@
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
+        , align = opt.align
         , self = this
 
       if (this.hasContent() && this.enabled) {
@@ -165,10 +166,11 @@
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
         if (opt.trigger !== 'click') {
           $tip.hover(function(){
-            self.isTipHover = 1;
+            self.isTipHover = 1
           }, function(){
-            self.isTipHover = 0;
-            self.hide()
+            self.isTipHover = 0
+            self.hoverState = 'out'
+            $tip.detach()
           })
         }
 
@@ -186,22 +188,40 @@
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-        switch (placement) {
-          case 'bottom':
-            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'top':
-            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
+          , _left = pos.left + pos.width / 2 - actualWidth / 2
+          , _top = pos.top + pos.height / 2 - actualHeight / 2
+        //确定tooltip布局对齐方式
+        switch (align) {
           case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
+            _left = pos.left
             break
           case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
+            _left = pos.left - actualWidth + pos.width
+            break
+          case 'top':
+            _top = pos.top
+            break
+          case 'bottom':
+            _top = pos.top - actualHeight + pos.height
+            break
+        }
+        switch (placement) {
+          case 'bottom':
+            tp = {top: pos.top + pos.height + d, left: _left}
+            break
+          case 'top':
+            tp = {top: pos.top - actualHeight - d, left: _left }
+            break
+          case 'left':
+            tp = {top: _top, left: pos.left - actualWidth - d}
+            break
+          case 'right':
+            tp = {top: _top, left: pos.left + pos.width + d}
             break
         }
 
         this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
         this.$element.trigger('shown')
       }
     }
@@ -246,6 +266,32 @@
 
       if (replace) $tip.offset(offset)
     }
+  , applyAlign: function(align, tipPos){
+      var $tip = this.tip()
+      , actualWidth = $tip[0].offsetWidth
+      , actualHeight = $tip[0].offsetHeight
+      , css = {}
+      switch (align) {
+        case 'left':
+          if (tipPos.width < actualWidth)
+            css = {left: tipPos.width / 2}
+          break
+        case 'right':
+          if (tipPos.width < actualWidth)
+            css = {left: actualWidth - tipPos.width / 2}
+          break
+        case 'top':
+          if (tipPos.height < actualHeight)
+            css = {top: tipPos.height / 2}
+          break
+        case 'bottom':
+          if (tipPos.height < actualHeight)
+            css = {top: actualHeight - tipPos.height / 2}
+          break
+      }
+      align != 'center' && $tip.find('.tooltip-arrow').first().css(css)
+ 
+  }
 
   , replaceArrow: function(delta, dimension, position){
       this
@@ -388,6 +434,7 @@
   , html: true  //决定是html()还是text()
   , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
+  , align: 'center'  // {string} tip元素的布局方式，默认居中：'center' ,'left','right','top','bottom'
   }
 
 
