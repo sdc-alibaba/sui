@@ -178,7 +178,7 @@ block content
 
   ul.demo-operations.clearfix
     li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码
 
   h2 通过HTML标记自动初始化
   p.sui-lead
@@ -190,15 +190,35 @@ block content
       a(href='#code2', data-toggle='tab') 代码
 
   div.tab-content
-    div.tab-pane.active#demo3
+    div.tab-pane.active#demo2
       form.sui-form
         h4 通过ajax读取数据
         input.input-large(type="text" id='auto-init-1' value='' data-toggle='autocomplete' data-serviceUrl='/ac.json')
         h4 使用本地数据
         input.input-large(type="text" id='auto-init-2' value='' data-toggle='autocomplete' data-lookup='["aaa", "bbb", "ccc", "ddd", "edfa", "wdasda", "tueiyhgk", "vjflcjx"]')
-    div.tab-pane#code3
+    div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
   ul.demo-operations.clearfix
     li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
   
+  h2 下拉菜单样式
+  p.sui-lead
+    | 关于下拉菜单样式，参见这里 <a href='dropdown.html'>dropdown</a>
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      form.sui-form
+        .sui-dropdown-like
+          input.input-large(type="text" value='' data-toggle='autocomplete' data-serviceUrl='/ac.json')
+          i.sui-icon.icon-pc-chevron-bottom
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3') 复制代码

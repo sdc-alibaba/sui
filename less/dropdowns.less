@@ -133,7 +133,6 @@
   list-style: none;
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
-  overflow: auto;
   .border-radius(2px);
   .box-shadow(1px 1px 0px 1px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
@@ -355,5 +354,20 @@
     &:active {
       background-color: #c8c8c8;
     }
+  }
+}
+
+//simple input but looks like dropdown
+.sui-dropdown-like {
+  position: relative;
+  display: inline-block;
+  input {
+    padding-right: 20px!important;
+  }
+  .sui-icon {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -6px;
   }
 }
