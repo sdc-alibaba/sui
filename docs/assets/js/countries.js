@@ -1,4 +1,5 @@
 var countries = [
+    "我是中国人",
     "Andorra",
     "United Arab Emirates",
     "Afghanistan",
