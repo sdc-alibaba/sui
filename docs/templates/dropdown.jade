@@ -27,7 +27,7 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。
+    | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。 JS使用文档见 <a href='dropdown-js.html'>dropdown-js</a>
 
   h2 不同样式和大小
   ul.sui-nav.nav-tabs.nav-large
@@ -342,3 +342,24 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
+  h2 input 模拟下拉菜单样式
+  p.sui-lead
+    | 一般会在自动补全等地方用到，用一个简单的input结构加上一个箭头来模拟下拉菜单的样式.
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-dropdown-like', data-toggle='tab') 示例
+    li
+      a(href='#code-dropdown-like', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-dropdown-like
+      form.sui-form
+        .sui-dropdown-like
+          input.input-large(type="text" value='')
+          i.sui-icon.icon-pc-chevron-bottom
+    div.tab-pane#code-dropdown-like
+      pre.prettyprint.linenums(data-target='#demo-dropdown-like')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo-dropdown-like') 复制代码
