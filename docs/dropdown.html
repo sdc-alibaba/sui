@@ -204,6 +204,49 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo15&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>不同下拉位置和对齐方式</h2>
+          <p class="sui-lead">默认的下拉菜单是和触发元素左对齐，通过添加 <code>.align-right</code> 可以实现右对齐</p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo-align" data-toggle="tab">示例</a></li>
+            <li><a href="#code-align" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo-align" style="padding-bottom:60px;" class="tab-pane active">
+              <h4>左右对齐</h4><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">左对齐 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation"></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span><span style="margin-left: 20px;" class="sui-dropdown align-right"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">右对齐 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span>
+              <h4>上拉和下拉</h4><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">下拉菜单 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">下拉菜单 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span><span class="sui-dropup"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">上拉菜单 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span><span class="sui-dropup dropdown-bordered"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">上拉菜单 <i class='caret'></i></a>
+                  <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+                  </ul></span></span>
+            </div>
+            <div id="code-align" class="tab-pane">
+              <pre data-target="#demo-align" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo-align" class="copy-btn">复制代码</a></li>
+          </ul>
           <h2>多级下拉</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
@@ -334,8 +377,8 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>input 模拟下拉菜单样式</h2>
-          <p class="sui-lead">一般会在自动补全等地方用到，用一个简单的input结构加上一个箭头来模拟下拉菜单的样式.</p>
+          <h2>自动补全</h2>
+          <p class="sui-lead">用一个简单的input结构加上一个箭头来模拟下拉菜单的样式.</p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo-dropdown-like" data-toggle="tab">示例</a></li>
             <li><a href="#code-dropdown-like" data-toggle="tab">代码</a></li>
@@ -344,7 +387,7 @@
             <div id="demo-dropdown-like" class="tab-pane active">
               <form class="sui-form">
                 <div class="sui-dropdown-like">
-                  <input type="text" value="" class="input-large"><i class="sui-icon icon-pc-chevron-bottom"></i>
+                  <input type="text" value="" data-toggle="autocomplete" data-lookup="[&quot;dasd1231das2s&quot;, &quot;tuigjhhigjdif&quot;, &quot;ndjksvkjshf&quot;, &quot;fhekxoshlf&quot;, &quot;pqowizljmv&quot;]" data-minChars="0" class="input-large"><i class="sui-icon icon-pc-chevron-bottom"></i>
                 </div>
               </form>
             </div>
