@@ -290,7 +290,7 @@
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1" class="copy-btn">复制代码</a></li>
           </ul>
           <h2>通过HTML标记自动初始化</h2>
           <p class="sui-lead">在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。</p>
@@ -299,7 +299,7 @@
             <li><a href="#code2" data-toggle="tab">代码</a></li>
           </ul>
           <div class="tab-content">
-            <div id="demo3" class="tab-pane active">
+            <div id="demo2" class="tab-pane active">
               <form class="sui-form">
                 <h4>通过ajax读取数据</h4>
                 <input type="text" id="auto-init-1" value="" data-toggle="autocomplete" data-serviceUrl="/ac.json" class="input-large">
@@ -307,12 +307,33 @@
                 <input type="text" id="auto-init-2" value="" data-toggle="autocomplete" data-lookup="[&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;, &quot;ddd&quot;, &quot;edfa&quot;, &quot;wdasda&quot;, &quot;tueiyhgk&quot;, &quot;vjflcjx&quot;]" class="input-large">
               </form>
             </div>
-            <div id="code3" class="tab-pane">
+            <div id="code2" class="tab-pane">
               <pre data-target="#demo2" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>下拉菜单样式</h2>
+          <p class="sui-lead">关于下拉菜单样式，参见这里 <a href='dropdown.html'>dropdown</a></p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <form class="sui-form">
+                <div class="sui-dropdown-like">
+                  <input type="text" value="" data-toggle="autocomplete" data-serviceUrl="/ac.json" class="input-large"><i class="sui-icon icon-pc-chevron-bottom"></i>
+                </div>
+              </form>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo3" class="copy-btn">复制代码</a></li>
           </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">

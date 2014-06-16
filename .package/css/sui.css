@@ -6181,7 +6181,6 @@ sui-pre .sui-code {
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  overflow: auto;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -6358,6 +6357,19 @@ sui-pre .sui-code {
 }
 .sui-dropdown-menu::-webkit-scrollbar-thumb:active {
   background-color: #c8c8c8;
+}
+.sui-dropdown-like {
+  position: relative;
+  display: inline-block;
+}
+.sui-dropdown-like input {
+  padding-right: 20px!important;
+}
+.sui-dropdown-like .sui-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  margin-top: -6px;
 }
 .sui-well {
   min-height: 20px;
@@ -11599,6 +11611,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 /*.autocomplete-selected a{
 	color: white;
 }*/
+.sui-suggestion-container {
+  overflow: auto;
+}
 .sui-suggestion-container strong {
   color: #9d261d;
 }
@@ -11674,7 +11689,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .sui-steps .finished .round {
   background-color: #ffffff;
   background-color: transparent\9;
-  color: #ffffff;
+  color: #76b8ea;
 }
 .sui-steps .finished .round > i {
   color: #76b8ea;
