@@ -549,7 +549,7 @@
 					if (minute >= 0 && minute < 60) {
 						time.minute = minute;
 					}
-					hour = parseInt(val[0].splice(-2),10);
+					hour = parseInt(val[0].slice(-2),10);
 					if (hour >= 0 && hour < 24) {
 						time.minute = hour;
 					}

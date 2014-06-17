@@ -72,4 +72,4 @@ wqui的操作和上面一样。
      * `git commit -a`
      * `git push origin build`
      
-最后在官网服务器上对应仓库执行git pull 即可。
+官网服务器会定时检查每个仓库的更新（5分钟），所以push完build分之后五分钟内官网就会自动更新。
