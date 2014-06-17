@@ -73,7 +73,6 @@
 
       }
 
-      //!this.options.selector && this.fixTitle()
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
         this.fixTitle()
@@ -165,7 +164,7 @@
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
-        if (opt.trigger == 'hover') {
+        if (/\bhover\b/.test(opt.trigger)) {
           $tip.hover(function(){
             self.isTipHover = 1
           }, function(){
@@ -396,7 +395,6 @@
 
   , toggle: function (e) {
       var self = e ? $(e.currentTarget)[this.type](this._options).data(this.type) : this
-      //alert(jQuery.Event(e))
       self.tip().hasClass('in') ? self.hide() : self.show()
     }
 
@@ -458,7 +456,13 @@
         , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
         , tipContainer = tgt.parents('.sui-tooltip')
-      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+      /* 逻辑执行条件一次注释：
+       * 1、存在tip
+       * 2、点击的不是tip内的某区域
+       * 3、点击的不是触发元素本身
+       * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
+       */
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
     })
