@@ -73,6 +73,7 @@
 
       }
 
+      //!this.options.selector && this.fixTitle()
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
         this.fixTitle()
@@ -164,7 +165,7 @@
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
-        if (opt.trigger !== 'click') {
+        if (opt.trigger == 'hover') {
           $tip.hover(function(){
             self.isTipHover = 1
           }, function(){
@@ -395,6 +396,7 @@
 
   , toggle: function (e) {
       var self = e ? $(e.currentTarget)[this.type](this._options).data(this.type) : this
+      //alert(jQuery.Event(e))
       self.tip().hasClass('in') ? self.hide() : self.show()
     }
 
