@@ -188,9 +188,15 @@
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-          , _left = pos.left + pos.width / 2 - actualWidth / 2
+        tp = positioning();
+        this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
+        this.$element.trigger('shown')
+      }
+      //确定tooltip布局对齐方式
+      function positioning (){
+        var _left = pos.left + pos.width / 2 - actualWidth / 2
           , _top = pos.top + pos.height / 2 - actualHeight / 2
-        //确定tooltip布局对齐方式
         switch (align) {
           case 'left':
             _left = pos.left
@@ -219,11 +225,9 @@
             tp = {top: _top, left: pos.left + pos.width + d}
             break
         }
-
-        this.applyPlacement(tp, placement)
-        this.applyAlign(align, pos)
-        this.$element.trigger('shown')
+        return tp
       }
+
     }
 
   , applyPlacement: function(offset, placement){
