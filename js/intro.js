@@ -18,41 +18,16 @@
    *
    * @class IntroJs
    */
-  function IntroJs(obj) {
+
+  function IntroJs(obj,options) {
     this._targetElement = obj;
 
-    this._options = {
-      /* Next button label in tooltip box */
-      nextLabel: 'Next &rarr;',
-      /* Previous button label in tooltip box */
-      prevLabel: '&larr; Back',
-      /* Skip button label in tooltip box */
-      skipLabel: 'Skip',
-      /* Done button label in tooltip box */
-      doneLabel: 'Done',
-      /* Default tooltip box position */
-      tooltipPosition: 'bottom',
-      /* Next CSS class for tooltip boxes */
-      tooltipClass: '',
-      /* Close introduction when pressing Escape button? */
-      exitOnEsc: true,
-      /* Close introduction when clicking on overlay layer? */
-      exitOnOverlayClick: true,
-      /* Show step numbers in introduction? */
-      showStepNumbers: true,
-      /* Let user use keyboard to navigate the tour? */
-      keyboardNavigation: true,
-      /* Show tour control buttons? */
-      showButtons: true,
-      /* Show tour bullets? */
-      showBullets: true,
-      /* Scroll to highlighted element? */
-      scrollToElement: true,
-      /* Set the overlay opacity */
-      overlayOpacity: 0.8
-    };
+    this._options = getOptions(options);
+    
   }
-
+  function  getOptions(options) {
+      return options = $.extend({}, IntroJs.prototype.defaults, options);
+  }
   /**
    * Initiate a new introduction/guide from an element in the page
    *
@@ -615,7 +590,7 @@
 
       bulletsLayer.appendChild(ulContainer);
 
-      buttonsLayer.className = 'introjs-tooltipbuttons sui-tag';
+      buttonsLayer.className = 'introjs-tooltipbuttons';
       if (this._options.showButtons === false) {
         buttonsLayer.style.display = 'none';
       }
@@ -691,16 +666,16 @@
     }
 
     if (this._currentStep === 0 && this._introItems.length > 1) {
-      prevTooltipButton.className = 'introjs-button introjs-prevbutton introjs-disabled';
-      nextTooltipButton.className = 'introjs-button introjs-nextbutton';
+      prevTooltipButton.className = 'sui-btn introjs-prevbutton introjs-disabled';
+      nextTooltipButton.className = 'sui-btn introjs-nextbutton';
       skipTooltipButton.innerHTML = this._options.skipLabel;
     } else if (this._introItems.length - 1 === this._currentStep || this._introItems.length === 1) {
       skipTooltipButton.innerHTML = this._options.doneLabel;
-      prevTooltipButton.className = 'introjs-button introjs-prevbutton';
-      nextTooltipButton.className = 'introjs-button introjs-nextbutton introjs-disabled';
+      prevTooltipButton.className = 'sui-btn introjs-prevbutton';
+      nextTooltipButton.className = 'sui-btn introjs-nextbutton introjs-disabled';
     } else {
-      prevTooltipButton.className = 'introjs-button introjs-prevbutton';
-      nextTooltipButton.className = 'introjs-button introjs-nextbutton';
+      prevTooltipButton.className = 'sui-btn introjs-prevbutton';
+      nextTooltipButton.className = 'sui-btn introjs-nextbutton';
       skipTooltipButton.innerHTML = this._options.skipLabel;
     }
 
@@ -913,22 +888,23 @@
     return obj3;
   }
 
-  var introJs = function (targetElm) {
-    if (typeof (targetElm) === 'object') {
+  var introJs = function (targetElm, options) {
+    if ($.isPlainObject(targetElm)||(!targetElm && !options)){
+        options = targetElm;
+        return new IntroJs(document.body, options);
+    } else if (targetElm.tagName) {
       //Ok, create a new instance
-      return new IntroJs(targetElm);
+      return new IntroJs(targetElm, options);
 
     } else if (typeof (targetElm) === 'string') {
       //select the target element with query selector
       var targetElement = document.querySelector(targetElm);
 
       if (targetElement) {
-        return new IntroJs(targetElement);
+        return new IntroJs(targetElement, options);
       } else {
         throw new Error('There is no element with given selector.');
       }
-    } else {
-      return new IntroJs(document.body);
     }
   };
 
@@ -941,7 +917,37 @@
   introJs.version = VERSION;
 
   //Prototype
-  introJs.fn = IntroJs.prototype = {
+  IntroJs.prototype = {
+    defaults: {
+      /* Next button label in tooltip box */
+      nextLabel: '下一步 <i class="sui-icon icon-double-angle-right"></i> ',
+      /* Previous button label in tooltip box */
+      prevLabel: '<i class="sui-icon icon-double-angle-left"></i> 上一步',
+      /* Skip button label in tooltip box */
+      skipLabel: '退出',
+      /* Done button label in tooltip box */
+      doneLabel: '结束',
+      /* Default tooltip box position */
+      tooltipPosition: 'bottom',
+      /* Next CSS class for tooltip boxes */
+      tooltipClass: '',
+      /* Close introduction when pressing Escape button? */
+      exitOnEsc: true,
+      /* Close introduction when clicking on overlay layer? */
+      exitOnOverlayClick: true,
+      /* Show step numbers in introduction? */
+      showStepNumbers: true,
+      /* Let user use keyboard to navigate the tour? */
+      keyboardNavigation: true,
+      /* Show tour control buttons? */
+      showButtons: true,
+      /* Show tour bullets? */
+      showBullets: true,
+      /* Scroll to highlighted element? */
+      scrollToElement: true,
+      /* Set the overlay opacity */
+      overlayOpacity: 0.8
+    },
     clone: function () {
       return new IntroJs(this);
     },
