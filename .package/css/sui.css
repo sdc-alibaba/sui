@@ -6175,7 +6175,9 @@ sui-pre .sui-code {
   color: #666;
 }
 .sui-dropup.align-right > .dropdown-inner > .sui-dropdown-menu,
-.sui-dropdown.align-right > .dropdown-inner > .sui-dropdown-menu {
+.sui-dropdown.align-right > .dropdown-inner > .sui-dropdown-menu,
+.sui-dropup.align-right > .sui-dropdown-menu,
+.sui-dropdown.align-right > .sui-dropdown-menu {
   right: 0;
   left: auto;
 }
