@@ -342,8 +342,13 @@
 
   , fixTitle: function () {
       var $e = this.$element
+      //只有无js激活方式才处理title属性。同时html属性data-original-title必须附加到触发元素,即使是js调用生成的tooltip。
       if ($e.attr('title') || typeof($e.attr('data-original-title')) != 'string') {
-        $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        if ($e.data('toggle') == 'tooltip') {
+          $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        } else {
+          $e.attr('data-original-title', '')
+        }
       }
     }
 
