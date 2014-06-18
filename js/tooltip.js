@@ -132,7 +132,6 @@
         , tp
         , e = $.Event('show')
         , opt = this.options
-        , widthLimit = opt.widthlimit
         , align = opt.align
         , self = this
 
@@ -164,14 +163,7 @@
             $tip.detach()
           })
         }
-
-        //宽度限制逻辑
-        if (widthLimit !== true) {
-          var val
-          widthLimit === false && (val = 'none')
-          typeof opt.widthlimit == 'string' && (val = widthLimit)
-          $tip.css('max-width', val)
-        }
+        this.setWidth()
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
@@ -293,6 +285,25 @@
         .arrow()
         .css(position, delta ? (50 * (1 - delta / dimension) + "%") : '')
     }
+
+  , setWidth: function() {
+      var opt = this.options
+        , width = opt.width
+        , widthLimit = opt.widthlimit
+        , $tip = this.tip()
+      //人工设置宽度，则忽略最大宽度限制
+      if (width) {
+        $tip.css('width', width)
+      } else { 
+        //宽度限制逻辑
+        if (widthLimit !== true) {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
+      } 
+  }
 
   , setContent: function () {
       var $tip = this.tip()
