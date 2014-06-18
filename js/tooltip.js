@@ -296,7 +296,9 @@
         $tip.css('width', width)
       } else { 
         //宽度限制逻辑
-        if (widthLimit !== true) {
+        if (widthLimit === true) {
+          $tip.css('max-width', '400px')
+        } else {
           var val
           widthLimit === false && (val = 'none')
           typeof opt.widthlimit == 'string' && (val = widthLimit)
