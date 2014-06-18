@@ -64,15 +64,6 @@
         }
       }
 
-      //为confirm类型tooltip增加取消按钮设置默认逻辑
-      if (this.options.type == 'confirm') {
-        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-          $(this).parents('.sui-tooltip').prev().trigger('click')
-        })
-        this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
-
-      }
-
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
         this.fixTitle()
@@ -459,12 +450,13 @@
   $(function(){
     $('[data-toggle="tooltip"]').tooltip()
 
-    //点击外部可消失tooltip
+    //mousedown外部可消失tooltip(为了在click回调执行前处理好dom状态)
     $(document).on('mousedown', function(e){
       var tgt = $(e.target)
         , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
         , tipContainer = tgt.parents('.sui-tooltip')
+      e.preventDefault()
       /* 逻辑执行条件一次注释：
        * 1、存在tip
        * 2、点击的不是tip内的某区域
@@ -474,6 +466,22 @@
        */
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
+      }
+    })
+
+    //为confirm类型tooltip增加取消按钮设置默认逻辑
+    $(document).on('click', '[data-dismiss=tooltip]', function(e){
+      e.preventDefault()
+      $(e.target).parents('.sui-tooltip').prev().trigger('click')
+      console.log(e.target)
+    })
+    $(document).on('click', '[data-ok=tooltip]', function(e){
+      e.preventDefault()
+      var triggerEle = $(e.target).parents('.sui-tooltip').prev()
+        , instance = triggerEle.data('tooltip')
+        , okHideCallback = instance.options.okHide
+      if (typeof okHideCallback == 'function') {
+        okHideCallback.call(triggerEle)
       }
     })
 

@@ -132,7 +132,7 @@ block content
           $('#J_set').tooltip({
             animation: false, 
             type: 'confirm',
-            okHide: function(){alert('okHide');this.hide()}
+            okHide: function(){alert('okHide');console.log(this);this.tooltip('hide')}
           })
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
