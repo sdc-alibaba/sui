@@ -188,9 +188,15 @@
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-          , _left = pos.left + pos.width / 2 - actualWidth / 2
+        tp = positioning();
+        this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
+        this.$element.trigger('shown')
+      }
+      //确定tooltip布局对齐方式
+      function positioning (){
+        var _left = pos.left + pos.width / 2 - actualWidth / 2
           , _top = pos.top + pos.height / 2 - actualHeight / 2
-        //确定tooltip布局对齐方式
         switch (align) {
           case 'left':
             _left = pos.left
@@ -219,11 +225,9 @@
             tp = {top: _top, left: pos.left + pos.width + d}
             break
         }
-
-        this.applyPlacement(tp, placement)
-        this.applyAlign(align, pos)
-        this.$element.trigger('shown')
+        return tp
       }
+
     }
 
   , applyPlacement: function(offset, placement){
@@ -338,8 +342,13 @@
 
   , fixTitle: function () {
       var $e = this.$element
+      //只有无js激活方式才处理title属性。同时html属性data-original-title必须附加到触发元素,即使是js调用生成的tooltip。
       if ($e.attr('title') || typeof($e.attr('data-original-title')) != 'string') {
-        $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        if ($e.data('toggle') == 'tooltip') {
+          $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        } else {
+          $e.attr('data-original-title', '')
+        }
       }
     }
 
@@ -461,6 +470,7 @@
        * 2、点击的不是tip内的某区域
        * 3、点击的不是触发元素本身
        * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
+       * 这里决定了data-original-title属性必须存在于触发元素上
        */
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
