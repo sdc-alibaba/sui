@@ -1,14 +1,14 @@
 extends base_index
 
 block title
-  title 教程
+  title 快速入门
 
 block header
   +header('tutorial')
 
 block content_wrap
   .sui-container
-    h1.sui-page-header 教程内容
+    h1 快速入门
 
     p.sui-lead
       | 本教程是创建一个非常简单的”新建待办事项”页面，可以填写待办事项的名称、时间和补充说明，可以显示创建结果。
@@ -18,7 +18,7 @@ block content_wrap
       | 最终页面效果见&nbsp;
       a(href='examples/todo-create.html', target="_blank") 新建待办事项。
 
-    h1.sui-page-header 第一步，下载文件
+    h2.sui-page-header 第一步，下载文件
     div
       p
         | SUI 文件主要有两个，分别是：
@@ -28,24 +28,24 @@ block content_wrap
             | 样式文件，必须。
           li
             strong sui.min.js
-            | JS组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery。
+            | JS组件。因为sui的js组件依赖jquery，所以必须在sui.js之前引入jquery(可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery.min.js' target='_blank'>http://g.alicdn.com/sj/lib/jquery.min.js</a>)。
       h3 引用CDN文件
       p
         | 建议不要直接下载，而是直接引用我们的CDN文件:
       ul.unstyled
         li
-          a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
+          a(href='http://g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css
         li
-          a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
+          a(href='http://g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js
 
       h3 下载文件
 
       p
         | 如果不想引用CDN文件，可以直接去github上clone<a href='https://github.com/sdc-alibaba/sui' target="_blank">源代码</a>，也可以下载打包后的<a href='https://github.com/sdc-alibaba/sui/archive/master.zip' target='_blank'>ZIP文件</a>。
       p
-        | 访问 <a href='download.html'>下载页面</a>
+        | 更多关于如何获取代码的说明，请访问 <a href='download.html'>下载页面</a>
 
-    h1.sui-page-header 第二部，引用文件
+    h2.sui-page-header 第二步，引用文件
 
     p
       | 在head中依次引入sui.css和sui.js文件，代码如下：
@@ -57,15 +57,15 @@ block content_wrap
         &lt;meta charset="utf-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
         &lt;meta name="description" content=""&gt;
-        &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
-        &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
+        &lt;link href="http://g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css" rel="stylesheet"&gt;
+        &lt;script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body&gt;
       &lt;/body&gt;
       &lt;/html&gt;
 
-    h1.sui-page-header 第三步，添加面包屑、提示消息和表单
+    h2.sui-page-header 第三步，添加面包屑、提示消息和表单
 
     p
       | 我们使用三个css组件来生成这个页面，分别是面包屑、提示消息和表单。对应的代码如下
@@ -144,7 +144,7 @@ block content_wrap
         &lt;/div&gt;
       &lt;/form&gt; 
 
-    h1.sui-page-header 第四步，添加表单校验
+    h2.sui-page-header 第四步，添加表单校验
     
     p
       | 我们有现成的表单校验组件可以直接用。简单修改表单的html即可。
@@ -206,7 +206,7 @@ block content_wrap
       &lt;/form&gt; 
 
 
-    h1.sui-page-header 第步，完成
+    h2.sui-page-header 第五步，完成
 
     p
       | 经过上面几步我们就完成了一个简单的创建待办事项的页面，完整代码如下所示：
@@ -219,9 +219,9 @@ block content_wrap
         &lt;meta charset="utf-8"&gt;
         &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
         &lt;meta name="description" content=""&gt;
-        &lt;link href="sui/css/sui.css" rel="stylesheet"&gt;
-        &lt;script type="text/javascript" src="http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
-        &lt;script type="text/javascript" src="sui/js/sui.js"&gt;&lt;/script&gt;
+        &lt;link href="http://g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css" rel="stylesheet"&gt;
+        &lt;script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body&gt;
         &lt;div class="sui-container"&gt;
