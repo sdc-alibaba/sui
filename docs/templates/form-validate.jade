@@ -7,7 +7,6 @@ block sidebar
   +sidebar('form-validate')
 
 block content
-  h1 表单校验
   h2.sui-page-header 开发者文档
   
   p.sui-lead
@@ -74,6 +73,10 @@ block content
                       a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
                     li(role="presentation")
                       a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+          div.control-group
+            label.control-label.v-top(for="inputDes") 自我介绍：
+            div.controls
+              textarea(id="inputDes" name='des' placeholder="自我介绍" data-rules='required')
 
           div.control-group
             label.control-label()
@@ -164,6 +167,25 @@ block content
               | }
             td
               | 取消高亮显示错误。
+
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td fail
+            td
+              | fail: function(){$errorInputs, $form} {}
+            td
+              | 当用户提交表单且有错误发生时调用此方法。
 
       h4 三，配置规则
       p
