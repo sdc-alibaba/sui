@@ -186,14 +186,15 @@
               <p><code>okHide</code> 带确认、取消按钮的confirm型tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip)</p>
             </div>
           </div>
-          <hr>
+          <p><code>通过js调用生成</code>的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数。</p>
+          <p>因为可以通过<code>$('#xxx').tooltip(opt)</code>指定任意元素$('#xxx')为触发元素，所以不要z再为触发元素添加data-toggle="tooltip"的HTML属性。</p>
+          <p>AGAIN: <code>通过js调用生成的tooltip一定不要为触发元素附加data-toggle="tooltip"</code></p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo2" class="tab-pane active">
-              <js>调用的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数</js>
               <div class="bs-docs-example">
                 <ul class="example">
                   <li><a id="J_set" href="javascript:void(0)" data-trigger="click" title="这里可以做一些setting类别的事务&lt;br&gt;&lt;input type=&quot;text&quot;&gt;">带确定取消按钮的tooltip </a></li>

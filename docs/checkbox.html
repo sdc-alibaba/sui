@@ -93,49 +93,49 @@
         <div class="content-inner">
           <h1>单选框和复选框</h1>
           <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">这是js重写的选框组件，兼容ie8+。但是使用此组件必须引入sui.js。此组件内部依然通过原生的checkbox和radio来实现，所以不会影响原生的表单操作。<br>注意，在使用此组件的时候不要通过直接修改input的方式来操作，而是通过checkbox api来调用。</p>
+          <p class="sui-lead">这是js重写的选框组件，兼容ie8+。但是使用此组件必须引入sui.js。此组件内部依然通过原生的checkbox和radio来实现，所以不会影响原生的表单操作。<br>注意，在使用此组件的时候，如果要通过JS修改状态，最好不要通过直接修改input的方式来操作，而是通过checkbox api来调用。<br>
+            <ul class="unstyled">
+              <li><strong>更新 @2014-06-19: 去掉了 data-toggle 接口，现在事件全部代理到 document 处理，不需要初始化插件就可以自动更新样式。 </strong></li>
+            </ul>
+          </p>
           <h2>通过data-api使用</h2>
+          <p class="sui-lead">在初始化的时候同时设置好input的属性和label的class，否则在js加载之后可能会闪一下或者会出现状态不一致。<br>半选和未选中的值是一样的，只是样式不同而已。</p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <form class="sui-form">
                 <h3>复选框</h3>
-                <label data-toggle="checkbox" class="checkbox-pretty inline checked">
+                <label class="checkbox-pretty inline checked">
                   <input type="checkbox" checked="checked"><span>鸣人</span>
                 </label>
-                <label data-toggle="checkbox" class="checkbox-pretty inline">
+                <label class="checkbox-pretty inline">
                   <input type="checkbox"><span>佐助</span>
                 </label>
                 <h3>单选框</h3>
-                <label data-toggle="radio" class="radio-pretty inline checked">
+                <label class="radio-pretty inline checked">
                   <input type="radio" checked="checked" name="radio"><span>服装</span>
                 </label>
-                <label data-toggle="radio" class="radio-pretty inline">
+                <label class="radio-pretty inline">
                   <input type="radio" name="radio"><span>电器</span>
                 </label>
-                <label data-toggle="radio" class="radio-pretty inline">
+                <label class="radio-pretty inline">
                   <input type="radio" name="radio"><span>美食</span>
                 </label>
                 <h3>半选</h3>
-                <label data-toggle="radio" class="checkbox-pretty inline halfchecked">
+                <label class="checkbox-pretty inline halfchecked">
                   <input type="checkbox"><span>半选</span>
                 </label>
                 <h3>禁用</h3>
-                <label data-toggle="radio" class="checkbox-pretty inline checked disabled">
+                <label class="checkbox-pretty inline checked disabled">
                   <input type="checkbox" checked="checked" disabled><span>不可选</span>
                 </label>
               </form>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc1" class="tab-pane">
-              <p>通过添加 <code>data-toggle='checobox'</code> 或者 <code>data-toggle='radio'</code> 来启用。</p>
-              <p>在初始化的时候同时设置好input的属性和label的class，否则在js加载之后可能会闪一下或者会出现状态不一致。</p>
             </div>
           </div>
           <ul class="demo-operations clearfix">
@@ -152,7 +152,7 @@
             <div id="demo2" class="tab-pane active">
               <form class="sui-form">
                 <h3>复选框</h3>
-                <label id="checkbox2" data-toggle="checkbox" class="checkbox-pretty inline checked">
+                <label id="checkbox2" class="checkbox-pretty inline checked">
                   <input type="checkbox" checked="checked"><span>选项一</span>
                 </label>
                 <div style="display:block;margin-top: 15px;" class="op sui-btn-group"><a name="check" href="javascript:void(0);" class="sui-btn btn-primary">选中</a><a name="uncheck" href="javascript:void(0);" class="sui-btn btn-primary">取消</a><a name="halfcheck" href="javascript:void(0);" class="sui-btn btn-primary">半选</a><a name="toggle" href="javascript:void(0);" class="sui-btn btn-primary">toggle</a><a name="disable" href="javascript:void(0);" class="sui-btn btn-primary">disable</a><a name="enable" href="javascript:void(0);" class="sui-btn btn-primary">enable</a></div>
@@ -171,7 +171,7 @@
             </div>
             <div id="doc2" class="tab-pane">
               <ul class="unstyled">
-                <li>要把checkbox当做一个组件来用，不要通过js直接修改input的属性，要通过checkbox api来调用。</li>
+                <li>要把checkbox当做一个组件来用，最好不要通过js直接修改input的属性，要通过checkbox api来调用。</li>
                 <li>禁用状态会禁止用户的操作，但是不会禁止通过api来修改状态。</li>
                 <li>半选状态其实就是未选中，所以不会向后台提交。</li>
               </ul>

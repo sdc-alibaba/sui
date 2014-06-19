@@ -1414,17 +1414,7 @@
   var Checkbox = function (element, options) {
     this.$element = $(element)
     //this.options = $.extend({}, $.fn.checkbox.defaults, options)
-    this.$checkbox = this.$element.find("input").change($.proxy(this.update, this))
-    //同步状态
-    this.update()
-    var name = this.$checkbox.prop("name")
-    var self = this;
-    if (name && this.$checkbox.attr("type").toUpperCase() == 'RADIO') {
-      //radio 会因为其他相同name 的radio的改变而受到影响
-      $("input[name='"+name+"']").each(function(){
-        $(this).change($.proxy(self.update, self))
-      })
-    }
+    this.$checkbox = this.$element.find("input")
   }
 
   var old = $.fn.checkbox
@@ -1438,41 +1428,36 @@
       else if (option) data[option]()
     })
   }
-  //同步状态
-  Checkbox.prototype.update = function () {
-    if(this.$checkbox.prop("checked")) this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
-    else this.$element.removeClass(CHECKED_CLASS)
-    if(this.$checkbox.prop('disabled')) this.$element.addClass(DISABLED_CLASS)
-    else this.$element.removeClass(DISABLED_CLASS)
-  }
+  
   Checkbox.prototype.toggle = function () {
     if(this.$checkbox.prop("checked")) this.uncheck()
     else this.check()
+    this.$checkbox.trigger("change")
   }
 
   Checkbox.prototype.check = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
-    this.$checkbox.prop('checked', 'checked')
+    this.$checkbox.prop('checked', true)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.uncheck = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(HALF_CHECKED_CLASS).removeClass(CHECKED_CLASS)
-    this.$checkbox.removeAttr('checked')
+    this.$checkbox.prop('checked', false)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.halfcheck = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(CHECKED_CLASS).addClass(HALF_CHECKED_CLASS)
-    this.$checkbox.removeAttr('checked')
+    this.$checkbox.prop('checked', false)
+    this.$element.removeClass(CHECKED_CLASS).addClass("halfchecked")
   }
 
   Checkbox.prototype.disable = function () {
-    this.$element.addClass(DISABLED_CLASS)
-    this.$checkbox.prop('disabled', 'disabled')
+    this.$checkbox.prop('disabled', true)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.enable = function () {
-    this.$element.removeClass(DISABLED_CLASS)
-    this.$checkbox.removeAttr('disabled')
+    this.$checkbox.prop('disabled', false)
+    this.$checkbox.trigger("change")
   }
 
   $.fn.checkbox.defaults = {
@@ -1493,16 +1478,27 @@
   $.fn.radio = $.fn.checkbox;
 
 
- /* DATA-API
-  * =============== */
-
- //必须一开始就初始化，不然对于radio，由于其他相同name的radio改动的时候由于没有初始化就无法更新状态
-  $(function() {
-    $('[data-toggle^=checkbox],[data-toggle^=radio] ').each(function () {
-      $(this).checkbox()
-    })
-  })
-
+  // update status on document;
+  $(document).on("change", "input[type='checkbox'], input[type='radio']", function(e) {
+    var $checkbox= $(e.currentTarget);
+    var $container = $checkbox.parent();
+    var update = function($checkbox) {
+      var $container = $checkbox.parent();
+      if($checkbox.prop("checked")) $container.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
+      else $container.removeClass(CHECKED_CLASS).removeClass(HALF_CHECKED_CLASS)
+      if($checkbox.prop('disabled')) $container.addClass(DISABLED_CLASS)
+      else $container.removeClass(DISABLED_CLASS)
+    }
+    if($container.hasClass("checkbox-pretty") || $container.hasClass("radio-pretty")) {
+      update($checkbox);
+    }
+    if($checkbox.attr('type').toLowerCase() === 'radio') {
+      var name = $checkbox.attr("name");
+      $("input[name='"+name+"']").each(function() {
+        update($(this));
+      });
+    }
+  });
 }(window.jQuery);
 
 },{}],7:[function(require,module,exports){
@@ -5530,7 +5526,7 @@ $(function(){
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
-        if (opt.trigger !== 'click') {
+        if (/\bhover\b/.test(opt.trigger)) {
           $tip.hover(function(){
             self.isTipHover = 1
           }, function(){
@@ -5554,9 +5550,15 @@ $(function(){
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-          , _left = pos.left + pos.width / 2 - actualWidth / 2
+        tp = positioning();
+        this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
+        this.$element.trigger('shown')
+      }
+      //确定tooltip布局对齐方式
+      function positioning (){
+        var _left = pos.left + pos.width / 2 - actualWidth / 2
           , _top = pos.top + pos.height / 2 - actualHeight / 2
-        //确定tooltip布局对齐方式
         switch (align) {
           case 'left':
             _left = pos.left
@@ -5585,11 +5587,9 @@ $(function(){
             tp = {top: _top, left: pos.left + pos.width + d}
             break
         }
-
-        this.applyPlacement(tp, placement)
-        this.applyAlign(align, pos)
-        this.$element.trigger('shown')
+        return tp
       }
+
     }
 
   , applyPlacement: function(offset, placement){
@@ -5704,8 +5704,13 @@ $(function(){
 
   , fixTitle: function () {
       var $e = this.$element
+      //只有无js激活方式才处理title属性。同时html属性data-original-title必须附加到触发元素,即使是js调用生成的tooltip。
       if ($e.attr('title') || typeof($e.attr('data-original-title')) != 'string') {
-        $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        if ($e.data('toggle') == 'tooltip') {
+          $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        } else {
+          $e.attr('data-original-title', '')
+        }
       }
     }
 
@@ -5822,7 +5827,14 @@ $(function(){
         , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
         , tipContainer = tgt.parents('.sui-tooltip')
-      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+      /* 逻辑执行条件一次注释：
+       * 1、存在tip
+       * 2、点击的不是tip内的某区域
+       * 3、点击的不是触发元素本身
+       * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
+       * 这里决定了data-original-title属性必须存在于触发元素上
+       */
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
     })
