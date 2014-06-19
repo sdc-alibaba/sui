@@ -4,6 +4,9 @@
     width: 10px;
     height: 10px;
   }
+  &::-webkit-scrollbar-track-piece {
+    display: none;
+  }
   &::-webkit-scrollbar-track {
     .border-radius(5px);
     background-color: #fafafa;
@@ -28,6 +31,7 @@
 
   &.scrollbar-small {
     &::-webkit-scrollbar {
+      background: transparent;
       width: 8px;
       height: 8px;
     }
