@@ -30,6 +30,9 @@ block content
 
   h2.sui-page-header 开发者文档
 
+  p.sui-lead
+    strong 更新 @2014-06-19: 的control-group用inline-block布局，当controls中内容太长时会导致整个controls换行，改为 table-cell 修复这个问题。
+
   h3 按宽度分类
   p
     <code>select</code> 元素同样适用
@@ -560,13 +563,13 @@ block content
           div.control-group
             label.control-label(for="inputPassword") 密码：
             div.controls
-              <input type="password" id="inputPassword" placeholder="Password" />
+              input(type="password" id="inputPassword" placeholder="Password")
           div.control-group
-            label.control-label()
+            label.control-label
             div.controls
-            label.checkbox-pretty.inline(data-toggle='checkbox')
-              input(type='checkbox' name='remember-me')
-              span 记住我
+              label.checkbox-pretty.inline(data-toggle='checkbox')
+                input(type='checkbox' name='remember-me')
+                span 记住我
 
           div.control-group
             label.control-label()
