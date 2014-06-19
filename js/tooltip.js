@@ -474,8 +474,8 @@
        * 2、点击的不是tip内的某区域
        * 3、点击的不是触发元素本身
        * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
-       * 这里决定了data-original-title属性必须存在于触发元素上
        */
+       // 这里决定了data-original-title属性必须存在于触发元素上
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
