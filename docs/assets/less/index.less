@@ -1,9 +1,10 @@
 @import 'my-animate.less';
 
-.intro {
+.brand-intro {
+  text-align: center;
   background-color: #a811b5;
   color: #fff;
-  padding: 80px 0;
+  padding: 120px 0;
   background-image: url(../imgs/grid.png);
   background-image: url(../imgs/grid.png), -webkit-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
   background-image: url(../imgs/grid.png), -webkit-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
@@ -12,79 +13,31 @@
   background-image: url(../imgs/grid.png), linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
   background-position: center center;
   background-repeat: no-repeat;
-}
 
-.jumbotron {
-  padding: 60px 0;
-  color: #fff;
-}
-.beautify(@bg) {
-  background-color: lighten(@bg, 20%);
-  -webkit-transition: background .5s, background ease-in-out .5s;
-  transition: background .5s, background .5s;
-  -webkit-transition: color 1s .5s, color ease-in-out 1s .5s;
-  transition: color 1s .5s, color 1s .5s;
-  img {
-    opacity: 0;
+  h1 {
+    font-size: 64px;
   }
-  color: #555;
-  &.inview {
-    background-color: @bg;
-    color: #fff;
-
-    img {
-      .myBounceInUp;
-      .animated;
-    }
+  .sui-lead {
+    font-size: 22px;
+    margin: 2em 0;
+    line-height: 150%;
   }
 }
-.components {
-  .beautify(#45b7ed);
-}
-.features {
-  .beautify(#ac8);
-}
-.bootstrap {
-  .beautify(#0b9);
-}
-.intro> .sui-container {
-  text-align: center;
-}
-
-h1 {
-  font-size: 64px;
-  line-height: 1.5;
-}
-h2 {
-  font-size: 48px;
-  line-height: 1.5;
-}
-.center {
-  text-align: center;
-}
-.brand-intro .sui-lead {
-  font-size: 24px;
-  line-height: 2;
-}
-
 .btn-lead {
-  padding: 20px 80px;
+  padding: 1em 4em;
+  border: 2px solid #fff;
+  opacity: .8;
+  background: transparent;
+  color: #fff;
   font-size: 24px;
+  &:hover {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    opacity: 1;
+  }
 }
 
-.btn-wrap {
-  margin-top: 50px;
-}
-
-.details ul {
-  margin-top: 50px;
-}
-
-.details li {
-  font-size: 18px;
-  line-height: 2;
-}
-
-.bootstrap-logo {
-  height: 300px;
+.btn-lead + .btn-lead {
+  margin-left: 2em;
 }

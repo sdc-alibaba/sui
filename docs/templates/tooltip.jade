@@ -114,7 +114,9 @@ block content
       p tooltip作为展示型便携组件本不需要事件，不过为了补充confirm类型的tooltip，目前提供一个常见事件: 
       p <code>okHide</code> 带确认、取消按钮的confirm型tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip)
         
-  hr
+  p <code>通过js调用生成</code>的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数。
+  p 因为可以通过<code>$('#xxx').tooltip(opt)</code>指定任意元素$('#xxx')为触发元素，所以不要z再为触发元素添加data-toggle="tooltip"的HTML属性。
+  p AGAIN: <code>通过js调用生成的tooltip一定不要为触发元素附加data-toggle="tooltip"</code>
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -122,7 +124,6 @@ block content
       a(href='#code2', data-toggle='tab') 代码
   div.tab-content
     div.tab-pane.active#demo2
-      js调用的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数
       div.bs-docs-example
         ul.example
           li
