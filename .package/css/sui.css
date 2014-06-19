@@ -2489,7 +2489,7 @@ sui-pre .sui-code {
 .sui-form.form-horizontal .control-label {
   width: 96px;
   text-align: right;
-  display: inline-block;
+  display: table-cell;
   margin-bottom: 0;
   vertical-align: middle;
 }
@@ -2501,7 +2501,7 @@ sui-pre .sui-code {
   vertical-align: bottom;
 }
 .sui-form.form-horizontal .controls {
-  display: inline-block;
+  display: table-cell;
   margin-left: 3px;
 }
 .sui-form.form-horizontal .controls:first-child {
