@@ -1,0 +1,126 @@
+extends base
+
+block title
+    title TREE 级联选择
+
+block head
+    style.
+        .bs-docs-example{font-size:12px;}
+        .sui-tree-group > select + select{margin-left:5px;}
+
+block sidebar
+    +sidebar('tree-js')
+
+block content
+    h1 级联选择
+
+    h2.sui-page-header 开发者文档
+
+    p.docs
+        | 根据给定的数据生成下拉框，并且能够级联选择，并取到相应的数据。<br>
+        | 修改日志：由原来的一次性获取所有数据改为只获取第一级数据，后面的数据在选中某个节点后获取，并且移除了source参数
+
+    h1 1. select，通过标记自动初始化
+
+    ul.sui-nav.nav-tabs.nav-large
+        li.active
+            a(href='#demo1', data-toggle='tab') 示例
+        li
+            a(href='#code1', data-toggle='tab') 代码
+        li
+            a(href='#doc1', data-toggle='tab') 文档
+        li
+            a(href='#api1', data-toggle='tab') API
+
+    div.tab-content
+        .tab-pane.active#demo1
+            .bs-docs-example
+                .sui-tree-group(data-toggle='tree', data-src='http://10.68.111.150/php/demo/server/getCity.json', data-jsonp='true')
+        .tab-pane#code1
+            pre.prettyprint.linenums(data-target='#demo1>div')
+        .tab-pane#doc1
+            | <code>data-toggle='tree'</code>通过在元素上加此属性自动初始化，并生成第一个select，必须在初始化之前指定数据源<br>
+            | <code>data-src="url"</code>  通过ajax或jsonp方式获取数据的url<br>
+            | <code>data-jsonp="true"</code>  为true表示src的url为垮域请求，会以jsonp的形式发送<br>
+            | <code>data-val="[x,y,z]"</code>  初始化的时候的初始值，注意xyz的值必须要能在srouce对象中找到<br>
+        .tab-pane#api1
+            | <code>$(element).data('tree').datas</code>，element为<code>data-toggle='tree'</code>的元素，获取当前的值对象，格式为{value : [], option : []}，value代表select的value值，option表示显示的option的文字<br>
+            | <code>$(element).tree('setValue', [x,y,z])</code>  设置tree的值，参数同初始化的data-val相同
+    h1 2. select，通过js调用初始化
+
+    ul.sui-nav.nav-tabs.nav-large
+        li.active
+            a(href='#demo2', data-toggle='tab') 示例
+        li
+            a(href='#code2', data-toggle='tab') 代码
+        li
+            a(href='#doc2', data-toggle='tab') 文档
+        li
+            a(href='#api2', data-toggle='tab') API
+
+    .tab-content
+        .tab-pane.active#demo2
+            .bs-docs-example
+                .sui-tree-group#treeGroup2
+                script.
+                    $(function() {
+                        $('#treeGroup2').tree({
+                            src : 'http://10.68.111.150/php/demo/server/getCategory.json',
+                            placeholder : '-- 请选择 --',
+                            val : [2, 148, 152],
+                            jsonp : true
+                        });
+                    })
+        .tab-pane#code2
+            pre.prettyprint.linenums(data-target='#demo2>div')
+        .tab-pane#doc2
+            | 手动调用tree方法，并传入参数<br>
+            | 返回数据的格式：<br>
+            pre.prettyprint.
+                {
+                  "code" : 200, // 代表请求成功
+                  "data" : [
+                    {
+                      "id" : "id", // id值，用于option的value
+                      "value" : "value", // 显示的内容，用于option的text
+                      "parent" : "parent", // 父节点的id，暂无用途
+                      "isleaf" : "false", // 是否是叶结点，如果为false，则选中此项的时候会根据id获取子节点的数据
+                    },
+                    {...},
+                    ...
+                  ]
+                }
+        .tab-pane#api2
+            table.sui-table.table-bordered
+                thead
+                    tr
+                        th(style="width:100px") 名称
+                        th(style="width:50px") 类型
+                        th(style="width:50px") 默认值
+                        th 描述
+                tbody
+                    tr
+                        td src
+                        td string
+                        td null
+                        td 通过ajax获取数据的url
+                    tr
+                        td jsonp
+                        td boolean
+                        td false
+                        td 表示src请求是一个jsonp请求
+                    tr
+                        td key
+                        td string
+                        td "id"
+                        td 发送请求时获取数据的参数名，默认为id
+                    tr
+                        td placeholder
+                        td string
+                        td "请选择"
+                        td 默认的第一个option，可以传null或空串，则不会出现默认的option
+                    tr
+                        td val
+                        td Array
+                        td []
+                        td 初始化的值，是一个数组，里面的值是option的value值

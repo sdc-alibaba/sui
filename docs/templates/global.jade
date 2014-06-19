@@ -9,20 +9,18 @@ block sidebar
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
   - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
-  h1.sui-page-header
-    | 全局样式
+  h1 全局样式
 
-  p.sui-lead
-    | 建议正文、链接等部分使用12号字体，标题部分使用14号字体加粗。<br />
-    | 建议中文使用微软雅黑、宋体，英文使用Tahoma,Arial等字体。<br />
-    | 行高为字体的150%,文字间距为字体大小的180%，段落间距为字体的200%。<br />
-    | 默认文本颜色为 <code>#333</code>，默认链接颜色为 <code>#08c</code>。<br />
-    | SUI 默认定义了一些基本全局样式，包括基础字体、链接色、段落和列表样式等。
-    | 我们使用 <a href='http://necolas.github.com/normalize.css/'>normalize.css</a> 对全局样式进行了一些重载，并且针对我们的需求做了一些修改。
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/text.png')
 
   ul.demo-operations.clearfix
     li
-      a(href='#') 下载psd文件
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   h2 1. 基础字体和颜色
   ul.sui-nav.nav-tabs.nav-large
@@ -78,7 +76,5 @@ block content
         | 对于 form，table 等的样式设置大部分都被封装在了对应的class之下，不会影响全局样式。
 
   ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

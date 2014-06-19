@@ -1,4 +1,4 @@
-extends base
+extends base_index
 
 block title
   title 下载
@@ -16,24 +16,25 @@ block content_wrap
   .sui-container
     h1.sui-page-header 下载 SUI
 
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
+        strong 注意
+        ol(style='margin-left: 2em;')
+          li 目前QNUI还是测试版，版本号为1.0.0暂时不会变化，这样可能会由于用户浏览器的缓存导致代码不会更新，所以大家每次发布代码的时候最好在js和css的引用后面加一个时间戳，比如 g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js?r=2014.06.19，等版本稳定之后我们会通过更新版本号来发布代码。
+          li 由于CDN系统的改进，CDN域名从 g.tbcdn.cn 变更为 g.alicdn.com，代码并没有变化，两个域名同时可用。
+          li 最好上面提供的CDN地址，不要直接用我们sui.taobao.org下面的css和js，这只是给官网用的。
+      .msg-icon
+
     h2 直接引用CDN文件
     p
       | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
     ul.unstyled
       li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
+        a(href='http://g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css
       li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-responsive.min.css
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-extends.min.css
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui-all.min.css
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-extends.min.js
-      li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui-all.min.js
+        a(href='http://g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js
+    p
+      | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery.min.js' target='_blank'>http://g.tbcdn.cn/sj/lib/jquery.min.js</a>。
 
     h2 下载zip文件
 
@@ -41,14 +42,14 @@ block content_wrap
       | 包括所有的源代码和文档。
 
     p
-      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl/repository/archive.zip?ref=dev', target="_blank")
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='https://github.com/sdc-alibaba/sui/archive/build.zip', target="_blank")
         i.sui-icon.icon-download
-        | SUI-1.0.source.zip
+        | download SUI-1.0.source.zip
 
     h2 获取最新源码
 
     p.sui-lead
-      |可以从 <strong>gitlab</strong> 上直接获取最新的代码，项目地址：
-    a.sui-btn.btn-success.btn-huge(href='http://gitlab.alibaba-inc.com/sj/dpl', target="_blank")
+      |可以从 <strong>github</strong> 上直接获取最新的代码，项目地址：
+    a.sui-btn.btn-success.btn-huge(href='https://github.com/sdc-alibaba/sui', target="_blank")
       i.sui-icon.icon-github-alt
-      | SUI on gitlab
+      | view SUI on github

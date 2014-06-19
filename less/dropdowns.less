@@ -16,12 +16,18 @@
     > a {
       text-decoration: none;
     }
-  
+  }
+
+  &.dropdown-bordered > .dropdown-inner {
     > .sui-dropdown-menu {
-      top: 100%;
       left: 0;
-      margin: 2px 0 0; // override default ul
+      margin: 0; // override default ul
+      z-index: 9;
     }
+  }
+  &.select .sui-dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
   }
   .sui-dropdown-menu {
     display: none;
@@ -55,19 +61,17 @@
     .dropdown-toggle {
       outline: 0;
     }
+
   }
     
   a {
     outline: 0;
-    > .sui-icon {
-      float: right;
-    }
   }
 
 // Place the caret
   .caret {
     .sui-icon;
-    font-size: 120%;
+    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
     &:before {
       content: "\e6eb";
     }
@@ -100,16 +104,28 @@
         margin: 0;
         width: 100%;
         .box-sizing(border-box);
+        .border-radius(0 0 @borderRadiusMini @borderRadiusMini);
+      }
+    }
+    &.open {
+      .dropdown-inner {
+        > a {
+          position: relative;
+          z-index: 10;
+        }
       }
     }
   }
-  &.open {
-    .dropdown-inner {
-      border-color: @dropdownOpenColor;
-      a > .caret {
-        color: @dropdownOpenColor;
-      }
-    }
+  input {
+    border: 0;
+    width: 100px;
+    color: #666;
+  }
+
+  &.align-right > .dropdown-inner > .sui-dropdown-menu,
+  &.align-right > .sui-dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
 
@@ -124,7 +140,7 @@
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
   .border-radius(2px);
-  .box-shadow(2px 2px 0px rgba(0,0,0,.1));
+  .box-shadow(2px 2px 0px 0px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -163,6 +179,10 @@
       color: #fff;
     }
   }
+}
+
+.sui-dropup .sui-dropdown-menu {
+  .box-shadow(2px -2px 0px 0px rgba(0,0,0,.1));
 }
 
 // Hover/Focus state
@@ -224,32 +244,39 @@
 }
 
 // different size
-.sui-dropdown.dropdown-bordered {
+.sui-dropdown.dropdown-bordered,
+.sui-dropup.dropdown-bordered {
   // xLarge
-  &.dropdown-xlarge .dropdown-inner a {
-    padding: @paddingXLarge;
-    line-height: @lineHeightLarge;
-    font-size: @fontSizeLarge;
+  &.dropdown-xlarge {
+    > .dropdown-inner  a {
+      padding: @paddingXLarge;
+      line-height: @lineHeightLarge;
+      font-size: @fontSizeLarge;
+    }
   }
 
   // Large
-  &.dropdown-large .dropdown-inner a {
-    padding: @paddingLarge;
-    line-height: @lineHeightLarge;
-    font-size: @fontSizeLarge;
+  &.dropdown-large {
+    > .dropdown-inner a {
+      padding: @paddingLarge;
+      line-height: @lineHeightLarge;
+      font-size: @fontSizeLarge;
+    }
   }
 
   // Small
-  &.dropdown-small .dropdown-inner  a {
-    padding: @paddingSmall;
-    line-height: @lineHeightSmall;
-    font-size: @fontSizeSmall;
+  &.dropdown-small {
+    > .dropdown-inner a {
+      padding: @paddingSmall;
+      line-height: @lineHeightSmall;
+      font-size: @fontSizeSmall;
+    }
   }
   &,
   &.dropdown-xlarge,
   &.dropdown-large,
   &.dropdown-small {
-    .dropdown-inner {
+    > .dropdown-inner {
       a {
         padding-left: 8px;
         padding-right: 8px;
@@ -284,17 +311,14 @@
 // TODO: abstract this so that the navbar fixed styles are not placed here?
 .sui-dropup,
 .navbar-fixed-bottom .sui-dropdown {
-  // Reverse the caret
-  .caret {
-    border-top: 0;
-    border-bottom: 4px solid @black;
-    content: "";
-  }
   // Different positioning for bottom up menu
   .sui-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
+  }
+  .dropdown-toggle > .caret:before {
+    content: "\e6ea";
   }
 }
 
@@ -312,4 +336,49 @@
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
   .border-radius(@baseBorderRadius);
+}
+
+//dropdownmenu scrollbar style
+.sui-dropdown-menu {
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    .border-radius(2px);
+    background-color: transparent;
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: #d5d5d5; 
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    .border-radius(4px);
+    background-color: #e1e1e1;
+    width: 6px;
+    height: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    &:hover {
+      background-color: #d5d5d5;
+    }
+    &:active {
+      background-color: #c8c8c8;
+    }
+  }
+}
+
+//simple input but looks like dropdown
+.sui-dropdown-like {
+  position: relative;
+  display: inline-block;
+  input {
+    padding-right: 20px!important;
+  }
+  .sui-icon {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -6px;
+  }
 }

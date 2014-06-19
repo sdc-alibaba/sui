@@ -7,8 +7,18 @@ block sidebar
   +sidebar('step')
 
 block content
-  h1.sui-page-header 步骤条
-      small steps
+  h1 步骤条
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/steps.png')
+
+  ul.demo-operations.clearfix
+    li
+        a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     | 适用于需要步骤条的业务场景 
@@ -17,10 +27,6 @@ block content
     <li>加入一个wrap层，用来解决FF下display:table-cell和position:relative不能并存的问题</li>
     <li>目前，在本机上(xp,ubuntu),IE和chrome展示完美，但是xp下的FF尖角处有黑线，在其他同学的机子上没有发现该问题</li>
     </ul>
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -38,14 +44,15 @@ block content
         div.wrap
             div.finished
                 label
-                    span.round &#10004;
+                    span.round 
+                        <i class="sui-icon icon-pc-right"></i>
                     span 第一步 #4AA4D5
                 i.triangle-right-bg
                 i.triangle-right
         div.wrap
             div.current
                 label
-                    span.round 2
+                    span.round 2 
                     span 第二步 #333333
                 i.triangle-right-bg
                 i.triangle-right
@@ -58,7 +65,8 @@ block content
         div.wrap
             div.finished
                 label
-                    span.round &#10004;
+                    span.round
+                        <i class="sui-icon icon-pc-right"></i>
                     span 第一步 #4AA4D5
                 i.triangle-right-bg
                 i.triangle-right
@@ -80,7 +88,8 @@ block content
         div.wrap
             div.finished
                 label
-                    span.round &#10004;
+                    span.round
+                        <i class="sui-icon icon-pc-right"></i>
                     span 第一步 #4AA4D5
                 i.triangle-right-bg
                 i.triangle-right
@@ -100,7 +109,8 @@ block content
         div.wrap
             div.finished
                 label
-                    span.round &#10004;
+                    span.round
+                        <i class="sui-icon icon-pc-right"></i>
                     span 第一步 #4AA4D5
                 i.triangle-right-bg
                 i.triangle-right
@@ -125,6 +135,70 @@ block content
                     span 第四步 #999999
                 i.triangle-right-bg
                 i.triangle-right
+      h2 前台定宽步骤条 
+      div.sui-steps-round
+            div.finished
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.current
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo(style="width:5%")
+              div.wrap
+                div.round 3
+              label 文字描述
+      h2 前台自适应步骤条 
+      span 根据页面大小自适应的steps,如果仅指定steps-round-auto,步骤条会自动适应，如果希望步骤条整体自适应，同时单个step保持一定比例的宽度，参考下面的例子
+      div.sui-steps-round.steps-round-auto
+            div.finished
+              div.wrap
+                div.round 1
+                div.bar
+              label 文文字描述文字描述文字描述文字描述字描述文字
+            div.current
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo(style="width:5%")
+              div.wrap
+                div.round 3
+              label 文字描述
+      span 同时指定了steps-round-auto和steps步骤数,步骤条会整体自适应，同时单个step保持一定比例的宽度，目前提供steps-3到steps-7，使用方法类似bootstrap的删隔布局
+      div.sui-steps-round.steps-round-auto.steps-4
+            div.finished
+              div.wrap
+                div.round 1
+                div.bar
+              label 文文字描述文字描述文字描述文字描述字描述文字
+            div.current
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo
+              div.wrap
+                div.round 1
+                div.bar
+              label 文字描述
+            div.todo(style="width:5%")
+              div.wrap
+                div.round 3
+              label 文字描述
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1

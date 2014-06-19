@@ -12,15 +12,20 @@
 
 body {
   position: relative;
-  padding-top: 40px;
+  padding-top: 59px;
   font-size: 14px;
 }
+
 
 html, body, .sui-layout,
 body > .sui-layout > .sidebar {
   height: 100%;
 }
 /* Code in headings */
+h1 {
+  font-size: 32px;
+  line-height: 48px;
+}
 h3 code {
   font-size: 14px;
   font-weight: normal;
@@ -35,9 +40,6 @@ h3 code {
   margin-left: 150px;
   background: #fff;
   overflow: hidden;
-}
-.sui-layout .content-inner {
-  max-width: 1200px;
 }
 
 body > .sui-layout > .sidebar {
@@ -64,14 +66,19 @@ body > .sui-navbar {
   font-size: 14px;
 }
 body > .sui-navbar .sui-brand {
-  line-height: 22px;
-  padding: 8px 20px;
+  padding: 3px;
+  font-size: 32px;
+  line-height: 48px;
 }
 body > .sui-navbar > .navbar-inner {
   padding-left: 25px;
+  background-image: none;
 }
 body > .sui-navbar .sui-nav {
   margin-left: 50px;
+}
+body > .sui-navbar .sui-nav > li > a {
+  padding: 20px;
 }
 
 /* Change the docs' brand */
@@ -93,6 +100,27 @@ body > .navbar .brand:hover {
 }
 
 
+.sui-page-header {
+  margin-left: 50px;
+  position: relative;
+  border-bottom: 1px solid #666;
+  padding: 0;
+  margin-top: 30px;
+}
+.sui-page-header:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url(../../pictures/title-arrow.png) no-repeat;
+  top: 4px;
+  left: -50px;
+}
+
+h1.sui-page-header:before {
+  top: 10px;
+}
 
 .demo-operations {
   margin: 10px 0 40px 0;
@@ -153,5 +181,69 @@ body > .navbar .brand:hover {
 
   li {
     padding: 4px 0;
+  }
+}
+
+@media (max-width: 1400px) {
+  .sui-navbar .sui-container {
+    width: auto;
+  }
+}
+@media (min-width: 1400px) {
+  .sui-layout,
+  .sui-navbar .sui-container {
+    width: 1400px;
+    margin: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .sui-layout .content {
+    margin-left: 180px;
+  }
+
+  body > .sui-layout > .sidebar {
+    width: 180px;
+  }
+
+  .docs-sidenav {
+    width: 181px;
+  }
+}
+@media (max-height: 600px) {
+  .sui-nav.nav-tabs.nav-xlarge > li > a {
+    padding: 8px 18px;
+  }
+  .sui-nav.nav-tabs.nav-stacked.nav-xlarge .nav-tabs.nav-stacked > li > a {
+    padding: 4px 16px;
+    border: none;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    padding: 0;
+  }
+  body > .sui-layout {
+    > .sidebar {
+      position: static;
+      float: none;
+      height: auto;
+    }
+    > .content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  }
+
+  body > .sui-layout > .sidebar {
+    width: auto;
+    height: auto;
+  }
+
+  .docs-sidenav {
+    width: auto;
+  }
+  body > .sui-navbar {
+    position: static;
   }
 }

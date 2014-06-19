@@ -7,23 +7,8 @@
 @arrowOffset: 7px;
 @attentionArrowOffset: @arrowOffset - @tipBorderWidth;
 
-// Base class
-.sui-tooltip {
-  position: absolute;
-  z-index: @zindexTooltip;
-  display: block;
-  visibility: visible;
-  max-width: 300px;
-  border: @tipBorderWidth solid @tooltipBorderColor;
-  opacity: 0;
-  //.opacity(0);   bug in IE8 
-  .border-radius(2px);
-  &.in     { /*.opacity(100);*/ opacity:1;}
-  &.top    { margin-top:  -3px;}
-  &.right  { margin-left:  3px;}
-  &.bottom { margin-top:   3px;}
-  &.left   { margin-left: -3px;}
-  &.normal {
+.type-style {
+  &.default, &.normal, &.confirm {  //normal 是为了兼容以前的版本
     .tooltip-inner {
       background-color: @white;
       color: @grayDarker;
@@ -40,10 +25,29 @@
   .tooltip-inner {
     padding: 9px 11px;
     text-decoration: none;
+    text-align: left;
     font-weight: normal;
     white-space: pre-wrap;  //fix bug in firefox: not break word when long line withou space
   }
 
+}
+// Base class
+.sui-tooltip {
+  position: absolute;
+  z-index: @zindexTooltip;
+  display: block;
+  visibility: visible;
+  max-width: 300px;
+  border: @tipBorderWidth solid @tooltipBorderColor;
+  opacity: 0;
+  //.opacity(0);   bug in IE8 
+  .border-radius(2px);
+  &.in     { /*.opacity(100);*/ opacity:1;}
+  &.top    { margin-top:  -3px;}
+  &.right  { margin-left:  3px;}
+  &.bottom { margin-top:   3px;}
+  &.left   { margin-left: -3px;}
+  .type-style();
 }
 
 
@@ -61,7 +65,8 @@
 .tooltip-only-arrow{
   position: relative;
   border:2px solid @tooltipBorderColor;
-  padding: 5px;
+
+  .type-style();
 }
 .sui-tooltip ,.tooltip-only-arrow{
   &.attention {

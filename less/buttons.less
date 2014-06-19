@@ -52,8 +52,8 @@
     .user-select(none);
   }
 
-  .sui-icon {
-    margin-right: 8px;
+  .sui-icon:after {
+    content: " ";
   }
 
 }
@@ -176,6 +176,7 @@ input[type="submit"].btn {
 .btn-link,
 .btn-link:active,
 .btn-link[disabled] {
+  border-color: transparent;
   background-color: transparent;
   background-image: none;
   .box-shadow(none);
@@ -191,9 +192,42 @@ input[type="submit"].btn {
   color: @linkColorHover;
   text-decoration: underline;
   background-color: transparent;
+  border-color: transparent;
 }
 .btn-link[disabled]:hover,
 .btn-link[disabled]:focus {
   color: @grayDark;
   text-decoration: none;
+}
+
+
+// bordered btn
+.sui-btn {
+  &.btn-bordered {
+    background-color: transparent;
+    .buttonBorderedBackground(#999, #666);
+    &.btn-primary {
+      .buttonBorderedBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+    }
+    // Warning appears are orange
+    &.btn-warning {
+      .buttonBorderedBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+    }
+    // Danger and error appear as red
+    &.btn-danger {
+      .buttonBorderedBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+    }
+    // Success appears as green
+    &.btn-success {
+      .buttonBorderedBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+    }
+    // Info appears as a neutral blue
+    &.btn-info {
+      .buttonBorderedBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+    }
+    // Inverse appears as dark gray
+    &.btn-inverse {
+      .buttonBorderedBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+    }
+  }
 }

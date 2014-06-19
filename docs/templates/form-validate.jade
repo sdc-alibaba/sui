@@ -7,16 +7,12 @@ block sidebar
   +sidebar('form-validate')
 
 block content
-
-  h1.sui-page-header 表单校验
+  h1 表单校验
+  h2.sui-page-header 开发者文档
   
   p.sui-lead
-    | 抢答的表单校验器，通过简单的配置规则即可实现表单校验。<br />
+    | 强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件。
-
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
 
   h2 通过HTML配置规则
   p.lead
@@ -57,13 +53,34 @@ block content
           div.control-group
             label.control-label(for="inputGender") 性别：
             div.controls
-              label.radio.inline
-                input(type="radio" name='gender' data-rules='required' value='1')
-                | 男
-              label.radio.inline
-                input(type="radio" name='gender' data-rules='required' value='2')
-                | 女
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='1' data-rules='required')
+                span 男
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='2' data-rules='required')
+                span 女
+
           div.control-group
+            label.control-label(for="inputGender") 地址：
+            div.controls
+              span.sui-dropdown.dropdown-bordered.select
+                span.dropdown-inner
+                  a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
+                    input(name='city' type='hidden' data-rules='required')
+                    i.caret
+                    span 请选择
+                  ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+                    li(role="presentation")
+                      a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+          div.control-group
+            label.control-label.v-top(for="inputDes") 自我介绍：
+            div.controls
+              textarea(id="inputDes" name='des' placeholder="自我介绍" data-rules='required')
+
+          div.control-group
+            label.control-label()
             div.controls
               button.sui-btn.btn-primary(type="submit") 立即注册
     div.tab-pane#code1
@@ -151,6 +168,25 @@ block content
               | }
             td
               | 取消高亮显示错误。
+
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。
+          tr
+            td fail
+            td
+              | fail: function(){$errorInputs, $form} {}
+            td
+              | 当用户提交表单且有错误发生时调用此方法。
 
       h4 三，配置规则
       p
@@ -250,12 +286,13 @@ block content
           div.control-group
             label.control-label(for="inputGender") 性别：
             div.controls
-              label.radio.inline
-                input(type="radio" name='gender' value='1')
-                | 男
-              label.radio.inline
-                input(type="radio" name='gender' value='2')
-                | 女
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='1')
+                span 男
+              label.radio-pretty.inline(data-toggle='radio')
+                input(type='radio' name='gender' value='2')
+                span 女
+
           div.control-group
             label.control-label(for="sanwei") 三维：
             div.controls
@@ -265,6 +302,7 @@ block content
                 s.msg-icon
 
           div.control-group
+            label.control-label(for="sanwei")
             div.controls
               button.sui-btn.btn-primary(type="submit") 立即注册
         script.

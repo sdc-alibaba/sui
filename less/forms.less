@@ -273,6 +273,8 @@
   .input-xfat {
     padding-top: @inputXFatPaddingTB;
     padding-bottom: @inputXFatPaddingTB;
+    font-size: @fontSizeLarge;
+    line-height: @lineHeightLarge;
   }
 
   // 重置大号和加大号表单控件左右padding
@@ -548,16 +550,15 @@
   .help-block {
     display: block; // account for any element using help-block
 
-    // 更新样式如下 @by kai 2014-02-30
     // margin-bottom: @baseLineHeight / 2;
     margin-top: @baseLineHeight / 2;
   }
 
   .help-inline {
     display: inline-block;
+    margin-left: 6px;
     .ie7-inline-block();
     vertical-align: middle;
-    // padding-left: 5px; // 去掉padding-left值 @by kai 2014-02-13
   }
 
 
@@ -618,6 +619,19 @@
     .active {
       background-color: lighten(@green, 30);
       border-color: @green;
+    }
+  }
+
+  .input-inner {
+    .input-append;
+    input {
+      .border-radius(@inputBorderRadius 0 0 @inputBorderRadius);
+    }
+    .add-on {
+      margin-right: -1px;
+    }
+    .add-on + input {
+      .border-radius( 0 @inputBorderRadius @inputBorderRadius 0);
     }
   }
 
@@ -798,6 +812,7 @@
     }
     .v-top {
         vertical-align: top;
+        margin-top: 2px;
     }
     .v-bottom {
         vertical-align: bottom;    
@@ -816,8 +831,6 @@
 
     // Remove bottom margin on block level help text since that's accounted for on .control-group
     .help-block {
-      // margin-bottom: 0;
-      // 更新样式如下 @by kai 2014-02-30
       margin-top: 0;
     }
     // And apply it only to .help-block instances that follow a form control
@@ -829,6 +842,9 @@
     .input-append,
     // 添加radio和checkbox
     .radio,
+    .radio-pretty,
+    .checkbox-pretty,
+    .sui-dropdown,
     .checkbox {
       // + .help-block {  // 修改选择器关系为后面所有的help-block @by kai 2014-01-30
       ~ .help-block {
@@ -840,4 +856,40 @@
       padding-left: @horizontalComponentOffset;
     }
   }
+  
+    
+    //带图标的input
+    .input-control {
+      display: inline-block;
+      position: relative;
+      .sui-icon {
+        position: absolute;
+        color: #aaa;
+        font-size: 14px;
+        left: 6px;
+        top: 5px;
+      }
+      .input-thin + .sui-icon {
+        top: 4px;
+        font-size: 12px;
+      }
+      .input-fat + .sui-icon {
+        top: 7px;
+      }
+      .input-xfat + .sui-icon {
+        top: 8px;
+        font-size: 16px;
+      }
+      input:focus {
+        ~ .sui-icon {
+          display: none;
+        }
+      }
+      &.control-right {
+        .sui-icon {
+          left: auto;
+          right: 6px;
+        }
+      }
+    }
 }

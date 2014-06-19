@@ -20,19 +20,20 @@ mixin header(highlight)
     - classIndex = 'active'
   div.sui-navbar.navbar-inverse.navbar-fixed-top
     div.navbar-inner
-      a.sui-brand(href="./index.html")
-        i.sui-icon.icon-github-alt &nbsp;
-        |SUI
-      ul.sui-nav
-        li(class=classIndex)
-          a(href="./index.html") 首页
-        li(class=classDemos)
-          a(href="./global.html") 组件库
-        li(class=classExamples)
-          a(href="./examples.html") 案例
-        li(class=classTutorial)
-          a(href="./tutorial.html") 教程
-        li(class=classDownload)
-          a(href="./download.html") 下载
-        li(class=classAbout)
-          a(href="./about.html") 关于
+      .sui-container
+        a.sui-brand(href="./index.html")
+          i.sui-icon.icon-github-alt &nbsp;
+          | SUI
+        ul.sui-nav
+          li(class=classIndex)
+            a(href="./index.html") 首页
+          li(class=classDemos)
+            a(href="./global.html") 组件库
+          li(class=classExamples)
+            a(href="./examples.html") 案例
+          li(class=classTutorial)
+            a(href="./tutorial.html") 教程
+          li(class=classDownload)
+            a(href="./download.html") 下载
+          li(class=classAbout)
+            a(href="./about.html") 关于

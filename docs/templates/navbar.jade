@@ -1,0 +1,258 @@
+extends base
+
+block title
+  title 导航栏
+
+block sidebar
+  +sidebar('navbar')
+
+block head
+  style.
+    .sui-navbar {
+      z-index: 99999;
+    }
+
+block content
+
+  h1 导航栏
+
+  h2.sui-page-header 开发者文档
+
+  h2 不同的功能
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo1(style='padding-bottom: 100px;')
+      h4 简单的导航条
+      div.sui-navbar
+        div.navbar-inner
+          a.sui-brand(href='#') SUI
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li
+              a(href='#') 关于
+
+      h4 只有链接
+      div.sui-navbar
+        div.navbar-inner
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li
+              a(href='#') 关于
+
+      h4 带表单
+      div.sui-navbar
+        div.navbar-inner
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li
+              a(href='#') 关于
+
+          form.sui-form.sui-form.pull-right
+            input(type='text' placeholder='宝贝/店铺名称...')
+            button.sui-btn 搜索
+
+      h4 带下拉菜单
+      div.sui-navbar
+        div.navbar-inner
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 项目组成员
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权
+
+      h4 综合
+      div.sui-navbar
+        div.navbar-inner
+          a.sui-brand(href='#') SUI
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 项目组成员
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权
+          form.sui-form.sui-form.pull-left
+            input(type='text' placeholder='宝贝/店铺名称...')
+            button.sui-btn 搜索
+          ul.sui-nav.pull-right
+            li
+              a(href='#') 个人中心
+            li
+              a(href='#') 帮助
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码
+
+
+  h2 深色主题
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo2(style='padding-bottom: 100px;')
+      div.sui-navbar.navbar-inverse
+        div.navbar-inner
+          a.sui-brand(href='#') SUI
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 项目组成员
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权
+          form.sui-form.sui-form.pull-right
+            input(type='text' placeholder='宝贝/店铺名称...')
+            button.sui-btn 搜索
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
+
+  h2 固定在顶部/底部
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    style.
+      #demo3 .sui-navbar {
+        position: absolute; //for demo
+      }
+    div.tab-pane.active#demo3(style='height:160px;position: relative;z-index: 0;')
+      div.sui-navbar.navbar-fixed-top
+        div.navbar-inner
+          a.sui-brand(href='#') SUI
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权申明
+          form.sui-form.sui-form.pull-right
+            input(type='text' placeholder='宝贝/店铺名称...')
+            button.sui-btn 搜索
+
+      div.sui-navbar.navbar-fixed-bottom
+        div.navbar-inner
+          a.sui-brand(href='#') SUI
+          ul.sui-nav
+            li.active
+              a(href='#') 首页
+            li
+              a(href='#') 组件
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权申明
+          form.sui-form.sui-form.pull-right
+            input(type='text' placeholder='宝贝/店铺名称...')
+            button.sui-btn 搜索
+
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3') 复制代码
+
+
+  h2 响应式布局
+
+  p.sui-lead
+    | 添加一个 <code>&lt;div class='container'&gt;&lt;/div&gt;</code> 就可以实现自适应的宽度。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo4(style='padding-bottom: 100px;')
+      div.sui-navbar.navbar-inverse
+        div.navbar-inner
+          div.sui-container
+            a.sui-brand(href='#') SUI
+            ul.sui-nav
+              li.active
+                a(href='#') 首页
+              li
+                a(href='#') 组件
+              li.sui-dropdown
+                a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown') 其他 <i class="caret"></i>
+                ul.sui-dropdown-menu(role='menu')
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 关于
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 项目组成员
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#") 版权
+
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4') 复制代码
+
+

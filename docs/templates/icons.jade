@@ -5,31 +5,89 @@ block title
 
 block head
   style(type='text/css').
-    .icons-demo {
+    .icon-pc-demo {
+      font-size: 20px;
+      word-break: break-all;
+    }
+    .icon-pc-demo i {
+      margin: 10px; 
+      display: inline-block;
+      width: 20px;
+    }
+    .icon-touch-demo {
+      font-size: 40px;
+      word-break: break-all;
+    }
+    .icon-touch-demo i {
+      margin: 10px; 
+      display: inline-block;
+      width: 40px;
+    }
+
+    .icon-moon-demo {
       font-size: 24px;
       word-break: break-all;
     }
-    .icons-demo li {
+    .icon-moon-demo i {
       margin: 10px; 
       display: inline-block;
-      width: 16px;
+      width: 24px;
     }
 
 block sidebar
   +sidebar('icons')
 
 block content
-  h1.sui-page-header 图标
+  h1 图标
+  h2.sui-page-header 开发者文档
 
   p.sui-lead
     | 图标使用 <strong>icon font</strong> 字体实现，目前图标来自 <a href='http://icomoon.io/' target="_blank">icon moon</a>。<br />
     | 相比于图片，图标字体是矢量图，和普通文案一样可以非常方便的进行大小和颜色的调整。
 
-  ul.demo-operations.clearfix
-    li
-      a(href='#') 下载psd文件
+  h2 1.小尺寸图标
+  p.sui-lead
+    | 用于大小在22px以下的地方。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
 
-  h2 1. 不同大小和功能的按钮
+  div.tab-content
+    div.tab-pane.active#demo3
+      div.bs-docs-example.icon-pc-demo
+        i.sui-icon.icon-pc-loading
+        i.sui-icon.icon-pc-enter
+        i.sui-icon.icon-pc-ww
+        i.sui-icon.icon-pc-sound
+        i.sui-icon.icon-pc-settings
+        i.sui-icon.icon-pc-right
+        i.sui-icon.icon-pc-right-circle
+        i.sui-icon.icon-pc-refresh
+        i.sui-icon.icon-pc-question-circle
+        i.sui-icon.icon-pc-prev
+        i.sui-icon.icon-pc-next
+        i.sui-icon.icon-pc-list
+        i.sui-icon.icon-pc-light
+        i.sui-icon.icon-pc-info-circle
+        i.sui-icon.icon-pc-forbidden
+        i.sui-icon.icon-pc-error
+        i.sui-icon.icon-pc-error-circle
+        i.sui-icon.icon-pc-chevron-top
+        i.sui-icon.icon-pc-chevron-right
+        i.sui-icon.icon-pc-chevron-left
+        i.sui-icon.icon-pc-chevron-bottom
+        i.sui-icon.icon-pc-bell
+        i.sui-icon.icon-pc-checkbox-checked
+        i.sui-icon.icon-pc-checkbox-unchecked
+        i.sui-icon.icon-pc-checkbox-halfchecked
+        i.sui-icon.icon-pc-radio-checked
+        i.sui-icon.icon-pc-radio-unchecked
+        i.sui-icon.icon-pc-right-triangle-sign
+        i.sui-icon.icon-pc-error-triangle-sign
+
+  h2 2.大尺寸图标
+  p.sui-lead
+    | 用于移动版,图标大小在22px以上。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -40,284 +98,315 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo1
-      div.bs-docs-example.icons-demo
-        ul.unstyled
-          li
-            i.sui-icon.icon-search
-          li
-            i.sui-icon.icon-th-large
-          li
-            i.sui-icon.icon-th
-          li
-            i.sui-icon.icon-th-list
-          li
-            i.sui-icon.icon-zoom-in
-          li
-            i.sui-icon.icon-zoom-out
-          li
-            i.sui-icon.icon-signal
-          li
-            i.sui-icon.icon-cog
-          li
-            i.sui-icon.icon-trash
-          li
-            i.sui-icon.icon-home
-          li
-            i.sui-icon.icon-time
-          li
-            i.sui-icon.icon-download-alt
-          li
-            i.sui-icon.icon-download
-          li
-            i.sui-icon.icon-upload
-          li
-            i.sui-icon.icon-play-circle
-          li
-            i.sui-icon.icon-repeat
-          li
-            i.sui-icon.icon-refresh
-          li
-            i.sui-icon.icon-list-alt
-          li
-            i.sui-icon.icon-lock
-          li
-            i.sui-icon.icon-flag
-          li
-            i.sui-icon.icon-volume-off
-          li
-            i.sui-icon.icon-volume-down
-          li
-            i.sui-icon.icon-volume-up
-          li
-            i.sui-icon.icon-qrcode
-          li
-            i.sui-icon.icon-barcode
-          li
-            i.sui-icon.icon-bookmark
-          li
-            i.sui-icon.icon-align-justify
-          li
-            i.sui-icon.icon-list
-          li
-            i.sui-icon.icon-picture
-          li
-            i.sui-icon.icon-pencil
-          li
-            i.sui-icon.icon-map-marker
-          li
-            i.sui-icon.icon-adjust
-          li
-            i.sui-icon.icon-edit
-          li
-            i.sui-icon.icon-check
-          li
-            i.sui-icon.icon-step-backward
-          li
-            i.sui-icon.icon-fast-backward
-          li
-            i.sui-icon.icon-backward
-          li
-            i.sui-icon.icon-play
-          li
-            i.sui-icon.icon-pause
-          li
-            i.sui-icon.icon-stop
-          li
-            i.sui-icon.icon-forward
-          li
-            i.sui-icon.icon-fast-forward
-          li
-            i.sui-icon.icon-step-forward
-          li
-            i.sui-icon.icon-chevron-left
-          li
-            i.sui-icon.icon-chevron-right
-          li
-            i.sui-icon.icon-plus-sign
-          li
-            i.sui-icon.icon-minus-sign
-          li
-            i.sui-icon.icon-remove-sign
-          li
-            i.sui-icon.icon-ok-sign
-          li
-            i.sui-icon.icon-question-sign
-          li
-            i.sui-icon.icon-info-sign
-          li
-            i.sui-icon.icon-remove-circle
-          li
-            i.sui-icon.icon-ok-circle
-          li
-            i.sui-icon.icon-ban-circle
-          li
-            i.sui-icon.icon-notification
-          li
-            i.sui-icon.icon-question
-          li
-            i.sui-icon.icon-arrow-left
-          li
-            i.sui-icon.icon-arrow-right
-          li
-            i.sui-icon.icon-arrow-up
-          li
-            i.sui-icon.icon-arrow-down
-          li
-            i.sui-icon.icon-long-arrow-left
-          li
-            i.sui-icon.icon-long-arrow-right
-          li
-            i.sui-icon.icon-long-arrow-up
-          li
-            i.sui-icon.icon-long-arrow-down
-          li
-            i.sui-icon.icon-resize-full
-          li
-            i.sui-icon.icon-resize-small
-          li
-            i.sui-icon.icon-exclamation-sign
-          li
-            i.sui-icon.icon-comment
-          li
-            i.sui-icon.icon-chevron-up
-          li
-            i.sui-icon.icon-chevron-down
-          li
-            i.sui-icon.icon-shopping-cart
-          li
-            i.sui-icon.icon-folder-close
-          li
-            i.sui-icon.icon-folder-open
-          li
-            i.sui-icon.icon-resize-vertical
-          li
-            i.sui-icon.icon-resize-horizontal
-          li
-            i.sui-icon.icon-bar-chart
-          li
-            i.sui-icon.icon-upload-alt
-          li
-            i.sui-icon.icon-bookmark-empty
-          li
-            i.sui-icon.icon-credit
-          li
-            i.sui-icon.icon-rss
-          li
-            i.sui-icon.icon-bell
-          li
-            i.sui-icon.icon-circle-arrow-left
-          li
-            i.sui-icon.icon-circle-arrow-right
-          li
-            i.sui-icon.icon-circle-arrow-up
-          li
-            i.sui-icon.icon-circle-arrow-down
-          li
-            i.sui-icon.icon-globe
-          li
-            i.sui-icon.icon-wrench
-          li
-            i.sui-icon.icon-tasks
-          li
-            i.sui-icon.icon-fullscreen
-          li
-            i.sui-icon.icon-reorder
-          li
-            i.sui-icon.icon-list-ul
-          li
-            i.sui-icon.icon-list-ol
-          li
-            i.sui-icon.icon-magic
-          li
-            i.sui-icon.icon-caret-down
-          li
-            i.sui-icon.icon-caret-up
-          li
-            i.sui-icon.icon-caret-left
-          li
-            i.sui-icon.icon-caret-right
-          li
-            i.sui-icon.icon-sort
-          li
-            i.sui-icon.icon-sort-down
-          li
-            i.sui-icon.icon-sort-up
-          li
-            i.sui-icon.icon-envelope-alt
-          li
-            i.sui-icon.icon-lightbulb
-          li
-            i.sui-icon.icon-bulb
-          li
-            i.sui-icon.icon-cloud-download
-          li
-            i.sui-icon.icon-cloud-upload
-          li
-            i.sui-icon.icon-bell-alt
-          li
-            i.sui-icon.icon-double-angle-left
-          li
-            i.sui-icon.icon-double-angle-right
-          li
-            i.sui-icon.icon-double-angle-up
-          li
-            i.sui-icon.icon-double-angle-down
-          li
-            i.sui-icon.icon-angle-left
-          li
-            i.sui-icon.icon-angle-right
-          li
-            i.sui-icon.icon-angle-up
-          li
-            i.sui-icon.icon-angle-down
-          li
-            i.sui-icon.icon-desktop
-          li
-            i.sui-icon.icon-laptop
-          li
-            i.sui-icon.icon-tablet
-          li
-            i.sui-icon.icon-mobile
-          li
-            i.sui-icon.icon-chevron-sign-left
-          li
-            i.sui-icon.icon-chevron-sign-right
-          li
-            i.sui-icon.icon-chevron-sign-up
-          li
-            i.sui-icon.icon-chevron-sign-down
-          li
-            i.sui-icon.icon-html5
-          li
-            i.sui-icon.icon-rss-sign
-          li
-            i.sui-icon.icon-play-sign
-          li
-            i.sui-icon.icon-apple
-          li
-            i.sui-icon.icon-windows
-          li
-            i.sui-icon.icon-android
-          li
-            i.sui-icon.icon-weibo
-          li
-            i.sui-icon.icon-renren
-          li
-            i.sui-icon.icon-arrow-fat-up
-          li
-            i.sui-icon.icon-arrow-fat-right
-          li
-            i.sui-icon.icon-arrow-fat-down
-          li
-            i.sui-icon.icon-arrow-fat-left
+      div.bs-docs-example.icon-touch-demo
+        i.sui-icon.icon-touch-ww
+        i.sui-icon.icon-touch-ww-sign
+        i.sui-icon.icon-touch-users2
+        i.sui-icon.icon-touch-users2-sign
+        i.sui-icon.icon-touch-users
+        i.sui-icon.icon-touch-users-sign
+        i.sui-icon.icon-touch-meeting
+        i.sui-icon.icon-touch-meeting-sign
+        i.sui-icon.icon-touch-user3
+        i.sui-icon.icon-touch-user3-sign
+        i.sui-icon.icon-touch-user2
+        i.sui-icon.icon-touch-user2-sign
+        i.sui-icon.icon-touch-user
+        i.sui-icon.icon-touch-user-sign
+        i.sui-icon.icon-touch-user-remove
+        i.sui-icon.icon-touch-user-remove-sign
+        i.sui-icon.icon-touch-user-info
+        i.sui-icon.icon-touch-user-info-sign
+        i.sui-icon.icon-touch-user-add
+        i.sui-icon.icon-touch-user-add-sign
+        i.sui-icon.icon-touch-todo
+        i.sui-icon.icon-touch-todo-sign
+        i.sui-icon.icon-touch-todo-add
+        i.sui-icon.icon-touch-todo-add-sign
+        i.sui-icon.icon-touch-sound
+        i.sui-icon.icon-touch-sound-sign
+        i.sui-icon.icon-touch-setting2
+        i.sui-icon.icon-touch-setting2-sign
+        i.sui-icon.icon-touch-setting
+        i.sui-icon.icon-touch-setting-sign
+        i.sui-icon.icon-touch-send2
+        i.sui-icon.icon-touch-send2-sign
+        i.sui-icon.icon-touch-send
+        i.sui-icon.icon-touch-send-sign
+        i.sui-icon.icon-touch-score
+        i.sui-icon.icon-touch-score-sign
+        i.sui-icon.icon-touch-save
+        i.sui-icon.icon-touch-save-sign
+        i.sui-icon.icon-touch-right
+        i.sui-icon.icon-touch-right-rect
+        i.sui-icon.icon-touch-right-rect-sign
+        i.sui-icon.icon-touch-refresh
+        i.sui-icon.icon-touch-port-circle
+        i.sui-icon.icon-touch-plus
+        i.sui-icon.icon-touch-plus-circle
+        i.sui-icon.icon-touch-plus-circle-sign
+        i.sui-icon.icon-touch-play
+        i.sui-icon.icon-touch-play-sign
+        i.sui-icon.icon-touch-phone
+        i.sui-icon.icon-touch-noti-circle
+        i.sui-icon.icon-touch-noti-circle-sign
+        i.sui-icon.icon-touch-monitor
+        i.sui-icon.icon-touch-monitor-sign
+        i.sui-icon.icon-touch-minus
+        i.sui-icon.icon-touch-minus-circle
+        i.sui-icon.icon-touch-minus-circle-sign
+        i.sui-icon.icon-touch-microphone
+        i.sui-icon.icon-touch-microphone-sign
+        i.sui-icon.icon-touch-medal
+        i.sui-icon.icon-touch-medal-sign
+        i.sui-icon.icon-touch-male
+        i.sui-icon.icon-touch-male-sign
+        i.sui-icon.icon-touch-magnifier
+        i.sui-icon.icon-touch-magnifier-sign
+        i.sui-icon.icon-touch-location
+        i.sui-icon.icon-touch-location-sign
+        i.sui-icon.icon-touch-list
+        i.sui-icon.icon-touch-list-rect
+        i.sui-icon.icon-touch-list-rect-sign
+        i.sui-icon.icon-touch-linechart
+        i.sui-icon.icon-touch-linechart-sign
+        i.sui-icon.icon-touch-light
+        i.sui-icon.icon-touch-light-sign
+        i.sui-icon.icon-touch-left-rect
+        i.sui-icon.icon-touch-left-rect-sign
+        i.sui-icon.icon-touch-key
+        i.sui-icon.icon-touch-key-sign
+        i.sui-icon.icon-touch-home
+        i.sui-icon.icon-touch-home-sign
+        i.sui-icon.icon-touch-garbage
+        i.sui-icon.icon-touch-garbage-sign
+        i.sui-icon.icon-touch-four
+        i.sui-icon.icon-touch-four-sign
+        i.sui-icon.icon-touch-following
+        i.sui-icon.icon-touch-following-sign
+        i.sui-icon.icon-touch-folder
+        i.sui-icon.icon-touch-folder-sign
+        i.sui-icon.icon-touch-folder-right
+        i.sui-icon.icon-touch-folder-right-sign
+        i.sui-icon.icon-touch-femal
+        i.sui-icon.icon-touch-femal-sign
+        i.sui-icon.icon-touch-face
+        i.sui-icon.icon-touch-face-sign
+        i.sui-icon.icon-touch-error
+        i.sui-icon.icon-touch-error-circle
+        i.sui-icon.icon-touch-error-circle-sign
+        i.sui-icon.icon-touch-email2
+        i.sui-icon.icon-touch-email2-sign
+        i.sui-icon.icon-touch-email
+        i.sui-icon.icon-touch-email-sign
+        i.sui-icon.icon-touch-ellipsis
+        i.sui-icon.icon-touch-edit
+        i.sui-icon.icon-touch-edit-sign
+        i.sui-icon.icon-touch-edit-rect
+        i.sui-icon.icon-touch-edit-rect-sign
+        i.sui-icon.icon-touch-earphone
+        i.sui-icon.icon-touch-earphone-sing
+        i.sui-icon.icon-touch-double-angle-right
+        i.sui-icon.icon-touch-double-angle-left
+        i.sui-icon.icon-touch-desk
+        i.sui-icon.icon-touch-date
+        i.sui-icon.icon-touch-date-sign
+        i.sui-icon.icon-touch-cut
+        i.sui-icon.icon-touch-complete
+        i.sui-icon.icon-touch-complete-underline
+        i.sui-icon.icon-touch-complete-underline-sign
+        i.sui-icon.icon-touch-complete-sign
+        i.sui-icon.icon-touch-clock2
+        i.sui-icon.icon-touch-clock2-sign
+        i.sui-icon.icon-touch-clock
+        i.sui-icon.icon-touch-clock-sign
+        i.sui-icon.icon-touch-circle
+        i.sui-icon.icon-touch-chevron-up
+        i.sui-icon.icon-touch-chevron-left
+        i.sui-icon.icon-touch-chevron-down
+        i.sui-icon.icon-touch-chat2
+        i.sui-icon.icon-touch-chat2-sign
+        i.sui-icon.icon-touch-chat
+        i.sui-icon.icon-touch-chat-sign
+        i.sui-icon.icon-touch-chair
+        i.sui-icon.icon-touch-chair-sign
+        i.sui-icon.icon-touch-caret-up
+        i.sui-icon.icon-touch-caret-left
+        i.sui-icon.icon-touch-camera
+        i.sui-icon.icon-touch-camera-sign
+        i.sui-icon.icon-touch-briefcase
+        i.sui-icon.icon-touch-briefcase-sign
+        i.sui-icon.icon-touch-break
+        i.sui-icon.icon-touch-break-sign
+        i.sui-icon.icon-touch-bell
+        i.sui-icon.icon-touch-bell-sign
+        i.sui-icon.icon-touch-association2
+        i.sui-icon.icon-touch-association2-sign
+        i.sui-icon.icon-touch-association
+        i.sui-icon.icon-touch-association-sign
+        i.sui-icon.icon-touch-arrow-up-left
+        i.sui-icon.icon-touch-arrow-up-circle
+        i.sui-icon.icon-touch-arrow-left
+        i.sui-icon.icon-touch-arrow-down-circle
+        i.sui-icon.icon-touch-arrow-bottom-right
+        i.sui-icon.icon-touch-answer
+        i.sui-icon.icon-touch-answer-sign
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      | 图标来自 <a href='http://icomoon.io/app/#/select/font'>icon moon</a>
+
+  h2 2. ICON MOON 免费图标
+  p.sui-lead
+    | 图标来自 <a href='http://icomoon.io/app/#/select/font'>icon moon</a>
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo2
+      div.bs-docs-example.icon-moon-demo
+        ul.unstyled
+          i.sui-icon.icon-search
+          i.sui-icon.icon-th-large
+          i.sui-icon.icon-th
+          i.sui-icon.icon-th-list
+          i.sui-icon.icon-zoom-in
+          i.sui-icon.icon-zoom-out
+          i.sui-icon.icon-signal
+          i.sui-icon.icon-cog
+          i.sui-icon.icon-trash
+          i.sui-icon.icon-home
+          i.sui-icon.icon-time
+          i.sui-icon.icon-download-alt
+          i.sui-icon.icon-download
+          i.sui-icon.icon-upload
+          i.sui-icon.icon-play-circle
+          i.sui-icon.icon-repeat
+          i.sui-icon.icon-refresh
+          i.sui-icon.icon-list-alt
+          i.sui-icon.icon-lock
+          i.sui-icon.icon-flag
+          i.sui-icon.icon-volume-off
+          i.sui-icon.icon-volume-down
+          i.sui-icon.icon-volume-up
+          i.sui-icon.icon-qrcode
+          i.sui-icon.icon-barcode
+          i.sui-icon.icon-bookmark
+          i.sui-icon.icon-align-justify
+          i.sui-icon.icon-list
+          i.sui-icon.icon-picture
+          i.sui-icon.icon-pencil
+          i.sui-icon.icon-map-marker
+          i.sui-icon.icon-adjust
+          i.sui-icon.icon-edit
+          i.sui-icon.icon-check
+          i.sui-icon.icon-step-backward
+          i.sui-icon.icon-fast-backward
+          i.sui-icon.icon-backward
+          i.sui-icon.icon-play
+          i.sui-icon.icon-pause
+          i.sui-icon.icon-stop
+          i.sui-icon.icon-forward
+          i.sui-icon.icon-fast-forward
+          i.sui-icon.icon-step-forward
+          i.sui-icon.icon-chevron-left
+          i.sui-icon.icon-chevron-right
+          i.sui-icon.icon-plus-sign
+          i.sui-icon.icon-minus-sign
+          i.sui-icon.icon-remove-sign
+          i.sui-icon.icon-ok-sign
+          i.sui-icon.icon-question-sign
+          i.sui-icon.icon-info-sign
+          i.sui-icon.icon-remove-circle
+          i.sui-icon.icon-ok-circle
+          i.sui-icon.icon-ban-circle
+          i.sui-icon.icon-notification
+          i.sui-icon.icon-question
+          i.sui-icon.icon-arrow-left
+          i.sui-icon.icon-arrow-right
+          i.sui-icon.icon-arrow-up
+          i.sui-icon.icon-arrow-down
+          i.sui-icon.icon-long-arrow-left
+          i.sui-icon.icon-long-arrow-right
+          i.sui-icon.icon-long-arrow-up
+          i.sui-icon.icon-long-arrow-down
+          i.sui-icon.icon-resize-full
+          i.sui-icon.icon-resize-small
+          i.sui-icon.icon-exclamation-sign
+          i.sui-icon.icon-comment
+          i.sui-icon.icon-chevron-up
+          i.sui-icon.icon-chevron-down
+          i.sui-icon.icon-shopping-cart
+          i.sui-icon.icon-folder-close
+          i.sui-icon.icon-folder-open
+          i.sui-icon.icon-resize-vertical
+          i.sui-icon.icon-resize-horizontal
+          i.sui-icon.icon-bar-chart
+          i.sui-icon.icon-upload-alt
+          i.sui-icon.icon-bookmark-empty
+          i.sui-icon.icon-credit
+          i.sui-icon.icon-rss
+          i.sui-icon.icon-bell
+          i.sui-icon.icon-circle-arrow-left
+          i.sui-icon.icon-circle-arrow-right
+          i.sui-icon.icon-circle-arrow-up
+          i.sui-icon.icon-circle-arrow-down
+          i.sui-icon.icon-globe
+          i.sui-icon.icon-wrench
+          i.sui-icon.icon-tasks
+          i.sui-icon.icon-fullscreen
+          i.sui-icon.icon-reorder
+          i.sui-icon.icon-list-ul
+          i.sui-icon.icon-list-ol
+          i.sui-icon.icon-magic
+          i.sui-icon.icon-caret-down
+          i.sui-icon.icon-caret-up
+          i.sui-icon.icon-caret-left
+          i.sui-icon.icon-caret-right
+          i.sui-icon.icon-sort
+          i.sui-icon.icon-sort-down
+          i.sui-icon.icon-sort-up
+          i.sui-icon.icon-envelope-alt
+          i.sui-icon.icon-lightbulb
+          i.sui-icon.icon-bulb
+          i.sui-icon.icon-cloud-download
+          i.sui-icon.icon-cloud-upload
+          i.sui-icon.icon-bell-alt
+          i.sui-icon.icon-double-angle-left
+          i.sui-icon.icon-double-angle-right
+          i.sui-icon.icon-double-angle-up
+          i.sui-icon.icon-double-angle-down
+          i.sui-icon.icon-angle-left
+          i.sui-icon.icon-angle-right
+          i.sui-icon.icon-angle-up
+          i.sui-icon.icon-angle-down
+          i.sui-icon.icon-desktop
+          i.sui-icon.icon-laptop
+          i.sui-icon.icon-tablet
+          i.sui-icon.icon-mobile
+          i.sui-icon.icon-chevron-sign-left
+          i.sui-icon.icon-chevron-sign-right
+          i.sui-icon.icon-chevron-sign-up
+          i.sui-icon.icon-chevron-sign-down
+          i.sui-icon.icon-html5
+          i.sui-icon.icon-rss-sign
+          i.sui-icon.icon-play-sign
+          i.sui-icon.icon-apple
+          i.sui-icon.icon-windows
+          i.sui-icon.icon-android
+          i.sui-icon.icon-weibo
+          i.sui-icon.icon-renren
+          i.sui-icon.icon-arrow-fat-up
+          i.sui-icon.icon-arrow-fat-right
+          i.sui-icon.icon-arrow-fat-down
+          i.sui-icon.icon-arrow-fat-left
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2>div')
 
   ul.demo-operations.clearfix
     li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
-
-
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码

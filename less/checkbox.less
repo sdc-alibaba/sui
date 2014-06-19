@@ -1,0 +1,60 @@
+.checkbox-pretty,
+.radio-pretty
+{
+  display: block;
+  input {
+    //这里不能用display:none，或者visibility:hidden;否则在ie下input会直接被忽略
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+  }
+  span {
+    .sui-icon;
+    font-family: 'icon-pc';
+  }
+  span:before {
+    content: "\e605";
+    margin-right: 2px;
+    vertical-align: middle;
+    font-size: 150%;
+    color: @checkboxColor;
+    margin-left: -3px;
+  }
+
+
+  &.checked > span:before {
+    content: "\e607";
+    color: @checkboxCheckedColor;
+  }
+  &.halfchecked > span:before {
+    content: "\e606";
+    color: @checkboxCheckedColor;
+  }
+  &:hover {
+    span:before {
+      color: @checkboxHighlightColor;
+    }
+  }
+  &.inline {
+    display: inline;
+  }
+  &.inline + &.inline {
+    margin-left: 6px;
+  }
+
+  &.disabled {
+    color: lighten(@checkboxDisableColor, 10%);
+    span:before {
+      color: @checkboxDisableColor;
+    }
+  }
+}
+
+.radio-pretty {
+  span:before {
+    content: "\e603";
+  }
+  &.checked > span:before {
+    content: "\e604";
+  }
+}

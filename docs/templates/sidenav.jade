@@ -5,7 +5,6 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items.push({name: 'base-css', title: '基础css', children:[], icon: 'sui-icon icon-magic' })
   - items.push({name: 'css-components', title: 'css组件', children:[], icon: 'sui-icon icon-picture'})
   - items.push({name: 'js-components', title: 'js组件', children:[], icon: 'sui-icon icon-shopping-cart'})
-  - items.push({name: 'extends', title: '拓展组件', children:[], icon: 'sui-icon icon-shopping-cart'})
 
   - items[1].children.push({name: 'grid', title:'栅格', url:'grid.html'})
   - items[1].children.push({name: 'layout', title:'布局', url:'layout.html'})
@@ -23,8 +22,11 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items[3].children.push({name: 'pagination', title:'分页器', url:'pagination.html'})
   - items[3].children.push({name: 'btn-group', title:'按钮组', url:'button-groups.html'})
   - items[3].children.push({name: 'dropdown', title:'下拉菜单', url:'dropdown.html'})
-  - items[3].children.push({name: 'label', title:'标签', url:'label.html'})
+  - items[3].children.push({name: 'checkbox', title:'选框', url:'checkbox.html'})
+  - items[3].children.push({name: 'Label', title:'Label', url:'label.html'})
+  - items[3].children.push({name: 'Tag', title:'Tag', url:'tag.html'})
   - items[3].children.push({name: 'progress', title:'进度条', url:'progress.html'})
+  - items[3].children.push({name: 'Loading', title:'Loading', url:'loading.html'})
 
   - items[4].children.push({name: 'dialog', title:'对话框', url:'dialog.html'})
   - items[4].children.push({name: 'tooltip', title:'tooltip', url:'tooltip.html'})
@@ -32,6 +34,9 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
   - items[4].children.push({name: 'pagination-js', title:'分页器', url:'pagination-js.html'})
   - items[4].children.push({name: 'form-validate', title:'表单校验', url:'form-validate.html'})
   - items[4].children.push({name: 'dropdown-js', title:'下拉菜单', url:'dropdown-js.html'})
+  - items[4].children.push({name: 'tree-js', title:'级联选择', url:'tree-js.html'})
+  - items[4].children.push({name: 'datetimepicker', title:'datetimepicker', url:'datetimepicker.html'})
+  - items[4].children.push({name: 'Autocomplete', title:'Autocomplete', url:'autocomplete.html'})
 
   for cat, i in items
     - var classname = ''
@@ -59,3 +64,6 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
               - classname = "active"
             li(class=classname)
               a(href=item.url) #{item.title}
+
+script(type="text/javascript").
+  var disqus_identifier = 'disqus-id-!{highlight}';

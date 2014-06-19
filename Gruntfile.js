@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*dpl started*/',
-    distRoot: 'build',
+    distRoot: grunt.option('target') || '.package',
     docsRoot: 'docs',
 
     jshint: {
@@ -28,8 +28,6 @@ module.exports = function(grunt) {
       build: {
         files: {
           '<%= distRoot %>/js/<%= pkg.name %>.js': ['js/<%= pkg.name %>.js'],
-          '<%= distRoot %>/js/<%= pkg.name %>-extends.js': ['js/<%= pkg.name %>-extends.js'],
-          '<%= distRoot %>/js/<%= pkg.name %>-all.js': ['js/<%= pkg.name %>-all.js']
         }
       }
     },
@@ -64,39 +62,7 @@ module.exports = function(grunt) {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.min.css'
       },
-      reponsive: {
-        src: ['less/responsive.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.css'
-      },
-      minresponsive: {
-        options: {
-          compress: true
-        },
-        src: ['less/responsive.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-responsive.min.css'
-      },
-      "extends": {
-        src: ['less/sui-extends.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.css'
-      },
-      extendsMin: {
-        options: {
-          compress: true
-        },
-        src: ['less/sui-extends.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-extends.min.css'
-      },
-      "all": {
-        src: ['less/sui-all.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.css'
-      },
-      allMin: {
-        options: {
-          compress: true
-        },
-        src: ['less/sui-all.less'],
-        dest: '<%= distRoot %>/css/<%= pkg.name %>-all.min.css'
-      },
+      
       docs: {
         files: [{
           expand: true,
@@ -116,7 +82,7 @@ module.exports = function(grunt) {
           {
           expand: true,
           cwd: '<%= docsRoot %>/templates',
-          src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade'],
+          src: ['**/*.jade', '!base.jade', '!sidenav.jade', '!header.jade', '!com-*', '!*-com.jade', '!discuss.jade', '!foot.jade', '!head.jade'],
           dest: '<%= docsRoot %>',
           ext: '.html'
         },
@@ -130,12 +96,14 @@ module.exports = function(grunt) {
         ]
       }
     },
+    /*
     qunit: {
       options: {
         inject: 'js/tests/unit/phantom.js'
       },
       files: ['js/tests/*.html']
     },
+    */
 
     connect: {
       server: {
@@ -152,7 +120,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['less:sui', 'less:extends', 'less:all', 'newer:copy']
+        tasks: ['less:sui', 'newer:copy']
       },
       js: {
         files: 'js/*.js',
@@ -175,14 +143,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-newer');
   // Test task.
-  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['jshint']);
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['browserify', 'uglify']);
@@ -199,4 +166,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist', 'docs']);
+  //local server and watch
+  grunt.registerTask('local',['connect','watch']);
 }

@@ -39,12 +39,17 @@
 
     .round {
         display: inline-block;
-        width: @baseFontSize;  
-        height: @baseFontSize;
-        .border-radius(@baseFontSize / 2);
+        width: @baseFontSize + 4;  
+        height: @baseFontSize + 4;
+        .border-radius((@baseFontSize + 4) / 2);
         text-align: center;
-        line-height: @baseFontSize;
-        font-style: italic;
+        line-height: @baseFontSize + 4;
+        .sui-icon {
+          vertical-align: -1px;
+        }
+    }
+    .round + span:before {
+        content: '\00a0';
     }
     .finished {
         background-color: @stepsFinishedColor;
@@ -53,9 +58,13 @@
             border-color: transparent transparent transparent @stepsFinishedColor;
         }
         .round {
-            background-color: @stepsCurrentColor;
+            background-color: @white;
             background-color: transparent\9;
-            color: @white;
+            color: @stepsFinishedColor;
+            > i {
+                color: @stepsFinishedColor;
+                font-size: @baseFontSize;
+            }
         }
     }
     .current {
@@ -87,27 +96,28 @@
 .steps-large {
     .wrap > div {
         font-size: @fontSizeLarge;
-        width: @stepsBaseWidth * 1.5;
-        height: @stepsBaseHeight * 1.5;
-        line-height: @stepsBaseHeight * 1.5;
+        width: @stepsBaseWidth * 1.25;
+        height: @stepsBaseHeight * 1.25;
+        line-height: @stepsBaseHeight * 1.25;
         > label {
             font-size: @fontSizeLarge;
-            margin-left: @stepsBaseHeight * 1.5 / 2 + 10px;
+            margin-left: @stepsBaseHeight * 1.25 / 2 + 10px;
         }
     }
     .triangle-right {
-        border-width: @stepsBaseHeight * 1.5 / 2;
-        right: -@stepsBaseHeight * 1.5 + 1;
+        border-width: @stepsBaseHeight * 1.25 / 2;
+        right: -@stepsBaseHeight * 1.25 + 1;
     }
     .triangle-right-bg {
-        border-width: @stepsBaseHeight * 1.5 / 2 + 4;
-        right: -@stepsBaseHeight * 1.5 -  4 * 2;
+        border-width: @stepsBaseHeight * 1.25 / 2 + 4;
+        right: -@stepsBaseHeight * 1.25 -  4 * 2;
     }
     .round {
-        width: @fontSizeLarge;  
-        height: @fontSizeLarge;
-        line-height: @fontSizeLarge;
-        .border-radius(@fontSizeLarge / 2);
+        width: @fontSizeLarge + 4;  
+        height: @fontSizeLarge + 4;
+        line-height: @fontSizeLarge + 4;
+        .border-radius((@fontSizeLarge + 4) / 2);
+                                        
     }
 }
 .steps-auto {
@@ -119,5 +129,125 @@
             width: 100%;
         }
 
+    }
+}
+.sui-steps-round {
+    font-size: 0px;
+    overflow: hidden;
+    line-height: 0px;
+    margin: @baseMargin 0px;
+    padding: 0px @baseFontSize / 2;
+    > div {
+        display: inline-block;
+        vertical-align: top;
+        .wrap {
+            .clearfix; 
+        } 
+        > label {
+            display: inline-block;
+            width: 80%;
+            .text-overflow(); 
+            font-size: @baseFontSize;
+            line-height: @baseFontSize;
+            height: @baseFontSize; 
+            margin-left: -@baseFontSize / 2;
+            margin-top: @baseFontSize / 2;
+            color: @stepsRoundFinishedTextColor;
+            cursor: default;
+        }
+        .round {
+            width: 22px;
+            height: 22px;
+            .border-radius(15px);
+            display: inline-block;
+            vertical-align: middle;
+            font-size: @baseFontSize;
+            color: #FFF;
+            line-height: 22px;
+            text-align: center;
+            float: left;
+        }
+        .bar {
+            margin: 10px 10px 0px 40px;
+            width: 200px;
+            height: 6px;
+            vertical-align: middle;
+            .border-radius(4px);
+        }
+        &:last-child {
+            width: 5%;
+            > label {
+                width: auto;
+            }
+        }
+    }
+    > .finished {
+        .round {
+            border: 4px @stepsFinishedColor solid;
+            background-color: @stepsFinishedColor;
+            color: @stepsFinishedTextColor;
+        }
+        .bar {
+            background-color: @stepsFinishedColor;
+        }
+    }
+    > .current {
+        .round {
+            border: 4px @stepsCurrentColor solid;
+            background-color: @stepsCurrentColor;
+        }
+        .bar {
+            background-color: @stepsCurrentColor;
+        }
+    }
+    > .todo {
+        > label {
+            color: @stepsTodoTextColor;
+        }
+        .round {
+            border: 4px @stepsRoundTodoBorderColor solid;
+            background-color: #FFF;
+            color: @stepsTodoTextColor;
+        }
+        .bar {
+            background-color: @stepsTodoColor;
+        }
+    }
+
+}
+
+.steps-round-auto {
+    display: table;
+    width: 100%;
+    > div {
+        display: table-cell;
+        .bar {
+            width: auto;
+        }
+    }
+}
+.steps-3 {
+    > div {
+        width: 50%;
+    }
+}
+.steps-4 {
+    > div {
+        width: 33%;
+    }
+}
+.steps-5 {
+    > div {
+        width: 25%;
+    }
+}
+.steps-6 {
+    > div {
+        width: 20%;
+    }
+}
+.steps-7 {
+    > div {
+        width: 16%;
     }
 }

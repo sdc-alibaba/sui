@@ -38,3 +38,8 @@ node_modules
 docs/assets/fonts
 
 pid.txt
+
+#build files
+build/
+docs/*.html
+.package/

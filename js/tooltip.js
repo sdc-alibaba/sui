@@ -47,6 +47,7 @@
       this.$element = $(element)
       this.options = this.getOptions(options)
       this.enabled = true
+      this.hoverState = 'out'
 
       triggers = this.options.trigger.split(' ')
 
@@ -82,7 +83,7 @@
 
       var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="sui-btn btn-primary" data-ok="tooltip">确定</button><button class="sui-btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="sui-tooltip ' + (options.type != 'attention' ? 'normal' : 'attention') + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + options.type + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
@@ -106,13 +107,15 @@
 
       self = $(e.currentTarget)[this.type](options).data(this.type)
 
-      self.hoverState = 'in'
-      if (!self.options.delay || !self.options.delay.show) return self.show()
-
-      clearTimeout(this.timeout)
-      this.timeout = setTimeout(function() {
-        if (self.hoverState == 'in') self.show()
-      }, self.options.delay.show)
+      clearTimeout(self.timeout)
+      if (this.hoverState == 'out') {
+        this.hoverState = 'in'
+        this.tip().off($.support.transition && $.support.transition.end)
+        if (!this.options.delay || !this.options.delay.show) return this.show()
+        this.timeout = setTimeout(function() {
+          if (self.hoverState == 'in') self.show()
+        }, self.options.delay.show)
+      }
     }
 
   , leave: function (e) {
@@ -139,6 +142,7 @@
         , e = $.Event('show')
         , opt = this.options
         , widthLimit = opt.widthlimit
+        , align = opt.align
         , self = this
 
       if (this.hasContent() && this.enabled) {
@@ -160,13 +164,13 @@
           .css({ top: 0, left: 0, display: 'block' })
 
         opt.container ? $tip.appendTo(opt.container) : $tip.insertAfter(this.$element)
-
-        if (opt.trigger !== 'click') {
+        if (/\bhover\b/.test(opt.trigger)) {
           $tip.hover(function(){
-            self.isTipHover = 1;
+            self.isTipHover = 1
           }, function(){
-            self.isTipHover = 0;
-            self.hide()
+            self.isTipHover = 0
+            self.hoverState = 'out'
+            $tip.detach()
           })
         }
 
@@ -184,24 +188,46 @@
 
         //+ - 7修正，和css对应，勿单独修改
         var d = opt.type == 'attention' ? 5 : 7
-        switch (placement) {
-          case 'bottom':
-            tp = {top: pos.top + pos.height + d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'top':
-            tp = {top: pos.top - actualHeight - d, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth - d}
-            break
-          case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width + d}
-            break
-        }
-
+        tp = positioning();
         this.applyPlacement(tp, placement)
+        this.applyAlign(align, pos)
         this.$element.trigger('shown')
       }
+      //确定tooltip布局对齐方式
+      function positioning (){
+        var _left = pos.left + pos.width / 2 - actualWidth / 2
+          , _top = pos.top + pos.height / 2 - actualHeight / 2
+        switch (align) {
+          case 'left':
+            _left = pos.left
+            break
+          case 'right':
+            _left = pos.left - actualWidth + pos.width
+            break
+          case 'top':
+            _top = pos.top
+            break
+          case 'bottom':
+            _top = pos.top - actualHeight + pos.height
+            break
+        }
+        switch (placement) {
+          case 'bottom':
+            tp = {top: pos.top + pos.height + d, left: _left}
+            break
+          case 'top':
+            tp = {top: pos.top - actualHeight - d, left: _left }
+            break
+          case 'left':
+            tp = {top: _top, left: pos.left - actualWidth - d}
+            break
+          case 'right':
+            tp = {top: _top, left: pos.left + pos.width + d}
+            break
+        }
+        return tp
+      }
+
     }
 
   , applyPlacement: function(offset, placement){
@@ -244,6 +270,32 @@
 
       if (replace) $tip.offset(offset)
     }
+  , applyAlign: function(align, tipPos){
+      var $tip = this.tip()
+      , actualWidth = $tip[0].offsetWidth
+      , actualHeight = $tip[0].offsetHeight
+      , css = {}
+      switch (align) {
+        case 'left':
+          if (tipPos.width < actualWidth)
+            css = {left: tipPos.width / 2}
+          break
+        case 'right':
+          if (tipPos.width < actualWidth)
+            css = {left: actualWidth - tipPos.width / 2}
+          break
+        case 'top':
+          if (tipPos.height < actualHeight)
+            css = {top: tipPos.height / 2}
+          break
+        case 'bottom':
+          if (tipPos.height < actualHeight)
+            css = {top: actualHeight - tipPos.height / 2}
+          break
+      }
+      align != 'center' && $tip.find('.tooltip-arrow').first().css(css)
+ 
+  }
 
   , replaceArrow: function(delta, dimension, position){
       this
@@ -262,6 +314,7 @@
   , hide: function () {
       var $tip = this.tip()
         , e = $.Event('hide')
+        , self = this
 
       this.$element.trigger(e)
       if (e.isDefaultPrevented()) return
@@ -269,19 +322,19 @@
       $tip.removeClass('in')
 
       function removeWithAnimation() {
-        var timeout = setTimeout(function () {
+        self.timeout = setTimeout(function () {
           $tip.off($.support.transition.end).detach()
         }, 500)
 
         $tip.one($.support.transition.end, function () {
-          clearTimeout(timeout)
+          clearTimeout(self.timeout)
           $tip.detach()
         })
       }
 
       $.support.transition && this.$tip.hasClass('fade') ?
         removeWithAnimation() :
-        $tip.detach()
+        ($tip.detach())
       this.$element.trigger('hidden')
 
       return this
@@ -289,8 +342,13 @@
 
   , fixTitle: function () {
       var $e = this.$element
+      //只有无js激活方式才处理title属性。同时html属性data-original-title必须附加到触发元素,即使是js调用生成的tooltip。
       if ($e.attr('title') || typeof($e.attr('data-original-title')) != 'string') {
-        $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        if ($e.data('toggle') == 'tooltip') {
+          $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
+        } else {
+          $e.attr('data-original-title', '')
+        }
       }
     }
 
@@ -376,7 +434,7 @@
 
   $.fn.tooltip.defaults = {
     animation: true
-  , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+  , type: 'default'   //tip 类型 {string} 'default'|'attention'|'confirm' ,区别见demo
   , placement: 'top'
   , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
   , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
@@ -385,6 +443,7 @@
   , html: true  //决定是html()还是text()
   , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
+  , align: 'center'  // {string} tip元素的布局方式，默认居中：'center' ,'left','right','top','bottom'
   }
 
 
@@ -406,7 +465,14 @@
         , tip = $('.sui-tooltip')
         , switchTgt = tip.prev()
         , tipContainer = tgt.parents('.sui-tooltip')
-      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0]) {
+      /* 逻辑执行条件一次注释：
+       * 1、存在tip
+       * 2、点击的不是tip内的某区域
+       * 3、点击的不是触发元素本身
+       * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
+       * 这里决定了data-original-title属性必须存在于触发元素上
+       */
+      if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
       }
     })

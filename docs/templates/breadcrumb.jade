@@ -7,9 +7,19 @@ block sidebar
     +sidebar('breadcrumb')
 
 block content
-    .sui-page-header
-        h1 面包屑
-            small &nbsp;&nbsp;breadcrumb
+    h1 面包屑
+
+    h2.sui-page-header 设计规范
+
+    div.docs-description
+        img(src='pictures/docs/breadcrumb.png')
+
+    ul.demo-operations.clearfix
+      li
+        a(href='#') 下载psd文件
+
+    h2.sui-page-header 开发者文档
+
     ul.sui-nav.nav-tabs.nav-large
         li.active
             a(href='#demo1', data-toggle='tab') 示例
@@ -39,7 +49,5 @@ block content
         div.tab-pane#doc1
             | 由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。
     ul.demo-operations.clearfix
-        li
-            a(href='#') 下载psd文件
         li
             a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
