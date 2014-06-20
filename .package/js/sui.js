@@ -5426,15 +5426,6 @@ $(function(){
         }
       }
 
-      //为confirm类型tooltip增加取消按钮设置默认逻辑
-      if (this.options.type == 'confirm') {
-        this.$element.parent().on('click', '[data-dismiss=tooltip]', function(e){
-          $(this).parents('.sui-tooltip').prev().trigger('click')
-        })
-        this.$element.parent().on('click', '[data-ok=tooltip]', $.proxy(this.options.okHide, this))
-
-      }
-
       this.options.selector ?
         (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
         this.fixTitle()
@@ -5445,7 +5436,7 @@ $(function(){
 
       var foot = options.type == 'confirm' ? '<div class="tooltip-footer"><button class="sui-btn btn-primary" data-ok="tooltip">确定</button><button class="sui-btn btn-default" data-dismiss="tooltip">取消</button></div>' : ''
       //根据tooltip的type类型构造tip模版
-      options.template = '<div class="sui-tooltip ' + options.type + ' break-line" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
+      options.template = '<div class="sui-tooltip ' + options.type + '" style="overflow:visible"><div class="tooltip-arrow"><div class="tooltip-arrow cover"></div></div><div class="tooltip-inner"></div>' + foot + '</div>'
       options.type == 'confirm' && (options.html = true)
 
       if (options.delay && typeof options.delay == 'number') {
@@ -5503,7 +5494,6 @@ $(function(){
         , tp
         , e = $.Event('show')
         , opt = this.options
-        , widthLimit = opt.widthlimit
         , align = opt.align
         , self = this
 
@@ -5535,14 +5525,7 @@ $(function(){
             $tip.detach()
           })
         }
-
-        //宽度限制逻辑
-        if (widthLimit !== true) {
-          var val
-          widthLimit === false && (val = 'none')
-          typeof opt.widthlimit == 'string' && (val = widthLimit)
-          $tip.css('max-width', val)
-        }
+        this.setWidth()
         pos = this.getPosition()
 
         actualWidth = $tip[0].offsetWidth
@@ -5664,6 +5647,27 @@ $(function(){
         .arrow()
         .css(position, delta ? (50 * (1 - delta / dimension) + "%") : '')
     }
+
+  , setWidth: function() {
+      var opt = this.options
+        , width = opt.width
+        , widthLimit = opt.widthlimit
+        , $tip = this.tip()
+      //人工设置宽度，则忽略最大宽度限制
+      if (width) {
+        $tip.css('width', width)
+      } else { 
+        //宽度限制逻辑
+        if (widthLimit === true) {
+          $tip.css('max-width', '400px')
+        } else {
+          var val
+          widthLimit === false && (val = 'none')
+          typeof opt.widthlimit == 'string' && (val = widthLimit)
+          $tip.css('max-width', val)
+        }
+      } 
+  }
 
   , setContent: function () {
       var $tip = this.tip()
@@ -5821,7 +5825,7 @@ $(function(){
   $(function(){
     $('[data-toggle="tooltip"]').tooltip()
 
-    //点击外部可消失tooltip
+    //mousedown外部可消失tooltip(为了在click回调执行前处理好dom状态)
     $(document).on('mousedown', function(e){
       var tgt = $(e.target)
         , tip = $('.sui-tooltip')
@@ -5832,10 +5836,26 @@ $(function(){
        * 2、点击的不是tip内的某区域
        * 3、点击的不是触发元素本身
        * 4、触发元素为复杂HTML结构时，点击的不是触发元素内的区域
-       * 这里决定了data-original-title属性必须存在于触发元素上
        */
+       // 这里决定了data-original-title属性必须存在于触发元素上
       if (tip.length && !tipContainer.length && tgt[0] != switchTgt[0] && tgt.parents('[data-original-title]')[0] != switchTgt[0]) {
         switchTgt.trigger('click.tooltip')   
+      }
+    })
+
+    //为confirm类型tooltip增加取消按钮设置默认逻辑
+    $(document).on('click', '[data-dismiss=tooltip]', function(e){
+      e.preventDefault()
+      $(e.target).parents('.sui-tooltip').prev().trigger('click')
+      console.log(e.target)
+    })
+    $(document).on('click', '[data-ok=tooltip]', function(e){
+      e.preventDefault()
+      var triggerEle = $(e.target).parents('.sui-tooltip').prev()
+        , instance = triggerEle.data('tooltip')
+        , okHideCallback = instance.options.okHide
+      if (typeof okHideCallback == 'function') {
+        okHideCallback.call(triggerEle)
       }
     })
 
