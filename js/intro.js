@@ -635,7 +635,7 @@
 
       //skip button
       var skipTooltipButton = document.createElement('a');
-      skipTooltipButton.className = 'introjs-button introjs-skipbutton';
+      skipTooltipButton.className = 'sui-btn introjs-skipbutton';
       skipTooltipButton.href = 'javascript:void(0);';
       skipTooltipButton.innerHTML = this._options.skipLabel;
 
@@ -666,13 +666,13 @@
     }
 
     if (this._currentStep === 0 && this._introItems.length > 1) {
-      prevTooltipButton.className = 'sui-btn introjs-prevbutton introjs-disabled';
+      prevTooltipButton.className = 'sui-btn introjs-prevbutton disabled';
       nextTooltipButton.className = 'sui-btn introjs-nextbutton';
       skipTooltipButton.innerHTML = this._options.skipLabel;
     } else if (this._introItems.length - 1 === this._currentStep || this._introItems.length === 1) {
       skipTooltipButton.innerHTML = this._options.doneLabel;
       prevTooltipButton.className = 'sui-btn introjs-prevbutton';
-      nextTooltipButton.className = 'sui-btn introjs-nextbutton introjs-disabled';
+      nextTooltipButton.className = 'sui-btn introjs-nextbutton disabled';
     } else {
       prevTooltipButton.className = 'sui-btn introjs-prevbutton';
       nextTooltipButton.className = 'sui-btn introjs-nextbutton';
@@ -924,9 +924,9 @@
       /* Previous button label in tooltip box */
       prevLabel: '<i class="sui-icon icon-double-angle-left"></i> 上一步',
       /* Skip button label in tooltip box */
-      skipLabel: '退出',
+      skipLabel: '知道了',
       /* Done button label in tooltip box */
-      doneLabel: '结束',
+      doneLabel: '知道了',
       /* Default tooltip box position */
       tooltipPosition: 'bottom',
       /* Next CSS class for tooltip boxes */
@@ -942,7 +942,7 @@
       /* Show tour control buttons? */
       showButtons: true,
       /* Show tour bullets? */
-      showBullets: true,
+      showBullets: false,
       /* Scroll to highlighted element? */
       scrollToElement: true,
       /* Set the overlay opacity */
