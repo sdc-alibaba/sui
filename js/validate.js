@@ -183,7 +183,10 @@
       if (!$wrap[0]) {
         $wrap = $input.parents(".controls");
       }
-      $error.appendTo($wrap);
+      if(!$wrap[0]) {
+        $wrap = $input.parent();
+      }
+      $error.appendTo($wrap[0]);
     },
     highlight: function($input, $error, inputErrorClass) {
       $input.addClass(inputErrorClass)
