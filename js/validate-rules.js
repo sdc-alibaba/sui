@@ -81,9 +81,20 @@
   };
   Validate.setRule("zip", zip, '请填写正确的邮编');
   var date = function(value, element, param) {
-    return (/^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/).test(trim(value));
+    param = param || "-";
+    var reg = new RegExp("^[1|2]\\d{3}"+param+"[0-2][0-9]"+param+"[0-3][0-9]$");
+    return reg.test(trim(value));
   };
   Validate.setRule("date", date, '请填写正确的日期');
+  var time = function(value, element, param) {
+    return (/^[0-2]\d:[0-6]\d$/).test(trim(value));
+  };
+  Validate.setRule("time", time, '请填写正确的时间');
+  var datetime = function(value, element, param) {
+    var reg = new RegExp("^[1|2]\\d{3}-[0-2][0-9]-[0-3][0-9] [0-2]\\d:[0-6]\\d$");
+    return reg.test(trim(value));
+  };
+  Validate.setRule("datetime", datetime, '请填写正确的日期和时间');
   var url = function(value, element, param) {
     var urlPattern;
     value = trim(value);
