@@ -124,12 +124,7 @@ block content
             td placeError
             td 
               |function($error, $input) {
-              | $input = $(input);
-              |  var $wrap = $input.parents(".controls-wrap");
-              |    if (!$wrap[0]) {
-              |      $wrap = $input.parents(".controls");
-              |    }
-              |  $error.appendTo($wrap);
+              | /**参见源码**/
               |}
             td
               | 放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
@@ -469,6 +464,14 @@ block content
         tr
           td date
           td 日期，例如 2012-02-02
+
+        tr
+          td time
+          td 时间，精确到分钟，例如 05:30
+
+        tr
+          td datetime
+          td 日期加时间，例如 2012-02-02 05:30
 
         tr
           td url
