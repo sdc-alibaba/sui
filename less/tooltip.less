@@ -27,7 +27,7 @@
     text-decoration: none;
     text-align: left;
     font-weight: normal;
-    white-space: pre-wrap;  //fix bug in firefox: not break word when long line withou space
+    //white-space: pre-wrap;  //fix bug in firefox: not break word when long line withou space
   }
 
 }
@@ -37,9 +37,10 @@
   z-index: @zindexTooltip;
   display: block;
   visibility: visible;
-  max-width: 300px;
   border: @tipBorderWidth solid @tooltipBorderColor;
   opacity: 0;
+  word-break: break-all;
+  word-wrap: break-word;
   //.opacity(0);   bug in IE8 
   .border-radius(2px);
   &.in     { /*.opacity(100);*/ opacity:1;}
