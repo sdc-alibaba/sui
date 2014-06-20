@@ -1,5 +1,5 @@
-ul.sui-nav.nav-tabs.nav-stacked.docs-sidenav
-  - var items = []
+include head
+ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - var items = []
   - items.push({name: 'global', title:'全局样式', url: 'global.html', icon: 'sui-icon icon-globe'})
   - items.push({name: 'layouts', title:'布局', children:[], icon: 'sui-icon icon-th'})
@@ -49,14 +49,18 @@ ul.sui-nav.nav-tabs.nav-stacked.docs-sidenav
     li(class=classname)
       if !cat.children
         a(href=cat.url)
-          i(class='#{cat.icon}') &nbsp;
+          i(class='docs-icon') &nbsp;
           |#{cat.title}
+          
+          
       else
         a(href=cat.url)
-          i(class='#{cat.icon}') &nbsp;
+          i(class='docs-icon') &nbsp;
           |#{cat.title}
-          i.sui-icon.icon-angle-down.pull-right
-        ul.sui-nav.nav-tabs.nav-stacked
+          
+         
+          //- i.sui-icon.icon-angle-down.pull-right
+        ul.sui-nav.nav-stacked.docs-nav
           for item,j in cat.children
             - var classname = ''
             if highlight == item.name
@@ -65,4 +69,24 @@ ul.sui-nav.nav-tabs.nav-stacked.docs-sidenav
               a(href=item.url) #{item.title}
 
 script(type="text/javascript").
-  var disqus_identifier = 'disqus-id-!{highlight}';
+  
+  function changeHeight(){
+    var disqus_identifier = 'disqus-id-!{highlight}';
+    var height = $(window).height();
+    var count = $(".docs-sidenav>li").length+$(".active").find("ul").children("li").length;
+    var itemHeight = (height -60)/count-4;
+    if(itemHeight>50){
+      itemHeight = 50;
+    }else if(itemHeight<15){
+      itemHeight = 15;
+    }else{
+      itemHeight =itemHeight;
+    }
+    $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+  }
+  $(window).resize(function(){
+    changeHeight();
+  });
+  changeHeight();
+
+include foot
