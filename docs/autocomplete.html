@@ -300,7 +300,15 @@
             <li><a href="javascript:void(0)" data-target="#demo1" class="copy-btn">复制代码</a></li>
           </ul>
           <h2>通过HTML标记自动初始化</h2>
-          <p class="sui-lead">在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。</p>
+          <p class="sui-lead">
+            在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。
+            比如：
+            <ul class="unstyled">
+              <li>data-service-url</li>
+              <li>data-lookup</li>
+              <li>data-auto-select-first</li>
+            </ul>
+          </p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
@@ -309,7 +317,7 @@
             <div id="demo2" class="tab-pane active">
               <form class="sui-form">
                 <h4>通过ajax读取数据</h4>
-                <input type="text" id="auto-init-1" value="" data-toggle="autocomplete" data-serviceUrl="/ac.json" class="input-large">
+                <input type="text" id="auto-init-1" value="" data-toggle="autocomplete" data-service-url="/ac.json" class="input-large">
                 <h4>使用本地数据</h4>
                 <input type="text" id="auto-init-2" value="" data-toggle="autocomplete" data-lookup="[&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;, &quot;ddd&quot;, &quot;edfa&quot;, &quot;wdasda&quot;, &quot;tueiyhgk&quot;, &quot;vjflcjx&quot;]" class="input-large">
               </form>

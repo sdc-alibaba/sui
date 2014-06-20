@@ -105,7 +105,7 @@
             并且支持自定义校验插件。
           </p>
           <h2>通过HTML配置规则</h2>
-          <p class="lead">通过html标签可以直接配置规则，不用写任何js代码。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
+          <p class="lead">通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -206,12 +206,7 @@
                     <td>placeError</td>
                     <td>
                       function($error, $input) {
-                      $input = $(input);
-                       var $wrap = $input.parents(".controls-wrap");
-                         if (!$wrap[0]) {
-                           $wrap = $input.parents(".controls");
-                         }
-                       $error.appendTo($wrap);
+                      /**参见源码**/
                       }
                     </td>
                     <td>
@@ -498,7 +493,19 @@
                   <div class="control-group">
                     <label for="date" class="control-label">出生年月日：</label>
                     <div class="controls">
-                      <input type="text" id="date" placeholder="date" data-rules="required|date" name="date">
+                      <input type="text" id="date" placeholder="date" data-rules="required|date" name="date" data-toggle="datepicker">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="time" class="control-label">睡觉时间：</label>
+                    <div class="controls">
+                      <input type="text" id="time" placeholder="time" data-rules="required|time" name="time" data-toggle="timepicker">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label for="datetime" class="control-label">日期加时间：</label>
+                    <div class="controls">
+                      <input type="text" id="datetime" placeholder="datetime" data-rules="required|datetime" name="datetime" data-toggle="datepicker" data-date-timepicker="true">
                     </div>
                   </div>
                   <div class="control-group">
@@ -570,6 +577,14 @@
                 <tr>
                   <td>date</td>
                   <td>日期，例如 2012-02-02</td>
+                </tr>
+                <tr>
+                  <td>time</td>
+                  <td>时间，精确到分钟，例如 05:30</td>
+                </tr>
+                <tr>
+                  <td>datetime</td>
+                  <td>日期加时间，例如 2012-02-02 05:30</td>
                 </tr>
                 <tr>
                   <td>url</td>

@@ -7964,10 +7964,10 @@ input[type="submit"].btn.btn-mini {
   margin-right: 10px;
   cursor: pointer;
 }
-.sui-nav.nav-tabs.tab-wraped.colum3 > li {
+.sui-nav.nav-tabs.tab-wraped.column3 > li {
   width: 33.333%;
 }
-.sui-nav.nav-tabs.tab-wraped.colum5 > li {
+.sui-nav.nav-tabs.tab-wraped.column5 > li {
   width: 20%;
 }
 .sui-nav.nav-stacked > li {

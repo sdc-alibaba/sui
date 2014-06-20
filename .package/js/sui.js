@@ -980,56 +980,7 @@
             $(that.suggestionsContainer).remove();
         },
         getOptions: function (options) {
-          var originData = this.el.data(),
-              data = {};
-          //html data api case insensitive
-          for(var k in originData) {
-            switch(k.toLowerCase()) {
-              case("lookup"):
-                data.lookup = originData[k];
-                break;
-              case("width"):
-                data.width = originData[k];
-                break;
-              case("params"):
-                data.params = originData[k];
-                break;
-              case("type"):
-                data.type = originData[k];
-                break;
-              case("autoselectfirst"):
-                data.autoSelectFirst = originData[k];
-                break;
-              case("appendto"):
-                data.appendTo = originData[k];
-                break;
-              case("serviceurl"):
-                data.serviceUrl = originData[k];
-                break;
-              case("minchars"):
-                data.minChars = originData[k];
-                break;
-              case("maxHeight"):
-                data.maxHeight = originData[k];
-                break;
-              case("zindex"):
-                data.zIndex = originData[k];
-                break;
-              case("nocache"):
-                data.noCache = originData[k];
-                break;
-              case("containerclass"):
-                data.containerClass = originData[k];
-                break;
-              case("datatype"):
-                data.dataType = originData[k];
-                break;
-              case("paramname"):
-                data.paramName = originData[k];
-                break;
-            }
-          }
-          return options = $.extend({}, $.fn.autocomplete.defaults, data, options);
+          return options = $.extend({}, $.fn.autocomplete.defaults, this.el.data(), options);
         }
     };
 
@@ -6175,9 +6126,20 @@ $(function(){
   };
   Validate.setRule("zip", zip, '请填写正确的邮编');
   var date = function(value, element, param) {
-    return (/^[1|2]\d{3}-[0-2][0-9]-[0-3][0-9]$/).test(trim(value));
+    param = param || "-";
+    var reg = new RegExp("^[1|2]\\d{3}"+param+"[0-2][0-9]"+param+"[0-3][0-9]$");
+    return reg.test(trim(value));
   };
   Validate.setRule("date", date, '请填写正确的日期');
+  var time = function(value, element, param) {
+    return (/^[0-2]\d:[0-6]\d$/).test(trim(value));
+  };
+  Validate.setRule("time", time, '请填写正确的时间');
+  var datetime = function(value, element, param) {
+    var reg = new RegExp("^[1|2]\\d{3}-[0-2][0-9]-[0-3][0-9] [0-2]\\d:[0-6]\\d$");
+    return reg.test(trim(value));
+  };
+  Validate.setRule("datetime", datetime, '请填写正确的日期和时间');
   var url = function(value, element, param) {
     var urlPattern;
     value = trim(value);
@@ -6384,7 +6346,10 @@ $(function(){
       if (!$wrap[0]) {
         $wrap = $input.parents(".controls");
       }
-      $error.appendTo($wrap);
+      if(!$wrap[0]) {
+        $wrap = $input.parent();
+      }
+      $error.appendTo($wrap[0]);
     },
     highlight: function($input, $error, inputErrorClass) {
       $input.addClass(inputErrorClass)
