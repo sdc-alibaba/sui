@@ -9,17 +9,7 @@
   var Checkbox = function (element, options) {
     this.$element = $(element)
     //this.options = $.extend({}, $.fn.checkbox.defaults, options)
-    this.$checkbox = this.$element.find("input").change($.proxy(this.update, this))
-    //同步状态
-    this.update()
-    var name = this.$checkbox.prop("name")
-    var self = this;
-    if (name && this.$checkbox.attr("type").toUpperCase() == 'RADIO') {
-      //radio 会因为其他相同name 的radio的改变而受到影响
-      $("input[name='"+name+"']").each(function(){
-        $(this).change($.proxy(self.update, self))
-      })
-    }
+    this.$checkbox = this.$element.find("input")
   }
 
   var old = $.fn.checkbox
@@ -33,41 +23,36 @@
       else if (option) data[option]()
     })
   }
-  //同步状态
-  Checkbox.prototype.update = function () {
-    if(this.$checkbox.prop("checked")) this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
-    else this.$element.removeClass(CHECKED_CLASS)
-    if(this.$checkbox.prop('disabled')) this.$element.addClass(DISABLED_CLASS)
-    else this.$element.removeClass(DISABLED_CLASS)
-  }
+  
   Checkbox.prototype.toggle = function () {
     if(this.$checkbox.prop("checked")) this.uncheck()
     else this.check()
+    this.$checkbox.trigger("change")
   }
 
   Checkbox.prototype.check = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
-    this.$checkbox.prop('checked', 'checked')
+    this.$checkbox.prop('checked', true)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.uncheck = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(HALF_CHECKED_CLASS).removeClass(CHECKED_CLASS)
-    this.$checkbox.removeAttr('checked')
+    this.$checkbox.prop('checked', false)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.halfcheck = function () {
     if(this.$checkbox.prop("disabled")) return
-    this.$element.removeClass(CHECKED_CLASS).addClass(HALF_CHECKED_CLASS)
-    this.$checkbox.removeAttr('checked')
+    this.$checkbox.prop('checked', false)
+    this.$element.removeClass(CHECKED_CLASS).addClass("halfchecked")
   }
 
   Checkbox.prototype.disable = function () {
-    this.$element.addClass(DISABLED_CLASS)
-    this.$checkbox.prop('disabled', 'disabled')
+    this.$checkbox.prop('disabled', true)
+    this.$checkbox.trigger("change")
   }
   Checkbox.prototype.enable = function () {
-    this.$element.removeClass(DISABLED_CLASS)
-    this.$checkbox.removeAttr('disabled')
+    this.$checkbox.prop('disabled', false)
+    this.$checkbox.trigger("change")
   }
 
   $.fn.checkbox.defaults = {
@@ -88,14 +73,25 @@
   $.fn.radio = $.fn.checkbox;
 
 
- /* DATA-API
-  * =============== */
-
- //必须一开始就初始化，不然对于radio，由于其他相同name的radio改动的时候由于没有初始化就无法更新状态
-  $(function() {
-    $('[data-toggle^=checkbox],[data-toggle^=radio] ').each(function () {
-      $(this).checkbox()
-    })
-  })
-
+  // update status on document;
+  $(document).on("change", "input[type='checkbox'], input[type='radio']", function(e) {
+    var $checkbox= $(e.currentTarget);
+    var $container = $checkbox.parent();
+    var update = function($checkbox) {
+      var $container = $checkbox.parent();
+      if($checkbox.prop("checked")) $container.removeClass(HALF_CHECKED_CLASS).addClass(CHECKED_CLASS)
+      else $container.removeClass(CHECKED_CLASS).removeClass(HALF_CHECKED_CLASS)
+      if($checkbox.prop('disabled')) $container.addClass(DISABLED_CLASS)
+      else $container.removeClass(DISABLED_CLASS)
+    }
+    if($container.hasClass("checkbox-pretty") || $container.hasClass("radio-pretty")) {
+      update($checkbox);
+    }
+    if($checkbox.attr('type').toLowerCase() === 'radio') {
+      var name = $checkbox.attr("name");
+      $("input[name='"+name+"']").each(function() {
+        update($(this));
+      });
+    }
+  });
 }(window.jQuery);
