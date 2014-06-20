@@ -566,6 +566,22 @@
   }
 }
 
+.buttonBorderedBackground(@backgroundColor, @backgroundHighlightColor) {
+  // gradientBar will set the background to a pleasing blend of these, to support IE<=9
+  border: 1px solid darken(@backgroundColor, 5%);
+  color: darken(@backgroundColor, 5%);
+  &:hover, &:focus {
+    border: 1px solid @backgroundHighlightColor;
+    color: @backgroundHighlightColor;
+  }
+  &:active,
+  &.active {
+    background-color: @backgroundHighlightColor;
+    border: 1px solid darken(@backgroundHighlightColor, 5%);
+    color: @white;
+  }
+}
+
 // Navbar vertical align
 // -------------------------
 // Vertically center elements in the navbar.

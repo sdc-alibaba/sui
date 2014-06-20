@@ -13,8 +13,6 @@ block content
     ul.example li {display: inline-block; margin: 20px;}
     .sui-layout .content-inner, .tab-content{ overflow:visible}
 
-  h1 Tooltip
-
   h2.sui-page-header 设计规范
 
   div.docs-description
@@ -48,14 +46,14 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo1
-      div.bs-docs-example
+      div.bs-docs-example(style="padding-bottom: 100px;")
         ul.example
-          - var placement = ['top', 'right', 'bottom', 'left']
+          - var placement = ['top', 'right', 'bottom', 'left', 'bottom']
           each dir in placement
             li
               a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
         ul.example
-          - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+          - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           - var widthtype = ['true', 'false']
           each type in widthtype
             li
@@ -64,10 +62,15 @@ block content
           li
             a(href='javascript:void(0)', data-trigger='click', data-toggle='tooltip', data-placement='top', data-widthlimit='500px', title='#{bigdata}<pre>widthlimit:"500px"</pre>') widthlimit:'500px'
         ul.example
-          - var placement = ['top', 'right', 'bottom', 'left']
           each dir in placement
             li
               a(href='javascript:void(0)', data-placement='#{dir}', data-toggle='tooltip', data-type='attention', title='强调tooltip') #{dir} opt.type = 'attention'
+        h3 对齐方式：
+        ul.example
+          - var align = ['left', 'bottom', 'right', 'top', 'center']
+          each dir,i in placement
+            li
+              a(style='display:inline-block;width:120px;height:100px;background: #ccc' href='javascript:void(0)', data-placement='#{dir}', data-trigger='hover', data-toggle='tooltip', data-align='#{align[i]}' title='#{bigdata}') opt.align='#{align[i]}'
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
@@ -102,13 +105,16 @@ block content
           , html: true  //决定是html()还是text()
           , container: false  //将tooltip与输入框组一同使用时，为了避免不必要的影响，需要设置container.他用来将tooltip的dom节点插入到container指定的元素内的最后，可理解为 container.append(tooltipDom)。
           , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
+          , align: 'center'  // {string} tip元素的布局方式，默认居中：'center' ,'left','right','top','bottom'
           , okHide: fn       //带确认、取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
         }
     div.tab-pane#event1
       p tooltip作为展示型便携组件本不需要事件，不过为了补充confirm类型的tooltip，目前提供一个常见事件: 
       p <code>okHide</code> 带确认、取消按钮的confirm型tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip)
         
-  hr
+  p <code>通过js调用生成</code>的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数。
+  p 因为可以通过<code>$('#xxx').tooltip(opt)</code>指定任意元素$('#xxx')为触发元素，所以不要z再为触发元素添加data-toggle="tooltip"的HTML属性。
+  p AGAIN: <code>通过js调用生成的tooltip一定不要为触发元素附加data-toggle="tooltip"</code>
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -116,7 +122,6 @@ block content
       a(href='#code2', data-toggle='tab') 代码
   div.tab-content
     div.tab-pane.active#demo2
-      js调用的tooltip，同时也可接收htmldata-*属性参数，二者mix后作为最终方法参数
       div.bs-docs-example
         ul.example
           li

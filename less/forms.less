@@ -806,7 +806,7 @@
     .control-label {
       width: @horizontalComponentOffset;
       text-align: right;
-      display: inline-block;
+      display: table-cell;
       margin-bottom: 0;
       vertical-align: middle;
     }
@@ -822,7 +822,7 @@
     .controls {
       // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
       // don't inherit the margin of the parent, in this case .controls
-      display: inline-block;
+      display: table-cell;
       margin-left: 3px;
       &:first-child {
         *padding-left: @horizontalComponentOffset;

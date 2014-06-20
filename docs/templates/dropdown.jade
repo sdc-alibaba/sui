@@ -13,7 +13,6 @@ block sidebar
   +sidebar('dropdown')
 
 block content
-  h1 下拉菜单
 
   h2.sui-page-header 设计规范
 
@@ -27,7 +26,7 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。
+    | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。 JS使用文档见 <a href='dropdown-js.html'>dropdown-js</a>
 
   h2 不同样式和大小
   ul.sui-nav.nav-tabs.nav-large
@@ -179,6 +178,75 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo15>div') 复制代码
 
+
+  h2 不同下拉位置和对齐方式
+  p.sui-lead
+    | 默认的下拉菜单是和触发元素左对齐，通过添加 <code>.align-right</code> 可以实现右对齐
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-align', data-toggle='tab') 示例
+    li
+      a(href='#code-align', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-align(style='padding-bottom:60px;')
+      h4 左右对齐
+      span.sui-dropdown
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 左对齐 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li(role="presentation")
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+      span.sui-dropdown.align-right(style='margin-left: 20px;')
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 右对齐 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+      h4 上拉和下拉
+      span.sui-dropdown
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 下拉菜单 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+      span.sui-dropdown.dropdown-bordered
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 下拉菜单 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+      span.sui-dropup
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 上拉菜单 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+      span.sui-dropup.dropdown-bordered
+        span.dropdown-inner
+          a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 上拉菜单 <i class='caret'></i>
+          ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 北京
+            li.active(role="presentation")
+              a(role="menuitem" tabindex="-1" href="#") 杭州
+    div.tab-pane#code-align
+      pre.prettyprint.linenums(data-target='#demo-align')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo-align') 复制代码
+
   h2 多级下拉
 
   ul.sui-nav.nav-tabs.nav-large
@@ -200,14 +268,14 @@ block content
                 a(role="menuitem" tabindex="-1" href="#") 北京
               li.dropdown-submenu(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#")
-                  <i class="sui-icon icon-angle-right"></i>
+                  <i class="sui-icon icon-angle-right pull-right"></i>
                   |武汉
                 ul.sui-dropdown-menu
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#") 汉口
                   li.dropdown-submenu(role="presentation")
                     a(role="menuitem" tabindex="-1" href="#")
-                      <i class="sui-icon icon-angle-right"></i>
+                      <i class="sui-icon icon-angle-right pull-right"></i>
                       |武昌
                     ul.sui-dropdown-menu
                       li(role="presentation")
@@ -221,7 +289,7 @@ block content
               li(role="presentation" class="divider")
               li.dropdown-submenu(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#")
-                  <i class="sui-icon icon-angle-right"></i>
+                  <i class="sui-icon icon-angle-right pull-right"></i>
                   | 杭州
                 ul.sui-dropdown-menu
                   li(role="presentation")
@@ -342,3 +410,24 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
+  h2 自动补全
+  p.sui-lead
+    | 用一个简单的input结构加上一个箭头来模拟下拉菜单的样式.
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-dropdown-like', data-toggle='tab') 示例
+    li
+      a(href='#code-dropdown-like', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-dropdown-like
+      form.sui-form
+        .sui-dropdown-like
+          input.input-large(type="text" value="" data-toggle="autocomplete" data-lookup='["dasd1231das2s", "tuigjhhigjdif", "ndjksvkjshf", "fhekxoshlf", "pqowizljmv"]' data-minChars="0")
+          i.sui-icon.icon-pc-chevron-bottom
+    div.tab-pane#code-dropdown-like
+      pre.prettyprint.linenums(data-target='#demo-dropdown-like')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo-dropdown-like') 复制代码

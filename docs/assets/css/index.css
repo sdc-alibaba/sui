@@ -32,116 +32,42 @@
   -webkit-animation-name: myBounceInUp;
   animation-name: myBounceInUp;
 }
-.intro {
-  background-color: #6f5499;
-  color: #fff;
-  padding: 80px 0;
-}
-.jumbotron {
-  padding: 60px 0;
-  color: #fff;
-}
-.components {
-  background-color: #a2dbf6;
-  -webkit-transition: background 0.5s, background ease-in-out 0.5s;
-  transition: background .5s, background .5s;
-  -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-  transition: color 1s .5s, color 1s .5s;
-  color: #555;
-}
-.components img {
-  opacity: 0;
-}
-.components.inview {
-  background-color: #45b7ed;
-  color: #fff;
-}
-.components.inview img {
-  -webkit-animation-name: myBounceInUp;
-  animation-name: myBounceInUp;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.features {
-  background-color: #ddebcf;
-  -webkit-transition: background 0.5s, background ease-in-out 0.5s;
-  transition: background .5s, background .5s;
-  -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-  transition: color 1s .5s, color 1s .5s;
-  color: #555;
-}
-.features img {
-  opacity: 0;
-}
-.features.inview {
-  background-color: #aacc88;
-  color: #fff;
-}
-.features.inview img {
-  -webkit-animation-name: myBounceInUp;
-  animation-name: myBounceInUp;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.bootstrap {
-  background-color: #22ffd7;
-  -webkit-transition: background 0.5s, background ease-in-out 0.5s;
-  transition: background .5s, background .5s;
-  -webkit-transition: color 1s 0.5s, color ease-in-out 1s 0.5s;
-  transition: color 1s .5s, color 1s .5s;
-  color: #555;
-}
-.bootstrap img {
-  opacity: 0;
-}
-.bootstrap.inview {
-  background-color: #00bb99;
-  color: #fff;
-}
-.bootstrap.inview img {
-  -webkit-animation-name: myBounceInUp;
-  animation-name: myBounceInUp;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.intro > .sui-container {
+.brand-intro {
   text-align: center;
+  background-color: #a811b5;
+  color: #fff;
+  padding: 120px 0;
+  background-image: url(../imgs/grid.png);
+  background-image: url(../imgs/grid.png), -webkit-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -webkit-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -moz-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), -o-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-image: url(../imgs/grid.png), linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-h1 {
+.brand-intro h1 {
   font-size: 64px;
-  line-height: 1.5;
-}
-h2 {
-  font-size: 48px;
-  line-height: 1.5;
-}
-.center {
-  text-align: center;
 }
 .brand-intro .sui-lead {
-  font-size: 24px;
-  line-height: 2;
+  font-size: 22px;
+  margin: 2em 0;
+  line-height: 150%;
 }
 .btn-lead {
-  padding: 20px 80px;
+  padding: 1em 4em;
+  border: 2px solid #fff;
+  opacity: .8;
+  background: transparent;
+  color: #fff;
   font-size: 24px;
 }
-.btn-wrap {
-  margin-top: 50px;
+.btn-lead:hover {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  opacity: 1;
 }
-.details ul {
-  margin-top: 50px;
-}
-.details li {
-  font-size: 18px;
-  line-height: 2;
-}
-.bootstrap-logo {
-  height: 300px;
+.btn-lead + .btn-lead {
+  margin-left: 2em;
 }

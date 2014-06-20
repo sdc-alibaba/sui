@@ -11,59 +11,15 @@ block header
   +header('index')
 
 block content_wrap
-  .jumbotron.intro
-    .sui-container.brand-intro
-      h1 SUI
+  .brand-intro
+    .sui-container
+      h1 简单易用、功能强大的UI库
       p.sui-lead
         | SUI 是一套基于bootstrap开发的前端组件库，同时她也是一套设计规范。
         br
         | 通过SUI，可以非常方便的设计和实现精美的页面。
 
-      p.btn-wrap.bounceInDown.animated
-        a.sui-btn.btn-success.btn-lead(href='download.html') 立即下载 SUI V1.0
-
-  .jumbotron.components
-    .sui-container
-      .sui-row
-        .span4
-          .details.center
-            h2 丰富的组件库
-            ul.unstyled
-              li 响应式栅格
-              li icon font 字体图标
-              li 按钮，表单，表格，提示
-              li 标签页，步骤条，面包屑
-              li 对话框，Tooltip，分页器
-              li 更多组件敬请期待...
-        .span8.center
-          a(href='global.html')
-            img(src='pictures/index-demo-components.png')
-
-  .jumbotron.features
-    .sui-container
-      .sui-row
-        .span4
-          .details.center
-            h2 为现代浏览器设计
-            ul.unstyled
-              li 扁平化设计
-              li 响应式布局
-              li icon font
-              li CSS 特效
-              li 兼容chrome,firfox,safari,ie8+等主流浏览器
-        .span8.center
-          img(src='pictures/index-demo-browsers.png')
-
-  .jumbotron.bootstrap
-    .sui-container
-      .sui-row
-        .span4
-          .details.center
-            h2 基于 bootstrap 2.3
-
-            ul.unstyled
-              li 基于 boostrap 2.3 ，有良好的代码结构和丰富的文档及示例
-              li 引入了 icon font, grunt, jade 等新技术
-
-        .span8.center
-          img.bootstrap-logo(src='pictures/bootstrap-logo.png')
+      p.btn-wrap
+        a.sui-btn.btn-lead(href='/sui/docs/tutorial.html') SUI总库
+        a.sui-btn.btn-lead(href='/qnui/docs/tutorial.html') 千牛UI
+        a.sui-btn.btn-lead(href='/wqui/docs/tutorial.html') 旺起UI
