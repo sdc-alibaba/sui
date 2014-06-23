@@ -55,12 +55,12 @@
 .sui-nav.nav-stacked.docs-nav .docs-icon {
   background: url(../../pictures/left_04.png);
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   position: absolute;
   right: -40px;
   top: 50%;
-  margin-top: -6px;
+  margin-top: -9px;
 }
 .sui-nav.nav-stacked.docs-nav .active .docs-icon {
   background: url(../../pictures/blue_11.png);
