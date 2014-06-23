@@ -10,7 +10,7 @@
   width: 151px;
   text-align: right;
   padding-right: 30px;
-  background: url(../../docs/pictures/kedu.png) top right repeat-y;
+  background: url(../../pictures/kedu.png) top right repeat-y;
 }
 .sui-nav.nav-stacked.docs-nav li {
   border: none;
@@ -61,7 +61,7 @@
   color: #0088cc;
 }
 .sui-nav.nav-stacked.docs-nav .docs-icon {
-  background: url(../../docs/pictures/left_03.png);
+  background: url(../../pictures/left_03.png);
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -71,7 +71,7 @@
   margin-top: -6px;
 }
 .sui-nav.nav-stacked.docs-nav .active .docs-icon {
-  background: url(../../docs/pictures/blue_10.png);
+  background: url(../../pictures/blue_10.png);
 }
 body {
   position: relative;
