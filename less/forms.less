@@ -807,12 +807,10 @@
       width: @horizontalComponentOffset;
       text-align: right;
       display: table-cell;
-      margin-bottom: 0;
       vertical-align: middle;
     }
     .v-top {
         vertical-align: top;
-        margin-top: 2px;
     }
     .v-bottom {
         vertical-align: bottom;    
@@ -823,7 +821,8 @@
       // Super jank IE7 fix to ensure the inputs in .input-append and input-prepend
       // don't inherit the margin of the parent, in this case .controls
       display: table-cell;
-      margin-left: 3px;
+      //margin-left: 3px; 对table-cell设置margin无效
+      padding-left: 3px;
       &:first-child {
         *padding-left: @horizontalComponentOffset;
       }
