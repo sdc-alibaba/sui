@@ -77,6 +77,11 @@ body {
   position: relative;
   padding-top: 59px;
   font-size: 14px;
+  background: #fbfbfb;
+}
+body > .sui-layout,
+body > .sui-layout > .content {
+  background: #fbfbfb;
 }
 html,
 body,
@@ -95,14 +100,13 @@ h3 code {
 }
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
-.sui-layout .content {
+body > .sui-layout .content {
   padding: 0 25px;
-  margin-left: 150px;
-  background: #fff;
+  margin-left: 210px;
   overflow: hidden;
 }
 body > .sui-layout > .sidebar {
-  width: 150px;
+  width: 180px;
   font-size: 14px;
   line-height: 22px;
   position: fixed;
@@ -243,24 +247,13 @@ h1.sui-page-header:before {
     margin: auto;
   }
 }
-@media (min-width: 1200px) {
-  .sui-layout .content {
-    margin-left: 180px;
+@media (min-width: 1400px) {
+  .sui-navbar .sui-container {
+    width: 1400px;
+    margin: auto;
   }
-  body > .sui-layout > .sidebar {
-    width: 180px;
-  }
-  .docs-sidenav {
-    width: 181px;
-  }
-}
-@media (max-height: 600px) {
-  .sui-nav.nav-tabs.nav-xlarge > li > a {
-    padding: 8px 18px;
-  }
-  .sui-nav.nav-tabs.nav-stacked.nav-xlarge .nav-tabs.nav-stacked > li > a {
-    padding: 4px 16px;
-    border: none;
+  body > .sui-layout .content {
+    margin-left: 230px;
   }
 }
 @media (max-width: 800px) {
