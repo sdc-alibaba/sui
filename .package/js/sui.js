@@ -1729,6 +1729,10 @@
 			this.picker.addClass('datepicker-rtl');
 		}
 
+		if (this.o.size==='small'){
+			this.picker.addClass('datepicker-small');
+		}
+
 		this.viewMode = this.o.startView;
 
 		if (this.o.calendarWeeks)
@@ -3095,6 +3099,7 @@
 		multidateSeparator: ',',
 		orientation: "auto",
 		rtl: false,
+		size: '',
 		startDate: -Infinity,
 		startView: 0,
 		todayBtn: false,
@@ -5030,6 +5035,8 @@
 }(window.jQuery);
 
 },{}],12:[function(require,module,exports){
+
+},{}],13:[function(require,module,exports){
 (function ($) {
     function Pagination(opts) {
         this.itemsCount = opts.itemsCount;
@@ -5218,7 +5225,7 @@
 
 })(window.jQuery)
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-popover.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#popovers
@@ -5334,7 +5341,7 @@
 
 }(window.jQuery);
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /* =============================================================
  * bootstrap-scrollspy.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
@@ -5498,7 +5505,7 @@
 
 }(window.jQuery);
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 //核心组件
 require('./transition')
 require('./alert')
@@ -5519,10 +5526,11 @@ require('./tree')
 require('./datepicker')
 require('./timepicker')
 require('./checkbox')
-require('./intro')
 require('./autocomplete')
+require('./navtest')
+require('./intro')
 
-},{"./affix":1,"./alert":2,"./autocomplete":3,"./button":4,"./carousel":5,"./checkbox":6,"./collapse":7,"./datepicker":8,"./dropdown":9,"./intro":10,"./modal":11,"./pagination":12,"./popover":13,"./scrollspy":14,"./tab":16,"./timepicker":17,"./tooltip":18,"./transition":19,"./tree":20,"./validate":22,"./validate-rules":21}],16:[function(require,module,exports){
+},{"./affix":1,"./alert":2,"./autocomplete":3,"./button":4,"./carousel":5,"./checkbox":6,"./collapse":7,"./datepicker":8,"./dropdown":9,"./intro":10,"./modal":11,"./navtest":12,"./pagination":13,"./popover":14,"./scrollspy":15,"./tab":17,"./timepicker":18,"./tooltip":19,"./transition":20,"./tree":21,"./validate":23,"./validate-rules":22}],17:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -5668,7 +5676,7 @@ require('./autocomplete')
 
 }(window.jQuery);
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
  /*jshint sub:true*/
 !function ($) {
 function TimePicker(element, cfg){
@@ -6343,7 +6351,7 @@ $(function(){
 });
 }(window.jQuery)
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -6847,7 +6855,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
@@ -6909,7 +6917,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /**
  * Created by huazhi.chz on 14-4-27.
  * tree 2.0.0
@@ -7075,7 +7083,7 @@ $(function(){
 
 })(jQuery);
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 // add rules
 !function($) {
   Validate = $.validate;
@@ -7193,7 +7201,7 @@ $(function(){
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 }(window.jQuery)
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */
@@ -7410,4 +7418,4 @@ $(function(){
   })
 }(window.jQuery);
 
-},{}]},{},[15])
+},{}]},{},[16])

@@ -2490,19 +2490,17 @@ sui-pre .sui-code {
   width: 96px;
   text-align: right;
   display: table-cell;
-  margin-bottom: 0;
   vertical-align: middle;
 }
 .sui-form.form-horizontal .v-top {
   vertical-align: top;
-  margin-top: 2px;
 }
 .sui-form.form-horizontal .v-bottom {
   vertical-align: bottom;
 }
 .sui-form.form-horizontal .controls {
   display: table-cell;
-  margin-left: 3px;
+  padding-left: 3px;
 }
 .sui-form.form-horizontal .controls:first-child {
   *padding-left: 96px;
@@ -3152,7 +3150,7 @@ sui-pre .sui-code {
   vertical-align: middle;
   font-size: 150%;
   color: #666666;
-  margin-left: -3px;
+  margin-left: -2px;
 }
 .checkbox-pretty.checked > span:before,
 .radio-pretty.checked > span:before {
@@ -10967,6 +10965,16 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   float: left;
   border-left: 1px solid #e5e5e5;
 }
+.datepicker-small td,
+.datepicker-small th {
+  text-align: center;
+  width: 24px;
+  height: 20px;
+  line-height: 20px;
+}
+.datepicker-small .next b {
+  margin-left: 2px;
+}
 .timepicker {
   width: 100px;
   height: 228px;
@@ -11171,7 +11179,8 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   list-style: none;
   font-size: 0;
   line-height: 0;
-  padding: 5px 5px 0 5px;
+  padding: 5px 0 0 0;
+  margin-bottom: 18px;
   /*
   &.tag-hole {
     &>li, &>span {
@@ -11195,6 +11204,10 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
     }
   }
   */
+}
+.sui-tag.tag-bordered {
+  border: 1px solid #999999;
+  padding-left: 5px;
 }
 .sui-tag > li,
 .sui-tag > a {

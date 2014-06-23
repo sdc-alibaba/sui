@@ -40,9 +40,9 @@
         </div>
     <div class="sui-layout">
       <div class="sidebar">
-            <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
-              <li><a><i class="sui-icon icon-edit">&nbsp;</i>表单<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+            <ul class="sui-nav nav-stacked docs-sidenav docs-nav">
+              <li><a><i class="docs-icon">&nbsp;</i>表单</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="forms.html">表单</a></li>
                   <li><a href="buttons.html">按钮</a></li>
                   <li><a href="button-groups.html">按钮组</a></li>
@@ -57,46 +57,69 @@
                   <li><a href="pagination-js.html">分页器 - JS</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="sui-icon icon-magic">&nbsp;</i>文字和图标<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+              <li class="active"><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="global.html">全局文本样式</a></li>
                   <li><a href="icons.html">图标</a></li>
                   <li class="active"><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-th">&nbsp;</i>表格和布局<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+              <li><a><i class="docs-icon">&nbsp;</i>表格和布局</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="tables.html">表格</a></li>
                   <li><a href="grid.html">栅格</a></li>
                   <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-globe">&nbsp;</i>导航和提醒<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+              <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="navbar.html">导航栏</a></li>
                   <li><a href="msgs.html">提示消息</a></li>
                   <li><a href="steps.html">步骤条</a></li>
                   <li><a href="breadcrumb.html">面包屑</a></li>
                   <li><a href="tab.html">标签页 - 样式</a></li>
                   <li><a href="tab-js.html">标签页 - JS</a></li>
-                  <li><a href="intro.html">新手指引</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-picture">&nbsp;</i>弹层<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+              <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="dialog.html">对话框</a></li>
                   <li><a href="tooltip.html">tooltip</a></li>
                 </ul>
               </li>
-              <li><a><i class="sui-icon icon-shopping-cart">&nbsp;</i>其他<i class="sui-icon icon-angle-down pull-right"></i></a>
-                <ul class="sui-nav nav-tabs nav-stacked">
+              <li><a><i class="docs-icon">&nbsp;</i>其他</a>
+                <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="loading.html">Loading</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
             </ul>
-            <script type="text/javascript">var disqus_identifier = 'disqus-id-Label';</script>
+            <script type="text/javascript">
+              var disqus_identifier = 'disqus-id-Label';
+              function changeHeight(){
+                var height = $(window).height()-57;
+                var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
+                var itemHeight = height/count-4;
+                if(itemHeight>50){
+                  itemHeight = 50;
+                }else if(itemHeight<15){
+                  itemHeight = 15;
+                }else{
+                  itemHeight =itemHeight;
+                }
+                $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+              }
+              $(window).resize(function(){
+                changeHeight();
+              });
+              $(changeHeight);
+              
+            </script>
+            <script src="assets/js/google-code-prettify/prettify.js"></script>
+            <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+            <script src="assets/js/application.js"></script>
+            <script src="http://localhost:3456/livereload.js"></script>
       </div>
       <div class="content">
         <div class="content-inner">
