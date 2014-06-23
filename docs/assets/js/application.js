@@ -19,6 +19,7 @@
     }
     $sidenav.find(".active").removeClass("active")
     $li.addClass("active")
+    changeHeight();
   })
 
   //代码高亮
