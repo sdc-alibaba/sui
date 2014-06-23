@@ -12,6 +12,8 @@ block content
 
   p.sui-lead 入口class:<code>.sui-tag</code>。近亲label在
       a(href='./label.html') 这里
+      p
+        strong 更新 @2014-06-23: 修改了布局方式，增加了 <code>.tag-bordered</code>，增加了默认的margin-bottom。
 
   h2 普通与选中的tag
   ul.sui-nav.nav-tabs.nav-large
@@ -50,6 +52,8 @@ block content
 
 
   h2 右侧带叉（用以删除）
+  p.sui-lead
+    | 加上 <code>.tag-bordered</code>，会默认加上灰色边框。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -63,7 +67,7 @@ block content
       div.bs-docs-example
         - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs', '店铺装修达人', '艺术', '公sdf告']
         h3 默认  .sui-tag
-        ul.sui-tag(style="width:300px;border: 1px solid #999")
+        ul.sui-tag.tag-bordered
           each text, i in txt
             if i % 2 == 0
               li #{text}

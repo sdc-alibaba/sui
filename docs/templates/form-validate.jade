@@ -15,7 +15,7 @@ block content
 
   h2 通过HTML配置规则
   p.lead
-    | 通过html标签可以直接配置规则，不用写任何js代码。
+    | 通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。
     br
     | 规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。
     br
@@ -124,12 +124,7 @@ block content
             td placeError
             td 
               |function($error, $input) {
-              | $input = $(input);
-              |  var $wrap = $input.parents(".controls-wrap");
-              |    if (!$wrap[0]) {
-              |      $wrap = $input.parents(".controls");
-              |    }
-              |  $error.appendTo($wrap);
+              | /**参见源码**/
               |}
             td
               | 放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
@@ -403,7 +398,15 @@ block content
           div.control-group
             label.control-label(for="date") 出生年月日：
             div.controls
-              input(type="text" id="date" placeholder="date" data-rules='required|date' name='date')
+              input(type="text" id="date" placeholder="date" data-rules='required|date' name='date' data-toggle='datepicker')
+          div.control-group
+            label.control-label(for="time") 睡觉时间：
+            div.controls
+              input(type="text" id="time" placeholder="time" data-rules='required|time' name='time' data-toggle='timepicker')
+          div.control-group
+            label.control-label(for="datetime") 日期加时间：
+            div.controls
+              input(type="text" id="datetime" placeholder="datetime" data-rules='required|datetime' name='datetime' data-toggle='datepicker' data-date-timepicker='true')
           div.control-group
             label.control-label(for="age") 年龄：
             div.controls
@@ -461,6 +464,14 @@ block content
         tr
           td date
           td 日期，例如 2012-02-02
+
+        tr
+          td time
+          td 时间，精确到分钟，例如 05:30
+
+        tr
+          td datetime
+          td 日期加时间，例如 2012-02-02 05:30
 
         tr
           td url

@@ -187,6 +187,11 @@ block content
   h2 通过HTML标记自动初始化
   p.sui-lead
     | 在input上添加 <code>data-toggle='autocomplete'</code> 可以启用自动补全，并且所有js中可以配置的JSON格式的参数都可以通过 data-api 在html中直接配置。
+    | 比如：
+    ul.unstyled
+      li data-service-url
+      li data-lookup
+      li data-auto-select-first
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -197,7 +202,7 @@ block content
     div.tab-pane.active#demo2
       form.sui-form
         h4 通过ajax读取数据
-        input.input-large(type="text" id='auto-init-1' value='' data-toggle='autocomplete' data-serviceUrl='/ac.json')
+        input.input-large(type="text" id='auto-init-1' value='' data-toggle='autocomplete' data-service-url='/ac.json')
         h4 使用本地数据
         input.input-large(type="text" id='auto-init-2' value='' data-toggle='autocomplete' data-lookup='["aaa", "bbb", "ccc", "ddd", "edfa", "wdasda", "tueiyhgk", "vjflcjx"]')
     div.tab-pane#code2
