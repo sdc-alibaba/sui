@@ -23,6 +23,7 @@ block content
     div.tab-content
         div.tab-pane#datepicker.active
             h3 datepicker
+            p.sui-lead 更新日志：先更新一配置选项，size，可选择值为small，设置完毕后可使用较小尺寸的日期弹出框
             ul.sui-nav.nav-tabs.nav-large
                 li.active
                   a(href='#demo', data-toggle='tab') 示例
@@ -135,7 +136,8 @@ block content
                     pre.prettyprint.linenums.
                         $('#demo4').datepicker({
                             startDate: "2014-04-16",
-                            data-date-format: "yyyy-mm-dd"
+                            data-date-format: "yyyy-mm-dd",
+                            size: "small"
                         });
                     p 这些参数也可以使用data api 来传递：
                     p 比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"
@@ -224,7 +226,11 @@ block content
                                 | typeof value == object 可以有三个字段enabled，classes，tooltip。
                                 | enabled 和单独返回Booleen一样，
                                 | classes和单独返回string一样，
-                                | tooltip 会在插件上的当前日期添加一个title属性
+                                | tooltip 会在插件上的当前日期添加一个title属性xian
+                        tr
+                            td size
+                            td '&nbsp'
+                            td 默认日期框尺寸为283*254，现在提供一种小尺寸，设置属性size为"small"，尺寸为216*198
                 div.tab-pane#method
                     p 调用方法
                     p
@@ -343,8 +349,10 @@ block content
                 });
 
 block js_block
-  script
-    $('#demo1 input').datepicker({});
+  script.
+    $('#demo1 input').datepicker({
+         size: "small"
+    });
     $('#demo2').datepicker({});
     $('#demo3').datepicker({});
     $('#demo4').datepicker({});
