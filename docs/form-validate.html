@@ -6,11 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="../.package/css/sui.css" rel="stylesheet">
-    <link href="assets/css/docs.css" rel="stylesheet">
+    <link id="docs-css" href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link rel="shortcut icon" href="pictures/logo.png?r=2014.06.18">
     <script src="../js/lib/jquery.js"></script>
+    <script>
+      var themesUrl = "../.package/css/sui.css";
+      var selected = localStorage.getItem("themes");
+      if(selected) {
+        themesUrl = '../.package/css/' + selected;
+      }
+      $('<link href="' + themesUrl + '" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+    </script>
     <script src="../.package/js/sui.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -34,6 +41,17 @@
                 <li><a href="./examples.html">案例</a></li>
                 <li><a href="./download.html">下载</a></li>
                 <li><a href="./about.html">关于</a></li>
+              </ul>
+              <ul style="display:none;" class="sui-nav pull-right">
+                <li class="sui-dropdown select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"><i class="caret"></i><span>换肤</span></a>
+                  <ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui.css">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui-themes-green.css">自然绿</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui-themes-pink.css">卖萌粉</a></li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
@@ -122,7 +140,7 @@
           <h2 class="sui-page-header">开发者文档</h2>
           <p class="sui-lead">
             强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
-            并且支持自定义校验插件。
+            并且支持自定义校验插件。<br><strong>更新 @2014-06-24:修复了文档中highlight/unhighlight的拼写错误。</strong>
           </p>
           <h2>通过HTML配置规则</h2>
           <p class="lead">通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
@@ -244,7 +262,7 @@
                     <td>定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。<br>rules通过name来为input指定规则，比如<br>rules: { password: { minlength: 10}}<br>表示为 name=password 的输入框定义了一条规则 minlength=10</td>
                   </tr>
                   <tr>
-                    <td>hilight</td>
+                    <td>highlight</td>
                     <td>
                       highlight: function($input, $error, inputErrorClass) {
                         $input.addClass(inputErrorClass)
@@ -254,7 +272,7 @@
                     <td>高亮显示错误。</td>
                   </tr>
                   <tr>
-                    <td>unhilight</td>
+                    <td>unhighlight</td>
                     <td>
                       unhighlight: function($input, $error, inputErrorClass) {
                         $input.removeClass(inputErrorClass)
