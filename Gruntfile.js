@@ -62,7 +62,27 @@ module.exports = function(grunt) {
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.min.css'
       },
-      
+      themes: {
+        files: [{
+          expand: true,
+          cwd: 'less/',
+          src: ['sui-themes-*.less'],
+          dest: '<%= distRoot %>/css/',
+          ext: '.css'
+        }]
+      },
+      themesMin: {
+        options: {
+          compress: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'less/',
+          src: ['sui-themes-*.less'],
+          dest: '<%= distRoot %>/css/',
+          ext: '.min.css'
+        }]
+      },     
       docs: {
         files: [{
           expand: true,
@@ -121,6 +141,10 @@ module.exports = function(grunt) {
       css: {
         files: 'less/*.less',
         tasks: ['less:sui', 'newer:copy']
+      },
+      themes: {
+        files: 'less/themes/*.less',
+        tasks: ['less:themes']
       },
       js: {
         files: 'js/*.js',
