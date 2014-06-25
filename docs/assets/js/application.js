@@ -53,4 +53,11 @@
       })
     })
   })
+
+  //换肤
+  var $themesInput = $("#themes-input").change(function() {
+    var themes = $themesInput.val();
+    $("#sui-css").attr('href', "../.package/css/" + themes);
+    localStorage.setItem("themes", themes);
+  });
 })(window.jQuery)
