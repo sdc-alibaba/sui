@@ -57,8 +57,8 @@ wqui的操作和上面一样。
 3. 删除上次发布的tag，`git push gitlab :publish/1.0.0`
 4. `git push gitlab daily/1.0.0`，发布到daily环境
 5. 本地重新打一个tag，并push
-    - `git tag -d publish/1/0.0`
-    - `git tag -d publish/1/0.0`
+    - `git tag -d publish/1.0.0`
+    - `git tag publish/1.0.0`
     - `git push gitlab publish/1.0.0`
 
 ## 更新官网

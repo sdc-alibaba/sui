@@ -37,3 +37,18 @@ mixin header(highlight)
             a(href="./download.html") 下载
           li(class=classAbout)
             a(href="./about.html") 关于
+
+        ul.sui-nav.pull-right
+          li.sui-dropdown.select
+            a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
+              input(value='sui.css' name='themes' type='hidden' id='themes-input')
+              i.caret
+              span 换肤
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sui.css') 默认
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sui-themes-green.css') 自然绿
+              li(role="presentation" class="divider")
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sui-themes-pink.css') 卖萌粉

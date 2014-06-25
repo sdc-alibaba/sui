@@ -43,7 +43,7 @@
     height: @baseLineHeight;
     // padding: 4px 6px;
     // margin-bottom: @baseLineHeight / 2;
-    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;  // 注释掉padding值和margin值同时修改padding值为默认值 @by kai 2014-01-30
+    padding: @inputDefaultPaddingTB @inputDefaultPaddingLR;
     font-size: @baseFontSize;
     line-height: @baseLineHeight;
     color: @gray;
@@ -102,9 +102,7 @@
   input[type="image"],
   input[type="submit"],
   input[type="reset"],
-  input[type="button"],
-  /* input[type="radio"], // 注释掉这一块代码 去掉radio和checkbox宽度重置 @by kai 2014-01-16
-  input[type="checkbox"] */ {
+  input[type="button"] {
     width: auto; // Override of generic input selector
   }
 
@@ -118,7 +116,7 @@
 
   // Make select elements obey height by applying a border
   select {
-    // width: 220px; // default input width + 10px of padding that doesn't get applied // 注释掉这一行，保持select标签原生宽度自动属性 @by kai 2014-01-16
+    // width: 220px; // default input width + 10px of padding that doesn't get applied
     border: 1px solid @inputBorder;
     background-color: @inputBackground; // Chrome on Linux and Mobile Safari need background-color
   }
@@ -183,7 +181,6 @@
     // min-height: @baseLineHeight; // clear the floating input if there is no label text
     // padding-left: 20px;
 
-    // 注释掉上面的样式 添加下面样式 @by kai 2014-01-30
     display: block;
     
     // 关联样式
@@ -193,32 +190,10 @@
     }
   }
 
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .radio input[type="radio"],
-  .checkbox input[type="checkbox"] {
-    float: left;
-    margin-left: -20px;
-  }
-  */
-
-  // Move the options list down to align with labels
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .controls > .radio:first-child,
-  .controls > .checkbox:first-child {
-    padding-top: 5px; // has to be padding because margin collaspes
-  }
-  */
-
   // Radios and checkboxes on same line
   // TODO v3: Convert .inline to .control-inline
   .radio.inline,
   .checkbox.inline {
-    /* 注释掉上面的样式 添加下面样式 @by kai 2014-01-30
-    display: inline-block;
-    padding-top: 5px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    */
     display: inline-block;
     margin-top: 0;
 
@@ -229,26 +204,11 @@
     }
   }
 
-  /* 注释掉这一块代码，直接删掉 @by kai 2014-01-30
-  .radio.inline + .radio.inline,
-  .checkbox.inline + .checkbox.inline {
-    margin-left: 10px; // space out consecutive inline controls
-  }
-  */
-
 
   // INPUT SIZES
   // -----------
 
   // General classes for quick sizes
-  /* 注释掉这一块代码 重新定义如下 @by kai 2014-01-30
-  .input-mini       { width: 60px; }
-  .input-small      { width: 90px; }
-  .input-medium     { width: 150px; }
-  .input-large      { width: 210px; }
-  .input-xlarge     { width: 270px; }
-  .input-xxlarge    { width: 530px; }*/
-
   // 定义表单控件常用宽度尺寸
   .input-mini       { width: @inputMiniWidth; }
   .input-small      { width: @inputSmallWidth; }
@@ -392,15 +352,6 @@
     float: left;
   }
 
-  // Explicity set top padding on all checkboxes/radios, not just first-child
-  /* 注释掉这一块代码 保持checkbox和radio标签的原生属性 直接去掉 @by kai 2014-01-16
-  .controls-row .checkbox[class*="span"],
-  .controls-row .radio[class*="span"] {
-    padding-top: 5px;
-  }
-  */
-
-  // 新增row-fluid扩展 @by kai 2014-01-30
   .row-fluid {
     + .row-fluid {
       margin-top: @baseLineHeight / 2;
@@ -444,7 +395,6 @@
   // Info
   .info {
     .formFieldState(@infoText, @infoText, @infoBackground);
-    // .formFieldState(@infoText, @infoBorder, @infoBackground); // 更改帮助状态文本字段border颜色 @by kai 2014-01-24
   }
 
   // HTML5 invalid states
@@ -457,12 +407,10 @@
     &:focus {
       border-color: darken(#ee5f5b, 10%);
       // @shadow: 0 0 6px lighten(#ee5f5b, 20%);
-      // .box-shadow(@shadow); // 注释掉字段焦点外发光效果 @by kai 2014-01-23
     }
   }
 
 
-  // 定义文本字段四态 @by kai 2014-01-16
   // -------------------------
 
   // Warning
@@ -516,7 +464,6 @@
   }
 
 
-  // 定义日期状态 @by kai 2014-02-13
   // -------------------------
 
   .input-date {
@@ -779,7 +726,6 @@
     margin-bottom: @baseLineHeight / 2;
   }
 
-  // 新增control-label @by kai 2014-01-30
   .control-label {
     display: block;
     margin-bottom: 5px;
@@ -845,7 +791,6 @@
     .checkbox-pretty,
     .sui-dropdown,
     .checkbox {
-      // + .help-block {  // 修改选择器关系为后面所有的help-block @by kai 2014-01-30
       ~ .help-block {
         margin-top: @baseLineHeight / 2;
       }
