@@ -2,6 +2,6 @@ script.
   var themesUrl = "../.package/css/sui.css";
   var selected = localStorage.getItem("themes");
   if(selected) {
-    themesUrl = '../.package/css/' + selected;
+    themesUrl = '../.package/css/sui-themes-' + selected + ".css";
   }
   $('<link href="' + themesUrl + '" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));

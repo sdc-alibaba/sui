@@ -57,6 +57,10 @@
   //换肤
   var $themesInput = $("#themes-input").change(function() {
     var themes = $themesInput.val();
+    var themesFile = 'sui.css';
+    if(!(themes === 'default')) {
+      themesFile = 'sui-themes-' + themes + ".css";
+    }
     $("#sui-css").attr('href', "../.package/css/" + themes);
     localStorage.setItem("themes", themes);
   });
