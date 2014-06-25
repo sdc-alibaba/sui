@@ -8,7 +8,7 @@
 
 // Make all forms have space below them
 .sui-form {
-  margin: 0 0 @baseMargin; // 注释掉这一行 保持form标签原生属性，不对它进行全局定义 @by kai 2014-01-16
+  margin: 0 0 @baseMargin;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
 
@@ -56,7 +56,7 @@
 
     // Focus state
     &:focus {
-      border-color: rgba(82,168,236,.8);
+      border-color: @inputBorderActive;
       outline: 0;
       outline: thin dotted \9; /* IE6-9 */
     }
