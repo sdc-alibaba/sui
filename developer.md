@@ -14,7 +14,7 @@ build分支包含所有编译出来的代码，用来在官网服务器上部署
 ### 设置sui的remote
 
 进入sui仓库，执行 `git remote -v` 会发现已经存在一个 **origin**，那么我们还需要添加一个 **gitlab** 来发布代码。
-执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/sui.git** 即可
+执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/dpl.git** 即可
 
 ### 设置qnui的remote
 
