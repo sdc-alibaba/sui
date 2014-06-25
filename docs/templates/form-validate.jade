@@ -12,6 +12,8 @@ block content
   p.sui-lead
     | 强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件。
+    br
+    strong 更新 @2014-06-24:修复了文档中highlight/unhighlight的拼写错误。
 
   h2 通过HTML配置规则
   p.lead
@@ -145,7 +147,7 @@ block content
               br
               | 表示为 name=password 的输入框定义了一条规则 minlength=10
           tr
-            td hilight
+            td highlight
             td
               | highlight: function($input, $error, inputErrorClass) {
               |   $input.addClass(inputErrorClass)
@@ -154,7 +156,7 @@ block content
             td
               | 高亮显示错误。
           tr
-            td unhilight
+            td unhighlight
             td
               | unhighlight: function($input, $error, inputErrorClass) {
               |   $input.removeClass(inputErrorClass)

@@ -1,0 +1,67 @@
+.sui-nav.nav-stacked.docs-nav {
+  width: 140px;
+  text-align: right;
+  padding-right: 20px;
+  background: url(../../pictures/kedu.png) top right repeat-y;
+}
+.sui-nav.nav-stacked.docs-nav li {
+  border: none;
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin-left: 0;
+}
+.sui-nav.nav-stacked.docs-nav li a {
+  line-height: 18px;
+  color: #999;
+  font-weight: 700;
+  font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
+  position: relative;
+}
+.sui-nav.nav-stacked.docs-nav li a:hover {
+  color: #414042;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav {
+  display: none;
+  margin-bottom: 0;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav > li a {
+  margin-left: 30px;
+  color: #bcbec0;
+  position: relative;
+  border: none;
+  border-left: 0;
+  border-right: 0;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav > li a:hover {
+  color: #414042;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav .active a {
+  color: #414042;
+}
+.sui-nav.nav-stacked.docs-nav .active .nav-stacked.docs-nav {
+  display: block;
+}
+.sui-nav.nav-stacked.docs-nav .active a {
+  color: #414042;
+}
+.sui-nav.nav-stacked.docs-nav .docs-icon {
+  background: url(../../pictures/left_04.png);
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  margin-top: -9px;
+}
+.sui-nav.nav-stacked.docs-nav .active .docs-icon {
+  background: url(../../pictures/blue_11.png);
+}

@@ -105,6 +105,10 @@
 			this.picker.addClass('datepicker-rtl');
 		}
 
+		if (this.o.size==='small'){
+			this.picker.addClass('datepicker-small');
+		}
+
 		this.viewMode = this.o.startView;
 
 		if (this.o.calendarWeeks)
@@ -1471,6 +1475,7 @@
 		multidateSeparator: ',',
 		orientation: "auto",
 		rtl: false,
+		size: '',
 		startDate: -Infinity,
 		startView: 0,
 		todayBtn: false,
