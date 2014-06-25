@@ -14,7 +14,7 @@ build分支包含所有编译出来的代码，用来在官网服务器上部署
 ### 设置sui的remote
 
 进入sui仓库，执行 `git remote -v` 会发现已经存在一个 **origin**，那么我们还需要添加一个 **gitlab** 来发布代码。
-执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/sui.git** 即可
+执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/dpl.git** 即可
 
 ### 设置qnui的remote
 
@@ -57,15 +57,15 @@ wqui的操作和上面一样。
 3. 删除上次发布的tag，`git push gitlab :publish/1.0.0`
 4. `git push gitlab daily/1.0.0`，发布到daily环境
 5. 本地重新打一个tag，并push
-    - `git tag -d publish/1/0.0`
-    - `git tag -d publish/1/0.0`
+    - `git tag -d publish/1.0.0`
+    - `git tag publish/1.0.0`
     - `git push gitlab publish/1.0.0`
 
 ## 更新官网
 
 因为官网服务器没有安装node，所以需要我们本地构建好代码
 
-1. 切换到build分支，`git checkout dev`
+1. 切换到build分支，`git checkout build`
 2. `git merge dev`
 3. 执行 `grunt`
 4. 提交并push。
