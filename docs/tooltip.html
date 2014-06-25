@@ -206,7 +206,8 @@
   , width: '100px'|'100%'  // {string} tip元素的宽度，默认根据内容宽度决定，可人工设置。人工设置宽度，则忽略最大宽度限制
   , widthlimit: true  // {Boolean|string} tooltip元素最大宽度限制，false不限宽，true限宽300px，也可传入"500px",人工限制宽度
   , align: 'center'  // {string} tip元素的布局方式，默认居中：'center' ,'left','right','top','bottom'
-  , okHide: fn       //带确认、取消按钮的tooltip，点击确认时的回调。执行 this.hide() 可以关闭对应tooltip
+  , okHide: fn       //带确认、取消按钮的tooltip，点击确认时的回调。需要关闭tooltip则执行 $(this).tooltip('hide')
+  , hide: fn       //tooltip以任何原因关闭消失时的回调,若有渐隐动画，则在动画执行前调用。
 }</pre>
             </div>
             <div id="event1" class="tab-pane">
@@ -231,7 +232,8 @@
                   $('#J_set').tooltip({
                     animation: false, 
                     type: 'confirm',
-                    okHide: function(){alert('okHide');console.log(this);this.tooltip('hide')}
+                    okHide: function(){alert('okHide');console.log(this);this.tooltip('hide')},
+                    hide: function(){console.log(this)}
                   })
                 </script>
               </div>
