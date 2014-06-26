@@ -65,7 +65,7 @@ wqui的操作和上面一样。
 
 因为官网服务器没有安装node，所以需要我们本地构建好代码
 
-1. 切换到build分支，`git checkout dev`
+1. 切换到build分支，`git checkout build`
 2. `git merge dev`
 3. 执行 `grunt`
 4. 提交并push。

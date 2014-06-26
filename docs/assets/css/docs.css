@@ -235,6 +235,46 @@ h1.sui-page-header:before {
 .footer li {
   padding: 4px 0;
 }
+#themes-select .dropdown-toggle {
+  padding: 0;
+  margin-top: 15px;
+}
+#themes-select .dropdown-toggle span {
+  text-indent: -9999px;
+}
+#themes-select ul {
+  padding: 0 0 8px 8px;
+  min-width: 85px;
+}
+#themes-select li {
+  float: left;
+  margin: 8px 8px 0 0px;
+}
+#themes-select .dropdown-toggle span,
+#themes-select li a {
+  background: #76b8ea;
+  text-indent: -9999em;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-block;
+}
+#themes-select .dropdown-toggle span.default,
+#themes-select li a.default {
+  background: #76b8ea;
+}
+#themes-select .dropdown-toggle span.green,
+#themes-select li a.green {
+  background: #82af70;
+}
+#themes-select .dropdown-toggle span.pink,
+#themes-select li a.pink {
+  background: #d094b6;
+}
+#themes-select .dropdown-toggle span.dark-green,
+#themes-select li a.dark-green {
+  background: #5c9098;
+}
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
     width: auto;
