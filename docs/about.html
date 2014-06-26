@@ -13,8 +13,14 @@
     <script>
       var themesUrl = "../.package/css/sui.css";
       var selected = localStorage.getItem("themes");
-      if(selected) {
-        themesUrl = '../.package/css/' + selected;
+      if(selected && !(selected == 'default')) {
+        themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        $(function() {
+          var $select = $("#themes-select");
+          var $current = $select.find("[value='"+selected+"']");
+          $current.parent().addClass("active");
+          $select.find(">a > span").html($current.text())[0].className = $current[0].className;
+        });
       }
       $('<link href="' + themesUrl + '" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
@@ -43,13 +49,13 @@
                 <li class="active"><a href="./about.html">关于</a></li>
               </ul>
               <ul class="sui-nav pull-right">
-                <li class="sui-dropdown select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
-                    <input value="sui.css" name="themes" type="hidden" id="themes-input"/><i class="caret"></i><span>换肤</span></a>
+                <li id="themes-select" class="sui-dropdown select themes-select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"/><span>换肤</span></a>
                   <ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui.css">默认</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui-themes-green.css">自然绿</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sui-themes-pink.css">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="default" class="default">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="green" class="green">自然绿</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="pink" class="pink">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="dark-green" class="dark-green">深绿</a></li>
                   </ul>
                 </li>
               </ul>
