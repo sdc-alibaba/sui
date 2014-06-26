@@ -62,7 +62,7 @@
       themesFile = 'sui-themes-' + themes + ".css";
     }
     $("#sui-css").attr('href', "../.package/css/" + themesFile);
-    localStorage.setItem("themes", themes);
+    localStorage.setItem("themes-name", themes);
     $("#themes-select").find(" > a > span")[0].className = themes;
   });
 })(window.jQuery)
