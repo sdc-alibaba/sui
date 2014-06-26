@@ -12,7 +12,7 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
-      var selected = localStorage.getItem("themes");
+      var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
         $(function() {
