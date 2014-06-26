@@ -3,28 +3,6 @@
   color: @color;
   background-color: @background;
   border-color: @border;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    color: @color;
-    // background-color: darken(@background, 8%);
-    	background-color: @background;
-        border-color: darken(@border, 12%);
-  }
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] {
-    background-color: lighten(@background, 8%)!important;
-    border-color: @border!important;
-  }
 }
 .datepicker {
 	padding: 4px;
@@ -127,9 +105,6 @@
 		&.range.today:hover,
 		&.range.today.disabled,
 		&.range.today.disabled:hover {
-			/*@todayBackground: mix(@orange, @grayLighter, 50%);
-			.button-variant(#000,@todayBackground, spin(@todayBackground, 20));
-			.border-radius(0);*/
 			color: @orange;
 		}
 		&.selected,
@@ -281,15 +256,30 @@
 		border-left: 1px solid lighten(@grayLight, 30);
 	}
 
-}
-.datepicker-small{
-	td,th{
-		text-align: center;
-		width: 24px;
-		height: 20px;
-		line-height: 20px;
-	}
-	.next b {
-		margin-left: 2px;
-	}
+  &.datepicker-small {
+    .datepicker-days {
+      td,th{
+        text-align: center;
+        width: 28px;
+        height: 20px;
+        line-height: 20px;
+      }
+      .next b {
+        margin-left: 2px;
+      }
+    }
+    .datepicker-months td {
+      width: 25px;
+      span {
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+
+    .timepicker {
+      .picker-con span {
+        height: 24px;
+      }
+    }
+  }
 }
