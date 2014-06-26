@@ -189,6 +189,45 @@ h1.sui-page-header:before {
   }
 }
 
+#themes-select {
+  .dropdown-toggle {
+    padding: 0;
+    margin-top: 15px;
+  }
+  .dropdown-toggle span {
+    text-indent: -9999px;
+  }
+  ul {
+    padding: 0 0 8px 8px;
+    min-width: 85px;
+  }
+  li {
+    float: left;
+    margin: 8px 8px 0 0px;
+  }
+  .dropdown-toggle span,
+  li a {
+    background: #76b8ea;
+    text-indent: -9999em;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-block;
+    &.default {
+      background: #76b8ea;
+    }
+    &.green {
+      background: #82af70;
+    }
+    &.pink {
+      background: #d094b6;
+    }
+    &.dark-green {
+      background: #5c9098;
+    }
+  }
+}
+
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
     width: auto;

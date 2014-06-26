@@ -61,7 +61,8 @@
     if(!(themes === 'default')) {
       themesFile = 'sui-themes-' + themes + ".css";
     }
-    $("#sui-css").attr('href', "../.package/css/" + themes);
+    $("#sui-css").attr('href', "../.package/css/" + themesFile);
     localStorage.setItem("themes", themes);
+    $("#themes-select").find(" > a > span")[0].className = themes;
   });
 })(window.jQuery)

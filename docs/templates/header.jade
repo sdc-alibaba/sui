@@ -39,16 +39,16 @@ mixin header(highlight)
             a(href="./about.html") 关于
 
         ul.sui-nav.pull-right
-          li.sui-dropdown.select
-            a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
+          li.sui-dropdown.select#themes-select.themes-select
+            a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown")
               input(value='sui.css' name='themes' type='hidden' id='themes-input')
-              i.caret
               span 换肤
             ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
               li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='default') 默认
+                a.default(role="menuitem" tabindex="-1" href="javascript:void(0);" value='default') 默认
               li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='green') 自然绿
-              li(role="presentation" class="divider")
+                a.green(role="menuitem" tabindex="-1" href="javascript:void(0);" value='green') 自然绿
               li(role="presentation")
-                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='pink') 卖萌粉
+                a.pink(role="menuitem" tabindex="-1" href="javascript:void(0);" value='pink') 卖萌粉
+              li(role="presentation")
+                a.dark-green(role="menuitem" tabindex="-1" href="javascript:void(0);" value='dark-green') 深绿
