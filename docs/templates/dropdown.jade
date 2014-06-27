@@ -27,6 +27,8 @@ block content
 
   p.sui-lead
     | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。 JS使用文档见 <a href='dropdown-js.html'>dropdown-js</a>
+    br
+    strong 注意：下拉菜单有两种用法，一种是当做菜单来用，只放链接，另外一种是在表单中用来代替原生select，表单中的用法见这里 <a href='#in-form'>表单中使用下拉菜单</a>。
 
   h2 不同样式和大小
   ul.sui-nav.nav-tabs.nav-large
@@ -372,9 +374,11 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
 
-  h2 在表单中使用
+  h2 在表单中使用<a name='in-form' class='hidden-achor'></a>
   p.sui-lead
     | 在表单中使用下拉菜单来模拟select。注意，这里的html结构和上面仅仅当做下拉菜单是不同的。
+    br
+    | 使用隐藏input来存储用户选中的值，如果用户有选择则会在input上触发change事件。如果需要监听用户选中事件，可以通过input的onchange来做。如果想通过js来设置，目前未提供接口，可以通过js同时修改input值和span中的文案来实现。
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo4', data-toggle='tab') 示例
