@@ -7266,7 +7266,10 @@ $(function(){
     if (hasError) {
       this.options.fail.call(this, errorInputs, this.$form);
     } else {
-      this.options.success.call(this, this.$form);
+      var result = this.options.success.call(this, this.$form);
+      if (result === false) {
+        return false;
+      }
     }
     return !hasError;
   };

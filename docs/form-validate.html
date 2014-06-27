@@ -141,7 +141,7 @@
           <h2 class="sui-page-header">开发者文档</h2>
           <p class="sui-lead">
             强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
-            并且支持自定义校验插件。<br><strong>更新 @2014-06-24:修复了文档中highlight/unhighlight的拼写错误。</strong>
+            并且支持自定义校验插件。<br><strong>更新 @2014-06-27: 更新了success配置，通过success回调中返回false可以阻止表单的默认提交行为,可以用来异步提交表单参数。</strong><strong>更新 @2014-06-24: 修复了文档中highlight/unhighlight的拼写错误。</strong>
           </p>
           <h2>通过HTML配置规则</h2>
           <p class="lead">通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
@@ -285,7 +285,7 @@
                   <tr>
                     <td>success</td>
                     <td>success: function(){$form} {}</td>
-                    <td>当用户提交表单且没有错误发生时调用此方法。</td>
+                    <td>当用户提交表单且没有错误发生时调用此方法。如果返回值为false，则会阻止表单的默认提交行为。</td>
                   </tr>
                   <tr>
                     <td>success</td>
@@ -455,6 +455,10 @@
                       gender: {
                         required: true
                       }
+                    },
+                    success: function() {
+                      $.alert("恭喜，没有问题了。");
+                      return false;
                     }
                   })
                 </script>
