@@ -177,9 +177,11 @@
     }
   }
 
-  // 默认字体颜色
+  // 默认字体颜色(icon仍保留彩色)
   &.msg-default {
-    color: @msgDefaultColor;
+    .msg-con {
+      color: @msgDefaultColor;
+    }
   }
 
   // 去边框和底色
