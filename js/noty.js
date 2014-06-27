@@ -46,7 +46,7 @@
 			// Layout spesific container settings
 			var container = (isCustom) ? customContainer.addClass(base.options.theme+' '+base.options.layout+' noty_custom_container') : $('body');
 		  	if (isGrowl) {
-		  		if ($('ul.noty_cont.' + base.options.layout).length == 0)
+		  		if ($('ul.noty_cont.' + base.options.layout).length === 0)
 		  			container.prepend($('<ul/>').addClass('noty_cont ' + base.options.layout));
 		  		container = $('ul.noty_cont.' + base.options.layout);
 		  	} else {
@@ -167,7 +167,7 @@
 
 						// queue render
 						$.noty.available = true;
-						base.render(false);
+						//base.render(false);
 					}
 
 				// });
@@ -244,7 +244,7 @@
 		closeButton: false,
 		closeOnSelfClick: true,
 		closeOnSelfOver: false,
-		force: false,
+		// force: false,
 		onShow: false,
 		onShown: false,
 		onClose: false,
