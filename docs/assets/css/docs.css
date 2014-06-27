@@ -237,6 +237,14 @@ h1.sui-page-header:before {
 .footer li {
   padding: 4px 0;
 }
+.hidden-achor {
+  position: relative;
+  top: -100px;
+  left: 1em;
+  width: 1px;
+  height: 1px;
+  display: block;
+}
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
     width: auto;
