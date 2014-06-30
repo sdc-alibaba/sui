@@ -75,10 +75,10 @@
     position: 'top',
     type: 'error',
     speed: 500,
-    timeout: 55000,
-    closeButton: true,
+    timeout: 5000,
+    closeButton: false,
     closeOnSelfClick: true,
-    texts:'1111',
+    texts:'',
     template: '<div class="sui-msg msg-large noty_message"><div class="noty_text msg-con"></div><s class="msg-icon"></s><button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button></div>',
   };
 
