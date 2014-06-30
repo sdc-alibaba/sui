@@ -28,7 +28,14 @@ block content
   p.sui-lead
     | 下拉菜单，可以结合结合下拉框使用，也可以单独使用。 JS使用文档见 <a href='dropdown-js.html'>dropdown-js</a>
     br
+    | 组件不会自动适应每个选项的大小，如果出现有些选项过长，可以手动设定 <code>a.dropdown-toggle</code> 的宽度。
+    br
     strong 注意：下拉菜单有两种用法，一种是当做菜单来用，只放链接，另外一种是在表单中用来代替原生select，表单中的用法见这里 <a href='#in-form'>表单中使用下拉菜单</a>。
+    ul.unstyled
+      li
+        strong 更新@2014-06-30：把下拉菜单的 <code>width: 100%</code> 改为 <code>min-width: 100%</code>，这样当下拉菜单中某个元素过长时不会出现滚动条，而是整个下拉菜单宽度会拉长。
+      li
+        strong 更新@2014-06-30：修复了一个在 <code>.dropdown-toggle</code>中有换行会导致外层容器高度被撑开的bug。
 
   h2 不同样式和大小
   ul.sui-nav.nav-tabs.nav-large
@@ -54,6 +61,21 @@ block content
               li(role="presentation" class="divider")
               li.active(role="presentation")
                 a(role="menuitem" tabindex="-1" href="#") 杭州
+        div.
+          <span class="J_shop-catrgory-select sui-dropdown dropdown-bordered select simulate-select">
+            <span class="dropdown-inner">
+              <a role="button" class="dropdown-toggle" href="javascript:;" data-toggle="dropdown"><input value="" name="shop-category" type="hidden"><i class="caret"></i>
+                <span>选择店铺类目</span>
+              </a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li><a href="javascript:void(0);" value="1">类目一</a></li>
+                <li><a href="javascript:void(0);" value="2">类目二</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0);" value="3">类目三</a></li>
+                <li><a href="javascript:void(0);" value="4">类目四</a></li>
+              </ul>
+            </span>
+          </span>
         h3 带边框
         span.sui-dropdown.dropdown-bordered
           span.dropdown-inner
@@ -396,7 +418,7 @@ block content
             a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
               input(value='hz' name='city' type='hidden')
               i.caret
-              span 杭州
+              span 选择店铺类目
             ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
               li(role="presentation")
                 a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
