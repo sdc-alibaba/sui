@@ -26,7 +26,6 @@
       this.show(showcallback);
     };
     if($(message).length>0){
-      
       this.hide(hidecallback);
     }else{
       this.el.appendTo(document.body);
@@ -44,11 +43,16 @@
 
   var Noty = function (options) {
   	var $noty = null;
-  	this.options = $.extend({}, this.defaults, options);
+    if(typeof options === typeof 'a'){
+      this.options = $.extend({}, this.defaults);
+      this.options.texts = options;
+    }else{
+      this.options = $.extend({}, this.defaults, options);
+    }
     return render.call(this);
   }
 
-  Noty.prototype={
+  Noty.prototype = {
     Constructor : Noty,
     hide : function(callback){
       this.el.fadeOut(this.options.speed,$.proxy(callback,this));
@@ -62,7 +66,6 @@
         this.el.css("magin-top",mtheight);
       }
     }
-
   } 
 
   var old = $.fn.noty
