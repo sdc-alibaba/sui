@@ -55,6 +55,12 @@
     }
     ,show : function(callback){
       this.el.fadeIn(this.options.speed,$.proxy(callback,this));
+      var mlwidth = -(this.el.width()/2);
+      this.el.css("magin-left",mlwidth);
+      if(this.el.hasClass('center')){
+        var mtheight = -(this.el.height()/2);
+        this.el.css("magin-top",mtheight);
+      }
     }
 
   } 

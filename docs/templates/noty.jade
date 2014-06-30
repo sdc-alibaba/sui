@@ -69,32 +69,48 @@ block content
           Click buttons below to see Pop Notifications.
         </div>
         <p class="center">
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;1This is a success notification&quot;,&quot;layout&quot;:&quot;topLeft&quot;,&quot;type&quot;:&quot;success&quot;}"><i class="icon-bell icon-white"></i> Top Left</button>
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;2This is an alert notification with fade effect&quot;,&quot;layout&quot;:&quot;topCenter&quot;,&quot;type&quot;:&quot;alert&quot;,&quot;animateOpen&quot;: {&quot;opacity&quot;: &quot;show&quot;}}"><i class="icon-bell icon-white"></i> Top Center (fade)</button>
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;3This is an error notification&quot;,&quot;layout&quot;:&quot;topRight&quot;,&quot;type&quot;:&quot;error&quot;}"><i class="icon-bell icon-white"></i> Top Right</button>
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;4This is a success information&quot;,&quot;layout&quot;:&quot;top&quot;,&quot;type&quot;:&quot;information&quot;}"><i class="icon-bell icon-white"></i> Top Full Width</button>
+          <button id="topleft" class="sui-btn btn-primary btn-lg">button topleft error</button>  
+          <button id="top" class="sui-btn btn-primary btn-lg">button top success</button> 
+          <button id="topright" class="sui-btn btn-primary btn-lg">button topright warning</button>  
         </p>
         <p class="center">
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;5This is an alert notification with fade effect&quot;,&quot;layout&quot;:&quot;center&quot;,&quot;type&quot;:&quot;alert&quot;,&quot;animateOpen&quot;: {&quot;opacity&quot;: &quot;show&quot;}}"><i class="icon-bell icon-white"></i> Center (fade)</button>
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;6This is an error notification&quot;,&quot;layout&quot;:&quot;center&quot;,&quot;type&quot;:&quot;error&quot;}"><i class="icon-bell icon-white"></i> Center</button>
+          <button id="center" class="sui-btn btn-primary btn-lg">button center error</button>  
         </p>
-        
-        <p class="center">
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;7This is an error notification&quot;,&quot;layout&quot;:&quot;bottomLeft&quot;,&quot;type&quot;:&quot;error&quot;}"><i class="icon-bell icon-white"></i> Bottom Left</button>
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;8This is an alert notification with fade effect&quot;,&quot;layout&quot;:&quot;bottomRight&quot;,&quot;type&quot;:&quot;alert&quot;,&quot;animateOpen&quot;: {&quot;opacity&quot;: &quot;show&quot;}}"><i class="icon-bell icon-white"></i> Bottom Right (fade)</button>
-        </p>
-
-        <p class="center">
-          <button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;9This is an alert&quot;,&quot;layout&quot;:&quot;bottom&quot;,&quot;type&quot;:&quot;alert&quot;,&quot;closeButton&quot;:&quot;true&quot;}"><i class="icon-bell icon-white"></i> Bottom Full Width with Close Button</button>
+        <p>
+          <button id="bottomleft" class="sui-btn btn-primary btn-lg">button bottomleft error</button>  
+          <button id="bottom" class="sui-btn btn-primary btn-lg">button bottom success</button> 
+          <button id="bottomright" class="sui-btn btn-primary btn-lg">button bottomright warning</button>  
         </p>
       </div>
     script.
-        $('.noty').click(function(event){
+        $('#topleft').click(function(event){
           event.preventDefault();
-          var options = $.parseJSON($(this).attr('data-noty-options'));
-          $.noty(options);
+          $.noty({texts:'button topleft error',type:'error',position:'topleft'});
         });
-      
+        $('#top').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button top success',posititon:'top',type:'success'});
+        });
+        $('#topright').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button topright warning',type:'warning',position:'topright'});
+        });
+        $('#center').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button center error',type:'error',position:'center'});
+        });
+        $('#bottomleft').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button bottomleft error',type:'error',position:'bottomleft'});
+        });
+        $('#bottom').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button bottom success',type:'success',position:'bottom'});
+        });
+        $('#bottomright').click(function(event){
+          event.preventDefault();
+          $.noty({texts:'button bottomright warning',type:'warning',position:'bottomright'});
+        });
 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')

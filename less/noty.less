@@ -102,10 +102,12 @@
 		top: 80px;
 	}*/
 .noty_message{
-	position: absolute;
+	position: fixed;
 	display: none;
 	min-width: 150px;
 	text-align: center;
+	left: 50%;
+	top: 50%;
 	button{
 		position: absolute;
 		top: 5px;
@@ -114,7 +116,6 @@
 	}
 	&.top{
 		top: 80px;
-		left: 50%;
 	}
 	&.topleft{
 		top: 80px;
@@ -122,24 +123,26 @@
 	}
 	&.topright{
 		top: 80px;
+		left:auto;
 		right: 20px;
 	}
-	&.buttom{
+	&.bottom{
 		bottom: 10px;
-		left: 50%;
 	}
-	&.buttomleft{
+	&.bottomleft{
 		bottom: 10px;
 		left: 20px;
 	}
-	&.buttomright{
+	&.bottomright{
 		bottom: 10px;
+		left:auto;
 		right: 20px;
 	}
 	&.center{
-		left: 50%;
 	}
-
+}
+.sui-msg.msg-large.noty_message > .msg-con {
+	padding: 11px 31px 11px 44px;
 }
 .show-close-btn button{
 	display: block;
