@@ -6025,7 +6025,7 @@ sui-pre .sui-code {
 .sui-dropdown.dropdown-bordered .dropdown-inner a {
   color: #666;
   min-width: 82px;
-  display: inline-block;
+  display: block;
   padding: 2px 14px;
   padding-left: 8px;
   padding-right: 8px;
@@ -6038,7 +6038,7 @@ sui-pre .sui-code {
 .sui-dropup.dropdown-bordered .dropdown-inner > .sui-dropdown-menu,
 .sui-dropdown.dropdown-bordered .dropdown-inner > .sui-dropdown-menu {
   margin: 0;
-  width: 100%;
+  min-width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -10886,10 +10886,8 @@ tr.introjs-showElement > th {
 }
 .introjs-arrow.top {
   top: -10px;
-  border-top-color: transparent;
-  border-right-color: transparent;
+  border-color: transparent;
   border-bottom-color: white;
-  border-left-color: transparent;
 }
 .introjs-arrow.top-right {
   top: -10px;
