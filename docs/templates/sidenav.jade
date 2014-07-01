@@ -77,20 +77,28 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
 
 script(type="text/javascript").
   var disqus_identifier = 'disqus-id-!{highlight}';
-  function changeHeight(){
-    var height = $(window).height()-57;
-    var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
-    var itemHeight = height/count-4;
-    if(itemHeight>50){
-      itemHeight = 50;
-    }else if(itemHeight<15){
-      itemHeight = 15;
-    }else{
-      itemHeight =itemHeight;
+  function changeHeight(itemHeight){
+    if(!itemHeight) {
+      var height = $(window).height()-57;
+      var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
+      itemHeight = height/count-4;
+      if(itemHeight>50){
+        itemHeight = 50;
+      }else if(itemHeight<15){
+        itemHeight = 15;
+      }else{
+        itemHeight =itemHeight;
+      }
     }
     $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+    localStorage.setItem("sidenav.itemHeight", itemHeight);
   }
   $(window).resize(function(){
     changeHeight();
   });
-  $(changeHeight);
+  var lastItemHeight = localStorage.getItem("sidenav.itemHeight");
+  if(lastItemHeight) {
+    changeHeight();
+  } else {
+    $(changeHeight);
+  }
