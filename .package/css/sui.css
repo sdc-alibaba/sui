@@ -7360,6 +7360,7 @@ input[type="submit"].btn.btn-mini {
   position: absolute;
   top: 105%;
   left: 0;
+  z-index: 1000;
 }
 .sui-btn-group.open .sui-dropdown-menu {
   display: block;
