@@ -1,3 +1,4 @@
+/* jshint ignore:start */
 (function($) {
   // 注册一个ajax prefilter,创建新的type类型upload，检测ajax方法调用的入参有没有upload
   $.ajaxPrefilter(function(options, origOptions, jqXHR) {
@@ -12,7 +13,7 @@
   $.ajaxTransport('upload', function(options, origOptions, jqXHR) {
     var form = null,
       iframe = null,
-      name = 'upload-' + +new Date(),
+      name = 'upload-' + (+new Date()),
       files = $(options.files).filter(':file:enabled'),
       markers = null,
       accepts = null;
@@ -25,7 +26,7 @@
       });
       form.remove();
       iframe.one("load", function() { iframe.remove(); });
-      iframe.attr("src", "javascript:false;");
+      iframe.attr("src", "javascript:false");
     }
 
     // 从jquery ajax 的dataTypes队列中弹出第一个值，使之后数据的处理类型基于服务器返回的数据类型
@@ -70,7 +71,7 @@
       return {
         // $.ajax()内部通过send方法发具体请求。自定义一个
         send: function(headers, completeCallback) {
-          iframe = $('<iframe src="javascript:false;" name="' + name + '" id="' + name + '" style="display:none"></iframe>');
+          iframe = $('<iframe src="javascript:false" name="' + name + '" id="' + name + '" style="display:none"></iframe>');
 
           // iframe被注入到DOM后触发第一个load事件，已准备提交文件
           iframe.one('load', function() {
@@ -107,7 +108,7 @@
 
         abort: function() {
           if (iframe !== null) {
-            iframe.unbind('load').attr('src', 'javascript:false;');
+            iframe.unbind('load').attr('src', 'javascript:false');
             cleanUp();
           }
         }
@@ -153,3 +154,4 @@
   })
 
 })(jQuery);
+/* jshint ignore:end */
