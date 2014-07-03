@@ -2596,6 +2596,9 @@
 
 		click: function(e){
 			e.preventDefault();
+      if ($(e.target).parents(".timepicker-container")[0]) {
+        return;
+      }
 			var target = $(e.target).closest('span, td, th'),
 				year, month, day;
 			if (target.length === 1){
@@ -6841,7 +6844,7 @@ $(function(){
     //为confirm类型tooltip增加取消按钮设置默认逻辑
     $(document).on('click', '[data-dismiss=tooltip]', function(e){
       e.preventDefault()
-      $(e.target).parents('.sui-tooltip').prev().trigger('click')
+      $(e.target).parents('.sui-tooltip').prev().trigger('click.tooltip')
     })
     $(document).on('click', '[data-ok=tooltip]', function(e){
       e.preventDefault()
