@@ -20,16 +20,22 @@ block content
 
   div.tab-content
     div.tab-pane.active#demo1
+        style.
+          #sider1 {
+             /*仅在demo中使用*/
+            position: relative;
+            left: 0;
+            bottom: 0;
+          }
         div.bs-docs-example
-            div.sui-sider(style="position:relative")
+            div.sui-sider#sider1
                 a.btn.f-icon.sui-icon.icon-touch-chevron-left(name="sider-back" title="返回上一页")
-                a.btn.sui-icon.icon-touch-arrow-up-left(name="sider-scrollBtn" title="回到顶部")
+                a.btn.sui-icon.icon-touch-arrow-up-left(name="sider-scrolltop" title="回到顶部")
                 a.btn.sui-icon.icon-touch-refresh(name="sider-refresh" title="刷新")
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      p 删掉html代码里的style="position:relative"，即可实现fixed定位
       p 三个功能分别为返回上一页，回到顶部，刷新
   ul.demo-operations.clearfix
     li

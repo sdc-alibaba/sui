@@ -24,7 +24,7 @@
       if (name ==="sider-back") {
       return this.defaults.back();
       }
-      if (name ==="sider-scrollBtn") {
+      if (name ==="sider-scrolltop") {
         return this.defaults.scroll();
       }
       if (name ==="sider-refresh") {
@@ -37,8 +37,7 @@
       history.go(-1);
     }
     , scroll: function(){
-      $('html, body').animate({scrollTop:0}, 'slow');
-      $(this).removeClass("clickstatus");
+      $('html, body').animate({scrollTop:0}, 'fast');
     } 
     , refresh: function(){
       location.reload() ;
