@@ -52,14 +52,12 @@ wqui的操作和上面一样。
 发布包含两部分，一是把代码发布到CDN上，二是更新官网。
 
 ## 发布代码到CDN
-1. 以sui为例，切换到分支daily/1.0.0，如果没有就从dev上新建一个。
-2. 然后merge dev分支
-3. 删除上次发布的tag，`git push gitlab :publish/1.0.0`
-4. `git push gitlab daily/1.0.0`，发布到daily环境
-5. 本地重新打一个tag，并push
-    - `git tag -d publish/1.0.0`
-    - `git tag publish/1.0.0`
-    - `git push gitlab publish/1.0.0`
+1. 以sui为例，切换到新分支daily/x.x.x, `git checkout -b daily/x.x.x`
+2. 然后merge dev分支, `git merge dev`
+3. `git push gitlab daily/x.x.x`，发布到daily环境
+4. 打一个publish/x.x.x的tag并发布，并push
+    - `git tag publish/x.x.x`
+    - `git push gitlab publish/x.x.x`
 
 ## 更新官网
 
@@ -73,3 +71,11 @@ wqui的操作和上面一样。
      * `git push origin build`
      
 官网服务器会定时检查每个仓库的更新（5分钟），所以push完build分之后五分钟内官网就会自动更新。
+
+
+# 语义化版本号
+注意发布代码的时候不要随便写版本号，假设版本号为 `x.y.z`, 语义化版本号的基本规范是：
+
+* bug修复或者已有功能更新，升级z位
+* 新增组件升级y位
+* 不兼容老版本的重要更新升级x位
