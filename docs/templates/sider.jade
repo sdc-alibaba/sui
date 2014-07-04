@@ -1,10 +1,10 @@
 extends base
 
 block title
-  title Label 
+  title Sider
 
 block sidebar
-  +sidebar('Label')
+  +sidebar('Sider')
 
 block content
 
@@ -21,7 +21,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo1
         div.bs-docs-example
-            div.sui-sider
+            div.sui-sider(style="position:relative")
                 a.btn.f-icon.sui-icon.icon-touch-chevron-left(name="sider-back" title="返回上一页")
                 a.btn.sui-icon.icon-touch-arrow-up-left(name="sider-scrollBtn" title="回到顶部")
                 a.btn.sui-icon.icon-touch-refresh(name="sider-refresh" title="刷新")
@@ -29,8 +29,8 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
-      p 删掉原bootstrap里的badget，商家业务场合用的不多，且可以很方便的由label扩展去。
-      p <code>sui-label</code>类名确定一个元素以label样式显示，再加之label-***可以区分不同状态的标识label
+      p 删掉html代码里的style="position:relative"，即可实现fixed定位
+      p 三个功能分别为返回上一页，回到顶部，刷新
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
