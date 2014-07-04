@@ -544,9 +544,11 @@
 			if (element){
 
 				val = $.trim(element.val());
-        var tokens = val.split(" ");  //datetime
-        if (tokens.length === 2) {
-          val = tokens[1];
+        if(val) {
+          var tokens = val.split(" ");  //datetime
+          if (tokens.length === 2) {
+            val = tokens[1];
+          }
         }
 				val = val.split(':');
 				for (var i = val.length - 1; i >= 0; i--) {
@@ -686,9 +688,11 @@
 				dates = this.isInput
 						? this.element.val()
 						: this.element.data('date') || this.element.find('input').val();
-        var tokens = dates.split(" ");
-        if(tokens.length === 2) {  //datetime
-          dates = tokens[0];
+        if(dates) {
+          var tokens = dates.split(" ");
+          if(tokens.length === 2) {  //datetime
+            dates = tokens[0];
+          }
         }
 				if (dates && this.o.multidate)
 					dates = dates.split(this.o.multidateSeparator);
