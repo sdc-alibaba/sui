@@ -20,9 +20,9 @@ block content_wrap
       .msg-con
         strong 注意
         ol(style='margin-left: 2em;')
-          li 目前QNUI还是测试版，版本号为1.0.0暂时不会变化，这样可能会由于用户浏览器的缓存导致代码不会更新，所以大家每次发布代码的时候最好在js和css的引用后面加一个时间戳，比如 g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js?r=2014.06.19，等版本稳定之后我们会通过更新版本号来发布代码。
+          li 从2014-07-02开始，采用递增版本号发布，每一次更新都会用新的版本号；为了保证代码的稳定，请大家尽量采用最新的版本号(每个组件的也会在更新日志上注明版本号,本页面总是会提供最新版本的地址)。
           li 由于CDN系统的改进，CDN域名从 g.tbcdn.cn 变更为 g.alicdn.com，代码并没有变化，两个域名同时可用。
-          li 最好上面提供的CDN地址，不要直接用我们sui.taobao.org下面的css和js，这只是给官网用的。
+          li 最好上面提供的CDN地址，不要直接用我们sui.taobao.org域名下面的css和js，这只是给官网用的。
       .msg-icon
 
     h2 直接引用CDN文件
@@ -30,9 +30,9 @@ block content_wrap
       | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
     ul.unstyled
       li
-        a(href='http://g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/1.0.0/css/sui.min.css
+        a(href='http://g.alicdn.com/sj/dpl/1.0.2/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/1.0.2/css/sui.min.css
       li
-        a(href='http://g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/1.0.0/js/sui.min.js
+        a(href='http://g.alicdn.com/sj/dpl/1.0.2/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/1.0.2/js/sui.min.js
     p
       | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery.min.js' target='_blank'>http://g.alicdn.com/sj/lib/jquery.min.js</a>。
 

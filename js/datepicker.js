@@ -972,6 +972,9 @@
 
 		click: function(e){
 			e.preventDefault();
+      if ($(e.target).parents(".timepicker-container")[0]) {
+        return;
+      }
 			var target = $(e.target).closest('span, td, th'),
 				year, month, day;
 			if (target.length === 1){
