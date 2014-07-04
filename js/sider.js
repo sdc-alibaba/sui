@@ -13,17 +13,16 @@
 
   var old = $.fn.sider
 
-  $.sider = function ( element ) {
-    return this.each(function () {
-      var $this = $(this)
-      return new Sider(element);
-    })
+  $.sider = function(){
+    return new Sider;
   }
+  var Sider = function(){
 
+  }
   Sider.prototype = {
-    router:function(name){
+    router :function(name){
       if (name ==="sider-back") {
-        return this.defaults.back();
+      return this.defaults.back();
       }
       if (name ==="sider-scrollBtn") {
         return this.defaults.scroll();
@@ -32,7 +31,6 @@
         return this.defaults.refresh();
       }
     }
-    //,constructor = 
   }
   Sider.prototype.defaults = {
     back: function () {
@@ -47,25 +45,15 @@
     }
   }
 
-  $.sider.Constructor = Sider
-
-
- /* TAB NO CONFLICT
-  * =============== */
-
   $.sider.noConflict = function () {
     $.sider = old
     return this
   }
-  var sider = new Sider();
 
-
- /* TAB DATA-API
-  * ============ */
   
   $(document).on("click",".sui-sider .btn", function (e) {
     e.preventDefault()
-    sider.router($(this).attr('name'))
+    $.sider().router($(e.target).attr('name'))
   })
 
 }(window.jQuery);
