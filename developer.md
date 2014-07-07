@@ -59,6 +59,9 @@ wqui的操作和上面一样。
     - `git tag publish/x.x.x`
     - `git push gitlab publish/x.x.x`
 
+# 如何更新版本号
+版本号在 `variables.jade` 文件中定义，每次发布前要修改版本号，注意版本号的语义化不要随便设置版本号。
+
 ## 更新官网
 
 因为官网服务器没有安装node，所以需要我们本地构建好代码
