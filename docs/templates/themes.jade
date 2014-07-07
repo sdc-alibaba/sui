@@ -1,0 +1,26 @@
+extends base_index
+
+block title
+  title 下载
+
+block header
+  +header('themes')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 组件换肤说明
+
+    h2 如何使用换肤功能
+
+    p.sui-lead
+      | SUI 提供了对组件换肤的支持，通过引用不同的css文件既可以轻松实现换肤功能。目前内置了四套不同颜色的皮肤，分别是：
+      ul.unstyled
+        li 默认皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css'>sui.min.css</a>
+        li 粉色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink.min.css'>sui-themes-pink.min.css</a>
+        li 绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green.min.css'>sui-themes-green.min.css</a>
+        li 深绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green.min.css'>sui-themes-dark-green.min.css</a>
+
+      | 换肤功能从版本 1.1.0 开始支持。
+
+    p.sui-lead
+      | 注意，皮肤文件包含了全部的样式，而不仅仅是换肤相关的样式，所以引入皮肤文件之后是不需要引入 sui.min.css 文件的。
