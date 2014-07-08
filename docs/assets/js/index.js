@@ -13,11 +13,10 @@ $(function() {
   function scrollto() {
     var st = $(this).scrollTop();
      if (st > lastScrollTop){
-        $(window).animate({scrollTop:windowHeight-59}, '500');
-
+        $('body,html').animate({ scrollTop: windowHeight-59 }, 800);
         // $(window).scrollTop(windowHeight-59);
      } else {
-        $(window).animate({scrollTop:-windowHeight-59}, '500');
+        $('body,html').animate({ scrollTop: -windowHeight-59 }, 800);
         // $(window).scrollTop(-windowHeight-59);
      }
      lastScrollTop = st;
