@@ -4,21 +4,34 @@ $(function() {
   var windowHeight = $(window).height();
   var scrolltop = $(".content").scrollTop();
   var lastScrollTop = 0;
+  var scrolling = false;
+
   $(window).resize(function(){
     windowHeight = $(window).height();
-    $(window).one("scroll",scrollto);
   })
-  $(window).one("scroll",scrollto);
+  $(window).scroll(scrollto);
 
 
   function scrollto() {
+      console.log(scrolling);
+      if(scrolling) {
+        lastScrollTop = $(this).scrollTop();
+        return true;
+      }
+      scrolling = true;
       var st = $(this).scrollTop();
       if (st > lastScrollTop){
-        $('body,html').animate({ scrollTop: windowHeight-59 }, 800,function(){$(window).one("scroll",scrollto);});
-        // $(window).scrollTop(windowHeight-59);
+        console.log('scroll top');
+        $('body,html').animate({ scrollTop: windowHeight-59 }, 200,function(){
+          scrolling = false;
+          console.log("end");
+        });
       } else {
-        $('body,html').animate({ scrollTop: -windowHeight-59 }, 800,function(){$(window).one("scroll",scrollto);});
-        // $(window).scrollTop(-windowHeight-59);
+        console.log('scroll bottom');
+        $('body,html').animate({ scrollTop: -(windowHeight-59) }, 200,function(){
+          scrolling = false;
+          console.log("end");
+        });
       }
       lastScrollTop = st;
   }
