@@ -116,9 +116,17 @@
     }
   });
 
+  /*
+   * $.upload({
+   *  api: {string} 后端上传服务api地址
+   *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
+   *  data: {object}  除了上传的文件外需要额外传输的数据（经常后端需要）
+   *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
+   * })
+   */
   $.extend({
     upload: function(opt) {
-      var $fileinputs = opt.$fileinputs;
+      var $fileinputs = opt.$fileinputs || [];
       $.each($fileinputs, function(k, v){
         var type = $(v).prop('type');
         if ( type != 'file') {
@@ -144,7 +152,7 @@
             processData: false
           })
         }
-        $.ajax(opt.api, param).success(function(data) {
+        $.ajax(opt.api || '', param).success(function(data) {
           if (typeof opt.success == 'function') {
             opt.success.call(fileinput, data);
           }
