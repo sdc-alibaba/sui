@@ -121,6 +121,8 @@
    *  api: {string} 后端上传服务api地址
    *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
    *  data: {object}  除了上传的文件外需要额外传输的数据（经常后端需要）
+   *  triggerType: {string} 触发上传的方式，可选值为有效的事件类型，如click,change,mouseup等，默认‘change’。必须结合triggerEle使用。如果不传全则默认file input change时上传文件。
+   *  triggerEle: {string|HTMLElement}  触发上传的元素，必须结合triggerType使用。如果不传全则默认file input change时上传文件。
    *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
    * })
    */
