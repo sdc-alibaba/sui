@@ -543,7 +543,13 @@
 			}
 			if (element){
 
-				val = $.trim(element.val())
+				val = $.trim(element.val());
+        if(val) {
+          var tokens = val.split(" ");  //datetime
+          if (tokens.length === 2) {
+            val = tokens[1];
+          }
+        }
 				val = val.split(':');
 				for (var i = val.length - 1; i >= 0; i--) {
 					val[i] = $.trim(val[i]);
@@ -555,7 +561,7 @@
 					}
 					hour = parseInt(val[0].slice(-2),10);
 					if (hour >= 0 && hour < 24) {
-						time.minute = hour;
+						time.hour = hour;
 					}
 				}
 			}
@@ -682,6 +688,12 @@
 				dates = this.isInput
 						? this.element.val()
 						: this.element.data('date') || this.element.find('input').val();
+        if(dates) {
+          var tokens = dates.split(" ");
+          if(tokens.length === 2) {  //datetime
+            dates = tokens[0];
+          }
+        }
 				if (dates && this.o.multidate)
 					dates = dates.split(this.o.multidateSeparator);
 				else
@@ -972,6 +984,9 @@
 
 		click: function(e){
 			e.preventDefault();
+      if ($(e.target).parents(".timepicker-container")[0]) {
+        return;
+      }
 			var target = $(e.target).closest('span, td, th'),
 				year, month, day;
 			if (target.length === 1){

@@ -1,4 +1,4 @@
-@linkColor: #414042;
+@hoverColor: #333;
 .sui-nav.nav-stacked.docs-nav{
     width: 140px;
     text-align: right;
@@ -13,13 +13,14 @@
       margin-left: 0;
       a{
         line-height: 18px;
-        color: #999;
+        color: #666;
         font-weight: 700;
         font-family:"Microsoft Yahei",Arial,Verdana,Sans-serif;
         position: relative;
+        font-size: 16px;
       }
       a:hover{
-        color: @linkColor;
+        color: @hoverColor;
         background: none;
       }
     }
@@ -40,12 +41,12 @@
           font-family:"Microsoft Yahei",Arial,Verdana,Sans-serif;
         }
         a:hover{
-          color: @linkColor;
+          color: @hoverColor;
           background: none;
         }
       }
       .active a{
-        color: @linkColor;
+        color: @hoverColor;
       }
     }
     .active{
@@ -53,7 +54,7 @@
         display: block;
       }
       a{
-        color: @linkColor;
+        color: @hoverColor;
       }
     } 
     .docs-icon{
