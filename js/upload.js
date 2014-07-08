@@ -120,7 +120,7 @@
    * $.upload({
    *  api: {string} 后端上传服务api地址
    *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
-   *  data: {object}  除了上传的文件外需要额外传输的数据（经常后端需要）
+   *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
    *  triggerType: {string} 触发上传的方式，可选值为有效的事件类型，如click,change,mouseup等，默认‘change’。必须结合triggerEle使用。如果不传全则默认file input change时上传文件。
    *  triggerEle: {string|HTMLElement}  触发上传的元素，必须结合triggerType使用。如果不传全则默认file input change时上传文件。
    *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
@@ -136,30 +136,36 @@
         }
       })
 
-      $fileinputs.on('change', function(e) {
+
+      if (opt.triggerType && opt.triggerEle) {
+        $('body').on(opt.triggerType + 'upload', opt.triggerEle, function(e){
+        
+        })
+      }
+      $fileinputs.on('change.upload', function(e) {
         var fileinput = this
-          , data = opt.data
-          , param = {
-            type: 'post',
-            dataType: 'json',
-            files: fileinput,
-            upload: true
-          };
-        if (typeof opt.data == 'function') {
-          data = opt.data.call(this);
-        }
-        if (data) {
-          $.extend(param, {
-            data: data,
-            processData: false
-          })
-        }
         $.ajax(opt.api || '', param).success(function(data) {
           if (typeof opt.success == 'function') {
             opt.success.call(fileinput, data);
           }
         });
       });
+      function getParam (fileinput, opt) {
+        var data = opt.data
+          , param = {
+            type: 'post',
+            dataType: 'json',
+            files: fileinput,
+            upload: true
+          };
+        (typeof opt.data == 'function') && (data = data())
+        if (data) {
+          $.extend(param, {
+            data: data,
+            processData: false
+          })
+        }     
+      }
     }
   })
 
