@@ -1,59 +1,15 @@
 extends base
 
 block title
-  title Tag 
+  title 提示框 
 
 block sidebar
-  +sidebar('Tag')
+  +sidebar('noty')
 
 block content
-
+  h1 提示框
   h2.sui-page-header 开发者文档
-
-  p.sui-lead 入口class:<code>.sui-tag</code>。近亲label在
-      a(href='./label.html') 这里
-      p
-        strong 更新 @2014-06-23: 修改了布局方式，增加了 <code>.tag-bordered</code>，增加了默认的margin-bottom。
-
-  //- h2 普通与选中的tag
-  //- ul.sui-nav.nav-tabs.nav-large
-  //-   li.active
-  //-     a(href='#demo1', data-toggle='tab') 示例
-  //-   li
-  //-     a(href='#code1', data-toggle='tab') 代码
-  //-   li
-  //-     a(href='#doc1', data-toggle='tab') 文档
-
-  //- div.tab-content
-  //-   div.tab-pane.active#demo1
-  //-     div.bs-docs-example
-  //-       - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs']
-  //-       h3 默认  
-  //-       ul.sui-tag
-  //-         each text, i in txt
-  //-           li #{text}
-  //-       h3 选中的tag的状态：li.tag-selected
-  //-       ul.sui-tag.tag-selected
-  //-         each text, i in txt
-  //-           if i % 2 == 0
-  //-             li #{text}
-  //-           else
-  //-             li.tag-selected #{text}
-
-  //-   div.tab-pane#code1
-  //-     pre.prettyprint.linenums(data-target='#demo1>div')
-  //-   div.tab-pane#doc1
-  //-     p 使用方法很简单了，最好是用ul>li的结构，或者内部是a标签也可以。
-  //- ul.demo-operations.clearfix
-  //-   li
-  //-     a(href='#') 下载psd文件
-  //-   li
-  //-     a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
-
-
-  h2 右侧带叉（用以删除）
-  p.sui-lead
-    | 加上 <code>.tag-bordered</code>，会默认加上灰色边框。
+  p 提示框插件
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -115,9 +71,42 @@ block content
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2>div')
     div.tab-pane#doc2
-      p 带叉的tag则在每个tag元素附加class="with-x"，同时内部添加html：
-        code &lt;i&gt;&amp;times;&lt;/i&gt;
-      p 因为是CSS组件，相关事件需要根据业务逻辑自己添加
+      p 1.调用$.noty()可触发提示框事件，可传入数组对象参数
+      table.sui-table
+        tr
+          th 参数
+          th 默认值
+          th 说明
+        tr
+          td position
+          td 'top'
+          td 显示位置，可选top,topleft,topright,center,bottom,bottomleft,bottomright
+        tr
+          td type
+          td 'error'
+          td 提示类型，可选error,stop,success,notice,tips,info,question
+        tr
+          td speed
+          td 500
+          td 淡入淡出速度
+        tr
+          td timeout
+          td 5000
+          td 自动隐藏时间
+        tr
+          td closeButton
+          td false
+          td 是否出现右上角x来控制弹出框关闭
+        tr
+          td closeOnSelfClick
+          td true
+          td 是否允许点击自己控制弹出框关闭
+        tr
+          td texts
+          td ''
+          td 弹出框显示文字
+       p 2.可调用$.noty().show();$.noty().hide();手动控制提示框显示和消失
+       p 3.可直接调用$.noty('字符串');改变提示文字
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件
