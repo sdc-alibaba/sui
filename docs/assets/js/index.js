@@ -1,7 +1,24 @@
 $(function() {
   'use strict';
-  var windowHeight = $(window).height()
 
+  var windowHeight = $(window).height();
+  var scrolltop = $(".content").scrollTop();
+  var lastScrollTop = 0;
+  $(window).resize(function(){
+    windowHeight = $(window).height();
+    $(window).scroll(scrollto);
+  })
+  $(window).scroll(scrollto);
+
+  function scrollto() {
+    var st = $(this).scrollTop();
+     if (st > lastScrollTop){
+        $(window).scrollTop(windowHeight-59);
+     } else {
+        $(window).scrollTop(-windowHeight-59);
+     }
+     lastScrollTop = st;
+  }
   var onScroll = function() {
     $('.jumbotron').each(function() {
       var scrollTop = $(document).scrollTop()

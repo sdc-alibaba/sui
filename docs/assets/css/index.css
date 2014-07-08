@@ -32,11 +32,20 @@
   -webkit-animation-name: myBounceInUp;
   animation-name: myBounceInUp;
 }
+body {
+  padding-top: 0px;
+}
+.surround {
+  height: 100%;
+  padding-top: 59px;
+  box-sizing: border-box;
+}
 .brand-intro {
   text-align: center;
   background-color: #a811b5;
   color: #fff;
-  padding: 120px 0;
+  height: 100%;
+  position: relative;
   background-image: url(../imgs/grid.png);
   background-image: url(../imgs/grid.png), -webkit-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
   background-image: url(../imgs/grid.png), -webkit-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
@@ -46,13 +55,119 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
-.brand-intro h1 {
-  font-size: 64px;
+.brand-intro .indexdiv {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -691px;
 }
-.brand-intro .sui-lead {
-  font-size: 22px;
+.brand-intro .firstdiv {
+  height: 400px;
+  margin-top: -200px;
+}
+.brand-intro .firstdiv h1 {
+  font-size: 72px;
+  line-height: 72px;
+}
+.brand-intro .firstdiv .sui-lead {
+  font-size: 24px;
   margin: 2em 0;
   line-height: 150%;
+}
+.brand-intro .firstdiv .btn-wrap {
+  margin: 100px 0;
+}
+.brand-intro .firstdiv .edition {
+  font-size: 20px;
+  margin: 50px 0;
+}
+.features {
+  position: relative;
+  height: 100%;
+  margin-top: -59px;
+}
+.features .nicedemo {
+  width: 100%;
+  height: 100%;
+  background: #eaeaea;
+}
+.features .nicedemo img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -512px;
+  margin-top: -350px;
+}
+.features .casesupport {
+  height: 100%;
+}
+.features .casesupport h2 {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  font-size: 36px;
+  color: #fff;
+  letter-spacing: 10px;
+  margin-left: -90px;
+}
+.features .casesupport .qnui {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: url(../../pictures/bg.png) #67b0e8;
+}
+.features .casesupport .qnui img {
+  display: block;
+  margin: 30% auto;
+}
+.features .casesupport .jqlui {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: url(../../pictures/bg.png) #53b8c0;
+}
+.features .casesupport .jqlui img {
+  display: block;
+  margin: 30% auto;
+}
+.features .frontend {
+  height: 100%;
+  background: url(../../pictures/home-page_02.png);
+  background-size: 100%% 100%;
+}
+.features .frontend .sdc {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+}
+.features .frontend .bili {
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+.features .frontend .play {
+  width: 350px;
+  position: absolute;
+  top: 10%;
+  right: 15%;
+}
+.features .frontend .play .dialog {
+  position: absolute;
+  top: 0px;
+}
+.features .frontend .play .fly {
+  position: absolute;
+  top: 200px;
+}
+.features .frontend .play .fly .shiyu {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+}
+.features .frontend .cloud img {
+  position: absolute;
+  bottom: 0px;
 }
 .btn-lead {
   padding: 1em 4em;

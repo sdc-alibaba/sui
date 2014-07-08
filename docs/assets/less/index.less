@@ -1,10 +1,18 @@
 @import 'my-animate.less';
-
+body{
+  padding-top: 0px;
+}
+.surround{
+  height: 100%;
+  padding-top: 59px;
+  box-sizing: border-box;
+}
 .brand-intro {
   text-align: center;
   background-color: #a811b5;
   color: #fff;
-  padding: 120px 0;
+  height: 100%;
+  position: relative;
   background-image: url(../imgs/grid.png);
   background-image: url(../imgs/grid.png), -webkit-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
   background-image: url(../imgs/grid.png), -webkit-linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
@@ -13,14 +21,121 @@
   background-image: url(../imgs/grid.png), linear-gradient(linear, left bottom, right top, from(#571c94), to(#e609cf));
   background-position: center center;
   background-repeat: no-repeat;
-
-  h1 {
-    font-size: 64px;
+  .indexdiv{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-left: -691px;
   }
-  .sui-lead {
-    font-size: 22px;
-    margin: 2em 0;
-    line-height: 150%;
+  .firstdiv{
+    height: 400px;
+    margin-top: -200px;
+    h1 {
+      font-size: 72px;
+      line-height: 72px;
+    }
+    .sui-lead {
+      font-size: 24px;
+      margin: 2em 0;
+      line-height: 150%;
+    }
+    .btn-wrap{
+      margin: 100px 0;
+    }
+    .edition{
+      font-size: 20px;
+      margin: 50px 0;
+    }
+  }
+}
+.features{
+  position: relative;
+  height: 100%;
+  margin-top: -59px;
+  .nicedemo{
+    width: 100%;
+    height: 100%;
+    background: #eaeaea;
+    img{
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -512px;
+      margin-top: -350px;
+    }
+  }
+  .casesupport{
+    h2{
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      font-size: 36px;
+      color: #fff;
+      letter-spacing: 10px;
+      margin-left: -90px;
+    }
+    height: 100%;
+    .qnui{
+      width: 50%;
+      height: 100%;
+      float: left;
+      background:url(../../pictures/bg.png) #67b0e8;
+      img{
+        display: block;
+        margin: 30% auto;
+      }
+    }
+    .jqlui{
+      width: 50%;
+      height: 100%;
+      float: left;
+      background:url(../../pictures/bg.png) #53b8c0;
+      img{
+        display: block;
+        margin: 30% auto;
+      }
+    }
+  }
+  .frontend{
+    height: 100%;
+    background: url(../../pictures/home-page_02.png);
+    background-size:100%% 100%;
+    .sdc{
+      position: absolute;
+      top: 20%;
+      left: 15%;
+    }
+    .bili{
+      position: absolute;
+      top: 5%;
+      left: 40%;
+    }
+    .play{
+      width: 350px;
+      position: absolute;
+      top: 10%;
+      right: 15%;
+      .dialog{
+        position: absolute;
+        top: 0px;
+      }
+      .fly{
+        position: absolute;;
+        top: 200px;
+        .shiyu{
+          position: absolute;
+          top: 0px;
+          left: 100px;
+        }
+      }
+    }
+    .cloud{
+      img{
+        position: absolute;
+        bottom: 0px;
+      }
+    }
   }
 }
 .btn-lead {
@@ -37,7 +152,6 @@
     opacity: 1;
   }
 }
-
 .btn-lead + .btn-lead {
   margin-left: 2em;
 }
