@@ -5,32 +5,50 @@ $(function() {
   var scrolltop = $(".content").scrollTop();
   var lastScrollTop = 0;
   var scrolling = false;
+  var $win = $(window);
 
-  $(window).resize(function(){
-    windowHeight = $(window).height();
+  $win.resize(function(){
+    windowHeight = $win.height();
   })
-  $(window).scroll(scrollto);
+  $win.scroll(scrollto);
 
 
-  function scrollto() {
-      console.log(scrolling);
+  var scrollDisabled = false;
+
+  var disableScroll = function() {
+    if(scrollDisabled) return;
+    $win.on("mousewheel.sui-disable", function(e) {
+      e.preventDefault();
+    });
+    scrollDisabled = true;
+  }
+  var enableScroll = function() {
+    $win.off("mousewheel.sui-disable");
+    scrollDisabled = false;
+  }
+
+
+  function scrollto(e) {
       if(scrolling) {
         lastScrollTop = $(this).scrollTop();
-        return true;
+        disableScroll();
+        return false;
       }
       scrolling = true;
       var st = $(this).scrollTop();
       if (st > lastScrollTop){
         console.log('scroll top');
-        $('body,html').animate({ scrollTop: windowHeight-59 }, 200,function(){
+        $('body,html').animate({ scrollTop: windowHeight-59 }, 2000,function(){
           scrolling = false;
           console.log("end");
+          enableScroll();
         });
       } else {
         console.log('scroll bottom');
-        $('body,html').animate({ scrollTop: -(windowHeight-59) }, 200,function(){
+        $('body,html').animate({ scrollTop: -(windowHeight-59) }, 2000,function(){
           scrolling = false;
           console.log("end");
+          enableScroll();
         });
       }
       lastScrollTop = st;
