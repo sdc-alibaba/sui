@@ -16,24 +16,23 @@
     var text = ".noty_text";
     var cssPrefix = "msg-"
     this.el = $(template);
-    var showcallback = function() {
-      return;
-      setTimeout($.proxy(this.hide,this),options.timeout);
-    };
+    // var showcallback = function() {
+    //   return;
+    //   setTimeout($.proxy(this.hide,this),options.timeout);
+    // };
     var hidecallback = function() {
-      return;
       $(message).remove();  // this.el && this.el.remove();
       this.el = $(template);
       this.el.appendTo(document.body);
       $(text).html(options.text); //this.el.find(text);
-      this.show(showcallback);  //show(300)
+      this.show();  //show(300)
     };
     if($(message).length>0){
       this.hide(hidecallback);  //这个callback应该拿掉，在hide中默认处理
     }else{
       this.el.appendTo(document.body);
       $(text).html(options.text); //this.el.find(text)
-      this.show(showcallback);
+      this.show();
     }
     $(message).addClass(options.position).addClass(cssPrefix+options.type);
     if(options.closeButton){
@@ -60,8 +59,12 @@
     hide : function(callback){  // hide : function(duration, callback);
       this.el.fadeOut(this.options.speed,$.proxy(callback,this));
     }
-    ,show : function(callback){  // show : function(duration, callback);
-      this.el.fadeIn(this.options.speed,$.proxy(callback,this));
+    ,show : function(duration, callback){  // show : function(duration, callback);
+      this.options.speed = duration?duration:this.options.speed;
+      var showcallback = function() {
+        setTimeout($.proxy(this.hide,this),thisoptions.timeout);
+      };
+      this.el.fadeIn(this.options.speed,$.proxy(showcallback,this));
       var mlwidth = -(this.el.width()/2);
       this.el.css("magin-left",mlwidth);
       if(this.el.hasClass('center')){
