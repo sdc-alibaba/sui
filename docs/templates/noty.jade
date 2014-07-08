@@ -38,38 +38,38 @@ block content
           <button id="bottomright" class="sui-btn btn-primary btn-lg">button bottomright warning</button>  
         </p>
       </div>
-    script.
-        $('#topleft').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button topleft error',type:'error',position:'topleft'});
-        });
-        $('#top').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button top success',posititon:'top',type:'success'});
-        });
-        $('#topright').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button topright warning',type:'warning',position:'topright'});
-        });
-        $('#center').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button center error',type:'error',position:'center'});
-        });
-        $('#bottomleft').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button bottomleft error',type:'error',position:'bottomleft'});
-        });
-        $('#bottom').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button bottom success',type:'success',position:'bottom'});
-        });
-        $('#bottomright').click(function(event){
-          event.preventDefault();
-          $.noty({text:'button bottomright warning',type:'warning',position:'bottomright'});
-        });
-
+      <script type="text/javascript">
+          $('#topleft').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button topleft error',type:'error',position:'topleft'});
+          });
+          $('#top').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button top success',posititon:'top',type:'success'});
+          });
+          $('#topright').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button topright warning',type:'warning',position:'topright'});
+          });
+          $('#center').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button center error',type:'error',position:'center'});
+          });
+          $('#bottomleft').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button bottomleft error',type:'error',position:'bottomleft'});
+          });
+          $('#bottom').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button bottom success',type:'success',position:'bottom'});
+          });
+          $('#bottomright').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button bottomright warning',type:'warning',position:'bottomright'});
+          });
+      </script>
     div.tab-pane#code2
-      pre.prettyprint.linenums(data-target='#demo2>div')
+      pre.prettyprint.linenums(data-target='#demo2')
     div.tab-pane#doc2
       p 1.调用$.noty()可触发提示框事件，可传入数组对象参数
       table.sui-table
