@@ -14,27 +14,14 @@
     var options = this.options;
     var message = ".noty_message";
     var text = ".noty_text";
-    var cssPrefix = "msg-"
+    var cssPrefix = "msg-";
+    $(message).remove();
     this.el = $(template);
-    // var showcallback = function() {
-    //   return;
-    //   setTimeout($.proxy(this.hide,this),options.timeout);
-    // };
-    var hidecallback = function() {
-      $(message).remove();  // this.el && this.el.remove();
-      this.el = $(template);
-      this.el.appendTo(document.body);
-      $(text).html(options.text); //this.el.find(text);
-      this.show();  //show(300)
-    };
-    if($(message).length>0){
-      this.hide(hidecallback);  //这个callback应该拿掉，在hide中默认处理
-    }else{
-      this.el.appendTo(document.body);
-      $(text).html(options.text); //this.el.find(text)
-      this.show();
-    }
-    $(message).addClass(options.position).addClass(cssPrefix+options.type);
+    this.el.appendTo(document.body);
+    $(text).html(options.text); //this.el.find(text)
+    this.show();
+  
+    this.el.addClass(options.position).addClass(cssPrefix+options.type);
     if(options.closeButton){
       this.el.addClass('show-close-btn');
     }
@@ -57,12 +44,13 @@
   Noty.prototype = {
     Constructor : Noty,
     hide : function(callback){  // hide : function(duration, callback);
-      this.el.fadeOut(this.options.speed,$.proxy(callback,this));
+      this.el.fadeOut(this.options.speed,$.proxy(function(){this.el.remove();},this));
+        // this.el && this.el.remove();
     }
     ,show : function(duration, callback){  // show : function(duration, callback);
       this.options.speed = duration?duration:this.options.speed;
       var showcallback = function() {
-        setTimeout($.proxy(this.hide,this),thisoptions.timeout);
+        setTimeout($.proxy(this.hide,this),this.options.timeout);
       };
       this.el.fadeIn(this.options.speed,$.proxy(showcallback,this));
       var mlwidth = -(this.el.width()/2);
