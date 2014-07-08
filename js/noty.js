@@ -9,27 +9,30 @@
   "use strict";
  /* BUTTON PUBLIC CLASS DEFINITION
   * ============================== */
+  var template = '<div class="sui-msg msg-large noty_message"><div class="noty_text msg-con"></div><s class="msg-icon"></s><button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button></div>';
   var render = function (){
     var options = this.options;
     var message = ".noty_message";
     var text = ".noty_text";
     var cssPrefix = "msg-"
-    this.el = $(options.template);
+    this.el = $(template);
     var showcallback = function() {
+      return;
       setTimeout($.proxy(this.hide,this),options.timeout);
     };
     var hidecallback = function() {
-      $(message).remove();
-      this.el = $(options.template);
+      return;
+      $(message).remove();  // this.el && this.el.remove();
+      this.el = $(template);
       this.el.appendTo(document.body);
-      $(text).html(options.texts);
-      this.show(showcallback);
+      $(text).html(options.text); //this.el.find(text);
+      this.show(showcallback);  //show(300)
     };
     if($(message).length>0){
-      this.hide(hidecallback);
+      this.hide(hidecallback);  //这个callback应该拿掉，在hide中默认处理
     }else{
       this.el.appendTo(document.body);
-      $(text).html(options.texts);
+      $(text).html(options.text); //this.el.find(text)
       this.show(showcallback);
     }
     $(message).addClass(options.position).addClass(cssPrefix+options.type);
@@ -45,7 +48,7 @@
   	var $noty = null;
     if(typeof options === typeof 'a'){
       this.options = $.extend({}, this.defaults);
-      this.options.texts = options;
+      this.options.text = options;
     }else{
       this.options = $.extend({}, this.defaults, options);
     }
@@ -54,10 +57,10 @@
 
   Noty.prototype = {
     Constructor : Noty,
-    hide : function(callback){
+    hide : function(callback){  // hide : function(duration, callback);
       this.el.fadeOut(this.options.speed,$.proxy(callback,this));
     }
-    ,show : function(callback){
+    ,show : function(callback){  // show : function(duration, callback);
       this.el.fadeIn(this.options.speed,$.proxy(callback,this));
       var mlwidth = -(this.el.width()/2);
       this.el.css("magin-left",mlwidth);
@@ -81,8 +84,7 @@
     timeout: 5000,
     closeButton: false,
     closeOnSelfClick: true,
-    texts:'',
-    template: '<div class="sui-msg msg-large noty_message"><div class="noty_text msg-con"></div><s class="msg-icon"></s><button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">×</button></div>',
+    text:''
   };
 
   $.noty.Constructor = Noty
@@ -98,4 +100,3 @@
  /* BUTTON DATA-API
   * =============== */ 
 }(window.jQuery);
-
