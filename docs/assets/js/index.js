@@ -6,20 +6,21 @@ $(function() {
   var lastScrollTop = 0;
   $(window).resize(function(){
     windowHeight = $(window).height();
-    $(window).scroll(scrollto);
+    $(window).one("scroll",scrollto);
   })
-  $(window).scroll(scrollto);
+  $(window).one("scroll",scrollto);
+
 
   function scrollto() {
-    var st = $(this).scrollTop();
-     if (st > lastScrollTop){
-        $('body,html').animate({ scrollTop: windowHeight-59 }, 800);
+      var st = $(this).scrollTop();
+      if (st > lastScrollTop){
+        $('body,html').animate({ scrollTop: windowHeight-59 }, 800,function(){$(window).one("scroll",scrollto);});
         // $(window).scrollTop(windowHeight-59);
-     } else {
-        $('body,html').animate({ scrollTop: -windowHeight-59 }, 800);
+      } else {
+        $('body,html').animate({ scrollTop: -windowHeight-59 }, 800,function(){$(window).one("scroll",scrollto);});
         // $(window).scrollTop(-windowHeight-59);
-     }
-     lastScrollTop = st;
+      }
+      lastScrollTop = st;
   }
   var onScroll = function() {
     $('.jumbotron').each(function() {
