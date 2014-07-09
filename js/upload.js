@@ -135,22 +135,23 @@
           throw Error('upload——传入控件类型应为file，实际有type为' + type + '的控件!');
         }
       })
-
-
       if (opt.triggerType && opt.triggerEle) {
-        $('body').on(opt.triggerType + 'upload', opt.triggerEle, function(e){
-        
+         $(opt.triggerEle).on(opt.triggerType + '.upload', function(e){
+          var param = getParam($fileinputs);
+          //TODO  
         })
-      }
-      $fileinputs.on('change.upload', function(e) {
-        var fileinput = this
-        $.ajax(opt.api || '', param).success(function(data) {
-          if (typeof opt.success == 'function') {
-            opt.success.call(fileinput, data);
-          }
+      } else {
+        $fileinputs.on('change.upload', function(e) {
+          var fileinput = this
+            , param = getParam(fileinput);
+          $.ajax(opt.api || '', param).success(function(data) {
+            if (typeof opt.success == 'function') {
+              opt.success.call(fileinput, data);
+            }
+          });
         });
-      });
-      function getParam (fileinput, opt) {
+      }
+      function getParam (fileinput) {
         var data = opt.data
           , param = {
             type: 'post',
