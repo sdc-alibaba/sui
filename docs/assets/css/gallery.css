@@ -1,42 +1,50 @@
 .sui-gallery {
   text-align: center;
 }
-
-li{
-	list-style-type:none;
+h2 {
+  margin-top: 2em;
 }
-
+li {
+  list-style-type: none;
+}
 .col-sm-6 {
-	position: relative;
-	min-height: 1px;
-	padding: 25px 40px;
+  position: relative;
+  min-height: 1px;
+  margin: 20px;
   display: inline-block;
 }
 .ih-item.square .info {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .ih-item.square {
-	position: relative;
-	width: 316px;
-	height: 216px;
-	border: 8px solid #fff;
-	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border: 8px solid #fff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  height: 120px;
+  overflow: hidden;
+}
+.ih-item.square a {
+  background: white;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 200px;
+  height: 120px;
 }
 .ih-item.square.effect15 {
-	overflow: hidden;
-	-webkit-perspective: 900px;
-	-moz-perspective: 900px;
-	perspective: 900px;
+  overflow: hidden;
+  -webkit-perspective: 900px;
+  -moz-perspective: 900px;
+  perspective: 900px;
 }
 .ih-item.square.effect15.colored .info {
-    background: #1a4a72;
+  background: #1a4a72;
 }
 .ih-item.square.effect15 .img {
   opacity: 1;
@@ -58,14 +66,14 @@ li{
   font-size: 17px;
   padding: 10px;
   background: #111111;
-  margin: 30px 0 0 0;
+  margin: 0;
 }
 .ih-item.square.effect15 .info p {
   font-style: italic;
   font-size: 12px;
   position: relative;
   color: #bbb;
-  padding: 20px 20px 20px;
+  padding: 10px;
   text-align: center;
 }
 .ih-item.square.effect15 a:hover .img {
@@ -76,7 +84,6 @@ li{
   visibility: visible;
   opacity: 1;
 }
-
 .ih-item.square.effect15.left_to_right .img {
   -webkit-transform: rotateY(0);
   -moz-transform: rotateY(0);
@@ -115,7 +122,6 @@ li{
   -o-transform: rotateY(0);
   transform: rotateY(0);
 }
-
 .ih-item.square.effect15.right_to_left .img {
   -webkit-transform: rotateY(0);
   -moz-transform: rotateY(0);
@@ -154,7 +160,6 @@ li{
   -o-transform: rotateY(0);
   transform: rotateY(0);
 }
-
 .ih-item.square.effect15.top_to_bottom .img {
   -webkit-transform: rotateX(0);
   -moz-transform: rotateX(0);
@@ -193,7 +198,6 @@ li{
   -o-transform: rotateX(0);
   transform: rotateX(0);
 }
-
 .ih-item.square.effect15.bottom_to_top .img {
   -webkit-transform: rotateX(0);
   -moz-transform: rotateX(0);
