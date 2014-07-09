@@ -156,7 +156,7 @@ module.exports = function(grunt) {
       },
       docsCss: {
         files: '<%= docsRoot %>/assets/less/**/*.less',
-        tasks: ['newer:less:docs']
+        tasks: ['less:docs']
       }
     }
   });
