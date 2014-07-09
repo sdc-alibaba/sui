@@ -1,0 +1,44 @@
+extends base_index
+
+block title
+  title 下载
+
+block header
+  +header('themes')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 组件换肤说明
+
+    h2 换肤是什么
+
+    p.sui-lead
+      | 目前SUI的所有组件都有一个主色，这个主色同时也是链接色。在 <code>variables-base.less</code> 文件中定义了如下两个变量：
+
+      ul.unstyled
+        li <code>@linkColor: #76b8ea;</code> 链接色
+        li <code>@linkHoverColor: #37a7ec;</code> 链接高亮色
+
+    p
+      | 这两个颜色大多数组件使用，通过修改这两个变量并重新编译，即可实现换肤。点击右上角的换肤按钮，可以在组件库中预览每种内置皮肤的效果。
+
+    h2 如何使用换肤功能
+
+    p.sui-lead
+      | 通过引用不同的css文件既可以轻松实现换肤功能。目前内置了四套不同颜色的皮肤，分别是：
+      ul.unstyled
+        li 默认皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css'>sui.min.css</a>
+        li 粉色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink.min.css'>sui-themes-pink.min.css</a>
+        li 绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green.min.css'>sui-themes-green.min.css</a>
+        li 深绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green.min.css'>sui-themes-dark-green.min.css</a>
+
+    p
+      strong 注意，换肤功能从版本 1.1.0 开始支持，低于 1.1.0 的版本没有内置皮肤。
+
+    p.sui-lead
+      | 注意，皮肤文件包含了全部的样式，而不仅仅是换肤相关的样式，所以引入皮肤文件之后是不需要引入 sui.min.css 文件的。
+
+
+    h2 制作自己的皮肤
+    p.sui-lead
+      | 如果现有的皮肤不能满足需求，可以clone源码之后制作自己的皮肤。制作方法非常简单，直接修改 <code>@linkColor</code> 和 <code>@linkHoverColor</code> 并编译less即可。如果还希望保留默认的皮肤，可以参考 <code>sui-themes-pink.less</code> 的写法，复制一份文件为 <code>sui-themes-xxx.less</code>,修改其中的颜色变量并编译即可。
