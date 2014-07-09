@@ -3003,6 +3003,16 @@
 					p.setUTCDate(new_date);
 			});
 
+      //临时修复选择后面的日期不会自动修正前面日期的bug
+      var j=0;
+      for(j = 0; j < this.pickers.length; j++ ) {
+        this.dates[j] = this.pickers[j].getDate();
+      }
+      j = i - 1;
+      while (j >= 0 && new_date < this.dates[j]){
+					this.pickers[j--].setUTCDate(new_date);
+      }
+
 			if (new_date < this.dates[i]){
 				// Date being moved earlier/left
 				while (i >= 0 && new_date < this.dates[i]){
