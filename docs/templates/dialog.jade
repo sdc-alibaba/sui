@@ -389,5 +389,15 @@ block content
       p 底层：一定是复杂对话框，一定是使用的原型方法，即HTML写在模板中的对话框。要设置<code>backdrop:static</code>,已防止上层显示时不小心点击背景使底层消失了。。。
       p 上层：只要不是底层，都设置<code>backdrop:false</code>,避免多背景。同时上层show时可以调用底层方法 <code>$supDialog.modal('shadeIn')</code>使底层被遮罩，防止又对底层做了其他操作。上层关闭后调用<code>$supDialog.modal('shadeOut')</code>复原。
 
-block js_block
 
+  hr
+  h3 绝对定位元素导致对话框的滚动条问题<a name='scroll' class='hidden-achor'></a>
+
+  p.sui-lead
+    | 为了控制对话框的高度，并且在内容超过高度之后可以滚动，我们在 modal-body 上加了如下css代码：
+    div#modal-body-css(style='display: none;').
+      overflow-y: auto;
+      max-height: 500px;
+    pre.prettyprint.linenums(data-target='#modal-body-css')
+
+    | 由于设定了 <code>overflow-y: auto;</code>，如果在 modal-body 中有绝对定位元素并且超过了 modal-body 边界，那么依然会引起滚动。比如在对话框底部用了下拉菜单元素，下拉菜单是绝对定位的，会导致对话框的内容滚动，这种情况下需要给 modal-body 设置<code>over-flow: inital;</code>，如果想控制高度可以再设定 <code>height</code> 和 <code>max-height</code>。
