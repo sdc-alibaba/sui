@@ -5,14 +5,16 @@ block title
 
 block head
   link(rel="stylesheet",href="assets/css/index.css")
+  link(rel="stylesheet",href="assets/css/onepagescroll.css")
   script(src='assets/js/index.js')
+  script(src='assets/js/onepagescroll.js')
 
 block header
   +header('index')
 
 block content_wrap
-  div.content
-    .surround
+  div.main
+    section.page1.surround
       .brand-intro
         .sui-container.indexdiv.firstdiv
           h1 简单易用、功能强大的UI库
@@ -26,25 +28,73 @@ block content_wrap
             a.sui-btn.btn-lead(href='/qnui/docs/tutorial.html') 千牛UI
             a.sui-btn.btn-lead(href='/wqui/docs/tutorial.html') 旺企UI
           p.edition SUI&nbsp;&nbsp;V1.0.0
-    .surround
+    section.page2.surround
       .features
-        div.frontend
-          img.sdc(src="pictures/yuanpan_03.png")
-          img.bili(src="pictures/first1_03.png")
+        div.frontend.j-banner.cur
+          div.sdc.disappear
+            img(src="pictures/yuanpan_03.png" value="zoomInLeft")
+          div.bili.disappear
+            img(src="pictures/first1_03.png" value="rollIn")
           div.gg
             div.play
-              img.dialog(src="pictures/first3_06.png")
-              div.fly
-                img.rocket(src="pictures/roket_03.png")
-                img.shiyu(src="pictures/shiyu_12.png")
+              div.dialog.disappear
+                img(src="pictures/first3_06.png" value="rotateIn")
+              div.fly.disappear
+                div(value="fadeInUpBig")
+                  img.rocket(src="pictures/roket_03.png")
+                  div.shiyu
+                    img(src="pictures/shiyu_12.png" value="swing")
           div.cloud
             img(src="pictures/cloud_02.png" style="width:100%")    
-        div.nicedemo(style="display:none")
-          img(src="pictures/home-page_03.png" )
-        div.casesupport(style="display:none")
+        div.nicedemo.j-banner
+          div.bg
+            div.demo
+              img(src="pictures/demo.png" value="zoomInDown")
+            div.prd
+              img(src="pictures/prd.png" value="zoomInRight")
+            div.flow
+              img(src="pictures/flow.png" value="zoomInUp")
+        div.casesupport.j-banner
           h2 案例支持
           div.qnui
             img(src="pictures/qjl.png")
           div.jqlui
             img(src="pictures/qn.png")
-        
+    section.page3.surround
+      .wefamily
+        div.toptitle
+          img.name(src="pictures/we.png")
+        div.peoples
+          div.col-sm-6
+            div.ih-item.square.effect6.from_top_and_bottom
+              a(href="#")
+                div.img
+                  img(src="pictures/banbian.jpg" alt="img")
+                div.info
+                  h3 Heading here
+                  p Description goes here
+          div.col-sm-6
+            div.ih-item.square.effect6.from_top_and_bottom
+              a(href="#")
+                div.img
+                  img(src="pictures/suxin.jpg" alt="img")
+                div.info
+                  h3 Heading here
+                  p Description goes here
+          div.col-sm-6
+            div.ih-item.square.effect6.from_top_and_bottom
+              a(href="#")
+                div.img
+                  img(src="pictures/renxing.jpg" alt="img")
+                div.info
+                  h3 Heading here
+                  p Description goes here
+          div.col-sm-6
+            div.ih-item.square.effect6.from_top_and_bottom
+              a(href="#")
+                div.img
+                  img(src="pictures/renxing.jpg" alt="img")
+                div.info
+                  h3 Heading here
+                  p Description goes here
+            
