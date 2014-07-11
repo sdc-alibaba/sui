@@ -193,7 +193,10 @@ block content
             $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
           })
           $('#J_confirm1').on('click', function(e){
-            $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
+            $.confirm({
+              body: 'cconfirmconfirmconfirmconfirmconfirmonfirm <br> 这里设置了height属性手动改变高度'
+              ,height: 300
+            })
           })
 
 
@@ -221,6 +224,7 @@ block content
          cancelBtn : '雅达'
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+         height: {number|string(px)} 高度(内容区.modal-body的高度)
          timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
          show:     fn --------------function(e){}
          shown:    fn

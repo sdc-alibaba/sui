@@ -50,7 +50,9 @@
     constructor: Modal
     ,init: function () {
       var ele = this.$element
-        , w = this.options.width
+        , opt = this.options
+        , w = opt.width
+        , h = opt.height
         , self = this
         , standardW = {
             small: 440  //默认宽度
@@ -59,10 +61,11 @@
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
-      if(w) {
+      if (w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
+      h && ele.find('.modal-body').height(h);
       if (typeof this.options.remote == 'string') {
         this.$element.find('.modal-body').load(this.options.remote)
       }
@@ -348,6 +351,7 @@
    *  cancelBtn : '雅达'
    *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+   *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
    *  show:     fn --------------function(e){}
