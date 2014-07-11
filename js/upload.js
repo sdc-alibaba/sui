@@ -75,10 +75,6 @@
 
           // iframe被注入到DOM后触发第一个load事件，已准备提交文件
           iframe.one('load', function() {
-            // The second load event gets fired when the response to the form
-            // submission is received. The implementation detects whether the
-            // actual payload is embedded in a `<textarea>` element, and
-            // prepares the required conversions to be made in that case.
             // 第二个load在收到服务器响应表单提交后。
             iframe.one("load", function() {
               var doc = this.contentWindow ? this.contentWindow.document :
@@ -121,8 +117,6 @@
    *  api: {string} 后端上传服务api地址
    *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
    *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
-   *  triggerType: {string} 触发上传的方式，可选值为有效的事件类型，如click,change,mouseup等，默认‘change’。必须结合triggerEle使用。如果不传全则默认file input change时上传文件。
-   *  triggerEle: {string|HTMLElement}  触发上传的元素，必须结合triggerType使用。如果不传全则默认file input change时上传文件。
    *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
    * })
    */
@@ -135,22 +129,15 @@
           throw Error('upload——传入控件类型应为file，实际有type为' + type + '的控件!');
         }
       })
-      if (opt.triggerType && opt.triggerEle) {
-         $(opt.triggerEle).on(opt.triggerType + '.upload', function(e){
-          var param = getParam($fileinputs);
-          //TODO  
-        })
-      } else {
-        $fileinputs.on('change.upload', function(e) {
-          var fileinput = this
-            , param = getParam(fileinput);
-          $.ajax(opt.api || '', param).success(function(data) {
-            if (typeof opt.success == 'function') {
-              opt.success.call(fileinput, data);
-            }
-          });
+      $fileinputs.on('change.upload', function(e) {
+        var fileinput = this
+          , param = getParam(fileinput);
+        $.ajax(opt.api || '', param).success(function(data) {
+          if (typeof opt.success == 'function') {
+            opt.success.call(fileinput, data);
+          }
         });
-      }
+      });
       function getParam (fileinput) {
         var data = opt.data
           , param = {
