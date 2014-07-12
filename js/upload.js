@@ -155,6 +155,7 @@
         }
       })
       $fileinputs.on('change.upload', function(e) {
+        if (!$(this).val()) return;
         var fileinput = this
           , param = getParam(fileinput)
           , sl = opt.sizeLimit,
