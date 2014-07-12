@@ -132,8 +132,8 @@
   // 文件大小限制
   // max {numer} 单位KB,进制为1000（不是1024）
   // min {numer} 单位KB,进制为1000（不是1024）
-  function sizeLimit (sl) {
-    
+  function checkSize (max, min) {
+   
   }
 
   /*
@@ -161,11 +161,7 @@
           , sl = opt.sizeLimit,
           , ret;
         //文件大小限制
-        if (typeof sl == 'number') {
-          ret = checkSize (sl);
-        } else if (typeof sl == 'object') {
-          ret = checkSize (sl.max, sl.min);
-        }
+        ret = checkSize.apply(fileinput, typeof sl == 'number' ? [sl] : (typeof sl == 'object' ? [sl.max, sl.min] : []));
         //处理大小判断结果
         if (!ret.isok) {
           $.alert({
@@ -173,8 +169,10 @@
             ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
             ,timeout: 2000
             ,bgColor: '#fff'
-          }) 
+          }); 
+          return;
         }
+        //上传
         $.ajax(opt.api || '', param).success(function(data) {
           if (typeof opt.success == 'function') {
             opt.success.call(fileinput, data);
