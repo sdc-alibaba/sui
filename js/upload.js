@@ -167,11 +167,14 @@
           ret = checkSize (sl.max, sl.min);
         }
         //处理大小判断结果
-        !ret.isok && $.alert({
-          title: '上传文件不合法'
-          ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
-          ,timeout: 2000
-        }); 
+        if (!ret.isok) {
+          $.alert({
+            title: '上传文件不合法'
+            ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
+            ,timeout: 2000
+            ,bgColor: '#fff'
+          }) 
+        }
         $.ajax(opt.api || '', param).success(function(data) {
           if (typeof opt.success == 'function') {
             opt.success.call(fileinput, data);
