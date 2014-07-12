@@ -130,10 +130,21 @@
     return param;
   }
   // 文件大小限制
-  // max {numer} 单位KB,进制为1000（不是1024）
-  // min {numer} 单位KB,进制为1000（不是1024）
+  // max {numer} 单位KB
+  // min {numer} 单位KB
+  // this为file input
   function checkSize (max, min) {
-   
+    var size = this.files[0].size
+      ,ret = {isok:true, errMsg: ''};
+    if (typeof max == 'number' && size > max) {
+      ret.isok = false; 
+      ret.errMsg = '文件大小请不要超过' + $;
+    }
+    if (typeof min == 'number' && size < min) {
+      ret.isok = false; 
+      ret.errMsg = '文件大小请不要小于' + $;
+    }
+    return ret;
   }
 
   /*
@@ -141,7 +152,7 @@
    *  api: {string} 后端上传服务api地址
    *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
    *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
-   *  sizeLimit: {number | object} 文件大小限制, 单位KB,进制为1000（不是1024）。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。
+   *  sizeLimit: {number | object} 文件大小限制, 单位KB。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。该参数只在IE9以上及现代浏览器、千牛有效。且服务器端校验仍是必须的。
    *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
    * })
    */
@@ -158,19 +169,22 @@
         if (!$(this).val()) return;
         var fileinput = this
           , param = getParam(fileinput)
-          , sl = opt.sizeLimit,
+          , sl = opt.sizeLimit
           , ret;
-        //文件大小限制
-        ret = checkSize.apply(fileinput, typeof sl == 'number' ? [sl] : (typeof sl == 'object' ? [sl.max, sl.min] : []));
-        //处理大小判断结果
-        if (!ret.isok) {
-          $.alert({
-            title: '上传文件不合法'
-            ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
-            ,timeout: 2000
-            ,bgColor: '#fff'
-          }); 
-          return;
+        //有大小限制需求且是有files接口的浏览器环境
+        if (sl && fileinput.files) {
+          //文件大小限制
+          ret = checkSize.apply(fileinput, typeof sl == 'number' ? [sl * 1024] : (typeof sl == 'object' ? [sl.max * 1024, sl.min * 1024] : []));
+          //处理大小判断结果
+          if (!ret.isok) {
+            $.alert({
+              title: '上传文件不合法'
+              ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
+              ,timeout: 2000
+              ,bgColor: '#fff'
+            }); 
+            return;
+          }
         }
         //上传
         $.ajax(opt.api || '', param).success(function(data) {
