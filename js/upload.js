@@ -111,12 +111,37 @@
       };
     }
   });
+  //提取上传参数
+  function getParam (fileinput) {
+    var data = opt.data
+      , param = {
+        type: 'post',
+        dataType: 'json',
+        files: fileinput,
+        upload: true
+      };
+    (typeof opt.data == 'function') && (data = data())
+    if (data) {
+      $.extend(param, {
+        data: data,
+        processData: false
+      })
+    }     
+    return param;
+  }
+  // 文件大小限制
+  // max {numer} 单位KB,进制为1000（不是1024）
+  // min {numer} 单位KB,进制为1000（不是1024）
+  function sizeLimit (sl) {
+    
+  }
 
   /*
    * $.upload({
    *  api: {string} 后端上传服务api地址
    *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
    *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
+   *  sizeLimit: {number | object} 文件大小限制, 单位KB,进制为1000（不是1024）。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。
    *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
    * })
    */
@@ -131,29 +156,27 @@
       })
       $fileinputs.on('change.upload', function(e) {
         var fileinput = this
-          , param = getParam(fileinput);
+          , param = getParam(fileinput)
+          , sl = opt.sizeLimit,
+          , ret;
+        //文件大小限制
+        if (typeof sl == 'number') {
+          ret = checkSize (sl);
+        } else if (typeof sl == 'object') {
+          ret = checkSize (sl.max, sl.min);
+        }
+        //处理大小判断结果
+        !ret.isok && $.alert({
+          title: '上传文件不合法'
+          ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
+          ,timeout: 2000
+        }); 
         $.ajax(opt.api || '', param).success(function(data) {
           if (typeof opt.success == 'function') {
             opt.success.call(fileinput, data);
           }
         });
       });
-      function getParam (fileinput) {
-        var data = opt.data
-          , param = {
-            type: 'post',
-            dataType: 'json',
-            files: fileinput,
-            upload: true
-          };
-        (typeof opt.data == 'function') && (data = data())
-        if (data) {
-          $.extend(param, {
-            data: data,
-            processData: false
-          })
-        }     
-      }
     }
   })
 
