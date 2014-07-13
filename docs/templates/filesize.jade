@@ -10,12 +10,16 @@ block content
 
   h2.sui-page-header 开发者文档
 
-  p.sui-lead 入口class:<code>.sui-tag</code>。近亲label在
-      a(href='./label.html') 这里
-      p
-        strong 更新 @2014-06-23: 修改了布局方式，增加了 <code>.tag-bordered</code>，增加了默认的margin-bottom。
+  p.sui-lead
+    一个超轻量的工具，将byte级别的正数（通常表征filesize）转成对人阅读更友好的格式。
+    pre
+      $.filesize(333)
+      $.filesize(333, {round: 1})
+      /**
+      * @param  {number | string}  可正确转为数字的数字（int、float）、字符串
+      * @param  {Object} opt 可选的配置，目前只有保留的小数位数round参数，默认为2
+      */
 
-  h2 普通与选中的tag
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -31,7 +35,8 @@ block content
         span#ret
         script.
           $('#filesize').on('input', function(e){
-            $('#ret').html($(this).val())
+            var val = $(this).val();
+            $('#ret').html($.filesize(val))
           })
 
     div.tab-pane#code1
@@ -41,10 +46,5 @@ block content
         $.filesize(500);               // "500B"
         $.filesize(265318);           // "259.10kB"
         $.filesize(265318, {round: 1}); // "259.1 kB"
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
-
 
 
