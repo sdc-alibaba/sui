@@ -1,0 +1,50 @@
+extends base
+
+block title
+  title filesize 
+
+block sidebar
+  +sidebar('filesize')
+
+block content
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead 入口class:<code>.sui-tag</code>。近亲label在
+      a(href='./label.html') 这里
+      p
+        strong 更新 @2014-06-23: 修改了布局方式，增加了 <code>.tag-bordered</code>，增加了默认的margin-bottom。
+
+  h2 普通与选中的tag
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        input#filesize(type='text', placeholder='输入一个合法的非负数')
+        span#ret
+        script.
+          $('#filesize').on('input', function(e){
+            $('#ret').html($(this).val())
+          })
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      pre
+        $.filesize(500);               // "500B"
+        $.filesize(265318);           // "259.10kB"
+        $.filesize(265318, {round: 1}); // "259.1 kB"
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+
+
