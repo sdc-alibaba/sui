@@ -6,9 +6,9 @@
    */
   "use strict";
   $.extend({
-    filesize: function(arg, opt){
+    filesize: function(arg, options){
       var result = ""
-        , opt = opt || {}
+        , opt = options || {}
         , num = Number(arg)
         , bytes = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
         , round = opt.round !== undefined ? opt.round : 2
