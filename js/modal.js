@@ -122,6 +122,8 @@
         var self = this
         e = $.Event('hide')
         this.$element.trigger(e)
+        //TODO
+        self.hideReason != 'ok' && ele.trigger('cancelHide')
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
@@ -231,10 +233,8 @@
         ele.hide()
         this.backdrop(function () {
           self.removeBackdrop()
-          if (self.hideReason == 'ok') {
-            ele.trigger('okHidden')
-            self.hideReason = null
-          }
+          ele.trigger(self.hideReason == 'ok' ? 'okHidden' : 'cancelHidden')
+          self.hideReason = null
           ele.trigger('hidden')
           //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
@@ -378,7 +378,7 @@
       _bind(modalId, finalCfg)
       $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
-        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
+        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden', 'cancelHide', 'cancelHidden']
         $.each(eType, function(k, v){
           if (typeof eList[v] == 'function'){
             $(document).on(v, '#'+id, $.proxy(eList[v], $('#' + id)[0]))
