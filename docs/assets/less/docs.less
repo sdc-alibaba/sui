@@ -43,7 +43,7 @@ h3 code {
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
-body > .sui-layout .content {
+body > .sui-layout > .content {
   padding: 0 25px;
   margin-left: 210px;
   overflow: hidden;
@@ -189,6 +189,44 @@ h1.sui-page-header:before {
   }
 }
 
+#themes-select {
+  .dropdown-toggle {
+    padding: 0;
+    margin-top: 15px;
+  }
+  .dropdown-toggle span {
+    text-indent: -9999px;
+  }
+  ul {
+    padding: 0 0 8px 8px;
+    min-width: 85px;
+  }
+  li {
+    float: left;
+    margin: 8px 8px 0 0px;
+  }
+  .dropdown-toggle span,
+  li a {
+    background: #76b8ea;
+    text-indent: -9999em;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-block;
+    &.default {
+      background: #76b8ea;
+    }
+    &.green {
+      background: #82af70;
+    }
+    &.pink {
+      background: #d094b6;
+    }
+    &.dark-green {
+      background: #5c9098;
+    }
+  }
+}
 .hidden-achor {
   position: relative;
   top: -100px;
@@ -215,7 +253,7 @@ h1.sui-page-header:before {
     width: 1400px;
     margin: auto;
   }
-  body > .sui-layout .content {
+  body > .sui-layout > .content {
     margin-left: 230px;
   }
 }
@@ -249,3 +287,6 @@ h1.sui-page-header:before {
     position: static;
   }
 }
+
+
+@import 'gallery.less';

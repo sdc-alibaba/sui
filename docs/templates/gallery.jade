@@ -1,0 +1,283 @@
+extends base_index
+
+block title
+  title 组件库
+
+block head
+  style(type='text/css').
+    .btn-huge {
+      padding: 15px 40px;
+      font-size: 20px;
+    }
+block header
+  +header('demos')
+
+block content_wrap
+  .sui-container
+    div.sui-gallery
+        h2 表单
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='forms.html')
+                        div.img
+                            img(src='pictures/gallery/forms.png' alt='表单')
+                        div.info
+                            h3 表单
+                            p 包括表单布局、输入框、按钮、下拉菜单、单选/复选框等
+                h4 表单 
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='buttons.html')
+                        div.img
+                            img(src='pictures/gallery/buttons.png' alt='按钮')
+                        div.info
+                            h3 按钮
+                            p 不同大小和功能的按钮
+                h4 按钮
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='button-groups.html')
+                        div.img
+                            img(src='pictures/gallery/button-groups.png' alt='img')
+                        div.info
+                            h3 按钮组
+                            p 可以组合不同功能的按钮使用
+                h4 按钮组
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='checkbox.html')
+                        div.img
+                            img(src='pictures/gallery/checkbox.png' alt='img')
+                        div.info
+                            h3 选框
+                            p 单选框和复选框
+                h4 选框
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='dropdown.html')
+                        div.img
+                            img(src='pictures/gallery/dropdown.png' alt='img')
+                        div.info
+                            h3 下拉菜单
+                            p 使用JS模拟的下拉菜单
+                h4 下拉菜单 
+
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='form-validate.html')
+                        div.img
+                            img(src='pictures/gallery/form-validate.png' alt='img')
+                        div.info
+                            h3 表单校验
+                            p 可以方便配置多种校验规则，并可以自定义插件
+                h4 表单校验
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='datetimepicker.html')
+                        div.img
+                            img(src='pictures/gallery/datetimepicker.png' alt='img')
+                        div.info
+                            h3 日历和时间选择器
+                            p 选择日期和时间，并且可以结合使用
+                h4 日历和时间选择器
+             div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='autocomplete.html')
+                        div.img
+                            img(src='pictures/gallery/autocomplete.png' alt='img')
+                        div.info
+                            h3 自动补全
+                            p 可以使用本地数据或者ajax加载远程数据
+                h4 自动补全
+
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='tree-js.html')
+                        div.img
+                            img(src='pictures/gallery/tree-js.png' alt='img')
+                        div.info
+                            h3 级联选择
+                            p 级联选择
+
+                h4 级联选择
+
+        h2 文字和图标
+
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='global.html')
+                        div.img
+                            img(src='pictures/gallery/global.png' alt='img')
+                        div.info
+                            h3 全局文本样式
+                            p 定义了基本的字体大小颜色等
+                h4 全局文本样式
+
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='icons.html')
+                        div.img
+                            img(src='pictures/gallery/icons.png' alt='img')
+                        div.info
+                            h3 图标
+                            p iconfont实现的字体图标，可以方便自定义大小和颜色
+                h4 图标
+
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='label.html')
+                        div.img
+                            img(src='pictures/gallery/label.png' alt='img')
+                        div.info
+                            h3 Label
+                            p label
+                h4 Label
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='tag.html')
+                        div.img
+                            img(src='pictures/gallery/tag.png' alt='img')
+                        div.info
+                            h3 Tag
+                            p Tag
+                h4 Tag
+            
+               
+        h2 表格和布局
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='tables.html')
+                        div.img
+                            img(src='pictures/gallery/table.png' alt='img')
+                        div.info
+                            h3 表格
+                            p 可以用来展示简单的数据，也可作为复杂数据的容器
+                h4 表格
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='grid.html')
+                        div.img
+                            img(src='pictures/gallery/grid.png' alt='img')
+                        div.info
+                            h3 栅格
+                            p 12栏响应式栅格布局 
+                h4 栅格
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='layout.html')
+                        div.img
+                            img(src='pictures/gallery/layout.png' alt='img')
+                        div.info
+                            h3 布局
+                            p 两边定宽中间自适应的布局
+                h4 2&3栏布局
+        h2 导航和提醒
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='navbar.html')
+                        div.img
+                            img(src='http://gtms01.alicdn.com/tps/i1/TB17gxnFVXXXXXJXVXXt5kaUpXX-488-275.jpg' alt='img')
+                        div.info
+                            h3 导航栏
+                            p 放在页面顶部或底部的导航栏，可以嵌入链接、下拉菜单、表单等
+                h4 导航栏
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='pagination.html')
+                        div.img
+                            img(src='pictures/gallery/pagination.png' alt='img')
+                        div.info
+                            h3 分页器
+                            p 既可作为静态分页器，也可以作为ajax异步分页器
+                h4 分页器
+
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='msgs.html')
+                        div.img
+                            img(src='http://gtms03.alicdn.com/tps/i3/TB1670lFVXXXXXyaXXXFLCeUpXX-625-356.jpg' alt='img')
+                        div.info
+                            h3 提示消息
+                            p 不同功能大小的提示消息框
+                h4 提示消息
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='steps.html')
+                        div.img
+                            img(src='http://gtms04.alicdn.com/tps/i4/TB13MT1FFXXXXadXVXXPsmvMVXX-821-285.jpg' alt='img')
+                        div.info
+                            h3 步骤条
+                            p 适用于有多步操作的逻辑
+                h4 步骤条
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='breadcrumb.html')
+                        div.img
+                            img(src='http://gtms04.alicdn.com/tps/i4/TB1arpsFVXXXXbKXXXX29QwWVXX-421-166.jpg' alt='img')
+                        div.info
+                            h3 面包屑
+                            p 面包屑导航
+                h4 面包屑
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='tab.html')
+                        div.img
+                            img(src='http://gtms02.alicdn.com/tps/i2/TB1DudnFVXXXXcOXFXXqpoHMVXX-684-352.jpg' alt='img')
+                        div.info
+                            h3 标签页
+                            p 可以动态切换的标签页
+                h4 标签页
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='intro.html')
+                        div.img
+                            img(src='pictures/gallery/intro.png' alt='img')
+                        div.info
+                            h3 新手指引
+                            p 可以高亮页面的特定元素进行新手引导
+                h4 新手引导
+        h2 弹层
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='dialog.html')
+                        div.img
+                            img(src='pictures/gallery/dialog.png' alt='img')
+                        div.info
+                            h3 对话框
+                            p 对话框
+                h4 对话框
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='tooltip.html')
+                        div.img
+                            img(src='http://gtms01.alicdn.com/tps/i1/TB1IUhnFVXXXXaOXFXX_oQ8SpXX-622-232.jpg' alt='img')
+                        div.info
+                            h3 tooltip
+                            p tooltip
+                h4 tooltip
+        h2 其他
+        div.clearfix
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='loading.html')
+                        div.img
+                            img(src='http://gtms01.alicdn.com/tps/i1/TB1jjxoFVXXXXbGXpXXTW3m2XXX-431-431.jpg' alt='img')
+                        div.info
+                            h3 loading
+                            p loading
+                h4 loading
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='progress.html')
+                        div.img
+                            img(src='pictures/gallery/progress.png' alt='img')
+                        div.info
+                            h3 进度条
+                            p 进度条
+                h4 进度条
+    

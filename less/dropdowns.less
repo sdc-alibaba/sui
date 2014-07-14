@@ -83,6 +83,7 @@
     vertical-align: middle;
     display: inline-block;
     padding: 0;
+    height: 24px;
     .dropdown-inner {
       border: 1px solid @dropdownBorder;
       display: inline-block;
@@ -192,7 +193,7 @@
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
   text-decoration: none;
-  color: @dropdownLinkColorHover;
+  color: @dropdownLinkHoverColor;
   background-color: lighten(@dropdownLinkBackgroundActive, 5%);
 }
 
@@ -248,6 +249,7 @@
 .sui-dropup.dropdown-bordered {
   // xLarge
   &.dropdown-xlarge {
+    height: 32px;
     > .dropdown-inner  a {
       padding: @paddingXLarge;
       line-height: @lineHeightLarge;
@@ -257,6 +259,7 @@
 
   // Large
   &.dropdown-large {
+    height: 28px;
     > .dropdown-inner a {
       padding: @paddingLarge;
       line-height: @lineHeightLarge;
@@ -266,6 +269,7 @@
 
   // Small
   &.dropdown-small {
+    height: 20px;
     > .dropdown-inner a {
       padding: @paddingSmall;
       line-height: @lineHeightSmall;

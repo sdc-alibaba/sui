@@ -488,7 +488,7 @@
     //为confirm类型tooltip增加取消按钮设置默认逻辑
     $(document).on('click', '[data-dismiss=tooltip]', function(e){
       e.preventDefault()
-      $(e.target).parents('.sui-tooltip').prev().trigger('click')
+      $(e.target).parents('.sui-tooltip').prev().trigger('click.tooltip')
     })
     $(document).on('click', '[data-ok=tooltip]', function(e){
       e.preventDefault()
