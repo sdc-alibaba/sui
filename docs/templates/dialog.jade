@@ -193,7 +193,10 @@ block content
             $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
           })
           $('#J_confirm1').on('click', function(e){
-            $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
+            $.confirm({
+              body: 'cconfirmconfirmconfirmconfirmconfirmonfirm <br> 这里设置了height属性手动改变高度'
+              ,height: 300
+            })
           })
 
 
@@ -221,6 +224,7 @@ block content
          cancelBtn : '雅达'
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+         height: {number|string(px)} 内容区（.modal-body）高度
          timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
          show:     fn --------------function(e){}
          shown:    fn
@@ -397,7 +401,8 @@ block content
     | 为了控制对话框的高度，并且在内容超过高度之后可以滚动，我们在 modal-body 上加了如下css代码：
     div#modal-body-css(style='display: none;').
       overflow-y: auto;
-      max-height: 500px;
+      max-height: 550px;
     pre.prettyprint.linenums(data-target='#modal-body-css')
 
-    | 由于设定了 <code>overflow-y: auto;</code>，如果在 modal-body 中有绝对定位元素并且超过了 modal-body 边界，那么依然会引起滚动。比如在对话框底部用了下拉菜单元素，下拉菜单是绝对定位的，会导致对话框的内容滚动，这种情况下需要给 modal-body 设置<code>over-flow: initial;</code>，如果想控制高度可以再设定 <code>height</code> 和 <code>max-height</code>。
+    | 由于设定了 <code>overflow-y: auto;</code>，如果在 modal-body 中有绝对定位元素并且超过了 modal-body 边界，那么依然会引起滚动。比如在对话框底部用了下拉菜单元素，下拉菜单是绝对定位的，会导致对话框的内容滚动，这种情况下需要给 modal-body 设置<code>overflow: initial</code>。<br>
+    | 如果想控制高度可以为对话框传入 <code>height</code> 参数。<code>max-height</code>目前可以通过css修改。
