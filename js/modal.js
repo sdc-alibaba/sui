@@ -121,8 +121,8 @@
         e && e.preventDefault()
         var $ele = this.$element
         e = $.Event('hide')
-        $ele.trigger(e)
         this.hideReason != 'ok' && $ele.trigger('cancelHide')
+        $ele.trigger(e)
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
