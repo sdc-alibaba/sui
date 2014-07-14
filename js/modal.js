@@ -361,6 +361,8 @@
    *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
    *            注意不要人肉返回undefined！！')}
    *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+   *  cancelHide: fn
+   *  cancelHidden: fn
    * })
    *
    */

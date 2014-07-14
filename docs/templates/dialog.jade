@@ -159,6 +159,13 @@ block content
             tr
               td okHidden
               td 当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+            tr
+              td cancelHide
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏之前，此事件被立即触发。
+            tr
+              td cancelHidden
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+
 
         pre.prettyprint.linenums.
           $('#myModal').on('hidden', function () {
@@ -239,6 +246,9 @@ block content
                    函数返回true（默认）则对话框关闭，反之不关闭;若不传入则默认是直接返回true的函数
                    注意不要人肉返回undefined！！')}
          okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
+         cancelHide: fn  取消关闭前
+         cancelHidden: fn  取消关闭后
+
         })
     div.tab-pane#event2
       静态方法事件不用人肉再去写绑定代码，直接将事件回调写进参数。
