@@ -65,6 +65,11 @@ block content
               div.modal-footer
                 button.sui-btn.btn-primary.btn-large(type='button', data-ok='modal') 可自定ok
                 button.sui-btn.btn-default.btn-large(type='button', data-dismiss='modal') 可自定dismiss
+        script.
+          $('#myModal').on('okHide', function(e){console.log('okHide')})
+          $('#myModal').on('okHidden', function(e){console.log('okHidden')})
+          $('#myModal').on('cancelHide', function(e){console.log('cancelHide')})
+          $('#myModal').on('cancelHidden', function(e){console.log('cancelHidden')})
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
@@ -286,6 +291,8 @@ block content
               ,hidden: function(){console.log('hiden')}
               ,okHide: function(){var a=confirm('true or false');if(!a) return false}
               ,okHidden: function(){console.log('okHidden')}
+              ,cancelHide: function(){console.log('cancelHide')}
+              ,cancelHidden: function(){console.log('cancelHidden')}
             })
           })
         button.sui-btn.btn-primary#J_remote(data-toggle="modal", data-remote="../package.json" data-target="#J_remotemodal") 加载远端内容

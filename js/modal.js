@@ -119,23 +119,22 @@
 
     , hide: function (e) {
         e && e.preventDefault()
-        var self = this
+        var $ele = this.$element
         e = $.Event('hide')
-        this.$element.trigger(e)
-        //TODO
-        self.hideReason != 'ok' && ele.trigger('cancelHide')
+        $ele.trigger(e)
+        this.hideReason != 'ok' && $ele.trigger('cancelHide')
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
         $(document).off('focusin.modal')
-        self.timeid && clearTimeout(self.timeid)
-        this.$element
+        this.timeid && clearTimeout(this.timeid)
+        $ele
           .removeClass('in')
           .attr('aria-hidden', true)
-        $.support.transition && this.$element.hasClass('fade') ?
+        $.support.transition && $ele.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
-        return self.$element
+        return $ele
       }
     , okHide: function(e){
         var self = this
