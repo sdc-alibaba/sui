@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Loading </title>
+    <title>filesize </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -114,20 +114,20 @@
                   <li><a href="tooltip.html">tooltip</a></li>
                 </ul>
               </li>
-              <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
+              <li class="active"><a><i class="docs-icon">&nbsp;</i>JS工具</a>
                 <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="filesize.html">filesize</a></li>
+                  <li class="active"><a href="filesize.html">filesize</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="docs-icon">&nbsp;</i>其他</a>
+              <li><a><i class="docs-icon">&nbsp;</i>其他</a>
                 <ul class="sui-nav nav-stacked docs-nav">
-                  <li class="active"><a href="loading.html">Loading</a></li>
+                  <li><a href="loading.html">Loading</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
             </ul>
             <script type="text/javascript">
-              var disqus_identifier = 'disqus-id-Loading';
+              var disqus_identifier = 'disqus-id-filesize';
               function changeHeight(itemHeight){
                 if(!itemHeight) {
                   var height = $(window).height()-57;
@@ -158,7 +158,14 @@
       <div class="content">
         <div class="content-inner">
           <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">使用iconfont+keyframe,IE10以下降级显示为静态的，IE10、11正常</p>
+          <p class="sui-lead">一个超轻量的工具，将byte级别的正数（通常表征filesize）转成对人阅读更友好的格式。
+            <pre>$.filesize(333)
+$.filesize(333, {round: 1})
+/**
+* @param  {number | string}  可正确转为数字的数字（int、float）、字符串
+* @param  {Object} opt 可选的配置，目前只有保留的小数位数round参数，默认为2
+*/</pre>
+          </p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -167,40 +174,25 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <p>.sui-loading</p>
-                <div class="sui-loading loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-dark loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-light loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-large, loading-xlarge, loading-xxlarge</p>
-                <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xlarge"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xxlarge"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-small, loading-xsmall, loading-xxsmall</p>
-                <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xxsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-dark, .loading-light</p>
-                <hr>
-                <input style="vertical-align:top">
-                <div class="sui-loading loading-xxsmall loading-inline loading-light"><i class="sui-icon icon-pc-loading"></i></div>
+                <input id="filesize" type="text" placeholder="输入一个合法的非负数"><span id="ret"></span>
+                <script>
+                  $('#filesize').on('input', function(e){
+                    var val = $(this).val();
+                    $('#ret').html($.filesize(val))
+                  })
+                  
+                </script>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
             <div id="doc1" class="tab-pane">
-              <p>很简单，可以自己定制尺寸</p>
-              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small,loading-xsmall,loading-xxsmall, loading-l, loading-ll, loading-lll</p>
-              <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
-              <p>颜色方面有默认色、黑色、灰色三种, .sui-loading.loading-dark .loading-light </p>
+              <pre>$.filesize(500);               // "500B"
+$.filesize(265318);           // "259.10kB"
+$.filesize(265318, {round: 1}); // "259.1 kB"</pre>
             </div>
           </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

@@ -3481,10 +3481,6 @@
       clearMenus()
 
       if (!isActive) {
-        if ('ontouchstart' in document.documentElement) {
-          // if mobile we we use a backdrop because click events don't delegate
-          $('<div class="dropdown-backdrop"/>').insertBefore($el).on('click', clearMenus)
-        }
         $parent.toggleClass('open')
       }
 
@@ -3621,6 +3617,48 @@
 }(window.jQuery);
 
 },{}],10:[function(require,module,exports){
+(function($) {
+  /**
+   * filesize  获得计算机文件体积大小(byte)对人更友好的格式
+   * @param  {number | string}  可正确转为数字的数字（int、float）、字符串
+   * @param  {Object} opt 可选的配置，目前只有保留的小数位数，默认为2
+   */
+  "use strict";
+  $.extend({
+    filesize: function(arg, options){
+      var result = ""
+        , opt = options || {}
+        , num = Number(arg)
+        , bytes = ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+        , round = opt.round !== undefined ? opt.round : 2
+        , e;
+
+      if (isNaN(arg) || num < 0) {
+        throw new Error("无效的size参数");
+      }
+
+      if (num === 0) {
+        result = "0B";
+      }
+      else {
+        e = Math.floor(Math.log(num) / Math.log(1000));
+
+        if (e > 8) {
+          result = result * (1000 * (e - 8));
+          e = 8;
+        }
+
+        result = num / Math.pow(2, (e * 10));
+
+        result = result.toFixed(e > 0 ? round : 0) + bytes[e];
+      }
+
+      return result;
+    }
+  })
+})(jQuery);
+
+},{}],11:[function(require,module,exports){
  /*jshint scripturl:true */
  /*jshint funcscope:true */
  /*jshint -W004 */
@@ -4651,7 +4689,7 @@
   $.introJs = introJs;
 })(jQuery);
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -4704,7 +4742,9 @@
     constructor: Modal
     ,init: function () {
       var ele = this.$element
-        , w = this.options.width
+        , opt = this.options
+        , w = opt.width
+        , h = opt.height
         , self = this
         , standardW = {
             small: 440  //默认宽度
@@ -4713,10 +4753,11 @@
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
-      if(w) {
+      if (w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
+      h && ele.find('.modal-body').height(h);
       if (typeof this.options.remote == 'string') {
         this.$element.find('.modal-body').load(this.options.remote)
       }
@@ -4727,7 +4768,7 @@
     }
       
     , show: function () {
-        var that = this
+        var self = this
           , e = $.Event('show')
           , ele = this.$element
         ele.trigger(e)
@@ -4740,7 +4781,7 @@
             ele.appendTo(document.body) //don't move modals dom position
           }
           //处理dialog在页面中的定位
-          that.resize()
+          self.resize()
 
           ele.show()
           if (transition) {
@@ -4749,19 +4790,19 @@
           ele
             .addClass('in')
             .attr('aria-hidden', false)
-          that.enforceFocus()
+          self.enforceFocus()
           transition ?
             ele.one($.support.transition.end, function () { 
-              callbackAfterTransition(that)
+              callbackAfterTransition(self)
             }) :
-            callbackAfterTransition(that)
+            callbackAfterTransition(self)
 
-          function callbackAfterTransition(that) {
-            that.$element.focus().trigger('shown')
-            if (that.options.timeout > 0) {
-              that.timeid = setTimeout(function(){
-                that.hide(); 
-              }, that.options.timeout) 
+          function callbackAfterTransition(self) {
+            self.$element.focus().trigger('shown')
+            if (self.options.timeout > 0) {
+              self.timeid = setTimeout(function(){
+                self.hide(); 
+              }, self.options.timeout) 
             }
           }
         })
@@ -4770,24 +4811,25 @@
 
     , hide: function (e) {
         e && e.preventDefault()
-        var that = this
+        var $ele = this.$element
         e = $.Event('hide')
-        this.$element.trigger(e)
+        this.hideReason != 'ok' && $ele.trigger('cancelHide')
+        $ele.trigger(e)
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
         $(document).off('focusin.modal')
-        that.timeid && clearTimeout(that.timeid)
-        this.$element
+        this.timeid && clearTimeout(this.timeid)
+        $ele
           .removeClass('in')
           .attr('aria-hidden', true)
-        $.support.transition && this.$element.hasClass('fade') ?
+        $.support.transition && $ele.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
-        return that.$element
+        return $ele
       }
     , okHide: function(e){
-        var that = this
+        var self = this
         // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
         // 那么直接执行hideWithOk
         if (!e) {
@@ -4808,10 +4850,10 @@
           hideWithOk()
         } 
         function hideWithOk (){
-          that.hideReason = 'ok'
-          that.hide(e)  
+          self.hideReason = 'ok'
+          self.hide(e)  
         }
-        return that.$element
+        return self.$element
     }
     //对话框内部遮罩层
     , shadeIn: function () {
@@ -4844,20 +4886,20 @@
       return ele
     }
     , enforceFocus: function () {
-        var that = this
+        var self = this
         //防止多实例时循环触发
         $(document).off('focusin.modal') .on('focusin.modal', function (e) {
-          if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
-            that.$element.focus()
+          if (self.$element[0] !== e.target && !self.$element.has(e.target).length) {
+            self.$element.focus()
           }
         })
       }
 
     , escape: function () {
-        var that = this
+        var self = this
         if (this.isShown && this.options.keyboard) {
           this.$element.on('keyup.dismiss.modal', function ( e ) {
-            e.which == 27 && that.hide()
+            e.which == 27 && self.hide()
           })
         } else if (!this.isShown) {
           this.$element.off('keyup.dismiss.modal')
@@ -4865,27 +4907,25 @@
       }
 
     , hideWithTransition: function () {
-        var that = this
+        var self = this
           , timeout = setTimeout(function () {
-              that.$element.off($.support.transition.end)
-              that.hideModal()
+              self.$element.off($.support.transition.end)
+              self.hideModal()
             }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
-          that.hideModal()
+          self.hideModal()
         })
       }
 
     , hideModal: function () {
-        var that = this
+        var self = this
           ,ele = this.$element
         ele.hide()
         this.backdrop(function () {
-          that.removeBackdrop()
-          if (that.hideReason == 'ok') {
-            ele.trigger('okHidden')
-            that.hideReason = null
-          }
+          self.removeBackdrop()
+          ele.trigger(self.hideReason == 'ok' ? 'okHidden' : 'cancelHidden')
+          self.hideReason = null
           ele.trigger('hidden')
           //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
@@ -4898,7 +4938,7 @@
       }
 
     , backdrop: function (callback) {
-        var that = this
+        var self = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
         if (this.isShown) {
@@ -5002,6 +5042,7 @@
    *  cancelBtn : '雅达'
    *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+   *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
    *  show:     fn --------------function(e){}
@@ -5012,6 +5053,8 @@
    *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
    *            注意不要人肉返回undefined！！')}
    *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+   *  cancelHide: fn
+   *  cancelHidden: fn
    * })
    *
    */
@@ -5028,7 +5071,7 @@
       _bind(modalId, finalCfg)
       $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
-        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
+        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden', 'cancelHide', 'cancelHidden']
         $.each(eType, function(k, v){
           if (typeof eList[v] == 'function'){
             $(document).on(v, '#'+id, $.proxy(eList[v], $('#' + id)[0]))
@@ -5058,9 +5101,9 @@
 
 }(window.jQuery);
 
-},{}],12:[function(require,module,exports){
-
 },{}],13:[function(require,module,exports){
+
+},{}],14:[function(require,module,exports){
 (function ($) {
     function Pagination(opts) {
         this.itemsCount = opts.itemsCount;
@@ -5249,7 +5292,7 @@
 
 })(window.jQuery)
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-popover.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#popovers
@@ -5365,7 +5408,7 @@
 
 }(window.jQuery);
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /* =============================================================
  * bootstrap-scrollspy.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#scrollspy
@@ -5529,9 +5572,10 @@
 
 }(window.jQuery);
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 //核心组件
 require('./transition')
+require('./filesize')
 require('./alert')
 require('./button')
 require('./carousel')
@@ -5554,7 +5598,7 @@ require('./autocomplete')
 require('./navtest')
 require('./intro')
 
-},{"./affix":1,"./alert":2,"./autocomplete":3,"./button":4,"./carousel":5,"./checkbox":6,"./collapse":7,"./datepicker":8,"./dropdown":9,"./intro":10,"./modal":11,"./navtest":12,"./pagination":13,"./popover":14,"./scrollspy":15,"./tab":17,"./timepicker":18,"./tooltip":19,"./transition":20,"./tree":21,"./validate":23,"./validate-rules":22}],17:[function(require,module,exports){
+},{"./affix":1,"./alert":2,"./autocomplete":3,"./button":4,"./carousel":5,"./checkbox":6,"./collapse":7,"./datepicker":8,"./dropdown":9,"./filesize":10,"./intro":11,"./modal":12,"./navtest":13,"./pagination":14,"./popover":15,"./scrollspy":16,"./tab":18,"./timepicker":19,"./tooltip":20,"./transition":21,"./tree":22,"./validate":24,"./validate-rules":23}],18:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -5700,7 +5744,7 @@ require('./intro')
 
 }(window.jQuery);
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
  /*jshint sub:true*/
 !function ($) {
 function TimePicker(element, cfg){
@@ -6375,7 +6419,7 @@ $(function(){
 });
 }(window.jQuery)
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -6882,7 +6926,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
@@ -6944,7 +6988,7 @@ $(function(){
 
 }(window.jQuery);
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /**
  * Created by huazhi.chz on 14-4-27.
  * tree 2.0.0
@@ -7110,7 +7154,7 @@ $(function(){
 
 })(jQuery);
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 // add rules
 !function($) {
   Validate = $.validate;
@@ -7228,7 +7272,7 @@ $(function(){
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 }(window.jQuery)
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */
@@ -7448,4 +7492,4 @@ $(function(){
   })
 }(window.jQuery);
 
-},{}]},{},[16])
+},{}]},{},[17])
