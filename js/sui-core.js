@@ -1,0 +1,12 @@
+//核心组件
+require('./transition')
+require('./filesize')
+require('./alert')
+require('./button')
+require('./dropdown')
+require('./tooltip')
+require('./affix')
+require('./validate')
+require('./validate-rules')
+require('./tree')
+require('./checkbox')

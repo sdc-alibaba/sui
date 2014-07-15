@@ -25,9 +25,14 @@ module.exports = function(grunt) {
       }
     },
     browserify: {
-      build: {
+      sui: {
         files: {
           '<%= distRoot %>/js/<%= pkg.name %>.js': ['js/<%= pkg.name %>.js'],
+        }
+      },
+      suiCore: {
+        files: {
+          '<%= distRoot %>/js/<%= pkg.name %>-core.js': ['js/<%= pkg.name %>-core.js'],
         }
       }
     },
@@ -61,6 +66,17 @@ module.exports = function(grunt) {
         },
         src: ['less/<%= pkg.name %>.less'],
         dest: '<%= distRoot %>/css/<%= pkg.name %>.min.css'
+      },
+      suiCore: {
+        src: ['less/<%= pkg.name %>-core.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-core.css'
+      },
+      suiCoreMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/<%= pkg.name %>-core.less'],
+        dest: '<%= distRoot %>/css/<%= pkg.name %>-core.min.css'
       },
       themes: {
         files: [{
@@ -140,7 +156,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'less/*.less',
-        tasks: ['less:sui', 'newer:copy']
+        tasks: ['less:sui', "less:suiCore", 'newer:copy']
       },
       themes: {
         files: 'less/themes/*.less',
