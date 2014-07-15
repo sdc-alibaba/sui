@@ -1,4 +1,5 @@
 require('./sui-core')
+require('./filesize')
 require('./modal')
 require('./popover')
 require('./tab')

@@ -30,9 +30,9 @@ block content_wrap
       | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
     ul.unstyled
       li
-        a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/#{version}/css/sui.min.css
+        a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css
       li
-        a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/#{version}/js/sui.min.js
+        a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js
     p
       | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery.min.js' target='_blank'>http://g.alicdn.com/sj/lib/jquery.min.js</a>。
 
@@ -53,3 +53,286 @@ block content_wrap
     a.sui-btn.btn-success.btn-huge(href='https://github.com/sdc-alibaba/sui', target="_blank")
       i.sui-icon.icon-github-alt
       | view SUI on github
+
+
+    h1.sui-page-header 精简版 SUI
+
+    h2 精简版SUI
+
+    p.sui-lead
+      | 从 1.1.4 版本开始，SUI 提供只包括部分常用组件的精简版本以减少文件大小。
+      br
+      | 在引用css或者js的时候在文件名上加上 <code>-core</code>即可，比如 sui.min.css 对应的精简版即 sui-core.min.js， 完整版和精简版对应关系如下表所示。
+      br
+      strong 注意在使用精简版的时候，JS和CSS都要使用精简版。
+
+    table.sui-table
+      tr
+        th 名称
+        th 完整版
+        th 精简版
+      tr
+        td CSS 文件
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-core.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-core.min.css
+      tr
+        td JS 文件
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui-core.min.js', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/js/sui-core.min.js
+
+      tr
+        td 绿色皮肤
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green.min.css
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green-core.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-green-core.min.css
+      tr
+        td 深绿色皮肤
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green.min.css
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green-core.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-dark-green-core.min.css
+      tr
+        td 粉色皮肤
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink.min.css
+        td
+          a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink-core.min.css', target='_blank') http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink-core.min.css
+
+    h2 精简版组件说明
+
+    p.sui-lead
+      | 精简版只包括部分常用组件，如下表所示：
+
+    table.sui-table
+      tr
+        th 组件名称
+        th 精简版
+        th 完整版
+
+      tr
+        td
+          a(href='forms.html' target='_blank')  表单
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='buttons.html' target='_blank')  按钮
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='button-groups.html' target='_blank')  按钮组
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='checkbox.html' target='_blank')  选框
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='dropdown.html' target='_blank')  下拉菜单
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='form-validate.html' target='_blank') 表单校验
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='datetimepicker.html' target='_blank')  日期时间选择器
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='autocomplete.html' target='_blank') 自动补全
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='tree-js.html' target='_blank') 级联选择
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='global.html' target='_blank') 全局文本样式
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='icons.html' target='_blank') 图标 
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+
+      tr
+        td
+          a(href='label.html' target='_blank') label
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+      tr
+        td
+          a(href='tag.html' target='_blank') tag
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+
+
+      tr
+        td
+          a(href='table.html' target='_blank') 表格
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+      tr
+        td
+          a(href='grid.html' target='_blank') 栅格
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+      tr
+        td
+          a(href='grid.html' target='_blank') 响应式布局
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='layout.html' target='_blank') 2&3栏布局
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='navbar.html' target='_blank') 导航栏
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+
+      tr
+        td
+          a(href='pagination.html' target='_blank') 分页器
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+
+      tr
+        td
+          a(href='msgs.html' target='_blank') 提示消息
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='steps.html' target='_blank') 步骤条
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='breadcrumb.html' target='_blank') 面包屑
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='tab.html' target='_blank') 标签页
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='intro.html' target='_blank') 新手引导
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='dialog.html' target='_blank') 对话框
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='tooltip.html' target='_blank') tooltip
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='filesize.html' target='_blank') filesize
+        td
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='loading.html' target='_blank') loading
+        td
+          i.sui-icon.icon-pc-right
+        td
+          i.sui-icon.icon-pc-right
+
+      tr
+        td
+          a(href='progress.html' target='_blank') 进度条
+        td
+        td
+          i.sui-icon.icon-pc-right
