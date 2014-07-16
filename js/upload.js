@@ -138,11 +138,11 @@
       ,ret = {isok:true, errMsg: ''};
     if (typeof max == 'number' && size > max) {
       ret.isok = false; 
-      ret.errMsg = '文件大小请不要超过' + $;
+      ret.errMsg = '文件大小请不要超过' + $.filesize(size);
     }
     if (typeof min == 'number' && size < min) {
       ret.isok = false; 
-      ret.errMsg = '文件大小请不要小于' + $;
+      ret.errMsg = '文件大小请不要小于' + $.filesize(size);
     }
     return ret;
   }
