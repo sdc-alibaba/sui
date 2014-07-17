@@ -14,13 +14,14 @@
 }
 .sui-nav.nav-stacked.docs-nav li a {
   line-height: 18px;
-  color: #999;
+  color: #666;
   font-weight: 700;
   font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
   position: relative;
+  font-size: 16px;
 }
 .sui-nav.nav-stacked.docs-nav li a:hover {
-  color: #414042;
+  color: #333333;
   background: none;
 }
 .sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav {
@@ -40,17 +41,17 @@
   font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
 }
 .sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav > li a:hover {
-  color: #414042;
+  color: #333333;
   background: none;
 }
 .sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav .active a {
-  color: #414042;
+  color: #333333;
 }
 .sui-nav.nav-stacked.docs-nav .active .nav-stacked.docs-nav {
   display: block;
 }
 .sui-nav.nav-stacked.docs-nav .active a {
-  color: #414042;
+  color: #333333;
 }
 .sui-nav.nav-stacked.docs-nav .docs-icon {
   background: url(../../pictures/left_04.png);

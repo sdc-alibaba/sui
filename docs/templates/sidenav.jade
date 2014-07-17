@@ -5,6 +5,7 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items.push({name: 'table', title: '表格和布局', children:[], icon: 'sui-icon icon-th' })
   - items.push({name: 'nav', title: '导航和提醒', children:[], icon: 'sui-icon icon-globe'})
   - items.push({name: 'popover', title: '弹层', children:[], icon: 'sui-icon icon-picture'})
+  - items.push({name: 'jstool', title: 'JS工具', children:[], icon: 'sui-icon icon-shopping-cart'})
   - items.push({name: 'other', title: '其他', children:[], icon: 'sui-icon icon-shopping-cart'})
 
   - items[0].children.push({name: 'form', title:'表单', url:'forms.html'})
@@ -17,8 +18,6 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items[0].children.push({name: 'datetimepicker', title:'datetimepicker', url:'datetimepicker.html'})
   - items[0].children.push({name: 'Autocomplete', title:'自动补全', url:'autocomplete.html'})
   - items[0].children.push({name: 'tree-js', title:'级联选择', url:'tree-js.html'})
-  - items[0].children.push({name: 'pagination', title:'分页器 - 样式', url:'pagination.html'})
-  - items[0].children.push({name: 'pagination-js', title:'分页器 - JS', url:'pagination-js.html'})
 
   - items[1].children.push({name: 'global', title:'全局文本样式', url:'global.html'})
   - items[1].children.push({name: 'icons', title:'图标', url:'icons.html'})
@@ -30,6 +29,8 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items[2].children.push({name: 'layout', title:'布局', url:'layout.html'})
 
   - items[3].children.push({name: 'navbar', title:'导航栏', url:'navbar.html'})
+  - items[3].children.push({name: 'pagination', title:'分页器 - 样式', url:'pagination.html'})
+  - items[3].children.push({name: 'pagination-js', title:'分页器 - JS', url:'pagination-js.html'})
   - items[3].children.push({name: 'msg', title:'提示消息', url:'msgs.html'})
   - items[3].children.push({name: 'step', title:'步骤条', url:'steps.html'})
   - items[3].children.push({name: 'breadcrumb', title:'面包屑', url:'breadcrumb.html'})
@@ -40,10 +41,10 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items[4].children.push({name: 'dialog', title:'对话框', url:'dialog.html'})
   - items[4].children.push({name: 'tooltip', title:'tooltip', url:'tooltip.html'})
 
+  - items[5].children.push({name: 'filesize', title:'filesize', url:'filesize.html'})
 
-
-  - items[5].children.push({name: 'Loading', title:'Loading', url:'loading.html'})
-  - items[5].children.push({name: 'progress', title:'进度条', url:'progress.html'})
+  - items[6].children.push({name: 'Loading', title:'Loading', url:'loading.html'})
+  - items[6].children.push({name: 'progress', title:'进度条', url:'progress.html'})
 
   for cat, i in items
     - var classname = ''
@@ -77,20 +78,28 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
 
 script(type="text/javascript").
   var disqus_identifier = 'disqus-id-!{highlight}';
-  function changeHeight(){
-    var height = $(window).height()-57;
-    var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
-    var itemHeight = height/count-4;
-    if(itemHeight>50){
-      itemHeight = 50;
-    }else if(itemHeight<15){
-      itemHeight = 15;
-    }else{
-      itemHeight =itemHeight;
+  function changeHeight(itemHeight){
+    if(!itemHeight) {
+      var height = $(window).height()-57;
+      var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
+      itemHeight = height/count-4;
+      if(itemHeight>50){
+        itemHeight = 50;
+      }else if(itemHeight<15){
+        itemHeight = 15;
+      }else{
+        itemHeight =itemHeight;
+      }
     }
     $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+    localStorage.setItem("sidenav.itemHeight", itemHeight);
   }
   $(window).resize(function(){
     changeHeight();
   });
-  $(changeHeight);
+  var lastItemHeight = localStorage.getItem("sidenav.itemHeight");
+  if(lastItemHeight) {
+    changeHeight();
+  } else {
+    $(changeHeight);
+  }

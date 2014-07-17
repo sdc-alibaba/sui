@@ -24,6 +24,9 @@ block content
     | 对话框分为独占式和非独占式两种。<br />
     | 宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
     | 文档写的渣，有任何疑惑可以联系@半边。
+    ul.unstyled
+      li
+        strong 更新 v1.1.3：增加了cancelHide/cancelHidden接口，增加了高度控制，增加了对绝对定位元素导致滚动条的说明。
 
   h2 概览
   pre.prettyprint.linenums
@@ -65,6 +68,11 @@ block content
               div.modal-footer
                 button.sui-btn.btn-primary.btn-large(type='button', data-ok='modal') 可自定ok
                 button.sui-btn.btn-default.btn-large(type='button', data-dismiss='modal') 可自定dismiss
+        script.
+          $('#myModal').on('okHide', function(e){console.log('okHide')})
+          $('#myModal').on('okHidden', function(e){console.log('okHidden')})
+          $('#myModal').on('cancelHide', function(e){console.log('cancelHide')})
+          $('#myModal').on('cancelHidden', function(e){console.log('cancelHidden')})
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
@@ -154,6 +162,13 @@ block content
             tr
               td okHidden
               td 当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+            tr
+              td cancelHide
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏之前，此事件被立即触发。
+            tr
+              td cancelHidden
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+
 
         pre.prettyprint.linenums.
           $('#myModal').on('hidden', function () {
@@ -193,7 +208,10 @@ block content
             $.alert('alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | <br>| alert it is | ')
           })
           $('#J_confirm1').on('click', function(e){
-            $.confirm('cconfirmconfirmconfirmconfirmconfirmonfirm')
+            $.confirm({
+              body: 'cconfirmconfirmconfirmconfirmconfirmonfirm <br> 这里设置了height属性手动改变高度'
+              ,height: 300
+            })
           })
 
 
@@ -221,6 +239,7 @@ block content
          cancelBtn : '雅达'
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+         height: {number|string(px)} 内容区（.modal-body）高度
          timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
          show:     fn --------------function(e){}
          shown:    fn
@@ -230,6 +249,9 @@ block content
                    函数返回true（默认）则对话框关闭，反之不关闭;若不传入则默认是直接返回true的函数
                    注意不要人肉返回undefined！！')}
          okHidden: function(e){alert('点击确认后、对话框消失后的逻辑')}
+         cancelHide: fn  取消关闭前
+         cancelHidden: fn  取消关闭后
+
         })
     div.tab-pane#event2
       静态方法事件不用人肉再去写绑定代码，直接将事件回调写进参数。
@@ -282,9 +304,11 @@ block content
               ,hidden: function(){console.log('hiden')}
               ,okHide: function(){var a=confirm('true or false');if(!a) return false}
               ,okHidden: function(){console.log('okHidden')}
+              ,cancelHide: function(){console.log('cancelHide')}
+              ,cancelHidden: function(){console.log('cancelHidden')}
             })
           })
-        button.sui-btn.btn-primary#J_remote(data-toggle="modal", data-remote="./about.html" data-target="#J_remotemodal") 加载远端内容
+        button.sui-btn.btn-primary#J_remote(data-toggle="modal", data-remote="../package.json" data-target="#J_remotemodal") 加载远端内容
         div.sui-modal.hide.fade#J_remotemodal(tabindex='-1', role='dialog', data-hasfoot='false')
           div.modal-dialog
             div.modal-content
@@ -389,5 +413,16 @@ block content
       p 底层：一定是复杂对话框，一定是使用的原型方法，即HTML写在模板中的对话框。要设置<code>backdrop:static</code>,已防止上层显示时不小心点击背景使底层消失了。。。
       p 上层：只要不是底层，都设置<code>backdrop:false</code>,避免多背景。同时上层show时可以调用底层方法 <code>$supDialog.modal('shadeIn')</code>使底层被遮罩，防止又对底层做了其他操作。上层关闭后调用<code>$supDialog.modal('shadeOut')</code>复原。
 
-block js_block
 
+  hr
+  h3 绝对定位元素导致对话框的滚动条问题<a name='scroll' class='hidden-achor'></a>
+
+  p.sui-lead
+    | 为了控制对话框的高度，并且在内容超过高度之后可以滚动，我们在 modal-body 上加了如下css代码：
+    div#modal-body-css(style='display: none;').
+      overflow-y: auto;
+      max-height: 550px;
+    pre.prettyprint.linenums(data-target='#modal-body-css')
+
+    | 由于设定了 <code>overflow-y: auto;</code>，如果在 modal-body 中有绝对定位元素并且超过了 modal-body 边界，那么依然会引起滚动。比如在对话框底部用了下拉菜单元素，下拉菜单是绝对定位的，会导致对话框的内容滚动，这种情况下需要给 modal-body 设置<code>overflow: initial</code>。<br>
+    | 如果想控制高度可以为对话框传入 <code>height</code> 参数。<code>max-height</code>目前可以通过css修改。

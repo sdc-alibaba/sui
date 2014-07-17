@@ -23,7 +23,16 @@ block content
     div.tab-content
         div.tab-pane#datepicker.active
             h3 datepicker
-            p.sui-lead 更新日志：先更新一配置选项，size，可选择值为small，设置完毕后可使用较小尺寸的日期弹出框
+            p.sui-lead
+              ul.unstyled
+                li
+                  strong 更新 v1.1.2: 修复了 date-date 模式下无法自动修正日期大小的问题。
+                li
+                  strong 更新 v1.0.3: 修复了当日历和时间同时选择时，无法读取input中初始化值的bug。
+                li
+                  strong 更新 v1.0.2: 修复了选择时间时，点击00或者59会导致日历发生错误的bug。
+                li
+                  strong 更新@2014-06-23：更新配置选项，size，可选择值为small，设置完毕后可使用较小尺寸的日期弹出框。
             ul.sui-nav.nav-tabs.nav-large
                 li.active
                   a(href='#demo', data-toggle='tab') 示例
@@ -45,7 +54,7 @@ block content
                     pre.prettyprint.linenums(data-target='#text-mod')           
 
                     pre.prettyprint.linenums
-                        $('#demo1 input').datepicker({});
+                        $('#demo1 input').datepicker({size:"small"});
                     p 使用data-api:
                     div.bs-docs-example
                         form.sui-form#demo11
@@ -285,7 +294,7 @@ block content
             p 使用javascript:
             div.bs-docs-example#text-mod-t1
                 form.sui-form#demo5
-                    input(type="text")
+                    input(type="text" value='12:12')
             pre.prettyprint.linenums(data-target='#text-mod-t1')
             pre.prettyprint.linenums
                 $('#demo5 input').timepicker();
@@ -337,7 +346,7 @@ block content
 
             div.bs-docs-example#text-mod3
                 form.sui-form#demo8
-                    input(type="text")          
+                    input(type="text" value='2014-03-02 12:48')
 
             pre.prettyprint.linenums(data-target='#text-mod3')           
 
