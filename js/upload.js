@@ -1,4 +1,13 @@
 /* jshint ignore:start */
+/*
+ * $.upload({
+ *  api: {string} 后端上传服务api地址
+ *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
+ *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
+ *  sizeLimit: {number | object} 文件大小限制, 单位KB。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。该参数只在IE9以上及现代浏览器、千牛有效。且服务器端校验仍是必须的。
+ *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
+ * })
+ */
 (function($) {
   // 注册一个ajax prefilter,创建新的type类型upload，检测ajax方法调用的入参有没有upload
   $.ajaxPrefilter(function(options, origOptions, jqXHR) {
@@ -147,15 +156,6 @@
     return ret;
   }
 
-  /*
-   * $.upload({
-   *  api: {string} 后端上传服务api地址
-   *  $fileinputs: {ArrayLike}  元素集合，必须全为file input
-   *  data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
-   *  sizeLimit: {number | object} 文件大小限制, 单位KB。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。该参数只在IE9以上及现代浏览器、千牛有效。且服务器端校验仍是必须的。
-   *  success: {function}  上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）
-   * })
-   */
   $.extend({
     upload: function(opt) {
       var $fileinputs = opt.$fileinputs || [];
