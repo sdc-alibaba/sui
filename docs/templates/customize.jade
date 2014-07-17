@@ -1,0 +1,86 @@
+extends base_index
+
+block title
+  title 自定义
+
+block head
+  script(src="assets/js/raw-files.min.js")
+  script(src="assets/js/vendor/blob.js")
+  script(src="assets/js/vendor/filesaver.js")
+  script(src="assets/js/vendor/holder.js")
+  script(src="assets/js/vendor/jszip.min.js")
+  script(src="assets/js/vendor/less.min.js")
+  script(src="assets/js/vendor/uglify.min.js")
+  script(src="assets/js/customizer.js")
+  style(type='text/css').
+    .btn-huge {
+      padding: 15px 40px;
+      font-size: 20px;
+    }
+block header
+  +header('customize')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 自定义下载
+
+    h2 LESS 模块
+
+    p.sui-lead
+      | 选择你需要的less模块
+
+    mixin less(title, value)
+      label.checkbox-pretty.inline
+        input(type='checkbox' name='less' value='#{value}')
+        span #{title}
+
+    div.sui-form.form-horizontal
+      div#less-section
+        div.control-group
+          label.control-label 表单：
+          div.controls
+            +less("表单", "forms.less")
+            +less("按钮", "buttons.less")
+            +less("按钮组", "button-groups.less")
+            +less("单选/复选", "checkbox.less")
+            +less("下拉菜单", "dropdowns.less")
+            +less("日期选择器", "datepicker.less")
+            +less("时间选择器", "timepicker.less")
+            +less("自动补全", "autocomplete.less")
+        div.control-group
+          label.control-label 表格和布局：
+          div.controls
+            +less("全局文本样式", "global.less")
+            +less("图标", "icons.less")
+            +less("label", "label.less")
+            +less("tag", "tag.less")
+        div.control-group
+          label.control-label 导航和提醒：
+          div.controls
+            +less("表格", "tables.less")
+            +less("栅格", "grid.less")
+            +less("布局", "layout.less")
+            +less("导航栏", "navbar.less")
+            +less("分页器", "pagination.less")
+            +less("提示消息", "msgs.less")
+            +less("步骤条", "steps.less")
+            +less("面包屑", "breadcrumbs.less")
+            +less("标签页", "navs.less")
+            +less("新手引导", "intro.less")
+        div.control-group
+          label.control-label 弹层：
+          div.controls
+            +less("对话框", "modals.less")
+            +less("tooltip", "tooltip.less")
+        div.control-group
+          label.control-label 其他：
+          div.controls
+            +less("loading", "loading.less")
+            +less("进度条", "progress-bars.less")
+
+        div.control-group
+          label.control-label
+          div.controls
+            button#customize-download.sui-btn.btn-primary.btn-xlarge 打包下载
+
+  div.console
