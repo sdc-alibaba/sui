@@ -63,10 +63,9 @@
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
-      this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
-        //, function(res, status, xhr){
-        //异步加载数据的情况，对话框展示时用于决定定位的信息不是最终有效信息，需要回调时校正。
-        //self.resize();
+      if (typeof this.options.remote == 'string') {
+        this.$element.find('.modal-body').load(this.options.remote)
+      }
     }
 
     , toggle: function () {

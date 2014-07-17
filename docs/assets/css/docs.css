@@ -7,7 +7,6 @@
 /* Body and structure
 -------------------------------------------------- */
 .sui-nav.nav-stacked.docs-nav {
-  display: none;
   width: 140px;
   text-align: right;
   padding-right: 20px;
@@ -236,6 +235,14 @@ h1.sui-page-header:before {
 }
 .footer li {
   padding: 4px 0;
+}
+.hidden-achor {
+  position: relative;
+  top: -100px;
+  left: 1em;
+  width: 1px;
+  height: 1px;
+  display: block;
 }
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
