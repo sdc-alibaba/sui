@@ -297,6 +297,40 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
 
+  h2 带关闭按钮
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demox', data-toggle='tab') 示例
+    li
+      a(href='#codex', data-toggle='tab') 代码
+    li
+      a(href='#docx', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demox
+      div.bs-docs-example
+        div.sui-msg.msg-error
+          div.msg-con 错误信息提示#ea4a36
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.msg-large.msg-error
+          div.msg-con 错误信息提示#ea4a36
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+    div.tab-pane#codex
+      pre.prettyprint.linenums(data-target='#demox>div')
+    div.tab-pane#docx
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demox>div') 复制代码
+
+
 
   h2 多行模式
 
