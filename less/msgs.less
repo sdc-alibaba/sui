@@ -89,12 +89,18 @@
 		top: 3px;
 		left: 6px;
 	}
+  .sui-close {
+    font-size: 18px;
+  }
 
   // ´ó³ß´ç
   &.msg-large {
     font-size: @fontSizeLarge;
     line-height: @lineHeightLarge;
     font-weight: bold;
+    .sui-close {
+      font-size: 24px;
+    }
     > .msg-con { padding: 11px 11px 11px 44px; }
     > .msg-icon {
       top: 12px;
@@ -105,8 +111,7 @@
 
   // MsgsÀàÐÍ
   &.msg-error {
-    color: #ea4a36;
-    .sui-close {
+    &, .sui-close {
       color: #ea4a36;
     }
     > .msg-con {
@@ -115,49 +120,63 @@
     }
   }
   &.msg-stop {
-    color: #ea4a36;
+    &, .sui-close {
+      color: #ea4a36;
+    }
     > .msg-con {
       border: 1px solid #ffe3e0;
       background-color: #fff2f2;
     }
   }
   &.msg-success {
-    color: #4ab933;
+    &, .sui-close {
+      color: #4ab933;
+    }
     > .msg-con {
       border: 1px solid #dcf9d6;
       background-color: #edffe9;
     }
   }
   &.msg-warning {
-    color: #cf700b;
+    &, .sui-close {
+      color: #cf700b;
+    }
     > .msg-con {
       border: 1px solid #fee8d7;
       background-color: #fef1e3;
     }
   }
   &.msg-notice {
-    color: #ee9f28;
-    > .msg-con {
+    &, .sui-close {
+      color: #ee9f28;
+    }
+> .msg-con {
       border: 1px solid #faf1d7;
       background-color: #fffff1;
     }
   }
   &.msg-tips {
-    color: #ee9f28;
+    &, .sui-close {
+      color: #ee9f28;
+    }
     > .msg-con {
       border: 1px solid #faf1d7;
       background-color: #fffff1;
     }
   }
   &.msg-info {
-    color: #3a9ed5;
+    &, .sui-close {
+      color: #3a9ed5;
+    }
     > .msg-con {
       border: 1px solid #e4f3fd;
       background-color: #f2faff;
     }
   }
   &.msg-question {
-    color: #333;
+    &, .sui-close {
+      color: #333;
+    }
     > .msg-con {
       border: 1px solid #eaeaea;
       background-color: #f7f7f7;

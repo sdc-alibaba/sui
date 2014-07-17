@@ -310,15 +310,16 @@ block content
   div.tab-content
     div.tab-pane.active#demox
       div.bs-docs-example
-        div.sui-msg.msg-error
-          div.msg-con 错误信息提示#ea4a36
+        p 此类用法必须用于msg-block类型的消息上
+        div.sui-msg.msg-info.msg-block
+          div.msg-con 通知：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
             button.sui-close(type='button', data-dismiss='msgs') &times;
           s.msg-icon
 
         <br /><br />
 
-        div.sui-msg.msg-large.msg-error
-          div.msg-con 错误信息提示#ea4a36
+        div.sui-msg.msg-large.msg-tips.msg-block
+          div.msg-con 重大消息：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
             button.sui-close(type='button', data-dismiss='msgs') &times;
           s.msg-icon
     div.tab-pane#codex
