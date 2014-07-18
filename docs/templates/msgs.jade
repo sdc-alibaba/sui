@@ -297,6 +297,41 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
 
+  h2 带关闭按钮
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demox', data-toggle='tab') 示例
+    li
+      a(href='#codex', data-toggle='tab') 代码
+    li
+      a(href='#docx', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demox
+      div.bs-docs-example
+        p 此类用法必须用于msg-block类型的消息上
+        div.sui-msg.msg-info.msg-block
+          div.msg-con 通知：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+
+        <br /><br />
+
+        div.sui-msg.msg-large.msg-tips.msg-block
+          div.msg-con 重大消息：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+    div.tab-pane#codex
+      pre.prettyprint.linenums(data-target='#demox>div')
+    div.tab-pane#docx
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demox>div') 复制代码
+
+
 
   h2 多行模式
 

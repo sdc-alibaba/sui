@@ -1,7 +1,7 @@
 //核心组件
 require('./transition')
+require('./msgs')
 require('./filesize')
-require('./alert')
 require('./button')
 require('./carousel')
 require('./collapse')

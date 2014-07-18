@@ -89,12 +89,20 @@
 		top: 3px;
 		left: 6px;
 	}
+  .sui-close {
+    font-size: 18px;
+    font-weight: normal;
+    color: inherit;
+  }
 
   // ´ó³ß´ç
   &.msg-large {
     font-size: @fontSizeLarge;
     line-height: @lineHeightLarge;
     font-weight: bold;
+    .sui-close {
+      font-size: 24px;
+    }
     > .msg-con { padding: 11px 11px 11px 44px; }
     > .msg-icon {
       top: 12px;
@@ -193,3 +201,4 @@
     }
   }
 }
+
