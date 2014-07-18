@@ -24,10 +24,10 @@ block content_wrap
   .sui-container
     h1.sui-page-header 自定义下载
 
-    h2 LESS 模块
+    h2 选择模块
 
     p.sui-lead
-      | 选择你需要的less模块
+      | 选择你需要的模块
 
     mixin less(title, value)
       label.checkbox-pretty.inline
@@ -51,7 +51,7 @@ block content_wrap
           label.control-label 表格和布局：
           div.controls
             +less("全局文本样式", "global.less")
-            +less("图标", "icons.less")
+            +less("图标", "icons.less,icons-moon.less,icons-tb.less,icons-touch.less,icons-moon.less")
             +less("label", "label.less")
             +less("tag", "tag.less")
         div.control-group

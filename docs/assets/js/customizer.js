@@ -53,18 +53,12 @@ window.onload = function () { // wait for load in a dumb way because B-0
   }
 
   function getCustomizerData() {
-    var vars = {}
-
-    $('#less-variables-section input')
-      .each(function () {
-        $(this).val() && (vars[$(this).prev().text()] = $(this).val())
-      })
-
     var data = {
-      vars: vars,
-      css: $('#less-section input:checked')  .map(function () { return this.value }).toArray(),
-      js:  $('#plugin-section input:checked').map(function () { return this.value }).toArray()
+      css: [],
+      js: []
     }
+    $('#less-section input:checked').each(function () {
+    });
 
     if ($.isEmptyObject(data.vars) && !data.css.length && !data.js.length) return
 
