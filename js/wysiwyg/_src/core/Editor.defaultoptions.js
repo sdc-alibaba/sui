@@ -21,7 +21,7 @@ UE.Editor.defaultOptions = function(editor){
         lang: 'zh-cn',
         langPath: _url + 'lang/',
         theme: 'default',
-        themePath: _url + 'themes/',
+        themePath: _url + 'css/',
         allHtmlEnabled: false,
         scaleEnabled: false,
         tableNativeEditInFF: false,
