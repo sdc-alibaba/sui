@@ -4,11 +4,100 @@ var exec = require("child_process").exec;
 
 module.exports = function(grunt) {
   'use strict';
+
+  var fs = require("fs"),
+    Util = {
+
+        jsBasePath: 'js/wysiwyg/_src/',
+        parseBasePath: 'js/wysiwyg/_parse/',
+        cssBasePath: 'less/wysiwyg/themes/default/_css/',
+
+        fetchScripts: function (readFile, basePath) {
+
+            var sources = fs.readFileSync(readFile);
+            sources = /\[([^\]]+\.js'[^\]]+)\]/.exec(sources);
+            sources = sources[1].replace(/\/\/.*\n/g, '\n').replace(/'|"|\n|\t|\s/g, '');
+            sources = sources.split(",");
+            sources.forEach(function (filepath, index) {
+                sources[ index ] = basePath + filepath;
+            });
+
+            return sources;
+        },
+
+        fetchStyles: function () {
+
+            var sources = fs.readFileSync(this.cssBasePath + "ueditor.css"),
+                filepath = null,
+                pattern = /@import\s+([^;]+)*;/g,
+                src = [];
+
+            while (filepath = pattern.exec(sources)) {
+                src.push(this.cssBasePath + filepath[ 1 ].replace(/'|"/g, ""));
+            }
+
+            return src;
+
+        }
+
+    };
+
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*dpl started*/',
     distRoot: grunt.option('target') || '.package',
     docsRoot: 'docs',
+
+
+    concat: {
+        js: {
+            options: {
+                banner: '<%= banner %>(function(){\n\n',
+                footer: '\n\n})();\n',
+                process: function (src, s) {
+                    var filename = s.substr(s.indexOf('/') + 1);
+                    return '// ' + filename + '\n' + src.replace('/_css/', '/css/') + '\n';
+                }
+            },
+            src: Util.fetchScripts("docs/examples/_examples/editor_api.js", Util.jsBasePath),
+            dest: '<%=distRoot %>/js/editor.all.js'
+        },
+        parse: {
+            options: {
+                banner: '<%= banner %>(function(){\n\n',
+                footer: '\n\n})();\n'
+            },
+            src: Util.fetchScripts("js/wysiwyg/ueditor.parse.js", Util.parseBasePath),
+            dest: '<%=distRoot %>/js/editor.parse.js'
+        },
+        css: {
+            src: Util.fetchStyles(),
+            dest: '<%=distRoot %>/css/ueditor.css'
+        }
+    },
+    cssmin: {
+        options: {
+            banner: '<%= banner %>'
+        },
+        files: {
+            expand: true,
+            cwd: '<%=distRoot %>/css/',
+            src: ['ueditor.css'],
+            dest: '<%=distRoot %>/css/',
+            ext: 'ueditor.min.css'
+        }
+    },
+    closurecompiler: {
+        dist: {
+            src: '<%=distRoot %>/js/editor.all.js',
+            dest: '<%=distRoot %>/js/editor.all.min.js'
+        },
+        parse: {
+            src: '<%=distRoot %>/js/editor.parse.js',
+            dest: '<%=distRoot %>/js/editor.parse.min.js'
+        }
+    },
 
     jshint: {
       options: {
@@ -114,6 +203,24 @@ module.exports = function(grunt) {
         files: [
           { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
+      },
+      wysiwyg: {
+        files: [
+            {
+
+                src: [ '*.html', 'less/wysiwyg/themes/iframe.css','less/wysiwyg/themes/default/images/**',  'js/wysiwyg/lang/**', 'js/wysiwyg/third-party/**' ],
+                dest: '<%=distRoot %>/wysiwyg/'
+
+            }
+        ]
+      },
+      demo: {
+        files: [
+            {
+                src: 'docs/examples/_examples/completeDemo.html',
+                dest:'<%=distRoot %>/wysiwyg/index.html'
+            }
+        ]
       }
     },
     /*
@@ -161,6 +268,10 @@ module.exports = function(grunt) {
     }
   });
 
+  //wysiwyg
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-closurecompiler');
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -189,7 +300,15 @@ module.exports = function(grunt) {
   grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs']);
+  grunt.registerTask('default', ['test', 'dist', 'docs','wysiwyg']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
+  //wysiwyg
+  grunt.registerTask('wysiwyg','UEditor build', function () {
+
+    var tasks = [ 'concat', 'cssmin', 'closurecompiler', 'copy:wysiwyg',  'copy:demo'];
+
+    grunt.task.run(tasks);
+
+  });
 }
