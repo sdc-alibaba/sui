@@ -174,7 +174,11 @@
             <li><a href="#">下载psd文件</a></li>
           </ul>
           <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">用来显示错误、提示、警告、公告等信息。</p>
+          <p class="sui-lead">用来显示错误、提示、警告、公告等信息。
+            <ul class="unstyled">
+              <li><strong>更新 v1.1.4：增加了一个可选的关闭按钮。</strong></li>
+            </ul>
+          </p>
           <h2>小尺寸（默认尺寸）</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -384,6 +388,38 @@
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo6&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>带关闭按钮</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demox" data-toggle="tab">示例</a></li>
+            <li><a href="#codex" data-toggle="tab">代码</a></li>
+            <li><a href="#docx" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demox" class="tab-pane active">
+              <div class="bs-docs-example">
+                <p>此类用法必须用于msg-block类型的消息上</p>
+                <div class="sui-msg msg-info msg-block">
+                  <div class="msg-con">通知：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+                    <button type="button" data-dismiss="msgs" class="sui-close">&times;</button>
+                  </div>
+                  <s class="msg-icon"></s>
+                </div><br /><br />
+                <div class="sui-msg msg-large msg-tips msg-block">
+                  <div class="msg-con">重大消息：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+                    <button type="button" data-dismiss="msgs" class="sui-close">&times;</button>
+                  </div>
+                  <s class="msg-icon"></s>
+                </div>
+              </div>
+            </div>
+            <div id="codex" class="tab-pane">
+              <pre data-target="#demox&gt;div" class="prettyprint linenums"></pre>
+            </div>
+            <div id="docx" class="tab-pane">六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge</div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demox&gt;div" class="copy-btn">复制代码</a></li>
           </ul>
           <h2>多行模式</h2>
           <ul class="sui-nav nav-tabs nav-large">

@@ -118,107 +118,6 @@
 }(window.jQuery);
 
 },{}],2:[function(require,module,exports){
-/* ==========================================================
- * bootstrap-alert.js v2.3.2
- * http://getbootstrap.com/2.3.2/javascript.html#alerts
- * ==========================================================
- * Copyright 2013 Twitter, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================== */
-
-
-!function ($) {
-
-  "use strict";
-
-
- /* ALERT CLASS DEFINITION
-  * ====================== */
-
-  var dismiss = '[data-dismiss="alert"]'
-    , Alert = function (el) {
-        $(el).on('click', dismiss, this.close)
-      }
-
-  Alert.prototype.close = function (e) {
-    var $this = $(this)
-      , selector = $this.attr('data-target')
-      , $parent
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
-    }
-
-    $parent = $(selector)
-
-    e && e.preventDefault()
-
-    $parent.length || ($parent = $this.hasClass('alert') ? $this : $this.parent())
-
-    $parent.trigger(e = $.Event('close'))
-
-    if (e.isDefaultPrevented()) return
-
-    $parent.removeClass('in')
-
-    function removeElement() {
-      $parent
-        .trigger('closed')
-        .remove()
-    }
-
-    $.support.transition && $parent.hasClass('fade') ?
-      $parent.on($.support.transition.end, removeElement) :
-      removeElement()
-  }
-
-
- /* ALERT PLUGIN DEFINITION
-  * ======================= */
-
-  var old = $.fn.alert
-
-  $.fn.alert = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('alert')
-      if (!data) $this.data('alert', (data = new Alert(this)))
-      if (typeof option == 'string') data[option].call($this)
-    })
-  }
-
-  $.fn.alert.Constructor = Alert
-
-
- /* ALERT NO CONFLICT
-  * ================= */
-
-  $.fn.alert.noConflict = function () {
-    $.fn.alert = old
-    return this
-  }
-
-
- /* ALERT DATA-API
-  * ============== */
-
-  $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
-
-}(window.jQuery);
-
-},{}],3:[function(require,module,exports){
 /**
 *  Ajax Autocomplete for jQuery, version 1.2.9
 *  (c) 2013 Tomas Kirda
@@ -1037,7 +936,7 @@
     });
 })(jQuery);
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 /* ============================================================
  * bootstrap-button.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#buttons
@@ -1144,7 +1043,7 @@
 
 }(window.jQuery);
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 /* ==========================================================
  * bootstrap-carousel.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#carousel
@@ -1353,7 +1252,7 @@
 
 }(window.jQuery);
 
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 !function ($) {
 
   "use strict";
@@ -1452,7 +1351,7 @@
   });
 }(window.jQuery);
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /* =============================================================
  * bootstrap-collapse.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#collapse
@@ -1621,7 +1520,7 @@
 
 }(window.jQuery);
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*jshint sub:true*/
 /*
  * js come from :bootstrap-datepicker.js 
@@ -3403,7 +3302,7 @@
 
 }(window.jQuery));
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /* ============================================================
  * bootstrap-dropdown.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#dropdowns
@@ -3616,7 +3515,7 @@
 
 }(window.jQuery);
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 (function($) {
   /**
    * filesize  获得计算机文件体积大小(byte)对人更友好的格式
@@ -3658,7 +3557,7 @@
   })
 })(jQuery);
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
  /*jshint scripturl:true */
  /*jshint funcscope:true */
  /*jshint -W004 */
@@ -4689,7 +4588,7 @@
   $.introJs = introJs;
 })(jQuery);
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -5099,6 +4998,15 @@
     }
   })
 
+}(window.jQuery);
+
+},{}],12:[function(require,module,exports){
+//msgs组件添加叉叉关闭功能
+!function ($) {
+  $(document).on('click.msgs', '[data-dismiss="msgs"]', function (e) {
+    e.preventDefault()
+    $(this).parents('.sui-msg').remove();
+  })
 }(window.jQuery);
 
 },{}],13:[function(require,module,exports){
@@ -5575,8 +5483,8 @@
 },{}],17:[function(require,module,exports){
 //核心组件
 require('./transition')
+require('./msgs')
 require('./filesize')
-require('./alert')
 require('./button')
 require('./carousel')
 require('./collapse')
@@ -5598,7 +5506,7 @@ require('./autocomplete')
 require('./navtest')
 require('./intro')
 
-},{"./affix":1,"./alert":2,"./autocomplete":3,"./button":4,"./carousel":5,"./checkbox":6,"./collapse":7,"./datepicker":8,"./dropdown":9,"./filesize":10,"./intro":11,"./modal":12,"./navtest":13,"./pagination":14,"./popover":15,"./scrollspy":16,"./tab":18,"./timepicker":19,"./tooltip":20,"./transition":21,"./tree":22,"./validate":24,"./validate-rules":23}],18:[function(require,module,exports){
+},{"./affix":1,"./autocomplete":2,"./button":3,"./carousel":4,"./checkbox":5,"./collapse":6,"./datepicker":7,"./dropdown":8,"./filesize":9,"./intro":10,"./modal":11,"./msgs":12,"./navtest":13,"./pagination":14,"./popover":15,"./scrollspy":16,"./tab":18,"./timepicker":19,"./tooltip":20,"./transition":21,"./tree":22,"./validate":24,"./validate-rules":23}],18:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs

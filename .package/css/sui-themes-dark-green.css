@@ -3598,10 +3598,18 @@ sui-pre .sui-code {
   top: 3px;
   left: 6px;
 }
+.sui-msg .sui-close {
+  font-size: 18px;
+  font-weight: normal;
+  color: inherit;
+}
 .sui-msg.msg-large {
   font-size: 14px;
   line-height: 22px;
   font-weight: bold;
+}
+.sui-msg.msg-large .sui-close {
+  font-size: 24px;
 }
 .sui-msg.msg-large > .msg-con {
   padding: 11px 11px 11px 44px;
@@ -10197,16 +10205,16 @@ input[type="submit"].btn.btn-mini {
   margin-left: 0;
 }
 .overspread {
-  top: 0;
+  top: -1px;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 }
 .sui-modal-backdrop {
   position: fixed;
-  top: 0;
+  top: -1px;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   z-index: 1040;
 }
@@ -10220,9 +10228,9 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-modal .shade {
   position: absolute;
-  top: 0;
+  top: -1px;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 }
 .sui-modal .shade.in {
