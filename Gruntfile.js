@@ -114,7 +114,12 @@ module.exports = function(grunt) {
         files: [
           { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
-      }
+      },
+      img: {
+        files: [
+          { expand: true, src: ['./img/*'], dest: '<%= distRoot %>/' },
+        ]
+      },
     },
     /*
     qunit: {
@@ -181,11 +186,13 @@ module.exports = function(grunt) {
   // CSS distribution task.
   grunt.registerTask('dist-css', ['less']);
 
+  grunt.registerTask('dist-img', ['copy:img']);
+
   // CSS distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
+  grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts', 'dist-img']);
   grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
   // Default task.
