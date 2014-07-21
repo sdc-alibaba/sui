@@ -117,6 +117,17 @@
       }
     }
   }
+
+  &.disabled {
+    .dropdown-inner {
+      a {
+        color: @dropdownDisabledColor;
+      }
+    }
+    &.dropdown-bordered a {
+      background-color: @dropdownDisabledBgColor;
+    }
+  }
   input {
     border: 0;
     width: 100px;
