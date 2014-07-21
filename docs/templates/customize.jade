@@ -42,11 +42,11 @@ block content_wrap
             +less("表单", "forms.less")
             +less("按钮", "buttons.less")
             +less("按钮组", "button-groups.less")
-            +less("单选/复选", "checkbox.less")
-            +less("下拉菜单", "dropdowns.less")
-            +less("日期选择器", "datepicker.less")
-            +less("时间选择器", "timepicker.less")
-            +less("自动补全", "autocomplete.less")
+            +less("单选/复选", "checkbox.less, checkbox.js")
+            +less("下拉菜单", "dropdowns.less, dropdown.js")
+            +less("日期选择器", "datepicker.less, datepicker.js")
+            +less("时间选择器", "timepicker.less, timepicker.js")
+            +less("自动补全", "autocomplete.less, autocomplete.js")
         div.control-group
           label.control-label 表格和布局：
           div.controls
@@ -61,17 +61,17 @@ block content_wrap
             +less("栅格", "grid.less,responsive.less,responsive-utilities.less")
             +less("布局", "layouts.less")
             +less("导航栏", "navbar.less")
-            +less("分页器", "pagination.less")
+            +less("分页器", "pagination.less, pagination.js")
             +less("提示消息", "msgs.less")
             +less("步骤条", "steps.less")
             +less("面包屑", "breadcrumbs.less")
-            +less("标签页", "navs.less")
-            +less("新手引导", "intro.less")
+            +less("标签页", "navs.less, tab.js")
+            +less("新手引导", "intro.less, intro.js")
         div.control-group
           label.control-label 弹层：
           div.controls
-            +less("对话框", "modals.less")
-            +less("tooltip", "tooltip.less")
+            +less("对话框", "modals.less, modal.js")
+            +less("tooltip", "tooltip.less, tooltip.js")
         div.control-group
           label.control-label 其他：
           div.controls
