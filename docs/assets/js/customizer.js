@@ -57,7 +57,15 @@ window.onload = function () { // wait for load in a dumb way because B-0
       css: [],
       js: []
     }
+    var put = function(v) {
+    }
     $('#less-section input:checked').each(function () {
+      var value = this.value, css = data.css;
+      if(/,/.test(value)) {
+        value.split(",").forEach(put);
+      } else {
+        put(value)
+      }
     });
 
     if ($.isEmptyObject(data.vars) && !data.css.length && !data.js.length) return
