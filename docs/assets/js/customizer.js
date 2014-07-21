@@ -54,21 +54,30 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
   function getCustomizerData() {
     var data = {
-      css: [],
-      js: []
+      css: {},
+      js: {}
     }
-    var put = function(v) {
-    }
-    $('#less-section input:checked').each(function () {
-      var value = this.value, css = data.css;
-      if(/,/.test(value)) {
-        value.split(",").forEach(put);
+    var put = function(v, checked) {
+      if (!v) return;
+      v = v.replace(/^\s+/g, '').replace(/\s+$/g, '')
+      if(/\.less/.test(v)) {
+        data.css[v] = checked
       } else {
-        put(value)
+        data.js[v] = checked
+      }
+    }
+    $('#less-section input').each(function () {
+      var value = this.value, checked = $(this).is(":checked")
+      if(/,/.test(value)) {
+        value.split(",").forEach(function(v, i) {
+          put(v, checked)
+        })
+      } else {
+        put(value, checked)
       }
     });
 
-    if ($.isEmptyObject(data.vars) && !data.css.length && !data.js.length) return
+    if ($.isEmptyObject(data.vars) && !data.css && !data.js) return
 
     return data
   }
@@ -161,7 +170,10 @@ window.onload = function () { // wait for load in a dumb way because B-0
       // Core stylesheets like 'normalize.less' are not included in the form
       // since disabling them would wreck everything, and so their 'fileInclude'
       // will be 'undefined'.
-      if (fileInclude || (fileInclude == null))    lessSource += __less[filename]
+      if (fileInclude || (fileInclude == null)) {
+        lessSource += __less[filename]
+        console.log('+: '+filename);
+      }
 
       // Custom variables are added after Bootstrap variables so the custom
       // ones take precedence.
@@ -190,15 +202,8 @@ window.onload = function () { // wait for load in a dumb way because B-0
   }
 
   function generateCSS() {
-    var oneChecked = false
-    var lessFileIncludes = {}
-    $('#less-section input').each(function () {
-      var $this = $(this)
-      var checked = $this.is(':checked')
-      lessFileIncludes[$this.val()] = checked
-
-      oneChecked = oneChecked || checked
-    })
+    var lessFileIncludes = getCustomizerData().css,
+        oneChecked = $('#less-section input:checked')[0];
 
     if (!oneChecked) return false
 

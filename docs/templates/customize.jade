@@ -50,16 +50,16 @@ block content_wrap
         div.control-group
           label.control-label 表格和布局：
           div.controls
-            +less("全局文本样式", "global.less")
-            +less("图标", "icons.less,icons-moon.less,icons-tb.less,icons-touch.less,icons-moon.less")
+            +less("全局文本样式", "type.less, reset.less")
+            +less("图标", "icons.less,icon-moon.less,icon-tb.less,icon-touch.less,icon-pc.less")
             +less("label", "label.less")
             +less("tag", "tag.less")
         div.control-group
           label.control-label 导航和提醒：
           div.controls
             +less("表格", "tables.less")
-            +less("栅格", "grid.less")
-            +less("布局", "layout.less")
+            +less("栅格", "grid.less,responsive.less,responsive-utilities.less")
+            +less("布局", "layouts.less")
             +less("导航栏", "navbar.less")
             +less("分页器", "pagination.less")
             +less("提示消息", "msgs.less")
