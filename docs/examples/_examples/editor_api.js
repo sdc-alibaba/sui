@@ -123,7 +123,7 @@
             'lang/zh-cn/zh-cn.js'
 
         ],
-        baseURL = '../_src/';
+        baseURL = '../../../js/wysiwyg/_src/';
     for (var i=0,pi;pi = paths[i++];) {
         document.write('<script type="text/javascript" src="'+ baseURL + pi +'"></script>');
     }

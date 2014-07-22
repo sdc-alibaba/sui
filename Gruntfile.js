@@ -61,7 +61,7 @@ module.exports = function(grunt) {
                 }
             },
             src: Util.fetchScripts("docs/examples/_examples/editor_api.js", Util.jsBasePath),
-            dest: '<%=distRoot %>/js/editor.all.js'
+            dest: '<%=distRoot %>/wysiwyg/js/editor.all.js'
         },
         parse: {
             options: {
@@ -69,11 +69,11 @@ module.exports = function(grunt) {
                 footer: '\n\n})();\n'
             },
             src: Util.fetchScripts("js/wysiwyg/ueditor.parse.js", Util.parseBasePath),
-            dest: '<%=distRoot %>/js/editor.parse.js'
+            dest: '<%=distRoot %>/wysiwyg/js/editor.parse.js'
         },
         css: {
             src: Util.fetchStyles(),
-            dest: '<%=distRoot %>/css/ueditor.css'
+            dest: '<%=distRoot %>/wysiwyg/css/ueditor.css'
         }
     },
     cssmin: {
@@ -82,20 +82,20 @@ module.exports = function(grunt) {
         },
         files: {
             expand: true,
-            cwd: '<%=distRoot %>/css/',
+            cwd: '<%=distRoot %>/wysiwyg/css/',
             src: ['ueditor.css'],
-            dest: '<%=distRoot %>/css/',
+            dest: '<%=distRoot %>/wysiwyg/css/',
             ext: 'ueditor.min.css'
         }
     },
     closurecompiler: {
         dist: {
-            src: '<%=distRoot %>/js/editor.all.js',
-            dest: '<%=distRoot %>/js/editor.all.min.js'
+            src: '<%=distRoot %>/wysiwyg/js/editor.all.js',
+            dest: '<%=distRoot %>/wysiwyg/js/editor.all.min.js'
         },
         parse: {
-            src: '<%=distRoot %>/js/editor.parse.js',
-            dest: '<%=distRoot %>/js/editor.parse.min.js'
+            src: '<%=distRoot %>/wysiwyg/js/editor.parse.js',
+            dest: '<%=distRoot %>/wysiwyg/js/editor.parse.min.js'
         }
     },
 
@@ -207,10 +207,48 @@ module.exports = function(grunt) {
       wysiwyg: {
         files: [
             {
-
-                src: [ '*.html', 'less/wysiwyg/themes/iframe.css','less/wysiwyg/themes/default/images/**',  'js/wysiwyg/lang/**', 'js/wysiwyg/third-party/**' ],
-                dest: '<%=distRoot %>/wysiwyg/'
-
+              src: [ '*.html' ],
+              dest: '<%=distRoot %>/wysiwyg/'
+            }
+        ]
+      },
+      wysiwygcss: {
+        files: [
+            {
+              expand: true,
+              cwd: 'less/wysiwyg//themes/',
+              src: [ 'iframe.css' ],
+              dest: '<%=distRoot %>/wysiwyg/css'
+            }
+        ]
+      },
+      wysiwygimg: {
+        files: [
+            {
+              expand: true,
+              cwd: 'less/wysiwyg//themes/default/',
+              src: [ 'images/**' ],
+              dest: '<%=distRoot %>/wysiwyg'
+            }
+        ]
+      },
+      wysiwygjs: {
+        files: [
+            {
+              expand: true,
+              cwd: 'js/wysiwyg/',
+              src: [ 'lang/**' ],
+              dest: '<%=distRoot %>/wysiwyg/js'
+            }
+        ]
+      },
+      wysiwygthird: {
+        files: [
+            {
+              expand: true,
+              cwd: 'js/wysiwyg/',
+              src: [ 'third-party/**' ],
+              dest: '<%=distRoot %>/'
             }
         ]
       },
@@ -233,14 +271,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    /*
-    qunit: {
-      options: {
-        inject: 'js/tests/unit/phantom.js'
-      },
-      files: ['js/tests/*.html']
-    },
-    */
 
     connect: {
       server: {
@@ -316,7 +346,7 @@ module.exports = function(grunt) {
   //wysiwyg
   grunt.registerTask('wysiwyg','UEditor build', function () {
 
-    var tasks = [ 'concat', 'cssmin', 'closurecompiler', 'copy:wysiwyg',  'copy:demo'];
+    var tasks = [ 'concat', 'cssmin', 'closurecompiler', 'copy'];
 
     grunt.task.run(tasks);
 
