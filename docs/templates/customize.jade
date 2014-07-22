@@ -16,6 +16,10 @@ block head
     .sui-form {
       font-size: 14px;
     }
+    .btn-huge {
+      padding: 16px 100px;
+      font-size: 20px;
+    }
 
 block header
   +header('customize')
@@ -24,17 +28,28 @@ block content_wrap
 
   .sui-container
 
+    h1.sui-page-header 自定义下载（测试版）
     div.sui-msg.msg-tips.msg-large.msg-block
-      div.msg-con 自定义下载只支持新版的chrome、safari、firefox等高级浏览器。
+      div.msg-con
+        | 不建议大家使用自定义下载，尽量使用我们CDN上的文件。
+        | 因为CDN 10年缓存的原因，只有用户第一次加载文件的时候需要下载，而且这个缓存在不同产品间是通用的，
+        | 而且自定义下载到本地之后不会更新。
       s.msg-icon
 
-    h1.sui-page-header 自定义下载
+    div.sui-msg.msg-tips.msg-large.msg-block
+      div.msg-con
+        ul.unstyled
+          li 自定义下载只支持新版的chrome、safari、firefox等高级浏览器。
+          li 自定义下载暂时不支持换肤功能，只有默认的皮肤，下一个版本会加入对换肤的支持。
+          li 目前自定义下载是测试版，发现任何问题可以及时向我们<a href='mailto:hongxun.lhx@alibaba-inc.com'>反馈</a>。
+      s.msg-icon
+
 
 
     p.sui-lead
       | 因为SUI的组件比较多，我们提供自定义下载功能，你可以选择自己需要的组件，我们会自动帮你生成对应的CSS和JS文件。
 
-    h2 选择组件
+    h2 选择你需要的组件
     mixin less(id, title, value)
       label.checkbox-pretty.inline
         input(id='#{id}' type='checkbox' name='less' value='#{value}')
@@ -88,7 +103,7 @@ block content_wrap
         div.control-group
           label.control-label
           div.controls
-            button#customize-download.sui-btn.btn-primary.btn-xlarge 打包下载
+            button#customize-download.sui-btn.btn-primary.btn-xlarge.btn-huge(style='margin-top: 20px;') 打包下载
 
   script(src="assets/js/customizer.js")
   script(src="assets/js/customizer-deps.js")

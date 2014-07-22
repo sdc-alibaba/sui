@@ -7,7 +7,9 @@ $(function () {
     "steps": ["buttons"],
     "intro": ["buttons"],
     "dialog": ["buttons"],
-    "navbar": ["dropdown", "forms", "buttons", "tab"]
+    "navbar": ["dropdown", "forms", "buttons", "tab"],
+    "pagination": ["buttons", "forms"],
+    "msgs": ["icons"]
   }
 
 
