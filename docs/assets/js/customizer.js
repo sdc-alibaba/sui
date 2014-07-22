@@ -129,8 +129,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
   }
 
   function generateFonts() {
-    var glyphicons = $('#less-section [value="glyphicons.less"]:checked')
-    if (glyphicons.length) {
+    if (getCustomizerData().css["icons.less"]) {
       return __fonts
     }
   }
@@ -185,7 +184,6 @@ window.onload = function () { // wait for load in a dumb way because B-0
   }
 
   function compileLESS(lessSource, baseFilename, intoResult) {
-    $(".console").text(lessSource)
     var parser = new less.Parser({
       paths: ['variables.less', 'mixins.less'],
       optimization: 0,

@@ -11,7 +11,7 @@ block head
   script(src="assets/js/vendor/jszip.min.js")
   script(src="assets/js/vendor/less.min.js")
   script(src="assets/js/vendor/uglify.min.js")
-  script(src="assets/js/customizer.js")
+
   style(type='text/css').
     .btn-huge {
       padding: 15px 40px;
@@ -27,11 +27,11 @@ block content_wrap
     h2 选择模块
 
     p.sui-lead
-      | 选择你需要的模块
+      | 我们会自动把对应的css和js文件打包好，您只需要选择对应的模块并点击下载按钮即可。
 
-    mixin less(title, value)
+    mixin less(id, title, value)
       label.checkbox-pretty.inline
-        input(type='checkbox' name='less' value='#{value}')
+        input(id='#{id}' type='checkbox' name='less' value='#{value}')
         span #{title}
 
     div.sui-form.form-horizontal
@@ -39,48 +39,50 @@ block content_wrap
         div.control-group
           label.control-label 表单：
           div.controls
-            +less("表单", "forms.less")
-            +less("按钮", "buttons.less")
-            +less("按钮组", "button-groups.less")
-            +less("单选/复选", "checkbox.less, checkbox.js")
-            +less("下拉菜单", "dropdowns.less, dropdown.js")
-            +less("日期选择器", "datepicker.less, datepicker.js")
-            +less("时间选择器", "timepicker.less, timepicker.js")
-            +less("自动补全", "autocomplete.less, autocomplete.js")
+            +less("forms", "表单", "forms.less")
+            +less("buttons", "按钮", "buttons.less")
+            +less("button-groups", "按钮组", "button-groups.less")
+            +less("checkbox", "单选/复选", "checkbox.less, checkbox.js")
+            +less("dropdown", "下拉菜单", "dropdowns.less, dropdown.js")
+            +less("datepicker", "日期选择器", "datepicker.less, datepicker.js")
+            +less("timepicker", "时间选择器", "timepicker.less, timepicker.js")
+            +less("autocomplete", "自动补全", "autocomplete.less, autocomplete.js")
+            +less("validate", "表单校验", "form-validate.js")
         div.control-group
           label.control-label 表格和布局：
           div.controls
-            +less("全局文本样式", "type.less, reset.less")
-            +less("图标", "icons.less,icon-moon.less,icon-tb.less,icon-touch.less,icon-pc.less")
-            +less("label", "label.less")
-            +less("tag", "tag.less")
+            +less("global", "全局文本样式", "type.less, reset.less")
+            +less("icons", "图标", "icons.less,icon-moon.less,icon-tb.less,icon-touch.less,icon-pc.less")
+            +less("label", "label", "label.less")
+            +less("tag", "tag", "tag.less")
         div.control-group
           label.control-label 导航和提醒：
           div.controls
-            +less("表格", "tables.less")
-            +less("栅格", "grid.less,responsive.less,responsive-utilities.less")
-            +less("布局", "layouts.less")
-            +less("导航栏", "navbar.less")
-            +less("分页器", "pagination.less, pagination.js")
-            +less("提示消息", "msgs.less")
-            +less("步骤条", "steps.less")
-            +less("面包屑", "breadcrumbs.less")
-            +less("标签页", "navs.less, tab.js")
-            +less("新手引导", "intro.less, intro.js")
+            +less("tables", "表格", "tables.less")
+            +less("grid", "栅格", "grid.less,responsive.less,responsive-utilities.less")
+            +less("layouts", "布局", "layouts.less")
+            +less("navbar", "导航栏", "navbar.less")
+            +less("pagination", "分页器", "pagination.less, pagination.js")
+            +less("msgs", "提示消息", "msgs.less, msgs.js")
+            +less("steps", "步骤条", "steps.less")
+            +less("breadcrumbs", "面包屑", "breadcrumbs.less")
+            +less("tab", "标签页", "navs.less, tab.js")
+            +less("intro", "新手引导", "intro.less, intro.js")
         div.control-group
           label.control-label 弹层：
           div.controls
-            +less("对话框", "modals.less, modal.js")
-            +less("tooltip", "tooltip.less, tooltip.js")
+            +less("dialog", "对话框", "modals.less, modal.js")
+            +less("tooltip", "tooltip", "tooltip.less, tooltip.js")
         div.control-group
           label.control-label 其他：
           div.controls
-            +less("loading", "loading.less")
-            +less("进度条", "progress-bars.less")
+            +less("loading", "loading", "loading.less")
+            +less("progress", "进度条", "progress-bars.less")
 
         div.control-group
           label.control-label
           div.controls
             button#customize-download.sui-btn.btn-primary.btn-xlarge 打包下载
 
-  div.console
+  script(src="assets/js/customizer.js")
+  script(src="assets/js/customizer-deps.js")
