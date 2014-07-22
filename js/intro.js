@@ -9,7 +9,7 @@
  * Copyright (C) 2013 usabli.ca - A weekend project by Afshin Mehrabani (@afshinmeh)
  */
 
-(function ($) {
+!function ($) {
   //Default config/variables
   var VERSION = '0.9.0';
 
@@ -1026,4 +1026,4 @@
 
 
   $.introJs = introJs;
-})(jQuery);
+}(jQuery);
