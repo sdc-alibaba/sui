@@ -1,4 +1,4 @@
-(function ($) {
+!function ($) {
     function Pagination(opts) {
         this.itemsCount = opts.itemsCount;
         this.pageSize = opts.pageSize;
@@ -184,4 +184,4 @@
         remote: false
     }
 
-})(window.jQuery)
+}(window.jQuery)

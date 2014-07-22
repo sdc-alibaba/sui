@@ -1,0 +1,109 @@
+extends base_index
+
+block title
+  title 自定义
+
+block head
+  script(src="assets/js/raw-files.min.js")
+  script(src="assets/js/vendor/blob.js")
+  script(src="assets/js/vendor/filesaver.js")
+  script(src="assets/js/vendor/holder.js")
+  script(src="assets/js/vendor/jszip.min.js")
+  script(src="assets/js/vendor/less.min.js")
+  script(src="assets/js/vendor/uglify.min.js")
+
+  style.
+    .sui-form {
+      font-size: 14px;
+    }
+    .btn-huge {
+      padding: 16px 100px;
+      font-size: 20px;
+    }
+
+block header
+  +header('customize')
+
+block content_wrap
+
+  .sui-container
+
+    h1.sui-page-header 自定义下载（测试版）
+    div.sui-msg.msg-tips.msg-large.msg-block
+      div.msg-con
+        | 不建议大家使用自定义下载，尽量使用我们CDN上的文件。
+        | 因为CDN 10年缓存的原因，只有用户第一次加载文件的时候需要下载，而且这个缓存在不同产品间是通用的，
+        | 而且自定义下载到本地之后不会更新。
+      s.msg-icon
+
+    div.sui-msg.msg-tips.msg-large.msg-block
+      div.msg-con
+        ul.unstyled
+          li 自定义下载只支持新版的chrome、safari、firefox等高级浏览器。
+          li 自定义下载暂时不支持换肤功能，只有默认的皮肤，下一个版本会加入对换肤的支持。
+          li 目前自定义下载是测试版，发现任何问题可以及时向我们<a href='mailto:hongxun.lhx@alibaba-inc.com'>反馈</a>。
+      s.msg-icon
+
+
+
+    p.sui-lead
+      | 因为SUI的组件比较多，我们提供自定义下载功能，你可以选择自己需要的组件，我们会自动帮你生成对应的CSS和JS文件。
+
+    h2 选择你需要的组件
+    mixin less(id, title, value)
+      label.checkbox-pretty.inline
+        input(id='#{id}' type='checkbox' name='less' value='#{value}')
+        span #{title}
+
+    div.sui-form.form-horizontal
+      div#less-section
+        div.control-group
+          label.control-label 表单：
+          div.controls
+            +less("forms", "表单", "forms.less")
+            +less("buttons", "按钮", "buttons.less")
+            +less("button-groups", "按钮组", "button-groups.less")
+            +less("checkbox", "单选/复选", "checkbox.less, checkbox.js")
+            +less("dropdown", "下拉菜单", "dropdowns.less, dropdown.js")
+            +less("datepicker", "日期选择器", "datepicker.less, datepicker.js")
+            +less("timepicker", "时间选择器", "timepicker.less, timepicker.js")
+            +less("autocomplete", "自动补全", "autocomplete.less, autocomplete.js")
+            +less("validate", "表单校验", "validate.js, validate-rules.js")
+        div.control-group
+          label.control-label 表格和布局：
+          div.controls
+            +less("global", "全局文本样式", "type.less, reset.less")
+            +less("icons", "图标", "icons.less,icon-moon.less,icon-tb.less,icon-touch.less,icon-pc.less")
+            +less("label", "label", "label.less")
+            +less("tag", "tag", "tag.less")
+        div.control-group
+          label.control-label 导航和提醒：
+          div.controls
+            +less("tables", "表格", "tables.less")
+            +less("grid", "栅格", "grid.less,responsive.less,responsive-utilities.less")
+            +less("layouts", "布局", "layouts.less")
+            +less("navbar", "导航栏", "navbar.less")
+            +less("pagination", "分页器", "pagination.less, pagination.js")
+            +less("msgs", "提示消息", "msgs.less, msgs.js")
+            +less("steps", "步骤条", "steps.less")
+            +less("breadcrumbs", "面包屑", "breadcrumbs.less")
+            +less("tab", "标签页", "navs.less, tab.js")
+            +less("intro", "新手引导", "intro.less, intro.js")
+        div.control-group
+          label.control-label 弹层：
+          div.controls
+            +less("dialog", "对话框", "modals.less, modal.js")
+            +less("tooltip", "tooltip", "tooltip.less, tooltip.js")
+        div.control-group
+          label.control-label 其他：
+          div.controls
+            +less("loading", "loading", "loading.less")
+            +less("progress", "进度条", "progress-bars.less")
+
+        div.control-group
+          label.control-label
+          div.controls
+            button#customize-download.sui-btn.btn-primary.btn-xlarge.btn-huge(style='margin-top: 20px;') 打包下载
+
+  script(src="assets/js/customizer.js")
+  script(src="assets/js/customizer-deps.js")

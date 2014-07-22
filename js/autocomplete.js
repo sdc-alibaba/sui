@@ -11,7 +11,7 @@
 /*global define, window, document, jQuery */
 
 // Expose plugin as an AMD module if AMD loader is present:
-(function ($) {
+!function ($) {
     'use strict';
     var
         utils = (function () {
@@ -814,4 +814,4 @@
     $(function() {
       $("[data-toggle='autocomplete']").autocomplete();
     });
-})(jQuery);
+}(window.jQuery);

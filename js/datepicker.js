@@ -4,7 +4,7 @@
  * Started by Stefan Petre; improvements by Andrew Rowls + contributors
  * you con get the source from github: https://github.com/eternicode/bootstrap-datepicker
 */
-(function($, undefined){
+!function($, undefined){
 
 	var $window = $(window);
 
@@ -1777,4 +1777,4 @@
 		$('[data-toggle="datepicker-inline"]').datepicker();
 	});
 
-}(window.jQuery));
+}(window.jQuery, undefined);

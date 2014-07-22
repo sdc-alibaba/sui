@@ -1,0 +1,236 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>自定义</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="assets/css/animate.css" rel="stylesheet"/>
+    <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet"/>
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
+    <link rel="shortcut icon" href="pictures/logo.png?r=2014.06.18"/>
+    <script src="../js/lib/jquery.js"></script>
+    <script>
+      var themesUrl = "../.package/css/sui.css";
+      var selected = localStorage.getItem("themes-name");
+      if(selected && !(selected == 'default')) {
+        themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        $(function() {
+          var $select = $("#themes-select");
+          var $current = $select.find("[value='"+selected+"']");
+          $current.parent().addClass("active");
+          $select.find(">a > span").html($current.text())[0].className = $current[0].className;
+        });
+      }
+      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+    </script>
+    <script src="../.package/js/sui.js?r=2014.06.30"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-50817062-1', 'taobao.org');
+      ga('send', 'pageview');
+    </script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <script src="assets/js/raw-files.min.js"></script>
+    <script src="assets/js/vendor/blob.js"></script>
+    <script src="assets/js/vendor/filesaver.js"></script>
+    <script src="assets/js/vendor/holder.js"></script>
+    <script src="assets/js/vendor/jszip.min.js"></script>
+    <script src="assets/js/vendor/less.min.js"></script>
+    <script src="assets/js/vendor/uglify.min.js"></script>
+    <style>
+      .sui-form {
+        font-size: 14px;
+      }
+      .btn-huge {
+        padding: 16px 100px;
+        font-size: 20px;
+      }
+      
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./tutorial.html">快速入门</a></li>
+                <li><a href="./gallery.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./themes.html">换肤</a></li>
+                <li class="active"><a href="./customize.html">自定义</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+              <ul class="sui-nav pull-right">
+                <li id="themes-select" class="sui-dropdown select themes-select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"/><span>换肤</span></a>
+                  <ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="default" class="default">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="green" class="green">自然绿</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="pink" class="pink">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="dark-green" class="dark-green">深绿</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-container">
+      <h1 class="sui-page-header">自定义下载（测试版）</h1>
+      <div class="sui-msg msg-tips msg-large msg-block">
+        <div class="msg-con">
+          不建议大家使用自定义下载，尽量使用我们CDN上的文件。
+          因为CDN 10年缓存的原因，只有用户第一次加载文件的时候需要下载，而且这个缓存在不同产品间是通用的，
+          而且自定义下载到本地之后不会更新。
+        </div>
+        <s class="msg-icon"></s>
+      </div>
+      <div class="sui-msg msg-tips msg-large msg-block">
+        <div class="msg-con">
+          <ul class="unstyled">
+            <li>自定义下载只支持新版的chrome、safari、firefox等高级浏览器。</li>
+            <li>自定义下载暂时不支持换肤功能，只有默认的皮肤，下一个版本会加入对换肤的支持。</li>
+            <li>目前自定义下载是测试版，发现任何问题可以及时向我们<a href='mailto:hongxun.lhx@alibaba-inc.com'>反馈</a>。</li>
+          </ul>
+        </div>
+        <s class="msg-icon"></s>
+      </div>
+      <p class="sui-lead">因为SUI的组件比较多，我们提供自定义下载功能，你可以选择自己需要的组件，我们会自动帮你生成对应的CSS和JS文件。</p>
+      <h2>选择你需要的组件</h2>
+      <div class="sui-form form-horizontal">
+        <div id="less-section">
+          <div class="control-group">
+            <label class="control-label">表单：</label>
+            <div class="controls">
+                    <label class="checkbox-pretty inline">
+                      <input id="forms" type="checkbox" name="less" value="forms.less"/><span>表单</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="buttons" type="checkbox" name="less" value="buttons.less"/><span>按钮</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="button-groups" type="checkbox" name="less" value="button-groups.less"/><span>按钮组</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="checkbox" type="checkbox" name="less" value="checkbox.less, checkbox.js"/><span>单选/复选</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="dropdown" type="checkbox" name="less" value="dropdowns.less, dropdown.js"/><span>下拉菜单</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="datepicker" type="checkbox" name="less" value="datepicker.less, datepicker.js"/><span>日期选择器</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="timepicker" type="checkbox" name="less" value="timepicker.less, timepicker.js"/><span>时间选择器</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="autocomplete" type="checkbox" name="less" value="autocomplete.less, autocomplete.js"/><span>自动补全</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="validate" type="checkbox" name="less" value="validate.js, validate-rules.js"/><span>表单校验</span>
+                    </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">表格和布局：</label>
+            <div class="controls">
+                    <label class="checkbox-pretty inline">
+                      <input id="global" type="checkbox" name="less" value="type.less, reset.less"/><span>全局文本样式</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="icons" type="checkbox" name="less" value="icons.less,icon-moon.less,icon-tb.less,icon-touch.less,icon-pc.less"/><span>图标</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="label" type="checkbox" name="less" value="label.less"/><span>label</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="tag" type="checkbox" name="less" value="tag.less"/><span>tag</span>
+                    </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">导航和提醒：</label>
+            <div class="controls">
+                    <label class="checkbox-pretty inline">
+                      <input id="tables" type="checkbox" name="less" value="tables.less"/><span>表格</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="grid" type="checkbox" name="less" value="grid.less,responsive.less,responsive-utilities.less"/><span>栅格</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="layouts" type="checkbox" name="less" value="layouts.less"/><span>布局</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="navbar" type="checkbox" name="less" value="navbar.less"/><span>导航栏</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="pagination" type="checkbox" name="less" value="pagination.less, pagination.js"/><span>分页器</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="msgs" type="checkbox" name="less" value="msgs.less, msgs.js"/><span>提示消息</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="steps" type="checkbox" name="less" value="steps.less"/><span>步骤条</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="breadcrumbs" type="checkbox" name="less" value="breadcrumbs.less"/><span>面包屑</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="tab" type="checkbox" name="less" value="navs.less, tab.js"/><span>标签页</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="intro" type="checkbox" name="less" value="intro.less, intro.js"/><span>新手引导</span>
+                    </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">弹层：</label>
+            <div class="controls">
+                    <label class="checkbox-pretty inline">
+                      <input id="dialog" type="checkbox" name="less" value="modals.less, modal.js"/><span>对话框</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="tooltip" type="checkbox" name="less" value="tooltip.less, tooltip.js"/><span>tooltip</span>
+                    </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">其他：</label>
+            <div class="controls">
+                    <label class="checkbox-pretty inline">
+                      <input id="loading" type="checkbox" name="less" value="loading.less"/><span>loading</span>
+                    </label>
+                    <label class="checkbox-pretty inline">
+                      <input id="progress" type="checkbox" name="less" value="progress-bars.less"/><span>进度条</span>
+                    </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+              <button id="customize-download" style="margin-top: 20px;" class="sui-btn btn-primary btn-xlarge btn-huge">打包下载</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/customizer.js"></script>
+    <script src="assets/js/customizer-deps.js"></script>
+    <div class="footer">
+      <ul class="unstyled">
+        <li>@time 2014.03.07</li>
+        <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+      </ul>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>
