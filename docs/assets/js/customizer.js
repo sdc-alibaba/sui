@@ -17,33 +17,9 @@ window.onload = function () { // wait for load in a dumb way because B-0
            ' */\n\n'
 
   function showError(msg, err) {
-    $('<div id="bsCustomizerAlert" class="bs-customizer-alert">' +
-        '<div class="container">' +
-          '<a href="#bsCustomizerAlert" data-dismiss="alert" class="close pull-right">&times;</a>' +
-          '<p class="bs-customizer-alert-text"><span class="glyphicon glyphicon-warning-sign"></span>' + msg + '</p>' +
-          (err.extract ? '<pre class="bs-customizer-alert-extract">' + err.extract.join('\n') + '</pre>' : '') +
-        '</div>' +
-      '</div>').appendTo('body').alert()
+    window.alert(msg);
+    $compileBtn.removeAttr('disabled')
     throw err
-  }
-
-  function showSuccess(msg) {
-    $('<div class="bs-callout bs-callout-info">' +
-      '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + msg +
-    '</div>').insertAfter('.bs-customize-download')
-  }
-
-  function showCallout(msg, showUpTop) {
-    var callout = $('<div class="bs-callout bs-callout-danger">' +
-       '<h4>Attention!</h4>' +
-      '<p>' + msg + '</p>' +
-    '</div>')
-
-    if (showUpTop) {
-      callout.appendTo('.bs-docs-container')
-    } else {
-      callout.insertAfter('.bs-customize-download')
-    }
   }
 
   function getQueryParam(key) {
@@ -84,7 +60,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
 
   function generateZip(css, js, fonts, config, complete) {
-    if (!css && !js) return showError('<strong>Ruh roh!</strong> No Bootstrap files selected.', new Error('no Bootstrap'))
+    if (!css && !js) return showError('请至少选择一个组件', new Error('no Bootstrap'))
 
     var zip = new JSZip()
 
@@ -171,7 +147,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
       // will be 'undefined'.
       if (fileInclude || (fileInclude == null)) {
         lessSource += __less[filename]
-        console.log('+: '+filename);
+        console && console.log('+: '+filename);
       }
 
       // Custom variables are added after Bootstrap variables so the custom
@@ -201,7 +177,10 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
   function generateCSS() {
     var lessFileIncludes = getCustomizerData().css,
-        oneChecked = $('#less-section input:checked')[0];
+        oneChecked = false;
+    for(var v in lessFileIncludes) {
+      if(lessFileIncludes[v]) oneChecked = true
+    }
 
     if (!oneChecked) return false
 
@@ -246,16 +225,22 @@ window.onload = function () { // wait for load in a dumb way because B-0
   function generateJS() {
     var jqueryCheck = 'if (typeof jQuery === "undefined") { throw new Error("Bootstrap\'s JavaScript requires jQuery") }\n\n'
     var jsChecked = getCustomizerData().js
+    var checkOne = false
     var js = ''
     for(var v in jsChecked) {
-      if(jsChecked[v]) js += __js[v];
+      if(jsChecked[v]) {
+        js += __js[v];
+        checkOne = true
+      }
     }
+    if (!checkOne) return false
+    jsChecked["transition.js"] = true
 
     js = jqueryCheck + js
 
     return {
-      'bootstrap.js': js,
-      'bootstrap.min.js': uglify(js)
+      'sui.js': js,
+      'sui.min.js': uglify(js)
     }
   }
 
@@ -315,39 +300,4 @@ window.onload = function () { // wait for load in a dumb way because B-0
       saveAs(blob, 'bootstrap.zip')
     })
   });
-
-  // browser support alert
-  (function () {
-    function failback() {
-      $('.bs-docs-section, .bs-docs-sidebar').css('display', 'none')
-      showCallout('Looks like your current browser doesn\'t support the Bootstrap Customizer. Please take a second ' +
-                    'to <a href="http://browsehappy.com/">upgrade to a more modern browser</a> (other than Safari).', true)
-    }
-    /**
-     * Based on:
-     *   Blob Feature Check v1.1.0
-     *   https://github.com/ssorallen/blob-feature-check/
-     *   License: Public domain (http://unlicense.org)
-     */
-    var url = window.webkitURL || window.URL // Safari 6 uses "webkitURL".
-    var svg = new Blob(
-      ['<svg xmlns=\'http://www.w3.org/2000/svg\'></svg>'],
-      { type: 'image/svg+xml;charset=utf-8' }
-    )
-    var objectUrl = url.createObjectURL(svg);
-    if (/^blob:/.exec(objectUrl) === null) {
-      // `URL.createObjectURL` created a URL that started with something other
-      // than "blob:", which means it has been polyfilled and is not supported by
-      // this browser.
-      failback()
-    } else {
-      $('<img>')
-        .on('load', function () {
-          $compileBtn.prop('disabled', false)
-        })
-        .on('error', failback)
-        .attr('src', objectUrl)
-    }
-  })();
-
 }

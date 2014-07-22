@@ -1,4 +1,4 @@
-(function($) {
+!function($) {
   /**
    * filesize  获得计算机文件体积大小(byte)对人更友好的格式
    * @param  {number | string}  可正确转为数字的数字（int、float）、字符串
@@ -37,4 +37,4 @@
       return result;
     }
   })
-})(jQuery);
+}(jQuery);

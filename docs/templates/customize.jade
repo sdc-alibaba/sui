@@ -12,23 +12,29 @@ block head
   script(src="assets/js/vendor/less.min.js")
   script(src="assets/js/vendor/uglify.min.js")
 
-  style(type='text/css').
-    .btn-huge {
-      padding: 15px 40px;
-      font-size: 20px;
+  style.
+    .sui-form {
+      font-size: 14px;
     }
+
 block header
   +header('customize')
 
 block content_wrap
+
   .sui-container
+
+    div.sui-msg.msg-tips.msg-large.msg-block
+      div.msg-con 自定义下载只支持新版的chrome、safari、firefox等高级浏览器。
+      s.msg-icon
+
     h1.sui-page-header 自定义下载
 
-    h2 选择模块
 
     p.sui-lead
-      | 我们会自动把对应的css和js文件打包好，您只需要选择对应的模块并点击下载按钮即可。
+      | 因为SUI的组件比较多，我们提供自定义下载功能，你可以选择自己需要的组件，我们会自动帮你生成对应的CSS和JS文件。
 
+    h2 选择组件
     mixin less(id, title, value)
       label.checkbox-pretty.inline
         input(id='#{id}' type='checkbox' name='less' value='#{value}')
@@ -47,7 +53,7 @@ block content_wrap
             +less("datepicker", "日期选择器", "datepicker.less, datepicker.js")
             +less("timepicker", "时间选择器", "timepicker.less, timepicker.js")
             +less("autocomplete", "自动补全", "autocomplete.less, autocomplete.js")
-            +less("validate", "表单校验", "form-validate.js")
+            +less("validate", "表单校验", "validate.js, validate-rules.js")
         div.control-group
           label.control-label 表格和布局：
           div.controls
