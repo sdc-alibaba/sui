@@ -252,16 +252,16 @@ module.exports = function(grunt) {
             }
         ]
       },
-      img: {
-        files: [
-            {
-              expand: true,
-              cwd: 'less/wysiwyg/themes/default/images/',
-              src: ['*.gif', '*.png'],
-              dest:'<%=distRoot %>/images/'
-            }
-        ]
-      },
+      // img: {
+      //   files: [
+      //       {
+      //         expand: true,
+      //         cwd: 'less/wysiwyg/themes/default/images/',
+      //         src: ['*.gif', '*.png'],
+      //         dest:'<%=distRoot %>/images/'
+      //       }
+      //   ]
+      // },
       demo: {
         files: [
             {
