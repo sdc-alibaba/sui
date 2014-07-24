@@ -1,0 +1,35 @@
+extends base_index
+
+block title
+  title 更新日志
+
+block header
+  +header('changelog')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 版本更新日志
+
+    p.sui-lead
+      | 目前我们使用三位版本号增量发布，已经发布的版本不会再有任何变化。 三位版本号为 x.y.z，其中，更新z表组件的bug修复或者功能更新，更新y表示新增组件，更新 x表示不兼容老版本的重要升级（这个目前不会有）。
+
+    ul.unstyled
+      table.sui-table
+        tr
+          th 版本号
+          th 更新内容
+          th 更新时间
+
+        tr
+          td 1.1.6
+          td 修复了checkbox可能会导致页面滚动的bug，官网上增加了更新日志页面。
+          td 2014.07.24
+
+        tr
+          td 1.1.5
+          td 下拉菜单增加了一个禁用状态，更新了jquery cdn地址，修复了官网换肤按钮在小屏幕上会被挡住的bug。
+          td 2014.07.22
+        tr
+          td 1.1.4
+          td 提示消息增加了一个可选的关闭按钮，更新了表单文档。
+          td 2014.07.18
