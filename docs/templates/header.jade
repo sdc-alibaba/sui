@@ -19,6 +19,8 @@ mixin header(highlight)
     - classThemes = 'active'
   else if highlight == 'customize'
     - classCustomize = 'active'
+  else if highlight == 'changelog'
+    - classChangelog = 'active'
   else if highlight == 'about'
     - classAbout = 'active'
   else
@@ -44,6 +46,8 @@ mixin header(highlight)
             a(href="./themes.html") 换肤
           li(class=classCustomize)
             a(href="./customize.html") 自定义
+          li(class=classChangelog)
+            a(href="./changelog.html") 更新日志
           li(class=classAbout)
             a(href="./about.html") 关于
 
