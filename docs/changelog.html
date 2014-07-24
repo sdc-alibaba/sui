@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>SUI</title>
+    <title>更新日志</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="assets/css/animate.css" rel="stylesheet"/>
@@ -35,22 +35,20 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/index.css"/>
-    <script src="assets/js/index.js"></script>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
           <div class="navbar-inner">
             <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
               <ul class="sui-nav">
-                <li class="active"><a href="./index.html">首页</a></li>
+                <li><a href="./index.html">首页</a></li>
                 <li><a href="./tutorial.html">快速入门</a></li>
                 <li><a href="./gallery.html">组件库</a></li>
                 <li><a href="./examples.html">案例</a></li>
                 <li><a href="./download.html">下载</a></li>
                 <li><a href="./themes.html">换肤</a></li>
                 <li><a href="./customize.html">自定义</a></li>
-                <li><a href="./changelog.html">更新日志</a></li>
+                <li class="active"><a href="./changelog.html">更新日志</a></li>
                 <li><a href="./about.html">关于</a></li>
               </ul>
               <ul class="sui-nav pull-right">
@@ -67,12 +65,33 @@
             </div>
           </div>
         </div>
-    <div class="brand-intro">
-      <div class="sui-container">
-        <h1>简单易用、功能强大的UI库</h1>
-        <p class="sui-lead">SUI 是一套基于bootstrap开发的前端组件库，同时她也是一套设计规范。<br/>通过SUI，可以非常方便的设计和实现精美的页面。</p>
-        <p class="btn-wrap"><a href="/sui/docs/tutorial.html" class="sui-btn btn-lead">SUI总库</a><a href="/qnui/docs/tutorial.html" class="sui-btn btn-lead">千牛UI</a><a href="/wqui/docs/tutorial.html" class="sui-btn btn-lead">旺起UI</a></p>
-      </div>
+    <div class="sui-container">
+      <h1 class="sui-page-header">版本更新日志</h1>
+      <p class="sui-lead">目前我们使用三位版本号增量发布，已经发布的版本不会再有任何变化。 三位版本号为 x.y.z，其中，更新z表组件的bug修复或者功能更新，更新y表示新增组件，更新 x表示不兼容老版本的重要升级（这个目前不会有）。</p>
+      <ul class="unstyled">
+        <table class="sui-table">
+          <tr>
+            <th>版本号</th>
+            <th>更新内容</th>
+            <th>更新时间</th>
+          </tr>
+          <tr>
+            <td>1.1.6</td>
+            <td>修复了checkbox可能会导致页面滚动的bug，官网上增加了更新日志页面。</td>
+            <td>2014.07.24</td>
+          </tr>
+          <tr>
+            <td>1.1.5</td>
+            <td>下拉菜单增加了一个禁用状态，更新了jquery cdn地址，修复了官网换肤按钮在小屏幕上会被挡住的bug。</td>
+            <td>2014.07.22</td>
+          </tr>
+          <tr>
+            <td>1.1.4</td>
+            <td>提示消息增加了一个可选的关闭按钮，更新了表单文档。</td>
+            <td>2014.07.18</td>
+          </tr>
+        </table>
+      </ul>
     </div>
     <div class="footer">
       <ul class="unstyled">
