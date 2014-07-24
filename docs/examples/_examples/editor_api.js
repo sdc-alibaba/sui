@@ -119,11 +119,10 @@
             'adapter/editorui.js',
             'adapter/editor.js',
             'adapter/message.js',
-            'adapter/autosave.js',
-            'lang/zh-cn/zh-cn.js'
+            'adapter/autosave.js'
 
         ],
-        baseURL = '../../../js/wysiwyg/_src/';
+        baseURL = '../../sui/js/wysiwyg/_src/';
     for (var i=0,pi;pi = paths[i++];) {
         document.write('<script type="text/javascript" src="'+ baseURL + pi +'"></script>');
     }

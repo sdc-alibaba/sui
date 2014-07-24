@@ -1,0 +1,68 @@
+extends base
+
+block title
+  title 富文本编辑器
+
+block head
+  style(type='text/css').
+    .bs-docs-example .sui-layout div { background-color: #f5faff; min-height: 100px; }
+    .bs-docs-example .sui-layout .sidebar { background: #3096de; }
+  script.
+    window.UEDITOR_HOME_URL = '/sui/.package/';
+  script(type="text/javascript",charset="utf-8",src="../../sui/.package/wysiwyg/ueditor.config.js")
+  script(type="text/javascript",charset="utf-8",src="../../sui/.package/wysiwyg/editor_api.js")
+  script(type="text/javascript",charset="utf-8",src="../../sui/js/wysiwyg/lang/zh-cn/zh-cn.js")
+
+block sidebar
+  +sidebar('wysiwyg')
+
+block content
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 不同与栅格系统的响应式布局，<strong>layout</strong> 是一个简单的两边固定宽度中间自适应的布局。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+  div.tab-content
+    div.tab-pane.active#demo1
+      script(type="text/plain",id="myEditor")
+        p 这里我可以写一些输入提示
+      script(type="text/javascript").
+        UE.getEditor('myEditor',{
+            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+            toolbars:[['FullScreen', 'Source','|','preview', 'Undo', 'Redo','|','removeformat','formatmatch','fontfamily','fontsize','Bold','italic', 'underline','strikethrough','|',
+            'forecolor','backcolor','insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|', 'customstyle', 'paragraph','|'],
+             ['directionalityltr', 'directionalityrtl', 'indent', '|',
+             'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|', 'link', 'unlink', 'anchor', '|',
+             'simpleupload', 'insertimage', 'emotion', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode',  'pagebreak', '|'],
+             ['inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+             'horizontal', 'date', 'time', 'print', 'drafts','test']],
+            //focus时自动清空初始化时的内容
+            autoClearinitialContent:true,
+            //关闭字数统计
+            wordCount:false,
+            //关闭elementPath
+            elementPathEnabled:false,
+            //默认的编辑区域高度
+            initialFrameHeight:300,
+            //默认的编辑区域宽度
+            initialFrameWidth:1000
+            //更多其他参数，请参考ueditor.config.js中的配置项
+        })
+    
+    
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      |左右宽度固定中间自适应的布局，默认宽度会铺满整个屏幕。非常适合用在有侧边栏的全屏页面布局。默认的两边宽度是150px，可以根据需要自己重载。
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码

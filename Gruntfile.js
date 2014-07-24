@@ -21,7 +21,6 @@ module.exports = function(grunt) {
             sources.forEach(function (filepath, index) {
                 sources[ index ] = basePath + filepath;
             });
-
             return sources;
         },
 
@@ -216,8 +215,8 @@ module.exports = function(grunt) {
         files: [
             {
               expand: true,
-              cwd: 'less/wysiwyg//themes/',
-              src: [ 'iframe.css' ],
+              cwd: 'less/wysiwyg/themes/',
+              src: [ 'iframe.css','default/dialogbase.css' ],
               dest: '<%=distRoot %>/wysiwyg/css'
             }
         ]
@@ -226,8 +225,28 @@ module.exports = function(grunt) {
         files: [
             {
               expand: true,
-              cwd: 'less/wysiwyg//themes/default/',
+              cwd: 'less/wysiwyg/themes/default/',
               src: [ 'images/**' ],
+              dest: '<%=distRoot %>/wysiwyg'
+            }
+        ]
+      },
+      wysiwygapi: {
+        files: [
+            {
+              expand: true,
+              cwd: 'docs/examples/_examples/',
+              src: [ 'editor_api.js' ],
+              dest: '<%=distRoot %>/wysiwyg'
+            }
+        ]
+      },
+      wysiwygconfig: {
+        files: [
+            {
+              expand: true,
+              cwd: 'js/wysiwyg/',
+              src: [ 'ueditor.config.js' ],
               dest: '<%=distRoot %>/wysiwyg'
             }
         ]
@@ -252,16 +271,26 @@ module.exports = function(grunt) {
             }
         ]
       },
-      // img: {
-      //   files: [
-      //       {
-      //         expand: true,
-      //         cwd: 'less/wysiwyg/themes/default/images/',
-      //         src: ['*.gif', '*.png'],
-      //         dest:'<%=distRoot %>/images/'
-      //       }
-      //   ]
-      // },
+      wysiwygdialogs: {
+        files: [
+            {
+              expand: true,
+              cwd: 'docs/examples/_examples',
+              src: [ 'dialogs/**' ],
+              dest: '<%=distRoot %>/'
+            }
+        ]
+      },
+      img: {
+        files: [
+            {
+              expand: true,
+              cwd: 'less/wysiwyg/themes/default/images/',
+              src: ['*.gif', '*.png'],
+              dest:'<%=distRoot %>/images/'
+            }
+        ]
+      },
       demo: {
         files: [
             {
