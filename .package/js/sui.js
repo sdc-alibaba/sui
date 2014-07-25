@@ -6382,7 +6382,7 @@ require('./intro')
   var url = function(value, element, param) {
     var urlPattern;
     value = trim(value);
-    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)?[\w-]+\.(com|net|cn|org|me|io|info)/;
+    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)+[\w-]+\.(com|net|cn|org|me|io|info|xxx)/;
     if (!/^http/.test(value)) {
       value = 'http://' + value;
     }
@@ -6472,13 +6472,14 @@ require('./intro')
     var $input = $(input);
     var rules = {};
     var dataRules = ($input.data("rules") || "").split('|');
+    var inputName = $input.attr("name");
     for (var i = 0; i < dataRules.length; i++) {
       if (!dataRules[i]) continue;
       var tokens = dataRules[i].split('=');
       tokens[1] = tokens[1] || undefined;
       rules[tokens[0]] = tokens[1];
     }
-    var configRules = (this.options.rules && this.options.rules[$input.attr("name")]) || {};
+    var configRules = (this.options.rules && this.options.rules[inputName]) || {};
     rules = $.extend(rules, configRules)
     var error = false;
     var msg = null;
@@ -6509,6 +6510,13 @@ require('./intro')
         error = true;
         msg = currentRule.msg;
         if ($.isFunction(msg)) msg = msg($input, value)
+        if($input.data("error-msg")) {
+          msg = $input.data("error-msg")
+        }
+        if (this.options.messages && this.options.messages[inputName]) {
+          msg = this.options.messages[inputName]
+          if ($.isFunction(msg)) msg = msg($input, value)
+        }
         showError.call(this, $input, name, msg.replace('$0', value));
         break;
       }
@@ -6602,6 +6610,7 @@ require('./intro')
       $error.hide()
     },
     rules: undefined,
+    messages: undefined,
     success: $.noop,
     fail: $.noop
   };
