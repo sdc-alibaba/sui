@@ -87,16 +87,6 @@ module.exports = function(grunt) {
             ext: 'ueditor.min.css'
         }
     },
-    closurecompiler: {
-        dist: {
-            src: '<%=distRoot %>/wysiwyg/js/editor.all.js',
-            dest: '<%=distRoot %>/wysiwyg/js/editor.all.min.js'
-        },
-        parse: {
-            src: '<%=distRoot %>/wysiwyg/js/editor.parse.js',
-            dest: '<%=distRoot %>/wysiwyg/js/editor.parse.min.js'
-        }
-    },
 
     jshint: {
       options: {
@@ -132,6 +122,14 @@ module.exports = function(grunt) {
           dest: '<%= distRoot %>/js/',
           ext: '.min.js'
         }]
+      },
+      editorAll: {
+          src: '<%=distRoot %>/wysiwyg/js/editor.all.js',
+          dest: '<%=distRoot %>/wysiwyg/js/editor.all.min.js'
+      },
+      editorParse: {
+          src: '<%=distRoot %>/wysiwyg/js/editor.parse.js',
+          dest: '<%=distRoot %>/wysiwyg/js/editor.parse.min.js'
       }
     },
 
@@ -340,7 +338,6 @@ module.exports = function(grunt) {
   //wysiwyg
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-closurecompiler');
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -375,7 +372,7 @@ module.exports = function(grunt) {
   //wysiwyg
   grunt.registerTask('wysiwyg','UEditor build', function () {
 
-    var tasks = [ 'concat', 'cssmin', 'closurecompiler', 'copy'];
+    var tasks = [ 'concat', 'cssmin', 'uglify:editorAll', 'uglify:editorParse', 'copy'];
 
     grunt.task.run(tasks);
 
