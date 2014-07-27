@@ -121,21 +121,20 @@
     }
   });
   //提取上传参数
-  function getParam (fileinput) {
-    var data = opt.data
-      , param = {
+  function getParam (fileinput, data) {
+    var param = {
         type: 'post',
         dataType: 'json',
         files: fileinput,
         upload: true
       };
-    (typeof opt.data == 'function') && (data = data())
+    (typeof data == 'function') && (data = data())
     if (data) {
       $.extend(param, {
         data: data,
         processData: false
       })
-    }     
+    }
     return param;
   }
   // 文件大小限制
@@ -146,11 +145,11 @@
     var size = this.files[0].size
       ,ret = {isok:true, errMsg: ''};
     if (typeof max == 'number' && size > max) {
-      ret.isok = false; 
+      ret.isok = false;
       ret.errMsg = '文件大小请不要超过' + $.filesize(size);
     }
     if (typeof min == 'number' && size < min) {
-      ret.isok = false; 
+      ret.isok = false;
       ret.errMsg = '文件大小请不要小于' + $.filesize(size);
     }
     return ret;
@@ -168,7 +167,7 @@
       $fileinputs.on('change.upload', function(e) {
         if (!$(this).val()) return;
         var fileinput = this
-          , param = getParam(fileinput)
+          , param = getParam(fileinput, opt.data)
           , sl = opt.sizeLimit
           , ret;
         //有大小限制需求且是有files接口的浏览器环境
@@ -182,7 +181,7 @@
               ,body: '<div class="sui-msg msg-large msg-block msg-error"><div class="msg-con">' + ret.errMsg + '</div><s class="msg-icon"></s></div>'
               ,timeout: 2000
               ,bgColor: '#fff'
-            }); 
+            });
             return;
           }
         }
