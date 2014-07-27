@@ -17,6 +17,10 @@ mixin header(highlight)
     - classDownload = 'active'
   else if highlight == 'themes'
     - classThemes = 'active'
+  else if highlight == 'customize'
+    - classCustomize = 'active'
+  else if highlight == 'changelog'
+    - classChangelog = 'active'
   else if highlight == 'about'
     - classAbout = 'active'
   else
@@ -40,6 +44,10 @@ mixin header(highlight)
             a(href="./download.html") 下载
           li(class=classThemes)
             a(href="./themes.html") 换肤
+          li(class=classCustomize)
+            a(href="./customize.html") 自定义
+          li(class=classChangelog)
+            a(href="./changelog.html") 更新日志
           li(class=classAbout)
             a(href="./about.html") 关于
 

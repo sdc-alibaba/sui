@@ -1,9 +1,10 @@
 /* jshint node: true */
 
-var exec = require("child_process").exec;
-
 module.exports = function(grunt) {
   'use strict';
+
+  var generateRawFiles = require('./grunt/raw-files-generator.js');
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*dpl started*/',
@@ -116,14 +117,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-    /*
-    qunit: {
-      options: {
-        inject: 'js/tests/unit/phantom.js'
-      },
-      files: ['js/tests/*.html']
-    },
-    */
 
     connect: {
       server: {
@@ -172,6 +165,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-newer');
+
+  //custom task
+  grunt.registerTask('build-raw-files', 'Add scripts/less files to customizer.', function () {
+    var banner = grunt.template.process('<%= banner %>');
+    generateRawFiles(grunt, banner);
+  });
+
   // Test task.
   grunt.registerTask('test', ['jshint']);
 
@@ -188,8 +188,11 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
   grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
+  //custom page
+  grunt.registerTask('custom', ['build-raw-files']);
+
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs']);
+  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
 }
