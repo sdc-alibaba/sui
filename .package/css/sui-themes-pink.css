@@ -926,6 +926,9 @@ sui-pre .sui-code {
 .icon-pc-error-triangle-sign:before {
   content: "\e609";
 }
+.icon-pc-text:before {
+  content: "\e60b";
+}
 @font-face {
   font-family: 'icon-touch';
   src: url('../fonts//icon-touch.eot?-t7qwrr');
@@ -7698,7 +7701,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-nav.nav-tabs.tab-navbar {
   display: inline-block;
-  border: 1px solid #ddd;
+  border: 1px solid #dddddd;
   border-radius: 3px;
   padding-left: 0;
 }
@@ -7725,6 +7728,35 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.tab-navbar > li:last-child > a {
   border-radius: 0 3px 3px 0;
 }
+.sui-nav.nav-tabs.tab-navbar.tab-light li.active > a {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light li.active > a,
+.sui-nav.nav-tabs.tab-navbar.tab-light li > a:hover {
+  background-color: #f3f3f3;
+  color: #666;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light li + li > a {
+  border-left: 1px solid #dddddd;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li {
+  margin: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li a,
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li:first-child > a,
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li:last-child > a {
+  border: 0;
+  margin: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li.active > a {
+  border-bottom: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li + li > a {
+  border-top: 1px solid #dddddd !important;
+}
 .sui-nav.nav-tabs.tab-navbar.tab-vertical > li {
   margin-left: -1px;
   margin-right: -1px;
@@ -7732,15 +7764,17 @@ input[type="submit"].btn.btn-mini {
 .sui-nav.nav-tabs.tab-navbar.tab-vertical > li a {
   border: 0;
 }
-.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:first-child > a {
-  border-radius: 3px 3px 0 0;
-}
-.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:last-child > a {
-  border-radius: 0 0 3px 3px;
-}
 .sui-nav.nav-tabs.tab-navbar.tab-vertical > li.active a {
   margin-top: 0;
   margin-bottom: 0;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:first-child > a {
+  border-radius: 3px 3px 0 0;
+  margin-top: -1px;
+}
+.sui-nav.nav-tabs.tab-navbar.tab-vertical > li:last-child > a {
+  border-radius: 0 0 3px 3px;
+  margin-bottom: -1px;
 }
 .sui-nav.nav-tabs.tab-wraped {
   padding-left: 0;
