@@ -13,7 +13,11 @@ block content
     | 强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件。
     br
-    strong 更新 v1.1.7: 修复了url校验规则无法支持二级域名的bug，增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。
+    ul.unstyled
+      li
+        strong 更新 v1.1.9: 自定义错误消息区分未填写和填写错误两种情况，可以分别定义。
+      li
+        strong 更新 v1.1.7: 修复了url校验规则无法支持二级域名的bug，增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。
 
   h2 通过HTML配置规则
   p.lead
@@ -250,11 +254,17 @@ block content
             td
               | 可以给每一个输入框单独设定出错消息，仍然是通过输入框的name来指定，出错消息可以是一个字符串或者回调函数。
               br
-              比如：
+              | 比如：
               br
-              messages: { email: "亲，请输入你的邮箱"}
+              | messages: { email: "亲，请输入你的邮箱"}
               br
-              | 表示name为email的输入框出错后，总是显示"亲，请输入你的邮箱"。也可以直接在输入框上通过 <code>data-error-msg</code> 来设定。
+              | 表示name为email的输入框出错后，总是显示"亲，请输入你的邮箱"。
+              br
+              | 如果想分别设定未填写和填写错误的消息，则可以传入一个数组，数组中第一个元素是未填写的出错消息，第二个元素是填写错误的出错消息。
+              br
+              | 比如:
+              br
+              | messages: { email: ["请填写您的邮箱", "亲，请输入你的邮箱"]}
           tr
             td highlight
             td
@@ -354,7 +364,14 @@ block content
   p
     | 1. 没有给输入框指定错误消息，则会默认用对应出错规则的错误消息。每一个规则都有自己的错误消息，可以通过重载来改变一个规则的默认消息。如果一个输入框没有定义自己的错误消息，则会显示出错规则的错误消息。比如你定义了data-rules='required|email'，但是用户输入的邮箱不合法，则显示的错误消息是email默认的消息"请填写正确的email地址".
   p
-    | 2. 给输入框设定了错误消息，则会直接用设定的错误消息，可以通过html标签来设定，比如 <code> data-error-msg='亲，你的email地址不对哦'</code> 也可以通过 js 配置中的messages 字段来指定。给输入框设定了错误消息后，就不会显示错误规则中的消息，比如你设定了 <code> data-error-msg='亲，你的email地址不对哦'</code>，任何出错情况下都会显示这个消息（如果是js配置的错误消息，你可以设定一个回调函数来动态返回一个消息）。
+    | 2. 给输入框设定了错误消息，则会直接用设定的错误消息，而不会用出错规则对应的消息。
+
+  p 有两种方式可以定义错误消息：
+
+  p 1. 在html中通过 <code>data-error-msg</code> 和 <code>data-empty-msg</code>来分别定义填写错误和未填写的错误消息。如果没有定义 <code>data-empty-msg</code>，则用户未填写的时候会显示required规则对应的错误消息。
+  p 2. 在JS中通过 messages 来配置错误消息。比如： <code>messages: { email: "邮箱不合法"}</code>，当用户填写错误邮箱时会显示"邮箱不合法"。也可以设置一个数组，分别表示未填写和填写错误时的出错消息，比如<code>messages: { email: ["请填写邮箱", "邮箱不合法a]"}</code>。
+
+    
     br
     js中设置messages请参考js文档。
   ul.sui-nav.nav-tabs.nav-large
@@ -380,7 +397,7 @@ block content
           div.control-group
             label.control-label(for="inputNick") 昵称：
             div.controls
-              input(type="text" id="inputNick" name='nick' placeholder="昵称" data-rules='required|minlength=2|maxlength=6' data-error-msg='这个消息是我在html中设置的，是不是很方便')
+              input(type="text" id="inputNick" name='nick' placeholder="昵称" data-rules='required|minlength=2|maxlength=6' data-error-msg='昵称必须是2-6位' data-empty-msg='亲，昵称别忘记填了')
           div.control-group
             label.control-label(for="sanwei")
             div.controls
@@ -388,8 +405,8 @@ block content
         script.
           $("#form-msg").validate({
             messages: {
-              email: "亲，你连邮箱都没有么",
-              password: "亲，别忘记设置密码哦，必须是6-12位哦"
+              email: ["亲，你还没填邮箱呢", "邮箱不要瞎填哦"],
+              password: "亲，密码必须是6-12位哦"
             }
           })
     div.tab-pane#code-msg
