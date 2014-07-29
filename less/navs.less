@@ -292,7 +292,13 @@
         &.tab-vertical {
           li {
             margin: 0;
-            a, &:first-child > a, &:last-child > a {
+            a, &:first-child > a {
+              border: 0;
+              margin: 0;
+            }
+
+            // last-child ie8不支持，和上面的写在一起会导致上面的也失效，所以单独写
+            &:last-child > a {
               border: 0;
               margin: 0;
             }
