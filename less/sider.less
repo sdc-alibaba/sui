@@ -1,0 +1,33 @@
+@import 'variables.less';
+@import 'mixins.less';
+
+.sui-sider{
+	position: fixed;
+	right: 2em;
+	bottom: 2em;
+	z-index: 900;
+	.btn {
+		display: block;
+		width: 38px;
+		height: 38px;
+		background-color: @black;
+		color: @white;
+		text-align: center;
+		line-height: 38px;
+		font-size: 18px;
+		cursor: pointer;
+		text-decoration: none;
+		.opacity(20);
+    .singleTransition(opacity, .3s);
+    .border-radius(@borderRadiusMini);
+    +.btn {
+      margin-top: 4px;
+    }
+    &:hover {
+      .opacity(30);
+    }
+    &:active {
+      .opacity(50);
+    }
+  }
+}
