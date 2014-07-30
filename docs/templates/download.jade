@@ -25,16 +25,21 @@ block content_wrap
           li 最好上面提供的CDN地址，不要直接用我们sui.taobao.org域名下面的css和js，这只是给官网用的。
       .msg-icon
 
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
+        | jquery CDN地址已经更新，大家尽量用新的地址 <code>http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js</code>，以前的地址已经废弃不会再更新。
+      .msg-icon
+
     h2 直接引用CDN文件
     p
       | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
     ul.unstyled
       li
-        a(href='http://g.alicdn.com/sj/dpl/1.0.1/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/1.0.1/css/sui.min.css
+        a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/#{version}/css/sui.min.css
       li
-        a(href='http://g.alicdn.com/sj/dpl/1.0.1/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/1.0.1/js/sui.min.js
+        a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/#{version}/js/sui.min.js
     p
-      | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery.min.js' target='_blank'>http://g.alicdn.com/sj/lib/jquery.min.js</a>。
+      | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js' target='_blank'>http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js</a>。
 
     h2 下载zip文件
 

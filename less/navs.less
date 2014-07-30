@@ -244,7 +244,7 @@
     }
     &.tab-navbar {
       display: inline-block;
-      border: 1px solid #ddd;
+      border: 1px solid @navTabsBorderColor;
       border-radius: @borderRadiusSmall;
       padding-left: 0;
       > li {
@@ -271,25 +271,63 @@
           border-radius: 0 @borderRadiusSmall @borderRadiusSmall 0;
         }
       }
+      &.tab-light {
+        li.active > a {
+          margin-top: 0;
+          margin-bottom: 0;
+          border-top: 0;
+          border-bottom: 0;
+        }
+        li.active > a,
+        li > a:hover {
+          background-color: #f3f3f3;
+          color: #666;
+        }
+        li + li {
+          > a {
+            border-left: 1px solid @navTabsBorderColor;
+          }
+        }
+
+        &.tab-vertical {
+          li {
+            margin: 0;
+            a, &:first-child > a, &:last-child > a {
+              border: 0;
+              margin: 0;
+            }
+            &.active > a {
+              border-bottom: 0;
+            }
+            + li > a {
+              border-top: 1px solid @navTabsBorderColor!important;
+            }
+          }
+        }
+      }
       &.tab-vertical {
         > li {
           a {
             border: 0;
           }
-          &:first-child > a {
-            border-radius: @borderRadiusSmall @borderRadiusSmall 0 0;
-          }
-          &:last-child > a {
-            border-radius: 0 0 @borderRadiusSmall @borderRadiusSmall;
-          }
+
           &.active a {
             margin-top: 0;
             margin-bottom: 0;
+          }
+          &:first-child > a {
+            border-radius: @borderRadiusSmall @borderRadiusSmall 0 0;
+            margin-top: -1px;
+          }
+          &:last-child > a {
+            border-radius: 0 0 @borderRadiusSmall @borderRadiusSmall;
+            margin-bottom: -1px;
           }
           margin-left: -1px;
           margin-right: -1px;
         }
       }
+      
     }
 
     &.tab-wraped {
@@ -522,7 +560,8 @@
   .clearfix();
 }
 .tab-content {
-  overflow: auto; // prevent content from running below tabs
+  // this will cause dropdown scroll bug
+  //overflow: auto; // prevent content from running below tabs
 }
 
 // Remove border on bottom, left, right

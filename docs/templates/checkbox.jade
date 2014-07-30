@@ -17,9 +17,7 @@ block content
     br
     ul.unstyled
       li
-        strong 更新 @2014-06-27: 因为图标用<code>vertical-align: middle</code>无法实现居中对齐，现在改为默认用 <code>vertical-align: -4px</code>，如果选框的大小有变化，可能需要手动调整vertical-align来实现上下对齐。
-      li
-        strong 更新 @2014-06-19: 去掉了 data-toggle 接口，现在事件全部代理到 document 处理，不需要初始化插件就可以自动更新样式。
+        strong 更新 v1.1.6: 修复了checkbox可能导致页面滚动的bug。
 
   h2 通过data-api使用
 
@@ -45,6 +43,10 @@ block content
         label.checkbox-pretty.inline
           input(type='checkbox')
           span 佐助
+
+        label.checkbox-pretty.inline
+          input(type='checkbox')
+          span 我爱罗
 
         h3 单选框
         label.radio-pretty.inline.checked

@@ -26,9 +26,9 @@
 }
 
 .overspread {
-  top: 0;
+  top: -1px;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 }
 // Background
@@ -94,13 +94,15 @@
     position: relative;
     overflow-y: auto;
     min-height: 100px;
-    max-height: 500px;
+    max-height: 550px;
     margin: 0;
-    padding: 13px 15px;
+    padding: 10px 15px;
     &.no-foot{
       min-height: 190px;
     }
+
   }
+
   // Remove bottom margin if need be
   .modal-form {
     margin-bottom: 0;

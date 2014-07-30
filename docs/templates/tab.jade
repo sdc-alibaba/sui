@@ -22,6 +22,10 @@ block content
   p.sui-lead
     | 三种不同大小的标签页，可以当做静态组件使用，引入js之后可以做动态的切换。js用法参考 <a href='tab-js.html'>tab-js</a>。
 
+    ul.unstyled
+      li
+        strong 更新 v1.1.7：为导航条样式的标签页增加了一个轻量的样式（灰色高亮）。
+
   h2 默认标签页
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -212,7 +216,47 @@ block content
           li.active
             a(href='#') 运维
 
+        br
+
+        ul.sui-nav.nav-tabs.tab-navbar.tab-light
+          li.active
+            a 标签一
+          li
+            a(href='#') 标签二
+          li
+            a(href='#') 标签二
+
+        ul.sui-nav.nav-tabs.nav-large.tab-navbar.tab-light
+          li
+            a 语文
+          li.active
+            a(href='#') 数学
+          li
+            a(href='#') 英语
+
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-light
+          li
+            a 前端
+          li
+            a(href='#') 后端
+          li.active
+            a(href='#') 运维
+
         h3 垂直
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical
+          li.active
+            a 前端
+          li
+            a(href='#') 后端
+          li
+            a(href='#') 运维
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical
+          li
+            a 前端
+          li.active
+            a(href='#') 后端
+          li
+            a(href='#') 运维
         ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical
           li
             a 前端
@@ -220,6 +264,31 @@ block content
             a(href='#') 后端
           li.active
             a(href='#') 运维
+
+        br
+
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical.tab-light
+          li.active
+            a 前端
+          li
+            a(href='#') 后端
+          li
+            a(href='#') 运维
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical.tab-light
+          li
+            a 前端
+          li.active
+            a(href='#') 后端
+          li
+            a(href='#') 运维
+        ul.sui-nav.nav-tabs.nav-xlarge.tab-navbar.tab-vertical.tab-light
+          li
+            a 前端
+          li
+            a(href='#') 后端
+          li.active
+            a(href='#') 运维
+
     div.tab-pane#code4
       pre.prettyprint.linenums(data-target='#demo4>div')
 

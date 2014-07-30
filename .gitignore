@@ -43,3 +43,4 @@ pid.txt
 build/
 docs/*.html
 .package/
+docs/assets/js/raw-files.min.js

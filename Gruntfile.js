@@ -1,7 +1,5 @@
 /* jshint node: true */
 
-var exec = require("child_process").exec;
-
 module.exports = function(grunt) {
   'use strict';
 
@@ -41,6 +39,7 @@ module.exports = function(grunt) {
 
     };
 
+  var generateRawFiles = require('./grunt/raw-files-generator.js');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -330,7 +329,7 @@ module.exports = function(grunt) {
       },
       docsCss: {
         files: '<%= docsRoot %>/assets/less/**/*.less',
-        tasks: ['newer:less:docs']
+        tasks: ['less:docs']
       }
     }
   });
@@ -349,6 +348,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-newer');
+
+  //custom task
+  grunt.registerTask('build-raw-files', 'Add scripts/less files to customizer.', function () {
+    var banner = grunt.template.process('<%= banner %>');
+    generateRawFiles(grunt, banner);
+  });
+
   // Test task.
   grunt.registerTask('test', ['jshint']);
 
@@ -365,8 +371,11 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', ['dist-css', 'dist-js', 'dist-fonts']);
   grunt.registerTask('docs', ['jade']); //必须先执行dist才能执行此任务
 
+  //custom page
+  grunt.registerTask('custom', ['build-raw-files']);
+
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs','wysiwyg']);
+  grunt.registerTask('default', ['test', 'dist', 'docs', 'wysiwyg', 'custom']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
   //wysiwyg

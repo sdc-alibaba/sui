@@ -33,8 +33,9 @@
         if (!$el.data("toggle")) {
           $el.attr("data-toggle", 'dropdown')
         }
-        var trigger = this.options.trigger
-            , $container = getContainer($el)
+        var trigger = this.options.trigger;
+        this.$container = getContainer($el);
+        var $container = this.$container;
         if(trigger == 'click') {
           $el.on('click.dropdown.data-api', $.proxy(this.toggle, this))
           $('html').on(trigger + '.dropdown.data-api', function () {
@@ -66,7 +67,7 @@
           , $parent
           , isActive
 
-      if ($el.is('.disabled, :disabled')) return
+      if (this.$container.is('.disabled, :disabled')) return
 
       $parent = getParent($el)
 
@@ -75,10 +76,6 @@
       clearMenus()
 
       if (!isActive) {
-        if ('ontouchstart' in document.documentElement) {
-          // if mobile we we use a backdrop because click events don't delegate
-          $('<div class="dropdown-backdrop"/>').insertBefore($el).on('click', clearMenus)
-        }
         $parent.toggleClass('open')
       }
 
@@ -88,13 +85,16 @@
     }
 
   , show: function() {
+    if (this.$container.is('.disabled, :disabled')) return
     getParent(this.$el).addClass("open")
   }
   , hide: function() {
+    if (this.$container.is('.disabled, :disabled')) return
     getParent(this.$el).removeClass("open")
   }
 
   , setValue: function(e) {
+    if (this.$container.is('.disabled, :disabled')) return
     var $target = $(e.currentTarget),
         $container = $target.parents(".sui-dropdown"),
         $menu = $container.find("[role='menu']")
@@ -119,7 +119,7 @@
       e.preventDefault()
       e.stopPropagation()
 
-      if ($this.is('.disabled, :disabled')) return
+      if (this.$container.is('.disabled, :disabled')) return
 
       $parent = getParent($this)
 
