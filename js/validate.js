@@ -108,12 +108,27 @@
         error = true;
         msg = currentRule.msg;
         if ($.isFunction(msg)) msg = msg($input, value)
-        if($input.data("error-msg")) {
-          msg = $input.data("error-msg")
+        //如果不是required规则，则可以使用自定义错误消息
+        if(name !== 'required') {
+          if($input.data("error-msg")) {
+            msg = $input.data("error-msg")
+          }
+          if (this.options.messages && this.options.messages[inputName]) {
+            msg = this.options.messages[inputName]
+            if ($.isFunction(msg)) msg = msg($input, value)
+            if ($.isArray(msg)) msg = msg[1]
+          }
         }
-        if (this.options.messages && this.options.messages[inputName]) {
-          msg = this.options.messages[inputName]
-          if ($.isFunction(msg)) msg = msg($input, value)
+        //如果是required规则
+        if(name === 'required') {
+          if($input.data("empty-msg")) {
+            msg = $input.data("empty-msg")
+          }
+          if (this.options.messages && this.options.messages[inputName]) {
+            var _msg = this.options.messages[inputName]
+            if ($.isFunction(_msg)) _msg = msg($input, value)
+            if ($.isArray(_msg)) msg = _msg[0]
+          }
         }
         showError.call(this, $input, name, msg.replace('$0', value));
         break;
