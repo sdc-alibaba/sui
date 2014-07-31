@@ -1004,6 +1004,12 @@ sui-pre .sui-code {
 .icon-pc-edit-circle:before {
   content: "\e624";
 }
+.icon-pc-undo:before {
+  content: "\e625";
+}
+.icon-pc-redo:before {
+  content: "\e626";
+}
 @font-face {
   font-family: 'icon-touch';
   src: url('../fonts//icon-touch.eot?-t7qwrr');
@@ -7821,7 +7827,10 @@ input[type="submit"].btn.btn-mini {
   margin: 0;
 }
 .sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li a,
-.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li:first-child > a,
+.sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li:first-child > a {
+  border: 0;
+  margin: 0;
+}
 .sui-nav.nav-tabs.tab-navbar.tab-light.tab-vertical li:last-child > a {
   border: 0;
   margin: 0;
