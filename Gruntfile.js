@@ -2,6 +2,7 @@
 
 module.exports = function(grunt) {
   'use strict';
+  require('load-grunt-tasks')(grunt);
 
   var generateRawFiles = require('./grunt/raw-files-generator.js');
 
@@ -154,17 +155,6 @@ module.exports = function(grunt) {
     }
   });
 
-
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-newer');
 
   //custom task
   grunt.registerTask('build-raw-files', 'Add scripts/less files to customizer.', function () {
