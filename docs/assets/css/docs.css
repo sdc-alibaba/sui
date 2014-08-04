@@ -255,7 +255,7 @@ h1.sui-page-header:before {
 }
 #themes-select .dropdown-toggle span,
 #themes-select li a {
-  background: #76b8ea;
+  background: #28a3ef;
   text-indent: -9999em;
   width: 32px;
   height: 32px;
@@ -264,19 +264,19 @@ h1.sui-page-header:before {
 }
 #themes-select .dropdown-toggle span.default,
 #themes-select li a.default {
-  background: #76b8ea;
+  background: #28a3ef;
 }
 #themes-select .dropdown-toggle span.green,
 #themes-select li a.green {
-  background: #82af70;
+  background: #4a8e57;
 }
 #themes-select .dropdown-toggle span.pink,
 #themes-select li a.pink {
-  background: #d094b6;
+  background: #b654a7;
 }
 #themes-select .dropdown-toggle span.dark-green,
 #themes-select li a.dark-green {
-  background: #5c9098;
+  background: #518594;
 }
 .hidden-achor {
   position: relative;
