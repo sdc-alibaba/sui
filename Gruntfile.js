@@ -341,6 +341,10 @@ module.exports = function(grunt) {
         files: 'js/editor/_parse/*.js',
         tasks: ['concat:editorParse']
       },
+      editorConfig: {
+        files: 'js/editor/editor.config.js',
+        tasks: ['copy:editorConfig']
+      },
       editorCSS: {
         files: 'less/editor/*.less',
         tasks: ['less:editor']
