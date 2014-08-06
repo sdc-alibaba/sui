@@ -230,7 +230,11 @@ module.exports = function(grunt) {
       },
       editor: {
         src: ['less/editor/all.less'],
-        dest: '<%= distRoot %>/css/editor.css'
+        dest: '<%= distRoot %>/editor/themes/default/css/editor.css'
+      },
+      editorDialog: {
+        src: ['less/editor/dialogbase.less'],
+        dest: '<%= distRoot %>/editor/themes/default/dialogbase.css'
       }
     },
     jade: {
@@ -257,17 +261,27 @@ module.exports = function(grunt) {
       },
       editorConfig: {
         files: [
-          { expand: true, cwd: './js/editor/', src:["editor.config.js"], dest: '<%= distRoot %>/js/editor' },
+          { expand: true, cwd: './js/editor/', src:["editor.config.js"], dest: '<%= distRoot %>/editor' },
         ]
       },
       editorLang: {
         files: [
-          { expand: true, cwd: './js/editor/lang', src:["**/*"], dest: '<%= distRoot %>/js/editor/lang' },
+          { expand: true, cwd: './js/editor/lang', src:["**/*"], dest: '<%= distRoot %>/editor/lang' },
+        ]
+      },
+      editorDialog: {
+        files: [
+          { expand: true, cwd: './js/editor/dialogs', src:["**/*"], dest: '<%= distRoot %>/editor/dialogs' },
+        ]
+      },
+      editorThird: {
+        files: [
+          { expand: true, cwd: './js/editor/third-party', src:["**/*"], dest: '<%= distRoot %>/editor/third-party' },
         ]
       },
       images: {
         files: [
-          { expand: true, cwd: 'images/', src:["**/*"], dest: '<%= distRoot %>/images' },
+          { expand: true, cwd: 'images/', src:["**/*"], dest: '<%= distRoot %>/editor/themes/default/images' },
         ]
       }
     },
@@ -292,7 +306,7 @@ module.exports = function(grunt) {
           }
         },
         src: concatPath(editorJS, "./js/editor/_src/"),
-        dest: '<%= distRoot %>/js/editor/editor.all.js'
+        dest: '<%= distRoot %>/editor/editor.all.js'
       },
       editorParse: {
         options: {
@@ -300,7 +314,7 @@ module.exports = function(grunt) {
           footer: '\n\n})();\n'
         },
         src: concatPath(editorParseJS, "./js/editor/_parse/"),
-        dest: '<%= distRoot %>/js/editor/editor.parse.js'
+        dest: '<%= distRoot %>/editor/editor.parse.js'
       }
     },
     watch: {
@@ -320,8 +334,12 @@ module.exports = function(grunt) {
         tasks: ['browserify', 'newer:copy']
       },
       editorJS: {
-        files: 'js/editor/*.js',
-        tasks: ['concat']
+        files: 'js/editor/_src/*.js',
+        tasks: ['concat:editorJS']
+      },
+      editorParse: {
+        files: 'js/editor/_parse/*.js',
+        tasks: ['concat:editorParse']
       },
       editorCSS: {
         files: 'less/editor/*.less',
@@ -368,7 +386,7 @@ module.exports = function(grunt) {
   grunt.registerTask('images', ['copy:images']);
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom', 'images', 'concat', 'copy:editorConfig', 'copy:editorLang']);
+  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom', 'images', 'concat', 'copy']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
 }
