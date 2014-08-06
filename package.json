@@ -34,6 +34,7 @@
     "grunt-newer": "~0.7.0",
     "btoa": "~1.1.2",
     "glob": "~4.0.4",
-    "load-grunt-tasks": "~0.6.0"
+    "load-grunt-tasks": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0"
   }
 }

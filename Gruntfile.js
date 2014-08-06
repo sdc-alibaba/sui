@@ -5,6 +5,140 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   var generateRawFiles = require('./grunt/raw-files-generator.js');
+  var editorJS = [
+    'editor.js',
+    'core/browser.js',
+    'core/utils.js',
+    'core/EventBase.js',
+    'core/dtd.js',
+    'core/domUtils.js',
+    'core/Range.js',
+    'core/Selection.js',
+    'core/Editor.js',
+    'core/Editor.defaultoptions.js',
+    'core/loadconfig.js',
+    'core/ajax.js',
+    'core/filterword.js',
+    'core/node.js',
+    'core/htmlparser.js',
+    'core/filternode.js',
+    'core/plugin.js',
+    'core/keymap.js',
+    'core/localstorage.js',
+    'plugins/defaultfilter.js',
+    'plugins/inserthtml.js',
+    'plugins/autotypeset.js',
+    'plugins/autosubmit.js',
+    'plugins/background.js',
+    'plugins/image.js',
+    'plugins/justify.js',
+    'plugins/font.js',
+    'plugins/link.js',
+    'plugins/iframe.js',
+    'plugins/scrawl.js',
+    'plugins/removeformat.js',
+    'plugins/blockquote.js',
+    'plugins/convertcase.js',
+    'plugins/indent.js',
+    'plugins/print.js',
+    'plugins/preview.js',
+    'plugins/selectall.js',
+    'plugins/paragraph.js',
+    'plugins/directionality.js',
+    'plugins/horizontal.js',
+    'plugins/time.js',
+    'plugins/rowspacing.js',
+    'plugins/lineheight.js',
+    'plugins/insertcode.js',
+    'plugins/cleardoc.js',
+    'plugins/anchor.js',
+    'plugins/wordcount.js',
+    'plugins/pagebreak.js',
+    'plugins/wordimage.js',
+    'plugins/dragdrop.js',
+    'plugins/undo.js',
+    'plugins/copy.js',
+    'plugins/paste.js',
+    'plugins/puretxtpaste.js',
+    'plugins/list.js',
+    'plugins/source.js',
+    'plugins/enterkey.js',
+    'plugins/keystrokes.js',
+    'plugins/fiximgclick.js',
+    'plugins/autolink.js',
+    'plugins/autoheight.js',
+    'plugins/autofloat.js',
+    'plugins/video.js',
+    'plugins/table.core.js',
+    'plugins/table.cmds.js',
+    'plugins/table.action.js',
+    'plugins/table.sort.js',
+    'plugins/contextmenu.js',
+    'plugins/shortcutmenu.js',
+    'plugins/basestyle.js',
+    'plugins/elementpath.js',
+    'plugins/formatmatch.js',
+    'plugins/searchreplace.js',
+    'plugins/customstyle.js',
+    'plugins/catchremoteimage.js',
+    'plugins/snapscreen.js',
+    'plugins/insertparagraph.js',
+    'plugins/webapp.js',
+    'plugins/template.js',
+    'plugins/music.js',
+    'plugins/autoupload.js',
+    'plugins/autosave.js',
+    'plugins/charts.js',
+    'plugins/section.js',
+    'plugins/simpleupload.js',
+    'plugins/serverparam.js',
+    'plugins/insertfile.js',
+    'ui/ui.js',
+    'ui/uiutils.js',
+    'ui/uibase.js',
+    'ui/separator.js',
+    'ui/mask.js',
+    'ui/popup.js',
+    'ui/colorpicker.js',
+    'ui/tablepicker.js',
+    'ui/stateful.js',
+    'ui/button.js',
+    'ui/splitbutton.js',
+    'ui/colorbutton.js',
+    'ui/tablebutton.js',
+    'ui/autotypesetpicker.js',
+    'ui/autotypesetbutton.js',
+    'ui/cellalignpicker.js',
+    'ui/pastepicker.js',
+    'ui/toolbar.js',
+    'ui/menu.js',
+    'ui/combox.js',
+    'ui/dialog.js',
+    'ui/menubutton.js',
+    'ui/multiMenu.js',
+    'ui/shortcutmenu.js',
+    'ui/breakline.js',
+    'ui/message.js',
+    'adapter/editorui.js',
+    'adapter/editor.js',
+    'adapter/message.js',
+    'adapter/autosave.js'
+  ]
+  var editorParseJS = [
+    'parse.js',
+    'insertcode.js',
+    'table.js',
+    'charts.js',
+    'background.js',
+    'list.js',
+    'video.js'
+  ];
+
+  var concatPath = function(paths, base) {
+    return paths.map(function(v) {
+      return base + v;
+    })
+  }
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -93,6 +227,10 @@ module.exports = function(grunt) {
           dest: '<%= docsRoot %>/assets/css/',
           ext: '.css'
         }]
+      },
+      editor: {
+        src: ['less/editor/all.less'],
+        dest: '<%= distRoot %>/css/editor.css'
       }
     },
     jade: {
@@ -116,6 +254,21 @@ module.exports = function(grunt) {
         files: [
           { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
+      },
+      editor: {
+        files: [
+          { expand: true, cwd: './js/editor/', src:["editor.config.js"], dest: '<%= distRoot %>/js/editor' },
+        ]
+      },
+      editorLang: {
+        files: [
+          { expand: true, cwd: './js/editor/lang', src:["**/*"], dest: '<%= distRoot %>/js/editor/lang' },
+        ]
+      },
+      images: {
+        files: [
+          { expand: true, cwd: 'images/', src:["**/*"], dest: '<%= distRoot %>/images' },
+        ]
       }
     },
 
@@ -128,6 +281,28 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      js: {
+        options: {
+          banner: '(function(){\n\n',
+          footer: '\n\n})();\n',
+          process: function (src, s) {
+            var filename = s.substr(s.indexOf('/') + 1);
+            return '// ' + filename + '\n' + src.replace('/_css/', '/css/') + '\n';
+          }
+        },
+        src: concatPath(editorJS, "./js/editor/_src/"),
+        dest: '<%= distRoot %>/js/editor/editor.all.js'
+      },
+      parse: {
+        options: {
+          banner: '(function(){\n\n',
+          footer: '\n\n})();\n'
+        },
+        src: concatPath(editorParseJS, "./js/editor/_parse/"),
+        dest: '<%= distRoot %>/js/editor/editor.parse.js'
+      }
+    },
     watch: {
       options: {
         livereload: 3456
