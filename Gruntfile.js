@@ -255,7 +255,7 @@ module.exports = function(grunt) {
           { expand: true, src: ['./fonts/*'], dest: '<%= distRoot %>/' },
         ]
       },
-      editor: {
+      editorConfig: {
         files: [
           { expand: true, cwd: './js/editor/', src:["editor.config.js"], dest: '<%= distRoot %>/js/editor' },
         ]
@@ -356,8 +356,11 @@ module.exports = function(grunt) {
   //custom page
   grunt.registerTask('custom', ['build-raw-files']);
 
+
+  grunt.registerTask('images', ['copy:images']);
+
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom']);
+  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom', 'images', 'concat', 'copy:editorConfig', 'copy:editorLang']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
 }
