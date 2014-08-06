@@ -855,4 +855,30 @@
 
     }
 
+    // 使用jquery风格的接口
+    // 目前只能操作一个
+    $.fn.extend({
+      editor: function(cmd) {
+        var args = Array.prototype.splice.call(arguments, 1), self = this;
+        var result = '';
+        var $this = $(this[0]);
+        var id = $this.attr("id");
+        if(!id) {
+          id = 'editor-' + parseInt(Math.random() * 1000000000)
+          $this.attr("id", id);
+        }
+        editor = UE.getEditor(id);
+        editor.addListener('afteruiready', function() {
+          self[0] = $("#" + id)[0];
+        });
+        if (typeof cmd == 'string') {
+          result = editor[cmd].apply(editor, args);
+        }
+        if(!cmd) {
+          return this
+        }
+        return result;
+      }
+    })
+
 })();
