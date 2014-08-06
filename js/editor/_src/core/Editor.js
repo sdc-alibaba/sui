@@ -238,7 +238,7 @@
         me.setOpt(Editor.defaultOptions(me));
 
         /* 尝试异步加载后台配置 */
-        me.loadServerConfig();
+        //me.loadServerConfig();
 
         if(!utils.isEmptyObject(UE.I18N)){
             //修改默认的语言类型
@@ -413,7 +413,7 @@
                     'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
                     //设置段落间距
                     'p{margin:5px 0;}</style>' +
-                    ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
+                    //( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
                     (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
                     '</head><body class=\'view\' ></body>' +
                     '<script type=\'text/javascript\' ' + (ie ? 'defer=\'defer\'' : '' ) +' id=\'_initialScript\'>' +
