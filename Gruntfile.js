@@ -282,7 +282,7 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      js: {
+      editorJS: {
         options: {
           banner: '(function(){\n\n',
           footer: '\n\n})();\n',
@@ -294,7 +294,7 @@ module.exports = function(grunt) {
         src: concatPath(editorJS, "./js/editor/_src/"),
         dest: '<%= distRoot %>/js/editor/editor.all.js'
       },
-      parse: {
+      editorParse: {
         options: {
           banner: '(function(){\n\n',
           footer: '\n\n})();\n'
@@ -318,6 +318,14 @@ module.exports = function(grunt) {
       js: {
         files: 'js/*.js',
         tasks: ['browserify', 'newer:copy']
+      },
+      editorJS: {
+        files: 'js/editor/*.js',
+        tasks: ['concat']
+      },
+      editorCSS: {
+        files: 'less/editor/*.less',
+        tasks: ['less:editor']
       },
       docs: {
         files: '<%= docsRoot %>/templates/**/*.jade',
