@@ -337,6 +337,10 @@ module.exports = function(grunt) {
         files: 'js/editor/_src/*.js',
         tasks: ['concat:editorJS']
       },
+      editorDialog: {
+        files: 'js/editor/dialogs/**/*',
+        tasks: ['copy:editorDialog']
+      },
       editorParse: {
         files: 'js/editor/_parse/*.js',
         tasks: ['concat:editorParse']

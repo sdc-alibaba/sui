@@ -32,7 +32,8 @@
         if (img && img.tagName && img.tagName.toLowerCase() == 'img') {
             setTabFocus('remote');
         } else {
-            setTabFocus('upload');
+            // setTabFocus('upload');
+             setTabFocus('remote');
         }
     }
 

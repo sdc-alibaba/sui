@@ -3,7 +3,7 @@ window.onload = function () {
         emotionLocalization:false
     });
 
-    emotion.SmileyPath = editor.options.emotionLocalization === true ? 'images/' : "http://img.baidu.com/hi/";
+    emotion.SmileyPath = editor.options.emotionLocalization === true ? 'images/' : "http://a.tbcdn.cn/sys/wangwang/smiley/48x48/";
     emotion.SmileyBox = createTabList( emotion.tabNum );
     emotion.tabExist = createArr( emotion.tabNum );
 
@@ -18,9 +18,9 @@ function initImgName() {
                 tempStr = "";
 
         if ( tempBox.length ) return;
-        for ( var i = 1; i <= tempName[1]; i++ ) {
+        for ( var i = 0; i <= tempName[1]; i++ ) {
             tempStr = tempName[0];
-            if ( i < 10 ) tempStr = tempStr + '0';
+            // if ( i < 10 ) tempStr = tempStr + '0';
             tempStr = tempStr + i + '.gif';
             tempBox.push( tempStr );
         }
@@ -117,9 +117,9 @@ function autoHeight( index ) {
 function createTab( tabName ) {
     var faceVersion = "?v=1.1", //版本号
             tab = $G( tabName ), //获取将要生成的Div句柄
-            imagePath = emotion.SmileyPath + emotion.imageFolders[tabName], //获取显示表情和预览表情的路径
+            imagePath = emotion.SmileyPath , //获取显示表情和预览表情的路径
             positionLine = 11 / 2, //中间数
-            iWidth = iHeight = 35, //图片长宽
+            iWidth = iHeight = 26, //图片长宽
             iColWidth = 3, //表格剩余空间的显示比例
             tableCss = emotion.imageCss[tabName],
             cssOffset = emotion.imageCssOffset[tabName],
@@ -137,10 +137,9 @@ function createTab( tabName ) {
                 posflag = j < positionLine ? 0 : 1;
                 offset = cssOffset * i * (-1) - 1;
                 infor = emotion.SmileyInfor[tabName][i];
-
                 textHTML.push( '<td  class="' + tableCss + '"   border="1" width="' + iColWidth + '%" style="border-collapse:collapse;" align="center"  bgcolor="transparent" onclick="InsertSmiley(\'' + realUrl.replace( /'/g, "\\'" ) + '\',event)" onmouseover="over(this,\'' + sUrl + '\',\'' + posflag + '\')" onmouseout="out(this)">' );
                 textHTML.push( '<span>' );
-                textHTML.push( '<img  style="background-position:left ' + offset + 'px;" title="' + infor + '" src="' + emotion.SmileyPath + (editor.options.emotionLocalization ? '0.gif" width="' : 'default/0.gif" width="') + iWidth + '" height="' + iHeight + '"></img>' );
+                textHTML.push( '<img  style="background-position:left ' + offset + 'px;" title="' + infor + '" src="' + emotion.SmileyPath + (editor.options.emotionLocalization ? '0.gif" width="' : faceImage+'" width="') + iWidth + '" height="' + iHeight + '"></img>' );
                 textHTML.push( '</span>' );
             } else {
                 textHTML.push( '<td width="' + iColWidth + '%"   bgcolor="#FFFFFF">' );
