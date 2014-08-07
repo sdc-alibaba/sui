@@ -1,146 +1,182 @@
 extends base
 
 block title
-  title Label 
+  title 富文本编辑器 
 
 block head
   script(src='../.package/editor/editor.config.js')
   script(src='../.package/editor/editor.all.js')
+  style(type="text/css").
+    #btns{
+        margin-top:20px;
+    }
+    #btns .sui-btn-group{
+        margin:0;
+    }
+    #btns .sui-btn-group .sui-btn{
+        float:left;
+        width:220px;
+        margin-right:10px;
+        margin-top:10px;
+    }
+    .sui-btn-group .sui-btn + .sui-btn{
+        margin:0;
+    }
 
 block sidebar
-  +sidebar('Label')
+  +sidebar('editor')
 
 block content
 
   h2.sui-page-header 开发者文档
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
 
-  div.
-    <div>
-        <h1>完整demo</h1>
-        <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
-    </div>
-    <div id="btns">
-        <div class="sui-btn-group">
-            <button onclick="getAllHtml()" class="sui-btn btn-primary">获得整个html的内容</button>
-            <button onclick="getContent()" class="sui-btn btn-primary">获得内容</button>
-            <button onclick="setContent()" class="sui-btn btn-primary">写入内容</button>
-            <button onclick="setContent(true)" class="sui-btn btn-primary">追加内容</button>
-            <button onclick="getContentTxt()" class="sui-btn btn-primary">获得纯文本</button>
-            <button onclick="getPlainTxt()" class="sui-btn btn-primary">获得带格式的纯文本</button>
-            <button onclick="hasContent()" class="sui-btn btn-primary">判断是否有内容</button>
-            <button onclick="setFocus()" class="sui-btn btn-primary">使编辑器获得焦点</button>
-            <button onmousedown="isFocus(event)" class="sui-btn btn-primary">编辑器是否获得焦点</button>
-            <button onmousedown="setblur(event)" class="sui-btn btn-primary" >编辑器失去焦点</button>
+  div.tab-content
+    div.tab-pane.active#demo1.
+        <div>
+            <h1>完整demo</h1>
+            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+        </div>
+        <div id="btns">
+            <div class="sui-btn-group">
+                <button onclick="getAllHtml()" class="sui-btn btn-primary">获得整个html的内容</button>
+                <button onclick="getContent()" class="sui-btn btn-primary">获得内容</button>
+                <button onclick="setContent()" class="sui-btn btn-primary">写入内容</button>
+                <button onclick="setContent(true)" class="sui-btn btn-primary">追加内容</button>
+                <button onclick="getContentTxt()" class="sui-btn btn-primary">获得纯文本</button>
+                <button onclick="getPlainTxt()" class="sui-btn btn-primary">获得带格式的纯文本</button>
+                <button onclick="hasContent()" class="sui-btn btn-primary">判断是否有内容</button>
+                <button onclick="setFocus()" class="sui-btn btn-primary">使编辑器获得焦点</button>
+                <button onmousedown="isFocus(event)" class="sui-btn btn-primary">编辑器是否获得焦点</button>
+                <button onmousedown="setblur(event)" class="sui-btn btn-primary" >编辑器失去焦点</button>
+                
+            </div>
+            <div class="sui-btn-group">
+                <button onclick="getText()" class="sui-btn btn-primary">获得当前选中的文本</button>
+                <button onclick="insertHtml()" class="sui-btn btn-primary">插入给定的内容</button>
+                <button id="enable" onclick="setEnabled()" class="sui-btn btn-primary">可以编辑</button>
+                <button onclick="setDisabled()" class="sui-btn btn-primary">不可编辑</button>
+                <button onclick=" UE.getEditor('editor').setHide()" class="sui-btn btn-primary">隐藏编辑器</button>
+                <button onclick=" UE.getEditor('editor').setShow()" class="sui-btn btn-primary">显示编辑器</button>
+                <button onclick=" UE.getEditor('editor').setHeight(300)" class="sui-btn btn-primary">设置高度为300默认关闭了自动长高</button>
+            </div>
             
-        </div>
-        <div class="sui-btn-group">
-            <button onclick="getText()" class="sui-btn btn-primary">获得当前选中的文本</button>
-            <button onclick="insertHtml()" class="sui-btn btn-primary">插入给定的内容</button>
-            <button id="enable" onclick="setEnabled()" class="sui-btn btn-primary">可以编辑</button>
-            <button onclick="setDisabled()" class="sui-btn btn-primary">不可编辑</button>
-            <button onclick=" UE.getEditor('editor').setHide()" class="sui-btn btn-primary">隐藏编辑器</button>
-            <button onclick=" UE.getEditor('editor').setShow()" class="sui-btn btn-primary">显示编辑器</button>
-            <button onclick=" UE.getEditor('editor').setHeight(300)" class="sui-btn btn-primary">设置高度为300默认关闭了自动长高</button>
-        </div>
-        
-        <div class="sui-btn-group">
-            <button onclick="getLocalData()" class="sui-btn btn-primary">获取草稿箱内容</button>
-            <button onclick="clearLocalData()"  class="sui-btn btn-primary">清空草稿箱</button>
+            <div class="sui-btn-group">
+                <button onclick="getLocalData()" class="sui-btn btn-primary">获取草稿箱内容</button>
+                <button onclick="clearLocalData()"  class="sui-btn btn-primary">清空草稿箱</button>
+            </div>
+            <div class="sui-btn-group">
+                <button onclick="createEditor()" class="sui-btn btn-primary">
+                创建编辑器</button>
+                <button onclick="deleteEditor()" class="sui-btn btn-primary">
+                删除编辑器</button>
+            </div>
         </div>
         
-    </div>
-    <div class="sui-btn-group">
-        <button onclick="createEditor()" class="sui-btn btn-primary">
-        创建编辑器</button>
-        <button onclick="deleteEditor()" class="sui-btn btn-primary">
-        删除编辑器</button>
-    </div>
+        <script type="text/javascript">
 
-    <script type="text/javascript">
-
-        //实例化编辑器
-        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-        var $editor = $('#editor').editor();
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var $editor = $('#editor').editor();
 
 
-        function isFocus(e){
-            alert($editor.editor("isFocus"));
-        }
-        function setblur(e){
-            $editor.editor("blur");
-        }
-        function insertHtml() {
-            var value = prompt('插入html代码', '');
-            $editor.editor("execCommand", 'insertHtml', value)
-        }
-        function getAllHtml() {
-            alert($editor.editor('getAllHtml'))
-        }
-        function getContent() {
-            alert($editor.editor('getContent'))
-        }
-        function getPlainTxt() {
-            alert($editor.editor('getPlainTxt'))
-        }
-        function setContent(isAppendTo) {
-            $editor.editor('setContent', '欢饮使用')
-        }
-        function setDisabled() {
-            $editor.editor('setDisabled', 'fullscreen');
-            disableBtn("enable");
-        }
+            function isFocus(e){
+                alert($editor.editor("isFocus"));
+            }
+            function setblur(e){
+                $editor.editor("blur");
+            }
+            function insertHtml() {
+                var value = prompt('插入html代码', '');
+                $editor.editor("execCommand", 'insertHtml', value)
+            }
+            function getAllHtml() {
+                alert($editor.editor('getAllHtml'))
+            }
+            function getContent() {
+                alert($editor.editor('getContent'))
+            }
+            function getPlainTxt() {
+                alert($editor.editor('getPlainTxt'))
+            }
+            function setContent(isAppendTo) {
+                $editor.editor('setContent', '欢饮使用')
+            }
+            function setDisabled() {
+                $editor.editor('setDisabled', 'fullscreen');
+                disableBtn("enable");
+            }
 
-        function setEnabled() {
-            $editor.editor('setEnabled');
-            enableBtn();
-        }
+            function setEnabled() {
+                $editor.editor('setEnabled');
+                enableBtn();
+            }
 
-        /*
-        function getText() {
-            //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
-            var range = UE.getEditor('editor').selection.getRange();
-            range.select();
-            var txt = UE.getEditor('editor').selection.getText();
-            alert(txt)
-        }*/
+            /*
+            function getText() {
+                //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+                var range = UE.getEditor('editor').selection.getRange();
+                range.select();
+                var txt = UE.getEditor('editor').selection.getText();
+                alert(txt)
+            }*/
 
-        function getContentTxt() {
-            alert($editor.editor('getContentTxt'))
-        }
-        function hasContent() {
-            alert($editor.editor('hasContents'))
-        }
-        function setFocus() {
-            $editor.editor('focus');
-        }
-        function deleteEditor() {
-            $editor.editor('destroy')
-        }
-        function disableBtn(str) {
-            var div = document.getElementById('btns');
-            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-            for (var i = 0, btn; btn = btns[i++];) {
-                if (btn.id == str) {
-                    UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-                } else {
-                    btn.setAttribute("disabled", "true");
+            function getContentTxt() {
+                alert($editor.editor('getContentTxt'))
+            }
+            function hasContent() {
+                alert($editor.editor('hasContents'))
+            }
+            function setFocus() {
+                $editor.editor('focus');
+            }
+            function deleteEditor() {
+                $editor.editor('destroy')
+            }
+            function disableBtn(str) {
+                var div = document.getElementById('btns');
+                var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                for (var i = 0, btn; btn = btns[i++];) {
+                    if (btn.id == str) {
+                        UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                    } else {
+                        btn.setAttribute("disabled", "true");
+                    }
                 }
             }
-        }
-        function enableBtn() {
-          var div = document.getElementById('btns');
-          var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-          for (var i = 0, btn; btn = btns[i++];) {
-            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-          }
-        }
+            function enableBtn() {
+              var div = document.getElementById('btns');
+              var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+              for (var i = 0, btn; btn = btns[i++];) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+              }
+            }
 
-        function getLocalData () {
-            alert($editor.editor("execCommand", "getlocaldata" ));
-        }
+            function getLocalData () {
+                alert($editor.editor("execCommand", "getlocaldata" ));
+            }
 
-        function clearLocalData () {
-            $editor.editor("execCommand", "clearlocaldata" );
-            alert("已清空草稿箱")
-        }
-    </script>
+            function clearLocalData () {
+                $editor.editor("execCommand", "clearlocaldata" );
+                alert("已清空草稿箱")
+            }
+        </script>  
+        
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      | 按钮组，默认是水平排列，通过class <code>btn-group-vertical</code> 控制按钮组垂直排列。
+
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>form') 复制代码
+    
