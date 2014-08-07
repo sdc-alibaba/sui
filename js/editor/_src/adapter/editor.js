@@ -867,13 +867,17 @@
           id = 'editor-' + parseInt(Math.random() * 1000000000)
           $this.attr("id", id);
         }
-        editor = UE.getEditor(id);
+        if($.isPlainObject(cmd)){
+            var editor = UE.getEditor(id,cmd);
+        }else{
+            var editor = UE.getEditor(id);
+            if (typeof cmd == 'string') {
+                result = editor[cmd].apply(editor, args);
+            }
+        }
         editor.addListener('afteruiready', function() {
           self[0] = $("#" + id)[0];
         });
-        if (typeof cmd == 'string') {
-          result = editor[cmd].apply(editor, args);
-        }
         if(!cmd) {
           return this
         }

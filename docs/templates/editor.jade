@@ -173,9 +173,405 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1')
     div.tab-pane#doc1
-      | 按钮组，默认是水平排列，通过class <code>btn-group-vertical</code> 控制按钮组垂直排列。
-
-
+      p
+        strong 1.首先需额外引入两个js文件和一个css文件：
+      ul.unstyled
+        li
+            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/editor.config.js" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/editor.config.js；
+        li
+            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/editor.all.js" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/editor.all.js;
+        li
+            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/themes/default/css/editor.css" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/themes/default/css/editor.css;
+      p 
+        strong 2.初始化编辑器：
+        div.sui-msg.msg-tips.msg-block
+            div.msg-con 目前只支持一次实例化一个编辑器，如需多个请分开初始化
+      ul.unstyled
+        li 1）var $editor = $('#id').editor();id为插入编辑器的dom节点的ID，初始化生成默认配置的富文本编辑器；
+        li 2）也可以在实例化时传入自定义参数项对象，改变默认配置，如：var $editor = $('#editor').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
+          p
+            strong 可自定义参数：
+          table.sui-table
+            tr
+                th 参数
+                th 默认值
+                th 说明
+            tr
+                td toolbars{2d Array}
+                td 即demo所见插件
+                td 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
+            tr
+                td isShow {Boolean}
+                td true
+                td 默认显示编辑器  
+            tr
+                td textarea{String} 
+                td 'editorValue'
+                td 提交表单时，服务器获取编辑器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值 
+            tr
+                td initialContent {String}
+                td ''
+                td 初始化编辑器的内容 
+            tr
+                td autoClearinitialContent {Boolean} 
+                td true
+                td 是否自动清除编辑器初始内容，注意：如果focus属性设置为true，这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了
+            tr
+                td focus {Boolean}
+                td true
+                td 初始化时，是否让编辑器获得焦点true或false 
+            tr
+                td indentValue {String}
+                td '2em'
+                td 首行缩进距离，默认是2em
+            tr
+                td initialFrameWidth {Number}
+                td 1000
+                td 初始化编辑器宽度
+            tr
+                td initialFrameHeight {Number} 
+                td 320
+                td 初始化编辑器高度
+            tr
+                td readonly {Boolean}
+                td false
+                td 编辑器初始化结束后，编辑区域是否是只读的
+            tr
+                td autoClearEmptyNode {Boolean}
+                td true
+                td getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
+            tr
+                td enableAutoSave {Boolean}
+                td true
+                td 启用自动保存
+            tr
+                td saveInterval {Number} 
+                td 500
+                td 自动保存间隔时间，单位ms
+            tr
+                td fullscreen {Boolean}
+                td false
+                td 是否开启初始化时即全屏，默认关闭  
+            tr
+                td retainOnlyLabelPasted {Boolean}
+                td false
+                td 粘贴只保留标签，去除标签所有属性  
+            tr
+                td pasteplain {Boolean}
+                td false
+                td 是否默认为纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴  
+            tr
+                td filterTxtRules {Object} 
+                td 
+                td 纯文本粘贴模式下的过滤规则  
+            tr
+                td listDefaultPaddingLeft
+                td '30'
+                td 默认的左边缩进的基数倍
+            tr
+                td autoTransWordToList {Boolean}
+                td false
+                td 禁止word中粘贴进来的列表自动变成列表标签
+            tr
+                td fontsize {Array}
+                td [10, 11, 12, 14, 16, 18, 20, 24, 36]
+                td 字号
+            tr
+                td lineheight {Array}
+                td ['1', '1.5','1.75','2', '3', '4', '5'] 
+                td 行内间距 值和显示的名字相同
+            tr
+                td wordCount {Boolean}
+                td true
+                td 是否开启字数统计
+            tr
+                td maximumWords {Number}
+                td 10000
+                td 允许的最大字符数
+            tr
+                td wordCountMsg {String}
+                td '当前已输入{#count}个字符, 您还可以输入{#leave}个字符。 '
+                td 当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符，字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数
+            tr
+                td wordOverFlowMsg {String}
+                td '<span style="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>'
+                td 超出字数限制提示 
+            tr
+                td maxUndoCount {Number}
+                td 20
+                td 可以最多回退的次数
+            tr
+                td maxInputCount {Number}
+                td 1
+                td 当输入的字符数超过该值时，保存一次现场
+            tr
+                td autoHeightEnabled {Boolean}
+                td true
+                td 是否自动长高
+            tr
+                td scaleEnabled {Number}
+                td false
+                td 是否可以拉伸长高，默认true(当开启时，自动长高失效)
+            tr
+                td minFrameWidth {Number}
+                td 800
+                td 编辑器拖动时最小宽度
+            tr
+                td minFrameHeight {Number}
+                td 220
+                td 编辑器拖动时最小高度
+            tr
+                td topOffset {Number}
+                td 30
+                td 浮动时工具栏距离浏览器顶部的高度，用于某些具有固定头部的页面
+            tr
+                td toolbarTopOffset {Number}
+                td 400
+                td 编辑器底部距离工具栏高度(如果参数大于等于编辑器高度，则设置无效)
+            tr
+                td tableDragable {Boolean}
+                td true
+                td 表格是否可以拖拽
+            tr
+                td disabledTableInTable {Boolean} 
+                td true
+                td 禁止表格嵌套
+            tr
+                td allowDivTransToP {Boolean} 
+                td true
+                td 认会将外部进入的html数据中的Div标签转换成P标签，外部进入的数据包括粘贴和调用setContent接口进入编辑器的数据。如果设置成false将不在做这个转换。
+      p 
+        strong 3.可调用实例的.editor方法，传入调用的方法名和参数，触发事件，如：$editor.editor("isFocus")
+      p
+        strong 事件列表：
+        table.sui-table
+            tr
+                th 方法签名
+                th 描述
+            tr
+                td ready(Function fn)
+                td 编辑器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的
+            tr
+                td destroy()
+                td 销毁编辑器实例，使用textarea代替
+            tr
+                td setHeight(Number number)
+                td 设置编辑器高度
+            tr
+                td getContent()
+                td 获取编辑器的内容
+            tr
+                td getContent(Function fn)
+                td 获取编辑器的内容。 可以通过参数定义编辑器内置的判空规则
+            tr
+                td getAllHtml()
+                td 取得完整的html代码，可以直接显示成完整的html文档
+            tr
+                td getPlainTxt()
+                td 得到编辑器的纯文本内容，但会保留段落格式
+            tr
+                td getContentTxt()
+                td 获取编辑器中的纯文本内容,没有段落格式
+            tr
+                td setContent(String html)
+                td 设置编辑器的内容，可修改编辑器当前的html内容
+            tr
+                td setContent(String html, Boolean isAppendTo)
+                td 设置编辑器的内容，可修改编辑器当前的html内容
+            tr
+                td focus()
+                td 让编辑器获得焦点，默认focus到编辑器头部
+             tr
+                td focus(Boolean toEnd)
+                td 让编辑器获得焦点，toEnd确定focus位置
+            tr
+                td execCommand(String cmdName)
+                    strong （具体可使用的命令见下表）
+                td 执行编辑命令cmdName，完成富文本编辑效果
+            tr
+                td queryCommandState(String cmdName)
+                td 根据传入的command命令，查选编辑器当前的选区，返回命令的状态
+            tr
+                td hasContents()
+                td 检查编辑区域中是否有内容
+            tr
+                td hasContents(Array tags)
+                td 检查编辑区域中是否有内容，若包含参数tags中的节点类型，直接返回true
+            tr
+                td reset()
+                td 重置编辑器，可用来做多个tab使用同一个编辑器实例
+            tr
+                td setEnabled()
+                td 设置当前编辑区域可以编辑
+            tr
+                td setDisabled()
+                td 设置当前编辑区域不可编辑
+            tr
+                td setDisabled(String except)
+                td 设置当前编辑区域不可编辑,except中的命令除外
+            tr
+                td setDisabled(Array except)
+                td 设置当前编辑区域不可编辑,except中的命令除外
+            tr
+                td setShow()
+                td 显示编辑器
+            tr
+                td setHide()
+                td 隐藏编辑器
+            tr
+                td getContentLength()
+                td 计算编辑器html内容字符串的长度
+            tr
+                td getContentLength(Boolean ingoneHtml)
+                td 计算编辑器当前纯文本内容的长度
+      p
+        strong 4.execCommand可调用的COMMAND列表,如：$editor.editor("execCommand", 'insertHtml', value)  
+        table.sui-table
+            tr
+                th #
+                th 命令
+                th 描述
+            tr
+                td 1
+                td anchor
+                td 插入锚点
+            tr
+                td 2
+                td autosubmit
+                td 提交表单
+            tr
+                td 3
+                td autotypeset
+                td 对当前编辑器的内容执行自动排版， 排版的行为根据config配置文件里的“autotypeset”选项进行控制。
+            tr
+                td 4
+                td bold
+                td 字体加粗
+            tr
+                td 5
+                td italic   
+                td 字体倾斜
+            tr
+                td 6
+                td blockquote
+                td 添加引用
+            tr
+                td 7
+                td cleardoc
+                td 清空文档
+            tr
+                td 8
+                td touppercase
+                td 把选区内文本变大写，与“tolowercase”命令互斥
+            tr
+                td 9
+                td tolowercase
+                td 把选区内文本变小写，与“touppercase”命令互斥
+            tr
+                td 10
+                td directionality
+                td 文字输入方向
+            tr
+                td 11
+                td forecolor
+                td 字体颜色
+            tr
+                td 12
+                td backcolor
+                td 字体背景颜色
+             tr
+                td 13
+                td fontsize
+                td 字体大小
+            tr
+                td 14
+                td fontfamily
+                td 字体样式
+            tr
+                td 15
+                td underline
+                td 字体下划线,与删除线互斥
+            tr
+                td 16
+                td strikethrough
+                td 字体删除线,与下划线互斥
+            tr
+                td 17
+                td fontborder
+                td 字体边框
+            tr
+                td 18
+                td formatmatch
+                td 格式刷
+            tr
+                td 19
+                td horizontal
+                td 插入分割线
+            tr
+                td 20
+                td insertimage
+                td 图片对齐方式
+             tr
+                td 21
+                td insertimage
+                td 插入图片
+            tr
+                td 22
+                td indent
+                td 缩进
+            tr
+                td 23
+                td insertparagraph
+                td 插入段落
+            tr
+                td 24
+                td justify
+                td 段落对齐方式
+            tr
+                td 25
+                td lineheight
+                td 行距
+            tr
+                td 26
+                td link
+                td 插入超链接
+            tr
+                td 27
+                td unlink
+                td 取消超链接
+            tr
+                td 28
+                td insertimage
+                td 图片对齐方式
+             tr
+                td 29
+                td removeformat
+                td 清除文字样式
+            tr
+                td 30
+                td selectall
+                td 选中所有内容
+            tr
+                td 31
+                td time
+                td 插入时间，默认格式：12:59:59
+            tr
+                td 32
+                td date
+                td 插入日期，默认格式：2013-08-30
+            tr
+                td 33
+                td undo
+                td 撤销上一次执行的命令
+            tr
+                td 34
+                td redo
+                td 重做上一次执行的命令
+            tr
+                td 35
+                td inserthtml
+                td 插入html代码
+           
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>form') 复制代码
