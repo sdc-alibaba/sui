@@ -186,9 +186,11 @@ block content
         strong 2.初始化编辑器：
         div.sui-msg.msg-tips.msg-block
             div.msg-con 目前只支持一次实例化一个编辑器，如需多个请分开初始化
+            s.msg-icon
       ul.unstyled
         li 1）var $editor = $('#id').editor();id为插入编辑器的dom节点的ID，初始化生成默认配置的富文本编辑器；
-        li 2）也可以在实例化时传入自定义参数项对象，改变默认配置，如：var $editor = $('#editor').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
+        li 2) 在需要插入富文本的dom上，加上了class="sui-editor"，如：&lt;div class="sui-editor"&gt;&lt;/div&gt;,可自动加载富文本编辑器；
+        li 3）也可以在实例化时传入自定义参数项对象，改变默认配置，如：var $editor = $('#editor').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
           p
             strong 可自定义参数：
           table.sui-table

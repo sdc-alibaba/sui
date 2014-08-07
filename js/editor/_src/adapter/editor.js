@@ -884,5 +884,9 @@
         return result;
       }
     })
+        //自动加载
+    $(function() {
+        $(".sui-editor").editor();
+    })
 
 })();
