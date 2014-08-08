@@ -85,7 +85,7 @@ block content
             //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
             var $editor = $('#editor').editor();
 
-
+            
             function isFocus(e){
                 alert($editor.editor("isFocus"));
             }
@@ -193,7 +193,7 @@ block content
             s.msg-icon
       ul.unstyled
         li 1）var $editor = $('#id').editor();id为插入编辑器的dom节点的ID，初始化生成默认配置的富文本编辑器；
-        li 2) 在需要插入富文本的dom上，加上了class="sui-editor"，如：&lt;div class="sui-editor"&gt;&lt;/div&gt;,可自动加载富文本编辑器；
+        li 2) 在需要插入富文本编辑器的dom容器上加一个class="sui-editor",可自动初始化一个默认配置的编辑器，如：&lt;div class="sui-editor"&gt;&lt;/div&gt;
         li 3）也可以在实例化时传入自定义参数项对象，改变默认配置，如：var $editor = $('#editor').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
           p
             strong 可自定义参数：
@@ -577,8 +577,240 @@ block content
                 td 35
                 td inserthtml
                 td 插入html代码
+            tr 
+                td 36
+                td insertorderedlist
+                td 有序列表，与“insertunorderedlist”命令互斥
+            tr 
+                td 37
+                td insertunorderedlist
+                td 无序列表，与“insertorderedlist”命令互斥
            
   ul.demo-operations.clearfix
     li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo1>form') 复制代码
-    
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码
+
+  
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2.
+        <div>
+            <h1>定制工具栏</h1>
+            <div class="sui-msg msg-tips msg-block">
+                <div class="msg-con">
+                     实例化编辑器的时候传入 toolbars 参数
+                </div>
+                <s class="msg-icon"></s>
+            </div>
+            <h3>1.简单列表</h3>
+            <script id="simple" type="text/plain" style="width:1024px;height:200px;"></script>
+            <h3>2.多行列表</h3>
+            <script id="multi" type="text/plain" style="width:1024px;height:200px;"></script>
+        </div>
+        <script type="text/javascript">
+            //toolbar是二维数组
+            var $editor1 = $('#simple').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
+            var $editor2 = $('#multi').editor({toolbars: [['fullscreen', 'source', 'undo', 'redo'],
+                ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', '|', 'forecolor', 'backcolor', 'insertorderedlist']]});
+        </script>
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2')
+    div.tab-pane#doc2
+      p 1.配置项里用竖线 '|' 代表分割线
+      p 2.完整的按钮列表
+        table.sui-table
+            tr
+                td 'fullscreen'
+                td 全屏
+            tr
+                td 'source'
+                td 源代码
+            tr
+                td 'undo'
+                td 撤销
+            tr
+                td 'redo'
+                td 重做
+            tr
+                td 'bold'
+                td 加粗
+            tr
+                td 'italic'
+                td 斜体
+            tr
+                td 'underline'
+                td 下划线
+            tr
+                td 'strikethrough'
+                td 删除线
+            tr
+                td 'customstyle'
+                td 自定义标题
+            tr
+                td 'paragraph'
+                td 段落格式
+            tr
+                td 'fontfamily'
+                td 字体
+            tr
+                td 'fontsize'
+                td 字号
+            tr
+                td 'forecolor'
+                td 字体颜色
+            tr
+                td 'backgroundcolor'
+                td 背景色
+            tr
+                td 'insertorderedlist'
+                td 有序列表
+            tr
+                td 'insertunorderedlist'
+                td 无序列表
+             tr
+                td 'directionalityltr'
+                td 从左向右输入
+            tr
+                td 'directionalityrtl'
+                td 从右向左输入
+            tr
+                td 'indent'
+                td 首行缩进
+            tr
+                td 'justifyleft'
+                td 居左对齐
+            tr
+                td 'justifycenter'
+                td 居中对齐
+            tr
+                td 'justifyright'
+                td 居右对齐
+            tr
+                td 'justifyjustify'
+                td 两端对齐
+            tr
+                td 'link'
+                td 超链接
+            tr
+                td 'unlink'
+                td 取消链接
+            tr
+                td 'anchor'
+                td 锚点
+            tr
+                td 'insertimage'
+                td 多图上传
+            tr
+                td 'emotion'
+                td 表情
+            tr
+                td 'inserttable'
+                td 插入表格
+            tr
+                td 'deletetable'
+                td 删除表格
+            tr
+                td 'insertparagraphbeforetable'
+                td 表格前插入行
+            tr
+                td 'insertrow'
+                td 前插入行
+            tr
+                td 'deleterow'
+                td 删除行
+            tr
+                td 'insertcol'
+                td 插入列
+            tr
+                td 'deletecol'
+                td 删除列
+            tr 
+                td 'mergecells'
+                td 合并多个单元格
+            tr
+                td 'mergeright'
+                td 右合并单元格
+            tr
+                td 'mergedown'
+                td 下合并单元格
+            tr
+                td 'splittocells'
+                td 完全拆分单元格
+            tr
+                td 'splittorows'
+                td 拆分成行
+            tr
+                td 'splittocols'
+                td 拆分成列
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3.
+        <div>
+            <h1>多编辑区域一个编辑器实例</h1>
+            <table id="test">
+                <tr>
+                    <td width="10%">
+                        编辑区域一
+                    </td>
+                    <td class="content" id="content1"><script id="editortest1" type="text/plain" style="width:1024px;height:200px;">内容1</script></td>
+                </tr>
+                <tr>
+                    <td>
+                        编辑区域二
+                    </td>
+                    <td class="content" id="contenttest2">内容2</td>
+                </tr>
+                <tr>
+                    <td>
+                        编辑区域三
+                    </td>
+                    <td class="content" id="contenttest3">内容3</td>
+                </tr>
+            </table>
+        </div>
+        <script type="text/javascript">
+            var ue = $('#editortest1').editor();
+            ue.ready(function(){
+                //阻止工具栏的点击向上冒泡
+                $(this).click(function(e){
+                    e.stopPropagation()
+                })
+            });
+            $('.content').click(function(e){
+                var $target = $(this);
+                var content = $target.html();
+                var currentParnet = ue.parent();
+                var currentContent = ue.editor('getContent');
+                $target.html('');
+                $target.append(ue);
+                ue.editor("execCommand", "reset" );
+                setTimeout(function(){
+                    ue.editor('setContent', content);
+                },200)
+                $(currentParnet).html(currentContent);
+            })
+        </script>
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3')
+    div.tab-pane#doc3
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3') 复制代码

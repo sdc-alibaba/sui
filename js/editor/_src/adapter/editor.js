@@ -859,6 +859,9 @@
     // 目前只能操作一个
     $.fn.extend({
       editor: function(cmd) {
+        if(this.length===0){
+            return;
+        }
         var args = Array.prototype.splice.call(arguments, 1), self = this;
         var result = '';
         var $this = $(this[0]);
