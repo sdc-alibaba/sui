@@ -761,45 +761,46 @@ block content
     div.tab-pane.active#demo3.
         <div>
             <h1>多编辑区域一个编辑器实例</h1>
-            <table id="test">
-                <tr>
-                    <td width="10%">
+            <form id="test" class="sui-form form-horizontal" method="post">
+                <div class="control-group info">
+                    <label for="inputInfo" class="control-label">
                         编辑区域一
-                    </td>
-                    <td class="content" id="content1"><script id="editortest1" type="text/plain" style="width:1024px;height:200px;">内容1</script></td>
-                </tr>
-                <tr>
-                    <td>
+                    </label>
+                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="content1"><textarea id="editortest1" type="text/plain" style="width:800px;height:200px;">内容1</textarea></span>
+                </div>
+                <div class="control-group info">
+                    <label for="inputInfo" class="control-label">
                         编辑区域二
-                    </td>
-                    <td class="content" id="contenttest2">内容2</td>
-                </tr>
-                <tr>
-                    <td>
+                    </label>
+                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest2">内容2</span>
+                </div>
+                <div class="control-group info">
+                    <label for="inputInfo" class="control-label">
                         编辑区域三
-                    </td>
-                    <td class="content" id="contenttest3">内容3</td>
-                </tr>
-            </table>
+                    </label>
+                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest3">内容3</span>
+                </div>
+            </form>
+            
         </div>
         <script type="text/javascript">
-            var ue = $('#editortest1').editor();
-            ue.ready(function(){
+            var $ue = $('#editortest1').editor();
+            $ue.editor('ready',function(){
                 //阻止工具栏的点击向上冒泡
                 $(this).click(function(e){
                     e.stopPropagation()
                 })
             });
-            $('.content').click(function(e){
+            $('.testcontent').click(function(e){
                 var $target = $(this);
                 var content = $target.html();
-                var currentParnet = ue.parent();
-                var currentContent = ue.editor('getContent');
+                var currentParnet = $ue.parent();
+                var currentContent = $ue.editor('getContent');
                 $target.html('');
-                $target.append(ue);
-                ue.editor("execCommand", "reset" );
+                $target.append($ue);
+                $ue.editor("execCommand", "reset" );
                 setTimeout(function(){
-                    ue.editor('setContent', content);
+                    $ue.editor('setContent', content);
                 },200)
                 $(currentParnet).html(currentContent);
             })
