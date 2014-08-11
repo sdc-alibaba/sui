@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>富文本编辑器(beta)</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="pictures/logo.png?r=2014.06.18">
+    <script src="../js/lib/jquery.js"></script>
+    <script>
+      var themesUrl = "../.package/css/sui.css";
+      var selected = localStorage.getItem("themes-name");
+      if(selected && !(selected == 'default')) {
+        themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        $(function() {
+          var $select = $("#themes-select");
+          var $current = $select.find("[value='"+selected+"']");
+          $current.parent().addClass("active");
+          $select.find(">a > span").html($current.text())[0].className = $current[0].className;
+        });
+      }
+      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+    </script>
+    <script src="../.package/js/sui.js?r=2014.06.30"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-50817062-1', 'taobao.org');
+      ga('send', 'pageview');
+    </script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <script src="../.package/editor/editor-config.js"></script>
+    <script src="../.package/editor/editor-all.js"></script>
+    <style type="text/css">
+      #btns{
+          margin-top:20px;
+      }
+      #btns .sui-btn-group{
+          margin:0;
+      }
+      #btns .sui-btn-group .sui-btn{
+          float:left;
+          width:220px;
+          margin-right:10px;
+          margin-top:10px;
+      }
+      .sui-btn-group .sui-btn + .sui-btn{
+          margin:0;
+      }
+      
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
+              <ul class="sui-nav">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./tutorial.html">快速入门</a></li>
+                <li class="active"><a href="./gallery.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./themes.html">换肤</a></li>
+                <li><a href="./customize.html">自定义</a></li>
+                <li><a href="./changelog.html">更新日志</a></li>
+                <li><a href="./about.html">关于</a></li>
+              </ul>
+              <ul class="sui-nav pull-right">
+                <li id="themes-select" class="sui-dropdown select themes-select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"><span>换肤</span></a>
+                  <ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="default" class="default">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="green" class="green">自然绿</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="pink" class="pink">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="dark-green" class="dark-green">深绿</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-layout">
+      <div class="sidebar">
+            <ul class="sui-nav nav-stacked docs-sidenav docs-nav">
+              <li class="active"><a><i class="docs-icon">&nbsp;</i>表单</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="forms.html">表单</a></li>
+                  <li><a href="buttons.html">按钮</a></li>
+                  <li><a href="button-groups.html">按钮组</a></li>
+                  <li><a href="checkbox.html">选框</a></li>
+                  <li><a href="dropdown.html">下拉菜单 - 样式</a></li>
+                  <li><a href="dropdown-js.html">下拉菜单 - JS</a></li>
+                  <li><a href="form-validate.html">表单校验</a></li>
+                  <li><a href="datetimepicker.html">datetimepicker</a></li>
+                  <li><a href="autocomplete.html">自动补全</a></li>
+                  <li><a href="tree-js.html">级联选择</a></li>
+                  <li class="active"><a href="editor.html">富文本编辑器</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="global.html">全局文本样式</a></li>
+                  <li><a href="icons.html">图标</a></li>
+                  <li><a href="label.html">Label</a></li>
+                  <li><a href="tag.html">Tag</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>表格和布局</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="tables.html">表格</a></li>
+                  <li><a href="grid.html">栅格</a></li>
+                  <li><a href="layout.html">布局</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="navbar.html">导航栏</a></li>
+                  <li><a href="pagination.html">分页器 - 样式</a></li>
+                  <li><a href="pagination-js.html">分页器 - JS</a></li>
+                  <li><a href="msgs.html">提示消息</a></li>
+                  <li><a href="steps.html">步骤条</a></li>
+                  <li><a href="breadcrumb.html">面包屑</a></li>
+                  <li><a href="tab.html">标签页 - 样式</a></li>
+                  <li><a href="tab-js.html">标签页 - JS</a></li>
+                  <li><a href="intro.html">新手指引</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="dialog.html">对话框</a></li>
+                  <li><a href="tooltip.html">tooltip</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="filesize.html">filesize</a></li>
+                </ul>
+              </li>
+              <li><a><i class="docs-icon">&nbsp;</i>其他</a>
+                <ul class="sui-nav nav-stacked docs-nav">
+                  <li><a href="loading.html">Loading</a></li>
+                  <li><a href="progress.html">进度条</a></li>
+                </ul>
+              </li>
+            </ul>
+            <script type="text/javascript">
+              var disqus_identifier = 'disqus-id-editor';
+              function changeHeight(itemHeight){
+                if(!itemHeight) {
+                  var height = $(window).height()-57;
+                  var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
+                  itemHeight = height/count-4;
+                  if(itemHeight>50){
+                    itemHeight = 50;
+                  }else if(itemHeight<15){
+                    itemHeight = 15;
+                  }else{
+                    itemHeight =itemHeight;
+                  }
+                }
+                $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+                localStorage.setItem("sidenav.itemHeight", itemHeight);
+              }
+              $(window).resize(function(){
+                changeHeight();
+              });
+              var lastItemHeight = localStorage.getItem("sidenav.itemHeight");
+              if(lastItemHeight) {
+                changeHeight();
+              } else {
+                $(changeHeight);
+              }
+            </script>
+      </div>
+      <div class="content">
+        <div class="content-inner">
+          <h2 class="sui-page-header">开发者文档</h2>
+          <p class="sui-lead">富文本编辑器集成自百度的UEditor编辑器，地址：<a href='http://ueditor.baidu.com/website/' target='_blank'>UEditor</a></p>
+          <p><strong>使用富文本编辑器必须要将SUI版本升级到 1.2.0 版本以上。</strong><br><strong>富文本编辑器还处在测试阶段，上传图片目前只支持URL上传，我们后续会逐渐完善更多功能。有任何问题或者建议可以随时反馈给我们。</strong></p>
+          <p class="sui-lead">注意，使用富文本编辑器必须额外引入如下三个文件:
+            <ul class="unstyled">
+              <li><a href="http://g.alicdn.com/sj/dpl/1.2.0/editor/editor-config.js" target="_blank">http://g.alicdn.com/sj/dpl/1.2.0/editor/editor-config.js</a></li>
+              <li><a href="http://g.alicdn.com/sj/dpl/1.2.0/editor/editor-all.min.js" target="_blank">http://g.alicdn.com/sj/dpl/1.2.0/editor/editor-all.min.js</a></li>
+              <li><a href="http://g.alicdn.com/sj/dpl/1.2.0/editor/themes/default/css/editor.min.css" target="_blank">http://g.alicdn.com/sj/dpl/1.2.0/editor/themes/default/css/editor.min.css</a></li>
+            </ul>
+          </p>
+          <h2>初始化</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+            <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo1" class="tab-pane active">
+              <div>
+                  <h3>完整demo</h3>
+                  <textarea id="editor" style="width:1024px;height:300px;"></textarea>
+              </div>
+              <div id="btns">
+                  <div class="sui-btn-group">
+                      <button onclick="getAllHtml()" class="sui-btn btn-primary">获得整个html的内容</button>
+                      <button onclick="getContent()" class="sui-btn btn-primary">获得内容</button>
+                      <button onclick="setContent()" class="sui-btn btn-primary">写入内容</button>
+                      <button onclick="setContent(true)" class="sui-btn btn-primary">追加内容</button>
+                      <button onclick="getContentTxt()" class="sui-btn btn-primary">获得纯文本</button>
+                      <button onclick="getPlainTxt()" class="sui-btn btn-primary">获得带格式的纯文本</button>
+                      <button onclick="hasContent()" class="sui-btn btn-primary">判断是否有内容</button>
+                      <button onclick="setFocus()" class="sui-btn btn-primary">使编辑器获得焦点</button>
+                      <button onmousedown="isFocus(event)" class="sui-btn btn-primary">编辑器是否获得焦点</button>
+                      <button onmousedown="setblur(event)" class="sui-btn btn-primary" >编辑器失去焦点</button>
+                      
+                  </div>
+                  <div class="sui-btn-group">
+                      <button onclick="getText()" class="sui-btn btn-primary">获得当前选中的文本</button>
+                      <button onclick="insertHtml()" class="sui-btn btn-primary">插入给定的内容</button>
+                      <button id="enable" onclick="setEnabled()" class="sui-btn btn-primary">可以编辑</button>
+                      <button onclick="setDisabled()" class="sui-btn btn-primary">不可编辑</button>
+                      <button onclick=" UE.getEditor('editor').setHide()" class="sui-btn btn-primary">隐藏编辑器</button>
+                      <button onclick=" UE.getEditor('editor').setShow()" class="sui-btn btn-primary">显示编辑器</button>
+                      <button onclick=" UE.getEditor('editor').setHeight(300)" class="sui-btn btn-primary">设置高度为300默认关闭了自动长高</button>
+                  </div>
+                  
+                  <div class="sui-btn-group">
+                      <button onclick="getLocalData()" class="sui-btn btn-primary">获取草稿箱内容</button>
+                      <button onclick="clearLocalData()"  class="sui-btn btn-primary">清空草稿箱</button>
+                  </div>
+                  <div class="sui-btn-group">
+                      <button onclick="createEditor()" class="sui-btn btn-primary">
+                      创建编辑器</button>
+                      <button onclick="deleteEditor()" class="sui-btn btn-primary">
+                      删除编辑器</button>
+                  </div>
+              </div>
+              
+              <script type="text/javascript">
+              
+                  //实例化编辑器
+                  //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+                  var $editor = $('#editor').editor();
+                  
+                  
+                  function isFocus(e){
+                      alert($editor.editor("isFocus"));
+                  }
+                  function setblur(e){
+                      $editor.editor("blur");
+                  }
+                  function insertHtml() {
+                      var value = prompt('插入html代码', '');
+                      $editor.editor("execCommand", 'insertHtml', value)
+                  }
+                  function getAllHtml() {
+                      alert($editor.editor('getAllHtml'))
+                  }
+                  function getContent() {
+                      alert($editor.editor('getContent'))
+                  }
+                  function getPlainTxt() {
+                      alert($editor.editor('getPlainTxt'))
+                  }
+                  function setContent(isAppendTo) {
+                      $editor.editor('setContent', '欢饮使用')
+                  }
+                  function setDisabled() {
+                      $editor.editor('setDisabled', 'fullscreen');
+                      disableBtn("enable");
+                  }
+                  
+                  function setEnabled() {
+                      $editor.editor('setEnabled');
+                      enableBtn();
+                  }
+                  
+                  function createEditor() {
+                    $("#editor").editor()
+                  }
+                  
+                  /*
+                  function getText() {
+                      //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+                      var range = UE.getEditor('editor').selection.getRange();
+                      range.select();
+                      var txt = UE.getEditor('editor').selection.getText();
+                      alert(txt)
+                  }*/
+                  
+                  function getContentTxt() {
+                      alert($editor.editor('getContentTxt'))
+                  }
+                  function hasContent() {
+                      alert($editor.editor('hasContents'))
+                  }
+                  function setFocus() {
+                      $editor.editor('focus');
+                  }
+                  function deleteEditor() {
+                      $editor.editor('destroy')
+                  }
+                  function disableBtn(str) {
+                      var div = document.getElementById('btns');
+                      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                      for (var i = 0, btn; btn = btns[i++];) {
+                          if (btn.id == str) {
+                              UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                          } else {
+                              btn.setAttribute("disabled", "true");
+                          }
+                      }
+                  }
+                  function enableBtn() {
+                    var div = document.getElementById('btns');
+                    var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+                    for (var i = 0, btn; btn = btns[i++];) {
+                      UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                    }
+                  }
+                  
+                  function getLocalData () {
+                      alert($editor.editor("execCommand", "getlocaldata" ));
+                  }
+                  
+                  function clearLocalData () {
+                      $editor.editor("execCommand", "clearlocaldata" );
+                      alert("已清空草稿箱")
+                  }
+              </script>  
+              
+              
+              
+            </div>
+            <div id="code1" class="tab-pane">
+              <pre data-target="#demo1" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc1" class="tab-pane">
+              <p><strong>初始化编辑器：</strong>
+                <div class="sui-msg msg-tips msg-block">
+                  <div class="msg-con">目前只支持一次实例化一个编辑器，如需多个请分开初始化。</div>
+                  <s class="msg-icon"></s>
+                </div>
+              </p>
+              <ul class="unstyled">
+                <li>1）var $editor = $('#id').editor();id为插入编辑器的dom节点的ID，初始化生成默认配置的富文本编辑器；</li>
+                <li>2) 在需要插入富文本编辑器的dom容器上加一个class="sui-editor",可自动初始化一个默认配置的编辑器，如：&lt;div class="sui-editor"&gt;&lt;/div&gt;</li>
+                <li>3）也可以在实例化时传入自定义参数项对象，改变默认配置，如：var $editor = $('#editor').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
+                  <p><strong>可自定义参数：</strong></p>
+                  <table class="sui-table">
+                    <tr>
+                      <th>参数</th>
+                      <th>默认值</th>
+                      <th>说明</th>
+                    </tr>
+                    <tr>
+                      <td>toolbars{2d Array}</td>
+                      <td>即demo所见插件</td>
+                      <td>工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义</td>
+                    </tr>
+                    <tr>
+                      <td>isShow {Boolean}</td>
+                      <td>true</td>
+                      <td>默认显示编辑器  </td>
+                    </tr>
+                    <tr>
+                      <td>textarea{String} </td>
+                      <td>'editorValue'</td>
+                      <td>提交表单时，服务器获取编辑器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值 </td>
+                    </tr>
+                    <tr>
+                      <td>initialContent {String}</td>
+                      <td>''</td>
+                      <td>初始化编辑器的内容 </td>
+                    </tr>
+                    <tr>
+                      <td>autoClearinitialContent {Boolean} </td>
+                      <td>true</td>
+                      <td>是否自动清除编辑器初始内容，注意：如果focus属性设置为true，这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了</td>
+                    </tr>
+                    <tr>
+                      <td>focus {Boolean}</td>
+                      <td>true</td>
+                      <td>初始化时，是否让编辑器获得焦点true或false </td>
+                    </tr>
+                    <tr>
+                      <td>indentValue {String}</td>
+                      <td>'2em'</td>
+                      <td>首行缩进距离，默认是2em</td>
+                    </tr>
+                    <tr>
+                      <td>initialFrameWidth {Number}</td>
+                      <td>1000</td>
+                      <td>初始化编辑器宽度</td>
+                    </tr>
+                    <tr>
+                      <td>initialFrameHeight {Number} </td>
+                      <td>320</td>
+                      <td>初始化编辑器高度</td>
+                    </tr>
+                    <tr>
+                      <td>readonly {Boolean}</td>
+                      <td>false</td>
+                      <td>编辑器初始化结束后，编辑区域是否是只读的</td>
+                    </tr>
+                    <tr>
+                      <td>autoClearEmptyNode {Boolean}</td>
+                      <td>true</td>
+                      <td>getContent时，是否删除空的inlineElement节点（包括嵌套的情况）</td>
+                    </tr>
+                    <tr>
+                      <td>enableAutoSave {Boolean}</td>
+                      <td>true</td>
+                      <td>启用自动保存</td>
+                    </tr>
+                    <tr>
+                      <td>saveInterval {Number} </td>
+                      <td>500</td>
+                      <td>自动保存间隔时间，单位ms</td>
+                    </tr>
+                    <tr>
+                      <td>fullscreen {Boolean}</td>
+                      <td>false</td>
+                      <td>是否开启初始化时即全屏，默认关闭  </td>
+                    </tr>
+                    <tr>
+                      <td>retainOnlyLabelPasted {Boolean}</td>
+                      <td>false</td>
+                      <td>粘贴只保留标签，去除标签所有属性  </td>
+                    </tr>
+                    <tr>
+                      <td>pasteplain {Boolean}</td>
+                      <td>false</td>
+                      <td>是否默认为纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴  </td>
+                    </tr>
+                    <tr>
+                      <td>filterTxtRules {Object} </td>
+                      <td></td>
+                      <td>纯文本粘贴模式下的过滤规则  </td>
+                    </tr>
+                    <tr>
+                      <td>listDefaultPaddingLeft</td>
+                      <td>'30'</td>
+                      <td>默认的左边缩进的基数倍</td>
+                    </tr>
+                    <tr>
+                      <td>autoTransWordToList {Boolean}</td>
+                      <td>false</td>
+                      <td>禁止word中粘贴进来的列表自动变成列表标签</td>
+                    </tr>
+                    <tr>
+                      <td>fontsize {Array}</td>
+                      <td>[10, 11, 12, 14, 16, 18, 20, 24, 36]</td>
+                      <td>字号</td>
+                    </tr>
+                    <tr>
+                      <td>lineheight {Array}</td>
+                      <td>['1', '1.5','1.75','2', '3', '4', '5'] </td>
+                      <td>行内间距 值和显示的名字相同</td>
+                    </tr>
+                    <tr>
+                      <td>wordCount {Boolean}</td>
+                      <td>true</td>
+                      <td>是否开启字数统计</td>
+                    </tr>
+                    <tr>
+                      <td>maximumWords {Number}</td>
+                      <td>10000</td>
+                      <td>允许的最大字符数</td>
+                    </tr>
+                    <tr>
+                      <td>wordCountMsg {String}</td>
+                      <td>'当前已输入{#count}个字符, 您还可以输入{#leave}个字符。 '</td>
+                      <td>当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符，字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数</td>
+                    </tr>
+                    <tr>
+                      <td>wordOverFlowMsg {String}</td>
+                      <td>'<span style="color:red;">你输入的字符个数已经超出最大允许值，服务器可能会拒绝保存！</span>'</td>
+                      <td>超出字数限制提示 </td>
+                    </tr>
+                    <tr>
+                      <td>maxUndoCount {Number}</td>
+                      <td>20</td>
+                      <td>可以最多回退的次数</td>
+                    </tr>
+                    <tr>
+                      <td>maxInputCount {Number}</td>
+                      <td>1</td>
+                      <td>当输入的字符数超过该值时，保存一次现场</td>
+                    </tr>
+                    <tr>
+                      <td>autoHeightEnabled {Boolean}</td>
+                      <td>true</td>
+                      <td>是否自动长高</td>
+                    </tr>
+                    <tr>
+                      <td>scaleEnabled {Number}</td>
+                      <td>false</td>
+                      <td>是否可以拉伸长高，默认true(当开启时，自动长高失效)</td>
+                    </tr>
+                    <tr>
+                      <td>minFrameWidth {Number}</td>
+                      <td>800</td>
+                      <td>编辑器拖动时最小宽度</td>
+                    </tr>
+                    <tr>
+                      <td>minFrameHeight {Number}</td>
+                      <td>220</td>
+                      <td>编辑器拖动时最小高度</td>
+                    </tr>
+                    <tr>
+                      <td>topOffset {Number}</td>
+                      <td>30</td>
+                      <td>浮动时工具栏距离浏览器顶部的高度，用于某些具有固定头部的页面</td>
+                    </tr>
+                    <tr>
+                      <td>toolbarTopOffset {Number}</td>
+                      <td>400</td>
+                      <td>编辑器底部距离工具栏高度(如果参数大于等于编辑器高度，则设置无效)</td>
+                    </tr>
+                    <tr>
+                      <td>tableDragable {Boolean}</td>
+                      <td>true</td>
+                      <td>表格是否可以拖拽</td>
+                    </tr>
+                    <tr>
+                      <td>disabledTableInTable {Boolean} </td>
+                      <td>true</td>
+                      <td>禁止表格嵌套</td>
+                    </tr>
+                    <tr>
+                      <td>allowDivTransToP {Boolean} </td>
+                      <td>true</td>
+                      <td>认会将外部进入的html数据中的Div标签转换成P标签，外部进入的数据包括粘贴和调用setContent接口进入编辑器的数据。如果设置成false将不在做这个转换。</td>
+                    </tr>
+                  </table>
+                </li>
+              </ul>
+              <p><strong>3.可调用实例的.editor方法，传入调用的方法名和参数，触发事件，如：$editor.editor("isFocus")</strong></p>
+              <p><strong>事件列表：</strong>
+                <table class="sui-table">
+                  <tr>
+                    <th>方法签名</th>
+                    <th>描述</th>
+                  </tr>
+                  <tr>
+                    <td>ready(Function fn)</td>
+                    <td>编辑器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的</td>
+                  </tr>
+                  <tr>
+                    <td>destroy()</td>
+                    <td>销毁编辑器实例，使用textarea代替</td>
+                  </tr>
+                  <tr>
+                    <td>setHeight(Number number)</td>
+                    <td>设置编辑器高度</td>
+                  </tr>
+                  <tr>
+                    <td>getContent()</td>
+                    <td>获取编辑器的内容</td>
+                  </tr>
+                  <tr>
+                    <td>getContent(Function fn)</td>
+                    <td>获取编辑器的内容。 可以通过参数定义编辑器内置的判空规则</td>
+                  </tr>
+                  <tr>
+                    <td>getAllHtml()</td>
+                    <td>取得完整的html代码，可以直接显示成完整的html文档</td>
+                  </tr>
+                  <tr>
+                    <td>getPlainTxt()</td>
+                    <td>得到编辑器的纯文本内容，但会保留段落格式</td>
+                  </tr>
+                  <tr>
+                    <td>getContentTxt()</td>
+                    <td>获取编辑器中的纯文本内容,没有段落格式</td>
+                  </tr>
+                  <tr>
+                    <td>setContent(String html)</td>
+                    <td>设置编辑器的内容，可修改编辑器当前的html内容</td>
+                  </tr>
+                  <tr>
+                    <td>setContent(String html, Boolean isAppendTo)</td>
+                    <td>设置编辑器的内容，可修改编辑器当前的html内容</td>
+                  </tr>
+                  <tr>
+                    <td>focus()</td>
+                    <td>让编辑器获得焦点，默认focus到编辑器头部</td>
+                  </tr>
+                  <tr>
+                    <td>focus(Boolean toEnd)</td>
+                    <td>让编辑器获得焦点，toEnd确定focus位置</td>
+                  </tr>
+                  <tr>
+                    <td>execCommand(String cmdName)<strong>（具体可使用的命令见下表）</strong></td>
+                    <td>执行编辑命令cmdName，完成富文本编辑效果</td>
+                  </tr>
+                  <tr>
+                    <td>queryCommandState(String cmdName)</td>
+                    <td>根据传入的command命令，查选编辑器当前的选区，返回命令的状态</td>
+                  </tr>
+                  <tr>
+                    <td>hasContents()</td>
+                    <td>检查编辑区域中是否有内容</td>
+                  </tr>
+                  <tr>
+                    <td>hasContents(Array tags)</td>
+                    <td>检查编辑区域中是否有内容，若包含参数tags中的节点类型，直接返回true</td>
+                  </tr>
+                  <tr>
+                    <td>reset()</td>
+                    <td>重置编辑器，可用来做多个tab使用同一个编辑器实例</td>
+                  </tr>
+                  <tr>
+                    <td>setEnabled()</td>
+                    <td>设置当前编辑区域可以编辑</td>
+                  </tr>
+                  <tr>
+                    <td>setDisabled()</td>
+                    <td>设置当前编辑区域不可编辑</td>
+                  </tr>
+                  <tr>
+                    <td>setDisabled(String except)</td>
+                    <td>设置当前编辑区域不可编辑,except中的命令除外</td>
+                  </tr>
+                  <tr>
+                    <td>setDisabled(Array except)</td>
+                    <td>设置当前编辑区域不可编辑,except中的命令除外</td>
+                  </tr>
+                  <tr>
+                    <td>setShow()</td>
+                    <td>显示编辑器</td>
+                  </tr>
+                  <tr>
+                    <td>setHide()</td>
+                    <td>隐藏编辑器</td>
+                  </tr>
+                  <tr>
+                    <td>getContentLength()</td>
+                    <td>计算编辑器html内容字符串的长度</td>
+                  </tr>
+                  <tr>
+                    <td>getContentLength(Boolean ingoneHtml)</td>
+                    <td>计算编辑器当前纯文本内容的长度</td>
+                  </tr>
+                </table>
+              </p>
+              <p><strong>4.execCommand可调用的COMMAND列表,如：$editor.editor("execCommand", 'insertHtml', value)  </strong>
+                <table class="sui-table">
+                  <tr>
+                    <th>#</th>
+                    <th>命令</th>
+                    <th>描述</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>anchor</td>
+                    <td>插入锚点</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>autosubmit</td>
+                    <td>提交表单</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>autotypeset</td>
+                    <td>对当前编辑器的内容执行自动排版， 排版的行为根据config配置文件里的“autotypeset”选项进行控制。</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>bold</td>
+                    <td>字体加粗</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>italic   </td>
+                    <td>字体倾斜</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>blockquote</td>
+                    <td>添加引用</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>cleardoc</td>
+                    <td>清空文档</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>touppercase</td>
+                    <td>把选区内文本变大写，与“tolowercase”命令互斥</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>tolowercase</td>
+                    <td>把选区内文本变小写，与“touppercase”命令互斥</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>directionality</td>
+                    <td>文字输入方向</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>forecolor</td>
+                    <td>字体颜色</td>
+                  </tr>
+                  <tr>
+                    <td>12</td>
+                    <td>backcolor</td>
+                    <td>字体背景颜色</td>
+                  </tr>
+                  <tr>
+                    <td>13</td>
+                    <td>fontsize</td>
+                    <td>字体大小</td>
+                  </tr>
+                  <tr>
+                    <td>14</td>
+                    <td>fontfamily</td>
+                    <td>字体样式</td>
+                  </tr>
+                  <tr>
+                    <td>15</td>
+                    <td>underline</td>
+                    <td>字体下划线,与删除线互斥</td>
+                  </tr>
+                  <tr>
+                    <td>16</td>
+                    <td>strikethrough</td>
+                    <td>字体删除线,与下划线互斥</td>
+                  </tr>
+                  <tr>
+                    <td>17</td>
+                    <td>fontborder</td>
+                    <td>字体边框</td>
+                  </tr>
+                  <tr>
+                    <td>18</td>
+                    <td>formatmatch</td>
+                    <td>格式刷</td>
+                  </tr>
+                  <tr>
+                    <td>19</td>
+                    <td>horizontal</td>
+                    <td>插入分割线</td>
+                  </tr>
+                  <tr>
+                    <td>20</td>
+                    <td>insertimage</td>
+                    <td>图片对齐方式</td>
+                  </tr>
+                  <tr>
+                    <td>21</td>
+                    <td>insertimage</td>
+                    <td>插入图片</td>
+                  </tr>
+                  <tr>
+                    <td>22</td>
+                    <td>indent</td>
+                    <td>缩进</td>
+                  </tr>
+                  <tr>
+                    <td>23</td>
+                    <td>insertparagraph</td>
+                    <td>插入段落</td>
+                  </tr>
+                  <tr>
+                    <td>24</td>
+                    <td>justify</td>
+                    <td>段落对齐方式</td>
+                  </tr>
+                  <tr>
+                    <td>25</td>
+                    <td>lineheight</td>
+                    <td>行距</td>
+                  </tr>
+                  <tr>
+                    <td>26</td>
+                    <td>link</td>
+                    <td>插入超链接</td>
+                  </tr>
+                  <tr>
+                    <td>27</td>
+                    <td>unlink</td>
+                    <td>取消超链接</td>
+                  </tr>
+                  <tr>
+                    <td>28</td>
+                    <td>insertimage</td>
+                    <td>图片对齐方式</td>
+                  </tr>
+                  <tr>
+                    <td>29</td>
+                    <td>removeformat</td>
+                    <td>清除文字样式</td>
+                  </tr>
+                  <tr>
+                    <td>30</td>
+                    <td>selectall</td>
+                    <td>选中所有内容</td>
+                  </tr>
+                  <tr>
+                    <td>31</td>
+                    <td>time</td>
+                    <td>插入时间，默认格式：12:59:59</td>
+                  </tr>
+                  <tr>
+                    <td>32</td>
+                    <td>date</td>
+                    <td>插入日期，默认格式：2013-08-30</td>
+                  </tr>
+                  <tr>
+                    <td>33</td>
+                    <td>undo</td>
+                    <td>撤销上一次执行的命令</td>
+                  </tr>
+                  <tr>
+                    <td>34</td>
+                    <td>redo</td>
+                    <td>重做上一次执行的命令</td>
+                  </tr>
+                  <tr>
+                    <td>35</td>
+                    <td>inserthtml</td>
+                    <td>插入html代码</td>
+                  </tr>
+                  <tr>
+                    <td>36</td>
+                    <td>insertorderedlist</td>
+                    <td>有序列表，与“insertunorderedlist”命令互斥</td>
+                  </tr>
+                  <tr>
+                    <td>37</td>
+                    <td>insertunorderedlist</td>
+                    <td>无序列表，与“insertorderedlist”命令互斥</td>
+                  </tr>
+                </table>
+              </p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo1" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>定制工具栏</h2>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+            <li><a href="#code2" data-toggle="tab">代码</a></li>
+            <li><a href="#doc2" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo2" class="tab-pane active">
+              <div>
+                  <div class="sui-msg msg-tips msg-block">
+                      <div class="msg-con">
+                           实例化编辑器的时候传入 toolbars 参数
+                      </div>
+                      <s class="msg-icon"></s>
+                  </div>
+                  <h3>1.简单列表</h3>
+                  <textarea id="simple" style="width:1024px;height:200px;"></textarea>
+                  <h3>2.多行列表</h3>
+                  <textarea id="multi" style="width:1024px;height:200px;"></textarea>
+              </div>
+              <script type="text/javascript">
+                  //toolbar是二维数组
+                  var $editor1 = $('#simple').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
+                  var $editor2 = $('#multi').editor({toolbars: [['fullscreen', 'source', 'undo', 'redo'],
+                      ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', '|', 'forecolor', 'backcolor', 'insertorderedlist']]});
+              </script>
+            </div>
+            <div id="code2" class="tab-pane">
+              <pre data-target="#demo2" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc2" class="tab-pane">
+              <p>1.配置项里用竖线 '|' 代表分割线</p>
+              <p>2.完整的按钮列表
+                <table class="sui-table">
+                  <tr>
+                    <td>'fullscreen'</td>
+                    <td>全屏</td>
+                  </tr>
+                  <tr>
+                    <td>'source'</td>
+                    <td>源代码</td>
+                  </tr>
+                  <tr>
+                    <td>'undo'</td>
+                    <td>撤销</td>
+                  </tr>
+                  <tr>
+                    <td>'redo'</td>
+                    <td>重做</td>
+                  </tr>
+                  <tr>
+                    <td>'bold'</td>
+                    <td>加粗</td>
+                  </tr>
+                  <tr>
+                    <td>'italic'</td>
+                    <td>斜体</td>
+                  </tr>
+                  <tr>
+                    <td>'underline'</td>
+                    <td>下划线</td>
+                  </tr>
+                  <tr>
+                    <td>'strikethrough'</td>
+                    <td>删除线</td>
+                  </tr>
+                  <tr>
+                    <td>'customstyle'</td>
+                    <td>自定义标题</td>
+                  </tr>
+                  <tr>
+                    <td>'paragraph'</td>
+                    <td>段落格式</td>
+                  </tr>
+                  <tr>
+                    <td>'fontfamily'</td>
+                    <td>字体</td>
+                  </tr>
+                  <tr>
+                    <td>'fontsize'</td>
+                    <td>字号</td>
+                  </tr>
+                  <tr>
+                    <td>'forecolor'</td>
+                    <td>字体颜色</td>
+                  </tr>
+                  <tr>
+                    <td>'backgroundcolor'</td>
+                    <td>背景色</td>
+                  </tr>
+                  <tr>
+                    <td>'insertorderedlist'</td>
+                    <td>有序列表</td>
+                  </tr>
+                  <tr>
+                    <td>'insertunorderedlist'</td>
+                    <td>无序列表</td>
+                  </tr>
+                  <tr>
+                    <td>'directionalityltr'</td>
+                    <td>从左向右输入</td>
+                  </tr>
+                  <tr>
+                    <td>'directionalityrtl'</td>
+                    <td>从右向左输入</td>
+                  </tr>
+                  <tr>
+                    <td>'indent'</td>
+                    <td>首行缩进</td>
+                  </tr>
+                  <tr>
+                    <td>'justifyleft'</td>
+                    <td>居左对齐</td>
+                  </tr>
+                  <tr>
+                    <td>'justifycenter'</td>
+                    <td>居中对齐</td>
+                  </tr>
+                  <tr>
+                    <td>'justifyright'</td>
+                    <td>居右对齐</td>
+                  </tr>
+                  <tr>
+                    <td>'justifyjustify'</td>
+                    <td>两端对齐</td>
+                  </tr>
+                  <tr>
+                    <td>'link'</td>
+                    <td>超链接</td>
+                  </tr>
+                  <tr>
+                    <td>'unlink'</td>
+                    <td>取消链接</td>
+                  </tr>
+                  <tr>
+                    <td>'anchor'</td>
+                    <td>锚点</td>
+                  </tr>
+                  <tr>
+                    <td>'insertimage'</td>
+                    <td>多图上传</td>
+                  </tr>
+                  <tr>
+                    <td>'emotion'</td>
+                    <td>表情</td>
+                  </tr>
+                  <tr>
+                    <td>'inserttable'</td>
+                    <td>插入表格</td>
+                  </tr>
+                  <tr>
+                    <td>'deletetable'</td>
+                    <td>删除表格</td>
+                  </tr>
+                  <tr>
+                    <td>'insertparagraphbeforetable'</td>
+                    <td>表格前插入行</td>
+                  </tr>
+                  <tr>
+                    <td>'insertrow'</td>
+                    <td>前插入行</td>
+                  </tr>
+                  <tr>
+                    <td>'deleterow'</td>
+                    <td>删除行</td>
+                  </tr>
+                  <tr>
+                    <td>'insertcol'</td>
+                    <td>插入列</td>
+                  </tr>
+                  <tr>
+                    <td>'deletecol'</td>
+                    <td>删除列</td>
+                  </tr>
+                  <tr>
+                    <td>'mergecells'</td>
+                    <td>合并多个单元格</td>
+                  </tr>
+                  <tr>
+                    <td>'mergeright'</td>
+                    <td>右合并单元格</td>
+                  </tr>
+                  <tr>
+                    <td>'mergedown'</td>
+                    <td>下合并单元格</td>
+                  </tr>
+                  <tr>
+                    <td>'splittocells'</td>
+                    <td>完全拆分单元格</td>
+                  </tr>
+                  <tr>
+                    <td>'splittorows'</td>
+                    <td>拆分成行</td>
+                  </tr>
+                  <tr>
+                    <td>'splittocols'</td>
+                    <td>拆分成列</td>
+                  </tr>
+                </table>
+              </p>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
+          </ul>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
+            <li><a href="#code3" data-toggle="tab">代码</a></li>
+            <li><a href="#doc3" data-toggle="tab">文档</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo3" class="tab-pane active">
+              <div>
+                  <h3>多编辑区域一个编辑器实例</h3>
+                  <form id="test" class="sui-form form-horizontal" method="post">
+                      <div class="control-group info">
+                          <label for="inputInfo" class="control-label">
+                              编辑区域一
+                          </label>
+                          <span style="margin-left:20px; display:inline-block;" class="testcontent" id="content1"><textarea id="editortest1" type="text/plain" style="width:800px;height:200px;">内容1</textarea></span>
+                      </div>
+                      <div class="control-group info">
+                          <label for="inputInfo" class="control-label">
+                              编辑区域二
+                          </label>
+                          <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest2">内容2</span>
+                      </div>
+                      <div class="control-group info">
+                          <label for="inputInfo" class="control-label">
+                              编辑区域三
+                          </label>
+                          <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest3">内容3</span>
+                      </div>
+                  </form>
+                  
+              </div>
+              <script type="text/javascript">
+                  var $ue = $('#editortest1').editor();
+                  $ue.editor('ready',function(){
+                      //阻止工具栏的点击向上冒泡
+                      $(this).click(function(e){
+                          e.stopPropagation()
+                      })
+                  });
+                  $('.testcontent').click(function(e){
+                      var $target = $(this);
+                      var content = $target.html();
+                      var currentParnet = $ue.parent();
+                      var currentContent = $ue.editor('getContent');
+                      $target.html('');
+                      $target.append($ue);
+                      $ue.editor("execCommand", "reset" );
+                      setTimeout(function(){
+                          $ue.editor('setContent', content);
+                      },200)
+                      $(currentParnet).html(currentContent);
+                  })
+              </script>
+            </div>
+            <div id="code3" class="tab-pane">
+              <pre data-target="#demo3" class="prettyprint linenums"></pre>
+            </div>
+            <div id="doc3" class="tab-pane"></div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo3" class="copy-btn">复制代码</a></li>
+          </ul>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'sui-alibaba'; // required: replace example with your forum shortname
+            
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script><a href="http://disqus.com" class="dsq-brlink">comments powered by<span class="logo-disqus">Disqus</span></a>
+          <div class="footer">
+            <ul class="unstyled">
+              <li>@time 2014.03.07</li>
+              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3456/livereload.js"></script>
+  </body>
+</html>

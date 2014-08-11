@@ -80,6 +80,7 @@
                   <li><a href="datetimepicker.html">datetimepicker</a></li>
                   <li class="active"><a href="autocomplete.html">自动补全</a></li>
                   <li><a href="tree-js.html">级联选择</a></li>
+                  <li><a href="editor.html">富文本编辑器</a></li>
                 </ul>
               </li>
               <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
@@ -165,6 +166,10 @@
               <li>简单易用的自动补全插件。移植自 <a href='https://github.com/devbridge/jQuery-Autocomplete' target='_blank'>https://github.com/devbridge/jQuery-Autocomplete</a></li>
             </ul>
           </p>
+          <p><strong>注意，由于我们在示例中使用的是静态的假数据，当没有进行js过滤的时候无论输入任何字母，补全结果都是相同的，这不是bug。</strong></p>
+          <ul class="unstyled">
+            <li><strong>更新 v1.2.0：增加了对返回数据格式的说明。</strong></li>
+          </ul>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
@@ -215,31 +220,9 @@
                     </form>
                   </div>
                 </div>
-                <script src="assets/js/jquery.mockjax.js"></script>
                 <script>
-                  var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
-                  // Setup jQuery ajax mock:
-                  $.mockjax({
-                      url: '*',
-                      responseTime: 0,
-                      response: function (settings) {
-                          var query = settings.data.query,
-                              queryLowerCase = query.toLowerCase(),
-                              re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi'),
-                              suggestions = $.grep(countriesArray, function (country) {
-                                   // return country.value.toLowerCase().indexOf(queryLowerCase) === 0;
-                              return re.test(country.value);
-                              }),
-                              response = {
-                                  query: query,
-                                  suggestions: suggestions
-                              };
-                              
-                          this.responseText = JSON.stringify(response);
-                      }
-                  });
                   $('#autocomplete-ajax').autocomplete({
-                      serviceUrl: 'dada',
+                      serviceUrl: 'json/ac-strings.json',
                       lookupFilter: function(suggestion, originalQuery, queryLowerCase) {
                           var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
                           return re.test(suggestion.value);
@@ -266,7 +249,7 @@
                   </div>
                   <script>
                     $('#autocomplete-dynamic').autocomplete({
-                        lookup: countriesArray
+                        lookup: countries
                     });
                   </script>
                 </div>
@@ -377,7 +360,7 @@
             <div id="demo2" class="tab-pane active">
               <form class="sui-form">
                 <h4>通过ajax读取数据</h4>
-                <input type="text" id="auto-init-1" value="" data-toggle="autocomplete" data-service-url="/ac.json" class="input-large">
+                <input type="text" id="auto-init-1" value="" data-toggle="autocomplete" data-service-url="json/ac-strings.json" class="input-large">
                 <h4>使用本地数据</h4>
                 <input type="text" id="auto-init-2" value="" data-toggle="autocomplete" data-lookup="[&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;, &quot;ddd&quot;, &quot;edfa&quot;, &quot;wdasda&quot;, &quot;tueiyhgk&quot;, &quot;vjflcjx&quot;]" class="input-large">
               </form>
@@ -389,6 +372,64 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>返回数据格式</h2>
+          <p class="sui-lead">ac支持两种返回数据格式，一种是纯字符串的格式，如下所示
+            <pre>{
+  "query": "a",
+  "suggestions": [
+    "张三",
+    "李四",
+    "王五",
+    "赵六"
+  ]
+}
+</pre>另一种是 data-value 格式，其中value是自动补全的文本，而data可以是任意值，在onSelect等回调中可以取到data对象。如下所示：
+            <pre>{
+  "query": "a",
+  "suggestions": [
+    { "value": "张三", "data": { "id": "123", "gender": "male"}},
+    { "value": "李四", "data": { "id": "124", "gender": "female"}},
+    { "value": "王五", "data": { "id": "125", "gender": "male"}}
+  ]
+}
+</pre>
+          </p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo-json" data-toggle="tab">示例</a></li>
+            <li><a href="#code-json" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo-json" class="tab-pane active">
+              <form class="sui-form">
+                <h4>纯字符串格式</h4>
+                <input type="text" value="" data-toggle="autocomplete" data-service-url="json/ac-strings.json" class="input-large">
+                <h4>data-value 格式</h4>
+                <input type="text" value="" id="data-demo" data-toggle="autocomplete" data-service-url="json/ac-data.json" class="input-large">
+                <div class="help-block">
+                  <div class="sui-msg msg-tips">
+                    <div id="data-demo-msg" class="msg-con">请选择</div>
+                    <div class="msg-icon"></div>
+                  </div>
+                </div>
+              </form>
+              <script>
+                $("#data-demo").autocomplete({
+                  serviceUrl: 'json/ac-data.json',
+                  onSelect: function(e) {
+                    $("#data-demo-msg").text("你选择了："+JSON.stringify(e));
+                  }
+                })
+                
+                
+              </script>
+            </div>
+            <div id="code-json" class="tab-pane">
+              <pre data-target="#demo-json" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo-json" class="copy-btn">复制代码</a></li>
+          </ul>
           <h2>下拉菜单样式</h2>
           <p class="sui-lead">关于下拉菜单样式，参见这里 <a href='dropdown.html'>dropdown</a></p>
           <ul class="sui-nav nav-tabs nav-large">
@@ -399,7 +440,7 @@
             <div id="demo3" class="tab-pane active">
               <form class="sui-form">
                 <div class="sui-dropdown-like">
-                  <input type="text" value="" data-toggle="autocomplete" data-serviceUrl="/ac.json" class="input-large"><i class="sui-icon icon-pc-chevron-bottom"></i>
+                  <input type="text" value="" data-toggle="autocomplete" data-service-url="json/ac-strings.json" class="input-large"><i class="sui-icon icon-pc-chevron-bottom"></i>
                 </div>
               </form>
             </div>
