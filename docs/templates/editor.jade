@@ -1,7 +1,7 @@
 extends base
 
 block title
-  title 富文本编辑器 
+  title 富文本编辑器(beta)
 
 block head
   script(src='../.package/editor/editor.config.js')
@@ -29,6 +29,24 @@ block sidebar
 block content
 
   h2.sui-page-header 开发者文档
+  p.sui-lead
+    | 富文本编辑器集成自百度的UEditor编辑器，地址：<a href='http://ueditor.baidu.com/website/' target='_blank'>UEditor</a>
+  p
+    strong 使用富文本编辑器必须要将SUI版本升级到 1.2.0 版本以上。
+    br
+    strong 富文本编辑器还处在测试阶段，上传图片目前只支持URL上传，我们后续会逐渐完善更多功能。有任何问题或者建议可以随时反馈给我们。
+  p.sui-lead
+    | 注意，使用富文本编辑器必须额外引入如下三个文件:
+    ul.unstyled
+      li
+        a(href="http://g.alicdn.com/sj/dpl/#{version}/editor/editor.config.js" target="_blank") http://g.alicdn.com/sj/dpl/#{version}/editor/editor.config.js
+      li
+        a(href="http://g.alicdn.com/sj/dpl/#{version}/editor/editor.all.js" target="_blank") http://g.alicdn.com/sj/dpl/#{version}/editor/editor.all.js
+      li
+        a(href="http://g.alicdn.com/sj/dpl/#{version}/editor/themes/default/css/editor.css" target="_blank") http://g.alicdn.com/sj/dpl/#{version}/editor/themes/default/css/editor.css
+
+
+  h2 初始化
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -40,8 +58,8 @@ block content
   div.tab-content
     div.tab-pane.active#demo1.
         <div>
-            <h1>完整demo</h1>
-            <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+            <h3>完整demo</h3>
+            <textarea id="editor" style="width:1024px;height:300px;"></textarea>
         </div>
         <div id="btns">
             <div class="sui-btn-group">
@@ -177,19 +195,10 @@ block content
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1')
     div.tab-pane#doc1
-      p
-        strong 1.首先需额外引入两个js文件和一个css文件：
-      ul.unstyled
-        li
-            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/editor.config.js" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/editor.config.js；
-        li
-            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/editor.all.js" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/editor.all.js;
-        li
-            a(href="g.alicdn.com/sj/dpl/1.1.10/editor/themes/default/css/editor.css" target="_blank") g.alicdn.com/sj/dpl/1.1.10/editor/themes/default/css/editor.css;
       p 
-        strong 2.初始化编辑器：
+        strong 初始化编辑器：
         div.sui-msg.msg-tips.msg-block
-            div.msg-con 目前只支持一次实例化一个编辑器，如需多个请分开初始化
+            div.msg-con 目前只支持一次实例化一个编辑器，如需多个请分开初始化。
             s.msg-icon
       ul.unstyled
         li 1）var $editor = $('#id').editor();id为插入编辑器的dom节点的ID，初始化生成默认配置的富文本编辑器；
@@ -591,6 +600,7 @@ block content
       a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码
 
   
+  h2 定制工具栏
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -602,7 +612,6 @@ block content
   div.tab-content
     div.tab-pane.active#demo2.
         <div>
-            <h1>定制工具栏</h1>
             <div class="sui-msg msg-tips msg-block">
                 <div class="msg-con">
                      实例化编辑器的时候传入 toolbars 参数
@@ -610,9 +619,9 @@ block content
                 <s class="msg-icon"></s>
             </div>
             <h3>1.简单列表</h3>
-            <script id="simple" type="text/plain" style="width:1024px;height:200px;"></script>
+            <textarea id="simple" style="width:1024px;height:200px;"></textarea>
             <h3>2.多行列表</h3>
-            <script id="multi" type="text/plain" style="width:1024px;height:200px;"></script>
+            <textarea id="multi" style="width:1024px;height:200px;"></textarea>
         </div>
         <script type="text/javascript">
             //toolbar是二维数组
@@ -764,7 +773,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo3.
         <div>
-            <h1>多编辑区域一个编辑器实例</h1>
+            <h3>多编辑区域一个编辑器实例</h3>
             <form id="test" class="sui-form form-horizontal" method="post">
                 <div class="control-group info">
                     <label for="inputInfo" class="control-label">
