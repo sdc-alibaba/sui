@@ -169,15 +169,24 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      options: {
+        sourceMap: false
+      },
       build: {
-        options: {
-          sourceMap: false
-        },
         files: [{
           expand: true,
           cwd: '<%= distRoot %>/js/',
           src: ['**/*.js', '!*.min.js'],
           dest: '<%= distRoot %>/js/',
+          ext: '.min.js'
+        }]
+      },
+      editor: {
+        files: [{
+          expand: true,
+          cwd: '<%= distRoot %>/editor/',
+          src: ['editor-all.js', 'editor-parse.js'],
+          dest: '<%= distRoot %>/editor/',
           ext: '.min.js'
         }]
       }
@@ -232,6 +241,13 @@ module.exports = function(grunt) {
         src: ['less/editor/all.less'],
         dest: '<%= distRoot %>/editor/themes/default/css/editor.css'
       },
+      editorMin: {
+        options: {
+          compress: true
+        },
+        src: ['less/editor/all.less'],
+        dest: '<%= distRoot %>/editor/themes/default/css/editor.min.css'
+      },
       editorDialog: {
         src: ['less/editor/dialogbase.less'],
         dest: '<%= distRoot %>/editor/themes/default/dialogbase.css'
@@ -261,7 +277,7 @@ module.exports = function(grunt) {
       },
       editorConfig: {
         files: [
-          { expand: true, cwd: './js/editor/', src:["editor.config.js"], dest: '<%= distRoot %>/editor' },
+          { expand: true, cwd: './js/editor/', src:["editor-config.js"], dest: '<%= distRoot %>/editor' },
         ]
       },
       editorLang: {
@@ -306,7 +322,7 @@ module.exports = function(grunt) {
           }
         },
         src: concatPath(editorJS, "./js/editor/_src/"),
-        dest: '<%= distRoot %>/editor/editor.all.js'
+        dest: '<%= distRoot %>/editor/editor-all.js'
       },
       editorParse: {
         options: {
@@ -314,7 +330,7 @@ module.exports = function(grunt) {
           footer: '\n\n})();\n'
         },
         src: concatPath(editorParseJS, "./js/editor/_parse/"),
-        dest: '<%= distRoot %>/editor/editor.parse.js'
+        dest: '<%= distRoot %>/editor/editor-parse.js'
       }
     },
     watch: {
@@ -375,7 +391,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jshint']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['browserify', 'uglify']);
+  grunt.registerTask('dist-js', ['browserify', 'uglify:build']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['less']);
@@ -394,7 +410,7 @@ module.exports = function(grunt) {
   grunt.registerTask('images', ['copy:images']);
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom', 'images', 'concat', 'copy']);
+  grunt.registerTask('default', ['test', 'dist', 'docs', 'custom', 'images', 'concat', 'copy', 'uglify:editor']);
   //local server and watch
   grunt.registerTask('local',['connect','watch']);
 }
