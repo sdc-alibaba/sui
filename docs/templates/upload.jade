@@ -17,14 +17,38 @@ block content
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#doc1', data-toggle='tab') 文档
+    li
+      a(href='#demo1', data-toggle='tab') 示例
 
   div.tab-content
-    div#doc1
-      pre.prettyprint.
-        $.upload({
-          api: {string} 后端上传服务api地址
-          $fileinputs: {jQuery Object ArrayLike}  jQuery对象元素集合，必须全为file input
-          data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
-          sizeLimit: {number | object} 文件大小限制, 单位KB。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。该参数只在IE9以上及现代浏览器、千牛有效。且服务器端校验仍是必须的。
-          success: {function} function(json){} 上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）。形参json是各后端返回的json数据
-        })
+    div.tab-pane.active#doc1
+      div#doc1
+        p 这是一个轻逻辑的组件，对后端架构、规则几乎没有限制，可以根据不同用户的后端平台、约定选择数据交互规范。
+        pre.prettyprint.
+          $.upload({
+            api: {string} 后端上传服务api地址
+            $fileinputs: {jQuery Object ArrayLike}  jQuery对象元素集合，必须全为file input
+            data: {object | function}  除了上传的文件外需要额外传输的数据（经常后端需要）。如果传入匿名函数则取返回值为data
+            sizeLimit: {number | object} 文件大小限制, 单位KB。传入一个数字则为最大size；传入对象则是{min:1000,max:3000}形式，max必须比min大。该参数只在IE9以上及现代浏览器、千牛有效。且服务器端校验仍是必须的。
+            success: {function} function(json){} 上传网络层成功后的回调（注意业务逻辑可能使这次上传失败无效）。形参json是各后端返回的json数据
+          })
+    div.tab-pane#demo1
+      div#ex1
+        p 举个栗子
+        pre.prettyprint.
+          $.upload({
+            $fileinputs: $('#onefile').find('[type=file]')
+            ,api: 'http://xx.com/xx.do'
+            ,data: function(){
+              //this指向对应file input
+              var level = $(this).data('level');
+              return $.extend({}, {"level": level});
+            }
+            ,success: function(data) {
+              if (data.flag) {
+                //doSomethingSuccess...
+              } else {
+                //doSomethingFailure...
+              }
+            }
+          });
