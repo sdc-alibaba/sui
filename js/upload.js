@@ -161,7 +161,7 @@
       $.each($fileinputs, function(k, v){
         var type = $(v).prop('type');
         if ( type != 'file') {
-          throw Error('upload——传入控件类型应为file，实际有type为' + type + '的控件!');
+          throw Error('传入控件类型应为file，实际有type为' + type + '的控件!');
         }
       })
       $fileinputs.on('change.upload', function(e) {
