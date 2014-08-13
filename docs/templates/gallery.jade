@@ -4,11 +4,13 @@ block title
   title 组件库
 
 block head
+  link(href="assets/css/gallery.css" rel="stylesheet")
   style(type='text/css').
     .btn-huge {
       padding: 15px 40px;
       font-size: 20px;
     }
+  
 block header
   +header('demos')
 
@@ -102,6 +104,16 @@ block content_wrap
 
                 h4 级联选择
 
+            div.col-sm-6
+                div.ih-item.square.effect15.left_to_right
+                    a(href='editor.html')
+                        div.img
+                            img(src='pictures/gallery/editor.png' alt='img')
+                        div.info
+                            h3 富文本编辑器
+                            p 期待已久的富文本编辑器
+
+                h4 富文本编辑器
         h2 文字和图标
 
         div.clearfix
