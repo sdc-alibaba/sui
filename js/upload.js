@@ -195,5 +195,20 @@
     }
   })
 
+  /*
+  //事件委托，使组件可以无js初始化的简单调用
+  $(document).on('change.upload', '[data-toggle="upload"]', function(e){
+    var $this = $(this)
+      , extraData = $.parseJSON($this.data('param'))
+      , api = $this.data('api')
+    $.upload({
+      $fileinputs: $this 
+      ,api: api
+      ,data: extraData
+      ,success: 秋风萧瑟，改日再续
+    })
+  })
+  */
+
 })(jQuery);
 /* jshint ignore:end */
