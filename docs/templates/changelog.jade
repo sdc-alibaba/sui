@@ -24,8 +24,16 @@ block content_wrap
           td 1.2.1
           td 
             ul.unstyled
-              li 修复了btn-bordered 按钮禁用样式，增加了btn-bordered 按钮组。
-          td
+              li 
+                | 修复了btn-bordered 按钮禁用样式，增加了btn-bordered 按钮组。
+                br
+                | 大幅改进了下拉菜单的易用性：
+                ul.unstyled(style='margin-left: 4em;')
+                  li 使用proxy实现下拉逻辑，异步加载的情况下也不需要手动初始化
+                  li 增加了分组功能
+                  li 增加了单条选项禁用功能
+                  li 按钮下拉菜单增加了一个icon
+          td 2014.08.14
 
         tr
           td 1.2.0
