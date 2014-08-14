@@ -96,6 +96,9 @@
         padding-left: 8px;
         padding-right: 8px;
       }
+      .disabled > a {
+        color: #999!important;
+      }
       .caret {
         float: right;
         margin-left: 4px;
@@ -169,6 +172,12 @@
     margin: 5px 1px;
   }
 
+  //group title
+  .group-title {
+    color: #999;
+    padding: 2px 6px;
+  }
+
   // Links within the dropdown menu
   > li {
     padding: 0 1px; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
@@ -226,6 +235,7 @@
   > .disabled > a {
     &, &:hover, &:focus {
       color: @grayLight;
+      background-color: @white;
     }
   }
 // Nuke hover/focus effects
