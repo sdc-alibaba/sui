@@ -16,6 +16,11 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
+    ul.unstyled
+      li
+        strong 更新 v1.2.1：修复了 btn-bordered 的禁用状态样式。
+
+  p.sui-lead
     | 垂直和水平方向按钮组
 
   ul.sui-nav.nav-tabs.nav-large
@@ -29,6 +34,22 @@ block content
   div.tab-content
     div.tab-pane.active#demo1
       div.bs-docs-example
+        p
+          div.sui-btn-group
+            button.sui-btn.btn-bordered.btn-primary 复制
+            button.sui-btn.btn-bordered.btn-primary 粘贴
+            button.sui-btn.btn-bordered.btn-primary 编辑
+            button.sui-btn.btn-bordered.btn-primary 撤销
+            button.sui-btn.btn-bordered.btn-primary 查找
+            button.sui-btn.btn-bordered.btn-primary 删除
+
+        p
+          div.sui-btn-group
+            button.sui-btn.btn-bordered.btn-primary 复制
+            button.sui-btn.btn-bordered.btn-info 粘贴
+            button.sui-btn.btn-bordered.btn-warning 编辑
+            button.sui-btn.btn-bordered.btn-success 撤销
+            button.sui-btn.btn-bordered.btn-danger 删除
         p
           div.sui-btn-group
             button.sui-btn.btn-primary 复制
@@ -51,12 +72,18 @@ block content
             button.sui-btn.btn-danger 删除
 
         h2 垂直方向
-        div.sui-btn-group.btn-group-vertical
-          button.sui-btn 左边
-          button.sui-btn 中间
-          button.sui-btn 右边
+        p
+          div.sui-btn-group.btn-group-vertical
+            button.sui-btn.btn-primary 左边
+            button.sui-btn.btn-primary 中间
+            button.sui-btn.btn-primary 右边
+        p
+          div.sui-btn-group.btn-group-vertical
+            button.sui-btn.btn-primary.btn-bordered 左边
+            button.sui-btn.btn-primary.btn-bordered 中间
+            button.sui-btn.btn-primary.btn-bordered 右边
 
-        h2 工具栏
+        h2 分组
         div.sui-btn-toolbar(style="margin: 0;")
           div.sui-btn-group
             button.sui-btn 复制
