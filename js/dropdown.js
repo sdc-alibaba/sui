@@ -5,7 +5,7 @@
   var toggleSelector = '[data-toggle=dropdown]',
       containerClass = ".sui-dropdown, .sui-dropup";
   var clearMenus = function () {
-    $('.sui-dropdown.open').each(function () {
+    $('.sui-dropdown.open, .sui-dropup.open, .sui-btn-group.open').each(function () {
       $(this).removeClass('open')
     })
   }
