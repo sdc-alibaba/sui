@@ -44,12 +44,14 @@ block content
             button.sui-btn.btn-bordered.btn-primary 删除
 
         p
-          div.sui-btn-group
-            button.sui-btn.btn-bordered.btn-primary 复制
-            button.sui-btn.btn-bordered.btn-info 粘贴
-            button.sui-btn.btn-bordered.btn-warning 编辑
-            button.sui-btn.btn-bordered.btn-success 撤销
-            button.sui-btn.btn-bordered.btn-danger 删除
+          div.sui-btn-toolbar
+            div.sui-btn-group
+              button.sui-btn.btn-bordered.btn-primary 复制
+              button.sui-btn.btn-bordered.btn-primary 粘贴
+              button.sui-btn.btn-bordered.btn-primary 编辑
+            div.sui-btn-group
+              button.sui-btn.btn-bordered.btn-danger 删除
+              button.sui-btn.btn-bordered.btn-danger 撤销
         p
           div.sui-btn-group
             button.sui-btn.btn-primary 复制
@@ -84,7 +86,7 @@ block content
             button.sui-btn.btn-primary.btn-bordered 右边
 
         h2 分组
-        div.sui-btn-toolbar(style="margin: 0;")
+        div.sui-btn-toolbar
           div.sui-btn-group
             button.sui-btn 复制
             button.sui-btn 粘贴
@@ -101,5 +103,3 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
-
-
