@@ -174,6 +174,11 @@
               <li>黄色按钮请谨慎使用，在非常重要和特殊的情况下需要用户迅速发现并立即处理的时候使用，一个页面不能超过一个黄色按钮。</li>
             </ul>
           </p>
+          <p class="sui-lead">
+            <ul class="unstyled">
+              <li><strong>更新 v1.2.1：修复了 btn-bordered 的禁用状态样式。</strong></li>
+            </ul>
+          </p>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
           </ul>
@@ -213,7 +218,7 @@
                  <a href='javascript:void(0);' class='sui-btn btn-small btn-warning'>警告</a>
                  <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>危险</a>
                  <a href='javascript:void(0);' class='sui-btn btn-small btn-link'>链接</a>
-                 <br><br>
+                 <br><br><a href='javascript:void(0);' class='sui-btn disabled'>默认禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-primary'>首要禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-success'>成功禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-info'>信息禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-warning'>警告禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-danger'>危险禁用</a> &nbsp;<a href='javascript:void(0);' class='sui-btn disabled btn-link'>链接禁用</a> &nbsp;
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -232,7 +237,6 @@
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo11" data-toggle="tab">示例</a></li>
             <li><a href="#code11" data-toggle="tab">代码</a></li>
-            <li><a href="#doc11" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo11" class="tab-pane active">
@@ -260,16 +264,11 @@
                  <a href='javascript:void(0);' class='sui-btn btn-bordered btn-small btn-info'>信息</a>
                  <a href='javascript:void(0);' class='sui-btn btn-bordered btn-small btn-warning'>警告</a>
                  <a href='javascript:void(0);' class='sui-btn btn-bordered btn-small btn-danger'>危险</a>
-                 <br><br>
+                 <br><br><a href='javascript:void(0);' class='sui-btn btn-bordered disabled'>默认禁用</a>&nbsp;<a href='javascript:void(0);' class='sui-btn btn-bordered disabled btn-primary'>首要禁用</a>&nbsp;<a href='javascript:void(0);' class='sui-btn btn-bordered disabled btn-success'>成功禁用</a>&nbsp;<a href='javascript:void(0);' class='sui-btn btn-bordered disabled btn-info'>信息禁用</a>&nbsp;<a href='javascript:void(0);' class='sui-btn btn-bordered disabled btn-warning'>警告禁用</a>&nbsp;<a href='javascript:void(0);' class='sui-btn btn-bordered disabled btn-danger'>危险禁用</a>&nbsp;
               </div>
             </div>
             <div id="code11" class="tab-pane">
               <pre data-target="#demo11&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc11" class="tab-pane">
-              按钮有四种尺寸：small, default, large 和 xlarge
-              按钮七种不同功能："default", "primary", "success", "info", "warning", "danger", "inverse"
-              还有一种是禁用的按钮，通过增加 <code>.disabled </code> class 或者添加 <code>disabled</code>属性
             </div>
           </div>
           <ul class="demo-operations clearfix">

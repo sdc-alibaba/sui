@@ -6526,6 +6526,10 @@ sui-pre .sui-code {
   padding-left: 8px;
   padding-right: 8px;
 }
+.sui-dropup.dropdown-bordered .dropdown-inner .disabled > a,
+.sui-dropdown.dropdown-bordered .dropdown-inner .disabled > a {
+  color: #999!important;
+}
 .sui-dropup.dropdown-bordered .dropdown-inner .caret,
 .sui-dropdown.dropdown-bordered .dropdown-inner .caret {
   float: right;
@@ -6599,6 +6603,10 @@ sui-pre .sui-code {
   border-bottom: 1px solid #ffffff;
   margin: 5px 1px;
 }
+.sui-dropdown-menu .group-title {
+  color: #999;
+  padding: 2px 6px;
+}
 .sui-dropdown-menu > li {
   padding: 0 1px;
 }
@@ -6643,6 +6651,7 @@ sui-pre .sui-code {
 .sui-dropdown-menu > .disabled > a:hover,
 .sui-dropdown-menu > .disabled > a:focus {
   color: #999999;
+  background-color: #ffffff;
 }
 .sui-dropdown-menu > .disabled > a:hover,
 .sui-dropdown-menu > .disabled > a:focus {
@@ -7223,10 +7232,16 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
   border-color: transparent;
 }
+.btn-link[disabled],
+.btn-link.disabled,
 .btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: #333333;
+.btn-link.disabled:hover,
+.btn-link[disabled]:focus,
+.btn-link.disabled:focus {
+  color: #c6c6c6;
   text-decoration: none;
+  background: none;
+  border: none;
 }
 .sui-btn.btn-bordered {
   background-color: transparent;
@@ -7236,12 +7251,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered:hover,
 .sui-btn.btn-bordered:focus {
   border: 1px solid #666666;
-  color: #666666;
+  color: white;
+  background-color: #666666;
 }
 .sui-btn.btn-bordered:active,
 .sui-btn.btn-bordered.active {
-  background-color: #666666;
-  border: 1px solid #595959;
+  background-color: #4d4d4d;
+  border: 1px solid #4d4d4d;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-primary {
@@ -7251,12 +7267,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-primary:hover,
 .sui-btn.btn-bordered.btn-primary:focus {
   border: 1px solid #4cb9fc;
-  color: #4cb9fc;
+  color: white;
+  background-color: #4cb9fc;
 }
 .sui-btn.btn-bordered.btn-primary:active,
 .sui-btn.btn-bordered.btn-primary.active {
-  background-color: #4cb9fc;
-  border: 1px solid #33affc;
+  background-color: #1aa5fb;
+  border: 1px solid #1aa5fb;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-warning {
@@ -7266,12 +7283,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-warning:hover,
 .sui-btn.btn-bordered.btn-warning:focus {
   border: 1px solid #fbd238;
-  color: #fbd238;
+  color: white;
+  background-color: #fbd238;
 }
 .sui-btn.btn-bordered.btn-warning:active,
 .sui-btn.btn-bordered.btn-warning.active {
-  background-color: #fbd238;
-  border: 1px solid #facc1f;
+  background-color: #fac706;
+  border: 1px solid #fac706;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-danger {
@@ -7281,12 +7299,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-danger:hover,
 .sui-btn.btn-bordered.btn-danger:focus {
   border: 1px solid #ed6a5a;
-  color: #ed6a5a;
+  color: white;
+  background-color: #ed6a5a;
 }
 .sui-btn.btn-bordered.btn-danger:active,
 .sui-btn.btn-bordered.btn-danger.active {
-  background-color: #ed6a5a;
-  border: 1px solid #ea5543;
+  background-color: #e8402c;
+  border: 1px solid #e8402c;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-success {
@@ -7296,12 +7315,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-success:hover,
 .sui-btn.btn-bordered.btn-success:focus {
   border: 1px solid #49de79;
-  color: #49de79;
+  color: white;
+  background-color: #49de79;
 }
 .sui-btn.btn-bordered.btn-success:active,
 .sui-btn.btn-bordered.btn-success.active {
-  background-color: #49de79;
-  border: 1px solid #33da69;
+  background-color: #25cf5c;
+  border: 1px solid #25cf5c;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-info {
@@ -7311,12 +7331,13 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-info:hover,
 .sui-btn.btn-bordered.btn-info:focus {
   border: 1px solid #85d0e7;
-  color: #85d0e7;
+  color: white;
+  background-color: #85d0e7;
 }
 .sui-btn.btn-bordered.btn-info:active,
 .sui-btn.btn-bordered.btn-info.active {
-  background-color: #85d0e7;
-  border: 1px solid #70c8e2;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
   color: #ffffff;
 }
 .sui-btn.btn-bordered.btn-inverse {
@@ -7326,13 +7347,24 @@ input[type="submit"].btn.btn-mini {
 .sui-btn.btn-bordered.btn-inverse:hover,
 .sui-btn.btn-bordered.btn-inverse:focus {
   border: 1px solid #222222;
-  color: #222222;
+  color: white;
+  background-color: #222222;
 }
 .sui-btn.btn-bordered.btn-inverse:active,
 .sui-btn.btn-bordered.btn-inverse.active {
-  background-color: #222222;
-  border: 1px solid #151515;
+  background-color: #080808;
+  border: 1px solid #080808;
   color: #ffffff;
+}
+.sui-btn.btn-bordered.disabled,
+.sui-btn.btn-bordered[disabled],
+.sui-btn.btn-bordered.disabled:hover,
+.sui-btn.btn-bordered[disabled]:hover,
+.sui-btn.btn-bordered.disabled:focus,
+.sui-btn.btn-bordered[disabled]:focus {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
+  background: #f3f3f3;
 }
 .sui-btn-group {
   position: relative;
@@ -7502,8 +7534,464 @@ input[type="submit"].btn.btn-mini {
   border-color: #2b2b2b;
 }
 .sui-btn .caret {
-  margin-top: 8px;
-  margin-left: 0;
+  font-family: 'sui-icon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: inherit;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: -1px;
+  float: right;
+  margin-right: -5px;
+  margin-left: 8px;
+}
+.sui-btn .caret[class^="icon-pc-"],
+.sui-btn .caret[class*=" icon-pc-"] {
+  font-family: 'icon-pc';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sui-btn .caret[class^="icon-touch-"],
+.sui-btn .caret[class*=" icon-touch-"] {
+  font-family: 'icon-touch';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sui-btn .caret.icon-search:before {
+  content: "\e69f";
+}
+.sui-btn .caret.icon-th-large:before {
+  content: "\e698";
+}
+.sui-btn .caret.icon-th:before {
+  content: "\e697";
+}
+.sui-btn .caret.icon-th-list:before {
+  content: "\e696";
+}
+.sui-btn .caret.icon-zoom-in:before {
+  content: "\e693";
+}
+.sui-btn .caret.icon-zoom-out:before {
+  content: "\e692";
+}
+.sui-btn .caret.icon-signal:before {
+  content: "\e690";
+}
+.sui-btn .caret.icon-cog:before {
+  content: "\e68f";
+}
+.sui-btn .caret.icon-trash:before {
+  content: "\e68e";
+}
+.sui-btn .caret.icon-home:before {
+  content: "\e68d";
+}
+.sui-btn .caret.icon-time:before {
+  content: "\e68b";
+}
+.sui-btn .caret.icon-download-alt:before {
+  content: "\e689";
+}
+.sui-btn .caret.icon-download:before {
+  content: "\e688";
+}
+.sui-btn .caret.icon-upload:before {
+  content: "\e687";
+}
+.sui-btn .caret.icon-play-circle:before {
+  content: "\e685";
+}
+.sui-btn .caret.icon-repeat:before {
+  content: "\e684";
+}
+.sui-btn .caret.icon-refresh:before {
+  content: "\e683";
+}
+.sui-btn .caret.icon-list-alt:before {
+  content: "\e682";
+}
+.sui-btn .caret.icon-lock:before {
+  content: "\e681";
+}
+.sui-btn .caret.icon-flag:before {
+  content: "\e680";
+}
+.sui-btn .caret.icon-volume-off:before {
+  content: "\e67e";
+}
+.sui-btn .caret.icon-volume-down:before {
+  content: "\e67d";
+}
+.sui-btn .caret.icon-volume-up:before {
+  content: "\e67c";
+}
+.sui-btn .caret.icon-qrcode:before {
+  content: "\e67b";
+}
+.sui-btn .caret.icon-barcode:before {
+  content: "\e67a";
+}
+.sui-btn .caret.icon-bookmark:before {
+  content: "\e676";
+}
+.sui-btn .caret.icon-align-justify:before {
+  content: "\e66b";
+}
+.sui-btn .caret.icon-list:before {
+  content: "\e66a";
+}
+.sui-btn .caret.icon-picture:before {
+  content: "\e666";
+}
+.sui-btn .caret.icon-pencil:before {
+  content: "\e665";
+}
+.sui-btn .caret.icon-map-marker:before {
+  content: "\e664";
+}
+.sui-btn .caret.icon-adjust:before {
+  content: "\e663";
+}
+.sui-btn .caret.icon-edit:before {
+  content: "\e661";
+}
+.sui-btn .caret.icon-check:before {
+  content: "\e65f";
+}
+.sui-btn .caret.icon-step-backward:before {
+  content: "\e65d";
+}
+.sui-btn .caret.icon-fast-backward:before {
+  content: "\e65c";
+}
+.sui-btn .caret.icon-backward:before {
+  content: "\e65b";
+}
+.sui-btn .caret.icon-play:before {
+  content: "\e65a";
+}
+.sui-btn .caret.icon-pause:before {
+  content: "\e659";
+}
+.sui-btn .caret.icon-stop:before {
+  content: "\e658";
+}
+.sui-btn .caret.icon-forward:before {
+  content: "\e657";
+}
+.sui-btn .caret.icon-fast-forward:before {
+  content: "\e656";
+}
+.sui-btn .caret.icon-step-forward:before {
+  content: "\e655";
+}
+.sui-btn .caret.icon-chevron-left:before {
+  content: "\e653";
+}
+.sui-btn .caret.icon-chevron-right:before {
+  content: "\e652";
+}
+.sui-btn .caret.icon-plus-sign:before {
+  content: "\e651";
+}
+.sui-btn .caret.icon-minus-sign:before {
+  content: "\e650";
+}
+.sui-btn .caret.icon-remove-sign:before {
+  content: "\e64f";
+}
+.sui-btn .caret.icon-ok-sign:before {
+  content: "\e64e";
+}
+.sui-btn .caret.icon-question-sign:before {
+  content: "\e64d";
+}
+.sui-btn .caret.icon-info-sign:before {
+  content: "\e64c";
+}
+.sui-btn .caret.icon-remove-circle:before {
+  content: "\e64a";
+}
+.sui-btn .caret.icon-ok-circle:before {
+  content: "\e649";
+}
+.sui-btn .caret.icon-ban-circle:before {
+  content: "\e648";
+}
+.sui-btn .caret.icon-notification:before {
+  content: "\e610";
+}
+.sui-btn .caret.icon-question:before {
+  content: "\e611";
+}
+.sui-btn .caret.icon-arrow-left:before {
+  content: "\e647";
+}
+.sui-btn .caret.icon-arrow-right:before {
+  content: "\e646";
+}
+.sui-btn .caret.icon-arrow-up:before {
+  content: "\e645";
+}
+.sui-btn .caret.icon-arrow-down:before {
+  content: "\e644";
+}
+.sui-btn .caret.icon-long-arrow-down:before {
+  content: "\e752";
+}
+.sui-btn .caret.icon-long-arrow-up:before {
+  content: "\e753";
+}
+.sui-btn .caret.icon-long-arrow-left:before {
+  content: "\e754";
+}
+.sui-btn .caret.icon-long-arrow-right:before {
+  content: "\e755";
+}
+.sui-btn .caret.icon-resize-full:before {
+  content: "\e642";
+}
+.sui-btn .caret.icon-resize-small:before {
+  content: "\e641";
+}
+.sui-btn .caret.icon-exclamation-sign:before {
+  content: "\e63d";
+}
+.sui-btn .caret.icon-comment:before {
+  content: "\e633";
+}
+.sui-btn .caret.icon-chevron-up:before {
+  content: "\e631";
+}
+.sui-btn .caret.icon-chevron-down:before {
+  content: "\e630";
+}
+.sui-btn .caret.icon-shopping-cart:before {
+  content: "\e62e";
+}
+.sui-btn .caret.icon-folder-close:before {
+  content: "\e62d";
+}
+.sui-btn .caret.icon-folder-open:before {
+  content: "\e62c";
+}
+.sui-btn .caret.icon-resize-vertical:before {
+  content: "\e62b";
+}
+.sui-btn .caret.icon-resize-horizontal:before {
+  content: "\e62a";
+}
+.sui-btn .caret.icon-bar-chart:before {
+  content: "\e629";
+}
+.sui-btn .caret.icon-upload-alt:before {
+  content: "\e617";
+}
+.sui-btn .caret.icon-bookmark-empty:before {
+  content: "\e613";
+}
+.sui-btn .caret.icon-credit:before {
+  content: "\e60d";
+}
+.sui-btn .caret.icon-rss:before {
+  content: "\e60c";
+}
+.sui-btn .caret.icon-circle-arrow-left:before {
+  content: "\e603";
+}
+.sui-btn .caret.icon-circle-arrow-right:before {
+  content: "\e602";
+}
+.sui-btn .caret.icon-circle-arrow-up:before {
+  content: "\e601";
+}
+.sui-btn .caret.icon-circle-arrow-down:before {
+  content: "\e600";
+}
+.sui-btn .caret.icon-globe:before {
+  content: "\e6a2";
+}
+.sui-btn .caret.icon-wrench:before {
+  content: "\e6a3";
+}
+.sui-btn .caret.icon-tasks:before {
+  content: "\e6a4";
+}
+.sui-btn .caret.icon-fullscreen:before {
+  content: "\e6a7";
+}
+.sui-btn .caret.icon-reorder:before {
+  content: "\e6b1";
+}
+.sui-btn .caret.icon-list-ul:before {
+  content: "\e6b2";
+}
+.sui-btn .caret.icon-list-ol:before {
+  content: "\e6b3";
+}
+.sui-btn .caret.icon-magic:before {
+  content: "\e6b7";
+}
+.sui-btn .caret.icon-caret-down:before {
+  content: "\e6be";
+}
+.sui-btn .caret.icon-caret-up:before {
+  content: "\e6bf";
+}
+.sui-btn .caret.icon-caret-left:before {
+  content: "\e6c0";
+}
+.sui-btn .caret.icon-caret-right:before {
+  content: "\e6c1";
+}
+.sui-btn .caret.icon-sort:before {
+  content: "\e6c3";
+}
+.sui-btn .caret.icon-sort-down:before {
+  content: "\e6c4";
+}
+.sui-btn .caret.icon-sort-up:before {
+  content: "\e6c5";
+}
+.sui-btn .caret.icon-envelope-alt:before {
+  content: "\e6c6";
+}
+.sui-btn .caret.icon-lightbulb:before {
+  content: "\e6d1";
+}
+.sui-btn .caret.icon-bulb:before {
+  content: "\e605";
+}
+.sui-btn .caret.icon-cloud-download:before {
+  content: "\e6d3";
+}
+.sui-btn .caret.icon-cloud-upload:before {
+  content: "\e6d4";
+}
+.sui-btn .caret.icon-bell-alt:before {
+  content: "\e6d8";
+}
+.sui-btn .caret.icon-double-angle-left:before {
+  content: "\e6e4";
+}
+.sui-btn .caret.icon-double-angle-right:before {
+  content: "\e6e5";
+}
+.sui-btn .caret.icon-double-angle-up:before {
+  content: "\e6e6";
+}
+.sui-btn .caret.icon-double-angle-down:before {
+  content: "\e6e7";
+}
+.sui-btn .caret.icon-angle-left:before {
+  content: "\e6e8";
+}
+.sui-btn .caret.icon-angle-right:before {
+  content: "\e6e9";
+}
+.sui-btn .caret.icon-angle-up:before {
+  content: "\e6ea";
+}
+.sui-btn .caret.icon-angle-down:before {
+  content: "\e6eb";
+}
+.sui-btn .caret.icon-desktop:before {
+  content: "\e6ec";
+}
+.sui-btn .caret.icon-laptop:before {
+  content: "\e6ed";
+}
+.sui-btn .caret.icon-tablet:before {
+  content: "\e6ee";
+}
+.sui-btn .caret.icon-mobile:before {
+  content: "\e6ef";
+}
+.sui-btn .caret.icon-chevron-sign-left:before {
+  content: "\e718";
+}
+.sui-btn .caret.icon-chevron-sign-right:before {
+  content: "\e719";
+}
+.sui-btn .caret.icon-chevron-sign-up:before {
+  content: "\e71a";
+}
+.sui-btn .caret.icon-chevron-sign-down:before {
+  content: "\e71b";
+}
+.sui-btn .caret.icon-html5:before {
+  content: "\e71c";
+}
+.sui-btn .caret.icon-rss-sign:before {
+  content: "\e723";
+}
+.sui-btn .caret.icon-bell:before {
+  content: "\e609";
+}
+.sui-btn .caret.icon-play-sign:before {
+  content: "\e724";
+}
+.sui-btn .caret.icon-apple:before {
+  content: "\e756";
+}
+.sui-btn .caret.icon-windows:before {
+  content: "\e757";
+}
+.sui-btn .caret.icon-android:before {
+  content: "\e758";
+}
+.sui-btn .caret.icon-weibo:before {
+  content: "\e766";
+}
+.sui-btn .caret.icon-renren:before {
+  content: "\e767";
+}
+.sui-btn .caret.icon-arrow-fat-up:before {
+  content: "\e62f";
+}
+.sui-btn .caret.icon-arrow-fat-right:before {
+  content: "\e632";
+}
+.sui-btn .caret.icon-arrow-fat-down:before {
+  content: "\e634";
+}
+.sui-btn .caret.icon-arrow-fat-left:before {
+  content: "\e635";
+}
+.sui-btn .caret[class^="icon-tb-"],
+.sui-btn .caret[class*=" icon-tb-"] {
+  font-family: 'icon-tb';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.sui-btn .caret:before {
+  content: "\e6eb";
 }
 .btn-large .caret {
   margin-top: 6px;
@@ -8949,12 +9437,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered:focus {
   border: 1px solid #666666;
-  color: #666666;
+  color: white;
+  background-color: #666666;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.active {
-  background-color: #666666;
-  border: 1px solid #595959;
+  background-color: #4d4d4d;
+  border: 1px solid #4d4d4d;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-primary {
@@ -8964,12 +9453,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-primary:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-primary:focus {
   border: 1px solid #4cb9fc;
-  color: #4cb9fc;
+  color: white;
+  background-color: #4cb9fc;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-primary:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-primary.active {
-  background-color: #4cb9fc;
-  border: 1px solid #33affc;
+  background-color: #1aa5fb;
+  border: 1px solid #1aa5fb;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-warning {
@@ -8979,12 +9469,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-warning:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-warning:focus {
   border: 1px solid #fbd238;
-  color: #fbd238;
+  color: white;
+  background-color: #fbd238;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-warning:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-warning.active {
-  background-color: #fbd238;
-  border: 1px solid #facc1f;
+  background-color: #fac706;
+  border: 1px solid #fac706;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-danger {
@@ -8994,12 +9485,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-danger:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-danger:focus {
   border: 1px solid #ed6a5a;
-  color: #ed6a5a;
+  color: white;
+  background-color: #ed6a5a;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-danger:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-danger.active {
-  background-color: #ed6a5a;
-  border: 1px solid #ea5543;
+  background-color: #e8402c;
+  border: 1px solid #e8402c;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-success {
@@ -9009,12 +9501,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-success:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-success:focus {
   border: 1px solid #49de79;
-  color: #49de79;
+  color: white;
+  background-color: #49de79;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-success:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-success.active {
-  background-color: #49de79;
-  border: 1px solid #33da69;
+  background-color: #25cf5c;
+  border: 1px solid #25cf5c;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-info {
@@ -9024,12 +9517,13 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-info:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-info:focus {
   border: 1px solid #85d0e7;
-  color: #85d0e7;
+  color: white;
+  background-color: #85d0e7;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-info:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-info.active {
-  background-color: #85d0e7;
-  border: 1px solid #70c8e2;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
   color: #ffffff;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-inverse {
@@ -9039,13 +9533,24 @@ input[type="submit"].btn.btn-mini {
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-inverse:hover,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-inverse:focus {
   border: 1px solid #222222;
-  color: #222222;
+  color: white;
+  background-color: #222222;
 }
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-inverse:active,
 .sui-pagination div .page-num + .page-confirm.btn-bordered.btn-inverse.active {
-  background-color: #222222;
-  border: 1px solid #151515;
+  background-color: #080808;
+  border: 1px solid #080808;
   color: #ffffff;
+}
+.sui-pagination div .page-num + .page-confirm.btn-bordered.disabled,
+.sui-pagination div .page-num + .page-confirm.btn-bordered[disabled],
+.sui-pagination div .page-num + .page-confirm.btn-bordered.disabled:hover,
+.sui-pagination div .page-num + .page-confirm.btn-bordered[disabled]:hover,
+.sui-pagination div .page-num + .page-confirm.btn-bordered.disabled:focus,
+.sui-pagination div .page-num + .page-confirm.btn-bordered[disabled]:focus {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
+  background: #f3f3f3;
 }
 .sui-pagination div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -9226,12 +9731,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered:focus {
   border: 1px solid #666666;
-  color: #666666;
+  color: white;
+  background-color: #666666;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.active {
-  background-color: #666666;
-  border: 1px solid #595959;
+  background-color: #4d4d4d;
+  border: 1px solid #4d4d4d;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-primary {
@@ -9241,12 +9747,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-primary:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-primary:focus {
   border: 1px solid #4cb9fc;
-  color: #4cb9fc;
+  color: white;
+  background-color: #4cb9fc;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-primary:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-primary.active {
-  background-color: #4cb9fc;
-  border: 1px solid #33affc;
+  background-color: #1aa5fb;
+  border: 1px solid #1aa5fb;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-warning {
@@ -9256,12 +9763,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-warning:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-warning:focus {
   border: 1px solid #fbd238;
-  color: #fbd238;
+  color: white;
+  background-color: #fbd238;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-warning:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-warning.active {
-  background-color: #fbd238;
-  border: 1px solid #facc1f;
+  background-color: #fac706;
+  border: 1px solid #fac706;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-danger {
@@ -9271,12 +9779,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-danger:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-danger:focus {
   border: 1px solid #ed6a5a;
-  color: #ed6a5a;
+  color: white;
+  background-color: #ed6a5a;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-danger:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-danger.active {
-  background-color: #ed6a5a;
-  border: 1px solid #ea5543;
+  background-color: #e8402c;
+  border: 1px solid #e8402c;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-success {
@@ -9286,12 +9795,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-success:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-success:focus {
   border: 1px solid #49de79;
-  color: #49de79;
+  color: white;
+  background-color: #49de79;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-success:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-success.active {
-  background-color: #49de79;
-  border: 1px solid #33da69;
+  background-color: #25cf5c;
+  border: 1px solid #25cf5c;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-info {
@@ -9301,12 +9811,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-info:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-info:focus {
   border: 1px solid #85d0e7;
-  color: #85d0e7;
+  color: white;
+  background-color: #85d0e7;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-info:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-info.active {
-  background-color: #85d0e7;
-  border: 1px solid #70c8e2;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
   color: #ffffff;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-inverse {
@@ -9316,13 +9827,24 @@ input[type="submit"].btn.btn-mini {
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-inverse:hover,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-inverse:focus {
   border: 1px solid #222222;
-  color: #222222;
+  color: white;
+  background-color: #222222;
 }
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-inverse:active,
 .pagination-large div .page-num + .page-confirm.btn-bordered.btn-inverse.active {
-  background-color: #222222;
-  border: 1px solid #151515;
+  background-color: #080808;
+  border: 1px solid #080808;
   color: #ffffff;
+}
+.pagination-large div .page-num + .page-confirm.btn-bordered.disabled,
+.pagination-large div .page-num + .page-confirm.btn-bordered[disabled],
+.pagination-large div .page-num + .page-confirm.btn-bordered.disabled:hover,
+.pagination-large div .page-num + .page-confirm.btn-bordered[disabled]:hover,
+.pagination-large div .page-num + .page-confirm.btn-bordered.disabled:focus,
+.pagination-large div .page-num + .page-confirm.btn-bordered[disabled]:focus {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
+  background: #f3f3f3;
 }
 .pagination-large div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -9473,12 +9995,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered:focus {
   border: 1px solid #666666;
-  color: #666666;
+  color: white;
+  background-color: #666666;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.active {
-  background-color: #666666;
-  border: 1px solid #595959;
+  background-color: #4d4d4d;
+  border: 1px solid #4d4d4d;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-primary {
@@ -9488,12 +10011,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-primary:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-primary:focus {
   border: 1px solid #4cb9fc;
-  color: #4cb9fc;
+  color: white;
+  background-color: #4cb9fc;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-primary:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-primary.active {
-  background-color: #4cb9fc;
-  border: 1px solid #33affc;
+  background-color: #1aa5fb;
+  border: 1px solid #1aa5fb;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-warning {
@@ -9503,12 +10027,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-warning:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-warning:focus {
   border: 1px solid #fbd238;
-  color: #fbd238;
+  color: white;
+  background-color: #fbd238;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-warning:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-warning.active {
-  background-color: #fbd238;
-  border: 1px solid #facc1f;
+  background-color: #fac706;
+  border: 1px solid #fac706;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-danger {
@@ -9518,12 +10043,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-danger:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-danger:focus {
   border: 1px solid #ed6a5a;
-  color: #ed6a5a;
+  color: white;
+  background-color: #ed6a5a;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-danger:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-danger.active {
-  background-color: #ed6a5a;
-  border: 1px solid #ea5543;
+  background-color: #e8402c;
+  border: 1px solid #e8402c;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-success {
@@ -9533,12 +10059,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-success:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-success:focus {
   border: 1px solid #49de79;
-  color: #49de79;
+  color: white;
+  background-color: #49de79;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-success:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-success.active {
-  background-color: #49de79;
-  border: 1px solid #33da69;
+  background-color: #25cf5c;
+  border: 1px solid #25cf5c;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-info {
@@ -9548,12 +10075,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-info:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-info:focus {
   border: 1px solid #85d0e7;
-  color: #85d0e7;
+  color: white;
+  background-color: #85d0e7;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-info:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-info.active {
-  background-color: #85d0e7;
-  border: 1px solid #70c8e2;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
   color: #ffffff;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-inverse {
@@ -9563,13 +10091,24 @@ input[type="submit"].btn.btn-mini {
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-inverse:hover,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-inverse:focus {
   border: 1px solid #222222;
-  color: #222222;
+  color: white;
+  background-color: #222222;
 }
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-inverse:active,
 .pagination-xlarge div .page-num + .page-confirm.btn-bordered.btn-inverse.active {
-  background-color: #222222;
-  border: 1px solid #151515;
+  background-color: #080808;
+  border: 1px solid #080808;
   color: #ffffff;
+}
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered.disabled,
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered[disabled],
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered.disabled:hover,
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered[disabled]:hover,
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered.disabled:focus,
+.pagination-xlarge div .page-num + .page-confirm.btn-bordered[disabled]:focus {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
+  background: #f3f3f3;
 }
 .pagination-xlarge div .page-num + .page-confirm .sui-label {
   position: relative;
@@ -9708,12 +10247,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered:focus {
   border: 1px solid #666666;
-  color: #666666;
+  color: white;
+  background-color: #666666;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.active {
-  background-color: #666666;
-  border: 1px solid #595959;
+  background-color: #4d4d4d;
+  border: 1px solid #4d4d4d;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-primary {
@@ -9723,12 +10263,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-primary:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-primary:focus {
   border: 1px solid #4cb9fc;
-  color: #4cb9fc;
+  color: white;
+  background-color: #4cb9fc;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-primary:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-primary.active {
-  background-color: #4cb9fc;
-  border: 1px solid #33affc;
+  background-color: #1aa5fb;
+  border: 1px solid #1aa5fb;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-warning {
@@ -9738,12 +10279,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-warning:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-warning:focus {
   border: 1px solid #fbd238;
-  color: #fbd238;
+  color: white;
+  background-color: #fbd238;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-warning:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-warning.active {
-  background-color: #fbd238;
-  border: 1px solid #facc1f;
+  background-color: #fac706;
+  border: 1px solid #fac706;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-danger {
@@ -9753,12 +10295,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-danger:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-danger:focus {
   border: 1px solid #ed6a5a;
-  color: #ed6a5a;
+  color: white;
+  background-color: #ed6a5a;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-danger:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-danger.active {
-  background-color: #ed6a5a;
-  border: 1px solid #ea5543;
+  background-color: #e8402c;
+  border: 1px solid #e8402c;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-success {
@@ -9768,12 +10311,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-success:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-success:focus {
   border: 1px solid #49de79;
-  color: #49de79;
+  color: white;
+  background-color: #49de79;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-success:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-success.active {
-  background-color: #49de79;
-  border: 1px solid #33da69;
+  background-color: #25cf5c;
+  border: 1px solid #25cf5c;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-info {
@@ -9783,12 +10327,13 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-info:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-info:focus {
   border: 1px solid #85d0e7;
-  color: #85d0e7;
+  color: white;
+  background-color: #85d0e7;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-info:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-info.active {
-  background-color: #85d0e7;
-  border: 1px solid #70c8e2;
+  background-color: #5bc0de;
+  border: 1px solid #5bc0de;
   color: #ffffff;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-inverse {
@@ -9798,13 +10343,24 @@ input[type="submit"].btn.btn-mini {
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-inverse:hover,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-inverse:focus {
   border: 1px solid #222222;
-  color: #222222;
+  color: white;
+  background-color: #222222;
 }
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-inverse:active,
 .pagination-small div .page-num + .page-confirm.btn-bordered.btn-inverse.active {
-  background-color: #222222;
-  border: 1px solid #151515;
+  background-color: #080808;
+  border: 1px solid #080808;
   color: #ffffff;
+}
+.pagination-small div .page-num + .page-confirm.btn-bordered.disabled,
+.pagination-small div .page-num + .page-confirm.btn-bordered[disabled],
+.pagination-small div .page-num + .page-confirm.btn-bordered.disabled:hover,
+.pagination-small div .page-num + .page-confirm.btn-bordered[disabled]:hover,
+.pagination-small div .page-num + .page-confirm.btn-bordered.disabled:focus,
+.pagination-small div .page-num + .page-confirm.btn-bordered[disabled]:focus {
+  border-color: #c6c6c6;
+  color: #c6c6c6;
+  background: #f3f3f3;
 }
 .pagination-small div .page-num + .page-confirm .sui-label {
   position: relative;
