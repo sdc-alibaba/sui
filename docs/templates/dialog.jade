@@ -22,7 +22,7 @@ block content
 
   p.sui-lead
     | 对话框分为独占式和非独占式两种。<br />
-    | 宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
+    | 注意href属性用来指向对话框主体元素或远程内容url，除此之外<code>不要设置其他href值</code><br>
     | 文档写的渣，有任何疑惑可以联系@半边。
 
   h2 概览
@@ -237,6 +237,7 @@ block content
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
          height: {number|string(px)} 内容区（.modal-body）高度
+         remote: {string} 如果提供了远程url地址，就会加载远端内容
          timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
          show:     fn --------------function(e){}
          shown:    fn
