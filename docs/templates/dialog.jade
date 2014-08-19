@@ -22,7 +22,7 @@ block content
 
   p.sui-lead
     | 对话框分为独占式和非独占式两种。<br />
-    | 注意href属性用来指向对话框主体元素或远程内容url，除此之外<code>不要设置其他href值</code><br>
+    | 注意href属性可用来指向对话框主体元素,不再能引用远程内容url<br>
     | 文档写的渣，有任何疑惑可以联系@半边。
 
   h2 概览
@@ -131,7 +131,7 @@ block content
             td remote
             td path
             td false
-            td 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。如果你使用的是data属性api，你还可以使用<code>href</code>标签指定远程数据源。案例如下
+            td 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。案例如下
               pre.prettyprint &lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;
     div.tab-pane#event1
       p 原型方法的事件接口,与bootstrap提供的一致,与静态方法不互用
