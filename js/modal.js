@@ -331,7 +331,7 @@
       //通过data-target="#foo"或href="#foo"指向
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
       //remote,href属性如果以#开头，表示等同于data-target属性
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote: !!href.length && !/#/.test(href) && href }, $this.data())
+      , option = $target.data('modal') ? 'toggle' : $this.data()
     e.preventDefault()
     $target
       .modal(option)
