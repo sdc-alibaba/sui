@@ -330,7 +330,8 @@
       //$target这里指dialog本体Dom(若存在)
       //通过data-target="#foo"或href="#foo"指向
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $this.data())
+      //remote,href属性如果以#开头，表示等同于data-target属性
+      , option = $target.data('modal') ? 'toggle' : $this.data()
     e.preventDefault()
     $target
       .modal(option)
@@ -353,6 +354,7 @@
    *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
+   *  remote: {string} 如果提供了远程url地址，就会加载远端内容
    *  show:     fn --------------function(e){}
    *  shown:    fn
    *  hide:     fn
