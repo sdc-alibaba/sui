@@ -21,6 +21,14 @@ block content_wrap
           th 更新时间
 
         tr
+          td 1.2.2
+          td 
+            ul.unstyled
+              li 对话框加载远程内容的时候不再加载 <code>href</code>属性指定的地址，只能通过 <code>remote</code> 参数或者 <code>data-remote</code> 属性来指定。
+              li 表单校验增加了两个新的接口可以直接控制错误消息 "showError" 和 "hideError"，可以手动调用来显示/隐藏一个错误消息。增加了一个disable/enable接口，可以启用/禁用表单校验。
+          td 2014.08.21
+
+        tr
           td 1.2.1
           td 
             ul.unstyled
