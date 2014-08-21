@@ -168,9 +168,10 @@
           <h2 class="sui-page-header">开发者文档</h2>
           <p class="sui-lead">
             对话框分为独占式和非独占式两种。<br />
-            宽度分为三种：450px,600px,800px。最小高度为260px。可以根据业务需求自行调整。
+            注意href属性可用来指向对话框主体元素,不再能引用远程内容url<br>
             文档写的渣，有任何疑惑可以联系@半边。
             <ul class="unstyled">
+              <li><strong>更新 v1.2.2：加载远程内容的时候不再加载 <code>href</code>属性指定的地址，只能通过 <code>remote</code> 参数或者 <code>data-remote</code> 属性来指定。</strong></li>
               <li><strong>更新 v1.1.3：增加了cancelHide/cancelHidden接口，增加了高度控制，增加了对绝对定位元素导致滚动条的说明。</strong></li>
             </ul>
           </p>
@@ -280,7 +281,7 @@ $.confirm(options)</pre>
                     <td>remote</td>
                     <td>path</td>
                     <td>false</td>
-                    <td>如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。如果你使用的是data属性api，你还可以使用<code>href</code>标签指定远程数据源。案例如下
+                    <td>如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。案例如下
                       <pre class="prettyprint">&lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;</pre>
                     </td>
                   </tr>
@@ -395,6 +396,7 @@ $.confirm(options)</pre>
  hasfoot: {Boolean}  是否显示脚部  默认true
  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
  height: {number|string(px)} 内容区（.modal-body）高度
+ remote: {string} 如果提供了远程url地址，就会加载远端内容
  timeout: {number} 1000    单位毫秒ms ,对话框打开后多久自动关闭
  show:     fn --------------function(e){}
  shown:    fn
