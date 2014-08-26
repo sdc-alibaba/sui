@@ -1,0 +1,160 @@
+extends base
+
+block title
+  title 幻灯片
+
+block head
+  style(type='text/css').
+    .sui-carousel {
+      width: 870px;
+    }
+block sidebar
+  +sidebar('carousel')
+
+block content
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 幻灯片，一般用来轮播一些图片。注意，在 v1.3.0 及以上版本中才可用。
+
+  h2 通过data属性自动加载
+
+  p.sui-lead
+    | 在 <code>.sui-carousel</code> 容器上增加了一个 <code>data-ride="carousel"</code>，则会自动初始化幻灯片。注意，这是在 onload 事件时加载的，所以onload之后异步加载的内容你仍然需要手动初始化。
+    br
+    | 有两个属性可以用来控制轮播，分别是 <code>data-slide</code> 和 <code>data-slide-to</code>。其中 <code>data-slide</code> 可以设置为 "prev" 或者 "next"，分别表示向上一个和下一个滚动。 <code>data-slide-to</code> 可以设置为一个数字，从0开始，点击之后定位到对应的幻灯片元素。
+    br
+    | JS配置项 interval, pause 和 autoStart 可以通过 data-x 属性来在HTML中设置。比如<code>data-interval</code> 可以用来控制轮播间隔时间，单位毫秒，默认是 5000 ; <code>data-pause</code> 可以用来设置暂停的出发动作，默认是 "hover", <code>data-auto-start</code> 可以用来设置是否自动开始播放, 默认为 true。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.sui-carousel.slide#myCarousel(data-ride="carousel" data-interval='4000')
+        ol.carousel-indicators
+          li.active(data-target="#myCarousel" data-slide-to="0")
+          li(data-target="#myCarousel" data-slide-to="1")
+          li(data-target="#myCarousel" data-slide-to="2")
+        div.carousel-inner
+          div.active.item
+            img(src='assets/imgs/carousel-1.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+          div.item
+            img(src='assets/imgs/carousel-2.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+          div.item
+            img(src='assets/imgs/carousel-3.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+        a.carousel-control.left(href='#myCarousel' data-slide="prev")&lsaquo;
+        a.carousel-control.right(href='#myCarousel' data-slide="next")&rsaquo;
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+
+  h2 通过JS控制
+
+  p.sui-lead
+    | 如果你没有使用 <code>data-ride</code> 自动加载，则可以使用 <code>$('.sui-carousel').carousel(config)</code> 来通过JS初始化。
+    h4 初始化配置
+    | 初始化的时候你可以传入一个配置对象，有两个参数 interval 和 pause 可以配置，和 <code>data-x</code> 中的配置是对应的。如下所示
+    ul.unstyled
+      li interval: 轮播间隔，默认是 5000 毫秒
+      li pause: 触发暂停的事件，默认是 "hover"
+      li autoStart: 是否自动开始播放
+
+    h4 可用方法
+    p
+      | 有如下方法可以调用：
+    ul.unstyled
+      li .carousel('cycle'): 开始轮播
+      li .carousel('pause'): 暂停轮播
+      li .carousel(number): 从0开始，定位到某一张幻灯片。
+      li .carousel('prev'): 上一个
+      li .carousel('next'): 下一个
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-js', data-toggle='tab') 示例
+    li
+      a(href='#code-js', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-js
+      div.sui-carousel.slide#myCarousel2
+        ol.carousel-indicators
+          li.active(data-target="#myCarousel2" data-slide-to="0")
+          li(data-target="#myCarousel2" data-slide-to="1")
+          li(data-target="#myCarousel2" data-slide-to="2")
+        div.carousel-inner
+          div.active.item
+            img(src='assets/imgs/carousel-1.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+          div.item
+            img(src='assets/imgs/carousel-2.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+          div.item
+            img(src='assets/imgs/carousel-3.jpg')
+            div.carousel-caption
+              h4 标题
+              p
+                |内容内容内容内容内容内容内容内容内容内容内容内容
+        a.carousel-control.left(href='#myCarousel2' data-slide="prev")&lsaquo;
+        a.carousel-control.right(href='#myCarousel2' data-slide="next")&rsaquo;
+
+      div.sui-btn-group
+        button#btn-cycle.sui-btn.btn-bordered.btn-primary 播放
+        button#btn-pause.sui-btn.btn-bordered.btn-primary 暂停
+        button#btn-slide2.sui-btn.btn-bordered.btn-primary 定位到第2张
+        button#btn-slide-prev.sui-btn.btn-bordered.btn-primary 上一个
+        button#btn-slide-next.sui-btn.btn-bordered.btn-primary 下一个
+      script.
+        var $carousel = $("#myCarousel2").carousel({
+          interval: 2000
+        });
+
+        $("#btn-cycle").click(function() {
+          $carousel.carousel('cycle');
+        });
+        $("#btn-pause").click(function() {
+          $carousel.carousel('pause');
+        });
+        $("#btn-slide2").click(function() {
+          $carousel.carousel(1);
+        });
+        $("#btn-slide-prev").click(function() {
+          $carousel.carousel('prev');
+        });
+        $("#btn-slide-next").click(function() {
+          $carousel.carousel('next');
+        });
+
+
+    div.tab-pane#code-js
+      pre.prettyprint.linenums(data-target='#demo-js')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo-js') 复制代码
