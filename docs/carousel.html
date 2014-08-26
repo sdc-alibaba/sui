@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Loading </title>
+    <title>幻灯片</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -35,6 +35,11 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style type="text/css">
+      .sui-carousel {
+        width: 870px;
+      }
+    </style>
   </head>
   <body>
         <div class="sui-navbar navbar-inverse navbar-fixed-top">
@@ -98,7 +103,7 @@
                   <li><a href="layout.html">布局</a></li>
                 </ul>
               </li>
-              <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
+              <li class="active"><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
                 <ul class="sui-nav nav-stacked docs-nav">
                   <li><a href="navbar.html">导航栏</a></li>
                   <li><a href="pagination.html">分页器 - 样式</a></li>
@@ -109,7 +114,7 @@
                   <li><a href="tab.html">标签页 - 样式</a></li>
                   <li><a href="tab-js.html">标签页 - JS</a></li>
                   <li><a href="intro.html">新手指引</a></li>
-                  <li><a href="carousel.html">幻灯片</a></li>
+                  <li class="active"><a href="carousel.html">幻灯片</a></li>
                 </ul>
               </li>
               <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
@@ -123,15 +128,15 @@
                   <li><a href="filesize.html">filesize</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="docs-icon">&nbsp;</i>其他</a>
+              <li><a><i class="docs-icon">&nbsp;</i>其他</a>
                 <ul class="sui-nav nav-stacked docs-nav">
-                  <li class="active"><a href="loading.html">Loading</a></li>
+                  <li><a href="loading.html">Loading</a></li>
                   <li><a href="progress.html">进度条</a></li>
                 </ul>
               </li>
             </ul>
             <script type="text/javascript">
-              var disqus_identifier = 'disqus-id-Loading';
+              var disqus_identifier = 'disqus-id-carousel';
               function changeHeight(itemHeight){
                 if(!itemHeight) {
                   var height = $(window).height()-57;
@@ -162,48 +167,138 @@
       <div class="content">
         <div class="content-inner">
           <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">使用iconfont+keyframe,IE10以下降级显示为静态的，IE10、11正常</p>
+          <p class="sui-lead">幻灯片，一般用来轮播一些图片。注意，在 v1.3.0 及以上版本中才可用。</p>
+          <h2>通过data属性自动加载</h2>
+          <p class="sui-lead">在 <code>.sui-carousel</code> 容器上增加了一个 <code>data-ride="carousel"</code>，则会自动初始化幻灯片。注意，这是在 onload 事件时加载的，所以onload之后异步加载的内容你仍然需要手动初始化。<br>有两个属性可以用来控制轮播，分别是 <code>data-slide</code> 和 <code>data-slide-to</code>。其中 <code>data-slide</code> 可以设置为 "prev" 或者 "next"，分别表示向上一个和下一个滚动。 <code>data-slide-to</code> 可以设置为一个数字，从0开始，点击之后定位到对应的幻灯片元素。<br>JS配置项 interval, pause 和 autoStart 可以通过 data-x 属性来在HTML中设置。比如<code>data-interval</code> 可以用来控制轮播间隔时间，单位毫秒，默认是 5000 ; <code>data-pause</code> 可以用来设置暂停的出发动作，默认是 "hover", <code>data-auto-start</code> 可以用来设置是否自动开始播放, 默认为 true。</p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example">
-                <p>.sui-loading</p>
-                <div class="sui-loading loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-dark loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-light loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-large, loading-xlarge, loading-xxlarge</p>
-                <div class="sui-loading loading-large"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xlarge"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xxlarge"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-small, loading-xsmall, loading-xxsmall</p>
-                <div class="sui-loading loading-small loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <div class="sui-loading loading-xxsmall loading-inline"><i class="sui-icon icon-pc-loading"></i></div>
-                <hr>
-                <p>loading-dark, .loading-light</p>
-                <hr>
-                <input style="vertical-align:top">
-                <div class="sui-loading loading-xxsmall loading-inline loading-light"><i class="sui-icon icon-pc-loading"></i></div>
+              <div id="myCarousel" data-ride="carousel" data-interval="4000" class="sui-carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="active item"><img src="assets/imgs/carousel-1.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                  <div class="item"><img src="assets/imgs/carousel-2.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                  <div class="item"><img src="assets/imgs/carousel-3.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                </div><a href="#myCarousel" data-slide="prev" class="carousel-control left">&lsaquo;</a><a href="#myCarousel" data-slide="next" class="carousel-control right">&rsaquo;</a>
               </div>
             </div>
             <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc1" class="tab-pane">
-              <p>很简单，可以自己定制尺寸</p>
-              <p>为方便使用，默认有几种推荐的尺寸,分别对应class:  loading-small,loading-xsmall,loading-xxsmall, loading-l, loading-ll, loading-lll</p>
-              <p>默认作为块级盒子显示，.sui-loading.loading-inline 则会以内联盒子形式显示 （inline-block）</p>
-              <p>颜色方面有默认色、黑色、灰色三种, .sui-loading.loading-dark .loading-light </p>
+              <pre data-target="#demo1" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+          </ul>
+          <h2>通过JS控制</h2>
+          <p class="sui-lead">如果你没有使用 <code>data-ride</code> 自动加载，则可以使用 <code>$('.sui-carousel').carousel(config)</code> 来通过JS初始化。
+            <h4>初始化配置</h4>初始化的时候你可以传入一个配置对象，有两个参数 interval 和 pause 可以配置，和 <code>data-x</code> 中的配置是对应的。如下所示
+            <ul class="unstyled">
+              <li>interval: 轮播间隔，默认是 5000 毫秒</li>
+              <li>pause: 触发暂停的事件，默认是 "hover"</li>
+              <li>autoStart: 是否自动开始播放</li>
+            </ul>
+            <h4>可用方法</h4>
+            <p>有如下方法可以调用：</p>
+            <ul class="unstyled">
+              <li>.carousel('cycle'): 开始轮播</li>
+              <li>.carousel('pause'): 暂停轮播</li>
+              <li>.carousel(number): 从0开始，定位到某一张幻灯片。</li>
+              <li>.carousel('prev'): 上一个</li>
+              <li>.carousel('next'): 下一个</li>
+            </ul>
+          </p>
+          <ul class="sui-nav nav-tabs nav-large">
+            <li class="active"><a href="#demo-js" data-toggle="tab">示例</a></li>
+            <li><a href="#code-js" data-toggle="tab">代码</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="demo-js" class="tab-pane active">
+              <div id="myCarousel2" class="sui-carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel2" data-slide-to="1"></li>
+                  <li data-target="#myCarousel2" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="active item"><img src="assets/imgs/carousel-1.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                  <div class="item"><img src="assets/imgs/carousel-2.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                  <div class="item"><img src="assets/imgs/carousel-3.jpg">
+                    <div class="carousel-caption">
+                      <h4>标题</h4>
+                      <p>内容内容内容内容内容内容内容内容内容内容内容内容</p>
+                    </div>
+                  </div>
+                </div><a href="#myCarousel2" data-slide="prev" class="carousel-control left">&lsaquo;</a><a href="#myCarousel2" data-slide="next" class="carousel-control right">&rsaquo;</a>
+              </div>
+              <div class="sui-btn-group">
+                <button id="btn-cycle" class="sui-btn btn-bordered btn-primary">播放</button>
+                <button id="btn-pause" class="sui-btn btn-bordered btn-primary">暂停</button>
+                <button id="btn-slide2" class="sui-btn btn-bordered btn-primary">定位到第2张</button>
+                <button id="btn-slide-prev" class="sui-btn btn-bordered btn-primary">上一个</button>
+                <button id="btn-slide-next" class="sui-btn btn-bordered btn-primary">下一个</button>
+              </div>
+              <script>
+                var $carousel = $("#myCarousel2").carousel({
+                  interval: 2000
+                });
+                
+                $("#btn-cycle").click(function() {
+                  $carousel.carousel('cycle');
+                });
+                $("#btn-pause").click(function() {
+                  $carousel.carousel('pause');
+                });
+                $("#btn-slide2").click(function() {
+                  $carousel.carousel(1);
+                });
+                $("#btn-slide-prev").click(function() {
+                  $carousel.carousel('prev');
+                });
+                $("#btn-slide-next").click(function() {
+                  $carousel.carousel('next');
+                });
+                
+                
+              </script>
+            </div>
+            <div id="code-js" class="tab-pane">
+              <pre data-target="#demo-js" class="prettyprint linenums"></pre>
+            </div>
+          </div>
+          <ul class="demo-operations clearfix">
+            <li><a href="javascript:void(0)" data-target="#demo-js" class="copy-btn">复制代码</a></li>
           </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">

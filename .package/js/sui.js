@@ -925,6 +925,220 @@
 }(window.jQuery);
 
 },{}],3:[function(require,module,exports){
+/* ==========================================================
+ * bootstrap-carousel.js v2.3.2
+ * http://getbootstrap.com/2.3.2/javascript.html#carousel
+ * ==========================================================
+ * Copyright 2013 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================== */
+
+
+!function ($) {
+
+  "use strict";
+
+
+ /* CAROUSEL CLASS DEFINITION
+  * ========================= */
+
+  var Carousel = function (element, options) {
+    this.$element = $(element)
+    this.$indicators = this.$element.find('.carousel-indicators')
+    this.options = options
+    this.options.pause == 'hover' && this.$element
+      .on('mouseenter', $.proxy(this.pause, this))
+      .on('mouseleave', $.proxy(this.cycle, this))
+  }
+
+  Carousel.prototype = {
+
+    cycle: function (e) {
+      if (!e) this.paused = false
+      if (this.interval) clearInterval(this.interval);
+      this.options.interval
+        && !this.paused
+        && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
+      return this
+    }
+
+  , getActiveIndex: function () {
+      this.$active = this.$element.find('.item.active')
+      this.$items = this.$active.parent().children()
+      return this.$items.index(this.$active)
+    }
+
+  , to: function (pos) {
+      var activeIndex = this.getActiveIndex()
+        , that = this
+
+      if (pos > (this.$items.length - 1) || pos < 0) return
+
+      if (this.sliding) {
+        return this.$element.one('slid', function () {
+          that.to(pos)
+        })
+      }
+
+      if (activeIndex == pos) {
+        return this.pause().cycle()
+      }
+
+      return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
+    }
+
+  , pause: function (e) {
+      if (!e) this.paused = true
+      if (this.$element.find('.next, .prev').length && $.support.transition.end) {
+        this.$element.trigger($.support.transition.end)
+        this.cycle(true)
+      }
+      clearInterval(this.interval)
+      this.interval = null
+      return this
+    }
+
+  , next: function () {
+      if (this.sliding) return
+      return this.slide('next')
+    }
+
+  , prev: function () {
+      if (this.sliding) return
+      return this.slide('prev')
+    }
+
+  , slide: function (type, next) {
+      var $active = this.$element.find('.item.active')
+        , $next = next || $active[type]()
+        , isCycling = this.interval
+        , direction = type == 'next' ? 'left' : 'right'
+        , fallback  = type == 'next' ? 'first' : 'last'
+        , that = this
+        , e
+
+      this.sliding = true
+
+      isCycling && this.pause()
+
+      $next = $next.length ? $next : this.$element.find('.item')[fallback]()
+
+      e = $.Event('slide', {
+        relatedTarget: $next[0]
+      , direction: direction
+      })
+
+      if ($next.hasClass('active')) return
+
+      if (this.$indicators.length) {
+        this.$indicators.find('.active').removeClass('active')
+        this.$element.one('slid', function () {
+          var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
+          $nextIndicator && $nextIndicator.addClass('active')
+        })
+      }
+
+      if ($.support.transition && this.$element.hasClass('slide')) {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $next.addClass(type)
+        $next[0].offsetWidth // force reflow
+        $active.addClass(direction)
+        $next.addClass(direction)
+        this.$element.one($.support.transition.end, function () {
+          $next.removeClass([type, direction].join(' ')).addClass('active')
+          $active.removeClass(['active', direction].join(' '))
+          that.sliding = false
+          setTimeout(function () { that.$element.trigger('slid') }, 0)
+        })
+      } else {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $active.removeClass('active')
+        $next.addClass('active')
+        this.sliding = false
+        this.$element.trigger('slid')
+      }
+
+      isCycling && this.cycle()
+
+      return this
+    }
+
+  }
+
+
+ /* CAROUSEL PLUGIN DEFINITION
+  * ========================== */
+
+  var old = $.fn.carousel
+
+  $.fn.carousel = function (option) {
+    return this.each(function () {
+      var $this = $(this)
+        , data = $this.data('carousel')
+        , options = $.extend({}, $.fn.carousel.defaults, $this.data(), typeof option == 'object' && option)
+        , action = typeof option == 'string' ? option : options.slide
+      if (!data) $this.data('carousel', (data = new Carousel(this, options)))
+      if (typeof option == 'number') data.to(option)
+      else if (action) data[action]()
+      else if (options.autoStart) data.pause().cycle()
+    })
+  }
+
+  $.fn.carousel.defaults = {
+    interval: 5000
+  , pause: 'hover'
+  , autoStart: true
+  }
+
+  $.fn.carousel.Constructor = Carousel
+
+
+ /* CAROUSEL NO CONFLICT
+  * ==================== */
+
+  $.fn.carousel.noConflict = function () {
+    $.fn.carousel = old
+    return this
+  }
+
+ /* CAROUSEL DATA-API
+  * ================= */
+
+  $(document).on('click.sui-carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+    var $this = $(this), href
+      , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      , options = $.extend({}, $target.data(), $this.data())
+      , slideIndex
+
+    $target.carousel(options)
+
+    if (slideIndex = $this.attr('data-slide-to')) {
+      $target.data('carousel').pause().to(slideIndex).cycle()
+    }
+
+    e.preventDefault()
+  })
+
+  $(function() {
+    $("[data-ride='carousel']").carousel();
+  });
+
+}(window.jQuery);
+
+},{}],4:[function(require,module,exports){
 !function ($) {
 
   "use strict";
@@ -1023,7 +1237,7 @@
   });
 }(window.jQuery);
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*jshint sub:true*/
 /*
  * js come from :bootstrap-datepicker.js 
@@ -2805,7 +3019,7 @@
 
 }(window.jQuery, undefined);
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 //proxy dropdown to document, so there is no need to init
 !function ($) {
 
@@ -2905,7 +3119,7 @@
 
 }(window.jQuery);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 !function($) {
   /**
    * filesize  获得计算机文件体积大小(byte)对人更友好的格式
@@ -2947,7 +3161,7 @@
   })
 }(jQuery);
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
  /*jshint scripturl:true */
  /*jshint funcscope:true */
  /*jshint -W004 */
@@ -3978,7 +4192,7 @@
   $.introJs = introJs;
 }(jQuery);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -4392,7 +4606,7 @@
 
 }(window.jQuery);
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 //msgs组件添加叉叉关闭功能
 !function ($) {
   $(document).on('click.msgs', '[data-dismiss="msgs"]', function (e) {
@@ -4401,7 +4615,7 @@
   })
 }(window.jQuery);
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 !function ($) {
     function Pagination(opts) {
         this.itemsCount = opts.itemsCount;
@@ -4590,7 +4804,7 @@
 
 }(window.jQuery)
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 //核心组件
 require('./transition')
 require('./msgs')
@@ -4609,8 +4823,9 @@ require('./timepicker')
 require('./checkbox')
 require('./autocomplete')
 require('./intro')
+require('./carousel')
 
-},{"./autocomplete":1,"./button":2,"./checkbox":3,"./datepicker":4,"./dropdown":5,"./filesize":6,"./intro":7,"./modal":8,"./msgs":9,"./pagination":10,"./tab":12,"./timepicker":13,"./tooltip":14,"./transition":15,"./tree":16,"./validate":18,"./validate-rules":17}],12:[function(require,module,exports){
+},{"./autocomplete":1,"./button":2,"./carousel":3,"./checkbox":4,"./datepicker":5,"./dropdown":6,"./filesize":7,"./intro":8,"./modal":9,"./msgs":10,"./pagination":11,"./tab":13,"./timepicker":14,"./tooltip":15,"./transition":16,"./tree":17,"./validate":19,"./validate-rules":18}],13:[function(require,module,exports){
 /* ========================================================
  * bootstrap-tab.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tabs
@@ -4756,7 +4971,7 @@ require('./intro')
 
 }(window.jQuery);
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
  /*jshint sub:true*/
 !function ($) {
   function TimePicker(element, cfg){
@@ -5431,7 +5646,7 @@ require('./intro')
   });
 }(window.jQuery)
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /* ===========================================================
  * bootstrap-tooltip.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#tooltips
@@ -5938,7 +6153,7 @@ require('./intro')
 
 }(window.jQuery);
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /* ===================================================
  * bootstrap-transition.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#transitions
@@ -6000,7 +6215,7 @@ require('./intro')
 
 }(window.jQuery);
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * Created by huazhi.chz on 14-4-27.
  * tree 2.0.0
@@ -6166,7 +6381,7 @@ require('./intro')
 
 })(jQuery);
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 // add rules
 !function($) {
   Validate = $.validate;
@@ -6284,7 +6499,7 @@ require('./intro')
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 }(window.jQuery)
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /*
  * validate 核心函数，只提供框架，不提供校验规则
  */
@@ -6568,4 +6783,4 @@ require('./intro')
   })
 }(window.jQuery);
 
-},{}]},{},[11])
+},{}]},{},[12])
