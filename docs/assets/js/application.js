@@ -58,10 +58,13 @@
   var $themesInput = $("#themes-input").change(function() {
     var themes = $themesInput.val();
     var themesFile = 'sui.css';
+    var themesAppendFile = 'sui-append.css';
     if(!(themes === 'default')) {
       themesFile = 'sui-themes-' + themes + ".css";
+      themesAppendFile = 'sui-themes-' + themes + "-append.css";
     }
     $("#sui-css").attr('href', "../.package/css/" + themesFile);
+    $("#sui-css-append").attr('href', "../.package/css/" + themesAppendFile);
     localStorage.setItem("themes-name", themes);
     $("#themes-select").find(" > a > span")[0].className = themes;
   });
