@@ -34,7 +34,7 @@ block content
     div.tab-content
         .tab-pane.active#demo1
             .bs-docs-example
-                .sui-tree-group(data-toggle='tree', data-src='http://10.68.111.150/php/demo/server/getCity.json', data-jsonp='true')
+                .sui-tree-group(data-toggle='tree', data-src='http://huazz.sinaapp.com/server/getCity.json.php', data-jsonp='true')
         .tab-pane#code1
             pre.prettyprint.linenums(data-target='#demo1>div')
         .tab-pane#doc1
@@ -43,7 +43,7 @@ block content
             | <code>data-jsonp="true"</code>  为true表示src的url为垮域请求，会以jsonp的形式发送<br>
             | <code>data-val="[x,y,z]"</code>  初始化的时候的初始值，注意xyz的值必须要能在srouce对象中找到<br>
         .tab-pane#api1
-            | <code>$(element).data('tree').datas</code>，element为<code>data-toggle='tree'</code>的元素，获取当前的值对象，格式为{value : [], option : []}，value代表select的value值，option表示显示的option的文字<br>
+            | <code>$(element).data('tree').datas</code>，element为<code>data-toggle='tree'</code>的元素，获取当前的值对象，格式为{value : [], text : []}，value代表select的value值，text表示显示的option的文字<br>
             | <code>$(element).tree('setValue', [x,y,z])</code>  设置tree的值，参数同初始化的data-val相同
     h1 2. select，通过js调用初始化
 
@@ -64,7 +64,7 @@ block content
                 script.
                     $(function() {
                         $('#treeGroup2').tree({
-                            src : 'http://10.68.111.150/php/demo/server/getCategory.json',
+                            src : 'http://huazz.sinaapp.com/server/getCategory.json.php',
                             placeholder : '-- 请选择 --',
                             val : [2, 148, 152],
                             jsonp : true
