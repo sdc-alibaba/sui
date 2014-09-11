@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>

@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
@@ -173,9 +176,12 @@
             <li><a href="#">下载psd文件</a></li>
           </ul>
           <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">文档写的渣，有任何疑惑可以直接留言或者联系@半边</p>
+          <p class="sui-lead">
+            <p>文档写的渣，有任何疑惑可以直接留言或者联系@半边</p>
+          </p>
           <h2>1.快速上手 </h2>
           <pre class="prettyprint">&lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;   一行js都不用写，参数写成data-xxx属性即可</pre>
+          <p><b>如果触发节点的所有祖先元素中存在同时满足下面2个条件的祖先元素: <br>1.他宽度/高度小于tip元素的宽度/高度。<br>2.他是<code>absolute/fixed</code>定位方式。<br>那么需要你在CSS中为该.sui-tooltip指定width/height。否则会因为元素塌陷使定位出错。</b></p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>

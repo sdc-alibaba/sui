@@ -6224,16 +6224,10 @@ require('./carousel')
 
 !(function($) {"use strict";
 
-    var Tree = function(element, options) {
-        this.$element = $(element);
-        this.options = options;
-        this.redis = new Redis();
-    };
-
     // 数据缓存处理
     var Redis = function() {
         this.data = {};
-    }
+    };
 
     Redis.prototype = {
         constructor : Redis,
@@ -6249,7 +6243,13 @@ require('./carousel')
         clear : function() {
             this.data = {};
         }
-    }
+    };
+
+    var Tree = function(element, options) {
+        this.$element = $(element);
+        this.options = options;
+        this.redis = new Redis();
+    };
 
     // private methods
     var methods = {
@@ -6321,7 +6321,7 @@ require('./carousel')
                 _val.push(this.value);
                 _opt.push($(this).find('option:selected').text());
             });
-            this.datas = {option : _opt, value : _val};
+            this.datas = {text : _opt, value : _val};
         }
     };
 

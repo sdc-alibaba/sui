@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
@@ -175,6 +178,7 @@
               <h3>datepicker</h3>
               <p class="sui-lead">
                 <ul class="unstyled">
+                  <li><strong>更新 v1.4.0: 此组件的css代码被移入了 sui-append.css 中</strong></li>
                   <li><strong>更新 v1.1.2: 修复了 date-date 模式下无法自动修正日期大小的问题。</strong></li>
                   <li><strong>更新 v1.0.3: 修复了当日历和时间同时选择时，无法读取input中初始化值的bug。</strong></li>
                   <li><strong>更新 v1.0.2: 修复了选择时间时，点击00或者59会导致日历发生错误的bug。</strong></li>

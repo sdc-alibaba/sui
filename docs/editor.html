@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
@@ -186,9 +189,9 @@
           <p><strong>使用富文本编辑器必须要将SUI版本升级到 1.2.0 版本以上。</strong><br><strong>富文本编辑器还处在测试阶段，上传图片目前只支持URL上传，我们后续会逐渐完善更多功能。有任何问题或者建议可以随时反馈给我们。</strong></p>
           <p class="sui-lead">注意，使用富文本编辑器必须额外引入如下三个文件:
             <ul class="unstyled">
-              <li><a href="http://g.alicdn.com/sj/dpl/1.3.0/editor/editor-config.js" target="_blank">http://g.alicdn.com/sj/dpl/1.3.0/editor/editor-config.js</a></li>
-              <li><a href="http://g.alicdn.com/sj/dpl/1.3.0/editor/editor-all.min.js" target="_blank">http://g.alicdn.com/sj/dpl/1.3.0/editor/editor-all.min.js</a></li>
-              <li><a href="http://g.alicdn.com/sj/dpl/1.3.0/editor/themes/default/css/editor.min.css" target="_blank">http://g.alicdn.com/sj/dpl/1.3.0/editor/themes/default/css/editor.min.css</a></li>
+              <li><a href="http://g.alicdn.com/sj/dpl/1.4.0/editor/editor-config.js" target="_blank">http://g.alicdn.com/sj/dpl/1.4.0/editor/editor-config.js</a></li>
+              <li><a href="http://g.alicdn.com/sj/dpl/1.4.0/editor/editor-all.min.js" target="_blank">http://g.alicdn.com/sj/dpl/1.4.0/editor/editor-all.min.js</a></li>
+              <li><a href="http://g.alicdn.com/sj/dpl/1.4.0/editor/themes/default/css/editor.min.css" target="_blank">http://g.alicdn.com/sj/dpl/1.4.0/editor/themes/default/css/editor.min.css</a></li>
             </ul>
           </p>
           <h2>初始化</h2>

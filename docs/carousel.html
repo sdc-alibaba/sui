@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
@@ -168,6 +171,9 @@
         <div class="content-inner">
           <h2 class="sui-page-header">开发者文档</h2>
           <p class="sui-lead">幻灯片，一般用来轮播一些图片。注意，在 v1.3.0 及以上版本中才可用。</p>
+          <ul class="unstyled">
+            <li><strong>更新 v1.4.0: 此组件的css代码被移入了 sui-append.css 中</strong></li>
+          </ul>
           <h2>通过data属性自动加载</h2>
           <p class="sui-lead">在 <code>.sui-carousel</code> 容器上增加了一个 <code>data-ride="carousel"</code>，则会自动初始化幻灯片。注意，这是在 onload 事件时加载的，所以onload之后异步加载的内容你仍然需要手动初始化。<br>有两个属性可以用来控制轮播，分别是 <code>data-slide</code> 和 <code>data-slide-to</code>。其中 <code>data-slide</code> 可以设置为 "prev" 或者 "next"，分别表示向上一个和下一个滚动。 <code>data-slide-to</code> 可以设置为一个数字，从0开始，点击之后定位到对应的幻灯片元素。<br>JS配置项 interval, pause 和 autoStart 可以通过 data-x 属性来在HTML中设置。比如<code>data-interval</code> 可以用来控制轮播间隔时间，单位毫秒，默认是 5000 ; <code>data-pause</code> 可以用来设置暂停的出发动作，默认是 "hover", <code>data-auto-start</code> 可以用来设置是否自动开始播放, 默认为 true。</p>
           <ul class="sui-nav nav-tabs nav-large">

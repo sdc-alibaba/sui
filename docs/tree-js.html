@@ -12,9 +12,11 @@
     <script src="../js/lib/jquery.js"></script>
     <script>
       var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
       var selected = localStorage.getItem("themes-name");
       if(selected && !(selected == 'default')) {
         themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
         $(function() {
           var $select = $("#themes-select");
           var $current = $select.find("[value='"+selected+"']");
@@ -22,7 +24,8 @@
           $select.find(">a > span").html($current.text())[0].className = $current[0].className;
         });
       }
-      $('<link href="' + themesUrl + '?r=2014.06.30" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
     </script>
     <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
@@ -181,7 +184,7 @@
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <div data-toggle="tree" data-src="http://10.68.111.150/php/demo/server/getCity.json" data-jsonp="true" class="sui-tree-group"></div>
+                <div data-toggle="tree" data-src="http://huazz.sinaapp.com/server/getCity.json.php" data-jsonp="true" class="sui-tree-group"></div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
@@ -194,7 +197,7 @@
               <code>data-val="[x,y,z]"</code>  初始化的时候的初始值，注意xyz的值必须要能在srouce对象中找到<br>
             </div>
             <div id="api1" class="tab-pane">
-              <code>$(element).data('tree').datas</code>，element为<code>data-toggle='tree'</code>的元素，获取当前的值对象，格式为{value : [], option : []}，value代表select的value值，option表示显示的option的文字<br>
+              <code>$(element).data('tree').datas</code>，element为<code>data-toggle='tree'</code>的元素，获取当前的值对象，格式为{value : [], text : []}，value代表select的value值，text表示显示的option的文字<br>
               <code>$(element).tree('setValue', [x,y,z])</code>  设置tree的值，参数同初始化的data-val相同
             </div>
           </div>
@@ -212,7 +215,7 @@
                 <script>
                   $(function() {
                       $('#treeGroup2').tree({
-                          src : 'http://10.68.111.150/php/demo/server/getCategory.json',
+                          src : 'http://huazz.sinaapp.com/server/getCategory.json.php',
                           placeholder : '-- 请选择 --',
                           val : [2, 148, 152],
                           jsonp : true
