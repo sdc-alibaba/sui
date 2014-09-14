@@ -3761,6 +3761,9 @@ sui-pre .sui-code {
   border: none;
   background-color: transparent;
 }
+.sui-msg.remember {
+  display: none;
+}
 .typographic img {
   display: block;
   float: left;
@@ -4515,56 +4518,13 @@ sui-pre .sui-code {
 }
 .sui-dropup .caret,
 .sui-dropdown .caret {
+  font-family: "icon-pc";
+  font-style: normal;
   vertical-align: -1px;
-}
-.sui-dropup .caret[class^="icon-pc-"],
-.sui-dropdown .caret[class^="icon-pc-"],
-.sui-dropup .caret[class*=" icon-pc-"],
-.sui-dropdown .caret[class*=" icon-pc-"] {
-  font-family: 'icon-pc';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.sui-dropup .caret[class^="icon-touch-"],
-.sui-dropdown .caret[class^="icon-touch-"],
-.sui-dropup .caret[class*=" icon-touch-"],
-.sui-dropdown .caret[class*=" icon-touch-"] {
-  font-family: 'icon-touch';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.sui-dropup .caret[class^="icon-tb-"],
-.sui-dropdown .caret[class^="icon-tb-"],
-.sui-dropup .caret[class*=" icon-tb-"],
-.sui-dropdown .caret[class*=" icon-tb-"] {
-  font-family: 'icon-tb';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 .sui-dropup .caret:before,
 .sui-dropdown .caret:before {
-  content: "\e6eb";
+  content: "\c611";
 }
 .sui-dropup.dropdown-bordered,
 .sui-dropdown.dropdown-bordered {
@@ -4820,7 +4780,7 @@ sui-pre .sui-code {
 }
 .sui-dropup .dropdown-toggle > .caret:before,
 .navbar-fixed-bottom .sui-dropdown .dropdown-toggle > .caret:before {
-  content: "\e6ea";
+  content: "\c60e";
 }
 .sui-dropdown .sui-dropdown-menu .nav-header {
   padding-left: 20px;
@@ -5600,52 +5560,15 @@ input[type="submit"].btn.btn-mini {
   border-color: #2b2b2b;
 }
 .sui-btn .caret {
+  font-family: 'icon-pc';
+  font-style: normal;
   vertical-align: -1px;
   float: right;
   margin-right: -5px;
   margin-left: 8px;
 }
-.sui-btn .caret[class^="icon-pc-"],
-.sui-btn .caret[class*=" icon-pc-"] {
-  font-family: 'icon-pc';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.sui-btn .caret[class^="icon-touch-"],
-.sui-btn .caret[class*=" icon-touch-"] {
-  font-family: 'icon-touch';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.sui-btn .caret[class^="icon-tb-"],
-.sui-btn .caret[class*=" icon-tb-"] {
-  font-family: 'icon-tb';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 .sui-btn .caret:before {
-  content: "\e6eb";
+  content: "\c611";
 }
 .btn-large .caret {
   margin-top: 6px;
