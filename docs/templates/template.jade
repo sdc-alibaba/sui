@@ -67,7 +67,7 @@ block content
           }
           $("#compile").click(function() {
             try {
-              log($.template($("#template").val())($.parseJSON($("#json").text())));
+              log($.template($("#template").val())($.parseJSON($("#json").val())));
             } catch(e) {
               log(e);
             }
