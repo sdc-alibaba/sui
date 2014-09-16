@@ -1,3 +1,4 @@
+/*jshint -W054 */
 // use template in underscore: http://underscorejs.org/
 // By default, Underscore uses ERB-style template delimiters, change the
 // following template settings to use alternative delimiters.
