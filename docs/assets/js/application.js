@@ -25,10 +25,10 @@
   setTimeout(function() {
     var $globalMsg = $(".sui-layout > .sui-msg");
     if($globalMsg[0] && $globalMsg.is(":visible")) {
-      $globalMsg.css({position: "static"});
+      var $sidebar = $("body > .sui-layout > div > .sidebar");
+      $sidebar.css({position: "static"});
       var positionSidebar = function(dirTop) {
-        var $sidebar = $("body > .sui-layout > div > .sidebar"),
-            scrolltop = $(window).scrollTop(),
+        var scrolltop = $(window).scrollTop(),
             navbarHeight = parseInt($(document.body).css("padding-top").replace(/px/, "")),
             top = $sidebar.offset().top - scrolltop;
         if(dirTop && top <= navbarHeight) {
@@ -43,7 +43,7 @@
         positionSidebar(scrolltop > lastScrolltop);
         lastScrolltop = scrolltop;
       });
-      positionSidebar();
+      positionSidebar(true);
     }
   }, 100);
 
