@@ -22,17 +22,30 @@
     changeHeight();
   })
 
-  var positionSidebar = function() {
-    var top = $(document.body).scrollTop();
-    var navbarHeight = $("body > .sui-navbar").height();
-    if(top > navbarHeight) {
-      $("body > .sui-layout > div > .sidebar").css({position: "fixed", top: (navbarHeight + 10) + "px"});
-    } else {
-      $("body > .sui-layout > div > .sidebar").css({position: "static"});
+  setTimeout(function() {
+    var $globalMsg = $(".sui-layout > .sui-msg");
+    if($globalMsg[0] && $globalMsg.is(":visible")) {
+      $globalMsg.css({position: "static"});
+      var positionSidebar = function(dirTop) {
+        var $sidebar = $("body > .sui-layout > div > .sidebar"),
+            scrolltop = $(window).scrollTop(),
+            navbarHeight = parseInt($(document.body).css("padding-top").replace(/px/, "")),
+            top = $sidebar.offset().top - scrolltop;
+        if(dirTop && top <= navbarHeight) {
+          $sidebar.css({position: "fixed", top: navbarHeight + "px"});
+        } else if( !dirTop && scrolltop < navbarHeight) {
+          $sidebar.css({position: "static"});
+        }
+      };
+      var lastScrolltop = 0;
+      $(document).on("scroll", function(e) {
+        var scrolltop = $(window).scrollTop()
+        positionSidebar(scrolltop > lastScrolltop);
+        lastScrolltop = scrolltop;
+      });
+      positionSidebar();
     }
-  };
-  $(document).on("scroll", positionSidebar);
-  positionSidebar();
+  }, 100);
 
   //代码高亮
   $('.prettyprint').each(function() {
