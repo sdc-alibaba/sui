@@ -567,10 +567,9 @@
 				return DPGlobal.formatDate(d, format, lang);
 			}).join(this.o.multidateSeparator);
 			if (this.o.timepicker) {
-				if (!text) {
-					text = DPGlobal.formatDate(new Date(),format, lang);
+				if (text) {
+					text = text + " " + this.timepickerContainer.data('time');
 				}
-				text = text + " " + this.timepickerContainer.data('time');
 			}
 			return  text;
 		},
@@ -1689,7 +1688,7 @@
 								'<th colspan="7" class="clear"></th>'+
 							'</tr>'+
 						'</tfoot>',
-		timepicerTemplate: '<div class="timepicker-container"></div>'
+		timepickerTemplate: '<div class="timepicker-container"></div>'
 	};
 	DPGlobal.template = '<div class="datepicker">'+
 							'<div class="datepicker-days clearfix">'+
@@ -1698,7 +1697,7 @@
 									'<tbody></tbody>'+
 									DPGlobal.footTemplate+
 								'</table>'+
-								DPGlobal.timepicerTemplate+
+								DPGlobal.timepickerTemplate+
 							'</div>'+
 							'<div class="datepicker-months">'+
 								'<table class="table-condensed">'+
