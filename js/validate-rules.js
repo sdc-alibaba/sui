@@ -127,9 +127,9 @@
       if (paramIdx < 0) {
         paramIdx = params.push(param) - 1;
       }
-      var val = $(v).val();
-      if ($.inArray(val, vals[paramIdx]) < 0) {
-        vals[paramIdx].push(val);
+      var comparisonValue = $(v).val();
+      if ($.inArray(comparisonValue, vals[paramIdx]) < 0) {
+        vals[paramIdx].push(comparisonValue);
       } else {
         ret = false;
         return false;
