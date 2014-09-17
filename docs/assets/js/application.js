@@ -22,6 +22,18 @@
     changeHeight();
   })
 
+  var positionSidebar = function() {
+    var top = $(document.body).scrollTop();
+    var navbarHeight = $("body > .sui-navbar").height();
+    if(top > navbarHeight) {
+      $("body > .sui-layout > div > .sidebar").css({position: "fixed", top: (navbarHeight + 10) + "px"});
+    } else {
+      $("body > .sui-layout > div > .sidebar").css({position: "static"});
+    }
+  };
+  $(document).on("scroll", positionSidebar);
+  positionSidebar();
+
   //代码高亮
   $('.prettyprint').each(function() {
     var $this = $(this)

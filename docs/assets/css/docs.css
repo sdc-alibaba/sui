@@ -81,13 +81,13 @@ body {
   background: #fbfbfb;
 }
 body > .sui-layout,
-body > .sui-layout > .content {
+body > .sui-layout > div > .content {
   background: #fbfbfb;
 }
 html,
 body,
 .sui-layout,
-body > .sui-layout > .sidebar {
+body > .sui-layout > div > .sidebar {
   height: 100%;
 }
 /* Code in headings */
@@ -101,16 +101,16 @@ h3 code {
 }
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
-body > .sui-layout > .content {
+body > .sui-layout > div > .content {
   padding: 0 25px;
   margin-left: 210px;
   overflow: hidden;
 }
-body > .sui-layout > .sidebar {
+body > .sui-layout .sidebar {
   width: 180px;
   font-size: 14px;
   line-height: 22px;
-  position: fixed;
+  position: static;
 }
 .docs-sidenav {
   width: 151px;
