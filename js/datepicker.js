@@ -691,7 +691,7 @@
 			if (arguments.length) {
 				$.each(arguments, $.proxy(function(i, date) {
 					//获取第一个的时间,用来update 时间
-					if (this.o.timepicker&&i==0) {
+					if (this.o.timepicker&&i===0) {
 						this.timepicker.update(this._getTime(date)); //不要更新input
 					}
 					if (date instanceof Date)
