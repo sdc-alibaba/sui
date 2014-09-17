@@ -401,12 +401,18 @@
         this._setValue();
       }
     },
-
+    _updateSlide:function(attrs,step){
+      var notSetValue = true;
+      if(step&&(step > 0)){
+        this._slideDonw(attrs, step, notSetValue);
+      }else if(step){
+        this._slideUp(attrs, -step, notSetValue);
+      }
+    },
     _updateUI: function(){
       var oldMimute = this.o.minute,
           oldHour = this.o.hour,
           attrs,role,step;
-      var notSetValue = true;
       
       this._getInputTime();
       
@@ -414,15 +420,12 @@
       if (oldMimute !== this.o.minute) {
         attrs = this['minuteAttr'];
         step = parseInt(this.o.minute - attrs.current,10);
+        this._updateSlide(attrs,step);
       }
       if (oldHour !== this.o.hour) {
         attrs = this['hourAttr'];
         step = parseInt(this.o.hour - attrs.current,10);
-      }
-      if(step&&(step > 0)){
-        this._slideDonw(attrs, step, notSetValue);
-      }else if(step){
-        this._slideUp(attrs, -step, notSetValue);
+        this._updateSlide(attrs,step);
       }
     },
 
