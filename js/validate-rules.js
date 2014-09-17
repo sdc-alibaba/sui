@@ -113,4 +113,28 @@
     return trim(value).length <= param;
   };
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
+
+
+  var unique = function(value, element, param) {
+    var $selects = $("[data-rules^='unique']")
+      , params = []
+      , vals = [[]]
+      , ret = true;
+    $selects.each(function(k, v){
+      var paramIdx = $.inArray(param, params);
+      //应对可能出现多对，data-rules="unique=aaa"和data-rules="unique=bbb"
+      if (paramIdx < 0) {
+        paramIdx = params.push(param) - 1;
+      }
+      var val = $(v).val();
+      if ($.inArray(val, vals[paramIdx]) < 0) {
+        vals[paramIdx].push(val);
+      } else {
+        ret = false;
+        return false;
+      }
+    })
+    return ret;
+  }
+  Validate.setRule("unique", unique, '该项不能重复');
 }(window.jQuery)
