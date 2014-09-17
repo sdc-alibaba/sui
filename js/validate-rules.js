@@ -115,6 +115,7 @@
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 
 
+  //不能重复，比如设置了data-rules="unique=aaa" 的n个元素的值不能重复
   var unique = function(value, element, param) {
     var $selects = $("[data-rules^='unique']")
       , params = []
