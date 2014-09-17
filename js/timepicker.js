@@ -73,6 +73,7 @@
       this.focusDate = null;
       this.picker.hide().detach();
       this._detachSecondaryEvents();
+      this._setValue();
     },
 
     _keydown: function(e){
@@ -91,18 +92,18 @@
         case 37: // left
         case 39: // right
           if (!this.o.keyboardNavigation)
-            break;
-          dir = e.keyCode === 37 ? 'up' : 'down';
-          rol = 'hour';
-          this._slide(rol,dir);
+            break;//和input 输入有冲突 注释掉
+          // dir = e.keyCode === 37 ? 'up' : 'down';
+          // rol = 'hour';
+          // this._slide(rol,dir);
           break;
         case 38: // up
         case 40: // down
           if (!this.o.keyboardNavigation)
             break;
-          dir = e.keyCode === 38 ? 'up' : 'down';
-          rol = 'minute';
-          this._slide(rol,dir);
+          // dir = e.keyCode === 38 ? 'up' : 'down';
+          // rol = 'minute';
+          // this._slide(rol,dir);
           break;
         case 32: // spacebar
           // Spacebar is used in manually typing dates in some formats.
@@ -236,7 +237,7 @@
             focus: $.proxy(this._show, this),
             keyup: $.proxy(function(e){
               if ($.inArray(e.keyCode, [27,37,39,38,40,32,13,9]) === -1)
-                this._hide();
+                this._updateUI();
             }, this),
             keydown: $.proxy(this._keydown, this)
           }]
@@ -249,7 +250,7 @@
             focus: $.proxy(this._show, this),
             keyup: $.proxy(function(e){
               if ($.inArray(e.keyCode, [27,37,39,38,40,32,13,9]) === -1)
-                this._hide();
+                this._updateUI();
             }, this),
             keydown: $.proxy(this._keydown, this)
           }],
@@ -355,7 +356,7 @@
       }
     },
 
-    _slideDonw: function(attrs, step){
+    _slideDonw: function(attrs, step, notSetValue){
 
       step = step || 1;
       var cp = attrs.cp,
@@ -373,11 +374,12 @@
 
       $('.current', attrs.innerPickerCon).removeClass('current');
       $('span[data-num="' + attrs.current + '"]', attrs.innerPickerCon).addClass('current');
-
-      this._setValue();
+      if (!notSetValue) {
+        this._setValue();
+      }
     },
 
-    _slideUp: function(attrs, step){
+    _slideUp: function(attrs, step ,notSetValue){
 
       step = step || 1;
 
@@ -395,16 +397,20 @@
       this._animate(attrs.innerPickerCon, attrs.cp);
       $('.current', attrs.innerPickerCon).removeClass('current');
       $('span[data-num="' + attrs.current + '"]', attrs.innerPickerCon).addClass('current');
-      
-      this._setValue();
+      if (!notSetValue) {
+        this._setValue();
+      }
     },
 
-    _update: function(){
-      var oldMimute = this.o.minute;
-      var oldHour = this.o.hour,
-        attrs,role,step;
+    _updateUI: function(){
+      var oldMimute = this.o.minute,
+          oldHour = this.o.hour,
+          attrs,role,step;
+      var notSetValue = true;
+      
+      this._getInputTime();
+      
 
-      this._getInputDate();
       if (oldMimute !== this.o.minute) {
         attrs = this['minuteAttr'];
         step = parseInt(this.o.minute - attrs.current,10);
@@ -414,27 +420,64 @@
         step = parseInt(this.o.hour - attrs.current,10);
       }
       if(step&&(step > 0)){
-        this._slideDonw(attrs, step);
+        this._slideDonw(attrs, step, notSetValue);
       }else if(step){
-        this._slideUp(attrs, -step);
-      }else{ //use for format
-        this._setValue();
+        this._slideUp(attrs, -step, notSetValue);
       }
     },
 
+    //将时间设置在input 或者 data-api里
+    _doSetValue:function(timeStr,notSetValue){
+      var element;
+      if (this.isInput){
+        element = this.element;
+      }
+      else if (this.component){
+        element = this.element.find('input');
+      }
+      if (element){
+        element.change();
+        element.val(timeStr);
+      }else if(this.isInDatepicker){
+        this.element.data("time",timeStr);
+        if (!notSetValue) {
+          this.element.trigger('time:change');
+        }
+      }
+    },
     _render: function(){
       this.picker.html('');
-      this._getInputDate();
+      this._getInputTime();
       this._renderHour();
       this._renderMinutes();
       this._renderSplit();
       //form input
       this._setValue();
     },
-
-    _getInputDate: function(){
+    _foramtTimeString:function(val){
+      var time = {
+        minute:0,
+        hour:0
+      },minute,hour;
+      val = val.split(':');
+      for (var i = val.length - 1; i >= 0; i--) {
+        val[i] = $.trim(val[i]);
+      }
+      if (val.length === 2) {
+        minute = parseInt(val[1],10);
+        if (minute >= 0 && minute < 60) {
+          time.minute = minute;
+        }
+        hour = parseInt(val[0],10);
+        if (hour >= 0 && hour < 24) {
+          time.hour = hour;
+        }
+      }
+      return time;
+    },
+    _getInputTime: function(){
       if (this.isInline&&this.isInDatepicker) return;
-      var element,minute,hour,val;
+      var element,minute,hour,val,time;
       if (this.isInput||this.isInDatepicker){
         element = this.element;
       }
@@ -447,20 +490,9 @@
         }else{
           val = $.trim(element.val());
         }
-        val = val.split(':');
-        for (var i = val.length - 1; i >= 0; i--) {
-          val[i] = $.trim(val[i]);
-        }
-        if (val.length === 2) {
-          minute = parseInt(val[1],10);
-          if (minute >= 0 && minute < 60) {
-            this.o.minute = minute;
-          }
-          hour = parseInt(val[0],10);
-          if (hour >= 0 && hour < 24) {
-            this.o.hour = hour;
-          }
-        }
+        time = this._foramtTimeString(val)
+        this.o.minute = time.minute;
+        this.o.hour = time.hour;
       }
     },
 
@@ -573,27 +605,16 @@
 
       this.picker.append($(tpl));
     },
-
-    _setValue: function(){
-      if (this.isInline) return;
-      var element, text, minute, hour;
+    _getCurrentTimeStr: function(){
+      var  text, minute, hour;
       hour = this.hourAttr.current;
       minute =  this.minuteAttr.current;
       text = this._beautifyNum(hour)+':'+ this._beautifyNum(minute);
-
-      if (this.isInput){
-        element = this.element;
-      }
-      else if (this.component){
-        element = this.element.find('input');
-      }
-      if (element){
-        element.change();
-        element.val(text);
-      }else if(this.isInDatepicker){
-        this.element.data("time",text);
-        this.element.trigger('time:change');
-      }
+      return text;
+    },
+    _setValue: function(){
+      if (this.isInline) return;
+      this._doSetValue(this._getCurrentTimeStr()); //将时间装填在 input 或者 data api 里
     },
 
     _animate: function(node, dur){
@@ -617,6 +638,17 @@
       }
 
       return num;
+    },
+    //通过参数来更新日期
+    //timeStr(string): 12:20
+    //notSetValue(string): false/true , 是否需要将数值设置在input中. true 的时候只能设置在data-api中,这个参数只用在datepicker中
+    update: function(timeStr,notSetValue){
+      this._doSetValue(timeStr,notSetValue);
+      this._updateUI();
+    },
+
+    getTime: function(){
+      return this._getCurrentTimeStr();
     }
   }
 
