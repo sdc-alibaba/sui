@@ -135,6 +135,7 @@
         return false;
       }
     })
+    $selects.removeClass('input-error');
     return ret;
   }
   Validate.setRule("unique", unique, '该项不能重复');
