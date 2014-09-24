@@ -47,7 +47,7 @@
   var setValue = function() {
     var $target = $(this),
         $li = $target.parent(),
-        $container = $target.parents(".sui-dropdown"),
+        $container = $target.parents(".sui-dropdown, .sui-dropup"),
         $menu = $container.find("[role='menu']");
     if($li.is(".disabled, :disabled")) return;
     if ($container.is('.disabled, :disabled')) return;

@@ -22,6 +22,31 @@
     changeHeight();
   })
 
+  setTimeout(function() {
+    var $globalMsg = $(".sui-layout > .sui-msg");
+    if($globalMsg[0] && $globalMsg.is(":visible")) {
+      var $sidebar = $("body > .sui-layout > div > .sidebar");
+      $sidebar.css({position: "static"});
+      var positionSidebar = function(dirTop) {
+        var scrolltop = $(window).scrollTop(),
+            navbarHeight = parseInt($(document.body).css("padding-top").replace(/px/, "")),
+            top = $sidebar.offset().top - scrolltop;
+        if(dirTop && top <= navbarHeight) {
+          $sidebar.css({position: "fixed", top: navbarHeight + "px"});
+        } else if( !dirTop && scrolltop < navbarHeight) {
+          $sidebar.css({position: "static"});
+        }
+      };
+      var lastScrolltop = 0;
+      $(document).on("scroll", function(e) {
+        var scrolltop = $(window).scrollTop()
+        positionSidebar(scrolltop > lastScrolltop);
+        lastScrolltop = scrolltop;
+      });
+      positionSidebar(true);
+    }
+  }, 100);
+
   //代码高亮
   $('.prettyprint').each(function() {
     var $this = $(this)
