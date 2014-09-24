@@ -69,797 +69,806 @@
           </div>
         </div>
     <div class="sui-layout">
-      <div class="sidebar">
-            <ul class="sui-nav nav-stacked docs-sidenav docs-nav">
-              <li class="active"><a><i class="docs-icon">&nbsp;</i>表单</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="forms.html">表单</a></li>
-                  <li><a href="buttons.html">按钮</a></li>
-                  <li><a href="button-groups.html">按钮组</a></li>
-                  <li><a href="checkbox.html">选框</a></li>
-                  <li><a href="dropdown.html">下拉菜单 - 样式</a></li>
-                  <li><a href="dropdown-js.html">下拉菜单 - JS</a></li>
-                  <li class="active"><a href="form-validate.html">表单校验</a></li>
-                  <li><a href="datetimepicker.html">datetimepicker</a></li>
-                  <li><a href="autocomplete.html">自动补全</a></li>
-                  <li><a href="tree-js.html">级联选择</a></li>
-                  <li><a href="editor.html">富文本编辑器</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="global.html">全局文本样式</a></li>
-                  <li><a href="icons.html">图标</a></li>
-                  <li><a href="label.html">Label</a></li>
-                  <li><a href="tag.html">Tag</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>表格和布局</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="tables.html">表格</a></li>
-                  <li><a href="grid.html">栅格</a></li>
-                  <li><a href="layout.html">布局</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="navbar.html">导航栏</a></li>
-                  <li><a href="pagination.html">分页器 - 样式</a></li>
-                  <li><a href="pagination-js.html">分页器 - JS</a></li>
-                  <li><a href="msgs.html">提示消息</a></li>
-                  <li><a href="steps.html">步骤条</a></li>
-                  <li><a href="breadcrumb.html">面包屑</a></li>
-                  <li><a href="tab.html">标签页 - 样式</a></li>
-                  <li><a href="tab-js.html">标签页 - JS</a></li>
-                  <li><a href="intro.html">新手指引</a></li>
-                  <li><a href="carousel.html">幻灯片</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="dialog.html">对话框</a></li>
-                  <li><a href="tooltip.html">tooltip</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="filesize.html">filesize</a></li>
-                </ul>
-              </li>
-              <li><a><i class="docs-icon">&nbsp;</i>其他</a>
-                <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="loading.html">Loading</a></li>
-                  <li><a href="progress.html">进度条</a></li>
-                </ul>
-              </li>
-            </ul>
-            <script type="text/javascript">
-              var disqus_identifier = 'disqus-id-form-validate';
-              function changeHeight(itemHeight){
-                if(!itemHeight) {
-                  var height = $(window).height()-57;
-                  var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
-                  itemHeight = height/count-4;
-                  if(itemHeight>50){
-                    itemHeight = 50;
-                  }else if(itemHeight<15){
-                    itemHeight = 15;
-                  }else{
-                    itemHeight =itemHeight;
-                  }
-                }
-                $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
-                localStorage.setItem("sidenav.itemHeight", itemHeight);
-              }
-              $(window).resize(function(){
-                changeHeight();
-              });
-              var lastItemHeight = localStorage.getItem("sidenav.itemHeight");
-              if(lastItemHeight) {
-                changeHeight();
-              } else {
-                $(changeHeight);
-              }
-            </script>
+      <div id="global-msg" class="sui-msg msg-success msg-block msg-large remember">
+        <div class="msg-con">新版本1.4.2发布了。第一次升级到 1.4.x 版本请注意在1.4.0版本的重大变动，具体请阅读<a href='changelog.html'>更新日志</a>。
+          <button type="button" data-dismiss="msgs" class="sui-close">&times;</button>
+        </div>
       </div>
-      <div class="content">
-        <div class="content-inner">
-          <h2 class="sui-page-header">开发者文档</h2>
-          <p class="sui-lead">
-            强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
-            并且支持自定义校验插件。<br>
-            <ul class="unstyled">
-              <li><strong>更新 v1.2.2: 增加了两个新的接口可以直接控制错误消息 "showError" 和 "hideError"，可以手动调用来显示/隐藏一个错误消息。增加了一个disable/enable接口，可以启用/禁用表单校验。</strong></li>
-              <li><strong>更新 v1.1.9: 自定义错误消息区分未填写和填写错误两种情况，可以分别定义。</strong></li>
-              <li><strong>更新 v1.1.7: 修复了url校验规则无法支持二级域名的bug，增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。</strong></li>
+      <div>
+        <div class="sidebar">
+              <ul class="sui-nav nav-stacked docs-sidenav docs-nav">
+                <li class="active"><a><i class="docs-icon">&nbsp;</i>表单</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="forms.html">表单</a></li>
+                    <li><a href="buttons.html">按钮</a></li>
+                    <li><a href="button-groups.html">按钮组</a></li>
+                    <li><a href="checkbox.html">选框</a></li>
+                    <li><a href="dropdown.html">下拉菜单 - 样式</a></li>
+                    <li><a href="dropdown-js.html">下拉菜单 - JS</a></li>
+                    <li class="active"><a href="form-validate.html">表单校验</a></li>
+                    <li><a href="datetimepicker.html">datetimepicker</a></li>
+                    <li><a href="autocomplete.html">自动补全</a></li>
+                    <li><a href="tree-js.html">级联选择</a></li>
+                    <li><a href="editor.html">富文本编辑器</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="global.html">全局文本样式</a></li>
+                    <li><a href="icons.html">图标</a></li>
+                    <li><a href="label.html">Label</a></li>
+                    <li><a href="tag.html">Tag</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>表格和布局</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="tables.html">表格</a></li>
+                    <li><a href="grid.html">栅格</a></li>
+                    <li><a href="layout.html">布局</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="navbar.html">导航栏</a></li>
+                    <li><a href="pagination.html">分页器 - 样式</a></li>
+                    <li><a href="pagination-js.html">分页器 - JS</a></li>
+                    <li><a href="msgs.html">提示消息</a></li>
+                    <li><a href="steps.html">步骤条</a></li>
+                    <li><a href="breadcrumb.html">面包屑</a></li>
+                    <li><a href="tab.html">标签页 - 样式</a></li>
+                    <li><a href="tab-js.html">标签页 - JS</a></li>
+                    <li><a href="intro.html">新手指引</a></li>
+                    <li><a href="carousel.html">幻灯片</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="dialog.html">对话框</a></li>
+                    <li><a href="tooltip.html">tooltip</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="filesize.html">filesize</a></li>
+                    <li><a href="template.html">字符串模板</a></li>
+                  </ul>
+                </li>
+                <li><a><i class="docs-icon">&nbsp;</i>其他</a>
+                  <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="loading.html">Loading</a></li>
+                    <li><a href="progress.html">进度条</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <script type="text/javascript">
+                var disqus_identifier = 'disqus-id-form-validate';
+                function changeHeight(itemHeight){
+                  if(!itemHeight) {
+                    var height = $(window).height()-57;
+                    var count = $(".docs-sidenav>li").length+$(".sui-nav.nav-stacked.docs-sidenav.docs-nav .active").find("ul").children("li").length;
+                    itemHeight = height/count-4;
+                    if(itemHeight>50){
+                      itemHeight = 50;
+                    }else if(itemHeight<15){
+                      itemHeight = 15;
+                    }else{
+                      itemHeight =itemHeight;
+                    }
+                  }
+                  $(".sui-nav.nav-stacked.docs-nav li a").css("line-height",itemHeight+"px");
+                  localStorage.setItem("sidenav.itemHeight", itemHeight);
+                }
+                $(window).resize(function(){
+                  changeHeight();
+                });
+                var lastItemHeight = localStorage.getItem("sidenav.itemHeight");
+                if(lastItemHeight) {
+                  changeHeight();
+                } else {
+                  $(changeHeight);
+                }
+              </script>
+        </div>
+        <div class="content">
+          <div class="content-inner">
+            <h2 class="sui-page-header">开发者文档</h2>
+            <p class="sui-lead">
+              强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
+              并且支持自定义校验插件。<br>
+              <ul class="unstyled">
+                <li><strong>更新 v1.4.2: 修复了校验报错消息中图标是斜体的bug。</strong></li>
+                <li><strong>更新 v1.2.2: 增加了两个新的接口可以直接控制错误消息 "showError" 和 "hideError"，可以手动调用来显示/隐藏一个错误消息。增加了一个disable/enable接口，可以启用/禁用表单校验。</strong></li>
+                <li><strong>更新 v1.1.9: 自定义错误消息区分未填写和填写错误两种情况，可以分别定义。</strong></li>
+                <li><strong>更新 v1.1.7: 修复了url校验规则无法支持二级域名的bug，增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。</strong></li>
+              </ul>
+            </p>
+            <h2>通过HTML配置规则</h2>
+            <p class="lead">通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
+              <li><a href="#code1" data-toggle="tab">代码</a></li>
             </ul>
-          </p>
-          <h2>通过HTML配置规则</h2>
-          <p class="lead">通过html标签可以直接配置规则，不用写任何js代码，在form上加上 <code>.sui-validate</code>之后会自动初始化校验器。<br>规则通过input标签的 <code>data-rules</code> 来定义，以 | 分割不同的规则，每个规则由规则名和规则值组成，规则值是可选的。<br>比如：<code>data-rules='required|email|minlength=8'</code></p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
-            <li><a href="#code1" data-toggle="tab">代码</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form class="sui-form form-horizontal sui-validate">
-                  <div class="control-group">
-                    <label for="inputEmail" class="control-label">邮箱：</label>
-                    <div class="controls">
-                      <input type="text" id="inputEmail" name="name" placeholder="邮箱" data-rules="required|email">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputPassword" class="control-label">密码：</label>
-                    <div class="controls">
-                      <input type="password" id="inputPassword" name="password" placeholder="密码" data-rules="required" title="密码">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputRepassword" class="control-label">重复密码：</label>
-                    <div class="controls">
-                      <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码" data-rules="required|match=password">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputGender" class="control-label">性别：</label>
-                    <div class="controls">
-                      <label data-toggle="radio" class="radio-pretty inline">
-                        <input type="radio" name="gender" value="1" data-rules="required"><span>男</span>
-                      </label>
-                      <label data-toggle="radio" class="radio-pretty inline">
-                        <input type="radio" name="gender" value="2" data-rules="required"><span>女</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputGender" class="control-label">地址：</label>
-                    <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <input name="city" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
-                          <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
-                          </ul></span></span></div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputDes" class="control-label v-top">自我介绍：</label>
-                    <div class="controls">
-                      <textarea id="inputDes" name="des" placeholder="自我介绍" data-rules="required"></textarea>
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label"></label>
-                    <div class="controls">
-                      <button type="submit" class="sui-btn btn-primary">立即注册</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-            </div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <h2>通过JS配置规则</h2>
-          <p>除了在html中直接配置规则，也可以在js中配置规则，两者可以结合使用，在JS中配置的规则会覆盖掉html中的同名规则。<br>HTML中的规则值只能为字符串，而JS中可以把规则值配置为函数从而实现更强大的功能。</p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
-            <li><a href="#code5" data-toggle="tab">代码</a></li>
-            <li><a href="#doc5" data-toggle="tab">文档</a></li>
-            <li><a href="#api5" data-toggle="tab">api</a></li>
-            <li><a href="#event5" data-toggle="tab">事件</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo5" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form id="form5" class="sui-form form-horizontal">
-                  <div class="control-group">
-                    <label for="inputEmail" class="control-label">邮箱：</label>
-                    <div class="controls">
-                      <input type="text" id="inputEmail" name="email" placeholder="邮箱">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputPassword" class="control-label">密码：</label>
-                    <div class="controls">
-                      <input type="password" id="inputPassword" name="password" placeholder="密码" title="密码">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputRepassword" class="control-label">重复密码：</label>
-                    <div class="controls">
-                      <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputGender" class="control-label">性别：</label>
-                    <div class="controls">
-                      <label data-toggle="radio" class="radio-pretty inline">
-                        <input type="radio" name="gender" value="1"><span>男</span>
-                      </label>
-                      <label data-toggle="radio" class="radio-pretty inline">
-                        <input type="radio" name="gender" value="2"><span>女</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="sanwei" class="control-label">三维：</label>
-                    <div class="controls">
-                      <input type="text" id="sanwei" name="sanwei" placeholder="三维">
-                      <div class="sui-msg msg-tips msg-naked">
-                        <div class="msg-con">女生必填</div>
-                        <s class="msg-icon"></s>
+            <div class="tab-content">
+              <div id="demo1" class="tab-pane active">
+                <div class="bs-docs-example">
+                  <form class="sui-form form-horizontal sui-validate">
+                    <div class="control-group">
+                      <label for="inputEmail" class="control-label">邮箱：</label>
+                      <div class="controls">
+                        <input type="text" id="inputEmail" name="name" placeholder="邮箱" data-rules="required|email">
                       </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="sanwei" class="control-label"></label>
-                    <div class="controls">
-                      <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                    <div class="control-group">
+                      <label for="inputPassword" class="control-label">密码：</label>
+                      <div class="controls">
+                        <input type="password" id="inputPassword" name="password" placeholder="密码" data-rules="required" title="密码">
+                      </div>
                     </div>
-                  </div>
-                </form>
-                <script>
-                  $("#form5").validate({
-                    rules: {
-                      email: {
-                        required: true,
-                        minlength: 2,
-                        maxlength: 10
-                      },
-                      password: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 12
-                      },
-                      repassword: {
-                        required: true,
-                        prefill: 'password',
-                        match: 'password'
-                      },
-                      sanwei: {
-                        required: function($input) {
-                          var value = $input.val()
-                          var $form = $input.parents("form")
-                          var gender = $form.find("[name='gender']:checked").val()
-                          if (gender == 2 && !value) {
-                            return false
-                          }
-                          return true
-                        }
-                      },
-                      gender: {
-                        required: true
-                      }
-                    },
-                    messages: {
-                      email: "亲，你连邮箱都没有么"
-                    },
-                    success: function() {
-                      $.alert("恭喜，没有问题了。");
-                      return false;
-                    }
-                  })
-                </script>
+                    <div class="control-group">
+                      <label for="inputRepassword" class="control-label">重复密码：</label>
+                      <div class="controls">
+                        <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码" data-rules="required|match=password">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputGender" class="control-label">性别：</label>
+                      <div class="controls">
+                        <label data-toggle="radio" class="radio-pretty inline">
+                          <input type="radio" name="gender" value="1" data-rules="required"><span>男</span>
+                        </label>
+                        <label data-toggle="radio" class="radio-pretty inline">
+                          <input type="radio" name="gender" value="2" data-rules="required"><span>女</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputGender" class="control-label">地址：</label>
+                      <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                              <input name="city" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
+                            <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                            </ul></span></span></div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputDes" class="control-label v-top">自我介绍：</label>
+                      <div class="controls">
+                        <textarea id="inputDes" name="des" placeholder="自我介绍" data-rules="required"></textarea>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label"></label>
+                      <div class="controls">
+                        <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div id="code1" class="tab-pane">
+                <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
               </div>
             </div>
-            <div id="code5" class="tab-pane">
-              <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc5" class="tab-pane">
-              <h4>一，通过两种方式可以启用表单校验</h4>
-              <ol>
-                <li>通过在form上添加<code>.sui-validate</code></li>
-                <li>通过直接调用js方法<code>$("form").validate()</code></li>
-              </ol>
-              <p class="sui-lead">
-                校验组件依赖name属性，所以请确保表单中的元素有合理的name。
-                部分规则如prefill会依赖title属性。
-              </p>
-              <h4>注意：表单校验需要依赖input元素的 <code>name</code>属性。</h4>
-              <h4>二，配置说明</h4>
-              <p>调用validate方法的时候可以传入一个配置对象，所有配置项如下：
+            <ul class="demo-operations clearfix">
+              <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+            </ul>
+            <h2>通过JS配置规则</h2>
+            <p>除了在html中直接配置规则，也可以在js中配置规则，两者可以结合使用，在JS中配置的规则会覆盖掉html中的同名规则。<br>HTML中的规则值只能为字符串，而JS中可以把规则值配置为函数从而实现更强大的功能。</p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#demo5" data-toggle="tab">示例</a></li>
+              <li><a href="#code5" data-toggle="tab">代码</a></li>
+              <li><a href="#doc5" data-toggle="tab">文档</a></li>
+              <li><a href="#api5" data-toggle="tab">api</a></li>
+              <li><a href="#event5" data-toggle="tab">事件</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="demo5" class="tab-pane active">
+                <div class="bs-docs-example">
+                  <form id="form5" class="sui-form form-horizontal">
+                    <div class="control-group">
+                      <label for="inputEmail" class="control-label">邮箱：</label>
+                      <div class="controls">
+                        <input type="text" id="inputEmail" name="email" placeholder="邮箱">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputPassword" class="control-label">密码：</label>
+                      <div class="controls">
+                        <input type="password" id="inputPassword" name="password" placeholder="密码" title="密码">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputRepassword" class="control-label">重复密码：</label>
+                      <div class="controls">
+                        <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputGender" class="control-label">性别：</label>
+                      <div class="controls">
+                        <label data-toggle="radio" class="radio-pretty inline">
+                          <input type="radio" name="gender" value="1"><span>男</span>
+                        </label>
+                        <label data-toggle="radio" class="radio-pretty inline">
+                          <input type="radio" name="gender" value="2"><span>女</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="sanwei" class="control-label">三维：</label>
+                      <div class="controls">
+                        <input type="text" id="sanwei" name="sanwei" placeholder="三维">
+                        <div class="sui-msg msg-tips msg-naked">
+                          <div class="msg-con">女生必填</div>
+                          <s class="msg-icon"></s>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="sanwei" class="control-label"></label>
+                      <div class="controls">
+                        <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                      </div>
+                    </div>
+                  </form>
+                  <script>
+                    $("#form5").validate({
+                      rules: {
+                        email: {
+                          required: true,
+                          minlength: 2,
+                          maxlength: 10
+                        },
+                        password: {
+                          required: true,
+                          minlength: 6,
+                          maxlength: 12
+                        },
+                        repassword: {
+                          required: true,
+                          prefill: 'password',
+                          match: 'password'
+                        },
+                        sanwei: {
+                          required: function($input) {
+                            var value = $input.val()
+                            var $form = $input.parents("form")
+                            var gender = $form.find("[name='gender']:checked").val()
+                            if (gender == 2 && !value) {
+                              return false
+                            }
+                            return true
+                          }
+                        },
+                        gender: {
+                          required: true
+                        }
+                      },
+                      messages: {
+                        email: "亲，你连邮箱都没有么"
+                      },
+                      success: function() {
+                        $.alert("恭喜，没有问题了。");
+                        return false;
+                      }
+                    })
+                  </script>
+                </div>
+              </div>
+              <div id="code5" class="tab-pane">
+                <pre data-target="#demo5&gt;div" class="prettyprint linenums"></pre>
+              </div>
+              <div id="doc5" class="tab-pane">
+                <h4>一，通过两种方式可以启用表单校验</h4>
+                <ol>
+                  <li>通过在form上添加<code>.sui-validate</code></li>
+                  <li>通过直接调用js方法<code>$("form").validate()</code></li>
+                </ol>
+                <p class="sui-lead">
+                  校验组件依赖name属性，所以请确保表单中的元素有合理的name。
+                  部分规则如prefill会依赖title属性。
+                </p>
+                <h4>注意：表单校验需要依赖input元素的 <code>name</code>属性。</h4>
+                <h4>二，配置说明</h4>
+                <p>调用validate方法的时候可以传入一个配置对象，所有配置项如下：
+                  <table class="sui-table">
+                    <tr>
+                      <th>名称</th>
+                      <th>默认值</th>
+                      <th>说明</th>
+                    </tr>
+                    <tr>
+                      <td>errorTpl</td>
+                      <td>&lt;div class="sui-msg msg-error"&gt;\n  &lt;div class="msg-con"&gt;\n    &lt;span&gt;$errorMsg&lt;/span&gt;\n    &lt;s class="msg-icon"&gt;&lt;/s&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</td>
+                      <td>错误提示模板，其中的变量 <code>$errorMsg</code> 是错误消息</td>
+                    </tr>
+                    <tr>
+                      <td>inputErrorClass</td>
+                      <td>input-error</td>
+                      <td>出错的input会被添加这个class以高亮显示</td>
+                    </tr>
+                    <tr>
+                      <td>placeError</td>
+                      <td>
+                        function($error, $input) {
+                        /**参见源码**/
+                        }
+                      </td>
+                      <td>
+                        放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
+                        其中两个参数分别是：
+                        <ul>
+                          <li>$error, 出错消息</li>
+                          <li>$input，出错的输入框</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>rules</td>
+                      <td>undefined</td>
+                      <td>定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。<br>rules通过name来为input指定规则，比如<br>rules: { password: { minlength: 10}}<br>表示为 name=password 的输入框定义了一条规则 minlength=10</td>
+                    </tr>
+                    <tr>
+                      <td>messages</td>
+                      <td>undefined</td>
+                      <td>可以给每一个输入框单独设定出错消息，仍然是通过输入框的name来指定，出错消息可以是一个字符串或者回调函数。<br>比如：<br>messages: { email: "亲，请输入你的邮箱"}<br>表示name为email的输入框出错后，总是显示"亲，请输入你的邮箱"。<br>如果想分别设定未填写和填写错误的消息，则可以传入一个数组，数组中第一个元素是未填写的出错消息，第二个元素是填写错误的出错消息。<br>比如:<br>messages: { email: ["请填写您的邮箱", "亲，请输入你的邮箱"]}</td>
+                    </tr>
+                    <tr>
+                      <td>highlight</td>
+                      <td>
+                        highlight: function($input, $error, inputErrorClass) {
+                          $input.addClass(inputErrorClass)
+                          $error.show()
+                        }
+                      </td>
+                      <td>高亮显示错误。</td>
+                    </tr>
+                    <tr>
+                      <td>unhighlight</td>
+                      <td>
+                        unhighlight: function($input, $error, inputErrorClass) {
+                          $input.removeClass(inputErrorClass)
+                          $error.hide()
+                        }
+                      </td>
+                      <td>取消高亮显示错误。</td>
+                    </tr>
+                    <tr>
+                      <td>success</td>
+                      <td>success: function(){$form} {}</td>
+                      <td>当用户提交表单且没有错误发生时调用此方法。如果返回值为false，则会阻止表单的默认提交行为。</td>
+                    </tr>
+                    <tr>
+                      <td>fail</td>
+                      <td>fail: function(){$errorInputs, $form} {}</td>
+                      <td>当用户提交表单且有错误发生时调用此方法。</td>
+                    </tr>
+                  </table>
+                </p>
+                <h4>三，配置规则</h4>
+                <p>有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。<br>后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。</p>
+              </div>
+              <div id="api5" class="tab-pane">
+                <table class="sui-table">
+                  <thead>
+                    <tr>
+                      <th>方法</th>
+                      <th>示例</th>
+                      <th>说明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>$.fn.validate(config)</td>
+                      <td>$('#my-form').validate()</td>
+                      <td>启用表单校验,config详情见"文档"</td>
+                    </tr>
+                    <tr>
+                      <td>showError</td>
+                      <td>$('#my-form').validate("showError", "email", "邮箱填错啦", "myEmailError")</td>
+                      <td>显示一个错误，其中四个参数分别是（"showError", "输入框的name", "要显示的错误消息", "可选，该错误消息的名称，用来在hideError的时候引用")</td>
+                    </tr>
+                    <tr>
+                      <td>hideError</td>
+                      <td>$('#my-form').validate("hideError", "email", "myEmailError")</td>
+                      <td>隐藏一个错误消息，其中三个参数分别是（"hideError", "输入框的name，不填则隐藏所有的错误消息", "可选，要隐藏的错误消息的名称(在showError时指定的，或者就是规则名称)，如果不填则会影藏该输入框对应的所有错误消息")</td>
+                    </tr>
+                    <tr>
+                      <td>enable/disable</td>
+                      <td>$('#my-form').validate("enable/disable")</td>
+                      <td>启用/禁用表单校验 </td>
+                    </tr>
+                    <tr>
+                      <td>$.validate.setRule(name, method, msg)</td>
+                      <td>
+                        var mobile = function(value, element, param) {
+                          return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
+                        };
+                        Validate.setRule("mobile", mobile, '请填写正确的手机号码');
+                      </td>
+                      <td>设置一条自定义规则，如果该规则已经存在则直接覆盖。 其中三个参数分别是：
+                        <ul>
+                          <li>name,规则名称</li>
+                          <li>method, 规则方法，该方法返回值为true则表示没有错误，返回值为false则表示有错误。</li>
+                          <li>msg, 出错提示文案，可以是一个字符串，也可是一个函数。<br>如果是函数，则会调用函数并显示函数的返回值。并且调用函数的时候会传第一个参数就是出错的input。 <br>如果是字符串，则可以用 $0 变量来表示该规则的值，比如 <code>data-rules='match=pwssword'</code>，则 $0 就是 password</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>$.validate.setMsg(ruleName, msg)</td>
+                      <td>$.validate.setMsg('required', '亲，不要忘了填哦')</td>
+                      <td>自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="event5" class="tab-pane">
+                <h4>事件</h4>
                 <table class="sui-table">
                   <tr>
-                    <th>名称</th>
-                    <th>默认值</th>
+                    <th>事件</th>
                     <th>说明</th>
                   </tr>
                   <tr>
-                    <td>errorTpl</td>
-                    <td>&lt;div class="sui-msg msg-error"&gt;\n  &lt;div class="msg-con"&gt;\n    &lt;span&gt;$errorMsg&lt;/span&gt;\n    &lt;s class="msg-icon"&gt;&lt;/s&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</td>
-                    <td>错误提示模板，其中的变量 <code>$errorMsg</code> 是错误消息</td>
-                  </tr>
-                  <tr>
-                    <td>inputErrorClass</td>
-                    <td>input-error</td>
-                    <td>出错的input会被添加这个class以高亮显示</td>
-                  </tr>
-                  <tr>
-                    <td>placeError</td>
-                    <td>
-                      function($error, $input) {
-                      /**参见源码**/
-                      }
-                    </td>
-                    <td>
-                      放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
-                      其中两个参数分别是：
-                      <ul>
-                        <li>$error, 出错消息</li>
-                        <li>$input，出错的输入框</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>rules</td>
-                    <td>undefined</td>
-                    <td>定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。<br>rules通过name来为input指定规则，比如<br>rules: { password: { minlength: 10}}<br>表示为 name=password 的输入框定义了一条规则 minlength=10</td>
-                  </tr>
-                  <tr>
-                    <td>messages</td>
-                    <td>undefined</td>
-                    <td>可以给每一个输入框单独设定出错消息，仍然是通过输入框的name来指定，出错消息可以是一个字符串或者回调函数。<br>比如：<br>messages: { email: "亲，请输入你的邮箱"}<br>表示name为email的输入框出错后，总是显示"亲，请输入你的邮箱"。<br>如果想分别设定未填写和填写错误的消息，则可以传入一个数组，数组中第一个元素是未填写的出错消息，第二个元素是填写错误的出错消息。<br>比如:<br>messages: { email: ["请填写您的邮箱", "亲，请输入你的邮箱"]}</td>
+                    <td>update</td>
+                    <td>在输入框上手动触发这个事件，会立刻执行一次校验</td>
                   </tr>
                   <tr>
                     <td>highlight</td>
-                    <td>
-                      highlight: function($input, $error, inputErrorClass) {
-                        $input.addClass(inputErrorClass)
-                        $error.show()
-                      }
-                    </td>
-                    <td>高亮显示错误。</td>
+                    <td>高亮一个错误时会在输入框上触发此事件</td>
                   </tr>
                   <tr>
                     <td>unhighlight</td>
-                    <td>
-                      unhighlight: function($input, $error, inputErrorClass) {
-                        $input.removeClass(inputErrorClass)
-                        $error.hide()
-                      }
-                    </td>
-                    <td>取消高亮显示错误。</td>
-                  </tr>
-                  <tr>
-                    <td>success</td>
-                    <td>success: function(){$form} {}</td>
-                    <td>当用户提交表单且没有错误发生时调用此方法。如果返回值为false，则会阻止表单的默认提交行为。</td>
-                  </tr>
-                  <tr>
-                    <td>fail</td>
-                    <td>fail: function(){$errorInputs, $form} {}</td>
-                    <td>当用户提交表单且有错误发生时调用此方法。</td>
+                    <td>取消高亮一个错误时会在输入框上触发此事件</td>
                   </tr>
                 </table>
-              </p>
-              <h4>三，配置规则</h4>
-              <p>有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。<br>后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。</p>
-            </div>
-            <div id="api5" class="tab-pane">
-              <table class="sui-table">
-                <thead>
-                  <tr>
-                    <th>方法</th>
-                    <th>示例</th>
-                    <th>说明</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>$.fn.validate(config)</td>
-                    <td>$('#my-form').validate()</td>
-                    <td>启用表单校验,config详情见"文档"</td>
-                  </tr>
-                  <tr>
-                    <td>showError</td>
-                    <td>$('#my-form').validate("showError", "email", "邮箱填错啦", "myEmailError")</td>
-                    <td>显示一个错误，其中四个参数分别是（"showError", "输入框的name", "要显示的错误消息", "可选，该错误消息的名称，用来在hideError的时候引用")</td>
-                  </tr>
-                  <tr>
-                    <td>hideError</td>
-                    <td>$('#my-form').validate("hideError", "email", "myEmailError")</td>
-                    <td>隐藏一个错误消息，其中三个参数分别是（"hideError", "输入框的name，不填则隐藏所有的错误消息", "可选，要隐藏的错误消息的名称(在showError时指定的，或者就是规则名称)，如果不填则会影藏该输入框对应的所有错误消息")</td>
-                  </tr>
-                  <tr>
-                    <td>enable/disable</td>
-                    <td>$('#my-form').validate("enable/disable")</td>
-                    <td>启用/禁用表单校验 </td>
-                  </tr>
-                  <tr>
-                    <td>$.validate.setRule(name, method, msg)</td>
-                    <td>
-                      var mobile = function(value, element, param) {
-                        return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
-                      };
-                      Validate.setRule("mobile", mobile, '请填写正确的手机号码');
-                    </td>
-                    <td>设置一条自定义规则，如果该规则已经存在则直接覆盖。 其中三个参数分别是：
-                      <ul>
-                        <li>name,规则名称</li>
-                        <li>method, 规则方法，该方法返回值为true则表示没有错误，返回值为false则表示有错误。</li>
-                        <li>msg, 出错提示文案，可以是一个字符串，也可是一个函数。<br>如果是函数，则会调用函数并显示函数的返回值。并且调用函数的时候会传第一个参数就是出错的input。 <br>如果是字符串，则可以用 $0 变量来表示该规则的值，比如 <code>data-rules='match=pwssword'</code>，则 $0 就是 password</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>$.validate.setMsg(ruleName, msg)</td>
-                    <td>$.validate.setMsg('required', '亲，不要忘了填哦')</td>
-                    <td>自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div id="event5" class="tab-pane">
-              <h4>事件</h4>
-              <table class="sui-table">
-                <tr>
-                  <th>事件</th>
-                  <th>说明</th>
-                </tr>
-                <tr>
-                  <td>update</td>
-                  <td>在输入框上手动触发这个事件，会立刻执行一次校验</td>
-                </tr>
-                <tr>
-                  <td>highlight</td>
-                  <td>高亮一个错误时会在输入框上触发此事件</td>
-                </tr>
-                <tr>
-                  <td>unhighlight</td>
-                  <td>取消高亮一个错误时会在输入框上触发此事件</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <h2>自定义错误消息</h2>
-          <p>错误消息可以非常灵活进行定制。错误消息有两种情况：</p>
-          <p>1. 没有给输入框指定错误消息，则会默认用对应出错规则的错误消息。每一个规则都有自己的错误消息，可以通过重载来改变一个规则的默认消息。如果一个输入框没有定义自己的错误消息，则会显示出错规则的错误消息。比如你定义了data-rules='required|email'，但是用户输入的邮箱不合法，则显示的错误消息是email默认的消息"请填写正确的email地址".</p>
-          <p>2. 给输入框设定了错误消息，则会直接用设定的错误消息，而不会用出错规则对应的消息。</p>
-          <p>有两种方式可以定义错误消息：</p>
-          <p>1. 在html中通过 <code>data-error-msg</code> 和 <code>data-empty-msg</code>来分别定义填写错误和未填写的错误消息。如果没有定义 <code>data-empty-msg</code>，则用户未填写的时候会显示required规则对应的错误消息。</p>
-          <p>2. 在JS中通过 messages 来配置错误消息。比如： <code>messages: { email: "邮箱不合法"}</code>，当用户填写错误邮箱时会显示"邮箱不合法"。也可以设置一个数组，分别表示未填写和填写错误时的出错消息，比如<code>messages: { email: ["请填写邮箱", "邮箱不合法a]"}</code>。<br>
-            <js>中设置messages请参考js文档。</js>
-          </p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo-msg" data-toggle="tab">示例</a></li>
-            <li><a href="#code-msg" data-toggle="tab">代码</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo-msg" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form id="form-msg" class="sui-form form-horizontal">
-                  <div class="control-group">
-                    <label for="inputEmail" class="control-label">邮箱：</label>
-                    <div class="controls">
-                      <input type="text" id="inputEmail" name="email" placeholder="邮箱" data-rules="required|email">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputPassword" class="control-label">密码：</label>
-                    <div class="controls">
-                      <input type="password" id="inputPassword" name="password" placeholder="密码" title="密码" data-rules="required|minlength=6|maxlength=12">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputNick" class="control-label">昵称：</label>
-                    <div class="controls">
-                      <input type="text" id="inputNick" name="nick" placeholder="昵称" data-rules="required|minlength=2|maxlength=6" data-error-msg="昵称必须是2-6位" data-empty-msg="亲，昵称别忘记填了">
-                    </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="sanwei" class="control-label"></label>
-                    <div class="controls">
-                      <button type="submit" class="sui-btn btn-primary">立即注册</button>
-                    </div>
-                  </div>
-                </form>
-                <script>
-                  $("#form-msg").validate({
-                    messages: {
-                      email: ["亲，你还没填邮箱呢", "邮箱不要瞎填哦"],
-                      password: "亲，密码必须是6-12位哦"
-                    }
-                  })
-                </script>
               </div>
             </div>
-            <div id="code-msg" class="tab-pane">
-              <pre data-target="#demo-msg&gt;div" class="prettyprint linenums"></pre>
+            <h2>自定义错误消息</h2>
+            <p>错误消息可以非常灵活进行定制。错误消息有两种情况：</p>
+            <p>1. 没有给输入框指定错误消息，则会默认用对应出错规则的错误消息。每一个规则都有自己的错误消息，可以通过重载来改变一个规则的默认消息。如果一个输入框没有定义自己的错误消息，则会显示出错规则的错误消息。比如你定义了data-rules='required|email'，但是用户输入的邮箱不合法，则显示的错误消息是email默认的消息"请填写正确的email地址".</p>
+            <p>2. 给输入框设定了错误消息，则会直接用设定的错误消息，而不会用出错规则对应的消息。</p>
+            <p>有两种方式可以定义错误消息：</p>
+            <p>1. 在html中通过 <code>data-error-msg</code> 和 <code>data-empty-msg</code>来分别定义填写错误和未填写的错误消息。如果没有定义 <code>data-empty-msg</code>，则用户未填写的时候会显示required规则对应的错误消息。</p>
+            <p>2. 在JS中通过 messages 来配置错误消息。比如： <code>messages: { email: "邮箱不合法"}</code>，当用户填写错误邮箱时会显示"邮箱不合法"。也可以设置一个数组，分别表示未填写和填写错误时的出错消息，比如<code>messages: { email: ["请填写邮箱", "邮箱不合法a]"}</code>。<br>
+              <js>中设置messages请参考js文档。</js>
+            </p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#demo-msg" data-toggle="tab">示例</a></li>
+              <li><a href="#code-msg" data-toggle="tab">代码</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="demo-msg" class="tab-pane active">
+                <div class="bs-docs-example">
+                  <form id="form-msg" class="sui-form form-horizontal">
+                    <div class="control-group">
+                      <label for="inputEmail" class="control-label">邮箱：</label>
+                      <div class="controls">
+                        <input type="text" id="inputEmail" name="email" placeholder="邮箱" data-rules="required|email">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputPassword" class="control-label">密码：</label>
+                      <div class="controls">
+                        <input type="password" id="inputPassword" name="password" placeholder="密码" title="密码" data-rules="required|minlength=6|maxlength=12">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="inputNick" class="control-label">昵称：</label>
+                      <div class="controls">
+                        <input type="text" id="inputNick" name="nick" placeholder="昵称" data-rules="required|minlength=2|maxlength=6" data-error-msg="昵称必须是2-6位" data-empty-msg="亲，昵称别忘记填了">
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label for="sanwei" class="control-label"></label>
+                      <div class="controls">
+                        <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                      </div>
+                    </div>
+                  </form>
+                  <script>
+                    $("#form-msg").validate({
+                      messages: {
+                        email: ["亲，你还没填邮箱呢", "邮箱不要瞎填哦"],
+                        password: "亲，密码必须是6-12位哦"
+                      }
+                    })
+                  </script>
+                </div>
+              </div>
+              <div id="code-msg" class="tab-pane">
+                <pre data-target="#demo-msg&gt;div" class="prettyprint linenums"></pre>
+              </div>
             </div>
-          </div>
-          <h2>手动显示/隐藏错误消息</h2>
-          <p class="sui-lead">有时候你可能需要手动操作错误消息，我们提供了 showError 和 hideError 接口可以使用。具体的参数说明见API说明</p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo-showerror" data-toggle="tab">示例</a></li>
-            <li><a href="#code-showerror" data-toggle="tab">代码</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo-showerror" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form id="form-showerror" class="sui-form form-horizontal sui-validate">
-                  <div class="control-group">
-                    <label for="inputEmail" class="control-label">邮箱：</label>
-                    <div class="controls">
-                      <input type="text" name="email" placeholder="邮箱" data-rules="required|email">
+            <h2>手动显示/隐藏错误消息</h2>
+            <p class="sui-lead">有时候你可能需要手动操作错误消息，我们提供了 showError 和 hideError 接口可以使用。具体的参数说明见API说明</p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#demo-showerror" data-toggle="tab">示例</a></li>
+              <li><a href="#code-showerror" data-toggle="tab">代码</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="demo-showerror" class="tab-pane active">
+                <div class="bs-docs-example">
+                  <form id="form-showerror" class="sui-form form-horizontal sui-validate">
+                    <div class="control-group">
+                      <label for="inputEmail" class="control-label">邮箱：</label>
+                      <div class="controls">
+                        <input type="text" name="email" placeholder="邮箱" data-rules="required|email">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputPassword" class="control-label">密码：</label>
-                    <div class="controls">
-                      <input type="password" name="password" placeholder="密码" title="密码" data-rules="required|minlength=6|maxlength=12">
+                    <div class="control-group">
+                      <label for="inputPassword" class="control-label">密码：</label>
+                      <div class="controls">
+                        <input type="password" name="password" placeholder="密码" title="密码" data-rules="required|minlength=6|maxlength=12">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="inputNick" class="control-label">昵称：</label>
-                    <div class="controls">
-                      <input type="text" name="nick" placeholder="昵称" data-rules="required|minlength=2|maxlength=6">
+                    <div class="control-group">
+                      <label for="inputNick" class="control-label">昵称：</label>
+                      <div class="controls">
+                        <input type="text" name="nick" placeholder="昵称" data-rules="required|minlength=2|maxlength=6">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="sanwei" class="control-label"></label>
-                    <div class="controls">
-                      <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                    <div class="control-group">
+                      <label for="sanwei" class="control-label"></label>
+                      <div class="controls">
+                        <button type="submit" class="sui-btn btn-primary">立即注册</button>
+                      </div>
                     </div>
-                  </div>
-                  <div><a id="show-email-error" href="javascript:void(0);" class="sui-btn btn-primary">显示邮箱自定义错误</a><a id="hide-email-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏邮箱自定义错误</a><a id="hide-email-all-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏邮箱全部错误</a><a id="hide-all-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏所有错误</a></div>
-                </form>
-                <script>
-                  (function() {
-                    var $form = $("#form-showerror");
+                    <div><a id="show-email-error" href="javascript:void(0);" class="sui-btn btn-primary">显示邮箱自定义错误</a><a id="hide-email-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏邮箱自定义错误</a><a id="hide-email-all-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏邮箱全部错误</a><a id="hide-all-error" href="javascript:void(0);" class="sui-btn btn-primary">隐藏所有错误</a></div>
+                  </form>
+                  <script>
+                    (function() {
+                      var $form = $("#form-showerror");
+                      
+                      $("#show-email-error").click(function() {
+                        $form.validate("showError", "email", "你的邮箱填错啦", "myerror");
+                      });
+                      $("#hide-email-error").click(function() {
+                        $form.validate("hideError", "email", "myerror");
+                      });
+                      $("#hide-email-all-error").click(function() {
+                        $form.validate("hideError", "email");
+                      });
+                      $("#hide-all-error").click(function() {
+                        $form.validate("hideError");
+                      });
+                    })()
                     
-                    $("#show-email-error").click(function() {
-                      $form.validate("showError", "email", "你的邮箱填错啦", "myerror");
-                    });
-                    $("#hide-email-error").click(function() {
-                      $form.validate("hideError", "email", "myerror");
-                    });
-                    $("#hide-email-all-error").click(function() {
-                      $form.validate("hideError", "email");
-                    });
-                    $("#hide-all-error").click(function() {
-                      $form.validate("hideError");
-                    });
-                  })()
-                  
-                </script>
+                  </script>
+                </div>
+              </div>
+              <div id="code-showerror" class="tab-pane">
+                <pre data-target="#demo-showerror&gt;div" class="prettyprint linenums"></pre>
               </div>
             </div>
-            <div id="code-showerror" class="tab-pane">
-              <pre data-target="#demo-showerror&gt;div" class="prettyprint linenums"></pre>
-            </div>
-          </div>
-          <h2>内置校验规则</h2>
-          <p class="sui-lead">校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等。<br>校验规则可以带参数，而且参数可以是一个函数。比如minlength的值可以是一个数字也可以是一个函数，如果是函数，则会使用此函数的返回值作为规则值。</p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
-            <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">内置校验规则</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example">
-                <form class="sui-form form-horizontal sui-validate">
-                  <div class="control-group">
-                    <label for="name" class="control-label">姓名：</label>
-                    <div class="controls">
-                      <input type="text" id="name" placeholder="required" data-rules="required" name="name">
+            <h2>内置校验规则</h2>
+            <p class="sui-lead">校验器内置了一些常用的规则，包括手机号码、email、数字、长度限制等。<br>校验规则可以带参数，而且参数可以是一个函数。比如minlength的值可以是一个数字也可以是一个函数，如果是函数，则会使用此函数的返回值作为规则值。</p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
+              <li><a href="#code2" data-toggle="tab">代码</a></li>
+              <li><a href="#doc2" data-toggle="tab">内置校验规则</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="demo2" class="tab-pane active">
+                <div class="bs-docs-example">
+                  <form class="sui-form form-horizontal sui-validate">
+                    <div class="control-group">
+                      <label for="name" class="control-label">姓名：</label>
+                      <div class="controls">
+                        <input type="text" id="name" placeholder="required" data-rules="required" name="name">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="email" class="control-label">邮箱：</label>
-                    <div class="controls">
-                      <input type="text" id="email" placeholder="email" data-rules="required|email" name="email">
+                    <div class="control-group">
+                      <label for="email" class="control-label">邮箱：</label>
+                      <div class="controls">
+                        <input type="text" id="email" placeholder="email" data-rules="required|email" name="email">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="password" class="control-label">密码：</label>
-                    <div class="controls">
-                      <input type="password" id="password" placeholder="required" data-rules="required|minlength=8|maxlength=16" name="password">
+                    <div class="control-group">
+                      <label for="password" class="control-label">密码：</label>
+                      <div class="controls">
+                        <input type="password" id="password" placeholder="required" data-rules="required|minlength=8|maxlength=16" name="password">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="repassword" class="control-label">重复密码：</label>
-                    <div class="controls">
-                      <input type="password" id="repassword" placeholder="match" data-rules="required|match=password" name="repassword">
+                    <div class="control-group">
+                      <label for="repassword" class="control-label">重复密码：</label>
+                      <div class="controls">
+                        <input type="password" id="repassword" placeholder="match" data-rules="required|match=password" name="repassword">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="tel" class="control-label">座机号码：</label>
-                    <div class="controls">
-                      <input type="text" id="tel" placeholder="tel" data-rules="required|tel" name="tel">
+                    <div class="control-group">
+                      <label for="tel" class="control-label">座机号码：</label>
+                      <div class="controls">
+                        <input type="text" id="tel" placeholder="tel" data-rules="required|tel" name="tel">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="mobile" class="control-label">手机号码：</label>
-                    <div class="controls">
-                      <input type="text" id="mobile" placeholder="mobild" data-rules="required|mobile" name="mobile">
+                    <div class="control-group">
+                      <label for="mobile" class="control-label">手机号码：</label>
+                      <div class="controls">
+                        <input type="text" id="mobile" placeholder="mobild" data-rules="required|mobile" name="mobile">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="zip" class="control-label">邮编：</label>
-                    <div class="controls">
-                      <input type="text" id="zip" placeholder="zip" data-rules="required|zip" name="zip">
+                    <div class="control-group">
+                      <label for="zip" class="control-label">邮编：</label>
+                      <div class="controls">
+                        <input type="text" id="zip" placeholder="zip" data-rules="required|zip" name="zip">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="date" class="control-label">出生年月日：</label>
-                    <div class="controls">
-                      <input type="text" id="date" placeholder="date" data-rules="required|date" name="date" data-toggle="datepicker">
+                    <div class="control-group">
+                      <label for="date" class="control-label">出生年月日：</label>
+                      <div class="controls">
+                        <input type="text" id="date" placeholder="date" data-rules="required|date" name="date" data-toggle="datepicker">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="time" class="control-label">睡觉时间：</label>
-                    <div class="controls">
-                      <input type="text" id="time" placeholder="time" data-rules="required|time" name="time" data-toggle="timepicker">
+                    <div class="control-group">
+                      <label for="time" class="control-label">睡觉时间：</label>
+                      <div class="controls">
+                        <input type="text" id="time" placeholder="time" data-rules="required|time" name="time" data-toggle="timepicker">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="datetime" class="control-label">日期加时间：</label>
-                    <div class="controls">
-                      <input type="text" id="datetime" placeholder="datetime" data-rules="required|datetime" name="datetime" data-toggle="datepicker" data-date-timepicker="true">
+                    <div class="control-group">
+                      <label for="datetime" class="control-label">日期加时间：</label>
+                      <div class="controls">
+                        <input type="text" id="datetime" placeholder="datetime" data-rules="required|datetime" name="datetime" data-toggle="datepicker" data-date-timepicker="true">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="age" class="control-label">年龄：</label>
-                    <div class="controls">
-                      <input type="text" id="age" placeholder="digits" data-rules="required|digits" name="age">
+                    <div class="control-group">
+                      <label for="age" class="control-label">年龄：</label>
+                      <div class="controls">
+                        <input type="text" id="age" placeholder="digits" data-rules="required|digits" name="age">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label for="url" class="control-label">个人网址(选填)：</label>
-                    <div class="controls">
-                      <input type="text" id="url" placeholder="url" data-rules="url" name="url">
+                    <div class="control-group">
+                      <label for="url" class="control-label">个人网址(选填)：</label>
+                      <div class="controls">
+                        <input type="text" id="url" placeholder="url" data-rules="url" name="url">
+                      </div>
                     </div>
-                  </div>
-                  <div class="control-group">
-                    <label class="control-label"></label>
-                    <div class="controls">
-                      <button type="submit" class="sui-btn btn-primary btn-large">注册</button>
+                    <div class="control-group">
+                      <label class="control-label"></label>
+                      <div class="controls">
+                        <button type="submit" class="sui-btn btn-primary btn-large">注册</button>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
+              </div>
+              <div id="code2" class="tab-pane">
+                <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
+              </div>
+              <div id="doc2" class="tab-pane">
+                <h4>内置校验规则包括这些</h4>
+                <table class="sui-table table-bordered">
+                  <tr>
+                    <th>名称</th>
+                    <th>内容</th>
+                  </tr>
+                  <tr>
+                    <td>required</td>
+                    <td>必填，不能为空</td>
+                  </tr>
+                  <tr>
+                    <td>prefill</td>
+                    <td>必须先填写另一个输入框，规则值为另一个输入框的name属性</td>
+                  </tr>
+                  <tr>
+                    <td>match</td>
+                    <td>和另一个输入框的值保持一致</td>
+                  </tr>
+                  <tr>
+                    <td>number</td>
+                    <td>数字</td>
+                  </tr>
+                  <tr>
+                    <td>digits</td>
+                    <td>整数</td>
+                  </tr>
+                  <tr>
+                    <td>mobile</td>
+                    <td>手机号码</td>
+                  </tr>
+                  <tr>
+                    <td>tel</td>
+                    <td>座机号码，包括区号</td>
+                  </tr>
+                  <tr>
+                    <td>email</td>
+                    <td>email地址</td>
+                  </tr>
+                  <tr>
+                    <td>zip</td>
+                    <td>邮编</td>
+                  </tr>
+                  <tr>
+                    <td>date</td>
+                    <td>日期，例如 2012-02-02</td>
+                  </tr>
+                  <tr>
+                    <td>time</td>
+                    <td>时间，精确到分钟，例如 05:30</td>
+                  </tr>
+                  <tr>
+                    <td>datetime</td>
+                    <td>日期加时间，例如 2012-02-02 05:30</td>
+                  </tr>
+                  <tr>
+                    <td>url</td>
+                    <td>网址，协议是可选的</td>
+                  </tr>
+                  <tr>
+                    <td>minlength</td>
+                    <td>最小长度</td>
+                  </tr>
+                  <tr>
+                    <td>maxlength</td>
+                    <td>最大长度</td>
+                  </tr>
+                </table>
               </div>
             </div>
-            <div id="code2" class="tab-pane">
-              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc2" class="tab-pane">
-              <h4>内置校验规则包括这些</h4>
-              <table class="sui-table table-bordered">
-                <tr>
-                  <th>名称</th>
-                  <th>内容</th>
-                </tr>
-                <tr>
-                  <td>required</td>
-                  <td>必填，不能为空</td>
-                </tr>
-                <tr>
-                  <td>prefill</td>
-                  <td>必须先填写另一个输入框，规则值为另一个输入框的name属性</td>
-                </tr>
-                <tr>
-                  <td>match</td>
-                  <td>和另一个输入框的值保持一致</td>
-                </tr>
-                <tr>
-                  <td>number</td>
-                  <td>数字</td>
-                </tr>
-                <tr>
-                  <td>digits</td>
-                  <td>整数</td>
-                </tr>
-                <tr>
-                  <td>mobile</td>
-                  <td>手机号码</td>
-                </tr>
-                <tr>
-                  <td>tel</td>
-                  <td>座机号码，包括区号</td>
-                </tr>
-                <tr>
-                  <td>email</td>
-                  <td>email地址</td>
-                </tr>
-                <tr>
-                  <td>zip</td>
-                  <td>邮编</td>
-                </tr>
-                <tr>
-                  <td>date</td>
-                  <td>日期，例如 2012-02-02</td>
-                </tr>
-                <tr>
-                  <td>time</td>
-                  <td>时间，精确到分钟，例如 05:30</td>
-                </tr>
-                <tr>
-                  <td>datetime</td>
-                  <td>日期加时间，例如 2012-02-02 05:30</td>
-                </tr>
-                <tr>
-                  <td>url</td>
-                  <td>网址，协议是可选的</td>
-                </tr>
-                <tr>
-                  <td>minlength</td>
-                  <td>最小长度</td>
-                </tr>
-                <tr>
-                  <td>maxlength</td>
-                  <td>最大长度</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <h2>编写插件</h2>
-          <p class="sui-lead">表单校验组件提供了常用的校验规则，并且你还可以非常方便地通过插件添加自定义的规则。</p>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#code3" data-toggle="tab">代码示例</a></li>
-            <li><a href="#doc3" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo3" class="tab-pane">
-              <div class="bs-docs-example">
-                //添加required规则
-                var required = function(value, element, param) {
-                  return trim(value);
-                };
-                $.validate.setRule("required", required, function ($input) {
-                  var tagName = $input[0].tagName.toUpperCase();
-                  var type = $input[0].type.toUpperCase();
-                  if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
-                    return '请选择'
-                  }
-                  return '请填写'
-                });
-                //添加match规则
-                var match = function(value, element, param) {
-                  value = trim(value);
-                  return value == $(element).parents('form').find("[name='"+param+"']").val()
-                };
-                $.validate.setRule("match", match, '必须与$0相同');
+            <h2>编写插件</h2>
+            <p class="sui-lead">表单校验组件提供了常用的校验规则，并且你还可以非常方便地通过插件添加自定义的规则。</p>
+            <ul class="sui-nav nav-tabs nav-large">
+              <li class="active"><a href="#code3" data-toggle="tab">代码示例</a></li>
+              <li><a href="#doc3" data-toggle="tab">文档</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="demo3" class="tab-pane">
+                <div class="bs-docs-example">
+                  //添加required规则
+                  var required = function(value, element, param) {
+                    return trim(value);
+                  };
+                  $.validate.setRule("required", required, function ($input) {
+                    var tagName = $input[0].tagName.toUpperCase();
+                    var type = $input[0].type.toUpperCase();
+                    if ( type == 'CHECKBOX' || type == 'RADIO' || tagName == 'SELECT') {
+                      return '请选择'
+                    }
+                    return '请填写'
+                  });
+                  //添加match规则
+                  var match = function(value, element, param) {
+                    value = trim(value);
+                    return value == $(element).parents('form').find("[name='"+param+"']").val()
+                  };
+                  $.validate.setRule("match", match, '必须与$0相同');
+                </div>
+              </div>
+              <div id="code3" class="tab-pane active">
+                <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
+              </div>
+              <div id="doc3" class="tab-pane">通过<code>$.validate.setRule</code>可以添加自定义规则。<br><br>setRule 方法有三个参数：
+                <ul>
+                  <li>name, 规则名</li>
+                  <li>method, 规则方法，该方法的返回值为布尔类型，表示是否发生错误，比如返回true则表示没有发生错误。</li>
+                  <li>msg，错误消息，可以是字符串，也可以是函数，如果是函数则调用函数并显示函数的返回值，并且在调用函数的时候会传入一个参数就是当前的输入框。具体参加api说明</li>
+                </ul><br>规则函数也有三个参数：
+                <ul>
+                  <li>value,当前输入值</li>
+                  <li>element,当前输入框</li>
+                  <li>param,当前规则值，比如 <code>data-rules="match=password"</code>，则param就是password</li>
+                </ul>
               </div>
             </div>
-            <div id="code3" class="tab-pane active">
-              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc3" class="tab-pane">通过<code>$.validate.setRule</code>可以添加自定义规则。<br><br>setRule 方法有三个参数：
-              <ul>
-                <li>name, 规则名</li>
-                <li>method, 规则方法，该方法的返回值为布尔类型，表示是否发生错误，比如返回true则表示没有发生错误。</li>
-                <li>msg，错误消息，可以是字符串，也可以是函数，如果是函数则调用函数并显示函数的返回值，并且在调用函数的时候会传入一个参数就是当前的输入框。具体参加api说明</li>
-              </ul><br>规则函数也有三个参数：
-              <ul>
-                <li>value,当前输入值</li>
-                <li>element,当前输入框</li>
-                <li>param,当前规则值，比如 <code>data-rules="match=password"</code>，则param就是password</li>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'sui-alibaba'; // required: replace example with your forum shortname
+              
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script><a href="http://disqus.com" class="dsq-brlink">comments powered by<span class="logo-disqus">Disqus</span></a>
+            <div class="footer">
+              <ul class="unstyled">
+                <li>@time 2014.03.07</li>
+                <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
               </ul>
             </div>
-          </div>
-          <div id="disqus_thread"></div>
-          <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'sui-alibaba'; // required: replace example with your forum shortname
-            
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-          </script><a href="http://disqus.com" class="dsq-brlink">comments powered by<span class="logo-disqus">Disqus</span></a>
-          <div class="footer">
-            <ul class="unstyled">
-              <li>@time 2014.03.07</li>
-              <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
-            </ul>
           </div>
         </div>
       </div>

@@ -1547,12 +1547,6 @@ sui-pre .sui-code {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-tb-favor-sign:before {
-  content: "\e64b";
-}
-.icon-tb-tbicontao-sign:before {
-  content: "\e636";
-}
 .icon-tb-appreciate:before {
   content: "\e644";
 }
@@ -1568,79 +1562,82 @@ sui-pre .sui-code {
 .icon-tb-emoji:before {
   content: "\e64a";
 }
+.icon-tb-favorfill:before {
+  content: "\e64b";
+}
 .icon-tb-favor:before {
   content: "\e64c";
 }
 .icon-tb-loading:before {
   content: "\e64f";
 }
-.icon-tb-roundright:before {
-  content: "\e65b";
-}
-.icon-tb-roundright-sign:before {
-  content: "\e65a";
-}
-.icon-tb-roundclose:before {
-  content: "\e659";
-}
-.icon-tb-roundclose-sign:before {
-  content: "\e658";
-}
-.icon-tb-roundcheck:before {
-  content: "\e657";
-}
-.icon-tb-roundcheck-sign:before {
-  content: "\e656";
-}
-.icon-tb-phone:before {
-  content: "\e652";
+.icon-tb-locationfill:before {
+  content: "\e650";
 }
 .icon-tb-location:before {
   content: "\e651";
 }
-.icon-tb-location-sign:before {
-  content: "\e650";
+.icon-tb-phone:before {
+  content: "\e652";
 }
-.icon-tb-camera:before {
-  content: "\e665";
+.icon-tb-roundcheckfill:before {
+  content: "\e656";
 }
-.icon-tb-camera-sign:before {
-  content: "\e664";
+.icon-tb-roundcheck:before {
+  content: "\e657";
 }
-.icon-tb-warn:before {
-  content: "\e663";
+.icon-tb-roundclosefill:before {
+  content: "\e658";
 }
-.icon-tb-warn-sign:before {
-  content: "\e662";
+.icon-tb-roundclose:before {
+  content: "\e659";
 }
-.icon-tb-unfold:before {
-  content: "\e661";
+.icon-tb-roundrightfill:before {
+  content: "\e65a";
 }
-.icon-tb-time:before {
-  content: "\e65f";
-}
-.icon-tb-time-sign:before {
-  content: "\e65e";
-}
-.icon-tb-taxi:before {
-  content: "\e65d";
+.icon-tb-roundright:before {
+  content: "\e65b";
 }
 .icon-tb-search:before {
   content: "\e65c";
 }
-.icon-tb-comment-sign:before {
+.icon-tb-taxi:before {
+  content: "\e65d";
+}
+.icon-tb-timefill:before {
+  content: "\e65e";
+}
+.icon-tb-time:before {
+  content: "\e65f";
+}
+.icon-tb-unfold:before {
+  content: "\e661";
+}
+.icon-tb-warnfill:before {
+  content: "\e662";
+}
+.icon-tb-warn:before {
+  content: "\e663";
+}
+.icon-tb-camerafill:before {
+  content: "\e664";
+}
+.icon-tb-camera:before {
+  content: "\e665";
+}
+.icon-tb-commentfill:before {
   content: "\e666";
 }
 .icon-tb-comment:before {
   content: "\e667";
 }
-.icon-tb-like-sign:before {
+.icon-tb-likefill:before {
   content: "\e668";
 }
 .icon-tb-like:before {
   content: "\e669";
 }
-.icon-tb-notification-sign:before {
+.icon-tb-notificationfill:before {
   content: "\e66a";
 }
 .icon-tb-notification:before {
@@ -1649,13 +1646,13 @@ sui-pre .sui-code {
 .icon-tb-order:before {
   content: "\e66c";
 }
-.icon-tb-same-sign:before {
+.icon-tb-samefill:before {
   content: "\e66d";
 }
 .icon-tb-same:before {
   content: "\e66e";
 }
-.icon-tb-tag-sign:before {
+.icon-tb-tagfill:before {
   content: "\e66f";
 }
 .icon-tb-tag:before {
@@ -1697,7 +1694,7 @@ sui-pre .sui-code {
 .icon-tb-more:before {
   content: "\e684";
 }
-.icon-tb-my-sign:before {
+.icon-tb-myfill:before {
   content: "\e685";
 }
 .icon-tb-my:before {
@@ -1715,62 +1712,68 @@ sui-pre .sui-code {
 .icon-tb-sort:before {
   content: "\e68c";
 }
-.icon-tb-we-sign:before {
+.icon-tb-wefill:before {
   content: "\e68d";
 }
 .icon-tb-we:before {
   content: "\e68e";
 }
-.icon-tb-question-sign:before {
+.icon-tb-questionfill:before {
   content: "\e690";
 }
 .icon-tb-question:before {
   content: "\e691";
 }
-.icon-tb-shop-sign:before {
+.icon-tb-shopfill:before {
   content: "\e697";
 }
 .icon-tb-form:before {
   content: "\e699";
 }
-.icon-tb-wang-sign:before {
+.icon-tb-wangfill:before {
   content: "\e69a";
-}
-.icon-tb-moreandroid:before {
-  content: "\e6a5";
-}
-.icon-tb-refresh:before {
-  content: "\e6a4";
-}
-.icon-tb-right:before {
-  content: "\e6a3";
-}
-.icon-tb-pullup:before {
-  content: "\e6a0";
-}
-.icon-tb-pulldown:before {
-  content: "\e69f";
-}
-.icon-tb-top:before {
-  content: "\e69e";
-}
-.icon-tb-footprint:before {
-  content: "\e69d";
-}
-.icon-tb-filter:before {
-  content: "\e69c";
 }
 .icon-tb-pic:before {
   content: "\e69b";
 }
-.icon-tb-delete-sign:before {
+.icon-tb-filter:before {
+  content: "\e69c";
+}
+.icon-tb-footprint:before {
+  content: "\e69d";
+}
+.icon-tb-top:before {
+  content: "\e69e";
+}
+.icon-tb-pulldown:before {
+  content: "\e69f";
+}
+.icon-tb-pullup:before {
+  content: "\e6a0";
+}
+.icon-tb-right:before {
+  content: "\e6a3";
+}
+.icon-tb-refresh:before {
+  content: "\e6a4";
+}
+.icon-tb-moreandroid:before {
+  content: "\e6a5";
+}
+.icon-tb-deletefill:before {
   content: "\e6a6";
 }
 .icon-tb-refund:before {
   content: "\e6ac";
 }
+.icon-tb-cart:before {
+  content: "\e6af";
+}
 .icon-tb-qrcode:before {
   content: "\e6b0";
+}
+.icon-tb-remind:before {
+  content: "\e6b2";
 }
 .icon-tb-delete:before {
   content: "\e6b4";
@@ -1781,41 +1784,35 @@ sui-pre .sui-code {
 .icon-tb-home:before {
   content: "\e6b8";
 }
-.icon-tb-cart-sign:before {
+.icon-tb-cartfill:before {
   content: "\e6b9";
 }
-.icon-tb-weibo:before {
-  content: "\e6c4";
+.icon-tb-discoverfill:before {
+  content: "\e6ba";
 }
-.icon-tb-vip:before {
-  content: "\e6c3";
-}
-.icon-tb-unlock:before {
-  content: "\e6c2";
-}
-.icon-tb-lock:before {
-  content: "\e6c0";
-}
-.icon-tb-link:before {
-  content: "\e6bf";
-}
-.icon-tb-addressbook:before {
-  content: "\e6bd";
+.icon-tb-homefill:before {
+  content: "\e6bb";
 }
 .icon-tb-message:before {
   content: "\e6bc";
 }
-.icon-tb-home-sign:before {
-  content: "\e6bb";
+.icon-tb-addressbook:before {
+  content: "\e6bd";
 }
-.icon-tb-discover-sign:before {
-  content: "\e6ba";
+.icon-tb-link:before {
+  content: "\e6bf";
 }
-.icon-tb-cart:before {
-  content: "\e6af";
+.icon-tb-lock:before {
+  content: "\e6c0";
 }
-.icon-tb-remind:before {
-  content: "\e6b2";
+.icon-tb-unlock:before {
+  content: "\e6c2";
+}
+.icon-tb-vip:before {
+  content: "\e6c3";
+}
+.icon-tb-weibo:before {
+  content: "\e6c4";
 }
 .icon-tb-activity:before {
   content: "\e6c5";
@@ -1823,7 +1820,7 @@ sui-pre .sui-code {
 .icon-tb-big:before {
   content: "\e6c7";
 }
-.icon-tb-friendadd-sign:before {
+.icon-tb-friendaddfill:before {
   content: "\e6c9";
 }
 .icon-tb-friendadd:before {
@@ -1844,14 +1841,77 @@ sui-pre .sui-code {
 .icon-tb-tmall:before {
   content: "\e6cf";
 }
-.icon-tb-present:before {
-  content: "\e6d3";
+.icon-tb-attention:before {
+  content: "\e6d0";
 }
 .icon-tb-explore:before {
   content: "\e6d2";
 }
-.icon-tb-attention:before {
-  content: "\e6d0";
+.icon-tb-present:before {
+  content: "\e6d3";
+}
+.icon-tb-squarecheckfill:before {
+  content: "\e6d4";
+}
+.icon-tb-square:before {
+  content: "\e6d5";
+}
+.icon-tb-squarecheck:before {
+  content: "\e6d6";
+}
+.icon-tb-round:before {
+  content: "\e6d7";
+}
+.icon-tb-roundaddfill:before {
+  content: "\e6d8";
+}
+.icon-tb-roundadd:before {
+  content: "\e6d9";
+}
+.icon-tb-add:before {
+  content: "\e6da";
+}
+.icon-tb-notificationforbidfill:before {
+  content: "\e6db";
+}
+.icon-tb-attentionfill:before {
+  content: "\e6dc";
+}
+.icon-tb-explorefill:before {
+  content: "\e6dd";
+}
+.icon-tb-fold:before {
+  content: "\e6de";
+}
+.icon-tb-game:before {
+  content: "\e6df";
+}
+.icon-tb-redpacket:before {
+  content: "\e6e0";
+}
+.icon-tb-selectionfill:before {
+  content: "\e6e1";
+}
+.icon-tb-similar:before {
+  content: "\e6e2";
+}
+.icon-tb-appreciatefill:before {
+  content: "\e6e3";
+}
+.icon-tb-infofill:before {
+  content: "\e6e4";
+}
+.icon-tb-info:before {
+  content: "\e6e5";
+}
+.icon-tb-barcode:before {
+  content: "\e6e6";
+}
+.icon-tb-tao:before {
+  content: "\e6e8";
+}
+.icon-tb-mobiletao:before {
+  content: "\e6e9";
 }
 .sui-form {
   margin: 0 0 18px;
@@ -1969,6 +2029,7 @@ sui-pre .sui-code {
 }
 .sui-form textarea {
   height: auto;
+  resize: none;
 }
 .sui-form input[type="radio"],
 .sui-form input[type="checkbox"] {
@@ -3467,7 +3528,7 @@ sui-pre .sui-code {
   opacity: 0;
   position: absolute;
   z-index: -99999;
-  left: 0;
+  left: -9999px;
   top: 0;
 }
 .checkbox-pretty span,
@@ -3555,11 +3616,16 @@ sui-pre .sui-code {
   margin-left: 6px;
 }
 .checkbox-pretty.disabled,
-.radio-pretty.disabled {
+.radio-pretty.disabled,
+.checkbox-pretty.readonly,
+.radio-pretty.readonly {
   color: #c3c3c3;
+  cursor: default;
 }
 .checkbox-pretty.disabled span:before,
-.radio-pretty.disabled span:before {
+.radio-pretty.disabled span:before,
+.checkbox-pretty.readonly span:before,
+.radio-pretty.readonly span:before {
   color: #aaaaaa;
 }
 .radio-pretty span:before {
@@ -3578,6 +3644,7 @@ sui-pre .sui-code {
 .sui-msg > .msg-icon {
   font-size: 14px;
   font-family: 'icon-pc';
+  font-style: normal;
   text-decoration: none;
 }
 .sui-msg > .msg-icon[class^="icon-pc-"],
@@ -4530,6 +4597,7 @@ sui-pre .sui-code {
   font-family: "icon-pc";
   font-style: normal;
   vertical-align: -1px;
+  line-height: 1;
 }
 .sui-dropup .caret:before,
 .sui-dropdown .caret:before {
@@ -4569,6 +4637,7 @@ sui-pre .sui-code {
 .sui-dropdown.dropdown-bordered .dropdown-inner .caret {
   float: right;
   margin-left: 4px;
+  line-height: 1.5;
 }
 .sui-dropup.dropdown-bordered .dropdown-inner > .sui-dropdown-menu,
 .sui-dropdown.dropdown-bordered .dropdown-inner > .sui-dropdown-menu {
@@ -4995,6 +5064,9 @@ button.sui-close {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+.sui-btn .sui-icon {
+  line-height: 1;
 }
 .sui-btn .sui-icon:after {
   content: " ";
@@ -7012,6 +7084,9 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
+.sui-pagination div .page-num + .page-confirm .sui-icon {
+  line-height: 1;
+}
 .sui-pagination div .page-num + .page-confirm .sui-icon:after {
   content: " ";
 }
@@ -7306,6 +7381,9 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
+.pagination-large div .page-num + .page-confirm .sui-icon {
+  line-height: 1;
+}
 .pagination-large div .page-num + .page-confirm .sui-icon:after {
   content: " ";
 }
@@ -7570,6 +7648,9 @@ input[type="submit"].btn.btn-mini {
   -o-user-select: none;
   user-select: none;
 }
+.pagination-xlarge div .page-num + .page-confirm .sui-icon {
+  line-height: 1;
+}
 .pagination-xlarge div .page-num + .page-confirm .sui-icon:after {
   content: " ";
 }
@@ -7821,6 +7902,9 @@ input[type="submit"].btn.btn-mini {
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
+}
+.pagination-small div .page-num + .page-confirm .sui-icon {
+  line-height: 1;
 }
 .pagination-small div .page-num + .page-confirm .sui-icon:after {
   content: " ";
