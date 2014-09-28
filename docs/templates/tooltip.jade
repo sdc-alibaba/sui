@@ -25,11 +25,13 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    | 文档写的渣，有任何疑惑可以直接留言或者联系@半边
+    p 文档写的渣，有任何疑惑可以直接留言或者联系@半边
 
   h2 1.快速上手 
   pre.prettyprint
     &lt;a href="#" data-toggle="tooltip" title="first tooltip"&gt;hover over me&lt;/a&gt;   一行js都不用写，参数写成data-xxx属性即可
+  p
+    b 如果触发节点的所有祖先元素中存在同时满足下面2个条件的祖先元素: <br>1.他宽度/高度小于tip元素的宽度/高度。<br>2.他是<code>absolute/fixed</code>定位方式。<br>那么需要你在CSS中为该.sui-tooltip指定width/height。否则会因为元素塌陷使定位出错。
 
   ul.sui-nav.nav-tabs.nav-large
     li.active

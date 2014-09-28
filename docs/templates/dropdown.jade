@@ -33,6 +33,17 @@ block content
     strong 注意：下拉菜单有两种用法，一种是当做菜单来用，只放链接，另外一种是在表单中用来代替原生select，表单中的用法见这里 <a href='#in-form'>表单中使用下拉菜单</a>。
     ul.unstyled
       li
+        strong 更新 v1.4.2：修复了表单中使用 <code>.sui-dropup</code> 样式时无法选中的bug。
+      li
+        strong 更新 v1.4.1：修复了1.4.0版本由于分离图标文件导致下拉图标无法显示的bug。
+      li
+        strong 更新 v1.2.1：大幅改进了易用性：
+          ul.unstyled(style='margin-left: 4em;')
+            li 使用proxy实现下拉逻辑，异步加载的情况下也不需要手动初始化
+            li 增加了分组功能
+            li 增加了单条选项禁用功能
+            li 按钮下拉菜单增加了一个icon
+      li
         strong 更新 v1.1.5：增加了disabled状态，只要在容器上增加一个 <code>.disabled</code> 即可。
       li
         strong 更新 v1.1.3：修复在某些情况下下拉菜单高度会变高的bug。
@@ -150,6 +161,19 @@ block content
                   li(role="presentation")
                     a(role="menuitem" tabindex="-1" href="javascript:void(0);") 莫斯科
 
+        h3 禁用部分选项
+        span.sui-dropdown
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="javascript:void(0);") 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);") 北京
+              li.disabled(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);") 圣彼得堡
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);") 杭州
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);") 武汉
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
@@ -224,6 +248,41 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo15>div') 复制代码
+
+  h2 下拉分组
+  p.sui-lead
+    | 只需要在 li 上加上 <code>.group-title</code> 即可
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-group', data-toggle='tab') 示例
+    li
+      a(href='#code-group', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-group
+      div.bs-docs-example(style='min-height: 250px;')
+        span.sui-dropdown
+          span.dropdown-inner
+            a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li.group-title(role='presentation') 湖北
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 武汉
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 襄阳
+              li.group-title(role='presentation') 浙江
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 杭州
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 嘉兴
+
+        
+    div.tab-pane#code-group
+      pre.prettyprint.linenums(data-target='#demo-group>div')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo-group>div') 复制代码
+
 
 
   h2 不同下拉位置和对齐方式
@@ -436,6 +495,7 @@ block content
     div.tab-pane.active#demo4
       div.bs-docs-example(style='min-height: 250px;')
 
+        h3 简单用法
         span.sui-dropdown.dropdown-bordered.select
           span.dropdown-inner
             a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
@@ -450,6 +510,44 @@ block content
               li(role="presentation" class="divider")
               li.active(role="presentation")
                 a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+
+        h3 选项分组
+        span.sui-dropdown.dropdown-bordered.select
+          span.dropdown-inner
+            a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
+              input(value='' name='city' type='hidden')
+              i.caret
+              span 选择地址
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li.group-title(role='presentation') 湖北
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='wh') 武汉
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='xy') 襄阳
+              li.group-title(role='presentation') 浙江
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='jx') 嘉兴
+
+        h3 禁用部分选项
+        span.sui-dropdown.dropdown-bordered.select
+          span.dropdown-inner
+            a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown") 
+              input(value='' name='city' type='hidden')
+              i.caret
+              span 选择地址
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='wh') 武汉
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='xy') 襄阳
+              li.disabled(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='wh') 莫斯科
+              li.active(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='jx') 嘉兴
 
     div.tab-pane#code4
       pre.prettyprint.linenums(data-target='#demo4>div')

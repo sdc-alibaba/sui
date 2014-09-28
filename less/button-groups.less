@@ -187,8 +187,15 @@
 
 // Reposition the caret
 .sui-btn .caret {
-  margin-top: 8px;
-  margin-left: 0;
+  font-family: 'icon-pc';
+  font-style: normal;
+  vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+  float: right;
+  margin-right: -5px;
+  margin-left: 8px;
+  &:before {
+    content: "\c611";
+  }
 }
 // Carets in other button sizes
 .btn-large .caret {

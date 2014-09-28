@@ -27,6 +27,12 @@ block content_wrap
 
     .sui-msg.msg-block.msg-tips.msg-large
       .msg-con
+        strong 注意: 从版本 1.4.0 开始，sui.css文件被拆分成 sui.css 和 sui-append.css两个文件，部分非常用组件必须先引用 sui-append.css文件。
+          
+      .msg-icon
+
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
         | jquery CDN地址已经更新，大家尽量用新的地址 <code>http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js</code>，以前的地址已经废弃不会再更新。
       .msg-icon
 
@@ -37,9 +43,14 @@ block content_wrap
       li
         a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui.min.css', target='_blank') g.alicdn.com/sj/dpl/#{version}/css/sui.min.css
       li
+        a(href='http://g.alicdn.com/sj/dpl/#{version}/css/sui-append.min.css', target='_blank') g.alicdn.com/sj/dpl/#{version}/css/sui-append.min.css
+      li
         a(href='http://g.alicdn.com/sj/dpl/#{version}/js/sui.min.js', target='_blank') g.alicdn.com/sj/dpl/#{version}/js/sui.min.js
     p
       | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js' target='_blank'>http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js</a>。
+
+    p
+      | sui-append.min.css 包含了新手引导、自动补全、幻灯片、时间日期选择器四个组件和iconmoon免费图标，如果你有用到这些组件，请手动引入这个文件。
 
     h2 下载zip文件
 
@@ -49,7 +60,7 @@ block content_wrap
     p
       a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='https://github.com/sdc-alibaba/sui/archive/build.zip', target="_blank")
         i.sui-icon.icon-download
-        | download SUI-1.0.source.zip
+        | 下载SUI.source.zip
 
     h2 获取最新源码
 

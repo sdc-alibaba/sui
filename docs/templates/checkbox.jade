@@ -17,6 +17,8 @@ block content
     br
     ul.unstyled
       li
+        strong 更新 v1.4.2: 增加了readonly状态。
+      li
         strong 更新 v1.1.6: 修复了checkbox可能导致页面滚动的bug。
 
   h2 通过data-api使用
@@ -69,6 +71,17 @@ block content
         label.checkbox-pretty.inline.checked.disabled
           input(type='checkbox' checked='checked' disabled)
           span 不可选
+        label.radio-pretty.inline.checked.disabled
+          input(type='radio' checked='checked' disabled)
+          span 不可选
+        h3 只读
+        p 因为checkbox是不支持readonly状态的，所以通过将label改为span来实现让用户无法操作
+        span.checkbox-pretty.inline.checked.readonly
+          input(type='checkbox' checked='checked')
+          span 只读
+        span.radio-pretty.inline.checked.readonly
+          input(type='radio' checked='checked')
+          span 只读
 
 
     div.tab-pane#code1

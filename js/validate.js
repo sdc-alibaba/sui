@@ -11,15 +11,12 @@
     this.$form.submit(function() {
       return onsubmit.call(self);
     });
-    this.$form.find('input, select, textarea').each(function() {
-      var $this = $(this);
-      if ($this.attr("disabled")) return;
-      $this.on('blur keyup change update', function(e) {
-        var $target;
-        $target = $(e.target);
-        update.call(self, $target);
-        return true;
-      });
+    this.disabled = false;
+    this.$form.on('blur keyup change update', 'input, select, textarea', function(e) {
+      if(self.disabled) return;
+      var $target = $(e.target);
+      if ($target.attr("disabled")) return;
+      update.call(self, $target);
     });
     this.errors = {};
   };
@@ -39,7 +36,24 @@
     Validate.setRule(name, undefined, msg)
   }
 
+  Validate.prototype = {
+    disable: function() {
+      this.disabled = true;
+      this.hideError();
+    },
+    enable: function() {
+      this.disabled = false;
+    },
+    showError: function($input, errorMsg, errorName) {
+      showError.call(this, $input, errorMsg, errorName);
+    },
+    hideError: function($input, errorName) {
+      hideError.call(this, $input, errorName);
+    }
+  }
+
   var onsubmit = function() {
+    if(this.disabled) return true;
     var hasError, self;
     self = this;
     hasError = false;
@@ -130,14 +144,17 @@
             if ($.isArray(_msg)) msg = _msg[0]
           }
         }
-        showError.call(this, $input, name, msg.replace('$0', value));
+        this.showError($input, msg.replace('$0', value), name);
         break;
       }
     }
 
     return error;
   };
-  var showError = function($input, errorName, errorMsg) {
+  var showError = function($input, errorMsg, errorName) {
+    errorName = errorName || "anonymous"  //匿名的，一般是手动调用showError并且没有指定一个名称时候会显示一个匿名的错误
+    if (typeof $input === typeof "a") $input = this.$form.find("[name='"+$input+"']");
+    $input = $($input);
     var inputName = $input.attr("name")
     var $errors = this.errors[inputName] || (this.errors[inputName] = {});
     var $currentError = $errors[errorName]
@@ -152,8 +169,29 @@
     $input.trigger("highlight");
   };
   var hideError = function($input, errorName) {
+    var self = this;
+    var hideInputAllError = function($input) {
+      var $errors = self.errors[$input.attr('name')];
+      for(var k in $errors) {
+        self.options.unhighlight.call(self, $input, $errors[k], self.options.inputErrorClass);
+      }
+    }
+    if(!$input) { //没有任何参数，则隐藏所有的错误
+      this.$form.find('input, select, textarea').each(function() {
+        var $this = $(this);
+        if ($this.attr("disabled")) return;
+        hideInputAllError($this);
+      });
+    }
+    if (typeof $input === typeof "a") $input = this.$form.find("[name='"+$input+"']");
+    $input = $($input);
     var $errors = this.errors[$input.attr('name')];
     if (!$errors) return;
+    if (!errorName) {
+      //未指定errorName则隐藏所有ErrorMsg
+      hideInputAllError($input);
+      return;
+    }
     var $error = $errors[errorName];
     if (!$error) return;
     this.options.unhighlight.call(this, $input, $error, this.options.inputErrorClass)
@@ -190,11 +228,12 @@
   
   $.fn.extend({
     validate: function (options) {
+      var args = arguments;
       return this.each(function() {
         var $this = $(this),
             data = $this.data("validate")
         if (!data) $this.data('validate', (data = new Validate(this, options)))
-        if (typeof option == 'string') data[option]()
+        if (typeof options == 'string') data[options].apply(data, Array.prototype.slice.call(args, 1));
       })
     }
   })
@@ -219,6 +258,7 @@
       $error.show()
     },
     unhighlight: function($input, $error, inputErrorClass) {
+      if(!$error.is(":visible")) return;
       $input.removeClass(inputErrorClass)
       $error.hide()
     },

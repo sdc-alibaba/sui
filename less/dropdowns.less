@@ -70,10 +70,12 @@
 
 // Place the caret
   .caret {
-    .sui-icon;
+    font-family: "icon-pc";
+    font-style: normal;
     vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+    line-height: 1;
     &:before {
-      content: "\e6eb";
+      content: "\c611";
     }
   }
 
@@ -96,9 +98,13 @@
         padding-left: 8px;
         padding-right: 8px;
       }
+      .disabled > a {
+        color: #999!important;
+      }
       .caret {
         float: right;
         margin-left: 4px;
+        line-height: 1.5;
       }
 
       > .sui-dropdown-menu {
@@ -169,6 +175,12 @@
     margin: 5px 1px;
   }
 
+  //group title
+  .group-title {
+    color: #999;
+    padding: 2px 6px;
+  }
+
   // Links within the dropdown menu
   > li {
     padding: 0 1px; //这里通过li左右padding而不是容器的，因为多级菜单要用li的hover状态来控制，必须让li占据更多宽度
@@ -226,6 +238,7 @@
   > .disabled > a {
     &, &:hover, &:focus {
       color: @grayLight;
+      background-color: @white;
     }
   }
 // Nuke hover/focus effects
@@ -333,7 +346,7 @@
     margin-bottom: 1px;
   }
   .dropdown-toggle > .caret:before {
-    content: "\e6ea";
+    content: "\c60e";
   }
 }
 
