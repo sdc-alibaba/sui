@@ -26,9 +26,11 @@ block content
     | 文档写的渣，有任何疑惑可以联系@半边。
     ul.unstyled
       li
+        strong 更新 v1.1.3：增加了cancelHide/cancelHidden接口，增加了高度控制，增加了对绝对定位元素导致滚动条的说明。
+      li
         strong 更新 v1.2.2：加载远程内容的时候不再加载 <code>href</code>属性指定的地址，只能通过 <code>remote</code> 参数或者 <code>data-remote</code> 属性来指定。
       li
-        strong 更新 v1.1.3：增加了cancelHide/cancelHidden接口，增加了高度控制，增加了对绝对定位元素导致滚动条的说明。
+        strong 更新 v1.4.3：增加了closeBtn, transition 2个布尔值配置项，决定是否显示右上角叉叉和是否动画显示、隐藏（html使用方式直接改html结构即可）.
 
   h2 概览
   pre.prettyprint.linenums
@@ -239,6 +241,8 @@ block content
          body: 'html' //必填
          okBtn : '好的'
          cancelBtn : '雅达'
+         closeBtn: true/false   是否显示右上角叉叉（html使用方式无需配置，直接改html结构即可）
+         transition: true/false   是否以transition动画方式显示隐藏对话框（html使用方式无需配置，直接删除.sui-modal元素上的类名<code>fade</code>即可）
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
          height: {number|string(px)} 内容区（.modal-body）高度
