@@ -3,13 +3,15 @@
         this.itemsCount = opts.itemsCount;
         this.pageSize = opts.pageSize;
         this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
-        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
+        //itemsCount为0的时候应为1页
+        this.pages = Math.ceil(opts.itemsCount / opts.pageSize) || 1; 
         $.isNumeric(opts.pages) && (this.pages = opts.pages);
         this.currentPage = opts.currentPage;
         this.styleClass = opts.styleClass;
         this.onSelect = opts.onSelect;
         this.showCtrl = opts.showCtrl;
         this.remote = opts.remote;
+        this.displayInfoType = ((opts.displayInfoType == 'itemsCount' && opts.itemsCount) ? 'itemsCount': 'pages');
     }
 
     /* jshint ignore:start */
@@ -71,7 +73,8 @@
         },
         //值传递
         _drawCtrl: function () {
-            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
+            var tpl = '<div>&nbsp;' + (this.displayInfoType == 'itemsCount'? '<span>共' + this.itemsCount + '条</span>&nbsp;' :'<span>共' + this.pages + '页</span>&nbsp;') + 
+            '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
             return tpl;
         },
 
@@ -176,7 +179,7 @@
         pageSize: 10,
         displayPage: 5,
         currentPage: 1,
-        itemsCount: 100,
+        itemsCount: 0,
         styleClass: [],
         pages: null,
         showCtrl: false,
