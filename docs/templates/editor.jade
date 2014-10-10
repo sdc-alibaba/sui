@@ -774,65 +774,6 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
 
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo3', data-toggle='tab') 示例
-    li
-      a(href='#code3', data-toggle='tab') 代码
-    li
-      a(href='#doc3', data-toggle='tab') 文档
-
-  div.tab-content
-    div.tab-pane.active#demo3.
-        <div>
-            <h3>多编辑区域一个编辑器实例</h3>
-            <form id="test" class="sui-form form-horizontal" method="post">
-                <div class="control-group info">
-                    <label for="inputInfo" class="control-label">
-                        编辑区域一
-                    </label>
-                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="content1"><textarea id="editortest1" type="text/plain" style="width:800px;height:200px;">内容1</textarea></span>
-                </div>
-                <div class="control-group info">
-                    <label for="inputInfo" class="control-label">
-                        编辑区域二
-                    </label>
-                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest2">内容2</span>
-                </div>
-                <div class="control-group info">
-                    <label for="inputInfo" class="control-label">
-                        编辑区域三
-                    </label>
-                    <span style="margin-left:20px; display:inline-block;" class="testcontent" id="contenttest3">内容3</span>
-                </div>
-            </form>
-            
-        </div>
-        <script type="text/javascript">
-            var $ue = $('#editortest1').editor();
-            $ue.editor('ready',function(){
-                //阻止工具栏的点击向上冒泡
-                $(this).click(function(e){
-                    e.stopPropagation()
-                })
-            });
-            $('.testcontent').click(function(e){
-                var $target = $(this);
-                var content = $target.html();
-                var currentParnet = $ue.parent();
-                var currentContent = $ue.editor('getContent');
-                $target.html('');
-                $target.append($ue);
-                $ue.editor("execCommand", "reset" );
-                setTimeout(function(){
-                    $ue.editor('setContent', content);
-                },200)
-                $(currentParnet).html(currentContent);
-            })
-        </script>
-    div.tab-pane#code3
-      pre.prettyprint.linenums(data-target='#demo3')
-    div.tab-pane#doc3
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo3') 复制代码
