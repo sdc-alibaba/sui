@@ -115,14 +115,14 @@
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
 
   var gt = function(value, element, param) {
-    return trim(Number(value)) > param;
+    return Number(value) > param;
   };
-  Validate.setRule("gt", gt, '该处必须大于$0');
+  Validate.setRule("gt", gt, '必须大于$0');
 
   var lt = function(value, element, param) {
-    return trim(Number(value)) < param;
+    return Number(value) < param;
   };
-  Validate.setRule("lt", lt, '该处必须小于$0');
+  Validate.setRule("lt", lt, '必须小于$0');
 
   //不能重复，比如设置了data-rules="unique=aaa" 的n个元素的值不能重复
   var unique = function(value, element, param) {
