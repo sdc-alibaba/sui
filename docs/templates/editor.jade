@@ -65,7 +65,6 @@ block content
         </div>
         <div id="btns">
             <div class="sui-btn-group">
-                <button onclick="getAllHtml()" class="sui-btn btn-primary">获得整个html的内容</button>
                 <button onclick="getContent()" class="sui-btn btn-primary">获得内容</button>
                 <button onclick="setContent()" class="sui-btn btn-primary">写入内容</button>
                 <button onclick="setContent(true)" class="sui-btn btn-primary">追加内容</button>
@@ -84,7 +83,6 @@ block content
                 <button onclick="setDisabled()" class="sui-btn btn-primary">不可编辑</button>
                 <button onclick="setHide()" class="sui-btn btn-primary">隐藏编辑器</button>
                 <button onclick="setShow()" class="sui-btn btn-primary">显示编辑器</button>
-                <button onclick="setHeight(300)" class="sui-btn btn-primary">设置高度为300默认关闭了自动长高</button>
             </div>
             
             <div class="sui-btn-group">
@@ -102,7 +100,6 @@ block content
         <script type="text/javascript">
 
             //实例化编辑器
-            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
             var $editor = $('#editor').editor();
 
             
@@ -126,30 +123,28 @@ block content
                 alert($editor.editor('getPlainTxt'))
             }
             function setContent(isAppendTo) {
-                $editor.editor('setContent', '欢饮使用')
+                $editor.editor('setContent', '欢饮使用', isAppendTo)
             }
             function setDisabled() {
-                $editor.editor('setDisabled', 'fullscreen');
-                disableBtn("enable");
+                $editor.editor('disable');
             }
 
             function setEnabled() {
-                $editor.editor('setEnabled');
-                enableBtn();
+                $editor.editor('enable');
             }
 
             function createEditor() {
               $("#editor").editor()
             }
 
-            /*
             function getText() {
                 //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
-                var range = UE.getEditor('editor').selection.getRange();
+                var selection = $editor.editor("getSelection");
+                var range = selection.getRange();
                 range.select();
-                var txt = UE.getEditor('editor').selection.getText();
+                var txt = selection.getText();
                 alert(txt)
-            }*/
+            }
 
             function getContentTxt() {
                 alert($editor.editor('getContentTxt'))
@@ -162,24 +157,6 @@ block content
             }
             function deleteEditor() {
                 $editor.editor('destroy')
-            }
-            function disableBtn(str) {
-                var div = document.getElementById('btns');
-                var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-                for (var i = 0, btn; btn = btns[i++];) {
-                    if (btn.id == str) {
-                        UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-                    } else {
-                        btn.setAttribute("disabled", "true");
-                    }
-                }
-            }
-            function enableBtn() {
-              var div = document.getElementById('btns');
-              var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-              for (var i = 0, btn; btn = btns[i++];) {
-                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-              }
             }
 
             function getLocalData () {
