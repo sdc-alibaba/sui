@@ -1,0 +1,77 @@
+extends _base
+
+block title
+  title filesize 
+
+block sidebar
+  +sidebar('template')
+
+block content
+
+  style.
+    ul {
+      margin: 0 0 1em 1em;
+    }
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 引入underscore中的JS模板，underscore地址：<a href='http://underscorejs.org/#template' target='_blank'>undercore template</a>。
+
+  h4 JS用法
+
+  p.sui-lead
+    pre
+      | var compiled = $.template("hellow <%= name %>"); 
+      | compiled({"name": "world"});
+    ul
+      li <code>$.template</code> 方法接收一个字符串模板，返回一个compiled方法，此方法接收一个JSON对象并返回解析后的模板。
+  h4 模板语法
+
+  ul
+    li <code><% xxx %></code> 编写任意JS代码
+    li <code><%= name %></code> 输出变量
+    li <code><%- name %></code> 输出HTML转义的变量
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        form.sui-form.form-horizontal
+          div.control-group
+            label.control-label 输入模板：
+            div.controls
+              textarea#template(style='width: 400px;min-height: 50px;')
+                | <% for(var i=0;i<3;i++) {%> <%= i %>. hellow <%= name %><%}%>
+          div.control-group
+            label.control-label 输入JSON数据：
+            div.controls
+              textarea#json(style='width: 400px;min-height: 50px;') {"name": "world"}
+          div.control-group
+            label.control-label 编译结果：
+            div.controls
+              pre#result(style='width: 400px;min-height: 50px;')
+          div.control-group
+            label.control-label
+            div.controls
+              a.sui-btn.btn-primary#compile 编译
+        script.
+          var log = function(t) {
+            var $result = $("#result");
+            $result.html(t);
+          }
+          $("#compile").click(function() {
+            try {
+              log($.template($("#template").val())($.parseJSON($("#json").val())));
+            } catch(e) {
+              log(e);
+            }
+          });
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')

@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 表单校验
@@ -13,8 +13,15 @@ block content
     | 强大的表单校验器，通过简单的配置规则即可实现表单校验。<br />
     | 并且支持自定义校验插件。
     br
-    strong 更新 @2014-06-27: 更新了success配置，通过success回调中返回false可以阻止表单的默认提交行为,可以用来异步提交表单参数。
-    strong 更新 @2014-06-24: 修复了文档中highlight/unhighlight的拼写错误。
+    ul.unstyled
+      li
+        strong 更新 v1.4.2: 修复了校验报错消息中图标是斜体的bug。
+      li
+        strong 更新 v1.2.2: 增加了两个新的接口可以直接控制错误消息 "showError" 和 "hideError"，可以手动调用来显示/隐藏一个错误消息。增加了一个disable/enable接口，可以启用/禁用表单校验。
+      li
+        strong 更新 v1.1.9: 自定义错误消息区分未填写和填写错误两种情况，可以分别定义。
+      li
+        strong 更新 v1.1.7: 修复了url校验规则无法支持二级域名的bug，增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。
 
   h2 通过HTML配置规则
   p.lead
@@ -28,12 +35,6 @@ block content
       a(href='#demo1', data-toggle='tab') 示例
     li
       a(href='#code1', data-toggle='tab') 代码
-    li
-      a(href='#doc1', data-toggle='tab') 文档
-    li
-      a(href='#api1', data-toggle='tab') API
-    li
-      a(href='#event1', data-toggle='tab') 事件
 
 
   div.tab-content
@@ -87,164 +88,6 @@ block content
               button.sui-btn.btn-primary(type="submit") 立即注册
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
-    div.tab-pane#doc1
-      h4 一，通过两种方式可以启用表单校验
-      ol
-        li
-          | 通过在form上添加
-          code .sui-validate
-        li
-          | 通过直接调用js方法
-          code $("form").validate()
-      p.sui-lead
-        | 校验组件依赖name属性，所以请确保表单中的元素有合理的name。
-        | 部分规则如prefill会依赖title属性。
-
-
-      h4 注意：表单校验需要依赖input元素的 <code>name</code>属性。
-
-      h4 二，配置说明
-      p
-        | 调用validate方法的时候可以传入一个配置对象，所有配置项如下：
-
-        table.sui-table
-          tr
-            th 名称
-            th 默认值
-            th 说明
-
-          tr
-            td errorTpl
-            td &lt;div class="sui-msg msg-error"&gt;\n  &lt;div class="msg-con"&gt;\n    &lt;span&gt;$errorMsg&lt;/span&gt;\n    &lt;s class="msg-icon"&gt;&lt;/s&gt;\n  &lt;/div&gt;\n&lt;/div&gt;
-            td
-              | 错误提示模板，其中的变量 <code>$errorMsg</code> 是错误消息
-          tr
-            td inputErrorClass
-            td input-error
-            td
-              | 出错的input会被添加这个class以高亮显示
-          tr
-            td placeError
-            td 
-              |function($error, $input) {
-              | /**参见源码**/
-              |}
-            td
-              | 放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
-              | 其中两个参数分别是：
-              ul
-                li $error, 出错消息
-                li $input，出错的输入框
-
-          tr
-            td rules
-            td undefined
-            td
-              |定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。
-              br
-              |rules通过name来为input指定规则，比如
-              br
-              | rules: { password: { minlength: 10}}
-              br
-              | 表示为 name=password 的输入框定义了一条规则 minlength=10
-          tr
-            td highlight
-            td
-              | highlight: function($input, $error, inputErrorClass) {
-              |   $input.addClass(inputErrorClass)
-              |   $error.show()
-              | }
-            td
-              | 高亮显示错误。
-          tr
-            td unhighlight
-            td
-              | unhighlight: function($input, $error, inputErrorClass) {
-              |   $input.removeClass(inputErrorClass)
-              |   $error.hide()
-              | }
-            td
-              | 取消高亮显示错误。
-
-          tr
-            td success
-            td
-              | success: function(){$form} {}
-            td
-              | 当用户提交表单且没有错误发生时调用此方法。如果返回值为false，则会阻止表单的默认提交行为。
-          tr
-            td success
-            td
-              | success: function(){$form} {}
-            td
-              | 当用户提交表单且没有错误发生时调用此方法。
-          tr
-            td fail
-            td
-              | fail: function(){$errorInputs, $form} {}
-            td
-              | 当用户提交表单且有错误发生时调用此方法。
-
-      h4 三，配置规则
-      p
-        | 有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。
-        br
-        | 后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。
-
-    div.tab-pane#api1
-      table.sui-table
-        thead
-          tr
-            th 方法
-            th 示例
-            th 说明
-        tbody
-          tr
-            td $.fn.validate(config)
-            td $('#my-form').validate()
-            td
-              | 启用表单校验,config详情见"文档"
-          tr
-            td
-              $.validate.setRule(name, method, msg)
-            td
-              |var mobile = function(value, element, param) {
-              |   return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
-              |};
-              |Validate.setRule("mobile", mobile, '请填写正确的手机号码');
-            td
-              | 设置一条自定义规则，如果该规则已经存在则直接覆盖。 其中三个参数分别是：
-              ul
-                li name,规则名称
-                li method, 规则方法，该方法返回值为true则表示没有错误，返回值为false则表示有错误。
-                li
-                  | msg, 出错提示文案，可以是一个字符串，也可是一个函数。
-                  br
-                  | 如果是函数，则会调用函数并显示函数的返回值。并且调用函数的时候会传第一个参数就是出错的input。 
-                  br
-                  | 如果是字符串，则可以用 $0 变量来表示该规则的值，比如 <code>data-rules='match=pwssword'</code>，则 $0 就是 password
-          tr
-            td $.validate.setMsg(ruleName, msg)
-            td $.validate.setMsg('required', '亲，不要忘了填哦')
-            td
-              | 自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。
-
-    div.tab-pane#event1
-      h4 事件
-      table.sui-table
-        tr
-          th 事件
-          th 说明
-        tr
-          td update
-          td 在输入框上手动触发这个事件，会立刻执行一次校验
-
-        tr
-          td highlight
-          td 高亮一个错误时会在输入框上触发此事件
-        tr
-          td unhighlight
-          td 取消高亮一个错误时会在输入框上触发此事件
 
   ul.demo-operations.clearfix
     li
@@ -263,6 +106,10 @@ block content
       a(href='#code5', data-toggle='tab') 代码
     li
       a(href='#doc5', data-toggle='tab') 文档
+    li
+      a(href='#api5', data-toggle='tab') api
+    li
+      a(href='#event5', data-toggle='tab') 事件
 
   div.tab-content
     div.tab-pane.active#demo5
@@ -335,6 +182,9 @@ block content
                 required: true
               }
             },
+            messages: {
+              email: "亲，你连邮箱都没有么"
+            },
             success: function() {
               $.alert("恭喜，没有问题了。");
               return false;
@@ -343,17 +193,309 @@ block content
     div.tab-pane#code5
       pre.prettyprint.linenums(data-target='#demo5>div')
     div.tab-pane#doc5
+      h4 一，通过两种方式可以启用表单校验
+      ol
+        li
+          | 通过在form上添加
+          code .sui-validate
+        li
+          | 通过直接调用js方法
+          code $("form").validate()
+      p.sui-lead
+        | 校验组件依赖name属性，所以请确保表单中的元素有合理的name。
+        | 部分规则如prefill会依赖title属性。
+
+
+      h4 注意：表单校验需要依赖input元素的 <code>name</code>属性。
+
+      h4 二，配置说明
       p
-        | 在初始化参数中通过rules来定义规则，例如：
-        <br >
-        | $("form").validate(
+        | 调用validate方法的时候可以传入一个配置对象，所有配置项如下：
+
+        table.sui-table
+          tr
+            th 名称
+            th 默认值
+            th 说明
+
+          tr
+            td errorTpl
+            td &lt;div class="sui-msg msg-error"&gt;\n  &lt;div class="msg-con"&gt;\n    &lt;span&gt;$errorMsg&lt;/span&gt;\n    &lt;s class="msg-icon"&gt;&lt;/s&gt;\n  &lt;/div&gt;\n&lt;/div&gt;
+            td
+              | 错误提示模板，其中的变量 <code>$errorMsg</code> 是错误消息
+          tr
+            td inputErrorClass
+            td input-error
+            td
+              | 出错的input会被添加这个class以高亮显示
+          tr
+            td placeError
+            td 
+              |function($error, $input) {
+              | /**参见源码**/
+              |}
+            td
+              | 放置错误提示信息，在显示错误信息之前，会调用此方法把错误信息放在合适的位置
+              | 其中两个参数分别是：
+              ul
+                li $error, 出错消息
+                li $input，出错的输入框
+
+          tr
+            td rules
+            td undefined
+            td
+              |定义规则，注意和$.validate.setRule区别，这里是定义某一个input的规则，和data-rules功能相似但是比它的优先级更高。
+              br
+              |rules通过name来为input指定规则，比如
+              br
+              | rules: { password: { minlength: 10}}
+              br
+              | 表示为 name=password 的输入框定义了一条规则 minlength=10
+          tr
+            td messages
+            td undefined
+            td
+              | 可以给每一个输入框单独设定出错消息，仍然是通过输入框的name来指定，出错消息可以是一个字符串或者回调函数。
+              br
+              | 比如：
+              br
+              | messages: { email: "亲，请输入你的邮箱"}
+              br
+              | 表示name为email的输入框出错后，总是显示"亲，请输入你的邮箱"。
+              br
+              | 如果想分别设定未填写和填写错误的消息，则可以传入一个数组，数组中第一个元素是未填写的出错消息，第二个元素是填写错误的出错消息。
+              br
+              | 比如:
+              br
+              | messages: { email: ["请填写您的邮箱", "亲，请输入你的邮箱"]}
+          tr
+            td highlight
+            td
+              | highlight: function($input, $error, inputErrorClass) {
+              |   $input.addClass(inputErrorClass)
+              |   $error.show()
+              | }
+            td
+              | 高亮显示错误。
+          tr
+            td unhighlight
+            td
+              | unhighlight: function($input, $error, inputErrorClass) {
+              |   $input.removeClass(inputErrorClass)
+              |   $error.hide()
+              | }
+            td
+              | 取消高亮显示错误。
+
+          tr
+            td success
+            td
+              | success: function(){$form} {}
+            td
+              | 当用户提交表单且没有错误发生时调用此方法。如果返回值为false，则会阻止表单的默认提交行为。
+          tr
+            td fail
+            td
+              | fail: function(){$errorInputs, $form} {}
+            td
+              | 当用户提交表单且有错误发生时调用此方法。
+
+      h4 三，配置规则
+      p
+        | 有两种方法可以配置规则：直接在html中写 <code>data-rules</code>或者在初始化validate时传入rules对象。
         br
-        |   rules: {
-        |     name: {
-        |       minlength: 2
-        |     }
-        |   }
-        | }
+        | 后配置的规则总是会覆盖先配置的规则，所以js中配置的规则也总是会覆盖在html中配置的规则。
+
+    div.tab-pane#api5
+      table.sui-table
+        thead
+          tr
+            th 方法
+            th 示例
+            th 说明
+        tbody
+          tr
+            td $.fn.validate(config)
+            td $('#my-form').validate()
+            td
+              | 启用表单校验,config详情见"文档"
+
+          tr
+            td showError
+            td $('#my-form').validate("showError", "email", "邮箱填错啦", "myEmailError")
+            td
+              | 显示一个错误，其中四个参数分别是（"showError", "输入框的name", "要显示的错误消息", "可选，该错误消息的名称，用来在hideError的时候引用")
+
+          tr
+            td hideError
+            td $('#my-form').validate("hideError", "email", "myEmailError")
+            td
+              | 隐藏一个错误消息，其中三个参数分别是（"hideError", "输入框的name，不填则隐藏所有的错误消息", "可选，要隐藏的错误消息的名称(在showError时指定的，或者就是规则名称)，如果不填则会影藏该输入框对应的所有错误消息")
+
+          tr
+            td enable/disable
+            td $('#my-form').validate("enable/disable")
+            td
+              | 启用/禁用表单校验 
+          tr
+            td
+              $.validate.setRule(name, method, msg)
+            td
+              |var mobile = function(value, element, param) {
+              |   return (/^0?1[3|4|5|7|8][0-9]\d{8,9}$/).test(trim(value));
+              |};
+              |Validate.setRule("mobile", mobile, '请填写正确的手机号码');
+            td
+              | 设置一条自定义规则，如果该规则已经存在则直接覆盖。 其中三个参数分别是：
+              ul
+                li name,规则名称
+                li method, 规则方法，该方法返回值为true则表示没有错误，返回值为false则表示有错误。
+                li
+                  | msg, 出错提示文案，可以是一个字符串，也可是一个函数。
+                  br
+                  | 如果是函数，则会调用函数并显示函数的返回值。并且调用函数的时候会传第一个参数就是出错的input。 
+                  br
+                  | 如果是字符串，则可以用 $0 变量来表示该规则的值，比如 <code>data-rules='match=pwssword'</code>，则 $0 就是 password
+          tr
+            td $.validate.setMsg(ruleName, msg)
+            td $.validate.setMsg('required', '亲，不要忘了填哦')
+            td
+              | 自定义错误消息，其中msg参数和setRule中的msg参数一样既可以是字符串，也可以是函数。
+
+    div.tab-pane#event5
+      h4 事件
+      table.sui-table
+        tr
+          th 事件
+          th 说明
+        tr
+          td update
+          td 在输入框上手动触发这个事件，会立刻执行一次校验
+
+        tr
+          td highlight
+          td 高亮一个错误时会在输入框上触发此事件
+        tr
+          td unhighlight
+          td 取消高亮一个错误时会在输入框上触发此事件
+
+  h2 自定义错误消息
+  p
+    | 错误消息可以非常灵活进行定制。错误消息有两种情况：
+  p
+    | 1. 没有给输入框指定错误消息，则会默认用对应出错规则的错误消息。每一个规则都有自己的错误消息，可以通过重载来改变一个规则的默认消息。如果一个输入框没有定义自己的错误消息，则会显示出错规则的错误消息。比如你定义了data-rules='required|email'，但是用户输入的邮箱不合法，则显示的错误消息是email默认的消息"请填写正确的email地址".
+  p
+    | 2. 给输入框设定了错误消息，则会直接用设定的错误消息，而不会用出错规则对应的消息。
+
+  p 有两种方式可以定义错误消息：
+
+  p 1. 在html中通过 <code>data-error-msg</code> 和 <code>data-empty-msg</code>来分别定义填写错误和未填写的错误消息。如果没有定义 <code>data-empty-msg</code>，则用户未填写的时候会显示required规则对应的错误消息。
+  p 2. 在JS中通过 messages 来配置错误消息。比如： <code>messages: { email: "邮箱不合法"}</code>，当用户填写错误邮箱时会显示"邮箱不合法"。也可以设置一个数组，分别表示未填写和填写错误时的出错消息，比如<code>messages: { email: ["请填写邮箱", "邮箱不合法a]"}</code>。
+
+    
+    br
+    js中设置messages请参考js文档。
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-msg', data-toggle='tab') 示例
+    li
+      a(href='#code-msg', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-msg
+      div.bs-docs-example
+        form.sui-form.form-horizontal#form-msg
+          div.control-group
+            label.control-label(for="inputEmail") 邮箱：
+            div.controls
+              input(type="text" id="inputEmail" name='email' placeholder="邮箱" data-rules='required|email')
+
+          div.control-group
+            label.control-label(for="inputPassword") 密码：
+            div.controls
+              input(type="password" id="inputPassword" name='password' placeholder="密码" title='密码' data-rules='required|minlength=6|maxlength=12')
+
+          div.control-group
+            label.control-label(for="inputNick") 昵称：
+            div.controls
+              input(type="text" id="inputNick" name='nick' placeholder="昵称" data-rules='required|minlength=2|maxlength=6' data-error-msg='昵称必须是2-6位' data-empty-msg='亲，昵称别忘记填了')
+          div.control-group
+            label.control-label(for="sanwei")
+            div.controls
+              button.sui-btn.btn-primary(type="submit") 立即注册
+        script.
+          $("#form-msg").validate({
+            messages: {
+              email: ["亲，你还没填邮箱呢", "邮箱不要瞎填哦"],
+              password: "亲，密码必须是6-12位哦"
+            }
+          })
+    div.tab-pane#code-msg
+      pre.prettyprint.linenums(data-target='#demo-msg>div')
+
+
+
+
+  h2 手动显示/隐藏错误消息
+  p.sui-lead
+    | 有时候你可能需要手动操作错误消息，我们提供了 showError 和 hideError 接口可以使用。具体的参数说明见API说明
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo-showerror', data-toggle='tab') 示例
+    li
+      a(href='#code-showerror', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo-showerror
+      div.bs-docs-example
+        form.sui-form.form-horizontal.sui-validate#form-showerror
+          div.control-group
+            label.control-label(for="inputEmail") 邮箱：
+            div.controls
+              input(type="text" name='email' placeholder="邮箱" data-rules='required|email')
+
+          div.control-group
+            label.control-label(for="inputPassword") 密码：
+            div.controls
+              input(type="password" name='password' placeholder="密码" title='密码' data-rules='required|minlength=6|maxlength=12')
+
+          div.control-group
+            label.control-label(for="inputNick") 昵称：
+            div.controls
+              input(type="text" name='nick' placeholder="昵称" data-rules='required|minlength=2|maxlength=6')
+          div.control-group
+            label.control-label(for="sanwei")
+            div.controls
+              button.sui-btn.btn-primary(type="submit") 立即注册
+
+          div
+            a#show-email-error.sui-btn.btn-primary(href='javascript:void(0);') 显示邮箱自定义错误
+            a#hide-email-error.sui-btn.btn-primary(href='javascript:void(0);') 隐藏邮箱自定义错误
+            a#hide-email-all-error.sui-btn.btn-primary(href='javascript:void(0);') 隐藏邮箱全部错误
+            a#hide-all-error.sui-btn.btn-primary(href='javascript:void(0);') 隐藏所有错误
+
+
+        script.
+          (function() {
+            var $form = $("#form-showerror");
+
+            $("#show-email-error").click(function() {
+              $form.validate("showError", "email", "你的邮箱填错啦", "myerror");
+            });
+            $("#hide-email-error").click(function() {
+              $form.validate("hideError", "email", "myerror");
+            });
+            $("#hide-email-all-error").click(function() {
+              $form.validate("hideError", "email");
+            });
+            $("#hide-all-error").click(function() {
+              $form.validate("hideError");
+            });
+          })()
+
+    div.tab-pane#code-showerror
+      pre.prettyprint.linenums(data-target='#demo-showerror>div')
 
 
   h2 内置校验规则
@@ -423,6 +565,7 @@ block content
             div.controls
               input(type="text" id="url" placeholder="url" data-rules='url' name='url')
           div.control-group
+            label.control-label()
             div.controls
               button.sui-btn.btn-primary.btn-large(type="submit") 注册
     div.tab-pane#code2

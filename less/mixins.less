@@ -10,7 +10,7 @@
 // --------
 // For clearing floats like a boss h5bp.com/q
 .clearfix {
-  *zoom: 1;
+  zoom: 1;
   &:before,
   &:after {
     display: table;
@@ -557,12 +557,13 @@
   color: darken(@backgroundColor, 5%);
   &:hover, &:focus {
     border: 1px solid @backgroundHighlightColor;
-    color: @backgroundHighlightColor;
+    color: white;
+    background-color: @backgroundHighlightColor;
   }
   &:active,
   &.active {
-    background-color: @backgroundHighlightColor;
-    border: 1px solid darken(@backgroundHighlightColor, 5%);
+    background-color: darken(@backgroundHighlightColor, 10%);
+    border: 1px solid darken(@backgroundHighlightColor, 10%);
     color: @white;
   }
 }

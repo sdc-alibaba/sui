@@ -1,0 +1,23 @@
+doctype html
+include _variables
+html(lang="en")
+  head
+    include _head
+
+    block head
+
+  body
+    include _header
+    block header
+      +header('demos')
+    mixin sidebar(highlight)
+      include _sidenav
+    block content_wrap
+    block footer
+      .footer
+        ul.unstyled
+          li @time 2014.03.07
+          li @author 商家业务事业部-电商服务支撑平台-UED团队
+
+    include _foot
+    block js_block

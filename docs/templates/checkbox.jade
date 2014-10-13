@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 选框
@@ -17,9 +17,9 @@ block content
     br
     ul.unstyled
       li
-        strong 更新 @2014-06-27: 因为图标用<code>vertical-align: middle</code>无法实现居中对齐，现在改为默认用 <code>vertical-align: -4px</code>，如果选框的大小有变化，可能需要手动调整vertical-align来实现上下对齐。
+        strong 更新 v1.4.2: 增加了readonly状态。
       li
-        strong 更新 @2014-06-19: 去掉了 data-toggle 接口，现在事件全部代理到 document 处理，不需要初始化插件就可以自动更新样式。
+        strong 更新 v1.1.6: 修复了checkbox可能导致页面滚动的bug。
 
   h2 通过data-api使用
 
@@ -46,6 +46,10 @@ block content
           input(type='checkbox')
           span 佐助
 
+        label.checkbox-pretty.inline
+          input(type='checkbox')
+          span 我爱罗
+
         h3 单选框
         label.radio-pretty.inline.checked
           input(type='radio' checked='checked' name='radio')
@@ -67,6 +71,17 @@ block content
         label.checkbox-pretty.inline.checked.disabled
           input(type='checkbox' checked='checked' disabled)
           span 不可选
+        label.radio-pretty.inline.checked.disabled
+          input(type='radio' checked='checked' disabled)
+          span 不可选
+        h3 只读
+        p 因为checkbox是不支持readonly状态的，所以通过将label改为span来实现让用户无法操作
+        span.checkbox-pretty.inline.checked.readonly
+          input(type='checkbox' checked='checked')
+          span 只读
+        span.radio-pretty.inline.checked.readonly
+          input(type='radio' checked='checked')
+          span 只读
 
 
     div.tab-pane#code1

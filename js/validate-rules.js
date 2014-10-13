@@ -98,7 +98,7 @@
   var url = function(value, element, param) {
     var urlPattern;
     value = trim(value);
-    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)?[\w-]+\.(com|net|cn|org|me|io|info)/;
+    urlPattern = /(http|ftp|https):\/\/([\w-]+\.)+[\w-]+\.(com|net|cn|org|me|io|info|xxx)/;
     if (!/^http/.test(value)) {
       value = 'http://' + value;
     }
