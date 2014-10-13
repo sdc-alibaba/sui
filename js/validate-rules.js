@@ -113,4 +113,15 @@
     return trim(value).length <= param;
   };
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
+
+  var gt = function(value, element, param) {
+    return Number(value) > param;
+  };
+  Validate.setRule("gt", gt, '必须大于$0');
+
+  var lt = function(value, element, param) {
+    return Number(value) < param;
+  };
+  Validate.setRule("lt", lt, '必须小于$0');
+
 }(window.jQuery)
