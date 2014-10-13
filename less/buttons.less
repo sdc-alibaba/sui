@@ -52,6 +52,10 @@
     .user-select(none);
   }
 
+  .sui-icon {
+    line-height: 1;
+  }
+
   .sui-icon:after {
     content: " ";
   }
@@ -189,15 +193,18 @@ input[type="submit"].btn {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: @linkColorHover;
+  color: @linkHoverColor;
   text-decoration: underline;
   background-color: transparent;
   border-color: transparent;
 }
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: @grayDark;
-  text-decoration: none;
+.btn-link[disabled], .btn-link.disabled {
+  &, &:hover, &:focus {
+    color: @btnDisabledColor;
+    text-decoration: none;
+    background: none;
+    border: none;
+  }
 }
 
 
@@ -228,6 +235,13 @@ input[type="submit"].btn {
     // Inverse appears as dark gray
     &.btn-inverse {
       .buttonBorderedBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+    }
+    &.disabled, &[disabled] {
+      &, &:hover, &:focus {
+        border-color: @btnDisabledColor;
+        color: @btnDisabledColor;
+        background: @btnDisabledBackground;
+      }
     }
   }
 }

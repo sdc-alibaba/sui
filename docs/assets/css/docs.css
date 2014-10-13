@@ -6,15 +6,88 @@
 */
 /* Body and structure
 -------------------------------------------------- */
+.sui-nav.nav-stacked.docs-nav {
+  width: 140px;
+  text-align: right;
+  padding-right: 20px;
+  background: url(../../pictures/kedu.png) top right repeat-y;
+}
+.sui-nav.nav-stacked.docs-nav li {
+  border: none;
+  position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin-left: 0;
+}
+.sui-nav.nav-stacked.docs-nav li a {
+  line-height: 18px;
+  color: #666;
+  font-weight: 700;
+  font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
+  position: relative;
+  font-size: 16px;
+}
+.sui-nav.nav-stacked.docs-nav li a:hover {
+  color: #333333;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav {
+  display: none;
+  margin-bottom: 0;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav > li a {
+  margin-left: 30px;
+  color: #bcbec0;
+  position: relative;
+  border: none;
+  border-left: 0;
+  border-right: 0;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: "Microsoft Yahei", Arial, Verdana, Sans-serif;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav > li a:hover {
+  color: #333333;
+  background: none;
+}
+.sui-nav.nav-stacked.docs-nav .nav-stacked.docs-nav .active a {
+  color: #333333;
+}
+.sui-nav.nav-stacked.docs-nav .active .nav-stacked.docs-nav {
+  display: block;
+}
+.sui-nav.nav-stacked.docs-nav .active a {
+  color: #333333;
+}
+.sui-nav.nav-stacked.docs-nav .docs-icon {
+  background: url(../../pictures/left_04.png);
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  margin-top: -9px;
+}
+.sui-nav.nav-stacked.docs-nav .active .docs-icon {
+  background: url(../../pictures/blue_11.png);
+}
 body {
   position: relative;
   padding-top: 59px;
   font-size: 14px;
+  background: #fbfbfb;
+}
+body > .sui-layout,
+body > .sui-layout > div > .content {
+  background: #fbfbfb;
 }
 html,
 body,
 .sui-layout,
-body > .sui-layout > .sidebar {
+body > .sui-layout > div > .sidebar {
   height: 100%;
 }
 /* Code in headings */
@@ -28,19 +101,16 @@ h3 code {
 }
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
-.sui-layout .content {
+body > .sui-layout > div > .content {
   padding: 0 25px;
-  margin-left: 150px;
-  background: #fff;
+  margin-left: 210px;
   overflow: hidden;
 }
-body > .sui-layout > .sidebar {
-  width: 150px;
+body > .sui-layout .sidebar {
+  width: 180px;
   font-size: 14px;
   line-height: 22px;
-  border-right: 1px solid #ddd;
   position: fixed;
-  background: #f9f9f9;
 }
 .docs-sidenav {
   width: 151px;
@@ -68,7 +138,7 @@ body > .sui-navbar .sui-nav {
   margin-left: 50px;
 }
 body > .sui-navbar .sui-nav > li > a {
-  padding: 20px;
+  padding: 19px;
 }
 /* Change the docs' brand */
 body > .navbar .brand {
@@ -166,6 +236,56 @@ h1.sui-page-header:before {
 .footer li {
   padding: 4px 0;
 }
+#themes-select .dropdown-toggle {
+  padding: 0;
+  margin-top: 15px;
+}
+#themes-select .dropdown-toggle span {
+  text-indent: -9999px;
+}
+#themes-select ul {
+  padding: 0 0 8px 8px;
+  min-width: 85px;
+  left: auto;
+  right: 0;
+}
+#themes-select li {
+  float: left;
+  margin: 8px 8px 0 0px;
+}
+#themes-select .dropdown-toggle span,
+#themes-select li a {
+  background: #28a3ef;
+  text-indent: -9999em;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-block;
+}
+#themes-select .dropdown-toggle span.default,
+#themes-select li a.default {
+  background: #28a3ef;
+}
+#themes-select .dropdown-toggle span.green,
+#themes-select li a.green {
+  background: #4a8e57;
+}
+#themes-select .dropdown-toggle span.pink,
+#themes-select li a.pink {
+  background: #b654a7;
+}
+#themes-select .dropdown-toggle span.dark-green,
+#themes-select li a.dark-green {
+  background: #518594;
+}
+.hidden-achor {
+  position: relative;
+  top: -100px;
+  left: 1em;
+  width: 1px;
+  height: 1px;
+  display: block;
+}
 @media (max-width: 1400px) {
   .sui-navbar .sui-container {
     width: auto;
@@ -178,24 +298,13 @@ h1.sui-page-header:before {
     margin: auto;
   }
 }
-@media (min-width: 1200px) {
-  .sui-layout .content {
-    margin-left: 180px;
+@media (min-width: 1400px) {
+  .sui-navbar .sui-container {
+    width: 1400px;
+    margin: auto;
   }
-  body > .sui-layout > .sidebar {
-    width: 180px;
-  }
-  .docs-sidenav {
-    width: 181px;
-  }
-}
-@media (max-height: 600px) {
-  .sui-nav.nav-tabs.nav-xlarge > li > a {
-    padding: 8px 18px;
-  }
-  .sui-nav.nav-tabs.nav-stacked.nav-xlarge .nav-tabs.nav-stacked > li > a {
-    padding: 4px 16px;
-    border: none;
+  body > .sui-layout > .content {
+    margin-left: 230px;
   }
 }
 @media (max-width: 800px) {

@@ -61,6 +61,7 @@
   background: transparent;
   color: #fff;
   font-size: 24px;
+  height: auto;
 }
 .btn-lead:hover {
   background: transparent;

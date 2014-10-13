@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 表单
@@ -31,8 +31,9 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    strong 更新 @2014-06-19: 的control-group用inline-block布局，当controls中内容太长时会导致整个controls换行，改为 table-cell 修复这个问题。
-
+    ul.unstyled
+      li
+        strong 更新 v1.1.10：修复了在chrome下，水平表单布局可能出现布局错乱的bug。
   h3 按宽度分类
   p
     <code>select</code> 元素同样适用
@@ -899,18 +900,18 @@ block content
                 label.radio-pretty.inline.checked(data-toggle='radio')
                   input(type='radio' checked='checked' name='qudao')
                   span 商家中心
-                label.radio-pretty.inline.checked(data-toggle='radio')
-                  input(type='radio' checked='checked' name='qudao')
+                label.radio-pretty.inline(data-toggle='radio')
+                  input(type='radio' name='qudao')
                   span 旺旺弹窗
-                label.radio-pretty.inline.checked(data-toggle='radio')
-                  input(type='radio' checked='checked' name='qudao')
+                label.radio-pretty.inline(data-toggle='radio')
+                  input(type='radio' name='qudao')
                   span 站内信
 
                 div.sui-msg.msg-tips.msg-default.msg-clear.help-block
                   div.msg-con
                     是否向子账号发送消息：
-                    label.radio-pretty.inline.checked(data-toggle='radio')
-                      input(type='radio' checked='checked' name='zzh' value='1')
+                    label.radio-pretty.inline(data-toggle='radio')
+                      input(type='radio' name='zzh' value='1')
                       span 是
                     label.radio-pretty.inline.checked(data-toggle='radio')
                       input(type='radio' checked='checked' name='zzh' value='0')

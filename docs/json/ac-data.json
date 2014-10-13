@@ -1,0 +1,8 @@
+{
+  "query": "a",
+  "suggestions": [
+    { "value": "张三", "data": { "id": "123", "gender": "male"}},
+    { "value": "李四", "data": { "id": "124", "gender": "female"}},
+    { "value": "王五", "data": { "id": "125", "gender": "male"}}
+  ]
+}

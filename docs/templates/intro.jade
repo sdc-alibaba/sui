@@ -1,0 +1,167 @@
+extends _base
+
+block title
+  title 新手指引 
+
+block sidebar
+  +sidebar('intro')
+
+block content
+
+  h1 新手指引
+
+  h2.sui-page-header 开发者文档
+  ul.unstyled
+    li
+      strong 更新 v1.4.0: 此组件的css代码被移入了 sui-append.css 中。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      h1(data-step="1" data-intro="Hello all! :) 第一步：This project's called Intro.js." style="text-align:center") 1.Intro.js
+
+      p.lead(data-step="4" data-intro="第四步:Let's try it. It's free and open-source.") 4.更好的介绍网站和功,以便逐步为您指导项目。
+      
+      div.introjs-content
+        div.divcont(data-step="2" data-intro="第二步:Ok, wasn't that fun?" data-position="right")
+          h4 2.容易使用
+          p 包括js和css文件， 调价"data-step" 和 "data-intro" 到你的代码。
+
+        div.divcont(data-step="3" data-intro="第三步：More features, more fun." data-position="left")
+          h4 3.键盘 + 鼠标 控制 
+          p 用鼠标, 或键盘  "←"控制后退, "→"控制前进, "ENTER" 和 "ESC" 控制退出.
+
+        div.divcont(data-step="5" data-intro="第五步:Get it, use it.") 
+          h4 5.快 &amp; 小
+          p 仅需4 KB JavaScript 和 2.5 KB CSS (gzip).
+        div.divcont(data-step="6" data-intro="第六步:Last step.") 
+          h4 6.跨浏览器兼容性
+          p 它兼容最近版本的火狐,Chrome和IE8，更好的兼容性需要进一步开发。
+        a.sui-btn.btn-xlarge.btn-primary(href="javascript:void(0);" ) 展示操作
+      script.
+          $(".btn-primary").click(function(){
+              $.introJs().start();
+          })
+        
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+    div.tab-pane#doc1
+      h4 备注：插件参考第三方来源：http://usablica.github.io/intro.js/
+      p 1.在标签里加属性"data-step"标示是第几步；加"data-intro"添加提示语句；"data-position"控制提示框出现位置，可选left、right、top、bottom-middle-aligned、bottom-right-aligned,不写默认为下方。
+      p 2.可用鼠标控制，也可以用键盘控制："←", "→","ENTER" 和 "ESC"控制。 
+      p 3.调用"$.introJs().start();"可触发新手指引。
+      h4 可通过introJs传入改变的参数
+      table.sui-table
+          tr
+            th 名称
+            th 默认值
+            th 说明
+
+          tr
+            td nextLabel
+            td 下一步 <i class="sui-icon icon-double-angle-right"></i> 
+            td
+              | 下一步按钮上的显示文字
+          tr
+            td prevLabel
+            td <i class="sui-icon icon-double-angle-left"></i> 上一步
+            td
+              | 上一步按钮上的显示文字
+          tr
+            td skipLabel
+            td 退出
+            td
+              | 退出按钮上的显示文字
+          tr
+            td doneLabel
+            td 结束
+            td
+              | 结束按钮上的显示文字
+          tr
+            td tooltipPosition
+            td bottom
+            td
+              | data-position初始值
+          tr
+            td exitOnEsc
+            td true
+            td
+              | 是否可用ESC键退出
+          tr
+            td showStepNumbers
+            td true
+            td
+              | 是否显示步骤数
+          tr
+            td exitOnOverlayClick
+            td true
+            td
+              | 是否可点击背景退出
+          tr
+            td keyboardNavigation
+            td true
+            td
+              | 是否可用键盘控制
+          tr
+            td showButtons
+            td true
+            td
+              | 是否限制控制按钮
+          tr
+            td showBullets
+            td true
+            td
+              | 是否显示点点
+          tr
+            td scrollToElement
+            td true
+            td
+              | 是否滚动到下一步骤
+          tr
+            td overlayOpacity
+            td 0.8
+            td
+              | 背景透明值
+      h4 可通过introJs调用的方法
+      table.sui-table
+          tr
+            th 名称
+            th 说明
+
+          tr
+            td clone
+            td 下一步 <i class="sui-icon icon-double-angle-right"></i> 
+            td
+              | 下一步按钮上的显示文字
+          tr
+            td prevLabel
+            td <i class="sui-icon icon-double-angle-left"></i> 上一步
+            td
+              | 上一步按钮上的显示文字
+          tr
+            td skipLabel
+            td 退出
+            td
+              | 退出按钮上的显示文字
+          tr
+            td doneLabel
+            td 结束
+            td
+              | 结束按钮上的显示文字
+          tr
+            td tooltipPosition
+            td bottom
+            td
+              | data-position初始值
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
+

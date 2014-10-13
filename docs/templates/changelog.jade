@@ -1,0 +1,152 @@
+extends _base_index
+
+block title
+  title 更新日志
+
+block header
+  +header('changelog')
+
+block content_wrap
+  .sui-container
+    h1.sui-page-header 版本更新日志
+
+    p.sui-lead
+      | 目前我们使用三位版本号增量发布，已经发布的版本不会再有任何变化。 三位版本号为 x.y.z，其中，更新z表组件的bug修复或者功能更新，更新y表示新增组件，更新 x表示不兼容老版本的重要升级（这个目前不会有）。
+
+    ul.unstyled
+      table.sui-table
+        tr
+          th 版本号
+          th 更新内容
+          th 更新时间
+
+        tr
+          td 1.4.3
+          td 
+            ul.unstyled
+              li 对话框：增加了closeBtn, transition 2个布尔值配置项，决定是否显示右上角叉叉和是否动画显示、隐藏（html使用方式直接改html结构即可）.
+              li 分页器：增加配置项，可以展示分页条数或者总页数。修复bug：通过itemsCount和pageSize配置分页器，0条为1页。
+          td
+        tr
+          td 1.4.2
+          td 
+            ul.unstyled
+              li 网页图标增加了几个新的图标。
+              li 修复了导航栏和按钮中增加icon的时候会有1px高度增加的bug。
+              li 增加了一个字符串模板函数 <code>$.template</code>。
+              li 修复了表单中使用 <code>.sui-dropup</code> 样式时无法选中的bug。
+              li 修复了表单校验错误消息中图标是斜体的bug。
+              li 修复了日期时间选择其中无法更新小时和分钟的bug。
+              li 单选复选按钮增加了一个只读状态
+          td 2014.09.22
+
+        tr
+          td 1.4.1
+          td 
+            ul.unstyled
+              li 修复了在 1.4.0 版本中分离图标导致下拉菜单图标乱码的bug。
+              li 提示消息组件增加了一个记住关闭状态的功能。
+          td 2014.09.12
+
+        tr
+          td 1.4.0
+          td 
+            ul.unstyled
+              li 重要更新：为了减少css文件体积，以及避免在ie下css规则超过 4095 条的限制（见 http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx），将CSS文件分为两个部分：sui.css 和 sui-append.css。
+                br
+                | 其中 sui-append.css 是由从 sui.css 中移除的部分非常用组件组成的。每个皮肤文件也都有对应的 append 文件。
+                br
+                | 目前将新手引导、自动补全、幻灯片、时间日期选择器四个组件和iconmoon的免费图标移入了 sui-append.css文件中。如果有使用这些组件的，当升级到此版本时注意引入 sui-append.css 文件。
+                br
+                | 注意这个版本的下拉菜单图标有bug，请尽快更新到 1.4.1 版本
+          td 2014.09.11
+
+        tr
+          td 1.3.0
+          td 
+            ul.unstyled
+              li 增加了 <a href='carousel.html'>幻灯片</a> 组件。
+          td 2014.08.26
+
+        tr
+          td 1.2.2
+          td 
+            ul.unstyled
+              li 对话框加载远程内容的时候不再加载 <code>href</code>属性指定的地址，只能通过 <code>remote</code> 参数或者 <code>data-remote</code> 属性来指定。
+              li 表单校验增加了两个新的接口可以直接控制错误消息 "showError" 和 "hideError"，可以手动调用来显示/隐藏一个错误消息。增加了一个disable/enable接口，可以启用/禁用表单校验。
+          td 2014.08.21
+
+        tr
+          td 1.2.1
+          td 
+            ul.unstyled
+              li 
+                | 修复了btn-bordered 按钮禁用样式，增加了btn-bordered 按钮组。
+                br
+                | 大幅改进了下拉菜单的易用性：
+                ul.unstyled(style='margin-left: 4em;')
+                  li 使用proxy实现下拉逻辑，异步加载的情况下也不需要手动初始化
+                  li 增加了分组功能
+                  li 增加了单条选项禁用功能
+                  li 按钮下拉菜单增加了一个icon
+          td 2014.08.14
+
+        tr
+          td 1.2.0
+          td 
+            ul.unstyled
+              li 增加富文本编辑器(测试版)。
+              li 自动补全增加了对返回数据格式的说明。
+          td 2014.08.11
+
+        tr
+          td 1.1.10
+          td 
+            ul.unstyled
+              li 更新了所有皮肤的主色调。
+              li 修复了在chrome下，水平表单布局可能出现布局错乱的bug。
+          td 2014.08.04
+
+        tr
+          td 1.1.9
+          td 
+            ul.unstyled
+              li 修复了官网上代码无法显示行号的bug。
+              li 图标增加了两个 <code>.icon-pc-undo</code> <code>.icon-pc-redo</code>。
+              li 表单校验中，自定义错误消息区分未填写和填写错误两种情况，可以分别定义。
+              li 修复了灰色导航条样式的标签页在ie8下垂直样式的bug。
+          td 2014.07.31
+
+
+
+        tr
+          td 1.1.8
+          td 
+            ul.unstyled
+              li 小尺寸图标中增加了25种新的图标。
+          td 2014.07.29
+
+        tr
+          td 1.1.7
+          td 
+            ul.unstyled
+              li 表单校验修复了url校验规则无法支持二级域名的bug。
+              li 表单校验增加了一个出错消息配置，可以单独配置每一个输入框的错误消息。
+              li 标签页中，为导航条样式的标签页增加了一个轻量的样式（灰色高亮）
+              li 增加了一个 <code>.icon-pc-text</code> 图标
+          td 2014.07.28
+
+
+        tr
+          td 1.1.6
+          td 修复了checkbox可能会导致页面滚动的bug，官网上增加了更新日志页面。
+          td 2014.07.24
+
+        tr
+          td 1.1.5
+          td 下拉菜单增加了一个禁用状态，更新了jquery cdn地址，修复了官网换肤按钮在小屏幕上会被挡住的bug。
+          td 2014.07.22
+        tr
+          td 1.1.4
+          td 提示消息增加了一个可选的关闭按钮，更新了表单文档。
+          td 2014.07.18

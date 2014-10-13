@@ -36,16 +36,6 @@
     position: relative;
     .border-radius(0);
 
-    > .caret {
-      .sui-icon;
-      line-height: @baseLineHeight - 1 ;
-      &:before {
-        content: "\e6be";
-        float: right;
-        margin-left: 8px;
-      }
-    }
-
     //现在用的字体在渲染时会把btn撑高一像素，暂时用lineheight来解决这个bug
     &.btn-small > .caret {
       line-height: @lineHeightSmall - 1;
@@ -71,6 +61,7 @@
     position: absolute;
     top: 105%;
     left: 0;
+    z-index: @zindexDropdown;
   }
   &.open .sui-dropdown-menu {
     display: block;
@@ -89,14 +80,14 @@
   // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
   > .sui-btn:first-child {
     margin-left: 0;
-    .border-top-left-radius(@baseBorderRadius);
-    .border-bottom-left-radius(@baseBorderRadius);
+    .border-top-left-radius(@borderRadiusMini);
+    .border-bottom-left-radius(@borderRadiusMini);
   }
   // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
   > .sui-btn:last-child,
   > .dropdown-toggle {
-    .border-top-right-radius(@baseBorderRadius);
-    .border-bottom-right-radius(@baseBorderRadius);
+    .border-top-right-radius(@borderRadiusMini);
+    .border-bottom-right-radius(@borderRadiusMini);
   }
   // Reset corners for large buttons
   > .sui-btn.large:first-child {
@@ -196,8 +187,15 @@
 
 // Reposition the caret
 .sui-btn .caret {
-  margin-top: 8px;
-  margin-left: 0;
+  font-family: 'icon-pc';
+  font-style: normal;
+  vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+  float: right;
+  margin-right: -5px;
+  margin-left: 8px;
+  &:before {
+    content: "\c611";
+  }
 }
 // Carets in other button sizes
 .btn-large .caret {
@@ -252,10 +250,10 @@
   margin-top: -1px;
 }
 .btn-group-vertical > .sui-btn:first-child {
-  .border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+  .border-radius(@borderRadiusMini @borderRadiusMini 0 0);
 }
 .btn-group-vertical > .sui-btn:last-child {
-  .border-radius(0 0 @baseBorderRadius @baseBorderRadius);
+  .border-radius(0 0 @borderRadiusMini @borderRadiusMini);
 }
 .btn-group-vertical > .btn-large:first-child {
   .border-radius(@borderRadiusLarge @borderRadiusLarge 0 0);

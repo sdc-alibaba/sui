@@ -161,18 +161,19 @@
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('carousel')
-        , options = $.extend({}, $.fn.carousel.defaults, typeof option == 'object' && option)
+        , options = $.extend({}, $.fn.carousel.defaults, $this.data(), typeof option == 'object' && option)
         , action = typeof option == 'string' ? option : options.slide
       if (!data) $this.data('carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (action) data[action]()
-      else if (options.interval) data.pause().cycle()
+      else if (options.autoStart) data.pause().cycle()
     })
   }
 
   $.fn.carousel.defaults = {
     interval: 5000
   , pause: 'hover'
+  , autoStart: true
   }
 
   $.fn.carousel.Constructor = Carousel
@@ -189,7 +190,7 @@
  /* CAROUSEL DATA-API
   * ================= */
 
-  $(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
+  $(document).on('click.sui-carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var $this = $(this), href
       , $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
       , options = $.extend({}, $target.data(), $this.data())
@@ -203,5 +204,9 @@
 
     e.preventDefault()
   })
+
+  $(function() {
+    $("[data-ride='carousel']").carousel();
+  });
 
 }(window.jQuery);

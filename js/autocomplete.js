@@ -11,7 +11,7 @@
 /*global define, window, document, jQuery */
 
 // Expose plugin as an AMD module if AMD loader is present:
-(function ($) {
+!function ($) {
     'use strict';
     var
         utils = (function () {
@@ -759,56 +759,7 @@
             $(that.suggestionsContainer).remove();
         },
         getOptions: function (options) {
-          var originData = this.el.data(),
-              data = {};
-          //html data api case insensitive
-          for(var k in originData) {
-            switch(k.toLowerCase()) {
-              case("lookup"):
-                data.lookup = originData[k];
-                break;
-              case("width"):
-                data.width = originData[k];
-                break;
-              case("params"):
-                data.params = originData[k];
-                break;
-              case("type"):
-                data.type = originData[k];
-                break;
-              case("autoselectfirst"):
-                data.autoSelectFirst = originData[k];
-                break;
-              case("appendto"):
-                data.appendTo = originData[k];
-                break;
-              case("serviceurl"):
-                data.serviceUrl = originData[k];
-                break;
-              case("minchars"):
-                data.minChars = originData[k];
-                break;
-              case("maxHeight"):
-                data.maxHeight = originData[k];
-                break;
-              case("zindex"):
-                data.zIndex = originData[k];
-                break;
-              case("nocache"):
-                data.noCache = originData[k];
-                break;
-              case("containerclass"):
-                data.containerClass = originData[k];
-                break;
-              case("datatype"):
-                data.dataType = originData[k];
-                break;
-              case("paramname"):
-                data.paramName = originData[k];
-                break;
-            }
-          }
-          return options = $.extend({}, $.fn.autocomplete.defaults, data, options);
+          return options = $.extend({}, $.fn.autocomplete.defaults, this.el.data(), options);
         }
     };
 
@@ -863,4 +814,4 @@
     $(function() {
       $("[data-toggle='autocomplete']").autocomplete();
     });
-})(jQuery);
+}(window.jQuery);

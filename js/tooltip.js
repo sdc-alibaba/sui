@@ -319,11 +319,15 @@
       var $tip = this.tip()
         , e = $.Event('hide')
         , self = this
+        , opt = this.options
 
       this.$element.trigger(e)
       if (e.isDefaultPrevented()) return
 
       $tip.removeClass('in')
+      if (typeof opt.hide == 'function') {
+        opt.hide.call(self.$element)
+      }
 
       function removeWithAnimation() {
         self.timeout = setTimeout(function () {
@@ -484,8 +488,7 @@
     //为confirm类型tooltip增加取消按钮设置默认逻辑
     $(document).on('click', '[data-dismiss=tooltip]', function(e){
       e.preventDefault()
-      $(e.target).parents('.sui-tooltip').prev().trigger('click')
-      console.log(e.target)
+      $(e.target).parents('.sui-tooltip').prev().trigger('click.tooltip')
     })
     $(document).on('click', '[data-ok=tooltip]', function(e){
       e.preventDefault()

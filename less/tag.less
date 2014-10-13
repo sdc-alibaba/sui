@@ -2,27 +2,37 @@
   list-style: none;
   font-size: 0;
   line-height: 0;
-  padding: 5px 5px 0 5px;
+  padding: 5px 0 0 0;
+  margin-bottom: @baseMargin;
+
+  &.tag-bordered {
+    border: 1px solid @grayLight;
+    padding-left: 5px;
+  }
   &>li, &>a {
     font-size: @baseFontSize;
     margin: 0 5px 5px 0;
     display: inline-block;
     overflow: hidden;
     color: @black;
-    background: @btnBackgroundHighlight;
+    background: @tagBackgroundColor;
     padding: 0 7px;
     height: 20px;
     line-height: 20px;
-    border: 1px solid #d1d1d1;
+    border: 1px solid @tagBorderColor;
     white-space: nowrap;
     cursor: pointer;
     &:hover {
-      color: @stepsCurrentColor;
+      color: @tagActiveColor;
     }
     &.tag-selected {
       color: @white;
-      background: @stepsCurrentColor;
-      border-color: #1c91d3;
+      background: @tagActiveColor;
+      border-color: darken(@tagActiveColor, 5%);
+      &:hover {
+        background: @tagActiveHoverColor;
+        border-color: darken(@tagActiveHoverColor, 5%);
+      }
     }
     .transition(color 0.2s ease-out);
     &.with-x {

@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title datepicker
@@ -23,6 +23,20 @@ block content
     div.tab-content
         div.tab-pane#datepicker.active
             h3 datepicker
+            p.sui-lead
+              ul.unstyled
+                li
+                  strong 更新 v1.4.2: 修复在合体模式下无法用 update 函数进行日期和时间的更新的bug
+                li
+                  strong 更新 v1.4.0: 此组件的css代码被移入了 sui-append.css 中
+                li
+                  strong 更新 v1.1.2: 修复了 date-date 模式下无法自动修正日期大小的问题。
+                li
+                  strong 更新 v1.0.3: 修复了当日历和时间同时选择时，无法读取input中初始化值的bug。
+                li
+                  strong 更新 v1.0.2: 修复了选择时间时，点击00或者59会导致日历发生错误的bug。
+                li
+                  strong 更新@2014-06-23：更新配置选项，size，可选择值为small，设置完毕后可使用较小尺寸的日期弹出框。
             ul.sui-nav.nav-tabs.nav-large
                 li.active
                   a(href='#demo', data-toggle='tab') 示例
@@ -44,7 +58,7 @@ block content
                     pre.prettyprint.linenums(data-target='#text-mod')           
 
                     pre.prettyprint.linenums
-                        $('#demo1 input').datepicker({});
+                        $('#demo1 input').datepicker({size:"small"});
                     p 使用data-api:
                     div.bs-docs-example
                         form.sui-form#demo11
@@ -135,7 +149,8 @@ block content
                     pre.prettyprint.linenums.
                         $('#demo4').datepicker({
                             startDate: "2014-04-16",
-                            data-date-format: "yyyy-mm-dd"
+                            data-date-format: "yyyy-mm-dd",
+                            size: "small"
                         });
                     p 这些参数也可以使用data api 来传递：
                     p 比如　startDate　 可以用 data-date-start-date="2014-04-16" , format 为 data-date-format="yyyy-mm-dd"
@@ -224,7 +239,11 @@ block content
                                 | typeof value == object 可以有三个字段enabled，classes，tooltip。
                                 | enabled 和单独返回Booleen一样，
                                 | classes和单独返回string一样，
-                                | tooltip 会在插件上的当前日期添加一个title属性
+                                | tooltip 会在插件上的当前日期添加一个title属性xian
+                        tr
+                            td size
+                            td '&nbsp'
+                            td 默认日期框尺寸为283*254，现在提供一种小尺寸，设置属性size为"small"，尺寸为216*198
                 div.tab-pane#method
                     p 调用方法
                     p
@@ -279,7 +298,7 @@ block content
             p 使用javascript:
             div.bs-docs-example#text-mod-t1
                 form.sui-form#demo5
-                    input(type="text")
+                    input(type="text" value='12:12')
             pre.prettyprint.linenums(data-target='#text-mod-t1')
             pre.prettyprint.linenums
                 $('#demo5 input').timepicker();
@@ -331,7 +350,7 @@ block content
 
             div.bs-docs-example#text-mod3
                 form.sui-form#demo8
-                    input(type="text")          
+                    input(type="text" value='2014-03-02 12:48')
 
             pre.prettyprint.linenums(data-target='#text-mod3')           
 
@@ -343,8 +362,10 @@ block content
                 });
 
 block js_block
-  script
-    $('#demo1 input').datepicker({});
+  script.
+    $('#demo1 input').datepicker({
+         size: "small"
+    });
     $('#demo2').datepicker({});
     $('#demo3').datepicker({});
     $('#demo4').datepicker({});

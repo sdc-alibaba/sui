@@ -14,7 +14,7 @@ build分支包含所有编译出来的代码，用来在官网服务器上部署
 ### 设置sui的remote
 
 进入sui仓库，执行 `git remote -v` 会发现已经存在一个 **origin**，那么我们还需要添加一个 **gitlab** 来发布代码。
-执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/sui.git** 即可
+执行命令 **git remote add  gitlab git@gitlab.alibaba-inc.com:sj/dpl.git** 即可
 
 ### 设置qnui的remote
 
@@ -52,20 +52,21 @@ wqui的操作和上面一样。
 发布包含两部分，一是把代码发布到CDN上，二是更新官网。
 
 ## 发布代码到CDN
-1. 以sui为例，切换到分支daily/1.0.0，如果没有就从dev上新建一个。
-2. 然后merge dev分支
-3. 删除上次发布的tag，`git push gitlab :publish/1.0.0`
-4. `git push gitlab daily/1.0.0`，发布到daily环境
-5. 本地重新打一个tag，并push
-    - `git tag -d publish/1/0.0`
-    - `git tag -d publish/1/0.0`
-    - `git push gitlab publish/1.0.0`
+1. 以sui为例，切换到新分支daily/x.x.x, `git checkout -b daily/x.x.x`
+2. 然后merge dev分支, `git merge dev`
+3. `git push gitlab daily/x.x.x`，发布到daily环境
+4. 打一个publish/x.x.x的tag并发布，并push
+    - `git tag publish/x.x.x`
+    - `git push gitlab publish/x.x.x`
+
+# 如何更新版本号
+版本号在 `variables.jade` 文件中定义，每次发布前要修改版本号，注意版本号的语义化不要随便设置版本号。
 
 ## 更新官网
 
 因为官网服务器没有安装node，所以需要我们本地构建好代码
 
-1. 切换到build分支，`git checkout dev`
+1. 切换到build分支，`git checkout build`
 2. `git merge dev`
 3. 执行 `grunt`
 4. 提交并push。
@@ -73,3 +74,11 @@ wqui的操作和上面一样。
      * `git push origin build`
      
 官网服务器会定时检查每个仓库的更新（5分钟），所以push完build分之后五分钟内官网就会自动更新。
+
+
+# 语义化版本号
+注意发布代码的时候不要随便写版本号，假设版本号为 `x.y.z`, 语义化版本号的基本规范是：
+
+* bug修复或者已有功能更新，升级z位
+* 新增组件升级y位
+* 不兼容老版本的重要更新升级x位
