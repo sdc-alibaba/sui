@@ -4237,11 +4237,11 @@
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide' + (options.transition ? ' fade' : '') + '" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
-                + '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + (options.closeBtn ? '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>' : '')
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
@@ -4529,6 +4529,8 @@
     , bgColor: '#000'
     , keyboard: true
     , hasfoot: true
+    , closeBtn: true
+    , transition: true
   }
 
   $.fn.modal.Constructor = Modal
@@ -4568,6 +4570,7 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  closeBtn: true
    *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度
@@ -4660,13 +4663,15 @@
         this.itemsCount = opts.itemsCount;
         this.pageSize = opts.pageSize;
         this.displayPage = opts.displayPage < 5 ? 5 : opts.displayPage;
-        this.pages = Math.ceil(opts.itemsCount / opts.pageSize);
+        //itemsCount为0的时候应为1页
+        this.pages = Math.ceil(opts.itemsCount / opts.pageSize) || 1; 
         $.isNumeric(opts.pages) && (this.pages = opts.pages);
         this.currentPage = opts.currentPage;
         this.styleClass = opts.styleClass;
         this.onSelect = opts.onSelect;
         this.showCtrl = opts.showCtrl;
         this.remote = opts.remote;
+        this.displayInfoType = ((opts.displayInfoType == 'itemsCount' && opts.itemsCount) ? 'itemsCount': 'pages');
     }
 
     /* jshint ignore:start */
@@ -4728,7 +4733,8 @@
         },
         //值传递
         _drawCtrl: function () {
-            var tpl = '<div>&nbsp;' + '<span>共' + this.pages + '页</span>&nbsp;' + '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
+            var tpl = '<div>&nbsp;' + (this.displayInfoType == 'itemsCount'? '<span>共' + this.itemsCount + '条</span>&nbsp;' :'<span>共' + this.pages + '页</span>&nbsp;') + 
+            '<span>' + '&nbsp;到&nbsp;' + '<input type="text" class="page-num"/><button class="page-confirm">确定</button>' + '&nbsp;页' + '</span>' + '</div>';
             return tpl;
         },
 
@@ -4833,7 +4839,7 @@
         pageSize: 10,
         displayPage: 5,
         currentPage: 1,
-        itemsCount: 100,
+        itemsCount: 0,
         styleClass: [],
         pages: null,
         showCtrl: false,
@@ -6694,6 +6700,17 @@ require('./template')
     return trim(value).length <= param;
   };
   Validate.setRule("maxlength", maxlength, '长度不能超过$0');
+
+  var gt = function(value, element, param) {
+    return Number(value) > param;
+  };
+  Validate.setRule("gt", gt, '必须大于$0');
+
+  var lt = function(value, element, param) {
+    return Number(value) < param;
+  };
+  Validate.setRule("lt", lt, '必须小于$0');
+
 }(window.jQuery)
 
 },{}],20:[function(require,module,exports){
@@ -6954,6 +6971,9 @@ require('./template')
     },
     highlight: function($input, $error, inputErrorClass) {
       $input.addClass(inputErrorClass)
+      //使多控件校验规则错误框可以自动定位出错的控件位置，先将自身移动去该位置附近显示
+      //对单体校验控件，因为是自身append到自身的位置，native不会有行为
+      $.fn.validate.defaults.placeError($input, $error);
       $error.show()
     },
     unhighlight: function($input, $error, inputErrorClass) {

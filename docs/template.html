@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Breadcrumb 面包屑</title>
+    <title>filesize </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -106,14 +106,14 @@
                     <li><a href="layout.html">布局</a></li>
                   </ul>
                 </li>
-                <li class="active"><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
+                <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="navbar.html">导航栏</a></li>
                     <li><a href="pagination.html">分页器 - 样式</a></li>
                     <li><a href="pagination-js.html">分页器 - JS</a></li>
                     <li><a href="msgs.html">提示消息</a></li>
                     <li><a href="steps.html">步骤条</a></li>
-                    <li class="active"><a href="breadcrumb.html">面包屑</a></li>
+                    <li><a href="breadcrumb.html">面包屑</a></li>
                     <li><a href="tab.html">标签页 - 样式</a></li>
                     <li><a href="tab-js.html">标签页 - JS</a></li>
                     <li><a href="intro.html">新手指引</a></li>
@@ -126,10 +126,10 @@
                     <li><a href="tooltip.html">tooltip</a></li>
                   </ul>
                 </li>
-                <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
+                <li class="active"><a><i class="docs-icon">&nbsp;</i>JS工具</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="filesize.html">filesize</a></li>
-                    <li><a href="template.html">字符串模板</a></li>
+                    <li class="active"><a href="template.html">字符串模板</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>其他</a>
@@ -140,7 +140,7 @@
                 </li>
               </ul>
               <script type="text/javascript">
-                var disqus_identifier = 'disqus-id-breadcrumb';
+                var disqus_identifier = 'disqus-id-template';
                 function changeHeight(itemHeight){
                   if(!itemHeight) {
                     var height = $(window).height()-57;
@@ -170,42 +170,79 @@
         </div>
         <div class="content">
           <div class="content-inner">
-            <h2 class="sui-page-header">设计规范</h2>
-            <div class="docs-description"><img src="pictures/docs/breadcrumb.png"></div>
-            <ul class="demo-operations clearfix">
-              <li><a href="#">下载psd文件</a></li>
-            </ul>
+            <style>
+              ul {
+                margin: 0 0 1em 1em;
+              }
+              
+            </style>
             <h2 class="sui-page-header">开发者文档</h2>
+            <p class="sui-lead">引入underscore中的JS模板，underscore地址：<a href='http://underscorejs.org/#template' target='_blank'>undercore template</a>。</p>
+            <h4>JS用法</h4>
+            <p class="sui-lead">
+              <pre>var compiled = $.template("hellow <%= name %>"); 
+compiled({"name": "world"});</pre>
+              <ul>
+                <li><code>$.template</code> 方法接收一个字符串模板，返回一个compiled方法，此方法接收一个JSON对象并返回解析后的模板。</li>
+              </ul>
+            </p>
+            <h4>模板语法</h4>
+            <ul>
+              <li><code><% xxx %></code> 编写任意JS代码</li>
+              <li><code><%= name %></code> 输出变量</li>
+              <li><code><%- name %></code> 输出HTML转义的变量</li>
+            </ul>
             <ul class="sui-nav nav-tabs nav-large">
               <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
               <li><a href="#code1" data-toggle="tab">代码</a></li>
-              <li><a href="#doc1" data-toggle="tab">文档</a></li>
             </ul>
             <div class="tab-content">
               <div id="demo1" class="tab-pane active">
                 <div class="bs-docs-example">
-                  <ul class="sui-breadcrumb">
-                    <li class="active">首页</li>
-                  </ul>
-                  <ul class="sui-breadcrumb">
-                    <li><a href="#">首页</a></li>
-                    <li class="active">手机数码、电脑办公</li>
-                  </ul>
-                  <ul class="sui-breadcrumb">
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#">手机数码、电脑办公</a></li>
-                    <li class="active">智能手机</li>
-                  </ul>
+                  <form class="sui-form form-horizontal">
+                    <div class="control-group">
+                      <label class="control-label">输入模板：</label>
+                      <div class="controls">
+                        <textarea id="template" style="width: 400px;min-height: 50px;"><% for(var i=0;i<3;i++) {%> <%= i %>. hellow <%= name %><%}%></textarea>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">输入JSON数据：</label>
+                      <div class="controls">
+                        <textarea id="json" style="width: 400px;min-height: 50px;">{"name": "world"}</textarea>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label">编译结果：</label>
+                      <div class="controls">
+                        <pre id="result" style="width: 400px;min-height: 50px;"></pre>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label"></label>
+                      <div class="controls"><a id="compile" class="sui-btn btn-primary">编译</a></div>
+                    </div>
+                  </form>
+                  <script>
+                    var log = function(t) {
+                      var $result = $("#result");
+                      $result.html(t);
+                    }
+                    $("#compile").click(function() {
+                      try {
+                        log($.template($("#template").val())($.parseJSON($("#json").val())));
+                      } catch(e) {
+                        log(e);
+                      }
+                    });
+                    
+                  </script>
                 </div>
               </div>
               <div id="code1" class="tab-pane">
                 <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
               </div>
-              <div id="doc1" class="tab-pane">由于从IE8+开始兼容，故无需加分割符，利用:before自动添加，面包屑有默认18px(一个行高)的下边距，宽度100%。</div>
             </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
               /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

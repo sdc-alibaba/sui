@@ -89,7 +89,6 @@
                     <li><a href="datetimepicker.html">datetimepicker</a></li>
                     <li><a href="autocomplete.html">自动补全</a></li>
                     <li><a href="tree-js.html">级联选择</a></li>
-                    <li><a href="editor.html">富文本编辑器</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
@@ -174,6 +173,9 @@
             <h2 class="sui-page-header">开发者文档</h2>
             <p class="sui-lead">pagination-JS组件用于前端分页，无刷新等应用场景 
               <div><a href="pagination.html">点击访问pagination-CSS组件</a></div>
+              <ul class="unstyled">
+                <li><strong>更新 v1.4.3：增加配置项，可以展示分页条数或者总页数。修复bug：通过itemsCount和pageSize配置分页器，0条为1页。</strong></li>
+              </ul>
             </p>
             <ul class="sui-nav nav-tabs nav-large">
               <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -215,6 +217,11 @@
                   <dd><img src="assets/imgs/pagination1.png"></dd>
                   <dd>指定了displayPage以后，pagination组件会根据该配置项自动分页，出于用户体验的考虑，displayPage最小为5个，低于5个会自动被改写为5个</dd>
                   <dd>需要指出一种情况是，如果displayPage为n,但是总的页码为n+1时，pagination组件会展示全部的页码（也就是n+1），不出现省略号</dd>
+                </dl>
+                <dl>
+                  <dt>displayInfoType </dt>
+                  <dd>分页信息的展示，默认展示页数，如果想展示条数，请把该项配置为'itemsCount'</dd>
+                  <dd>注：如果想展示条数，请通过itemsCount和pageSize来配置分页。</dd>
                 </dl>
                 <dl>
                   <dt>currentPage</dt>
