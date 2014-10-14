@@ -1,0 +1,29 @@
+extends base
+
+block title
+  title 图片裁剪 
+
+block sidebar
+  +sidebar('crop')
+
+block content
+
+  h2 crop: 基于Jcrop修改的一个图片裁剪组件。
+
+  h2.sui-page-header 开发者文档
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#doc1', data-toggle='tab') 文档
+    li
+      a(href='#demo1', data-toggle='tab') 示例
+
+  div.tab-content
+    div.tab-pane.active#doc1
+      div#doc1
+        pre.prettyprint.
+
+    div.tab-pane#demo1
+      div#ex1
+        p 举个栗子
+        pre.prettyprint.
