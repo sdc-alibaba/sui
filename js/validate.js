@@ -255,6 +255,9 @@
     },
     highlight: function($input, $error, inputErrorClass) {
       $input.addClass(inputErrorClass)
+      //使多控件校验规则错误框可以自动定位出错的控件位置，先将自身移动去该位置附近显示
+      //对单体校验控件，因为是自身append到自身的位置，native不会有行为
+      $.fn.validate.defaults.placeError($input, $error);
       $error.show()
     },
     unhighlight: function($input, $error, inputErrorClass) {
