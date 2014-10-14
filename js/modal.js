@@ -18,11 +18,11 @@
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide' + (options.transition ? ' fade' : '') + '" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
-                + '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + (options.closeBtn ? '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>' : '')
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
@@ -310,6 +310,8 @@
     , bgColor: '#000'
     , keyboard: true
     , hasfoot: true
+    , closeBtn: true
+    , transition: true
   }
 
   $.fn.modal.Constructor = Modal
@@ -349,6 +351,7 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
+   *  closeBtn: true
    *  bgColor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度

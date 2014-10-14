@@ -1,4 +1,4 @@
-extends base_index
+extends _base_index
 
 block title
   title 更新日志
@@ -20,6 +20,13 @@ block content_wrap
           th 更新内容
           th 更新时间
 
+        tr
+          td 1.4.3
+          td 
+            ul.unstyled
+              li 对话框：增加了closeBtn, transition 2个布尔值配置项，决定是否显示右上角叉叉和是否动画显示、隐藏（html使用方式直接改html结构即可）.
+              li 分页器：增加配置项，可以展示分页条数或者总页数。修复bug：通过itemsCount和pageSize配置分页器，0条为1页。
+          td
         tr
           td 1.4.2
           td 

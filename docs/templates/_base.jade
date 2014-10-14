@@ -1,17 +1,17 @@
 doctype html
-include variables
+include _variables
 html(lang="en")
   head
-    include head
+    include _head
 
     block head
 
   body
-    include header
+    include _header
     block header
       +header('demos')
     mixin sidebar(highlight)
-      include sidenav
+      include _sidenav
     block content_wrap
         .sui-layout
           .sui-msg.msg-success.msg-block.msg-large.remember#global-msg
@@ -24,12 +24,12 @@ html(lang="en")
             .content
               .content-inner
                 block content
-                include discuss
+                include _discuss
                 block footer
                   .footer
                     ul.unstyled
                       li @time 2014.03.07
                       li @author 商家业务事业部-电商服务支撑平台-UED团队
 
-    include foot
+    include _foot
     block js_block
