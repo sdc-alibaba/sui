@@ -1,18 +1,10 @@
 @white: white;
 @black: black;
 
-@selectionBorderWidth: 1px;
-@selectionBackgroundImage: "http://gtms01.alicdn.com/tps/i1/TB15J_TGpXXXXaOaXXXshTwJFXX-8-8.gif";
-@selectionBackgroundColor: @white;
-@selectionBackground: @selectionBackgroundColor url(@selectionBackgroundImage);
-
-// Setting some variables to 
-// Used to set handle and dragbar size/width
-// To center on a 1px selection line, use an odd number
+//控制点和拖曳条的大小、宽度
+//需要是奇数
 @grabSize: 7px;
 
-// Used to offset handles and dragbar
-// Default value will center on 1px selection line
 @grabOffset: (floor(@grabSize/2)+1) * -1;
 
 @handleSize: @grabSize;
@@ -25,40 +17,11 @@
 @dragbarWidth: @grabSize;
 @dragbarOffset: @grabOffset;
 
-/*
-  The outer-most container in a typical Jcrop instance
-  If you are having difficulty with formatting related to styles
-  on a parent element, place any fixes here or in a like selector
-
-  You can also style this element if you want to add a border, etc
-  A better method for styling can be seen below with .jcrop-light
-  (Add a class to the holder and style elements for that extended class)
-*/
 .jcrop-holder {
   direction: ltr;
   text-align: left;
-
-  /* IE10 touch compatibility */ -ms-touch-action: none;
+  -ms-touch-action: none;/* 处理IE10 */ 
 }
-
-/* Selection Border */
-.jcrop-vline, .jcrop-hline {
-  background: @selectionBackground;
-  font-size: 0;
-  position: absolute;
-}
-.jcrop-vline {
-  height: 100%;
-  width: @selectionBorderWidth !important;
-  &.right { right: 0; }
-}
-.jcrop-hline{
-  height: @selectionBorderWidth !important;
-  width: 100%;
-  &.bottom { bottom: 0; }
-}
-
-/* Invisible click targets */
 
 .jcrop-tracker
 {
@@ -104,11 +67,6 @@
 
 /* The "jcrop-light" class/extension */
 .jcrop-light {
-  .jcrop-vline, .jcrop-hline {
-    background: @white;
-    filter:Alpha(opacity=70)!important;
-    opacity:.70!important;
-  }
   .jcrop-handle {
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -120,11 +78,6 @@
 
 /* The "jcrop-dark" class/extension */
 .jcrop-dark {
-  .jcrop-vline, .jcrop-hline {
-    background: @black;
-    filter: Alpha(opacity=70) !important;
-    opacity: 0.7 !important;
-  }
   .jcrop-handle {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -136,9 +89,6 @@
 
 /* Simple macro to turn off the antlines */
 .solid-line {
-  .jcrop-vline, .jcrop-hline {
-    background: @selectionBackgroundColor;
-  }
 }
 
 /* Fix for twitter bootstrap et al. */

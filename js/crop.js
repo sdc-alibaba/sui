@@ -833,16 +833,6 @@
           dragbar = {},
           seehandles = false;
 
-      // Private Methods
-      function insertBorder(type) //{{{
-      {
-        var jq = $('<div />').css({
-          position: 'absolute',
-          opacity: options.borderOpacity
-        }).addClass(cssClass(type));
-        $img_holder.append(jq);
-        return jq;
-      }
       //}}}
       function dragDiv(ord, zi) //{{{
       {
@@ -885,21 +875,7 @@
           dragbar[li[i]] = insertDragbar(li[i]);
         }
       }
-      //}}}
-      function createBorders(li) //{{{
-      {
-        var cl,i;
-        for (i = 0; i < li.length; i++) {
-          switch(li[i]){
-            case'n': cl='hline'; break;
-            case's': cl='hline bottom'; break;
-            case'e': cl='vline right'; break;
-            case'w': cl='vline'; break;
-          }
-          borders[li[i]] = insertBorder(cl);
-        }
-      }
-      //}}}
+
       function createHandles(li) //{{{
       {
         var i;
@@ -1047,11 +1023,6 @@
 
       if ($.isArray(options.createHandles))
         createHandles(options.createHandles);
-
-      if (options.drawBorders && $.isArray(options.createBorders))
-        createBorders(options.createBorders);
-
-      //}}}
 
       // This is a hack for iOS5 to support drag/move touch functionality
       $(document).bind('touchstart.jcrop-ios',function(e) {
@@ -1261,15 +1232,7 @@
 
       if (options.keySupport) {
         $keymgr.keydown(parseKey).blur(onBlur);
-        if (ie6mode || !options.fixedSupport) {
-          $keymgr.css({
-            position: 'absolute',
-            left: '-20px'
-          });
-          $keywrap.append($keymgr).insertBefore($img);
-        } else {
-          $keymgr.insertBefore($img);
-        }
+        $keymgr.insertBefore($img);
       }
 
 
@@ -1629,7 +1592,6 @@
     bgColor: 'black',
     bgOpacity: 0.6,
     bgFade: false,
-    borderOpacity: 0.4,
     handleOpacity: 0.5,
     handleSize: null,
 
@@ -1637,10 +1599,7 @@
     keySupport: true,
     createHandles: ['n','s','e','w','nw','ne','se','sw'],
     createDragbars: ['n','s','e','w'],
-    createBorders: ['n','s','e','w'],
-    drawBorders: true,
     dragEdges: true,
-    fixedSupport: true,
     touchSupport: null,
 
     shade: null,
