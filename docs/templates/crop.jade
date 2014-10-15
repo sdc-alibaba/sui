@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 图片裁剪 
@@ -8,22 +8,176 @@ block sidebar
 
 block content
 
-  h2 crop: 基于Jcrop修改的一个图片裁剪组件。
+  h2 crop: 基于Jcrop二次开发的一个图片裁剪组件,精简了一些商家业务不care的逻辑。
 
   h2.sui-page-header 开发者文档
 
   ul.sui-nav.nav-tabs.nav-large
     li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
       a(href='#doc1', data-toggle='tab') 文档
     li
-      a(href='#demo1', data-toggle='tab') 示例
+      a(href='#api1', data-toggle='tab') API
+    li
+      a(href='#event1', data-toggle='tab') 事件
 
   div.tab-content
-    div.tab-pane.active#doc1
-      div#doc1
-        pre.prettyprint.
+    div.tab-pane.active#demo1
+      div.bs-docs-example
+        img(id="img1", src="http://gtms01.alicdn.com/tps/i1/TB1ezkhGpXXXXbuXFXXYhz0ZpXX-739-585.png")
+        div#info(style="margin:10px 0").
+          <label>X1 <input type="text" size="4" id="x1" name="x1" /></label>
+          <label>Y1 <input type="text" size="4" id="y1" name="y1" /></label>
+          <label>X2 <input type="text" size="4" id="x2" name="x2" /></label>
+          <label>Y2 <input type="text" size="4" id="y2" name="y2" /></label>
+          <label>W <input type="text" size="4" id="w" name="w" /></label>
+          <label>H <input type="text" size="4" id="h" name="h" /></label>
 
-    div.tab-pane#demo1
-      div#ex1
-        p 举个栗子
-        pre.prettyprint.
+        script.
+          jQuery(function($){
+
+            var jcrop_api;
+
+            $('#img1').Jcrop({
+              //选框拖选鼠标移动时执行(执行频度很高)
+              onChange:   showCoords,
+              //选框拖选完毕时执行
+              onSelect:   showCoords,
+              //取消选框时执行
+              onRelease:  clearCoords
+            },function(){
+              //可以借此将裁剪实例传到外部
+              jcrop_api = this;
+            });
+
+            $('#info').on('change','input',function(e){
+              var x1 = $('#x1').val(),
+                  x2 = $('#x2').val(),
+                  y1 = $('#y1').val(),
+                  y2 = $('#y2').val();
+              //通过程序方式设置选框位置
+              jcrop_api.setSelect([x1,y1,x2,y2]);
+            });
+
+          });
+
+          function showCoords(c)
+          {
+            $('#x1').val(c.x);
+            $('#y1').val(c.y);
+            $('#x2').val(c.x2);
+            $('#y2').val(c.y2);
+            $('#w').val(c.w);
+            $('#h').val(c.h);
+          };
+
+          function clearCoords()
+          {
+            $('#info input').val('');
+          };
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+      pre.prettyprint $ele.modal(opstions)  让指定的内容变成一个模态对话框。接受一个可选的参数
+      pre.prettyprint $ele.modal('show')  手动打开一个模态对话框。
+      pre.prettyprint $ele.modal('hide')  手动关闭一个模态对话框。
+      pre.prettyprint $ele.modal('okHide')  手动关闭一个模态对话框，此时不会再触发okHide事件回调，而是在对话框关闭后会触发okHidden事件。
+      pre.prettyprint $ele.modal('toggle')  手动打开或关闭一个模态对话框。
+      pre.prettyprint $ele.modal('shadeIn')  使该对话框自身被遮罩层遮住，方便层上层的调用操作。
+      pre.prettyprint $ele.modal('shadeOut')  顾名思义，上一条的逆操作。
+      pre.prettyprint $ele.modal('shadeToggle')  顾名思义，上两条的交替操作。
+      pre.prettyprint $ele.modal('resize') dialog展示后，如果高度动态发生变化，比如塞入异步数据后撑高容器，则调用该接口使dialog重新定位居中
+
+      h3 简单使用方法
+      p
+        无需编写JavaScript代码即可生成一个对话框。在一个主控元素，例如按钮，上设置<code>data-toggle="modal"</code>，然后再设置<code>data-target="#foo"</code> 或<code>href="#foo"</code> 用以指向某个将要被启动的对话框。
+      p
+        data-属性都是必须的。也可通过
+          code $ele.modal(opt)
+        触发,注意这里的<code>$ele</code>是对话框元素，不是触发元素（如某个按钮）
+
+      h3 对异步操作的增强支持
+      p 
+        对确定按钮<code>[data-ok="modal"]</code>动态添加<code>class="disabled"</code> 可以阻止按钮被点击，同时阻止okHide事件的执行
+      h3 此HTML模板方法对话框针对<code>层上层</code>的处理
+      p 
+        层上层通常是对 对话框操作的确认提示以及反馈，不会再有复杂业务逻辑,所以合理搭配是：<br>
+        下层为复杂业务的原型方法对话框，上层为简单静态方法对话框。其他组合可能会有问题。<br>
+        调用<code>$ele.modal('shade')</code>可以使自身被遮罩（不是全屏遮罩），然后可安心处理上层对话框弹出并让用户操作。
+      h3 2种对话框的取舍。
+      p
+        涉及弹层html结构/的参数（如hasfoot，okbtn，cancelbtn）不适用此类调用方法，因为弹层html结构已经被写在html中，比如不要脚部，则.modal-footer及其子元素不写到html里即可
+    div.tab-pane#api1
+      属性参数<code>不止下方这些</code>。除了不能使用回调函数型的参数，其余均和<code>js调用的对话框参数相同</code>，注入data-**属性即可,部分data-属性参数举例：
+      table.sui-table.table-bordered
+        thead
+          tr
+            th(style="width:100px") 名称
+            th(style="width:50px") 类型
+            th(style="width:50px") 默认值
+            th 描述
+        tbody
+          tr
+            td backdrop
+            td boolean
+            td true
+            td 决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
+          tr
+            td keyboard
+            td boolean
+            td true
+            td 按下esc键时关闭模态对话框
+          tr
+            td show
+            td boolean
+            td true
+            td 初始化时即显示模态对话框
+          tr 
+            td remote
+            td path
+            td false
+            td 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到<code>.modal-body</code>中。案例如下
+              pre.prettyprint &lt;a data-toggle="modal" href="remote.html" data-target="#modal"&gt;click me&lt;/a&gt;
+    div.tab-pane#event1
+      p 原型方法的事件接口,与bootstrap提供的一致,与静态方法不互用
+        table.sui-table.table-bordered
+          thead
+            tr
+              th(style="width:150px") 名称
+              th 类型
+          tbody
+            tr
+              td show
+              td 当<code>show</code>方法被调用时，此事件将被立即触发。
+            tr
+              td shown
+              td 当模态对话框呈现到用户面前时（会等待过渡效果执行结束）此事件被触发。
+            tr
+              td hide
+              td 当<code>hide</code>方法被调用时，此事件被立即触发。
+            tr
+              td hidden
+              td 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+            tr
+              td okHide
+              td 当模态对话框因为被点击了确认按钮而被隐藏之前，此事件被立即触发。回调函数可以通过返回<code>true|false</code>控制对话框是否会被继续关闭。如果多次绑定okHide事件，只取最后一次绑定的事件回调执行，并取返回值。
+            tr
+              td okHidden
+              td 当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+            tr
+              td cancelHide
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏之前，此事件被立即触发。
+            tr
+              td cancelHidden
+              td 当模态对话框因<code>非</code>确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
+
+
+        pre.prettyprint.linenums.
+          $('#myModal').on('hidden', function () {
+            // do something…
+          })
+
+

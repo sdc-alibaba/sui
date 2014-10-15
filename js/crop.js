@@ -268,12 +268,13 @@
     };
 
     var $origimg = $(obj),
-      img_mode = true;
+      img_mode = true,
+      $img = $origimg.clone().removeAttr('id').css(img_css).show();
 
     if (obj.tagName == 'IMG') {
       // Fix size of crop image.
       // Necessary when crop image is within a hidden element when page is loaded.
-      if ($origimg[0].width != 0 && $origimg[0].height != 0) {
+      if ($origimg[0].width !== 0 && $origimg[0].height !== 0) {
         // Obtain dimensions from contained img element.
         $origimg.width($origimg[0].width);
         $origimg.height($origimg[0].height);
@@ -284,8 +285,6 @@
         $origimg.width(tempImage.width);
         $origimg.height(tempImage.height);
       } 
-
-      var $img = $origimg.clone().removeAttr('id').css(img_css).show();
 
       $img.width($origimg.width());
       $img.height($origimg.height());
