@@ -9,8 +9,7 @@
     var options = $.extend({}, $.Jcrop.defaults),
         docOffset,
         _ua = navigator.userAgent.toLowerCase(),
-        is_msie = /msie/.test(_ua),
-        ie6mode = /msie [1-6]\./.test(_ua);
+        is_msie = /msie/.test(_ua);
 
     // Internal Methods {{{
     function px(n) {
@@ -341,22 +340,14 @@
 
     }
 
-    if (ie6mode) {
-      $sel.css({
-        overflowY: 'hidden'
-      });
-    }
-
-    var bound = options.boundary;
-    var $trk = newTracker().width(boundx + (bound * 2)).height(boundy + (bound * 2)).css({
+    var $trk = newTracker().width(boundx + 4).height(boundy + 4).css({
       position: 'absolute',
-      top: px(-bound),
-      left: px(-bound),
+      top: '-2px',
+      left: '-2px',
       zIndex: 290
     }).mousedown(newSelection);
 
     /* }}} */
-    // Set more variables {{{
     var bgcolor = options.bgColor,
         bgopacity = options.bgOpacity,
         xlimit, ylimit, xmin, ymin, xscale, yscale, enabled = true,
@@ -868,9 +859,9 @@
         return dragDiv(ord, hdep++).addClass('jcrop-dragbar');
       }
       //}}}
-      function createDragbars(li) //{{{
+      function createDragbars() //{{{
       {
-        var i;
+        var i, li = ['n','s','e','w'];
         for (i = 0; i < li.length; i++) {
           dragbar[li[i]] = insertDragbar(li[i]);
         }
@@ -1018,8 +1009,8 @@
       // Insert draggable elements {{{
       // Insert border divs for outline
 
-      if (options.dragEdges && $.isArray(options.createDragbars))
-        createDragbars(options.createDragbars);
+      //绘制和拖曳border
+      createDragbars();
 
       if ($.isArray(options.createHandles))
         createHandles(options.createHandles);
@@ -1384,7 +1375,7 @@
         boundx = $img.width();
         boundy = $img.height();
         $img2.width(boundx).height(boundy);
-        $trk.width(boundx + (bound * 2)).height(boundy + (bound * 2));
+        $trk.width(boundx + 4).height(boundy + 4);
         $div.width(boundx).height(boundy);
         Shade.resize(boundx,boundy);
         enableCrop();
@@ -1590,28 +1581,25 @@
     baseClass: 'jcrop',
     addClass: null,
     bgColor: 'black',
-    bgOpacity: 0.6,
+    bgOpacity: 0.5,
     bgFade: false,
-    handleOpacity: 0.5,
+    fadeTime: 400,
+    handleOpacity: 0.4,
     handleSize: null,
 
     aspectRatio: 0,
     keySupport: true,
     createHandles: ['n','s','e','w','nw','ne','se','sw'],
-    createDragbars: ['n','s','e','w'],
-    dragEdges: true,
     touchSupport: null,
 
     shade: null,
 
     boxWidth: 0,
     boxHeight: 0,
-    boundary: 2,
-    fadeTime: 400,
     animationDelay: 20,
     swingSpeed: 3,
 
-    minSelect: [0, 0],
+    minSelect: [20, 40],
     maxSize: [0, 0],
     minSize: [0, 0],
 

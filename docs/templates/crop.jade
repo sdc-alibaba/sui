@@ -97,39 +97,35 @@ block content
 
           // 样式设置
           bgColor: 'black',    //截图时的背景色
-          bgOpacity: 0.6,      //截图时的背景透明度
+          bgOpacity: 0.5,      //截图时的背景透明度
           bgFade: false,       //背景的显示隐藏是否用fade动画显示
+          fadeTime: 400,       //如果开启背景渐隐特效（bgFade）,动画时长
+          handleOpacity: 0.4,  //拉升操作块透明度
+          handleSize: null,    //拉升操作块边长
 
           //裁剪限制
           aspectRatio: 0,      //限定只能按什么长宽比裁剪
           keySupport: true,    //是否开启键盘支持，方便微调
-          drawBorders: true,
           touchSupport: null,  //是否开启触摸屏支持，不配置会进行自动判断
 
           shade: null,
 
           boxWidth: 0,         //裁剪组件容器宽度
           boxHeight: 0,        //裁剪组件容器高度
-          boundary: 2,
-          fadeTime: 400,
-          animationDelay: 20,
-          swingSpeed: 3,
 
-          minSelect: [0, 0],
-          maxSize: [0, 0],
-          minSize: [0, 0],
+          minSelect: [0, 0],   //指定选框的最小宽、高，小于这个尺寸松开鼠标时选框会消失（onRelease触发）
+          maxSize: [0, 0],     //选框可选择的最大宽、高
+          minSize: [0, 0],     //选框可选择的最小宽、高
 
-          //选框拖选鼠标移动时执行(执行频度很高)
-          onChange: function () {},
-          //选框拖选完毕时执行
-          onSelect: function () {},
-          //双击时
-          onDblClick: function () {},
-          //取消选框时执行
-          onRelease: function () {}
+          onChange: function () {},//选框拖选鼠标移动时执行(执行频度很高)
+          
+          onSelect: function () {},//选框拖选完毕时执行
+          
+          onDblClick: function () {},//双击时
+          
+          onRelease: function () {}//取消选框时执行
         };
     div.tab-pane#event1
-      p 原型方法的事件接口,与bootstrap提供的一致,与静态方法不互用
         table.sui-table.table-bordered
           thead
             tr
@@ -137,34 +133,14 @@ block content
               th 类型
           tbody
             tr
-              td show
-              td 当<code>show</code>方法被调用时，此事件将被立即触发。
+              td onChange
+              td 选框拖选鼠标移动时执行(执行频度很高)。
             tr
-              td shown
-              td 当模态对话框呈现到用户面前时（会等待过渡效果执行结束）此事件被触发。
+              td onSelect
+              td 选框拖选完毕时执行。
             tr
-              td hide
-              td 当<code>hide</code>方法被调用时，此事件被立即触发。
+              td onDblClick
+              td 双击时执行。
             tr
-              td hidden
-              td 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
-            tr
-              td okHide
-              td 当模态对话框因为被点击了确认按钮而被隐藏之前，此事件被立即触发。回调函数可以通过返回<code>true|false</code>控制对话框是否会被继续关闭。如果多次绑定okHide事件，只取最后一次绑定的事件回调执行，并取返回值。
-            tr
-              td okHidden
-              td 当模态对话框因为确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
-            tr
-              td cancelHide
-              td 当模态对话框因<code>非</code>确认逻辑而被隐藏之前，此事件被立即触发。
-            tr
-              td cancelHidden
-              td 当模态对话框因<code>非</code>确认逻辑而被隐藏（而且过渡效果执行完毕）之后，此事件将被触发。
-
-
-        pre.prettyprint.linenums.
-          $('#myModal').on('hidden', function () {
-            // do something…
-          })
-
-
+              td onRelease
+              td 取消选框时执行。
