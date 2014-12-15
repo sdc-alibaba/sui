@@ -33,13 +33,20 @@ cite    { font-style: normal; }
 a.sui-muted:hover,
 a.sui-muted:focus        { color: darken(@grayLight, 10%); }
 
+.sui-text        { color: @linkColor; }
+
 .sui-text-warning        { color: @warningText; }
 a.sui-text-warning:hover,
 a.sui-text-warning:focus { color: darken(@warningText, 10%); }
 
+//兼容danger和error
 .sui-text-error          { color: @errorText; }
 a.sui-text-error:hover,
 a.sui-text-error:focus   { color: darken(@errorText, 10%); }
+
+.sui-text-danger          { color: @errorText; }
+a.sui-text-danger:hover,
+a.sui-text-danger:focus   { color: darken(@errorText, 10%); }
 
 .sui-text-info           { color: @infoText; }
 a.sui-text-info:hover,
@@ -53,6 +60,13 @@ a.sui-text-success:focus { color: darken(@successText, 10%); }
 .sui-text-right          { text-align: right; }
 .sui-text-center         { text-align: center; }
 
+//line-height = font-size * 1.5
+.sui-text-large { font-size: 14px; line-height: 21px;}
+.sui-text-xlarge { font-size: 20px; line-height: 30px;}
+.sui-text-xxlarge { font-size: 22px; line-height: 33px;}
+.sui-text-xxxlarge { font-size: 24px; line-height: 36px;}
+
+.sui-text-bold { font-weight: bold;}
 
 // Headings
 // -------------------------
