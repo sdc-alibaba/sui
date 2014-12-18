@@ -21,6 +21,11 @@ block content
 
   h2.sui-page-header 开发者文档
 
+  p.sui-lead
+    ul.unstyled
+      li
+        strong 更新 v1.5.0：增加了不同颜色大小的文本和链接样式。
+
   h2 基础字体和颜色
   ul.sui-nav.nav-tabs.nav-large
     li.active
@@ -41,9 +46,46 @@ block content
         h3 标题三
         h4 标题四
         h5 标题五
-        
+
         p
-          a(href='#') 链接颜色
+          默认字号
+        p.sui-text-large
+          大字号 sui-text-large
+        p.sui-text-xlarge
+          更大字号 sui-text-xlarge
+        p.sui-text-xxlarge
+          超大字号 sui-text-xxlarge
+
+        h2 文本色
+        ul.unstyled
+          li
+            span 默认文本颜色
+          li
+            span.sui-text-success 成功色
+          li
+            span.sui-text-warning 警告色
+          li
+            span.sui-text-danger 危险色
+          li
+            span.sui-text-info 提示色
+          li
+            span.sui-text-disabled 禁用色
+
+        h2 链接色
+        ul.unstyled
+          li
+            a 默认链接颜色
+          li
+            a.sui-text-success 成功色
+          li
+            a.sui-text-warning 警告色
+          li
+            a.sui-text-danger 危险色
+          li
+            a.sui-text-info 提示色
+          li
+            a.sui-text-disabled 禁用色
+        
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
 

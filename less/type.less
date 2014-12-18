@@ -56,6 +56,15 @@ a.sui-text-info:focus    { color: darken(@infoText, 10%); }
 a.sui-text-success:hover,
 a.sui-text-success:focus { color: darken(@successText, 10%); }
 
+.sui-text-disabled        { color: @disabledText; }
+a.sui-text-disabled:hover,
+a.sui-text-disabled:focus {
+  color: @disabledText;
+  cursor: default;
+  text-decoration: none;
+}
+
+
 .sui-text-left           { text-align: left; }
 .sui-text-right          { text-align: right; }
 .sui-text-center         { text-align: center; }
