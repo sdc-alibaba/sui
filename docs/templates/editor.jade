@@ -201,7 +201,7 @@ block content
                 th 默认值
                 th 说明
             tr
-                td toolbars{2d Array}
+                td toolbars{Array}
                 td 即demo所见插件
                 td 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
             tr
@@ -225,10 +225,6 @@ block content
                 td true
                 td 初始化时，是否让编辑器获得焦点true或false 
             tr
-                td indentValue {String}
-                td '2em'
-                td 首行缩进距离，默认是2em
-            tr
                 td initialFrameWidth {Number}
                 td 1000
                 td 初始化编辑器宽度
@@ -240,10 +236,6 @@ block content
                 td readonly {Boolean}
                 td false
                 td 编辑器初始化结束后，编辑区域是否是只读的
-            tr
-                td autoClearEmptyNode {Boolean}
-                td true
-                td getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
             tr
                 td enableAutoSave {Boolean}
                 td true
@@ -264,18 +256,6 @@ block content
                 td pasteplain {Boolean}
                 td false
                 td 是否默认为纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴  
-            tr
-                td filterTxtRules {Object} 
-                td 
-                td 纯文本粘贴模式下的过滤规则  
-            tr
-                td listDefaultPaddingLeft
-                td '30'
-                td 默认的左边缩进的基数倍
-            tr
-                td autoTransWordToList {Boolean}
-                td false
-                td 禁止word中粘贴进来的列表自动变成列表标签
             tr
                 td fontsize {Array}
                 td [10, 11, 12, 14, 16, 18, 20, 24, 36]
@@ -331,19 +311,7 @@ block content
             tr
                 td toolbarTopOffset {Number}
                 td 400
-                td 编辑器底部距离工具栏高度(如果参数大于等于编辑器高度，则设置无效)
-            tr
-                td tableDragable {Boolean}
-                td true
-                td 表格是否可以拖拽
-            tr
-                td disabledTableInTable {Boolean} 
-                td true
-                td 禁止表格嵌套
-            tr
-                td allowDivTransToP {Boolean} 
-                td true
-                td 认会将外部进入的html数据中的Div标签转换成P标签，外部进入的数据包括粘贴和调用setContent接口进入编辑器的数据。如果设置成false将不在做这个转换。
+                td 编辑器底部距离工具栏高度(如果参数大于等于编辑器高度，则设置无效)    
       p 
         strong 3.可调用实例的.editor方法，传入调用的方法名和参数，触发事件，如：$editor.editor("isFocus")
       p
@@ -609,14 +577,10 @@ block content
             </div>
             <h3>1.简单列表</h3>
             <textarea id="simple" style="width:1024px;height:200px;"></textarea>
-            <h3>2.多行列表</h3>
-            <textarea id="multi" style="width:1024px;height:200px;"></textarea>
         </div>
         <script type="text/javascript">
             //toolbar是二维数组
-            var $editor1 = $('#simple').editor({toolbars:[['FullScreen', 'Source', 'Undo', 'Redo','Bold','test']]});
-            var $editor2 = $('#multi').editor({toolbars: [['fullscreen', 'source', 'undo', 'redo'],
-                ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', '|', 'forecolor', 'backcolor', 'insertorderedlist']]});
+            var $editor1 = $('#simple').editor({ toolbar:['fullscreen source undo redo bold italic underline']});
         </script>
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
@@ -672,15 +636,6 @@ block content
             tr
                 td 'insertunorderedlist'
                 td 无序列表
-             tr
-                td 'directionalityltr'
-                td 从左向右输入
-            tr
-                td 'directionalityrtl'
-                td 从右向左输入
-            tr
-                td 'indent'
-                td 首行缩进
             tr
                 td 'justifyleft'
                 td 居左对齐
@@ -703,8 +658,8 @@ block content
                 td 'anchor'
                 td 锚点
             tr
-                td 'insertimage'
-                td 多图上传
+                td 'image'
+                td 图片上传
             tr
                 td 'emotion'
                 td 表情
@@ -751,6 +706,3 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
 
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo3') 复制代码
