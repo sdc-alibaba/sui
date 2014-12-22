@@ -131,6 +131,7 @@
     td {
       border-left: 1px solid @tableBorder;
     }
+
     // Prevent a double border
     caption + thead tr:first-child th,
     caption + tbody tr:first-child th,
@@ -222,7 +223,26 @@
 
   &.table-sideheader {
     .table-bordered;
-
+    &.table-nobordered{
+      td{
+        border-left: none;
+      }
+    }
+    &.table-zebra.table-primary{
+      th{
+        background-color:#4cb9fc;
+      }
+    }
+    &.table-nobordered.table-primary{
+      th{
+        background-color:#4cb9fc;
+      }
+    }
+    &.table-bordered-simple {
+      td,th{
+        border-top: 0;
+      }
+    }
     tbody tr td:first-child{
       background-color:@tableHeadBackground;
     }
@@ -276,8 +296,15 @@
     th,
     td {
       border-top: 0;
+
     }
-  } 
+  }
+  &.table-nobordered.table-sideheader {
+      th{
+        border-right:1px solid @tableBorder;
+        border-bottom: none;
+      }
+   }
 
 
   // HOVER EFFECT
