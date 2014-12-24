@@ -167,7 +167,7 @@
     , shadeIn: function () {
         var $ele = this.$element
         if ($ele.find('.shade').length) return
-        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgcolor + '"></div>')
         $shadeEle.appendTo($ele)
         this.hasShaded = true
         return this.$element
@@ -253,7 +253,7 @@
           var doAnimate = $.support.transition && animate
           //如果显示背景遮罩层
           if (opt.backdrop !== false) {
-            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgcolor + '"/>')
             .appendTo(document.body)         
             //遮罩层背景黑色半透明
             this.$backdrop.click(
@@ -307,7 +307,7 @@
 
   $.fn.modal.defaults = {
       backdrop: true
-    , bgColor: '#000'
+    , bgcolor: '#000'
     , keyboard: true
     , hasfoot: true
     , closeBtn: true
@@ -352,7 +352,7 @@
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
    *  closeBtn: true
-   *  bgColor : '#123456'  背景遮罩层颜色
+   *  bgcolor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
