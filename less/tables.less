@@ -222,13 +222,13 @@
   }
 
   &.table-sideheader {
-    .table-bordered;
+    /*.table-bordered;*/
     &.table-nobordered{
       td{
         border-left: none;
       }
     }
-    &.table-zebra.table-primary{
+    &.table-primary.table-vzebra tr,&.table-primary.table-zebra tr{
       th{
         background-color:#4cb9fc;
       }
@@ -239,12 +239,20 @@
       }
     }
     &.table-bordered-simple {
-      td,th{
-        border-top: 0;
+      td{
+        border-left: 0;
+      }
+      th{
+        border-right: 1px solid @tableBorder;
       }
     }
     tbody tr td:first-child{
       background-color:@tableHeadBackground;
+    }
+    tbody tr:first-child{
+      td,th{
+          border-top:0; 
+      }
     }
 
   }
