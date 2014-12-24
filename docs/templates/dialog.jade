@@ -235,7 +235,7 @@ block content
       pre.prettyprint.linenums.
         $.alert({
          backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
-         bgColor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
+         bgcolor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
          keyboard: true   是否可由esc按键关闭
          title: '自定义标题'
          body: 'html' //必填
@@ -304,7 +304,7 @@ block content
               body: 'confirm again'
               ,width: 'normal'
               ,backdrop: true
-              ,bgColor: 'none'
+              ,bgcolor: 'none'
               ,show: function(){console.log('show')}
               ,shown: function(){console.log('shown')}
               ,hide: function(){console.log('hide')}
