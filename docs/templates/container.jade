@@ -1,0 +1,16 @@
+extends _base
+
+block title
+  title 响应式容器
+
+block sidebar
+  +sidebar('container')
+
+block content
+  h2.sui-page-header 响应式容器
+  
+  p.sui-lead
+    | <code>.sui-container</code> 是一个响应式容器，它会自动左右居中，并且根据页面的宽度来调整自身宽度，左右两边有合理的边距。很合适作为整个页面内容的容器。
+
+  p.sui-lead
+    | 用法： <code>&lt;div class='sui-container'&gt;&lt;/div&gt;

@@ -22,7 +22,7 @@
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
-                + '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>'
+                + (options.closeBtn ? '<button type="button" class="sui-close" data-dismiss="modal" aria-hidden="true">&times;</button>' : '')
                 + '<h4 class="modal-title">{%title%}</h4>'
               + '</div>'
               + '<div class="modal-body ' + (options.hasfoot ? '' : 'no-foot') + '">{%body%}</div>'
@@ -39,6 +39,8 @@
                       .replace('{%id%}', options.id)
                       .replace('{%ok_btn%}', options.okBtn)
                       .replace('{%cancel_btn%}', options.cancelBtn))
+      //如果不支持动画显示（默认支持）
+      if (!options.transition) element.removeClass('fade');
       $('body').append(element)
     }
     this.$element = $(element)
@@ -50,7 +52,9 @@
     constructor: Modal
     ,init: function () {
       var ele = this.$element
-        , w = this.options.width
+        , opt = this.options
+        , w = opt.width
+        , h = opt.height
         , self = this
         , standardW = {
             small: 440  //默认宽度
@@ -59,10 +63,11 @@
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
-      if(w) {
+      if (w) {
         standardW[w] && (w = standardW[w])
         ele.width(w).css('margin-left', -parseInt(w) / 2)
       }
+      h && ele.find('.modal-body').height(h);
       if (typeof this.options.remote == 'string') {
         this.$element.find('.modal-body').load(this.options.remote)
       }
@@ -73,7 +78,7 @@
     }
       
     , show: function () {
-        var that = this
+        var self = this
           , e = $.Event('show')
           , ele = this.$element
         ele.trigger(e)
@@ -86,7 +91,7 @@
             ele.appendTo(document.body) //don't move modals dom position
           }
           //处理dialog在页面中的定位
-          that.resize()
+          self.resize()
 
           ele.show()
           if (transition) {
@@ -95,19 +100,19 @@
           ele
             .addClass('in')
             .attr('aria-hidden', false)
-          that.enforceFocus()
+          self.enforceFocus()
           transition ?
             ele.one($.support.transition.end, function () { 
-              callbackAfterTransition(that)
+              callbackAfterTransition(self)
             }) :
-            callbackAfterTransition(that)
+            callbackAfterTransition(self)
 
-          function callbackAfterTransition(that) {
-            that.$element.focus().trigger('shown')
-            if (that.options.timeout > 0) {
-              that.timeid = setTimeout(function(){
-                that.hide(); 
-              }, that.options.timeout) 
+          function callbackAfterTransition(self) {
+            self.$element.focus().trigger('shown')
+            if (self.options.timeout > 0) {
+              self.timeid = setTimeout(function(){
+                self.hide(); 
+              }, self.options.timeout) 
             }
           }
         })
@@ -116,24 +121,25 @@
 
     , hide: function (e) {
         e && e.preventDefault()
-        var that = this
+        var $ele = this.$element
         e = $.Event('hide')
-        this.$element.trigger(e)
+        this.hideReason != 'ok' && $ele.trigger('cancelHide')
+        $ele.trigger(e)
         if (!this.isShown || e.isDefaultPrevented()) return
         this.isShown = false
         this.escape()
         $(document).off('focusin.modal')
-        that.timeid && clearTimeout(that.timeid)
-        this.$element
+        this.timeid && clearTimeout(this.timeid)
+        $ele
           .removeClass('in')
           .attr('aria-hidden', true)
-        $.support.transition && this.$element.hasClass('fade') ?
+        $.support.transition && $ele.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
-        return that.$element
+        return $ele
       }
     , okHide: function(e){
-        var that = this
+        var self = this
         // 如果e为undefined而不是事件对象，则说明不是点击确定按钮触发的执行，而是手工调用，
         // 那么直接执行hideWithOk
         if (!e) {
@@ -154,16 +160,16 @@
           hideWithOk()
         } 
         function hideWithOk (){
-          that.hideReason = 'ok'
-          that.hide(e)  
+          self.hideReason = 'ok'
+          self.hide(e)  
         }
-        return that.$element
+        return self.$element
     }
     //对话框内部遮罩层
     , shadeIn: function () {
         var $ele = this.$element
         if ($ele.find('.shade').length) return
-        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgcolor + '"></div>')
         $shadeEle.appendTo($ele)
         this.hasShaded = true
         return this.$element
@@ -190,20 +196,20 @@
       return ele
     }
     , enforceFocus: function () {
-        var that = this
+        var self = this
         //防止多实例时循环触发
         $(document).off('focusin.modal') .on('focusin.modal', function (e) {
-          if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
-            that.$element.focus()
+          if (self.$element[0] !== e.target && !self.$element.has(e.target).length) {
+            self.$element.focus()
           }
         })
       }
 
     , escape: function () {
-        var that = this
+        var self = this
         if (this.isShown && this.options.keyboard) {
           this.$element.on('keyup.dismiss.modal', function ( e ) {
-            e.which == 27 && that.hide()
+            e.which == 27 && self.hide()
           })
         } else if (!this.isShown) {
           this.$element.off('keyup.dismiss.modal')
@@ -211,27 +217,25 @@
       }
 
     , hideWithTransition: function () {
-        var that = this
+        var self = this
           , timeout = setTimeout(function () {
-              that.$element.off($.support.transition.end)
-              that.hideModal()
+              self.$element.off($.support.transition.end)
+              self.hideModal()
             }, 300)
         this.$element.one($.support.transition.end, function () {
           clearTimeout(timeout)
-          that.hideModal()
+          self.hideModal()
         })
       }
 
     , hideModal: function () {
-        var that = this
+        var self = this
           ,ele = this.$element
         ele.hide()
         this.backdrop(function () {
-          that.removeBackdrop()
-          if (that.hideReason == 'ok') {
-            ele.trigger('okHidden')
-            that.hideReason = null
-          }
+          self.removeBackdrop()
+          ele.trigger(self.hideReason == 'ok' ? 'okHidden' : 'cancelHidden')
+          self.hideReason = null
           ele.trigger('hidden')
           //销毁静态方法生成的dialog元素 , 默认只有静态方法是remove类型
           ele.data('hidetype') == 'remove' && ele.remove()
@@ -244,14 +248,14 @@
       }
 
     , backdrop: function (callback) {
-        var that = this
+        var self = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
           , opt = this.options
         if (this.isShown) {
           var doAnimate = $.support.transition && animate
           //如果显示背景遮罩层
           if (opt.backdrop !== false) {
-            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgcolor + '"/>')
             .appendTo(document.body)         
             //遮罩层背景黑色半透明
             this.$backdrop.click(
@@ -305,9 +309,11 @@
 
   $.fn.modal.defaults = {
       backdrop: true
-    , bgColor: '#000'
+    , bgcolor: '#000'
     , keyboard: true
     , hasfoot: true
+    , closeBtn: true
+    , transition: true
   }
 
   $.fn.modal.Constructor = Modal
@@ -328,7 +334,8 @@
       //$target这里指dialog本体Dom(若存在)
       //通过data-target="#foo"或href="#foo"指向
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $this.data())
+      //remote,href属性如果以#开头，表示等同于data-target属性
+      , option = $target.data('modal') ? 'toggle' : $this.data()
     e.preventDefault()
     $target
       .modal(option)
@@ -346,10 +353,13 @@
    *  body: 'html' //必填
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
-   *  bgColor : '#123456'  背景遮罩层颜色
+   *  closeBtn: true
+   *  bgcolor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
+   *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
    *  hasfoot: {Boolean}  是否显示脚部  默认true
+   *  remote: {string} 如果提供了远程url地址，就会加载远端内容
    *  show:     fn --------------function(e){}
    *  shown:    fn
    *  hide:     fn
@@ -358,6 +368,8 @@
    *            函数返回true（默认）则dialog关闭，反之不关闭;若不传入则默认是直接返回true的函数
    *            注意不要人肉返回undefined！！')}
    *  okHidden: function(e){alert('点击确认后、dialog消失后的逻辑')}
+   *  cancelHide: fn
+   *  cancelHidden: fn
    * })
    *
    */
@@ -374,7 +386,7 @@
       _bind(modalId, finalCfg)
       $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
-        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden']
+        var eType = ['show', 'shown', 'hide', 'hidden', 'okHidden', 'cancelHide', 'cancelHidden']
         $.each(eType, function(k, v){
           if (typeof eList[v] == 'function'){
             $(document).on(v, '#'+id, $.proxy(eList[v], $('#' + id)[0]))

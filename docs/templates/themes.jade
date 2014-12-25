@@ -1,4 +1,4 @@
-extends base_index
+extends _base_index
 
 block title
   title 下载
@@ -34,6 +34,8 @@ block content_wrap
 
     p
       strong 注意，换肤功能从版本 1.1.0 开始支持，低于 1.1.0 的版本没有内置皮肤。
+    p
+      strong 从 1.4.0 版本开始，部分不常用组件被移入了一个单独的 *-append.css 文件中，比如新手引导。如果你使用了新手引导，那么你需要再引入一个对应的 append 文件，比如你引入了 http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink.min.css，那么你还需要引入 http://g.alicdn.com/sj/dpl/#{version}/css/sui-themes-pink-append.min.css 。
 
     p.sui-lead
       | 注意，皮肤文件包含了全部的样式，而不仅仅是换肤相关的样式，所以引入皮肤文件之后是不需要引入 sui.min.css 文件的。

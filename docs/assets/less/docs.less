@@ -20,13 +20,13 @@ body {
 }
 
 body > .sui-layout,
-body > .sui-layout > .content {
+body > .sui-layout > div > .content {
   background: #fbfbfb;
 }
 
 
 html, body, .sui-layout,
-body > .sui-layout > .sidebar {
+body > .sui-layout > div > .sidebar {
   height: 100%;
 }
 /* Code in headings */
@@ -43,13 +43,13 @@ h3 code {
 /* Tweak navbar brand link to be super sleek
 -------------------------------------------------- */
 
-body > .sui-layout .content {
+body > .sui-layout > div >.content {
   padding: 0 25px;
   margin-left: 210px;
   overflow: hidden;
 }
 
-body > .sui-layout > .sidebar {
+body > .sui-layout .sidebar {
   width: 180px;
   font-size: 14px;
   line-height: 22px;
@@ -83,7 +83,7 @@ body > .sui-navbar .sui-nav {
   margin-left: 50px;
 }
 body > .sui-navbar .sui-nav > li > a {
-  padding: 20px;
+  padding: 19px;
 }
 
 /* Change the docs' brand */
@@ -200,6 +200,8 @@ h1.sui-page-header:before {
   ul {
     padding: 0 0 8px 8px;
     min-width: 85px;
+    left: auto;
+    right: 0;
   }
   li {
     float: left;
@@ -207,23 +209,23 @@ h1.sui-page-header:before {
   }
   .dropdown-toggle span,
   li a {
-    background: #76b8ea;
+    background: #28a3ef;
     text-indent: -9999em;
     width: 32px;
     height: 32px;
     padding: 0;
     display: inline-block;
     &.default {
-      background: #76b8ea;
+      background: #28a3ef;
     }
     &.green {
-      background: #82af70;
+      background: #4a8e57;
     }
     &.pink {
-      background: #d094b6;
+      background: #b654a7;
     }
     &.dark-green {
-      background: #5c9098;
+      background: #518594;
     }
   }
 }
@@ -253,7 +255,7 @@ h1.sui-page-header:before {
     width: 1400px;
     margin: auto;
   }
-  body > .sui-layout .content {
+  body > .sui-layout > .content {
     margin-left: 230px;
   }
 }

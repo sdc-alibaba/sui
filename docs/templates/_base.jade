@@ -1,0 +1,35 @@
+doctype html
+include _variables
+html(lang="en")
+  head
+    include _head
+
+    block head
+
+  body
+    include _header
+    block header
+      +header('demos')
+    mixin sidebar(highlight)
+      include _sidenav
+    block content_wrap
+        .sui-layout
+          .sui-msg.msg-success.msg-block.msg-large.remember#global-msg
+            div.msg-con
+              | 新版本1.4.2发布了。第一次升级到 1.4.x 版本请注意在1.4.0版本的重大变动，具体请阅读<a href='changelog.html'>更新日志</a>。
+              button.sui-close(type='button', data-dismiss='msgs') &times;
+          div
+            .sidebar
+              block sidebar
+            .content
+              .content-inner
+                block content
+                include _discuss
+                block footer
+                  .footer
+                    ul.unstyled
+                      li @time 2014.03.07
+                      li @author 商家业务事业部-电商服务支撑平台-UED团队
+
+    include _foot
+    block js_block

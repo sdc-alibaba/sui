@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 提示消息
@@ -31,6 +31,11 @@ block content
 
   p.sui-lead
     | 用来显示错误、提示、警告、公告等信息。
+    ul.unstyled
+      li
+        strong 更新 v1.4.1：增加了一个记住当前关闭状态的功能。
+      li
+        strong 更新 v1.1.4：增加了一个可选的关闭按钮。
 
   h2 小尺寸（默认尺寸）
 
@@ -296,6 +301,55 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo6>div') 复制代码
+
+  h2 带关闭按钮
+
+  p 此类用法必须用于msg-block类型的消息上
+  p 1.4.1版本 增加了一个记忆功能，只需要给 <code>.sui-msg</code> 加上一个id并且增加一个class <code>remember</code>，就可以自动记住当前消息的关闭状态（即关闭之后刷新页面也不会再显示出来）。注意这个功能是使用localStorage实现的。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demox', data-toggle='tab') 示例
+    li
+      a(href='#codex', data-toggle='tab') 代码
+    li
+      a(href='#docx', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demox
+      div.bs-docs-example
+        div.sui-msg.msg-info.msg-block
+          div.msg-con 通知：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+
+        div.sui-msg.msg-large.msg-tips.msg-block
+          div.msg-con 重大消息：特色中国页面自13年４月上线以来，业务整合了更多的地域营销资源
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+
+        h4 自动记住关闭状态
+        div.sui-msg.msg-info.msg-block.remember#msg-remember-demo
+          div.msg-con 通知：我会自动记住自己的关闭状态，关闭我并刷新页面试试
+            button.sui-close(type='button', data-dismiss='msgs') &times;
+          s.msg-icon
+        p
+          a.sui-btn.btn-primary#show-msg(href="javascript: void(0);") 刷新之后点我显示消息
+
+        script.
+          $("#show-msg").click(function() {
+            var $msg = $("#msg-remember-demo").show();
+            localStorage.removeItem("sui-msg-" + $msg.attr("id"));
+          });
+    div.tab-pane#codex
+      pre.prettyprint.linenums(data-target='#demox>div')
+    div.tab-pane#docx
+      六种尺寸：.input-mini, .input-small, .input-medium, .input-large, .input-xlarge, .input-xxlarge
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demox>div') 复制代码
+
 
 
   h2 多行模式
