@@ -18,7 +18,7 @@
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="sui-modal hide' + (options.transition ? ' fade' : '') + '" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -39,6 +39,8 @@
                       .replace('{%id%}', options.id)
                       .replace('{%ok_btn%}', options.okBtn)
                       .replace('{%cancel_btn%}', options.cancelBtn))
+      //如果不支持动画显示（默认支持）
+      if (!options.transition) element.removeClass('fade');
       $('body').append(element)
     }
     this.$element = $(element)
