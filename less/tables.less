@@ -261,14 +261,7 @@
     margin-bottom: 0px;
   }
 
-  &.table-primary {
-    .table-bordered;
-    th{
-      background-color:@tableHeadBackgroundLight;
-      border-left: 1px solid @tableBorderLight;
-      color: @white;
-    }
-  } 
+ 
 
 
   // ZEBRA-STRIPING
@@ -313,7 +306,14 @@
         border-bottom: none;
       }
    }
-
+  &.table-primary {
+    .table-bordered;
+    th{
+      background-color:@tableHeadBackgroundLight;
+      border-left: 1px solid @tableBorderLight;
+      color: @white;
+    }
+  } 
 
   // HOVER EFFECT
   // ------------
