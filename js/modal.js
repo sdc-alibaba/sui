@@ -40,10 +40,10 @@
                       .replace('{%ok_btn%}', options.okBtn)
                       .replace('{%cancel_btn%}', options.cancelBtn))
       //如果不支持动画显示（默认支持）
-      if (!options.transition) element.removeClass('fade');
       $('body').append(element)
     }
     this.$element = $(element)
+    if (!options.transition) $(element).removeClass('fade')
     this.init()
       
   }
