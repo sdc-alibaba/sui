@@ -4,7 +4,6 @@
 
 .noty_message{
 	position: fixed;
-	display: none;
 	min-width: 150px;
 	text-align: center;
 	left: 50%;
@@ -15,7 +14,7 @@
 		right: 10px;
 		display: none;
 	}
-	&.top{
+	&.topcenter{
 		top: 80px;
 	}
 	&.topleft{
@@ -27,7 +26,7 @@
 		left:auto;
 		right: 20px;
 	}
-	&.bottom{
+	&.bottomcenter{
 		top: auto;
 		bottom: 10px;
 	}
@@ -42,8 +41,26 @@
 		left:auto;
 		right: 20px;
 	}
-	&.center{
+	&.midllecenter{
 	}
+}
+.modal-in {
+  opacity: 1;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-transform: translate3d(0,0,0) scale(1);
+  -ms-transform: translate3d(0,0,0) scale(1);
+  transform: translate3d(0,0,0) scaleZ(1)
+}
+
+.modal-out {
+  opacity: 0;
+  z-index: 10999;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-transform: translate3d(0,0,0) scale(1);
+  -ms-transform: translate3d(0,0,0) scale(1);
+  transform: translate3d(0,0,0) scaleZ(1)
 }
 .sui-msg.msg-large.noty_message > .msg-con {
 	padding: 11px 31px 11px 44px;
