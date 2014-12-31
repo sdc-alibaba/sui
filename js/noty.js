@@ -16,6 +16,8 @@
     if(typeof options === typeof 'a'){
       this.options = $.extend({}, this.defaults);
       this.options.text = options;
+      this.options.position= arguments[1];
+      this.options.time = arguments[2];
     }else{
       this.options = $.extend({}, this.defaults, options);
     }
@@ -24,7 +26,7 @@
 
   Noty.prototype = {
     Constructor : Noty,
-    render: function(){
+     render: function(){
       var options = this.options;
       var message = ".noty_message";
       var text = ".noty_text";
@@ -45,53 +47,51 @@
       }
     }
     ,hide : function(callback){  // hide : function(duration, callback);
-      // this.el.fadeOut(this.options.speed,$.proxy(function(){this.el.remove();},this));
-      this.el.removeClass('modal-in').addClass('modal-out');
+      this.el.removeClass('noty-in');
     }
     ,show : function(duration, callback){  // show : function(duration, callback);
-      // this.options.speed = duration?duration:this.options.speed;
-      // var showcallback = function() {
-      //   setTimeout($.proxy(this.hide,this),this.options.timeout);
-      // };
-      // this.el.fadeIn(this.options.speed,$.proxy(showcallback,this));
-      var regcenter = new RegExp('center+');
       var classes = this.el.attr("class");
-      if(regcenter.test(classes)){
+      var vertical = this.el.hasClass('top')&&"top"||this.el.hasClass('bottom')&&"bottom"||"middle";
+      var horizontal = this.el.hasClass('left')&&"left"||this.el.hasClass('right')&&"right"||"center";
+      if(horizontal=="center"){
         var mlwidth = -(this.el.width()/2);
         this.el.css("margin-left",mlwidth+"px");
       }
-      if(this.el.hasClass('middlecenter')){
+      if(vertical=="middle"){
         var mtheight = -(this.el.height()/2);
         this.el.css("magin-top",mtheight);
       }
-      this.el.removeClass('modal-out').addClass('modal-in');
+      var addclass = function(){
+        this.el.addClass('noty-in')
+      }
+      setTimeout($.proxy(addclass,this));
       setTimeout($.proxy(this.hide,this),this.options.timeout);
     }
   } 
 
-  var old = $.fn.noty
+  var old = $.noty
   
-  $.noty = function(options){
-    return new Noty(options);
+  $.noty = function(arg1,arg2,arg3){
+    return new Noty(arg1,arg2, arg3);
   }
 
   Noty.prototype.defaults = {
-    position: 'topcenter',
+    position: 'top',
     type: 'error',
     // speed: 500,
-    timeout: 5000,
+    timeout: 255000,
     closeButton: false,
     closeOnSelfClick: true,
     text:''
   };
 
-  $.noty.Constructor = Noty
+  $.noty.Constructor = Noty;
 
  /* BUTTON NO CONFLICT
   * ================== */
 
   $.noty.noConflict = function () {
-    $.noty = old
+    $.noty = old;
     return this
   }
 

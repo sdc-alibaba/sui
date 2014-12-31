@@ -8,60 +8,39 @@
 	text-align: center;
 	left: 50%;
 	top: 50%;
+	transition-property: opacity;
+	-webkit-transition-duration: 800ms;
+  	transition-duration: 800ms;
+  	opacity: 0;
 	button{
 		position: absolute;
 		top: 5px;
 		right: 10px;
 		display: none;
 	}
-	&.topcenter{
+	&.top{
 		top: 80px;
 	}
-	&.topleft{
-		top: 80px;
+	&.bottom{
+		bottom: 10px;
+		top: auto;
+	}
+	&.left{
 		left: 20px;
 	}
-	&.topright{
-		top: 80px;
-		left:auto;
+	&.right{
 		right: 20px;
+		left: auto;
 	}
-	&.bottomcenter{
-		top: auto;
-		bottom: 10px;
+	&.noty-in {
+	  opacity: 1;
 	}
-	&.bottomleft{
-		top: auto;
-		bottom: 10px;
-		left: 20px;
-	}
-	&.bottomright{
-		top: auto;
-		bottom: 10px;
-		left:auto;
-		right: 20px;
-	}
-	&.midllecenter{
-	}
-}
-.modal-in {
-  opacity: 1;
-  -webkit-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-transform: translate3d(0,0,0) scale(1);
-  -ms-transform: translate3d(0,0,0) scale(1);
-  transform: translate3d(0,0,0) scaleZ(1)
 }
 
-.modal-out {
-  opacity: 0;
-  z-index: 10999;
-  -webkit-transition-duration: 400ms;
-  transition-duration: 400ms;
-  -webkit-transform: translate3d(0,0,0) scale(1);
-  -ms-transform: translate3d(0,0,0) scale(1);
-  transform: translate3d(0,0,0) scaleZ(1)
-}
+
+/*.modal-out {
+  
+}*/
 .sui-msg.msg-large.noty_message > .msg-con {
 	padding: 11px 31px 11px 44px;
 }

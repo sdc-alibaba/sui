@@ -25,23 +25,23 @@ block content
           Click buttons below to see Pop Notifications.
         </div>
         <p class="center">
-          <button id="topleft" class="sui-btn btn-primary btn-lg">button topleft error</button>  
+          <button id="topleft" class="sui-btn btn-primary btn-lg">button top left error</button>  
           <button id="top" class="sui-btn btn-primary btn-lg">button top success</button> 
-          <button id="topright" class="sui-btn btn-primary btn-lg">button topright warning</button>  
+          <button id="topright" class="sui-btn btn-primary btn-lg">button top right warning</button>  
         </p>
         <p class="center">
           <button id="center" class="sui-btn btn-primary btn-lg">button center error</button>  
         </p>
         <p>
-          <button id="bottomleft" class="sui-btn btn-primary btn-lg">button bottomleft error</button>  
+          <button id="bottomleft" class="sui-btn btn-primary btn-lg">button bottom left error</button>  
           <button id="bottom" class="sui-btn btn-primary btn-lg">button bottom success</button> 
-          <button id="bottomright" class="sui-btn btn-primary btn-lg">button bottomright warning</button>  
+          <button id="bottomright" class="sui-btn btn-primary btn-lg">button bottom right warning</button>  
         </p>
       </div>
       <script type="text/javascript">
           $('#topleft').click(function(event){
             event.preventDefault();
-            $.noty({text:'button topleft error',type:'error',position:'topleft'});
+            $.noty({text:'button topleft error',type:'error',position:'top left'});
           });
           $('#top').click(function(event){
             event.preventDefault();
@@ -49,7 +49,7 @@ block content
           });
           $('#topright').click(function(event){
             event.preventDefault();
-            $.noty({text:'button topright warning',type:'warning',position:'topright'});
+            $.noty({text:'button topright warning',type:'warning',position:'top right'});
           });
           $('#center').click(function(event){
             event.preventDefault();
@@ -57,7 +57,7 @@ block content
           });
           $('#bottomleft').click(function(event){
             event.preventDefault();
-            $.noty({text:'button bottomleft error',type:'error',position:'bottomleft'});
+            $.noty({text:'button bottomleft error',type:'error',position:'bottom left'});
           });
           $('#bottom').click(function(event){
             event.preventDefault();
@@ -65,13 +65,13 @@ block content
           });
           $('#bottomright').click(function(event){
             event.preventDefault();
-            $.noty({text:'button bottomright warning',type:'warning',position:'bottomright'});
+            $.noty('button bottomright warning','warning','bottom right');
           });
       </script>
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
     div.tab-pane#doc2
-      p 1.调用$.noty()可触发提示框事件，可传入数组对象参数
+      p 1.调用$.noty()可触发提示框事件，可传入对象参数；亦可省略参数名，默认第一个是text,第二个type,第三个position,如： $.noty('button bottomright warning','warning','bottom right');
       table.sui-table
         tr
           th 参数
@@ -80,15 +80,11 @@ block content
         tr
           td position
           td 'top'
-          td 显示位置，可选top,topleft,topright,center,bottom,bottomleft,bottomright
+          td 显示位置，可选top,left,right,center,bottom,bottom,middle,默认为center middle,可省略写
         tr
           td type
           td 'error'
           td 提示类型，可选error,stop,success,notice,tips,info,question
-        tr
-          td speed
-          td 500
-          td 淡入淡出速度
         tr
           td timeout
           td 5000
