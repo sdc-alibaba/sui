@@ -293,7 +293,7 @@
         , $tip = this.tip()
       //人工设置宽度，则忽略最大宽度限制
       if (width) {
-        $tip.css('width', width)
+        $tip.width(width)
       } else { 
         //宽度限制逻辑
         if (widthLimit === true) {

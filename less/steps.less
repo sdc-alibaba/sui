@@ -140,20 +140,40 @@
     > div {
         display: inline-block;
         vertical-align: top;
+        position: relative;
         .wrap {
             .clearfix; 
         } 
         > label {
             display: inline-block;
-            width: 80%;
-            .text-overflow(); 
+            .text-overflow();
             font-size: @baseFontSize;
             line-height: @baseFontSize;
             height: @baseFontSize; 
-            margin-left: -@baseFontSize / 2;
             margin-top: @baseFontSize / 2;
             color: @stepsRoundFinishedTextColor;
             cursor: default;
+            text-align: center;
+            width:50%;
+            margin-left:-25%;
+            position: relative;
+            left:15px;
+        }
+        &:first-child > label{
+            width:auto;
+            max-width: 50%;
+            margin-left:0;
+            left:0;
+        }
+        &:last-child, &.last {
+            width:30px !important;
+            > label {
+                position: absolute;
+                width:auto;
+                margin-left:0;
+                left:auto;
+                right:0;
+            }
         }
         .round {
             width: 22px;
@@ -173,12 +193,6 @@
             height: 6px;
             vertical-align: middle;
             .border-radius(4px);
-        }
-        &:last-child {
-            width: 5%;
-            > label {
-                width: auto;
-            }
         }
     }
     > .finished {

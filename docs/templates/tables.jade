@@ -78,6 +78,29 @@ block content
                   td 持平
                   td 高于平均
                   td 持平
+   mixin table3(className)
+      table(class=className)
+          tbody
+              tr
+                th 所有交易
+                td 9999.00
+                td 999
+                td 99999.00
+              tr
+                th 待付款
+                td 9999.00
+                td 999
+                td 99999.00
+              tr
+                th 已发货
+                td 9999.00
+                td 999
+                td 99999.00
+              tr
+                th 已成功
+                td 9999.00
+                td 999
+                td 99999.00
   mixin table-sample
       table.sui-table.table-bordered-simple
           thead
@@ -213,7 +236,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo4
       div.bs-docs-example
-        +table("sui-table table-sideheader")
+        +table3("sui-table table-sideheader")
     div.tab-pane#code4
       pre.prettyprint.linenums(data-target='#demo4>div')
     div.tab-pane#doc4

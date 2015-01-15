@@ -1,0 +1,53 @@
+extends _base
+
+block title
+  title 导航列表
+
+block sidebar
+  +sidebar('navlist')
+
+block head
+  style.
+    .sui-navbar {
+      z-index: 99999;
+    }
+
+block content
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    | 添加 <code>.nav-large</code> 或者 <code>.nav-xlarge</code> 可以改变大小
+  p
+    strong 注意，从 1.5.0 版本开始，此组件才可用。
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo1(style='padding-bottom: 100px;')
+
+      ul.sui-nav.nav-list
+        li.nav-header 服装
+        li.active
+          a 阿迪达斯
+        li
+          a 耐克
+        li
+          a 匡威
+        li.nav-header 美食
+        li
+          a 湘菜 
+        li
+          a 自助
+        li
+          a 日料
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码

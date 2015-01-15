@@ -18,7 +18,7 @@
     if (element === null) {
       var TPL = ''
         //data-hidetype表明这类简单dialog调用hide方法时会从文档树里删除节点
-        + '<div class="sui-modal hide' + (options.transition ? ' fade' : '') + '" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
+        + '<div class="sui-modal hide fade" tabindex="-1" role="dialog" id={%id%} data-hidetype="remove">'
           + '<div class="modal-dialog">'
             + '<div class="modal-content">'
               + '<div class="modal-header">'
@@ -39,9 +39,11 @@
                       .replace('{%id%}', options.id)
                       .replace('{%ok_btn%}', options.okBtn)
                       .replace('{%cancel_btn%}', options.cancelBtn))
+      //如果不支持动画显示（默认支持）
       $('body').append(element)
     }
     this.$element = $(element)
+    if (!options.transition) $(element).removeClass('fade')
     this.init()
       
   }
@@ -167,7 +169,7 @@
     , shadeIn: function () {
         var $ele = this.$element
         if ($ele.find('.shade').length) return
-        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgColor + '"></div>')
+        var $shadeEle = $('<div class="shade in" style="background:' + this.options.bgcolor + '"></div>')
         $shadeEle.appendTo($ele)
         this.hasShaded = true
         return this.$element
@@ -253,7 +255,7 @@
           var doAnimate = $.support.transition && animate
           //如果显示背景遮罩层
           if (opt.backdrop !== false) {
-            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgColor + '"/>')
+            this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgcolor + '"/>')
             .appendTo(document.body)         
             //遮罩层背景黑色半透明
             this.$backdrop.click(
@@ -307,7 +309,7 @@
 
   $.fn.modal.defaults = {
       backdrop: true
-    , bgColor: '#000'
+    , bgcolor: '#000'
     , keyboard: true
     , hasfoot: true
     , closeBtn: true
@@ -352,7 +354,7 @@
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
    *  closeBtn: true
-   *  bgColor : '#123456'  背景遮罩层颜色
+   *  bgcolor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭

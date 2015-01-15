@@ -131,6 +131,7 @@
     td {
       border-left: 1px solid @tableBorder;
     }
+
     // Prevent a double border
     caption + thead tr:first-child th,
     caption + tbody tr:first-child th,
@@ -221,10 +222,37 @@
   }
 
   &.table-sideheader {
-    .table-bordered;
-
+    /*.table-bordered;*/
+    &.table-nobordered{
+      td{
+        border-left: none;
+      }
+    }
+    &.table-primary.table-vzebra tr,&.table-primary.table-zebra tr{
+      th{
+        background-color:#4cb9fc;
+      }
+    }
+    &.table-nobordered.table-primary{
+      th{
+        background-color:#4cb9fc;
+      }
+    }
+    &.table-bordered-simple {
+      td{
+        border-left: 0;
+      }
+      th{
+        border-right: 1px solid @tableBorder;
+      }
+    }
     tbody tr td:first-child{
       background-color:@tableHeadBackground;
+    }
+    tbody tr:first-child{
+      td,th{
+          border-top:0; 
+      }
     }
 
   }
@@ -233,14 +261,7 @@
     margin-bottom: 0px;
   }
 
-  &.table-primary {
-    .table-bordered;
-    th{
-      background-color:@tableHeadBackgroundLight;
-      border-left: 1px solid @tableBorderLight;
-      color: @white;
-    }
-  } 
+ 
 
 
   // ZEBRA-STRIPING
@@ -276,9 +297,23 @@
     th,
     td {
       border-top: 0;
+
+    }
+  }
+  &.table-nobordered.table-sideheader {
+      th{
+        border-right:1px solid @tableBorder;
+        border-bottom: none;
+      }
+   }
+  &.table-primary {
+    .table-bordered;
+    th{
+      background-color:@tableHeadBackgroundLight;
+      border-left: 1px solid @tableBorderLight;
+      color: @white;
     }
   } 
-
 
   // HOVER EFFECT
   // ------------

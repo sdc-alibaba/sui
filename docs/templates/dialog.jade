@@ -235,14 +235,14 @@ block content
       pre.prettyprint.linenums.
         $.alert({
          backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
-         bgColor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
+         bgcolor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
          keyboard: true   是否可由esc按键关闭
          title: '自定义标题'
          body: 'html' //必填
          okBtn : '好的'
          cancelBtn : '雅达'
          closeBtn: true/false   是否显示右上角叉叉（html使用方式无需配置，直接改html结构即可）
-         transition: true/false   是否以transition动画方式显示隐藏对话框（html使用方式无需配置，直接删除.sui-modal元素上的类名<code>fade</code>即可）
+         transition: true/false   是否以transition动画方式显示隐藏对话框（html使用方式调用对话框时，也可直接删除.sui-modal元素上的类名<code>fade</code>即可）
          hasfoot: {Boolean}  是否显示脚部  默认true
          width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
          height: {number|string(px)} 内容区（.modal-body）高度
@@ -304,7 +304,7 @@ block content
               body: 'confirm again'
               ,width: 'normal'
               ,backdrop: true
-              ,bgColor: 'none'
+              ,bgcolor: 'none'
               ,show: function(){console.log('show')}
               ,shown: function(){console.log('shown')}
               ,hide: function(){console.log('hide')}
