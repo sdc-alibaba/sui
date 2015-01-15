@@ -7,9 +7,6 @@
  *
  * Designed and built with all the love in the world by @mdo and @fat.
  */
-.clearfix {
-  zoom: 1;
-}
 .clearfix:before,
 .clearfix:after {
   display: table;
@@ -734,7 +731,6 @@
   position: relative;
   padding: 12px 20px;
   background: #fff;
-  zoom: 1;
 }
 .timepicker:before,
 .timepicker:after {

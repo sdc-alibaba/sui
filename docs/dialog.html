@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>对话框 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>对话框 </title>
     <link href="assets/css/animate.css" rel="stylesheet">
     <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
@@ -50,6 +50,7 @@
                 <li><a href="./examples.html">案例</a></li>
                 <li><a href="./download.html">下载</a></li>
                 <li><a href="./themes.html">换肤</a></li>
+                <li><a href="http://g.alicdn.com/sj/sui-layout/0.0.2/#" target="_blank">工具箱<sup style="font-size: 12px; transform: scale(0.9); display: inline-block;" class="sui-text-danger">内测版</sup></a></li>
                 <li><a href="./customize.html">自定义</a></li>
                 <li><a href="./changelog.html">更新日志</a></li>
                 <li><a href="./about.html">关于</a></li>
@@ -101,6 +102,7 @@
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>表格和布局</a>
                   <ul class="sui-nav nav-stacked docs-nav">
+                    <li><a href="container.html">响应式容器</a></li>
                     <li><a href="tables.html">表格</a></li>
                     <li><a href="grid.html">栅格</a></li>
                     <li><a href="layout.html">布局</a></li>
@@ -109,6 +111,7 @@
                 <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="navbar.html">导航栏</a></li>
+                    <li><a href="navlist.html">导航列表</a></li>
                     <li><a href="pagination.html">分页器 - 样式</a></li>
                     <li><a href="pagination-js.html">分页器 - JS</a></li>
                     <li><a href="msgs.html">提示消息</a></li>
@@ -398,14 +401,14 @@ $.confirm(options)</pre>
                 <alert>和confirm2个方法的参数一致，参见下面：</alert>
                 <pre class="prettyprint linenums">$.alert({
  backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定<code>static</code>时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
- bgColor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
+ bgcolor: '#123456'   背景遮罩层颜色，默认是黑色。设为<code>'none'</code>即全透明背景
  keyboard: true   是否可由esc按键关闭
  title: '自定义标题'
  body: 'html' //必填
  okBtn : '好的'
  cancelBtn : '雅达'
  closeBtn: true/false   是否显示右上角叉叉（html使用方式无需配置，直接改html结构即可）
- transition: true/false   是否以transition动画方式显示隐藏对话框（html使用方式无需配置，直接删除.sui-modal元素上的类名<code>fade</code>即可）
+ transition: true/false   是否以transition动画方式显示隐藏对话框（html使用方式调用对话框时，也可直接删除.sui-modal元素上的类名<code>fade</code>即可）
  hasfoot: {Boolean}  是否显示脚部  默认true
  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
  height: {number|string(px)} 内容区（.modal-body）高度
@@ -476,7 +479,7 @@ $.confirm(options)</pre>
                         body: 'confirm again'
                         ,width: 'normal'
                         ,backdrop: true
-                        ,bgColor: 'none'
+                        ,bgcolor: 'none'
                         ,show: function(){console.log('show')}
                         ,shown: function(){console.log('shown')}
                         ,hide: function(){console.log('hide')}
