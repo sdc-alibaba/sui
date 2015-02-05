@@ -354,6 +354,9 @@
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
    *  closeBtn: true
+   *  keyboard: true   是否可由esc按键关闭
+   *  backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定'static'时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
+
    *  bgcolor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度
