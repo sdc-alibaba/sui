@@ -194,7 +194,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: tahoma, "Microsoft Yahei", "SimSun", sans-serif;
+  font-family: tahoma, arial,"Hiragino Sans GB", "Microsoft Yahei", \5b8b\4f53, sans-serif;
   font-size: 12px;
   line-height: 18px;
   color: #333333;
@@ -833,7 +833,7 @@ code,
   white-space: nowrap;
 }
 pre,
-sui-pre {
+.sui-pre {
   display: block;
   padding: 8.5px;
   margin: 0 0 9px;
@@ -851,13 +851,13 @@ sui-pre {
   border-radius: 4px;
 }
 pre.prettyprint,
-sui-pre.prettyprint {
+.sui-pre.prettyprint {
   margin-bottom: 18px;
 }
 pre code,
-sui-pre code,
+.sui-pre code,
 pre .sui-code,
-sui-pre .sui-code {
+.sui-pre .sui-code {
   padding: 0;
   color: inherit;
   white-space: pre;
@@ -6408,7 +6408,7 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: tahoma, "Microsoft Yahei", "SimSun", sans-serif;
+  font-family: tahoma, arial,"Hiragino Sans GB", "Microsoft Yahei", \5b8b\4f53, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;

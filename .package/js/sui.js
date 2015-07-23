@@ -4220,7 +4220,7 @@
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
- * ========================================================= 
+ * =========================================================
  * @file bootstrap-modal.js
  * @brief 弹层dpl，扩展自bootstrap2.3.2
  * @author banbian, zangtao.zt@alibaba-inc.com
@@ -4264,9 +4264,9 @@
     this.$element = $(element)
     if (!options.transition) $(element).removeClass('fade')
     this.init()
-      
+
   }
-  //对外接口只有toggle, show, hide 
+  //对外接口只有toggle, show, hide
   Modal.prototype = {
     constructor: Modal
     ,init: function () {
@@ -4295,7 +4295,7 @@
     , toggle: function () {
         return this[!this.isShown ? 'show' : 'hide']()
     }
-      
+
     , show: function () {
         var self = this
           , e = $.Event('show')
@@ -4321,7 +4321,7 @@
             .attr('aria-hidden', false)
           self.enforceFocus()
           transition ?
-            ele.one($.support.transition.end, function () { 
+            ele.one($.support.transition.end, function () {
               callbackAfterTransition(self)
             }) :
             callbackAfterTransition(self)
@@ -4330,8 +4330,8 @@
             self.$element.focus().trigger('shown')
             if (self.options.timeout > 0) {
               self.timeid = setTimeout(function(){
-                self.hide(); 
-              }, self.options.timeout) 
+                self.hide();
+              }, self.options.timeout)
             }
           }
         })
@@ -4377,10 +4377,10 @@
         //显式返回false，则不关闭对话框
         if (ifNeedHide !== false){
           hideWithOk()
-        } 
+        }
         function hideWithOk (){
           self.hideReason = 'ok'
-          self.hide(e)  
+          self.hide(e)
         }
         return self.$element
     }
@@ -4475,7 +4475,7 @@
           //如果显示背景遮罩层
           if (opt.backdrop !== false) {
             this.$backdrop = $('<div class="sui-modal-backdrop ' + animate + '" style="background:' + opt.bgcolor + '"/>')
-            .appendTo(document.body)         
+            .appendTo(document.body)
             //遮罩层背景黑色半透明
             this.$backdrop.click(
               opt.backdrop == 'static' ?
@@ -4565,7 +4565,7 @@
 
   /* jquery弹层静态方法，用于很少重复，不需记住状态的弹层，可方便的直接调用，最简单形式就是$.alert('我是alert')
    * 若弹层内容是复杂的Dom结构， 建议将弹层html结构写到模版里，用$(xx).modal(options) 调用
-   * 
+   *
    * example
    * $.alert({
    *  title: '自定义标题'
@@ -4573,10 +4573,14 @@
    *  okBtn : '好的'
    *  cancelBtn : '雅达'
    *  closeBtn: true
+   *  keyboard: true   是否可由esc按键关闭
+   *  backdrop: true   决定是否为模态对话框添加一个背景遮罩层。另外，该属性指定'static'时，表示添加遮罩层，同时点击模态对话框的外部区域不会将其关闭。
+
    *  bgcolor : '#123456'  背景遮罩层颜色
    *  width: {number|string(px)|'small'|'normal'|'large'}推荐优先使用后三个描述性字符串，统一样式
    *  height: {number|string(px)} 高度
    *  timeout: {number} 1000    单位毫秒ms ,dialog打开后多久自动关闭
+   *  transition: {Boolean} 是否以动画弹出对话框，默认为true。HTML使用方式只需把模板里的fade的class去掉即可
    *  hasfoot: {Boolean}  是否显示脚部  默认true
    *  remote: {string} 如果提供了远程url地址，就会加载远端内容
    *  show:     fn --------------function(e){}
@@ -4595,13 +4599,13 @@
   $.extend({
     _modal: function(dialogCfg, customCfg){
       var modalId = +new Date()
-        
+
         ,finalCfg = $.extend({}, $.fn.modal.defaults
           , dialogCfg
           , {id: modalId, okBtn: '确定'}
           , (typeof customCfg == 'string' ? {body: customCfg} : customCfg))
       var dialog = new Modal(null, finalCfg)
-        , $ele = dialog.$element 
+        , $ele = dialog.$element
       _bind(modalId, finalCfg)
       $ele.data('modal', dialog).modal('show')
       function _bind(id, eList){
