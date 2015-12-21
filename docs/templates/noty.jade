@@ -1,0 +1,111 @@
+extends _base
+
+block title
+  title 提示框 
+
+block sidebar
+  +sidebar('noty')
+
+block content
+  h1 提示框
+  h2.sui-page-header 开发者文档
+  p 提示框插件
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+    li
+      a(href='#doc2', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo2.
+      <div class="box-content" style="display: block;">
+        <div class="alert alert-info">
+          Click buttons below to see Pop Notifications.
+        </div>
+        <p class="center">
+          <button id="topleft" class="sui-btn btn-primary btn-lg">button top left error</button>  
+          <button id="top" class="sui-btn btn-primary btn-lg">button top success</button> 
+          <button id="topright" class="sui-btn btn-primary btn-lg">button top right warning</button>  
+        </p>
+        <p class="center">
+          <button id="center" class="sui-btn btn-primary btn-lg">button center error</button>  
+        </p>
+        <p>
+          <button id="bottomleft" class="sui-btn btn-primary btn-lg">button bottom left error</button>  
+          <button id="bottom" class="sui-btn btn-primary btn-lg">button bottom success</button> 
+          <button id="bottomright" class="sui-btn btn-primary btn-lg">button bottom right warning</button>  
+        </p>
+      </div>
+      <script type="text/javascript">
+          $('#topleft').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button topleft error',type:'error',position:'top left'});
+          });
+          $('#top').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button top success',posititon:'top',type:'success'});
+          });
+          $('#topright').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button topright warning',type:'warning',position:'top right'});
+          });
+          $('#center').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button center error',type:'error',position:'center'});
+          });
+          $('#bottomleft').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button bottomleft error',type:'error',position:'bottom left'});
+          });
+          $('#bottom').click(function(event){
+            event.preventDefault();
+            $.noty({text:'button bottom success',type:'success',position:'bottom'});
+          });
+          $('#bottomright').click(function(event){
+            event.preventDefault();
+            $.noty('button bottomright warning','warning','bottom right');
+          });
+      </script>
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2')
+    div.tab-pane#doc2
+      p 1.调用$.noty()可触发提示框事件，可传入对象参数；亦可省略参数名，默认第一个是text,第二个type,第三个position,如： $.noty('button bottomright warning','warning','bottom right');
+      table.sui-table
+        tr
+          th 参数
+          th 默认值
+          th 说明
+        tr
+          td position
+          td 'top'
+          td 显示位置，可选top,left,right,center,bottom,bottom,middle,默认为center middle,可省略写
+        tr
+          td type
+          td 'error'
+          td 提示类型，可选error,stop,success,notice,tips,info,question
+        tr
+          td timeout
+          td 5000
+          td 自动隐藏时间
+        tr
+          td closeButton
+          td false
+          td 是否出现右上角x来控制弹出框关闭
+        tr
+          td closeOnSelfClick
+          td true
+          td 是否允许点击自己控制弹出框关闭
+        tr
+          td texts
+          td ''
+          td 弹出框显示文字
+       p 2.可调用$.noty().show();$.noty().hide();手动控制提示框显示和消失
+       p 3.可直接调用$.noty('字符串');改变提示文字
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+

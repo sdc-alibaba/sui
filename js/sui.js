@@ -16,5 +16,7 @@ require('./timepicker')
 require('./checkbox')
 require('./autocomplete')
 require('./intro')
+require('./noty')
 require('./carousel')
 require('./template')
+

@@ -1,0 +1,49 @@
+
+/* CORE STYLES */
+
+
+.noty_message{
+	position: fixed;
+	min-width: 150px;
+	text-align: center;
+	left: 50%;
+	top: 50%;
+	transition-property: opacity;
+	-webkit-transition-duration: 800ms;
+  	transition-duration: 800ms;
+  	opacity: 0;
+	button{
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		display: none;
+	}
+	&.top{
+		top: 80px;
+	}
+	&.bottom{
+		bottom: 10px;
+		top: auto;
+	}
+	&.left{
+		left: 20px;
+	}
+	&.right{
+		right: 20px;
+		left: auto;
+	}
+	&.noty-in {
+	  opacity: 1;
+	}
+}
+
+
+/*.modal-out {
+  
+}*/
+.sui-msg.msg-large.noty_message > .msg-con {
+	padding: 11px 31px 11px 44px;
+}
+.show-close-btn button{
+	display: block;
+}
