@@ -129,6 +129,7 @@
 
         updateItemsCount: function (itemsCount, pageToGo) {
             $.isNumeric(itemsCount) && (this.pages = Math.ceil(itemsCount / this.pageSize));
+            $.isNumeric(itemsCount) && (this.itemsCount = itemsCount);
             //如果最后一页没有数据了，返回到剩余最大页数
             this.currentPage = this.currentPage > this.pages ? this.pages : this.currentPage;
             $.isNumeric(pageToGo) && (this.currentPage = pageToGo);
